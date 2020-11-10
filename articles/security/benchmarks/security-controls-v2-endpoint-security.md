@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91402915"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408866"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controle de segurança v2: segurança do ponto de extremidade
 
@@ -34,9 +34,9 @@ A proteção avançada contra ameaças do Microsoft defender fornece o recurso E
 
 - [Serviço Microsoft defender ATP para servidores não Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -60,11 +60,11 @@ O Microsoft antimalware para serviços de nuvem do Azure é o antimalware padrã
 
 - [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../fundamentals/antimalware.md)
 
-- [Soluções de proteção de ponto de extremidade com suporte](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Soluções de proteção de ponto de extremidade com suporte](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -86,9 +86,9 @@ Siga as recomendações na central de segurança do Azure: " &amp; aplicativos d
 
 - [Como implantar o Microsoft antimalware para serviços de nuvem e máquinas virtuais do Azure](../fundamentals/antimalware.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security)
 

@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457984"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94407998"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -36,7 +36,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 ![Logon Único Contínuo](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO contínuo precisa que o dispositivo do usuário tenha apenas **ingressado no domínio**, mas não seja usado nos dispositivos [ingressados no Azure Active Directory](../devices/concept-azure-ad-join.md) ou [ingressados no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). O SSO em dispositivos ingressados no Azure Active Directory, no Azure Active Directory híbrido e registrados no Azure Active Directory funciona com base no [token de atualização principal](../devices/concept-primary-refresh-token.md).
+>O SSO contínuo precisa que o dispositivo do usuário tenha apenas **ingressado no domínio** , mas não seja usado nos dispositivos [ingressados no Azure Active Directory](../devices/concept-azure-ad-join.md) ou [ingressados no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). O SSO em dispositivos ingressados no Azure Active Directory, no Azure Active Directory híbrido e registrados no Azure Active Directory funciona com base no [token de atualização principal](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -85,7 +85,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início Rápido**](how-to-connect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
-- [**Plano de Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.
+- [**Plano de Implantação**](../manage-apps/plan-sso-deployment.md) - Plano de implantação passo a passo.
 - [**Aprofundamento técnico**](how-to-connect-sso-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](how-to-connect-sso-faq.md) – respostas para perguntas frequentes.
 - [**Solução de problemas**](tshoot-connect-sso.md) – Saiba como resolver problemas comuns do recurso.

@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289388"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322652"
 ---
 # <a name="connect-to-synapse-sql"></a>Conectar-se ao Synapse SQL
 Conecte-se à funcionalidade Synapse SQL no Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas compatíveis com o SQL sob demanda (versão prévia)
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Ferramentas compatíveis com o pool de SQL sem servidor (versão prévia)
 
 O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade da versão 1.18.0 em diante. O SSMS tem compatibilidade parcial da versão 18.5 em diante. Você pode usá-lo somente para se conectar e consultar.
 
@@ -31,8 +31,8 @@ O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem tot
 
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
 
-O nome do servidor para o pool de SQL no seguinte exemplo é: showdemoweu.sql.azuresynapse.net.
-O nome do servidor para o SQL sob demanda no seguinte exemplo é: showdemoweu-ondemand.sql.azuresynapse.net.
+O nome do servidor para o pool de SQL dedicado no exemplo seguinte é: showdemoweu.sql.azuresynapse.net.
+O nome do servidor para o pool de SQL sem servidor no exemplo seguinte é: showdemoweu-ondemand.sql.azuresynapse.net.
 
 Para localizar o nome de servidor totalmente qualificado:
 
@@ -46,9 +46,9 @@ Para localizar o nome de servidor totalmente qualificado:
 
 ![Nome completo do servidor](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL sob demanda**
+## <a name="serverless-sql-pool"></a>**Pool de SQL sem servidor**
 
-![Nome completo do servidor do SQL sob demanda](./media/connect-overview/server-connect-example-sqlod.png)
+![Nome completo do servidor do pool de SQL sem servidor](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivers suportados e cadeias de conexão
 O Synapse SQL dá suporte a [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) e [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Para encontrar a versão e a documentação mais recentes, selecione um dos drivers anteriores. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no Portal do Azure, selecione **Mostrar cadeias de conexão de banco de dados** no exemplo anterior. A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
@@ -92,7 +92,7 @@ O Synapse SQL padroniza algumas configurações durante a conexão e a criação
 
 ## <a name="recommendations"></a>Recomendações
 
-Para executar consultas do **SQL sob demanda**, as ferramentas recomendadas são o [Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
+Para executar consultas no **Pool de SQL sem servidor** , as ferramentas recomendadas são o [Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para se conectar e consultar com o Visual Studio, veja [Consultar com o Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para saber mais sobre as opções de autenticação, confira [Autenticação no Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

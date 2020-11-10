@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332001"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901556"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -37,11 +37,11 @@ A Central de Segurança do Azure aborda os três desafios de segurança mais urg
 
 Para ajudá-lo a se proteger contra esses desafios, a Central de Segurança fornece ferramentas para:
 
--   **Fortalecer a postura de segurança**: A Central de Segurança avalia seu ambiente e permite que você entenda o status de seus recursos e se eles são seguros.
+-   **Fortalecer a postura de segurança** : A Central de Segurança avalia seu ambiente e permite que você entenda o status de seus recursos e se eles são seguros.
 
--   **Proteger contra ameaças**: a Central de Segurança avalia a suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de segurança.
+-   **Proteger contra ameaças** : a Central de Segurança avalia a suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de segurança.
 
--   **Ficar seguro com mais rapidez**: Na Central de Segurança, tudo é feito na velocidade da nuvem. Por ser integrada nativamente, a implantação da Central de Segurança é fácil, oferecendo provisionamento automático e proteção com os serviços do Azure.
+-   **Ficar seguro com mais rapidez** : Na Central de Segurança, tudo é feito na velocidade da nuvem. Por ser integrada nativamente, a implantação da Central de Segurança é fácil, oferecendo provisionamento automático e proteção com os serviços do Azure.
 
 > [!NOTE]
 > Esse serviço dá suporte ao [Azure Lighthouse](../lighthouse/overview.md), que permite que os provedores de serviços entrem no próprio locatário para gerenciar assinaturas e grupos de recursos delegados pelos clientes. Para cenários da Central de Segurança do Azure, uma assinatura precisa ser delegada em vez de grupos de recursos individuais.
@@ -68,7 +68,7 @@ A Central de Segurança do Azure permite que você fortaleça sua postura de seg
 
 A Central de Segurança o ajuda a **identificar as assinaturas de TI sombra**. Examinando as assinaturas rotuladas como **não cobertas** no seu painel, você pode saber imediatamente quando há assinaturas criadas recentemente e garantir que elas sejam cobertas pelas suas políticas e protegidas pela Central de Segurança do Azure.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Página Gerenciamento de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Painel de política da Central de Segurança":::
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
@@ -76,13 +76,13 @@ A Central de Segurança descobre novos recursos que estão sendo implantados em 
 
 Para ajudar você a entender a importância de cada recomendação para sua postura de segurança geral, a Central de Segurança agrupa as recomendações em controles de segurança e adiciona um valor de **classificação de segurança** a cada controle. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página Gerenciamento de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Classificação de segurança da Central de Segurança":::
 
 ### <a name="network-map"></a>Mapa de rede
 
 Uma das ferramentas mais avançadas que a Central de Segurança oferece para monitoramento contínuo do status de segurança da sua rede é o **Mapa de rede**. O mapa permite que você veja a topologia de suas cargas de trabalho para que você possa ver se cada nó está configurado corretamente. Você pode ver como os nós estão conectados, o que ajuda a bloquear conexões indesejadas que poderiam potencialmente tornar mais fácil para um invasor entrar na sua rede.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Página Gerenciamento de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa de rede da Central de Segurança":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando controles recomendados
@@ -93,7 +93,7 @@ Dessa forma, a Central de Segurança permite que você não apenas defina polít
 
 As recomendações ajudam a reduzir a superfície de ataque em cada um de seus recursos. Isso inclui máquinas virtuais do Azure, servidores não Azure e serviços de PaaS do Azure, como SQL e contas de Armazenamento e mais – em que cada tipo de recurso é avaliado de maneira diferente e tem seus próprios padrões.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Página Gerenciamento de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemplo de recomendação da Central de Segurança":::
 
 ## <a name="protect-against-threats"></a>Proteção contra ameaças
 
@@ -101,11 +101,11 @@ A proteção contra ameaças da Central de Segurança permite que você detecte 
 
 A proteção contra ameaças da Central de Segurança inclui análise de cadeia de eliminação de fusão, que correlaciona automaticamente alertas em seu ambiente com base na análise de cadeia de eliminação de cibernéticos para ajudá-lo a entender melhor a história completa de uma campanha de ataque, o ponto de partida e que tipo de impacto causou aos seus recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página Gerenciamento de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de segurança":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração à proteção avançada contra ameaças do Microsoft Defender
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integração ao Microsoft Defender para Ponto de Extremidade
 
-A Central de Segurança inclui a integração nativa e automática à Proteção Avançada contra Ameaças do Microsoft Defender. Isso significa que, sem qualquer configuração, seus computadores Windows e Linux são totalmente integrados com avaliações e recomendações da Central de Segurança.
+A Central de Segurança inclui a integração nativa e automática ao Microsoft Defender para Ponto de Extremidade. Isso significa que, sem qualquer configuração, seus computadores Windows e Linux são totalmente integrados com avaliações e recomendações da Central de Segurança.
 
 Além disso, a Central de Segurança permite automatizar as políticas de controle de aplicativo em ambientes de servidor. Os controles de aplicativos adaptáveis da Central de Segurança habilitam a listagem de aprovação de aplicativo de ponta a ponta nos servidores Windows. Você não precisa criar as regras e verificar as violações, tudo é feito automaticamente para você.
 
@@ -123,7 +123,7 @@ A Central de Segurança inclui funcionalidades que ajudam você a realizar a cla
 
 ## <a name="get-secure-faster"></a>Ficar seguro com mais rapidez
 
-A integração nativa do Azure (incluindo Azure Policy e Azure Monitor logs) combinada com a integração perfeita a outras soluções de segurança da Microsoft, como ao Microsoft Cloud App Security e à Proteção Avançada contra Ameaças do Windows Defender, ajuda a garantir sua solução de segurança seja abrangente e simples de integrar e distribuir.
+A integração nativa do Azure (incluindo o Azure Policy e os logs do Azure Monitor) combinada com a integração ininterrupta a outras soluções de segurança da Microsoft, como o Microsoft Cloud App Security e o Microsoft Defender para Ponto de Extremidade, ajuda a garantir que a solução de segurança seja abrangente e simples de integrar e distribuir.
 
 Além disso, você pode estender a solução completa além do Azure para cargas de trabalho em execução em outras nuvens e data centers locais.
 

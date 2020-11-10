@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080942"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927542"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 2. Selecione **Configurar o Application Insights** no menu Projeto. O Visual Studio adiciona o SDK do Application Insights ao aplicativo.
 
     > [!IMPORTANT]
-    > O processo para adicionar o Application Insights varia de acordo com o tipo de modelo do ASP.NET. Se você estiver usando o modelo **Vazio** ou **Aplicativo Móvel do Azure**, selecione **Projeto** > **Adicionar Application Insights Telemetry**. Para todos os outros modelos do ASP.NET, consulte as instruções na etapa acima. 
+    > O processo para adicionar o Application Insights varia de acordo com o tipo de modelo do ASP.NET. Se você estiver usando o modelo **Vazio** ou **Aplicativo Móvel do Azure** , selecione **Projeto** > **Adicionar Application Insights Telemetry**. Para todos os outros modelos do ASP.NET, consulte as instruções na etapa acima. 
 
 3. Clique em **Introdução** (versões anteriores do Visual Studio têm um botão **Iniciar Gratuitamente** em vez disso).
 
@@ -62,13 +62,13 @@ Agora você pode abrir o Application Insights no Portal do Azure para exibir vá
 
 1. Expanda a pasta **Serviços Conectados** (ícone de nuvem e plugue) da pasta Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Application Insights** e clique em **Abrir Portal do Application Insights**.  Você pode ver algumas informações sobre seu aplicativo e uma variedade de opções.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/04-overview.png)
+    ![Captura de tela que mostra informações sobre o aplicativo no Portal do Application Insights.](media/quick-monitor-portal/04-overview.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo.  Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
     ![Mapa de aplicativo](media/quick-monitor-portal/05-appmap.png)
 
-3. Clique no ícone **Análise do Aplicativo**![Mapa do Aplicativo](media/quick-monitor-portal/app-viewinlogs-icon.png)**Exibir em Logs (Análise)** em um dos componentes do aplicativo. Isso abre o **Logs (Análise)** , que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
+3. Clique no ícone **Análise de Aplicativo** ![Captura de tela do ícone Análise de Aplicativo.](media/quick-monitor-portal/app-viewinlogs-icon.png) **Exibir em Logs (Análise)** em um dos componentes do aplicativo. Isso abre o **Logs (Análise)** , que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
     ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -104,7 +104,7 @@ Para saber mais, visite o repositório do GitHub para nosso [SDK do JavaScript d
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de testar, poderá excluir o grupo de recursos e todos os recursos relacionados. Para isso, siga as etapas abaixo.
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.
+2. Em sua página de grupo de recursos, clique em **Excluir** , digite **myResourceGroup** na caixa de texto e clique **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste início rápido, você habilitou o seu aplicativo para monitoramento pelo Azure Application Insights.  Continue para os tutoriais para aprender a usá-lo para monitorar as estatísticas e detectar problemas em seu aplicativo.

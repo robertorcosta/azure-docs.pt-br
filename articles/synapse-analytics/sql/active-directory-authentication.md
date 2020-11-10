@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093405"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311716"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Usar a Autenticação do Azure Active Directory para autenticação com o Synapse SQL
 
@@ -39,7 +39,7 @@ As etapas de configuração incluem os procedimentos a seguir para configurar e 
 3. Atribuir uma função à identidade criada do Azure Active Directory no workspace do Synapse (versão prévia)
 4. Conecte-se ao Synapse Studio usando identidades do Azure AD.
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>Passagem do AAD no Azure Synapse Analytics
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Passagem do Azure AD no Azure Synapse Analytics
 
 O Azure Synapse Analytics permite que você acesse os dados do data lake usando sua identidade do Azure Active Directory.
 
@@ -49,13 +49,13 @@ A definição de direitos de acesso nos arquivos e nos dados, que é respeitada 
 
 O diagrama de alto nível a seguir resume a arquitetura da solução para o uso da autenticação do Azure AD com o Synapse SQL. Para dar suporte à senha de usuário nativo do Azure AD, apenas a parte da Nuvem e o Azure AD/Synapse SQL é considerada. Para dar suporte à Autenticação federada (ou a usuário/senha para as credenciais do Windows), será necessária a comunicação com o bloco do ADFS. As setas indicam caminhos para comunicação.
 
-![diagrama de autenticação do aad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![diagrama de autenticação do azure ad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 O diagrama a seguir indica as relações de federação, confiança e hospedagem que permitem que um cliente se conecte a um banco de dados enviando um token. O token é autenticado pelo Azure AD e é considerado confiável pelo banco de dados. 
 
 O Cliente 1 pode representar um Azure Active Directory com usuários nativos ou um Azure AD com usuários federados. O Cliente 2 representa uma solução possível, incluindo os usuários importados; neste exemplo, provenientes de um Azure Active Directory federado com o ADFS sendo sincronizado com o Azure Active Directory. 
 
-É importante entender que o acesso a um banco de dados com a autenticação do Azure AD exige que a assinatura de hospedagem esteja associada ao Azure AD. A mesma assinatura precisa ser usada para criar o SQL Server que hospeda o Banco de Dados SQL do Azure ou o pool de SQL.
+É importante entender que o acesso a um banco de dados com a autenticação do Azure AD exige que a assinatura de hospedagem esteja associada ao Azure AD. A mesma assinatura precisa ser usada para criar o SQL Server que hospeda o Banco de Dados SQL do Azure ou o pool de SQL dedicado.
 
 ![relação de assinatura](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -109,7 +109,7 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 - Universal do Azure Active Directory com o MFA
 - Uso da autenticação de token do aplicativo
 
-Os métodos de autenticação a seguir têm suporte para as entidades de segurança do servidor do Azure AD (logons) (**visualização pública**):
+Os métodos de autenticação a seguir têm suporte para as entidades de segurança do servidor do Azure AD (logons) ( **visualização pública** ):
 
 - Senha do Azure Active Directory
 - Integrada do Azure Active Directory
@@ -119,10 +119,10 @@ Os métodos de autenticação a seguir têm suporte para as entidades de seguran
 
 - Para aumentar a capacidade de gerenciamento, é recomendável que você provisione um grupo dedicado do Microsoft Azure AD como administrador.
 - Somente um administrador do Azure AD (um usuário ou um grupo) pode ser configurado para o pool de SQL do Synapse a qualquer momento.
-  - A adição de entidades de segurança do servidor do Azure AD (logons) ao SQL sob demanda (versão prévia) permite criar várias dessas entidades que podem ser adicionadas à função `sysadmin`.
-- Somente um administrador do Azure AD do Synapse SQL pode inicialmente se conectar ao Synapse SQL usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
+  - A adição de entidades de segurança do servidor do Azure AD (logons) ao SQL do Synapse (versão prévia) permite criar várias dessas entidades que podem ser adicionadas à função `sysadmin`.
+- Somente um administrador do Azure AD do SQL do Synapse pode inicialmente se conectar ao SQL do Synapse usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
-- O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer**; é necessária, no mínimo, a versão 4.6 do .NET Framework). Sendo assim, as versões mais recentes dessas ferramentas e desses aplicativos da camada de dados (DAC e .BACPAC) podem usar a autenticação do Azure AD.
+- O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer** ; é necessária, no mínimo, a versão 4.6 do .NET Framework). Sendo assim, as versões mais recentes dessas ferramentas e desses aplicativos da camada de dados (DAC e .BACPAC) podem usar a autenticação do Azure AD.
 - Na versão 15.0.1 em diante, o [utilitário sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e o [utilitário bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dão suporte à autenticação Interativa do Active Directory com o MFA.
 - O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure AD não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - O [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) dá suporte à autenticação do Azure AD. Confira também [Configuração das propriedades de conexão](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

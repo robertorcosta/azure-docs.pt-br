@@ -1,6 +1,6 @@
 ---
-title: Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
-description: Descreve como o SQL sob demanda (versão prévia) acessa o Armazenamento do Azure e como você pode controlar o acesso ao armazenamento para SQL sob demanda no Azure Synapse Analytics.
+title: Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor (versão prévia)
+description: Descreve como o pool de SQL sem servidor (versão prévia) acessa o Armazenamento do Azure e como você pode controlar o acesso ao armazenamento do pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449467"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315723"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
+# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
-Uma consulta SQL sob demanda lê arquivos diretamente no Armazenamento do Azure. As permissões para acessar os arquivos no armazenamento do Azure são controladas em dois níveis:
+Uma consulta do pool de SQL sem servidor lê arquivos diretamente no Armazenamento do Azure. As permissões para acessar os arquivos no armazenamento do Azure são controladas em dois níveis:
 - **Nível de armazenamento** – o usuário deve ter permissão para acessar os arquivos de armazenamento subjacentes. O administrador de armazenamento deve permitir que a entidade de segurança do Azure AD leia/grave arquivos ou gere uma chave SAS que será usada para acessar o armazenamento.
 - **Nível de serviço do SQL** – o usuário deve ter a permissão `SELECT` para ler dados de [tabela externa](develop-tables-external-tables.md) ou a permissão `ADMINISTER BULK ADMIN` para executar `OPENROWSET`, bem como permissão para usar as credenciais necessárias para acessar o armazenamento.
 
@@ -26,14 +26,14 @@ Este artigo descreve os tipos de credenciais que você pode usar e como a pesqui
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento compatíveis
 
-Um usuário que fez logon em um recurso SQL sob demanda precisará estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
+Um usuário que fez logon em um pool de SQL sem servidor precisará estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
 
 > [!NOTE]
 > **Passagem do Azure AD** é o comportamento padrão quando você cria um workspace.
 
 ### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
 
-A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no SQL sob demanda é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
+A **Identidade do Usuário** , também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
 
 > [!IMPORTANT]
 > Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
@@ -49,7 +49,7 @@ A **SAS (Assinatura de Acesso Compartilhado)** fornece acesso delegado aos recur
 Você pode obter um token SAS navegando até o **Portal do Azure -> Conta de Armazenamento -> Assinatura de Acesso Compartilhado -> Configurar permissões -> Gerar SAS e cadeia de conexão.**
 
 > [!IMPORTANT]
-> Quando um token SAS é gerado, ele inclui um ponto de interrogação ("?") no início do token. Para usar o token no SQL sob demanda, você deve remover o ponto de interrogação ("?") ao criar uma credencial. Por exemplo:
+> Quando um token SAS é gerado, ele inclui um ponto de interrogação ("?") no início do token. Para usar o token no pool de SQL sem servidor, você precisa remover o ponto de interrogação ("?") ao criar uma credencial. Por exemplo:
 >
 > Token SAS: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
@@ -57,7 +57,7 @@ Para permitir acesso usando um token SAS, você precisa criar uma credencial no 
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
-A **Identidade Gerenciada** também é conhecida como MSI. É um recurso do Azure AD (Azure Active Directory) que fornece serviços do Azure para SQL sob demanda. Além disso, ele implanta uma identidade gerenciada automaticamente no Azure AD. Essa identidade pode ser usada para autorizar a solicitação de acesso a dados no Armazenamento do Azure.
+A **Identidade Gerenciada** também é conhecida como MSI. É um recurso do Azure AD (Azure Active Directory) que fornece serviços do Azure para o pool de SQL sem servidor. Além disso, ele implanta uma identidade gerenciada automaticamente no Azure AD. Essa identidade pode ser usada para autorizar a solicitação de acesso a dados no Armazenamento do Azure.
 
 Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões para a Identidade Gerenciada a fim de acessar os dados. A concessão de permissões para a Identidade Gerenciada é feita da mesma forma que a concessão de permissão para qualquer outro usuário do Azure AD.
 
@@ -95,7 +95,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 
 ## <a name="credentials"></a>Credenciais
 
-Para consultar um arquivo localizado no Armazenamento do Azure, seu ponto de extremidade do SQL sob demanda precisa de uma credencial que contenha as informações de autenticação. São usados dois tipos de credenciais:
+Para consultar um arquivo localizado no Armazenamento do Azure, o seu ponto de extremidade do pool de SQL sem servidor precisa de uma credencial que contenha as informações de autenticação. São usados dois tipos de credenciais:
 - O argumento CREDENTIAL no nível do servidor é usado para consultas ad hoc executadas usando a função `OPENROWSET`. O nome da credencial deve corresponder à URL de armazenamento.
 - DATABASE SCOPED CREDENTIAL é usada para tabelas externas. A tabela externa faz referência a `DATA SOURCE` com a credencial que deve ser usada para acessar o armazenamento.
 
@@ -144,7 +144,7 @@ Os usuários do SQL não podem usar a autenticação do Azure AD para acessar o 
 
 O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no Armazenamento do Azure usando o token SAS. Crie essa credencial para habilitar a entidade de segurança SQL que executa a função `OPENROWSET` a fim de ler arquivos protegidos com a chave SAS no Armazenamento do Azure que corresponde à URL no nome da credencial.
 
-Substitua <*mystorageaccountname*> pelo nome real da conta de armazenamento e <*mystorageaccountcontainername*> pelo nome real do contêiner:
+Substitua < *mystorageaccountname* > pelo nome real da conta de armazenamento e < *mystorageaccountcontainername* > pelo nome real do contêiner:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

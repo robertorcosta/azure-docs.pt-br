@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329424"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408661"
 ---
 # <a name="security-control-v2-network-security"></a>Controle de segurança v2: segurança de rede
 
@@ -40,9 +40,9 @@ Use o Azure Sentinel para descobrir o uso de protocolos inseguros herdados, como
 
 - [Pasta de trabalho de protocolos inseguros do Azure Sentinel](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -68,9 +68,9 @@ Para conectar duas ou mais redes virtuais no Azure juntas, use o emparelhamento 
 
 - [Link Privado do Azure](../../private-link/private-link-service-overview.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -92,9 +92,9 @@ O acesso privado é uma medida adicional de defesa profunda, além da segurança
 
 - [Entender os pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -116,15 +116,15 @@ Proteja os recursos do Azure contra ataques de redes externas, incluindo ataques
 -   Proteja seus ativos contra ataques de DDoS habilitando a proteção padrão de DDoS em suas redes virtuais do Azure. 
 -   Use a central de segurança do Azure para detectar riscos de configuração incorreta relacionados ao acima. 
 
-- [Documentação do firewall do Azure](/azure/firewall/)
+- [Documentação do firewall do Azure](../../firewall/index.yml)
 
 - [Como implantar o Azure WAF](../../web-application-firewall/overview.md)
 
 - [Gerenciar a Proteção contra DDoS do Azure Standard usando o portal do Azure](../../virtual-network/manage-ddos-protection.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 Nenhum
 
@@ -144,9 +144,9 @@ Observação: se você tiver uma regulamentação ou outro requisito para uso de
 
 - [Recurso EDR do Microsoft defender ATP](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -168,11 +168,11 @@ Você também pode usar grupos de segurança de aplicativo para ajudar a simplif
 
 - [Entender e usar marcas de serviço](../../virtual-network/service-tags-overview.md)
 
-- [Entender e usar grupos de segurança de aplicativos](/azure/virtual-network/security-overview#application-security-groups)
+- [Entender e usar grupos de segurança de aplicativos](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -196,13 +196,12 @@ Quando o DNS do Azure é usado como seu serviço DNS autoritativo, verifique se 
 
 - [Impedir entradas DNS pendente e evitar subdomínio tomada](../fundamentals/subdomain-takeover.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
 - [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
-- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
-
+- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)

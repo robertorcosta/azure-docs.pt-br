@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075528"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124176"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo Spring Boot
 
@@ -286,9 +286,9 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Abra uma nova janela do navegador e acesse a URL: `http://localhost:8080/welcome`.
 
-    ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![A captura de tela mostra uma janela de navegador com uma mensagem de boas-vindas.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. No portal da Configuração de Aplicativos, selecione **Gerenciador de Recursos** e altere o estado da chave **Beta** para **Ativado**:
+1. No portal da Configuração de Aplicativos, selecione **Gerenciador de Recursos** e altere o estado da chave **Beta** para **Ativado** :
 
     | Chave | Estado |
     |---|---|
@@ -296,7 +296,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 
-    ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![A captura de tela mostra uma janela do navegador com uma mensagem de boas-vindas e um link Beta destacado.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360846"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408695"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controle de segurança v2: registro em log e detecção de ameaças
 
@@ -30,7 +30,7 @@ Use o recurso de detecção de ameaças interna da central de segurança do Azur
 
 Além disso, use o Azure Sentinel para criar regras de análise, que são ameaças que correspondem a critérios específicos em seu ambiente. As regras geram incidentes quando os critérios são correspondidos, para que você possa investigar cada incidente. O Azure Sentinel também pode importar inteligência de ameaças de terceiros para aprimorar seu recurso de detecção de ameaças. 
 
-- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/threat-protection.md)
+- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 - [Guia de referência de alertas de segurança da central de segurança do Azure](../../security-center/alerts-reference.md)
 
@@ -73,7 +73,7 @@ A central de segurança do Azure também pode alertar sobre determinadas ativida
 
 - [Habilitar a proteção de identidade do Azure](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/threat-protection.md)
+- [Proteção contra ameaças na Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 **Responsabilidade** : Cliente
 
@@ -230,4 +230,3 @@ Todos os logs gerados pelos recursos no Azure fornecem carimbos de data/hora com
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

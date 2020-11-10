@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: a22356e89dcc3ab465226bad196068d934ff1182
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 0c6bb8ba680612acbd497598b3e56efa5c28244a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840278"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146238"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implantar Olá, Mundo na malha do Service Fabric
 
@@ -41,6 +41,12 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
+
+>[!NOTE]
+> Desde 2 de novembro de 2020, [limites de taxa de download se aplicam](https://docs.docker.com/docker-hub/download-rate-limit/) a solicitações anônimas e autenticadas para o Docker Hub de contas do plano gratuito do Docker e são impostas por endereço IP. 
+> 
+> Esses modelos fazem uso de imagens públicas do Docker Hub. Observe que você pode ter uma taxa limitada. Para obter mais detalhes, confira [Autenticar-se com o Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+
 Criar seu aplicativo no grupo de recursos usando o comando `az mesh deployment create`.  Execute o seguinte:
 
 ```azurecli-interactive
@@ -71,7 +77,7 @@ Essa informação vem da seção ```outputs``` no modelo ARM. Conforme mostrado 
   }
 ```
 
-## <a name="open-the-application"></a>Abra o aplicativo
+## <a name="open-the-application"></a>Abrir o aplicativo
 Depois que o aplicativo é implantado com êxito, copie o endereço IP público para o ponto de extremidade de serviço da saída da CLI. Abra o endereço IP em um navegador da Web. Uma página da Web com o logotipo da Malha do Azure Service Fabric é exibida.
 
 ## <a name="check-the-application-details"></a>Verifique os detalhes do aplicativo

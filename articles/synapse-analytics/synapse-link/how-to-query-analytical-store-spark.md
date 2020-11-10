@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287722"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322580"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagir com o Azure Cosmos DB usando o Apache Spark no Link do Azure Synapse (versão prévia)
 
@@ -35,9 +35,9 @@ Antes de aprender sobre as duas opções possíveis para consultar o armazenamen
 
 A diferença na experiência é relativa a se as alterações de dados subjacentes no contêiner de Azure Cosmos DB devem ser refletidas automaticamente na análise realizada no Spark. Quando um DataFrame do Spark é registrado ou uma tabela do Spark é criada no armazenamento de análise de um contêiner, os metadados relativos ao instantâneo atual dos dados no armazenamento de análise são buscados para o Spark para uma aplicação eficiente da análise subsequente. É importante observar que, como o Spark segue uma política de avaliação lenta, a menos que uma ação seja invocada no DataFrame do Spark ou uma consulta do SparkSQL seja executada na tabela do Spark, os dados reais não serão buscados no armazenamento de análise do contêiner subjacente.
 
-No caso de **carregamento para o DataFrame do Spark**, os metadados buscados são armazenados em cache durante o tempo de vida da sessão do Spark, portanto, as ações subsequentes invocadas no DataFrame são avaliadas no instantâneo do armazenamento de análise no momento da criação do DataFrame.
+No caso de **carregamento para o DataFrame do Spark** , os metadados buscados são armazenados em cache durante o tempo de vida da sessão do Spark, portanto, as ações subsequentes invocadas no DataFrame são avaliadas no instantâneo do armazenamento de análise no momento da criação do DataFrame.
 
-Por outro lado, no caso **criar uma tabela do Spark**, os metadados do estado do armazenamento de análise não são armazenados em cache no Spark e recarregados em cada execução de consulta do SparkSQL em relação à tabela do Spark.
+Por outro lado, no caso **criar uma tabela do Spark** , os metadados do estado do armazenamento de análise não são armazenados em cache no Spark e recarregados em cada execução de consulta do SparkSQL em relação à tabela do Spark.
 
 Portanto, você pode escolher entre carregar para o DataFrame do Spark e criar uma tabela do Spark dependendo de se deseja que sua análise do Spark seja avaliada em um instantâneo fixo do armazenamento de análise ou no instantâneo mais recente do armazenamento de análise, respectivamente.
 
@@ -209,7 +209,7 @@ Neste exemplo, você aprenderá a fazer referência a bibliotecas externas de ar
     ]
 }
 ```
-Se você pretende enviar definições de trabalho remotas do Spark para um pool do Spark do Azure Synapse, pode aprender a fazer referência a bibliotecas externas seguindo este [tutorial](../spark/apache-spark-job-definitions.md).
+Se você pretende enviar definições remotas de trabalho do Spark para um pool do Apache Spark sem servidor, pode aprender a fazer referência a bibliotecas externas seguindo este [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

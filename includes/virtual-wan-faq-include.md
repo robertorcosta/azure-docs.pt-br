@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038623"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331011"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>A WAN Virtual do Azure está em GA?
 
@@ -259,6 +259,8 @@ Sim. Atualmente, essa opção só está disponível por meio do PowerShell. O po
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Há suporte para IPv6 na WAN Virtual?
 
 O IPv6 não é compatível com o hub da WAN Virtual e seus gateways. Se você tem uma VNet compatível com IPv4 e IPv6 e deseja conectá-la à WAN Virtual, atualmente, não há suporte para esse cenário. 
+
+Para o cenário de VPN ponto a site (usuário) com a análise da Internet por meio do Firewall do Azure, você provavelmente terá que desligar a conectividade IPv6 no dispositivo cliente a fim de forçar o tráfego para o hub da WAN Virtual. Isso ocorre porque os dispositivos modernos usam endereços IPv6 por padrão.
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual é a versão de API recomendada a ser usada por scripts que automatizam várias funcionalidades da WAN Virtual?
 

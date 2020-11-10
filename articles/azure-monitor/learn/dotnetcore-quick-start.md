@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd45284bfea09935ea48445d816f3b91272f68fc
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055474"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925842"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -73,7 +73,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 5. Selecione **Depurar** > **Iniciar sem Depuração** (Ctrl + F5) para iniciar seu aplicativo
 
-    ![Menu Visão Geral do Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Captura de tela que mostra a opção de menu Iniciar sem Depurar.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Leva 3 a 5 minutos para que os dados comecem a aparecer no portal. Se esse aplicativo é um aplicativo de teste de baixo tráfego, tenha em mente que a maioria das métricas só são capturadas quando há operações ou solicitações ativas.
@@ -88,7 +88,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Mapa de aplicativo](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Clique no ícone **Análise do Aplicativo**![ícone Mapa do Aplicativo](./media/dotnetcore-quick-start/006.png) **Exibir no Analytics**. Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
+3. Clique no ícone **Análise do Aplicativo**![ícone Mapa do Aplicativo](./media/dotnetcore-quick-start/006.png) **Exibir no Analytics**. Isso abre a **Análise do Application Insights** , que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
    ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -107,7 +107,7 @@ Quando você terminar de testar, poderá excluir o grupo de recursos e todos os 
 > Se você tiver usado um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso individual do Application Insights. Lembre-se de que sempre que você excluir um grupo de recursos, todos os recursos subjacentes que são membros desse grupo serão excluídos.
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.
+2. Em sua página de grupo de recursos, clique em **Excluir** , digite **myResourceGroup** na caixa de texto e clique **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

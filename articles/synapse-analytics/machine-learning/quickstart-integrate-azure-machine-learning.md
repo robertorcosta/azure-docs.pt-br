@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91543262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307957"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Início Rápido: Criar um serviço vinculado do Azure Machine Learning no Azure Synapse
 
@@ -79,5 +79,5 @@ Esta etapa criará uma entidade de serviço. Se você quiser usar uma entidade d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Assistente de pontuação do modelo de machine learning – pool de SQL](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutorial: Assistente de pontuação do modelo de machine learning – pool de SQL dedicado](tutorial-sql-pool-model-scoring-wizard.md)
 - [Funcionalidades de Machine Learning no Azure Synapse Analytics (versão prévia dos workspaces)](what-is-machine-learning.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055304"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410769"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: o que há de novo no docs
 
@@ -23,9 +23,10 @@ Seja bem-vindo! Esta página aborda o que há de novo nos documentos do serviço
 
 ### <a name="service-updates"></a>Atualizações de serviço
 
-Se você quiser saber mais sobre as atualizações para o serviço de fala, o SDK de fala, o SDK de dispositivos de fala ou a CLI de fala, consulte:
+Se você quiser saber mais sobre as atualizações para o serviço de fala, o SDK de fala, o SDK de dispositivos de fala, a CLI de fala ou os contêineres de fala, consulte:
 * [Notas de versão do Speech SDK](releasenotes.md).
 * [Notas de versão do SDK de dispositivos de fala](devices-sdk-release-notes.md)
+* [Notas de versão do contêiner de serviços cognitivas](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>Maio de 2020
 

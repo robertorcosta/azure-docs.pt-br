@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba7391b3b524f7532101083a444aab6059e8a10
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326381"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408748"
 ---
 # <a name="security-control-v2-incident-response"></a>Controle de segurança v2: resposta a incidentes
 
@@ -26,13 +26,13 @@ A resposta a incidentes cobre controles no ciclo de vida de resposta a incidente
 
 Verifique se sua organização tem processos para responder a incidentes de segurança, atualizou esses processos para o Azure e está experimentando-os regularmente para garantir a preparação.
 
-- [Implementar a segurança em todo o ambiente corporativo](https://aka.ms/AzSec4)
+- [Implementar a segurança em todo o ambiente corporativo](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Guia de referência de resposta a incidentes](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -50,9 +50,9 @@ Configure informações de contato de incidente de segurança na central de segu
 
 - [Como definir o contato da segurança da central de segurança do Azure](../../security-center/security-center-provide-security-contact-details.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -76,9 +76,9 @@ Exporte seus alertas e recomendações da central de segurança do Azure usando 
 
 - [Como transmitir alertas para o Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -116,9 +116,9 @@ O Azure Sentinel fornece ampla análise de dados em praticamente qualquer origem
 
 - [Investigue incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -140,11 +140,11 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomeação pa
 
 - [Alertas na Central de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -166,13 +166,12 @@ Automatize tarefas repetitivas manuais para acelerar o tempo de resposta e reduz
 
 - [Configurar respostas de ameaças automatizadas no Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
-**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparação para incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Inteligência contra ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-

@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461643"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410004"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -132,7 +132,7 @@ O certificado deve atender aos seguintes requisitos para certificados SSL/TLS no
 -   O nome de assunto do certificado deve corresponder ao nome de domínio usado para acessar o serviço de nuvem.
 
     - Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço de nuvem.
-    - Solicite um certificado de uma autoridade de certificação com um nome de assunto que coincida com o nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__**.com**, você pode solicitar um certificado da autoridade de certificação para **.contoso.com** ou __www__**.contoso.com**.
+    - Solicite um certificado de uma autoridade de certificação com um nome de assunto que coincida com o nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__**.com** , você pode solicitar um certificado da autoridade de certificação para **.contoso.com** ou __www__**.contoso.com**.
 
     >[!NOTE]
     >Você não pode obter um certificado SSL/TLS de uma AC para o domínio do __cloudapp__**.net** .
@@ -178,6 +178,6 @@ O Azure Service Fabric dá suporte a dois tipos de controle de acesso diferentes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Lista de verificação de segurança do Service Fabric](service-fabric-checklist.md)
+- [Lista de verificação de segurança do Service Fabric](../../service-fabric/service-fabric-best-practices-security.md)
 - Configurar o [ambiente de desenvolvimento](../../service-fabric/service-fabric-get-started.md) do Service Fabric.
 - Saiba mais sobre as [opções de suporte do Service Fabric](../../service-fabric/service-fabric-support.md).

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219778"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147276"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início Rápido: Como inscrever-se e atualizar seu primeiro vídeo
 
@@ -27,8 +27,10 @@ Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliaçã
 
 Para começar a desenvolver com o Video Indexer, navegue para o site do [Video Indexer](https://www.videoindexer.ai/) e inscreva-se.
 
+Depois de começar a usar o Video Indexer, todos os dados armazenados e o conteúdo carregado serão criptografados em repouso com uma chave gerenciada da Microsoft.
+
 > [!NOTE]
-> Depois de começar a usar o Video Indexer, todos os dados armazenados e o conteúdo carregado serão criptografados em repouso com uma chave gerenciada da Microsoft.
+> Examine [alterações de autenticação planejadas no site do Video Indexer](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Carregar um vídeo usando o site do Video Indexer
 
@@ -39,7 +41,7 @@ Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-enc
 ### <a name="upload-a-video"></a>Carregar um vídeo
 
 1. Conecte-se ao site do [Video Indexer](https://www.videoindexer.ai/).
-1. Para carregar um vídeo, pressione o botão ou o link **Carregar** .
+1. Para carregar um vídeo, pressione o botão ou o link **Carregar**.
 
     > [!NOTE]
     > O nome do vídeo não deve ter mais de 80 caracteres.
@@ -49,12 +51,12 @@ Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-enc
 1. Depois que o seu vídeo tiver sido carregado, o Video Indexer iniciará a indexação e a análise do vídeo. Veja o progresso. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Upload":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progresso do upload":::
 1. Depois que o Video Indexer terminar de analisar, você receberá um email com um link para seu vídeo e uma breve descrição do que foi encontrado nele. Por exemplo: pessoas, palavras faladas e escritas, tópicos e entidades nomeadas.
 1. Posteriormente, você poderá encontrar seu vídeo na lista de bibliotecas e executar operações diferentes. Por exemplo: pesquisar, reindexar, editar.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Upload":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Carregou o upload":::
  
 ## <a name="see-also"></a>Veja também
 

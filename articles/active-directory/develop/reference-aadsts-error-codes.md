@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241320"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410922"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -74,7 +74,7 @@ O `error` campo tem vários valores possíveis: examine os links de documentaç�
 ## <a name="lookup-current-error-code-information"></a>Pesquisar informações do código de erro atual
 Os códigos de erro e as mensagens estão sujeitos a alterações.  Para obter as informações mais atuais, dê uma olhada na [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) página para encontrar descrições de erro AADSTS, correções e algumas soluções alternativas sugeridas.  
 
-Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você recebeu o código de erro "AADSTS16000", faça uma pesquisa em [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para "16000".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
+Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquisa em [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para "50058".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) .
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 

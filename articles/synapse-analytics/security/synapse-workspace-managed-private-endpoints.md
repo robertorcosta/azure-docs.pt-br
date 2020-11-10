@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738103"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313778"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Pontos de extremidade privados gerenciados do Synapse (versão prévia)
 
@@ -43,17 +43,17 @@ Se o proprietário aprova a conexão, o link privado é estabelecido. No entanto
 
 Somente um Ponto de extremidade privado gerenciado em um estado aprovado pode enviar tráfego para um determinado recurso de link privado.
 
-## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>Pontos de extremidade privados gerenciados para pool de SQL e SQL sob demanda
+## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Pontos de extremidade privados gerenciados do pool de SQL dedicado e do pool de SQL sem servidor
 
-O pool de SQL e o SQL sob demanda são recursos analíticos no seu workspace do Azure Synapse. Esses recursos usam a infraestrutura multilocatário que não é implantada na [Rede Virtual de workspace gerenciada](./synapse-workspace-managed-vnet.md).
+O pool de SQL dedicado e o pool de SQL sem servidor são funcionalidades analíticas no seu workspace do Azure Synapse. Esses recursos usam a infraestrutura multilocatário que não é implantada na [Rede Virtual de workspace gerenciada](./synapse-workspace-managed-vnet.md).
 
-Quando um workspace é criado, o Azure Synapse cria dois Pontos de extremidade privados gerenciados para o pool de SQL e o SQL sob demanda nesse workspace. 
+Quando um workspace é criado, o Azure Synapse cria dois Pontos de extremidade privados gerenciados no workspace, um para o pool de SQL dedicado e um para o pool de SQL sem servidor. 
 
 Esses dois Pontos de extremidade privados gerenciados são listados no Azure Synapse Studio. Selecione **Gerenciar** no painel de navegação esquerdo e, em seguida, selecione **Redes Virtuais Gerenciadas** para ver os pontos no Studio.
 
-O Ponto de extremidade privado gerenciado que tem como destino o pool de SQL é chamado *synapse-ws-sql--\<workspacename\>* e aquele que se destina ao SQL sob demanda é chamado *synapse-ws-sqlOnDemand--\<workspacename\>* .
+O Ponto de extremidade privado gerenciado que tem como destino o pool de SQL é chamado de *synapse-ws-sql--\<workspacename\>* e aquele que se destina ao pool de SQL sem servidor é chamado de *synapse-ws-sqlOnDemand--\<workspacename\>* .
 
-![Pontos de extremidade privados gerenciados para pool de SQL e SQL sob demanda](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
+![Pontos de extremidade privados gerenciados do pool de SQL dedicado e do pool de SQL sem servidor](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Esses dois Pontos de extremidade privados gerenciados são criados automaticamente para você quando você cria seu workspace do Azure Synapse. Você não é cobrado por esses dois Pontos de extremidade privados gerenciados.
 

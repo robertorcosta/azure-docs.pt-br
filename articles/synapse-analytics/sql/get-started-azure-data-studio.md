@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323828"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conectar-se ao Synapse SQL com o Azure Data Studio (versão prévia)
 
@@ -30,11 +30,11 @@ Você pode usar o [Azure Data Studio (versão prévia)](/sql/azure-data-studio/d
 
 ## <a name="connect"></a>Conectar
 
-Para se conectar ao Synapse SQL, abra o Azure Data Studio e selecione **Nova Conexão** .
+Para se conectar ao Synapse SQL, abra o Azure Data Studio e selecione **Nova Conexão**.
 
 ![Abrir o Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Escolha **Microsoft SQL Server** como o **Tipo de conexão** .
+Escolha **Microsoft SQL Server** como o **Tipo de conexão**.
 
 A conexão precisará dos seguintes parâmetros:
 
@@ -42,15 +42,15 @@ A conexão precisará dos seguintes parâmetros:
 * **Banco de dados:** Nome do banco de dados
 
 > [!NOTE]
-> Se você quiser usar **SQL sob demanda (versão prévia)** , a URL deverá ser semelhante a:
+> Se você quiser usar o **pool de SQL sem servidor (versão prévia)** , a URL deverá ser semelhante a:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Se você quiser usar **pool de SQL** , a URL deverá ser semelhante a:
+> Se você quiser usar o **pool de SQL dedicado** , a URL deverá ser semelhante a:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Escolha **Autenticação do Windows** , **Azure Active Directory** ou **Logon do SQL** como o **Tipo de Autenticação** .
+Escolha **Autenticação do Windows** , **Azure Active Directory** ou **Logon do SQL** como o **Tipo de Autenticação**.
 
 Para usar **Logon do SQL** como o tipo de autenticação, adicione os parâmetros nome de usuário/senha:
 
@@ -77,7 +77,7 @@ Uma vez conectado, você pode consultar o Synapse SQL usando instruções [T-SQL
 
 ![Nova Consulta](./media/get-started-azure-data-studio/5-new-query.png)
 
-Por exemplo, você pode usar a seguinte instrução Transact-SQL para [consultar arquivos Parquet](query-parquet-files.md) usando o SQL sob demanda:
+Por exemplo, você pode usar a seguinte instrução Transact-SQL para [consultar arquivos Parquet](query-parquet-files.md) usando o pool de SQL sem servidor:
 
 ```sql
 SELECT COUNT(*)

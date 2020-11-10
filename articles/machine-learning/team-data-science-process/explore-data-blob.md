@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3d80ff9f5f96bbc642aed6598c86cb682d606695
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321127"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410667"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
 
@@ -69,7 +69,7 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 1. Inspecionar o **número de linhas e colunas**
 
     ```python
-    print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+    print('the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape)
     ```
 
 1. **Inspecione** as primeiras ou últimas **linhas** no conjunto de dados a seguir:
@@ -84,7 +84,7 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
     ```python
     for col in dataframe_blobdata.columns:
-        print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+        print(dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype)
     ```
 
 1. Verifique as **estatísticas básicas** para as colunas no conjunto de dados da seguinte maneira
@@ -103,7 +103,7 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
     ```python
     miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-    print miss_num
+    print(miss_num)
     ```
 
 1. Se você tiver **valores ausentes** para uma coluna específica nos dados, poderá removê-los da seguinte maneira:

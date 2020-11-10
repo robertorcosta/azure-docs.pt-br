@@ -1,6 +1,6 @@
 ---
-title: Criar e usar exibições no SQL sob demanda (versão prévia)
-description: Nesta seção, você aprenderá a criar e usar exibições para encapsular consultas do SQL sob demanda (versão prévia). As exibições permitirão que você reutilize essas consultas. As exibições também serão necessárias se você quiser usar ferramentas, como o Power BI, em conjunto com o SQL sob demanda.
+title: Criar e usar exibições no pool de SQL sem servidor (versão prévia)
+description: Nesta seção, você aprenderá a criar e usar exibições para encapsular consultas do pool de SQL sem servidor (versão prévia). As exibições permitirão que você reutilize essas consultas. As exibições também serão necessárias se você quiser usar ferramentas, como o Power BI, em conjunto com o pool de SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316231"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Criar e usar exibições no SQL sob demanda (versão prévia) usando o Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Crie e use exibições usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
-Nesta seção, você aprenderá a criar e usar exibições para encapsular consultas do SQL sob demanda (versão prévia). As exibições permitirão que você reutilize essas consultas. As exibições também serão necessárias se você quiser usar ferramentas, como o Power BI, em conjunto com o SQL sob demanda.
+Nesta seção, você aprenderá a criar e usar exibições para encapsular consultas do pool de SQL sem servidor (versão prévia). As exibições permitirão que você reutilize essas consultas. As exibições também serão necessárias se você quiser usar ferramentas, como o Power BI, em conjunto com o pool de SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ WITH (
 
 A exibição neste exemplo usa a função `OPENROWSET`, que usa o caminho absoluto para os arquivos subjacentes. Se tiver `EXTERNAL DATA SOURCE` com uma URL raiz de seu armazenamento, você poderá usar `OPENROWSET` com `DATA_SOURCE` e o caminho de arquivo relativo:
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

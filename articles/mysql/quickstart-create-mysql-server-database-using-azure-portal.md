@@ -1,22 +1,24 @@
 ---
 title: 'Início Rápido: Projetar um servidor – Portal do Azure – Banco de Dados do Azure para MySQL'
-description: Este artigo o orienta a usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MySQL de exemplo em aproximadamente cinco minutos.
+description: Este início rápido o orienta a usar o portal do Azure para criar rapidamente um exemplo de servidor de Banco de Dados do Azure para MySQL em aproximadamente cinco minutos.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cae0187643eb596bd98bcd99a588a4d214e6f6e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541393"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341205"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para MySQL no portal do Azure
 
-O Banco de Dados do Azure para MySQL é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. Este Guia de Início Rápido mostra como criar um Banco de Dados do Azure para servidor MySQL em aproximadamente cinco minutos usando o portal do Azure.  
+O Banco de Dados do Azure para MySQL é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. Este Guia de Início Rápido mostra como criar um Banco de Dados do Azure para servidor MySQL em aproximadamente cinco minutos usando o portal do Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
@@ -30,7 +32,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
 
 1. Selecione **Criar um recurso** (+) no canto superior esquerdo do portal.
 
-2. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MySQL** . Você também pode inserir **MySQL** na caixa de pesquisa para localizar o serviço.
+2. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MySQL**. Você também pode inserir **MySQL** na caixa de pesquisa para localizar o serviço.
 
   
 >[!div class="mx-imgBorder"]
@@ -39,7 +41,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
 3. Preencha o formulário de detalhes sobre o novo servidor com as seguintes informações:
     
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Criar formulário de servidor":::
 
 **Configuração** | **Valor sugerido** | **Descrição do campo** 
 ---|---|---
@@ -52,7 +54,7 @@ Senha | *Sua escolha* | Forneça uma nova senha para a conta do administrador do
 Confirmar senha | *Sua escolha*| Confirme a senha da conta do administrador.
 Location | *A região mais próxima de seus usuários*| Escolha o local mais próximo para os usuários ou para outros aplicativos do Azure.
 Versão | *A última versão principal*| A última versão principal (a menos que você tenha requisitos específicos que exijam uma outra versão).
-Computação + Armazenamento | **Uso Geral** , **Gen 5** , **2 vCores** , **5 GB** , **7 dias** , **Com redundância geográfica** |As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Configurar servidor** . Em seguida, selecione o tipo de preço apropriado; para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/mysql/). Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup** . Selecione **OK** .
+Computação + Armazenamento | **Uso Geral** , **Gen 5** , **2 vCores** , **5 GB** , **7 dias** , **Com redundância geográfica** |As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Configurar servidor**. Em seguida, selecione o tipo de preço apropriado; para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/mysql/). Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Selecione **OK**.
 
    > [!NOTE]
    > Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. 
@@ -61,15 +63,15 @@ Computação + Armazenamento | **Uso Geral** , **Gen 5** , **2 vCores** , **5 GB
    
 5. Selecione **Notificações** na barra de ferramentas (ícone de sino) para monitorar o processo de implantação.
    
-Por padrão, os seguintes bancos de dados são criados em seu servidor: **information_schema** , **mysql** , **performance_schema** e **sys** .
+Por padrão, os seguintes bancos de dados são criados em seu servidor: **information_schema** , **mysql** , **performance_schema** e **sys**.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall no nível de servidor
 Por padrão, o servidor criado é protegido com um firewall e não pode ser acessado publicamente. Para permitir acesso ao seu IP, acesse o recurso de servidor no portal do Azure e selecione **Segurança da conexão** no menu do lado esquerdo do recurso de servidor. Se você não souber como encontrar seu recurso, confira [Como abrir um recurso](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Segurança da conexão – Regras de firewall":::
    
-Agora selecione **Adicionar o endereço IP do cliente atual** e escolha **Salvar** . Você pode adicionar IPs extras ou fornecer um intervalo de IP para se conectar ao seu servidor por meio desses IPs. Para obter mais informações, confira [Como gerenciar regras de firewall no servidor do Banco de Dados do Azure para MySQL](./concepts-firewall-rules.md)
+Agora selecione **Adicionar o endereço IP do cliente atual** e escolha **Salvar**. Você pode adicionar IPs extras ou fornecer um intervalo de IP para se conectar ao seu servidor por meio desses IPs. Para obter mais informações, confira [Como gerenciar regras de firewall no servidor do Banco de Dados do Azure para MySQL](./concepts-firewall-rules.md)
 
 > [!NOTE]
 > Verifique se a sua rede permite o tráfego de saída pela porta 3306 usada pelo Banco de Dados do Azure para MySQL a fim de evitar problemas de conectividade.  
@@ -83,7 +85,7 @@ Você pode escolher [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.ht
     >Se você estiver iniciando o Cloud Shell pela primeira vez, verá um prompt que solicitará a criação de um grupo de recursos na conta de armazenamento. Essa é uma etapa única e será anexada automaticamente para todas as sessões. 
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Exibição Completa do portal Cloud Shell":::
 2. Execute este comando no terminal do Azure Cloud Shell. Substitua os valores pelos nomes reais do servidor e de logon do usuário administrador. O nome de usuário do administrador exige '@\<servername>', conforme mostrado abaixo para o Banco de Dados do Azure para MySQL  
 
   ```azurecli-interactive
@@ -131,15 +133,13 @@ Você pode escolher [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.ht
 Você criou com êxito um servidor do Banco de Dados do Azure para MySQL em um grupo de recursos.  Caso não espere precisar desses recursos no futuro, exclua-os eliminando o grupo de recursos ou exclua apenas o servidor MySQL. Para excluir o grupo de recursos, siga estas etapas:
 1. No portal do Azure, procure por **Grupos de recursos** e selecione essa opção. 
 2. Na lista grupo de recursos, escolha o nome do seu grupo de recursos.
-3. Na página Visão geral do grupo de recursos, selecione **Excluir grupo de recursos** .
-4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Excluir** .
+3. Na página Visão geral do grupo de recursos, selecione **Excluir grupo de recursos**.
+4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Excluir**.
 
 Para excluir o servidor, clique no botão **Excluir** na página **Visão geral** do servidor, conforme mostrado abaixo:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Excluir seus recursos":::
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 >[Criar um aplicativo PHP no Windows com o MySQL](../app-service/tutorial-php-mysql-app.md)
->[Criar um aplicativo PHP no Linux com o MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[Criar um aplicativo Spring baseado em Java com o MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

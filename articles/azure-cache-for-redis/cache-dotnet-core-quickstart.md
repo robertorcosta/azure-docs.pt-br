@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usar o Cache do Azure para Redis com aplicativos .NET Core'
+title: 'Início Rápido: Usar o Cache do Azure para Redis no .NET Core'
 description: Neste início rápido, saiba como acessar o Cache do Azure para Redis em seus aplicativos .NET Core
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077074"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Início Rápido: Usar o Cache do Azure para Redis no .NET Core
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo .NET Core para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você especificamente usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C# em um aplicativo de console do .NET Core.
 
@@ -29,7 +29,7 @@ Neste guia de início rápido, você incorporará o Cache do Azure para Redis a 
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Anote o **NOME DE HOST** e a chave de acesso **primária** . Você usará esses valores posteriormente para construir o segredo *CacheConnection* .
+Anote o **NOME DE HOST** e a chave de acesso **primária**. Você usará esses valores posteriormente para construir o segredo *CacheConnection*.
 
 
 
@@ -41,7 +41,7 @@ Abra uma nova janela de comando e execute o seguinte comando para criar um novo 
 dotnet new console -o Redistest
 ```
 
-Na janela de comando, altere para o novo diretório do projeto *Redistest* .
+Na janela de comando, altere para o novo diretório do projeto *Redistest*.
 
 
 
@@ -49,7 +49,7 @@ Na janela de comando, altere para o novo diretório do projeto *Redistest* .
 
 Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](/aspnet/core/security/app-secrets) ao seu projeto. A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte.
 
-Abra o arquivo *Redistest.csproj* . Adicione um elemento `DotNetCliToolReference` para incluir *Microsoft.Extensions.SecretManager.Tools* . Adicione também um elemento `UserSecretsId`, conforme mostrado abaixo e salve o arquivo.
+Abra o arquivo *Redistest.csproj*. Adicione um elemento `DotNetCliToolReference` para incluir *Microsoft.Extensions.SecretManager.Tools*. Adicione também um elemento `UserSecretsId`, conforme mostrado abaixo e salve o arquivo.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -88,7 +88,7 @@ Adicione a seguinte instrução `using` a *Program.cs* :
 using Microsoft.Extensions.Configuration;
 ```
 
-Adicione os seguintes membros à classe `Program` em *Program.cs* . Esse código inicializa uma configuração para acessar o segredo do usuário para a cadeia de conexão de Cache do Azure para Redis.
+Adicione os seguintes membros à classe `Program` em *Program.cs*. Esse código inicializa uma configuração para acessar o segredo do usuário para a cadeia de conexão de Cache do Azure para Redis.
 
 ```csharp
 private static IConfigurationRoot Configuration { get; set; }
@@ -191,7 +191,7 @@ static void Main(string[] args)
 }
 ```
 
-Salve o *Program.cs* .
+Salve o *Program.cs*.
 
 O Cache Redis do Azure tem um número configurável de bancos de dados (padrão de 16) que podem ser usados para separar logicamente os dados em um Cache Redis do Azure. O código se conecta ao banco de dados padrão, DB 0. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-development-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).
 
@@ -293,13 +293,13 @@ Caso contrário, se você não for mais usar o aplicativo de exemplo do início 
 > A exclusão de um grupo de recursos é irreversível, e o grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. Se tiver criado os recursos para hospedar este exemplo dentro de um grupo de recursos existente que contém recursos que você quer manter, exclua cada recurso individualmente de suas respectivas folhas, em vez de excluir o grupo de recursos.
 >
 
-Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos** .
+Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources* . Em seu grupo de recursos, na lista de resultados, clique em **...** , depois em **Excluir grupo de recursos** .
+Na caixa de texto **Filtrar por nome...** , digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources*. Em seu grupo de recursos, na lista de resultados, clique em **...** , depois em **Excluir grupo de recursos**.
 
 ![Excluir](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos para confirmar e clique em **Excluir** .
+Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos para confirmar e clique em **Excluir**.
 
 Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 

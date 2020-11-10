@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219893859d05eb419bc862484a9083abf8c26db7
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276177"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409290"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbrida para a nuvem do Azure Governamental
 
@@ -36,7 +36,7 @@ As informações a seguir descrevem a implementação da Autenticação de Passa
 Antes de implantar o agente de Autenticação de Passagem, verifique se existe um firewall entre os servidores e o Azure AD. Se o firewall ou o proxy permitir programas bloqueados ou seguros do Sistema de Nomes de Domínio (DNS), adicione as seguintes conexões.
 
 > [!NOTE]
-> As diretrizes a seguir também se aplicam à instalação do [conector de Proxy de Aplicativo do Azure AD](https://aka.ms/whyappproxy) para ambientes do Azure Governamental.
+> As diretrizes a seguir também se aplicam à instalação do [conector de Proxy de Aplicativo do Azure AD](../manage-apps/what-is-application-proxy.md) para ambientes do Azure Governamental.
 
 |URL |Como ele é usado|
 |-----|-----|

@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Synapse SQL com sqlcmd
-description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar o SQL sob demanda (versão prévia) e o pool de SQL.
+description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar o pool de SQL sem servidor (versão prévia) e o pool de SQL dedicado.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1af42a838463132a241447c11b90bfb489f879ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10f15ec2108e897164206543358d7a9e7bd40f64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316500"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Conectar-se ao Synapse SQL com sqlcmd
 
@@ -25,7 +25,7 @@ ms.locfileid: "87059459"
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Você pode usar o utilitário de linha de comando [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para se conectar e consultar o SQL sob demanda (versão prévia) e o pool de SQL no Synapse SQL.  
+Você pode usar o utilitário de linha de comando [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para se conectar e consultar o pool de SQL sem servidor (versão prévia) e o pool de SQL dedicado no SQL do Synapse.  
 
 ## <a name="1-connect"></a>1. Conectar
 Para começar com o [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do seu banco de dados do Synapse SQL. A cadeia de conexão precisará dos seguintes parâmetros:
@@ -41,13 +41,13 @@ Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros
 
 Sua cadeia de conexão deverá ficar como o seguinte exemplo:
 
-**SQL sob demanda**
+**Pool de SQL sem servidor**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
 ```
 
-**Pool de SQL**
+**Pool de SQL dedicado**
 
 ```
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -59,13 +59,13 @@ Para usar a autenticação Integrada do Azure Active Directory, você precisa ad
 
 Sua cadeia de conexão deverá ficar como um dos seguintes exemplos:
 
-**SQL sob demanda**
+**Pool de SQL sem servidor**
 
 ```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 ```
 
-**Pool de SQL**
+**Pool de SQL dedicado**
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ## <a name="2-query"></a>2. Consulta
 
-### <a name="use-sql-pool"></a>Usar pool de SQL
+### <a name="use-dedicated-sql-pool"></a>Use o pool de SQL dedicado
 
 Após a conexão, você pode executar instruções [T-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Transact-SQL) compatíveis na instância. Neste exemplo, as consultas são enviadas no modo interativo:
 
@@ -87,7 +87,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-Para o pool de SQL, os seguintes exemplos mostram como executar consultas no modo de lote usando a opção -Q ou canalizando seu SQL para sqlcmd:
+Para o pool de SQL dedicado, os seguintes exemplos mostram como executar consultas no modo de lote usando a opção -Q ou canalizando o seu SQL para sqlcmd:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -97,7 +97,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-### <a name="use-sql-on-demand"></a>Usar o SQL sob demanda
+### <a name="use-serverless-sql-pool"></a>Usar o pool de SQL sem servidor
 
 Após a conexão, você pode emitir instruções [T-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Transact-SQL) compatíveis com a instância.  No seguinte exemplo, as consultas são enviadas no modo interativo:
 
@@ -108,7 +108,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-Para o SQL sob demanda, os seguintes exemplos mostram como executar consultas no modo de lote usando a opção -Q ou canalizando seu SQL para sqlcmd:
+Para o pool de SQL sem servidor, os seguintes exemplos mostram como executar consultas no modo de lote usando a opção -Q ou canalizando o seu SQL para sqlcmd:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"

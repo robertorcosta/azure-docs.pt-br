@@ -1,6 +1,6 @@
 ---
-title: Consultar dados no armazenamento usando o SQL sob demanda (versão prévia)
-description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso SQL sob demanda (versão prévia) no Azure Synapse Analytics.
+title: Consultar o armazenamento de dados com o pool de SQL sem servidor (versão prévia)
+description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso de pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288368"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310959"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulte arquivos de armazenamento com o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
-O SQL sob demanda (versão prévia) permite que você consulte dados em seu data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
+O pool de SQL sem servidor (versão prévia) permite que você consulte dados no seu data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
 
 - Área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, incluindo a maioria das [funções e operadores SQL](overview-features.md).
 - [CETAS](develop-tables-cetas.md) (CREATE EXTERNAL TABLE AS SELECT) cria uma [tabela externa](develop-tables-external-tables.md) e, em seguida, exporta em paralelo os resultados de uma instrução SELECT de Transact-SQL para o Armazenamento do Azure.
 
-Para obter mais informações sobre o que é e o que não é compatível atualmente, leia o artigo [Visão geral do SQL sob demanda](on-demand-workspace-overview.md) ou os seguintes artigos:
+Para obter mais informações sobre o que é e o que não é compatível atualmente, leia o artigo [Visão geral do pool de SQL sem servidor](on-demand-workspace-overview.md) ou os seguintes artigos:
 - [Desenvolver o acesso de armazenamento](develop-storage-files-overview.md), em que você pode aprender a usar [Tabela externa](develop-tables-external-tables.md) e a função [OPENROWSET](develop-openrowset.md) para ler dados do armazenamento.
 - [Controle o acesso de armazenamento](develop-storage-files-storage-access-control.md), em que você pode aprender a habilitar o SQL do Synapse a acessar o armazenamento usando a autenticação SAS ou a identidade gerenciada do workspace.
 
 ## <a name="overview"></a>Visão geral
 
-Para dar suporte a uma experiência tranquila para a consulta de dados localizados em arquivos do Armazenamento do Azure, o SQL sob demanda usa a função [OPENROWSET](develop-openrowset.md) com recursos adicionais:
+Para dar suporte a uma experiência tranquila para a consulta no local de dados localizados em arquivos do Armazenamento do Azure, o pool de SQL sem servidor usa a função [OPENROWSET](develop-openrowset.md) com funcionalidades adicionais:
 
 - [Consultar vários arquivos ou pastas](#query-multiple-files-or-folders)
 - [Formato de arquivo PARQUET](#query-parquet-files)
@@ -146,7 +146,7 @@ O tipo de dados retornado é nvarchar (1024). Para obter um desempenho ideal, se
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas
 
-Para permitir uma experiência tranquila com os dados armazenados em tipos de dados aninhados ou repetidos, como em arquivos [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), o SQL sob demanda adicionou as extensões a seguir.
+Para permitir uma experiência tranquila com os dados armazenados em tipos de dados aninhados ou repetidos, como em arquivos [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), o pool de SQL sem servidor adicionou as extensões a seguir.
 
 #### <a name="project-nested-or-repeated-data"></a>Dados de projeto aninhados ou repetidos
 

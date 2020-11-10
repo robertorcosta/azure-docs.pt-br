@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043302"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Criar assinaturas do Azure de maneira programática com APIs em versão prévia
 
@@ -212,7 +212,7 @@ Para ver uma lista completa de todos os parâmetros, consulte [criar conta az](/
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da API de criação de assinatura do Azure Enterprise
 
 - Somente assinaturas do Azure Enterprise podem ser criadas usando a API.
-- Há um limite de 2.000 assinaturas por conta de registro. Depois disso, mais assinaturas da conta podem ser criadas apenas no portal do Azure. Se você quiser criar mais assinaturas por meio da API, crie outra conta de registro.
+- Há um limite de 2.000 assinaturas por conta de registro. Depois disso, mais assinaturas da conta podem ser criadas apenas no portal do Azure. Se você quiser criar mais assinaturas por meio da API, crie outra conta de registro. Assinaturas canceladas, excluídas e transferidas são consideradas para o limite de 2000.
 - Os usuários que não são Proprietários da Conta, mas foram adicionados a uma conta de registro com o Azure RBAC, não podem criar assinaturas no portal do Azure.
 - Você não pode selecionar o locatário para a assinatura a ser criada. A assinatura é sempre criada no locatário inicial do Proprietário da Conta. Para mover a assinatura para um locatário diferente, consulte [alterar o locatário da assinatura](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

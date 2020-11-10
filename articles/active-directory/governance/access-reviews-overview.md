@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594332"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095995"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -81,7 +81,7 @@ O diretório precisa ter, pelo menos, um número de licenças do Azure AD Premiu
 
 As licenças do Azure AD Premium P2 **não** são necessárias para usuários com funções de Administrador Global ou de Administrador de Usuários que configuram revisões de acesso, definem configurações ou aplicam as decisões das revisões.
 
-Para cada licença paga do Azure AD Premium P2 atribuída a um dos usuários de sua organização, você poderá usar o Azure AD B2B (entre empresas) para convidar até cinco usuários convidados sob a Provisão de Usuário Externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../external-identities/licensing-guidance.md).
+O acesso do usuário convidado do Azure AD é baseado em um modelo de cobrança de MAU (usuários ativos mensais), que substitui o modelo de cobrança de índice 1:5. Para obter mais informações, confira [Preços das Identidades Externas do Azure AD](../external-identities/external-identities-pricing.md).
 
 Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 

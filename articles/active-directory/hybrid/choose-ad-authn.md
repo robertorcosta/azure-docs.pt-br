@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602363"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410267"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory
 
@@ -102,7 +102,7 @@ Detalhes sobre questões de decisão:
 * **Considerações**. No momento, a sincronização de hash de senha não impõe imediatamente as alterações nos estados da conta local. Nessa situação, um usuário tem acesso aos aplicativos de nuvem até que o estado da conta do usuário seja sincronizado com o Azure AD. As organizações podem desejar superar essa limitação executando um novo ciclo de sincronização depois que os administradores fizerem atualizações em massa nos estados da conta do usuário local. Um exemplo é a desabilitação de contas.
 
 > [!NOTE]
-> No momento, os estados de senha expirada e conta bloqueada não estão sincronizados com o Azure AD usando o Azure AD Connect. Quando você altera a senha de um usuário e define o sinalizador *o usuário deve alterar a senha no próximo logon*, o hash de senha não será sincronizado com o Azure AD usando o Azure AD Connect até que o usuário altere a senha.
+> No momento, os estados de senha expirada e conta bloqueada não estão sincronizados com o Azure AD usando o Azure AD Connect. Quando você altera a senha de um usuário e define o sinalizador *o usuário deve alterar a senha no próximo logon* , o hash de senha não será sincronizado com o Azure AD usando o Azure AD Connect até que o usuário altere a senha.
 
 Veja [como implementar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) para obter as etapas de implantação.
 
@@ -221,4 +221,4 @@ Atualmente, as ameaças estão presentes 24 horas por dia e vêm de qualquer lug
 
 [Comece](../fundamentals/active-directory-whatis.md) a usar o Azure AD e implante a solução de autenticação adequada para sua organização.
 
-Caso esteja considerando migrar da autenticação federada para a autenticação na nuvem, saiba mais sobre [como alterar o método de entrada](../../active-directory/hybrid/plan-connect-user-signin.md). Para ajudá-lo a planejar e implementar a migração, use [esses planos de implantação de projeto](https://aka.ms/deploymentplans) ou considere usar o novo recurso [Distribuição em Etapas](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar usuários federados para o uso da autenticação de nuvem em uma abordagem em etapas.
+Caso esteja considerando migrar da autenticação federada para a autenticação na nuvem, saiba mais sobre [como alterar o método de entrada](../../active-directory/hybrid/plan-connect-user-signin.md). Para ajudá-lo a planejar e implementar a migração, use [esses planos de implantação de projeto](../fundamentals/active-directory-deployment-plans.md) ou considere usar o novo recurso [Distribuição em Etapas](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar usuários federados para o uso da autenticação de nuvem em uma abordagem em etapas.

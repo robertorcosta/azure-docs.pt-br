@@ -1,6 +1,6 @@
 ---
-title: Armazenar os resultados da consulta no armazenamento
-description: Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o SQL sob demanda (versão prévia).
+title: Armazenar resultados de consulta do pool de SQL sem servidor
+description: Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o pool de SQL sem servidor (versão prévia).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5fda5e7a5caf72df3d4c80e37a684232ca5541
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50897d81ed5ef2fc33e458bd46d9229f6184fea8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289354"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322622"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Armazenar os resultados da consulta no armazenamento usando o SQL sob demanda (versão prévia) e o Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Armazenar os resultados da consulta no armazenamento usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o SQL sob demanda (versão prévia).
+Neste artigo, você aprenderá a armazenar os resultados da consulta no armazenamento usando o pool de SQL sem servidor (versão prévia).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

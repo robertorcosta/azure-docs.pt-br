@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87042603"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313729"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Rede virtual gerenciada do Azure Synapse Analytics (versão prévia)
 
@@ -30,11 +30,11 @@ A Rede Virtual de workspace gerenciada oferece vantagens de quatro maneiras:
 - Você não precisa criar uma sub-rede para seus clusters Spark com base na carga de pico.
 - A Rede Virtual de workspace gerenciada juntamente com Pontos de extremidade privados gerenciados protege contra exfiltração dos dados. Você só pode criar Pontos de extremidade privados gerenciados em um workspace que tenha uma Rede Virtual de workspace gerenciada associada a ele.
 
-A criação de um workspace com uma Rede Virtual de workspace gerenciada associada a ele garante que seu workspace seja isolado de outros na rede. O Azure Synapse oferece vários recursos de análise em um workspace: Integração de dados, Apache Spark, pool de SQL e SQL sob demanda.
+A criação de um workspace com uma Rede Virtual de workspace gerenciada associada a ele garante que seu workspace seja isolado de outros na rede. O Azure Synapse oferece vários recursos de análise em um workspace: Integração de dados, Pool do Apache Spark sem servidor, pool de SQL dedicado e pool de SQL sem servidor.
 
 Se o workspace tiver uma Rede Virtual de workspace gerenciada, a Integração de dados e os recursos do Spark serão implantados nele. Uma Rede Virtual de workspace gerenciada também fornece isolamento de nível de usuário para atividades do Spark porque cada cluster Spark fica em uma sub-rede própria.
 
-O pool de SQL e o SQL sob demanda são recursos multilocatário e, portanto, residem fora da Rede Virtual de workspace gerenciada. Comunicação entre workspaces com o pool de SQL e o SQL sob demanda usam links privados do Azure. Esses links privados são criados automaticamente para você quando você cria um workspace com uma Rede Virtual de workspace gerenciada associada a ele.
+O pool de SQL dedicado e o pool de SQL sem servidor são funcionalidades multilocatários e, portanto, residem fora da Rede Virtual de workspace gerenciada. Comunicação entre workspaces com o pool de SQL dedicado e o pool de SQL sem servidor usam links privados do Azure. Esses links privados são criados automaticamente para você quando você cria um workspace com uma Rede Virtual de workspace gerenciada associada a ele.
 
 >[!IMPORTANT]
 >Você não pode alterar essa configuração do workspace depois que ele é criado. Por exemplo, você não pode reconfigurar um workspace que não tenha uma Rede Virtual de workspace gerenciada associada a ela e associar uma Rede Virtual a ele. Da mesma forma, você não pode reconfigurar um workspace com uma Rede Virtual de workspace gerenciada associada a ele e desassociar a Rede Virtual dele.
@@ -43,7 +43,7 @@ O pool de SQL e o SQL sob demanda são recursos multilocatário e, portanto, res
 
 Registre o provedor de recursos de rede, caso ainda não tenha feito isso. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Para criar um workspace do Azure Synapse que tenha uma Rede Virtual de workspace gerenciada associada a ele, selecione a guia **Segurança + rede** no portal do Azure e marque a caixa de seleção **Habilitar rede virtual gerenciada**.
+Para criar um workspace do Azure Synapse que tenha uma Rede Virtual de workspace gerenciada associada a ele, selecione a guia **Rede** no portal do Azure e marque a caixa de seleção **Habilitar rede virtual gerenciada**.
 
 Se você deixar a caixa de seleção desmarcada, o workspace não terá uma Rede Virtual associada a ela.
 

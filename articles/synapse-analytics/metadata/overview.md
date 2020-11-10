@@ -1,6 +1,6 @@
 ---
 title: Modelo de metadados compartilhados
-description: O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Spark (versão prévia), o mecanismo SQL sob demanda (versão prévia) e os pools de SQL.
+description: O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor (versão prévia), o pool de SQL sem servidor (versão prévia) e os pools de SQL dedicados.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387329"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324657"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadados compartilhados do Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Spark (versão prévia), o mecanismo SQL sob demanda (versão prévia).
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor (versão prévia) e o pool de SQL sem servidor (versão prévia).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ O modelo de metadados compartilhados dá suporte ao padrão de data warehouse mo
 
 2. Os bancos de dados criados pelo Spark e todas as tabelas se tornam visíveis em uma das instâncias do Pool do Spark do workspace do Azure Synapse e podem ser usados em um dos trabalhos do Spark. Essa funcionalidade está sujeita às [permissões](#security-model-at-a-glance), pois todos os pools do Spark em um workspace compartilham o armazenamento de metadados de catálogo subjacente.
 
-3. Os bancos de dados criados pelo Spark e as tabelas com backup do Parquet se tornam visíveis no mecanismo SQL sob demanda do workspace. Os [bancos de dados](database.md) são criados automaticamente nos metadados do SQL sob demanda e as [tabelas externas e gerenciadas](table.md) criadas por um trabalho do Spark ficam acessíveis como tabelas externas nos metadados do SQL sob demanda no esquema `dbo` do banco de dados correspondente. 
+3. Os bancos de dados criados pelo Spark e as tabelas de backup do Parquet correspondentes se tornam visíveis no pool de SQL sem servidor do workspace. Os [bancos de dados](database.md) são criados automaticamente nos metadados do pool de SQL sem servidor e as [tabelas externas e gerenciadas](table.md) criadas por um trabalho do Spark ficam acessíveis como tabelas externas nos metadados do pool de SQL sem servidor no esquema `dbo` do banco de dados correspondente. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Para obter mais informações, confira [Banco de dados compartilhado do Azure Sy
 
 ## <a name="change-maintenance"></a>Alterar manutenção
 
-Se um objeto de metadados for excluído ou alterado com o Spark, as alterações serão coletadas e propagadas para o mecanismo SQL sob demanda. A sincronização é assíncrona e as alterações são refletidas no mecanismo SQL após um pequeno atraso.
+Se um objeto de metadados for excluído ou alterado com o Spark, as alterações serão coletadas e propagadas para o pool de SQL sem servidor. A sincronização é assíncrona e as alterações são refletidas no mecanismo SQL após um pequeno atraso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

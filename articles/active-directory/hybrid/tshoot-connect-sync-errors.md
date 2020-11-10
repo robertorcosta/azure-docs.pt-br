@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd779c26cd523bbf33fa1be6c87f21b4415c152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668fa9bf0ef4fd3b5451ff4c815b676fe237e51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016411"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410616"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solucionando erros durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do AD DS (Active Directory do Windows Server) para o Azure AD (Azure Active Directory). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que causam esses erros e possíveis maneiras de corrigi-los. Este artigo inclui os tipos de erro comuns e talvez não abranja todos os erros possíveis.
@@ -34,7 +34,7 @@ A partir de 1º de setembro de 2016, o recurso [Duplicar a Resiliência do Atrib
 O Azure AD Connect realiza três tipos de operações dos diretórios que mantém em sincronia: Importação, Sincronização e Exportação. Erros podem ocorrer em todas as operações. Este artigo se concentra principalmente em erros durante a Exportação para o Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Erros durante a Exportação para o Azure AD
-A seção seguinte descreve os diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para o Azure AD usando o conector do Azure AD. Esse conector pode ser identificado pelo formato de nome, que é "contoso.*onmicrosoft.com*".
+A seção seguinte descreve os diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para o Azure AD usando o conector do Azure AD. Esse conector pode ser identificado pelo formato de nome, que é "contoso. *onmicrosoft.com* ".
 Erros durante a exportação para o Azure AD indicam que a operação \(adicionar, atualizar, excluir, etc.\) tentada pelo \(Mecanismo de Sincronização\) do Azure AD Connect no Azure Active Directory falhou.
 
 ![Visão geral de Erros de Exportação](./media/tshoot-connect-sync-errors/Export_Errors_Overview_01.png)
@@ -42,7 +42,7 @@ Erros durante a exportação para o Azure AD indicam que a operação \(adiciona
 ## <a name="data-mismatch-errors"></a>Erros de Incompatibilidade de Dados
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
 #### <a name="description"></a>Descrição
-* Quando o \(mecanismo de sincronização\) do Azure AD Connect instrui o Azure Active Directory a adicionar ou atualizar objetos, o Azure AD faz a correspondência do objeto de entrada, usando o atributo **sourceAnchor**, ao atributo **immutableId** de objetos no Azure AD. Essa correspondência é chamada de **Correspondência Rígida**.
+* Quando o \(mecanismo de sincronização\) do Azure AD Connect instrui o Azure Active Directory a adicionar ou atualizar objetos, o Azure AD faz a correspondência do objeto de entrada, usando o atributo **sourceAnchor** , ao atributo **immutableId** de objetos no Azure AD. Essa correspondência é chamada de **Correspondência Rígida**.
 * Quando o Azure AD **não encontra** nenhum objeto em que o atributo **immutableId** corresponda ao atributo **sourceAnchor** do objeto de entrada, antes de provisionar um novo objeto, ele volta para usar os atributos ProxyAddresses e UserPrincipalName na tentativa de encontrar uma correspondência. Essa correspondência é chamada de **Correspondência Flexível**. A Correspondência Flexível foi projetada para corresponder objetos já presentes no Azure AD (que são originados no Azure AD) com os novos objetos que estão sendo adicionados/atualizados durante a sincronização e que representam a mesma entidade (usuários, grupos) local.
 * O erro **InvalidSoftMatch** ocorre quando a correspondência rígida não encontra nenhum objeto correspondente **E** a correspondência flexível localiza um objeto correspondente, mas esse objeto tem um valor de *immutableId* diferente daquele no atributo *SourceAnchor* do objeto de entrada, sugerindo que o objeto correspondente foi sincronizado com outro objeto do Active Directory local.
 
@@ -74,11 +74,11 @@ O esquema do Azure Active Directory não permite que dois ou mais objetos tenham
 1. **Bob Smith** é um usuário sincronizado no Azure Active Directory local Active Directory do *contoso.com*
 2. O **userPrincipalName** de Bob Smith é definido como **bobs \@ contoso.com**.
 3. **"abcdefghijklmnopqrstuv=="** é o **SourceAnchor** calculado pelo Azure AD Connect usando o **objectGUID** de Bob Smith do Active Directory local, que é a **immutableId** de Bob Smith no Azure Active Directory.
-4. Bob também tem os seguintes valores para o atributo **proxyAddresses**:
+4. Bob também tem os seguintes valores para o atributo **proxyAddresses** :
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
    * **SMTP: Bob \@ contoso.com**
-5. Um novo usuário, **Bob Taylor**, é adicionado ao Active Directory local.
+5. Um novo usuário, **Bob Taylor** , é adicionado ao Active Directory local.
 6. O **userPrincipalName** de Bob Taylor é definido como **bobt \@ contoso.com**.
 7. **"abcdefghijkl0123456789==""** é o **sourceAnchor** calculado pelo Azure AD Connect usando o **objectGUID** de Bob Taylor no Active Directory local. O objeto de Bob Taylor ainda NÃO foi sincronizado com o Azure Active Directory.
 8. Bob Taylor tem os valores a seguir para o atributo proxyAddresses
@@ -93,7 +93,7 @@ O esquema do Azure Active Directory não permite que dois ou mais objetos tenham
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Como corrigir o erro InvalidSoftMatch
 O motivo mais comum para o erro InvalidSoftMatch é que dois objetos com valores diferentes para \(immutableId\) de SourceAnchor tenham o mesmo valor para os atributos ProxyAddresses e/ou UserPrincipalName, que são usados durante o processo de correspondência flexível no Azure AD. Para corrigir a Correspondência Flexível Inválida
 
-1. Identifique o valor duplicado de proxyAddresses, userPrincipalName ou outro o atributo que está causando o erro. Identifique também quais dois \(ou mais\) os objetos estão envolvidos no conflito. O relatório gerado pelo [Azure AD Connect Health para sincronização](https://aka.ms/aadchsyncerrors) pode ajudá-lo a identificar os dois objetos.
+1. Identifique o valor duplicado de proxyAddresses, userPrincipalName ou outro o atributo que está causando o erro. Identifique também quais dois \(ou mais\) os objetos estão envolvidos no conflito. O relatório gerado pelo [Azure AD Connect Health para sincronização](./how-to-connect-health-sync.md) pode ajudá-lo a identificar os dois objetos.
 2. Identifique qual objeto deve continuar a ter o valor duplicado e qual não deve.
 3. Remova o valor duplicado do objeto que NÃO deve ter esse valor. Você deve fazer a alteração no diretório do qual o objeto foi originado. Em alguns casos, talvez seja necessário excluir um dos objetos em conflito.
 4. Se você fez a alteração no AD local, permita que o Azure AD Connect sincronize essa alteração.
@@ -123,7 +123,7 @@ Quando o Azure AD tenta fazer a correspondência flexível entre dois objetos, �
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Como corrigir o erro ObjectTypeMismatch
 O motivo mais comum para o erro ObjectTypeMismatch é que dois objetos de tipo diferente (usuário, grupo, contatos, etc.) tenham o mesmo valor para o atributo ProxyAddresses. Para corrigir o ObjectTypeMismatch:
 
-1. Identifique o valor duplicado de proxyAddresses (ou outro atributo) que está causando o erro. Identifique também quais dois \(ou mais\) os objetos estão envolvidos no conflito. O relatório gerado pelo [Azure AD Connect Health para sincronização](https://aka.ms/aadchsyncerrors) pode ajudá-lo a identificar os dois objetos.
+1. Identifique o valor duplicado de proxyAddresses (ou outro atributo) que está causando o erro. Identifique também quais dois \(ou mais\) os objetos estão envolvidos no conflito. O relatório gerado pelo [Azure AD Connect Health para sincronização](./how-to-connect-health-sync.md) pode ajudá-lo a identificar os dois objetos.
 2. Identifique qual objeto deve continuar a ter o valor duplicado e qual não deve.
 3. Remova o valor duplicado do objeto que NÃO deve ter esse valor. Observe que você deve fazer a alteração no diretório do qual o objeto foi originado. Em alguns casos, talvez seja necessário excluir um dos objetos em conflito.
 4. Se você fez a alteração no AD local, permita que o Azure AD Connect sincronize essa alteração. O Relatório de erros de sincronização no Azure AD Connect Health para a sincronização é atualizado a cada 30 minutos e inclui os erros da tentativa de sincronização mais recente.
@@ -144,11 +144,11 @@ Se o Azure AD Connect tentar adicionar um novo objeto ou atualizar um objeto exi
 #### <a name="example-case"></a>Caso de exemplo:
 1. **Bob Smith** é um usuário sincronizado no Azure Active Directory do Active Directory local de contoso.com
 2. O **userPrincipalName** local de Bob Smith está definido como **bobs \@ contoso.com**.
-3. Bob também tem os seguintes valores para o atributo **proxyAddresses**:
+3. Bob também tem os seguintes valores para o atributo **proxyAddresses** :
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
    * **SMTP: Bob \@ contoso.com**
-4. Um novo usuário, **Bob Taylor**, é adicionado ao Active Directory local.
+4. Um novo usuário, **Bob Taylor** , é adicionado ao Active Directory local.
 5. O **userPrincipalName** de Bob Taylor é definido como **bobt \@ contoso.com**.
 6. **Bob Taylor** tem os valores a seguir para o atributo i **ProxyAddresses**. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. O objeto de Bob Taylor foi sincronizado com êxito ao Azure AD.
@@ -158,7 +158,7 @@ Se o Azure AD Connect tentar adicionar um novo objeto ou atualizar um objeto exi
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Como corrigir o erro AttributeValueMustBeUnique
 O motivo mais comum para o erro AttributeValueMustBeUnique é que dois objetos com valores diferentes para \(immutableId\) de SourceAnchor tenham o mesmo valor para os atributos ProxyAddresses e/ou UserPrincipalName. Para corrigir o erro AttributeValueMustBeUnique
 
-1. Identifique o valor duplicado de proxyAddresses, userPrincipalName ou outro o atributo que está causando o erro. Identifique também quais dois \(ou mais\) os objetos estão envolvidos no conflito. O relatório gerado pelo [Azure AD Connect Health para sincronização](https://aka.ms/aadchsyncerrors) pode ajudá-lo a identificar os dois objetos.
+1. Identifique o valor duplicado de proxyAddresses, userPrincipalName ou outro o atributo que está causando o erro. Identifique também quais dois \(ou mais\) os objetos estão envolvidos no conflito. O relatório gerado pelo [Azure AD Connect Health para sincronização](./how-to-connect-health-sync.md) pode ajudá-lo a identificar os dois objetos.
 2. Identifique qual objeto deve continuar a ter o valor duplicado e qual não deve.
 3. Remova o valor duplicado do objeto que NÃO deve ter esse valor. Observe que você deve fazer a alteração no diretório do qual o objeto foi originado. Em alguns casos, talvez seja necessário excluir um dos objetos em conflito.
 4. Se você fez a alteração no AD local, permita que o Azure AD Connect sincronize essa alteração para que o erro seja corrigido.
@@ -195,7 +195,7 @@ Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um dom
 4. O userPrincipalName de Bob não é atualizado e resulta em um erro de sincronização "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Como corrigir
-Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@**contoso.com** para Bob \@ **fabrikam.com**, em que **contoso.com** e **fabrikam.com** são **domínios federados**, siga estas etapas para corrigir o erro de sincronização
+Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@ **contoso.com** para Bob \@ **fabrikam.com** , em que **contoso.com** e **fabrikam.com** são **domínios federados** , siga estas etapas para corrigir o erro de sincronização
 
 1. Atualize o UserPrincipalName do usuário no Azure AD de bob@contoso.com para bob@contoso.onmicrosoft.com. Você pode usar o seguinte comando do PowerShell com o Módulo do PowerShell do Azure AD: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permita que o próximo ciclo de sincronização tentar a sincronização. Dessa vez, a sincronização será bem-sucedida e atualizará o UserPrincipalName de Bob para bob@fabrikam.com conforme esperado.

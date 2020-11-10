@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503276"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311750"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerenciar o acesso a workspaces, dados e pipelines
 
@@ -94,21 +94,21 @@ Depois de provisionar o workspace, você precisará escolher uma conta do [Azure
 O controle de acesso aos dados subjacentes é dividido em três partes:
 
 - Acesso ao plano de dados à conta de armazenamento (já configurado acima na Etapa 2)
-- Acesso ao plano de dados aos bancos de dados SQL (para os pools de SQL e o SQL sob demanda)
-- Como criar uma credencial para bancos de dados do SQL sob demanda na conta de armazenamento
+- Acesso do plano de dados aos Bancos de Dados SQL (para os pools de SQL dedicados e o pool de SQL sem servidor)
+- Como criar uma credencial para bancos de dados do pool de SQL sem servidor na conta de armazenamento
 
 ## <a name="access-control-to-sql-databases"></a>Controle de acesso aos bancos de dados SQL
 
 > [!TIP]
 > As etapas a seguir precisam ser executadas para **cada** banco de dados SQL a fim de conceder acesso de usuário a todos os bancos de dados SQL, exceto na seção [permissão de nível de servidor](#server-level-permission) em que você pode atribuir a um usuário a função de sysadmin.
 
-### <a name="sql-on-demand"></a>SQL sob demanda
+### <a name="serverless-sql-pool"></a>Pool de SQL sem servidor
 
 Nesta seção, você pode encontrar exemplos de como conceder a um usuário uma permissão para um banco de dados específico ou permissões totais de servidor.
 
 #### <a name="database-level-permission"></a>Permissão no nível do banco de dados
 
-Para permitir acesso a um usuário a um banco de dados **individual** do SQL sob demanda, siga as etapas deste exemplo:
+Para permitir acesso a um usuário a um banco de dados do pool de SQL sem servidor **individual** do SQL sob demanda, siga as etapas deste exemplo:
 
 1. Criar um LOGON
 
@@ -140,16 +140,16 @@ Para permitir acesso a um usuário a um banco de dados **individual** do SQL sob
 
 #### <a name="server-level-permission"></a>Permissões no nível do servidor
 
-Para permitir acesso completo a um usuário a **todos** os banco de dados do SQL sob demanda, execute a etapa deste exemplo:
+Para permitir acesso completo a um usuário a **todos** os banco de dados do pool de SQL sem servidor, execute a etapa deste exemplo:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>Pools de SQL
+### <a name="dedicated-sql-pool"></a>Pool de SQL dedicado
 
-Para permitir acesso a um usuário a um Banco de Dados SQL **individual** , siga estas etapas:
+Para permitir acesso a um usuário a um banco de dados SQL **individual** , siga estas etapas:
 
 1. Crie o usuário no banco de dados executando o seguinte comando, tendo como destino o banco de dados desejado no seletor de contexto (selecione a lista suspensa para escolher os bancos de dados):
 
@@ -167,18 +167,18 @@ Para permitir acesso a um usuário a um Banco de Dados SQL **individual** , siga
 
 > [!IMPORTANT]
 > *db_datareader* e *db_datawriter* poderão funcionar para permissões de leitura/gravação se a concessão da permissão *db_owner* não for desejada.
-> Para que um usuário do Spark faça leituras e gravações diretamente no Spark de maneira bidirecional em um pool de SQL, a permissão *db_owner* é necessária.
+> Para que um usuário do Spark faça leituras e gravações diretamente no Spark de maneira bidirecional em um pool de SQL dedicado, a permissão *db_owner* é necessária.
 
-Depois de criar os usuários, verifique se o SQL sob demanda pode consultar a conta de armazenamento.
+Depois de criar os usuários, verifique se o pool de SQL sem servidor pode consultar a conta de armazenamento.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Controle de acesso às execuções de pipeline do workspace
 
 ### <a name="workspace-managed-identity"></a>Identidade gerenciada pelo workspace
 
 > [!IMPORTANT]
-> Para executar com êxito os pipelines que incluem conjuntos de dados ou atividades que referenciam um pool de SQL, a identidade do workspace precisa receber acesso diretamente ao pool de SQL.
+> Para executar com êxito os pipelines que incluem conjuntos de dados ou atividades que referenciam um pool de SQL dedicado, a identidade do workspace precisa receber acesso diretamente ao pool de SQL.
 
-Execute os seguintes comandos em cada pool de SQL para permitir que a identidade gerenciada do workspace execute pipelines no banco de dados do pool de SQL:
+Execute os seguintes comandos em cada pool de SQL dedicado para permitir que a identidade gerenciada do workspace execute pipelines no banco de dados do pool de SQL:
 
 ```sql
 --Create user in DB

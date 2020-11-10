@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322055"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410548"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão do Aplicativos Lógicos do Azure (versão preliminar)
 
@@ -66,7 +66,7 @@ A extensão de aplicativos lógicos do Azure (versão prévia) traz vários recu
 
 ## <a name="stateful-versus-stateless-logic-apps"></a>Aplicativos lógicos com estado versus sem estado
 
-* *Dinâmico*
+* *Com estado*
 
   Crie aplicativos lógicos com estado quando precisar manter, examinar ou referenciar dados de eventos anteriores. Esses aplicativos lógicos mantêm a entrada e a saída de cada ação e seus Estados de fluxo de trabalho no armazenamento externo, o que torna possível examinar os detalhes de execução e o histórico possível após a conclusão de cada execução. Os aplicativos lógicos com estado fornecem alta resiliência se ou quando ocorrerem interrupções. Depois que os serviços e sistemas forem restaurados, você poderá reconstruir o aplicativo lógico interrompido é executado a partir do estado salvo e executar novamente os aplicativos lógicos para conclusão. Fluxos de trabalho com estado podem continuar em execução por até um ano.
 
@@ -109,8 +109,6 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
   Exceto para os gatilhos especificados anteriormente, os fluxos de trabalho com *estado* podem usar gatilhos e ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), que são implantados no Azure versus gatilhos internos e ações que são executadas nativamente com o tempo de execução dos aplicativos lógicos. No entanto, fluxos de trabalho *sem estado* atualmente dão suporte apenas a *ações* para conectores gerenciados, não disparadores. Embora você possa habilitar conectores no Azure para seu fluxo de trabalho sem estado, o designer não mostra nenhum gatilho de conector gerenciado para você selecionar.
 
 * Você pode implantar o novo tipo de recurso de **aplicativo lógico (versão prévia)** somente em um [plano de hospedagem do serviço de aplicativo ou Premium no Azure](#publish-azure) ou em um [contêiner do Docker](#deploy-docker), e não em [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Os planos de Hospedagem de **consumo** não têm suporte nem estão disponíveis para a implantação desse tipo de recurso.
-
-* No portal do Azure, não é possível criar novos aplicativos lógicos com o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Você só pode criar esses aplicativos lógicos no Visual Studio Code. No entanto, depois de implantar aplicativos lógicos com esse tipo de recurso de Visual Studio Code para o Azure, você pode [Adicionar novos fluxos de trabalho a esses aplicativos lógicos](#add-workflows).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -551,9 +549,9 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
    | Anulado | ![Ícone do status de ação "abortado"][aborted-icon] | A ação foi interrompida ou não foi concluída devido a problemas externos, por exemplo, uma interrupção do sistema ou uma assinatura do Azure enlapsada. |
    | Cancelado | ![Ícone do status de ação "cancelado"][cancelled-icon] | A ação estava em execução, mas recebeu uma solicitação de cancelamento. |
    | Com falha | ![Ícone do status da ação "falha"][failed-icon] | Falha na ação. |
-   | Executando | ![Ícone para o status de ação "em execução"][running-icon] | A ação está em execução no momento. |
+   | Em execução | ![Ícone para o status de ação "em execução"][running-icon] | A ação está em execução no momento. |
    | Ignorado | ![Ícone do status de ação "ignorado"][skipped-icon] | A ação foi ignorada porque a ação imediatamente anterior falhou. Uma ação tem uma `runAfter` condição que requer que a ação anterior seja concluída com êxito antes que a ação atual possa ser executada. |
-   | Êxito | ![Ícone do status de ação "êxito"][succeeded-icon] | A ação foi bem-sucedida. |
+   | Com sucesso | ![Ícone do status de ação "êxito"][succeeded-icon] | A ação foi bem-sucedida. |
    | Êxito com novas tentativas | ![Ícone para o status de ação "êxito com novas tentativas"][succeeded-with-retries-icon] | A ação foi bem-sucedida, mas somente após uma ou mais tentativas. Para examinar o histórico de repetição, na exibição detalhes do histórico de execuções, selecione essa ação para que você possa exibir as entradas e saídas. |
    | Tempo limite atingido | ![Ícone do status de ação "tempo limite"][timed-out-icon] | A ação foi interrompida devido ao limite de tempo limite especificado pelas configurações dessa ação. |
    | Aguardando | ![Ícone do status de ação "aguardando"][waiting-icon] | Aplica-se a uma ação de webhook que está aguardando uma solicitação de entrada de um chamador. |
@@ -774,12 +772,7 @@ No Visual Studio Code, você pode exibir todos os aplicativos lógicos implantad
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Localizar e gerenciar aplicativos lógicos implantados no portal
 
-No portal do Azure, você pode exibir todos os aplicativos lógicos implantados que estão em sua assinatura do Azure, sejam eles o tipo de recurso **aplicativos lógicos** originais ou o tipo de recurso **aplicativo lógico (versão prévia)** . Atualmente, cada tipo de recurso é organizado e gerenciado como categorias separadas no Azure.
-
-> [!NOTE]
-> Para visualização pública, você só pode exibir recursos de aplicativo lógico implantado **(versão prévia)** no portal do Azure, não criar novos recursos de **aplicativo lógico (versão prévia)** . Você pode criar esses aplicativos lógicos somente no Visual Studio Code. No entanto, você pode [Adicionar fluxos de trabalho](#add-workflows) a aplicativos lógicos implantados com esse tipo de recurso.
-
-Para localizar aplicativos lógicos que têm o tipo de recurso **aplicativo lógico (versão prévia)** , siga estas etapas:
+No portal do Azure, você pode exibir todos os aplicativos lógicos implantados que estão em sua assinatura do Azure, sejam eles o tipo de recurso **aplicativos lógicos** originais ou o tipo de recurso **aplicativo lógico (versão prévia)** . Atualmente, cada tipo de recurso é organizado e gerenciado como categorias separadas no Azure. Para localizar aplicativos lógicos que têm o tipo de recurso **aplicativo lógico (versão prévia)** , siga estas etapas:
 
 1. Na caixa de pesquisa portal do Azure, digite `logic app preview` . Quando a lista de resultados aparecer, em **Serviços** , selecione **aplicativo lógico (versão prévia)**.
 
@@ -1010,7 +1003,7 @@ Esta tabela especifica o comportamento do fluxo de trabalho filho com base em se
 | Sem estado | Sem estado | Gatilho e espera |
 ||||
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 Embora muitos [limites existentes para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md) sejam os mesmos para esse tipo de recurso, aqui estão as diferenças nesta extensão de visualização pública:
 

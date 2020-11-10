@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911385"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409885"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
 
@@ -27,7 +27,7 @@ Este artigo descreve a ameaça de segurança comum do subdomínio tomada e as et
 
 ## <a name="what-is-subdomain-takeover"></a>O que é subdomínio tomada?
 
-Subdomínio takeovers são uma ameaça comum e de alta gravidade para as organizações que criam e excluem muitos recursos regularmente. Um subdomínio tomada pode ocorrer quando você tem um [registro DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) que aponta para um recurso do Azure desprovisionado. Esses registros DNS também são conhecidos como entradas "pendente DNS". Os registros CNAME são especialmente vulneráveis a essa ameaça. O subdomínio takeovers permite que os atores mal-intencionados redirecionem o tráfego destinado ao domínio de uma organização a um site executando atividades mal-intencionadas.
+Subdomínio takeovers são uma ameaça comum e de alta gravidade para as organizações que criam e excluem muitos recursos regularmente. Um subdomínio tomada pode ocorrer quando você tem um [registro DNS](../../dns/dns-zones-records.md#dns-records) que aponta para um recurso do Azure desprovisionado. Esses registros DNS também são conhecidos como entradas "pendente DNS". Os registros CNAME são especialmente vulneráveis a essa ameaça. O subdomínio takeovers permite que os atores mal-intencionados redirecionem o tráfego destinado ao domínio de uma organização a um site executando atividades mal-intencionadas.
 
 Um cenário comum para um subdomínio tomada:
 
@@ -86,7 +86,7 @@ Se os CNAMEs estiverem em outros serviços DNS e apontarem para recursos do Azur
 A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A ferramenta extrai ou usa como entradas, todos os CNAMEs do locatário.
 
 
-| Serviço                   | Type                                        | FQDNproperty                               | Exemplo                         |
+| Serviço                   | Tipo                                        | FQDNproperty                               | Exemplo                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Porta da frente do Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Armazenamento do Blobs do Azure        | microsoft.storage/storageaccounts           | Propriedades. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -95,7 +95,7 @@ A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A fe
 | Gerenciador de Tráfego do Azure     | microsoft.network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
 | Azure Container Instance  | microsoft.containerinstance/containergroups | Propriedades. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
 | Gerenciamento de API do Azure      | microsoft.apimanagement/service             | Propriedades. hostnameConfigurations. hostName | `abc.azure-api.net`             |
-| Serviço de aplicativo do Azure         | microsoft.web/sites                         | Propriedades. DefaultHostName                 | `abc.azurewebsites.net`         |
+| Serviço de Aplicativo do Azure         | microsoft.web/sites                         | Propriedades. DefaultHostName                 | `abc.azurewebsites.net`         |
 | Azure App slots de serviço | microsoft.web/sites/slots                   | Propriedades. DefaultHostName                 | `abc-def.azurewebsites.net`     |
 
 
