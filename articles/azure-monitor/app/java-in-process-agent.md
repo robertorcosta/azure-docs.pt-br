@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem a necessidade de modificação de código. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379762"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426826"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -18,7 +18,7 @@ O monitoramento de aplicativos sem código Java é bastante simples – não há
 
 Adicionar o SDK do Java Application Insights ao seu aplicativo não é mais necessário, pois o agente 3,0 coleta automaticamente solicitações, dependências e logs por conta própria.
 
-Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0 irá rastreá-lo e correlacioná-lo junto com toda a telemetria concolhida.
+Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0 irá rastreá-lo e correlacioná-lo junto com toda a telemetria coletada automaticamente.
 
 O agente 3,0 dá suporte a Java 8 e superior.
 
@@ -82,7 +82,7 @@ No `applicationinsights.json` arquivo, você também pode configurar:
 * amostragem
 * Métricas JMX
 * Dimensões personalizadas
-* Processadores de telemetria
+* Processadores de telemetria (visualização)
 * Registro em log coletado automaticamente
 * Métricas de micrometer coletadas automaticamente (incluindo as métricas do acionador do Spring boot)
 * Pulsação
@@ -91,7 +91,7 @@ No `applicationinsights.json` arquivo, você também pode configurar:
 
 Consulte [Opções de configuração](./java-standalone-config.md) para obter detalhes completos.
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Solicitações, dependências, logs e métricas concolhidas.
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Solicitações, dependências, logs e métricas coletados automaticamente
 
 ### <a name="requests"></a>Requests
 
@@ -141,12 +141,12 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 
 |                     | Micrometer | Log4J, logback, JUL | SDK 2. x |
 |---------------------|------------|---------------------|---------|
-| **Eventos personalizados**   |            |                     |  Sim    |
+| **Eventos personalizados**   |            |                     |  Yes    |
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Sim    |
+| **Dependências**    |            |                     |  Yes    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Visualizações de página**      |            |                     |  Sim    |
-| **Solicitações**        |            |                     |  Sim    |
+| **Visualizações de página**      |            |                     |  Yes    |
+| **Solicitações**        |            |                     |  Yes    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
 Não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.

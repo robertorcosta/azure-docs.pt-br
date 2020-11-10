@@ -61,8 +61,8 @@
       items:
         - name: Gerenciar modelos personalizados
           href: how-to-manage-model.md
-        - name: Converter modelos padrão do setor
-          href: how-to-convert-models.md
+        - name: Integrar modelos padrão do setor
+          href: how-to-integrate-models.md
         - name: Analisar e validar modelos
           href: how-to-parse-models.md
         - name: Adicionar marcas
@@ -140,10 +140,10 @@
             - name: SDK do .NET (C#) – NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
             - name: SDK do .NET (C#) – Referência
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: SDK do .NET (C#) – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
-            - name: Java SDK
+            - name: Java SDK – Maven
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
             - name: SDK do Java – Referência
               href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
@@ -153,11 +153,11 @@
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: SDK do JavaScript – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins'
-            - name: SDK do Python
+            - name: SDK do Python – PyPi
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: SDK do Python – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
-            - name: SDK do Go
+            - name: SDK do Go – GoDoc
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
             - name: Go – origem
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
@@ -168,23 +168,25 @@
             - name: SDK do .NET (C#) – NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: SDK do .NET (C#) – Referência
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview
+              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
             - name: SDK do .NET (C#) – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: Java SDK – Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar'
             - name: SDK do Java – Referência
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
+              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
             - name: SDK do Java – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: SDK do JavaScript – npm
               href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: SDK do JavaScript – referência
-              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
             - name: SDK do JavaScript – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: SDK do Python – PyPi
-              href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+              href: 'https://pypi.org/project/azure-digitaltwins-core/'
+            - name: SDK do Python – referência
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
             - name: SDK do Python – Fonte
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: CLI dos Gêmeos Digitais
@@ -193,6 +195,8 @@
           href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
         - name: Pacote da CLI
           href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
+    - name: Módulo do Azure PowerShell de Gêmeos Digitais
+      href: 'https://www.powershellgallery.com/packages/Az.DigitalTwins/'
     - name: DTDL
       items:
         - name: Especificação da DTDL v2

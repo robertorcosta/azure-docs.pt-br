@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094226"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427455"
 ---
-# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma de BI do SAP BusinessObjects para Linux no Azure
+# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
 Este artigo descreve a estratégia para implantar a plataforma SAP BOBI no Azure para Linux. Neste exemplo, duas máquinas virtuais com SSD Premium Managed Disks como seu diretório de instalação são configuradas. O banco de dados do Azure para MySQL é usado para o banco de dados CMS e Azure NetApp Files para o servidor de repositório de arquivos é compartilhado entre ambos os servidores. O aplicativo Web Java do Tomcat padrão e o aplicativo da plataforma de BI são instalados juntos em ambas as máquinas virtuais. Para balancear a carga da solicitação do usuário, o gateway de aplicativo é usado com recursos de descarregamento de TLS/SSL nativos.
 
@@ -36,7 +36,7 @@ Neste exemplo, a versão do produto e o layout do sistema de arquivos são usado
 - Banco de dados do Azure para MySQL (versão: 8.0.15)
 - Conector da API do MySQL C-libmysqlclient (versão: 6.1.11)
 
-| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
+| Sistema de Arquivos        | Description                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | O sistema de arquivos para instalação da instância do SAP BOBI, aplicativo Web Tomcat padrão e drivers de banco de dados (se necessário) | Diretrizes de dimensionamento do SAP | bl1adm | sapsys | Disco Premium gerenciado-SSD |
 | /usr/sap/frsinput  | O diretório de montagem é para os arquivos compartilhados em todos os hosts BOBI que serão usados como diretório de repositório do arquivo de entrada  | Necessidade comercial         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +113,7 @@ Ao criar seu Azure NetApp Files para o servidor de repositório de arquivos da p
 
 As etapas nesta seção usam os seguintes prefixos:
 
-**[A]**: a etapa se aplica a todos os hosts
+**[A]** : a etapa se aplica a todos os hosts
 
 ### <a name="format-and-mount-sap-file-system"></a>Formatar e montar o sistema de arquivos SAP
 
@@ -229,7 +229,7 @@ As etapas nesta seção usam os seguintes prefixos:
    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
    ```
 
-3. **[A] ** Adicionar entradas de montagem
+3. **[A]** Adicionar entradas de montagem
 
    Se estiver usando NFSv3
 
@@ -274,7 +274,7 @@ As diretrizes serão aplicáveis somente se você estiver usando o banco de BD d
 
 ### <a name="create-an-azure-database-for-mysql"></a>Criar um banco de dados do Azure para MySQL
 
-Entre no portal do Azure e siga as etapas mencionadas neste [Guia de início rápido do banco de dados do Azure para MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Alguns pontos a serem observados ao provisionar o banco de dados do Azure para MySQL-
+Entre no portal do Azure e siga as etapas mencionadas neste [Guia de início rápido do banco de dados do Azure para MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Alguns pontos a serem observados ao provisionar o banco de dados do Azure para MySQL-
 
 1. Selecione a mesma região para o banco de dados do Azure para MySQL em que os servidores de aplicativos da plataforma SAP BI estão em execução.
 
@@ -395,15 +395,15 @@ Para o servidor de aplicativos SAP BOBI acessar o banco de dados, ele requer dri
 
 As etapas nesta seção usam os seguintes prefixos:
 
-**[A]**: a etapa se aplica a todos os hosts.
+**[A]** : a etapa se aplica a todos os hosts.
 
 1. **[A]** com base no tipo de Linux (SLES ou RHEL), você precisa definir os parâmetros do kernel e instalar as bibliotecas necessárias. Consulte a seção **requisitos do sistema** no [Guia de instalação da plataforma de Business Intelligence para UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** Verifique se o fuso horário em seu computador está definido corretamente. Consulte a [seção requisitos adicionais de UNIX e Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) no guia de instalação.
 
-3. **[A]** criar conta de usuário (**BL1**ADM) e grupo (SAPs) sob a qual os processos em segundo plano do software podem ser executados. Use essa conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
+3. **[A]** criar conta de usuário ( **BL1** ADM) e grupo (SAPs) sob a qual os processos em segundo plano do software podem ser executados. Use essa conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
 
-4. **[A]** definir o ambiente de conta de usuário (**BL1**ADM) para usar uma localidade UTF-8 com suporte e garantir que o software do console ofereça suporte a conjuntos de caracteres UTF-8. Para garantir que seu sistema operacional use a localidade correta, defina as variáveis de ambiente LC_ALL e LANG para sua localidade preferida no seu ambiente de usuário do (**BL1**ADM).
+4. **[A]** definir o ambiente de conta de usuário ( **BL1** ADM) para usar uma localidade UTF-8 com suporte e garantir que o software do console ofereça suporte a conjuntos de caracteres UTF-8. Para garantir que seu sistema operacional use a localidade correta, defina as variáveis de ambiente LC_ALL e LANG para sua localidade preferida no seu ambiente de usuário do ( **BL1** ADM).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +413,7 @@ As etapas nesta seção usam os seguintes prefixos:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** configurar conta de usuário (**BL1**ADM).
+5. **[A]** configurar conta de usuário ( **BL1** ADM).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -445,7 +445,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 ## <a name="installation"></a>Instalação
 
-Verificar a localidade da conta de usuário **BL1**ADM no servidor
+Verificar a localidade da conta de usuário **BL1** ADM no servidor
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -453,7 +453,7 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Navegue até a mídia da plataforma de BI do SAP BusinessObjects e execute o comando a seguir com o usuário **BL1**ADM-
+Navegue até a mídia da plataforma de BI do SAP BusinessObjects e execute o comando a seguir com o usuário **BL1** ADM-
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
@@ -465,7 +465,7 @@ Siga o guia de instalação da [plataforma SAP BOBI](https://help.sap.com/viewer
 
 - Na tela **Selecionar tipo de instalação** , selecione instalação **completa** no primeiro servidor (azusbosl1), para outro servidor (azusbosl2) selecione **personalizado/expandir** que expandirá a configuração existente do BOBI.
 
-- Na tela **Selecionar Banco de dados padrão ou existente** , selecione **configurar um banco de dados existente**, o que solicitará que você selecione CMS e banco de dados de auditoria. Selecione **MySQL** para tipo de banco de dados CMS e tipo de banco de dados de auditoria.
+- Na tela **Selecionar Banco de dados padrão ou existente** , selecione **configurar um banco de dados existente** , o que solicitará que você selecione CMS e banco de dados de auditoria. Selecione **MySQL** para tipo de banco de dados CMS e tipo de banco de dados de auditoria.
 
   Você também pode selecionar sem banco de dados de auditoria, se não quiser configurar a auditoria durante a instalação.
 
@@ -557,7 +557,7 @@ Como parte do processo de backup, o instantâneo é obtido e os dados são trans
 
 #### <a name="backup--restore-for-file-repository-server"></a>Backup & restauração do servidor de repositório de arquivos
 
-Por **Azure NetApp files**, você pode criar instantâneos sob demanda e agendar o instantâneo automático usando políticas de instantâneo. As cópias de instantâneo fornecem uma cópia pontual do volume seja. Para obter mais informações, consulte [gerenciar instantâneos usando Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Por **Azure NetApp files** , você pode criar instantâneos sob demanda e agendar o instantâneo automático usando políticas de instantâneo. As cópias de instantâneo fornecem uma cópia pontual do volume seja. Para obter mais informações, consulte [gerenciar instantâneos usando Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 O backup de **arquivos do Azure** é integrado ao serviço de [backup nativo do Azure](../../../backup/backup-overview.md) , que centraliza a função de backup e restauração junto com as VMs backup e simplifica o trabalho de operação. Para obter mais informações, consulte [backup de compartilhamento de arquivos do Azure](../../../backup/azure-file-share-backup-overview.md) e [perguntas frequentes – fazer backup de arquivos do Azure](../../../backup/backup-azure-files-faq.md).
 

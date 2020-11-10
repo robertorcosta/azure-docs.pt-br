@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977367"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427370"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -76,7 +76,7 @@ O agente convidado do Windows não tem suporte de servidor proxy para redirecion
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
-Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS*:
+Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS* :
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="powershell"></a>PowerShell
 
-Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão*:
+Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão* :
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -294,7 +294,7 @@ Para verificar qual versão você está executando, consulte [Detectando o Agent
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
-Quando uma atualização da extensão estiver disponível, o Agente de Convidado do Windows baixará e atualizará a extensão. Atualizações automáticas de extensão são *Secundárias* ou *Hotfix*. Você pode aceitar ou recusar atualizações de extensões *Secundárias* ao provisionar a extensão. O exemplo a seguir mostra como atualizar automaticamente as versões secundárias em um modelo do Resource Manager com *autoUpgradeMinorVersion": true,'*:
+Quando uma atualização da extensão estiver disponível, o Agente de Convidado do Windows baixará e atualizará a extensão. Atualizações automáticas de extensão são *Secundárias* ou *Hotfix*. Você pode aceitar ou recusar atualizações de extensões *Secundárias* ao provisionar a extensão. O exemplo a seguir mostra como atualizar automaticamente as versões secundárias em um modelo do Resource Manager com *autoUpgradeMinorVersion": true,'* :
 
 ```json
     "properties": {
@@ -322,7 +322,7 @@ Você pode ver no modelo da VM se a extensão foi provisionada com 'autoUpgradeM
  $vm.Extensions
 ```
 
-O seguinte exemplo de saída mostra que *autoUpgradeMinorVersion* foi definido como *true*:
+O seguinte exemplo de saída mostra que *autoUpgradeMinorVersion* foi definido como *true* :
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +336,7 @@ AutoUpgradeMinorVersion     : True
 
 Para ver quando ocorreu uma atualização da extensão, examine os registros de agente na VM em *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-No exemplo a seguir, *Microsoft.Compute.CustomScriptExtension 1.8* estava instalado na VM. Um hotfix estava disponível para a versão *1.9*:
+No exemplo a seguir, *Microsoft.Compute.CustomScriptExtension 1.8* estava instalado na VM. Um hotfix estava disponível para a versão *1.9* :
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -355,7 +355,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 1. Para verificar o log do agente convidado do Windows, examine a atividade quando sua extensão estava sendo provisionada no *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \<extensionName> *
+2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \\ <extensionName>*
 
 3. Verifique as seções de solução de problemas da documentação específica da extensão para códigos de erro, problemas conhecidos etc.
 
