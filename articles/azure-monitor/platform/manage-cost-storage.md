@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369056"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427778"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -38,7 +38,7 @@ O preço padrão do Log Analytics é um modelo de **Pagamento Conforme o Uso** b
   - Número de VMs monitoradas
   - Tipo de dados coletados de cada VM monitorada 
   
-Além do modelo de Pagamento Conforme o Uso, o Log Analytics tem tipos de preço de **Reserva de Capacidade**, o que permite que você economize até 25% em comparação com o preço de Pagamento Conforme o Uso. O preço de reserva de capacidade habilita você a comprar uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. Os tipos de preço de Reserva de Capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, é possível alterar para um tipo de preço de Reserva de Capacidade de um nível maior (o qual reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o modelo de Pagamento Conforme o Uso ou para um tipo de preço de Reserva de Capacidade menor até que o período de compromisso seja concluído. A cobrança dos tipos de preço de Reserva de Capacidade é feita diariamente. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os modelos de preços de Pagamento Conforme o Uso e de Reserva de Capacidade do Log Analytics. 
+Além do modelo de Pagamento Conforme o Uso, o Log Analytics tem tipos de preço de **Reserva de Capacidade** , o que permite que você economize até 25% em comparação com o preço de Pagamento Conforme o Uso. O preço de reserva de capacidade habilita você a comprar uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. Os tipos de preço de Reserva de Capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, é possível alterar para um tipo de preço de Reserva de Capacidade de um nível maior (o qual reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o modelo de Pagamento Conforme o Uso ou para um tipo de preço de Reserva de Capacidade menor até que o período de compromisso seja concluído. A cobrança dos tipos de preço de Reserva de Capacidade é feita diariamente. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os modelos de preços de Pagamento Conforme o Uso e de Reserva de Capacidade do Log Analytics. 
 
 Em todos os tipos de preço, o tamanho dos dados de um evento é calculado a partir de uma representação de cadeia de caracteres das propriedades que são armazenadas em Log Analytics para esse evento, quer os dados sejam enviados de um agente ou adicionados durante o processo de ingestão. Isso inclui todos os [campos personalizados](custom-fields.md) que são adicionados à medida que os dados são coletados e armazenados em log Analytics. Várias propriedades comuns a todos os tipos de dados, incluindo algumas [log Analytics propriedades padrão](./log-standard-columns.md), são excluídas no cálculo do tamanho do evento. Isso inclui `_ResourceId` , `_ItemId` , `_IsBillable` `_BilledSize` e `Type` . Todas as outras propriedades armazenadas em Log Analytics são incluídas no cálculo do tamanho do evento. Alguns tipos de dados são gratuitos dos encargos de ingestão de dados, por exemplo, os tipos de AzureActivity, pulsação e uso. Para determinar se um evento foi excluído da cobrança da ingestão de dados, você pode usar a `_IsBillable` propriedade, conforme mostrado [abaixo](#data-volume-for-specific-events). O uso é relatado em GB (1,0 E9 bytes). 
 
@@ -50,11 +50,11 @@ Os clusters dedicados do Log Analytics são coleções de workspace em um único
 
 O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . A `Capacity` é especificada em unidades de GB e pode ter valores de 1.000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado em [Azure monitor chave gerenciada pelo cliente](customer-managed-keys.md#create-cluster). Caso o cluster precise de uma reserva acima de 2.000 GB/dia, entre em contato conosco pelo email [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao [Configurar o cluster](customer-managed-keys.md#cmk-management). Os dois modos são: 
+Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao [Configurar o cluster](customer-managed-keys.md#customer-managed-key-operations). Os dois modos são: 
 
-1. **Cluster**: nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada workspace associado a um cluster são agregadas para calcular a fatura diária do cluster. Observe que as alocações por nó da [Central de Segurança do Azure](../../security-center/index.yml) são aplicadas no nível do workspace antes dessa agregação de dados em todos os workspaces presentes no cluster. 
+1. **Cluster** : nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada workspace associado a um cluster são agregadas para calcular a fatura diária do cluster. Observe que as alocações por nó da [Central de Segurança do Azure](../../security-center/index.yml) são aplicadas no nível do workspace antes dessa agregação de dados em todos os workspaces presentes no cluster. 
 
-2. **Espaços de trabalho**: os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster (após a contabilização de alocações por nó da [central de segurança do Azure](../../security-center/index.yml) para cada espaço de trabalho). Se o volume de dados total ingerido em um espaço de trabalho para um dia for menor que a reserva de capacidade, cada espaço de trabalho será cobrado por seus dados ingeridos na taxa de reserva de capacidade por GB efetiva, cobrando-os por uma fração da reserva de capacidade e a parte não utilizada da reserva de capacidade será cobrada no recurso de cluster. Se o volume de dados total ingerido em um espaço de trabalho para um dia for maior do que a reserva de capacidade, cada espaço de trabalho será cobrado por uma fração da reserva de capacidade com base na fração dos dados ingeridos desse dia e em cada espaço de trabalho para uma fração dos dados ingeridos acima da reserva de capacidade. Não há nada cobrado no recurso de cluster se o volume de dados total ingerido em um espaço de trabalho por um dia está acima da reserva de capacidade.
+2. **Espaços de trabalho** : os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster (após a contabilização de alocações por nó da [central de segurança do Azure](../../security-center/index.yml) para cada espaço de trabalho). Se o volume de dados total ingerido em um espaço de trabalho para um dia for menor que a reserva de capacidade, cada espaço de trabalho será cobrado por seus dados ingeridos na taxa de reserva de capacidade por GB efetiva, cobrando-os por uma fração da reserva de capacidade e a parte não utilizada da reserva de capacidade será cobrada no recurso de cluster. Se o volume de dados total ingerido em um espaço de trabalho para um dia for maior do que a reserva de capacidade, cada espaço de trabalho será cobrado por uma fração da reserva de capacidade com base na fração dos dados ingeridos desse dia e em cada espaço de trabalho para uma fração dos dados ingeridos acima da reserva de capacidade. Não há nada cobrado no recurso de cluster se o volume de dados total ingerido em um espaço de trabalho por um dia está acima da reserva de capacidade.
 
 Em opções de cobrança de cluster, a retenção de dados é cobrada por espaço de trabalho. Observe que a cobrança do cluster começa quando o cluster é criado, independentemente de os workspaces estarem associados a ele. Além disso, observe que os espaços de trabalho associados a um cluster não têm mais um tipo de preço.
 
@@ -72,7 +72,7 @@ Para explorar seus dados com mais detalhes, clique no ícone no canto superior d
 
 ![Exibir logs](media/manage-cost-storage/logs.png)
 
-Da página**uso e custos estimados**, pode-se examinar o seu volume de dados para o mês. Isso inclui todos os dados faturáveis recebidos e retidos em seu espaço de trabalho Log Analytics.  
+Da página **uso e custos estimados** , pode-se examinar o seu volume de dados para o mês. Isso inclui todos os dados faturáveis recebidos e retidos em seu espaço de trabalho Log Analytics.  
  
 Os encargos do Log Analytics são adicionadas à sua fatura do Azure. É possível ver os detalhes da fatura do Azure na seção Cobrança do Portal do Azure ou no [Portal de Cobrança do Azure](https://account.windowsazure.com/Subscriptions).  
 
@@ -98,7 +98,7 @@ Você também pode [definir o tipo de preço por meio do Azure Resource Manager]
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço legados
 
-As assinaturas que tinham um workspace do Log Analytics ou um recurso do Application Insights presentes antes de 2 de abril de 2018, ou que estejam vinculadas a um Contrato Enterprise iniciado antes de 1º de fevereiro de 2019, continuarão a ter acesso ao uso dos tipos de preço herdados: **Gratuito**, **Autônomo (por GB)** e **Por Nó (OMS)** .  Os workspaces no tipo de preço Gratuito terão uma ingestão de dados diária limitada a 500 MB (exceto por tipos de dados de segurança coletados pela [Central de Segurança do Azure](../../security-center/index.yml)) e a retenção de dados será limitada a 7 dias. O tipo de preço Gratuito é destinado apenas para fins de avaliação. Os workspaces nos tipos de preço Autônomo ou Por Nó têm retenção configurável do usuário de 30 a 730 dias.
+As assinaturas que tinham um workspace do Log Analytics ou um recurso do Application Insights presentes antes de 2 de abril de 2018, ou que estejam vinculadas a um Contrato Enterprise iniciado antes de 1º de fevereiro de 2019, continuarão a ter acesso ao uso dos tipos de preço herdados: **Gratuito** , **Autônomo (por GB)** e **Por Nó (OMS)** .  Os workspaces no tipo de preço Gratuito terão uma ingestão de dados diária limitada a 500 MB (exceto por tipos de dados de segurança coletados pela [Central de Segurança do Azure](../../security-center/index.yml)) e a retenção de dados será limitada a 7 dias. O tipo de preço Gratuito é destinado apenas para fins de avaliação. Os workspaces nos tipos de preço Autônomo ou Por Nó têm retenção configurável do usuário de 30 a 730 dias.
 
 O uso no tipo de preço autônomo é cobrado pelo volume de dados ingeridos. Ele é relatado no serviço de **log Analytics** e o medidor é denominado "dados analisados". 
 
@@ -109,7 +109,7 @@ O tipo de preço Por Nó faz a cobrança por VM monitorada (nó) em uma granular
 3. Dados incluídos por nó: esta é a quantidade de dados ingeridos que foram cobertos pela alocação de dados agregados. Esse medidor também é usado quando o espaço de trabalho está em todos os tipos de preço para mostrar a quantidade de dados cobertos pela central de segurança do Azure.
 
 > [!TIP]
-> Caso seu workspace tenha acesso ao tipo de preço **Por Nó**, mas você esteja se perguntando se o custo seria menor em um tipo de preço Pagamento Conforme o Uso, você pode [usar a consulta abaixo](#evaluating-the-legacy-per-node-pricing-tier) para obter uma recomendação facilmente. 
+> Caso seu workspace tenha acesso ao tipo de preço **Por Nó** , mas você esteja se perguntando se o custo seria menor em um tipo de preço Pagamento Conforme o Uso, você pode [usar a consulta abaixo](#evaluating-the-legacy-per-node-pricing-tier) para obter uma recomendação facilmente. 
 
 Os workspaces criados antes de abril de 2016 também podem acessar os tipos de preço originais **Standard** e  **Premium** que têm retenção de dados fixa de 30 a 365 dias respectivamente. Novos workspaces não podem ser criados nos tipos de preço **Standard** ou **Premium** e, se um workspace for movido para fora desses tipos, ele não poderá ser movido de volta. Os medidores de ingestão de dados para essas camadas herdadas são chamados de "dados analisados".
 
@@ -139,8 +139,8 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
 Para definir a retenção padrão do seu workspace: 
  
 1. No portal do Azure, a partir do seu workspace, selecione **Uso e custos estimados** no painel esquerdo.
-2. Na página **Uso e estimativa de custos**, clique em **Retenção de dados** na parte superior da página.
-3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.
+2. Na página **Uso e estimativa de custos** , clique em **Retenção de dados** na parte superior da página.
+3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita* , não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.
 
     ![Alterar a configuração de retenção de dados do workspace](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
@@ -307,11 +307,11 @@ O número de unidades em sua fatura está em unidades de nó * meses, que é rep
 
 
 > [!TIP]
-> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso (veja abaixo).
+> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador** , consulte o tipo de dados Uso (veja abaixo).
 
 ## <a name="understanding-ingested-data-volume"></a>Noções básicas sobre o volume de dados ingeridos
 
-Na página **Uso e custos estimados**, o gráfico *Ingestão de dados por solução* mostra o volume total de dados enviados e quanto está sendo enviado por cada solução. Isso permite determinar tendências, como se o uso geral de dados (ou uso por uma solução específica) está crescendo, permanecendo estável ou diminuindo. 
+Na página **Uso e custos estimados** , o gráfico *Ingestão de dados por solução* mostra o volume total de dados enviados e quanto está sendo enviado por cada solução. Isso permite determinar tendências, como se o uso geral de dados (ou uso por uma solução específica) está crescendo, permanecendo estável ou diminuindo. 
 
 ### <a name="data-volume-for-specific-events"></a>Volume de dados de eventos específicos
 
@@ -389,11 +389,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso.
+> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador** , consulte o tipo de dados Uso.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso do Azure, grupo de recursos ou assinatura
 
-Em relação aos dados de nós hospedados no Azure, você pode obter o **tamanho** de dados ingeridos __por computador__; use a [propriedade](./log-standard-columns.md#_resourceid) _ResourceId, a qual fornece o caminho completo para o recurso:
+Em relação aos dados de nós hospedados no Azure, você pode obter o **tamanho** de dados ingeridos __por computador__ ; use a [propriedade](./log-standard-columns.md#_resourceid) _ResourceId, a qual fornece o caminho completo para o recurso:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -401,7 +401,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por assinatura do Azure__, obter ID da assinatura a `_ResourceId` propriedade como:
+Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por assinatura do Azure__ , obter ID da assinatura a `_ResourceId` propriedade como:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -432,7 +432,7 @@ Você também pode analisar o `_ResourceId` mais completamente, se necessário, 
 > Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados por assinatura, por grupo de recursos ou por nome de recurso, consulte o tipo de dados Uso.
 
 > [!WARNING]
-> Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
+> Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador** , bem como campos relacionados à ingestão ( **TotalBatches** , **BatchesWithinSla** , **BatchesOutsideSla** , **BatchesCapped** e **AverageProcessingTimeMs**.
 
 
 ### <a name="querying-for-common-data-types"></a>Consulta de tipos de dados comuns

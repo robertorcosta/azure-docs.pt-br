@@ -4,12 +4,12 @@ description: Opções de configuração para Azure Monitor Application Insights 
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381024"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427693"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opções de configuração para Azure Monitor Application Insights Java
 
@@ -178,9 +178,9 @@ Ele permite que você configure regras que serão aplicadas à telemetria de sol
 
 Para obter mais informações, confira a documentação do [processador de telemetria](./java-standalone-telemetry-processors.md) .
 
-## <a name="autocollected-logging"></a>Log autocolhido
+## <a name="auto-collected-logging"></a>Registro em log coletado automaticamente
 
-Log4J, Logback e Java. util. Logging são instrumentados automaticamente e o registro em log realizado por meio dessas estruturas de registro em log é autocoletado.
+Log4J, Logback e Java. util. Logging são instrumentados automaticamente e o registro em log realizado por meio dessas estruturas de log é automaticamente coletado.
 
 Por padrão, o registro em log só é coletado quando esse log é executado no `INFO` nível ou acima.
 
@@ -213,13 +213,13 @@ Esses são os `level` valores válidos que você pode especificar no `applicatio
 | RASTREAMENTO (ou melhor) | RASTREAMENTO  | RASTREAMENTO   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometer coletadas automaticamente (incluindo as métricas do acionador do Spring boot)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometer coletadas automaticamente (incluindo as métricas do acionador do Spring boot)
 
-Se seu aplicativo usa [micrometer](https://micrometer.io), as métricas enviadas para o registro global micrometer são autocolhidas.
+Se seu aplicativo usar [micrometer](https://micrometer.io), as métricas enviadas para o registro global micrometer serão coletadas automaticamente.
 
-Além disso, se seu aplicativo usar o [acionador do Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), as métricas configuradas pelo acionador do Spring boot também serão automaticamente coletadas.
+Além disso, se seu aplicativo usar o [acionador do Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), as métricas configuradas pelo acionador do Spring boot também serão coletadas automaticamente.
 
-Para desabilitar a autocoleção de métricas do micrometer (incluindo as métricas do acionador do Spring boot):
+Para desabilitar a coleta automática de métricas do micrometer (incluindo as métricas do acionador do Spring boot):
 
 > [!NOTE]
 > As métricas personalizadas são cobradas separadamente e podem gerar custos adicionais. Certifique-se de verificar as [informações de preços](https://azure.microsoft.com/pricing/details/monitor/)detalhadas. Para desabilitar as métricas do micrometer e do acionador Spring, adicione a configuração abaixo ao arquivo de configuração.

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380119"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427795"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -77,8 +77,9 @@ Log Analytics exportação de dados pode gravar blobs de acréscimo em contas de
 ### <a name="event-hub"></a>Hub de Eventos
 Os dados são enviados ao seu hub de eventos quase em tempo real à medida que atingem Azure Monitor. Um hub de eventos é criado para cada tipo de dados que você exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um hub de eventos chamado *am-SecurityEvent*. Se você quiser que os dados exportados atinjam um hub de eventos específico ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, você poderá fornecer seu próprio nome de Hub de eventos e exportar todos os dados para tabelas definidas para ele.
 
-O volume de dados exportados geralmente aumenta com o tempo e a escala do hub de eventos precisa ser aumentada para lidar com taxas de transferência maiores e evitar cenários de limitação e latência de dados. Você deve usar o recurso de inflar automaticamente dos hubs de eventos para escalar verticalmente e aumentar o número de unidades de produtividade e atender às necessidades de uso. Consulte [dimensionar automaticamente as unidades de produtividade dos hubs de eventos do Azure](../../event-hubs/event-hubs-auto-inflate.md) para obter detalhes.
-
+Considerações:
+1. A SKU do hub de eventos ' Basic ' dá suporte ao [limite](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) de tamanho de evento inferior e alguns logs em seu espaço de trabalho podem excedê-lo e ser Descartado. É recomendável usar o Hub de eventos ' Standard ' ou ' dedicado ' como destino de exportação.
+2. O volume de dados exportados geralmente aumenta com o tempo e a escala do hub de eventos precisa ser aumentada para lidar com taxas de transferência maiores e evitar cenários de limitação e latência de dados. Você deve usar o recurso de inflar automaticamente dos hubs de eventos para escalar verticalmente e aumentar o número de unidades de produtividade e atender às necessidades de uso. Consulte [dimensionar automaticamente as unidades de produtividade dos hubs de eventos do Azure](../../event-hubs/event-hubs-auto-inflate.md) para obter detalhes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Veja a seguir os pré-requisitos que devem ser concluídos antes de configurar Log Analytics exportação de dados.

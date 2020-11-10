@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780012"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427931"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introdução à auditoria do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
       > - Se sua conta de armazenamento estiver atrás de uma Rede Virtual ou um firewall, consulte [Conceder acesso de uma rede virtual](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
       > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (os logs gravados durante o período em que a retenção era definida como ilimitada serão preservados, mesmo após a retenção ser habilitada).
 
-   1. Na página da conta de armazenamento, vá até **Visão geral** e clique em **Blobs** .
+   1. Na página da conta de armazenamento, vá até **Visão geral** e clique em **Blobs**.
 
       ![Widget BLOBs do Azure](./media/auditing-configure/1_blobs_widget.png)
 
@@ -50,7 +50,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
       ![Ícone de Criar contêiner de blobs](./media/auditing-configure/2_create_container_button.png)
 
-   1. Forneça um **nome** de contêiner, defina **nível de acesso público** como **particular** e clique em **OK** .
+   1. Forneça um **nome** de contêiner, defina **nível de acesso público** como **particular** e clique em **OK**.
 
       ![Criar a configuração do contêiner de blobs](./media/auditing-configure/3_create_container_config.png)
 
@@ -61,7 +61,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
    - <a id="blobtsql"></a>Configurar o armazenamento de BLOB para logs de auditoria usando o T-SQL:
 
-     1. Na lista de contêineres, clique no contêiner recém-criado e, em seguida, clique em **Propriedades do contêiner** .
+     1. Na lista de contêineres, clique no contêiner recém-criado e, em seguida, clique em **Propriedades do contêiner**.
 
         ![Botão Propriedades do contêiner de blobs](./media/auditing-configure/4_container_properties_button.png)
 
@@ -88,7 +88,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
             > [!NOTE]
             > Renove o token após o vencimento para evitar falhas de auditoria.
 
-          - Clique em **Gerar SAS** .
+          - Clique em **Gerar SAS**.
 
             ![Configuração do SAS](./media/auditing-configure/7_sas_configure.png)
 
@@ -118,7 +118,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
         GO
         ```
 
-        Continue [criando uma especificação de auditoria de servidor ou especificação de auditoria de banco de dados](#createspec).
+     1. Continue [criando uma especificação de auditoria de servidor ou especificação de auditoria de banco de dados](#createspec).
 
    - <a id="blobssms"></a>Configurar o armazenamento de BLOBs para logs de auditoria usando SQL Server Management Studio 18 (versão prévia):
 
@@ -138,7 +138,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
         ![Entrar no Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Selecione uma assinatura, uma conta de armazenamento e um contêiner de BLOBs nos menus suspensos ou crie seu próprio contêiner clicando em **criar** . Depois de concluir, clique em **OK** :
+     1. Selecione uma assinatura, uma conta de armazenamento e um contêiner de BLOBs nos menus suspensos ou crie seu próprio contêiner clicando em **criar**. Depois de concluir, clique em **OK** :
 
         ![Selecionar assinatura, conta de armazenamento e contêiner de blobs do Azure](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -169,9 +169,9 @@ Os logs de auditoria de uma instância gerenciada podem ser enviados para os hub
 
 1. Navegue no [portal do Azure](https://portal.azure.com/) para a instância gerenciada.
 
-2. Clique em **Configurações de diagnóstico** .
+2. Clique em **Configurações de diagnóstico**.
 
-3. Clique em **Ativar diagnóstico** . Se o diagnóstico já estiver habilitado, **+ Adicionar configuração de diagnóstico** será mostrada em vez disso.
+3. Clique em **Ativar diagnóstico**. Se o diagnóstico já estiver habilitado, **+ Adicionar configuração de diagnóstico** será mostrada em vez disso.
 
 4. Selecione **SQLSecurityAuditEvents** na lista de logs.
 
@@ -241,7 +241,7 @@ As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazena
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de BLOBs do Azure onde os `.xel` arquivos são colocados.
 - Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar os hubs de eventos e Azure monitor destinos de log.
 - `TO FILE` **Não há suporte para** a sintaxe porque o Azure SQL instância gerenciada não pode acessar compartilhamentos de arquivos do Windows.
-- A opção de desligamento **não é compatível** .
+- A opção de desligamento **não é compatível**.
 - **Não há suporte** para `queue_delay` de 0.
 
 ## <a name="next-steps"></a>Próximas etapas

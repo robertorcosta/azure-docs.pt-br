@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375951"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427659"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import
 
@@ -59,12 +59,12 @@ O processo de migração está programaticamente disponível usando as seguintes
 
 **Exportar**
 
-* [Baixar API da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
+* [Baixar API da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importaçãoação**
 
-* [Substituir API (recarregar com a mesma ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
-* [Criar API (carregar com nova ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Substituir API (recarregar com a mesma ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Criar API (carregar com nova ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Logs de chat e alterações
