@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 585f5998eb953c8ed90a47922d76f32897c0f915
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285838"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445482"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -26,7 +26,7 @@ Para obter mais informações sobre o Key Vault, confira [Sobre o Azure Key Vaul
 
 O acesso a um cofre de chaves é controlado por meio de duas interfaces: o **plano de gerenciamento** e o **plano de dados**. É no plano de gerenciamento que você administra o cofre de chaves em si. As operações nesse plano incluem criar e excluir cofres de chaves, recuperar propriedades do Key Vault e atualizar as políticas de acesso. No plano de dados, você trabalha com os dados armazenados em um cofre de chaves. Você pode adicionar, excluir e alterar chaves, segredos e certificados.
 
-Ambos os planos usam [Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md) para autenticação. Para autorização, o plano de gerenciamento usa o [controle de acesso baseado em função do Azure (RBAC)](../../role-based-access-control/overview.md) e o plano de dados usa uma [política de acesso Key Vault](./assign-access-policy-portal.md) e o [RBAC do Azure para Key Vault operações do plano de dados (versão prévia)](./rbac-guide.md).
+Ambos os planos usam [Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md) para autenticação. Para autorização, o plano de gerenciamento usa o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) e o plano de dados usa uma [política de acesso Key Vault](./assign-access-policy-portal.md) e o [RBAC do Azure para Key Vault operações do plano de dados (versão prévia)](./rbac-guide.md).
 
 Para acessar um cofre de chaves em qualquer dos planos, todos os chamadores (usuários ou aplicativos) devem ter a autenticação e a autorização adequadas. A autenticação estabelece a identidade do chamador. A autorização determina quais operações o chamador pode executar. A autenticação com o Key Vault funciona em conjunto com o [Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md), que é responsável por autenticar a identidade de qualquer **entidade de segurança**.
 
@@ -58,7 +58,7 @@ O modelo de mecanismo único para autenticação em ambos os planos tem vários 
 
 ## <a name="resource-endpoints"></a>Pontos de extremidade do recurso
 
-Os aplicativos acessam os planos por meio de pontos de extremidade. Os controles de acesso dos dois planos trabalham de forma independente. Para conceder a um aplicativo acesso para usar chaves em um cofre de chaves, você concede acesso ao plano de dados usando uma política de acesso Key Vault ou RBAC do Azure (versão prévia). Para conceder acesso de leitura do usuário para marcas e propriedades do Key Vault, mas não conceder acesso aos dados (chaves, segredos ou certificados), você deve conceder acesso ao plano de gerenciamento com RBAC.
+Os aplicativos acessam os planos por meio de pontos de extremidade. Os controles de acesso dos dois planos trabalham de forma independente. Para conceder a um aplicativo acesso para usar chaves em um cofre de chaves, você concede acesso ao plano de dados usando uma política de acesso Key Vault ou RBAC do Azure (versão prévia). Para conceder a um usuário acesso de leitura a Key Vault Propriedades e marcas, mas não ao acesso a dados (chaves, segredos ou certificados), você concede acesso ao plano de gerenciamento com o RBAC do Azure.
 
 A tabela a seguir mostra os pontos de extremidade para os planos de gerenciamento e de dados.
 
@@ -111,7 +111,7 @@ Quando uma função do Azure é atribuída a uma entidade de segurança do Azure
 
 Os principais benefícios do uso da permissão RBAC do Azure em políticas de acesso do cofre são o gerenciamento de controle de acesso centralizado e sua integração com o [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). O Privileged Identity Management fornece ativação de função baseada em tempo e aprovação para atenuar os riscos de permissões de acesso excessivas, desnecessárias ou que foram indevidamente utilizadas em recursos importantes.
 
-Para obter mais informações sobre Key Vault plano de dados com o RBAC, consulte [Key Vault chaves, certificados e segredos com um controle de acesso baseado em função do Azure (versão prévia)](rbac-guide.md)
+Para obter mais informações sobre Key Vault plano de dados com o RBAC do Azure, consulte [Key Vault chaves, certificados e segredos com um controle de acesso baseado em função do Azure (versão prévia)](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls e redes virtuais
 

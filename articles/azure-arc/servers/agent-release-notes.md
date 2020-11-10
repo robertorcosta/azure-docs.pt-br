@@ -2,13 +2,13 @@
 title: O que há de novo no agente de servidores habilitados para Arc do Azure
 description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para detalhes adicionais.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908155"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445278"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>O que há de novo no agente de servidores habilitados para Arc do Azure
 
@@ -17,6 +17,21 @@ O agente de máquina conectado de servidores habilitados para Arc do Azure receb
 - As versões mais recentes
 - Problemas conhecidos
 - Correções de bug
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="fixed"></a>Fixo
+
+Problema resolvido em que a configuração de proxy pode ser perdida após a atualização em distribuições baseadas em RPM.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="fixed"></a>Fixo
+
+- O script de proxy fixo para manipular o local alternativo do arquivo de unidade de daemon do GC.
+- Alterações de confiabilidade do agente GuestConfig.
+- Suporte do agente GuestConfig para US Gov-Virgínia região.
+- As mensagens de relatório de extensão do agente GuestConfig serão mais detalhadas em caso de falhas.
 
 ## <a name="september-2020"></a>Setembro de 2020
 

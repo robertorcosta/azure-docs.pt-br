@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314753"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445365"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
      
 * **O pacote de explicação não tem garantia de ser instalado ao instalar o azureml-Train-automl-Client:** 
    
-   Ao executar uma AutoML remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro "Instale o azureml-explique-Package para obter explicações do modelo." Este é um problema conhecido. Como alternativa, siga uma das etapas abaixo:
+   Ao executar uma AutoML remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro "Instale o azureml-explique-Package para obter explicações do modelo." Esse é um problema conhecido. Como alternativa, siga uma das etapas abaixo:
   
   1. Instale o azureml-explique-Model localmente.
    ```
@@ -258,7 +258,20 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
 
 ## <a name="azure-machine-learning-designer"></a>Designer do Azure Machine Learning
 
-* **Tempo de preparação de computação longa:**
+### <a name="dataset-visualization-in-the-designer"></a>Visualização de DataSet no designer
+
+Depois de registrar um conjunto de registros na página de ativos de conjuntos de banco de **valores** ou usando o SDK, você pode encontrá-lo na categoria **conjuntos de valores** na lista à esquerda para a tela do designer.
+
+No entanto, quando você arrasta o conjunto de itens para a tela e visualiza, pode não ser possível visualizar devido a alguns dos seguintes motivos:
+
+- No momento, você só pode visualizar o conjunto de tabelas tabular no designer. Se você registrar um conjunto de registros de arquivo fora do designer, não será possível visualizá-lo na tela do designer.
+- Seu conjunto de armazenamento é armazenado na rede virtual (VNet). Se você quiser Visualizar, precisará habilitar a identidade gerenciada do espaço de trabalho do repositório de armazenamento.
+    1. Vá para o repositório de armazenamento relacionado e clique em **Atualizar credenciais** 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Atualizar credenciais":::
+    1. Selecione **Sim** para habilitar a identidade gerenciada do espaço de trabalho.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Habilitar identidade gerenciada do espaço de trabalho":::
+
+### <a name="long-compute-preparation-time"></a>Tempo de preparação de computação longa
 
 Pode ser de alguns minutos ou ainda mais quando você se conecta pela primeira vez ao ou cria um destino de computação. 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **Log para pontos de extremidade em tempo real:**
+### <a name="log-for-real-time-endpoints"></a>Log para pontos de extremidade em tempo real
 
 Os logs de pontos de extremidade em tempo real são dados do cliente. Para solução de problemas de ponto de extremidade em tempo real, você pode usar o código a seguir para habilitar logs. 
 

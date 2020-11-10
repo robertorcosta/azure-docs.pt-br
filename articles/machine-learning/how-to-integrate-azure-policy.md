@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325496"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444549"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditar e gerenciar Azure Machine Learning usando Azure Policy
 
@@ -42,11 +42,11 @@ Você também pode atribuir políticas usando [Azure PowerShell](../governance/p
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>Criptografia de espaços de trabalho com chave gerenciada pelo cliente
 
-Controla se os espaços de trabalho devem ser criptografados com uma chave gerenciada pelo cliente (CMK) ou usando uma chave gerenciada pela Microsoft para criptografar métricas e metadados. Para obter mais informações sobre como usar o CMK, consulte a seção [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) do artigo de segurança da empresa.
+Controla se os espaços de trabalho devem ser criptografados com uma chave gerenciada pelo cliente ou usando uma chave gerenciada pela Microsoft para criptografar métricas e metadados. Para obter mais informações sobre como usar a chave gerenciada pelo cliente, consulte a seção [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) do artigo criptografia de dados.
 
-Para configurar essa política, defina o parâmetro de efeito como __auditoria__ ou __negar__. Se definido como __auditoria__ , você poderá criar espaços de trabalho sem um CMK e um evento de aviso será criado no log de atividades.
+Para configurar essa política, defina o parâmetro de efeito como __auditoria__ ou __negar__. Se estiver definido como __auditoria__ , você poderá criar espaços de trabalho sem uma chave gerenciada pelo cliente e um evento de aviso será criado no log de atividades.
 
-Se a política for definida como __Deny__ , você não poderá criar um espaço de trabalho a menos que ele ESPECIFIQUE um CMK. A tentativa de criar um espaço de trabalho sem um CMK resulta em um erro semelhante a `Resource 'clustername' was disallowed by policy` e cria um erro no log de atividades. O identificador de política também é retornado como parte desse erro.
+Se a política estiver definida como __negar__ , você não poderá criar um espaço de trabalho a menos que ele especifique uma chave gerenciada pelo cliente. A tentativa de criar um espaço de trabalho sem uma chave gerenciada pelo cliente resulta em um erro semelhante a `Resource 'clustername' was disallowed by policy` e cria um erro no log de atividades. O identificador de política também é retornado como parte desse erro.
 
 ## <a name="workspaces-should-use-private-link"></a>Os espaços de trabalho devem usar o link privado
 

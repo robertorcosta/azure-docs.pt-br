@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312548"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445618"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
 
@@ -193,7 +193,7 @@ A Central de Segurança do Azure fornece um gerenciamento de segurança unificad
 
 Por padrão, as métricas e os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft.
 
-Para limitar os dados que a Microsoft coleta em seu espaço de trabalho, selecione __espaço de trabalho de alto impacto nos negócios__ no portal ou defina `hbi_workspace=true ` em Python. Para obter mais informações sobre essa configuração, consulte [criptografia em repouso](concept-enterprise-security.md#encryption-at-rest).
+Para limitar os dados que a Microsoft coleta em seu espaço de trabalho, selecione __espaço de trabalho de alto impacto nos negócios__ no portal ou defina `hbi_workspace=true ` em Python. Para obter mais informações sobre essa configuração, consulte [criptografia em repouso](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]  
 > A seleção de alto impacto nos negócios só pode ser feita durante a criação de um espaço de trabalho. Você não pode alterar essa configuração após a criação do espaço de trabalho.   

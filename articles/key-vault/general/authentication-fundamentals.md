@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286233"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445550"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Conceitos básicos sobre a Autenticação do Key Vault
 
@@ -45,9 +45,9 @@ Siga os links de documentação abaixo para entender como registrar um usuário 
 * Registrando um usuário no Azure Active Directory [link](../../active-directory/fundamentals/add-users-azure-active-directory.md)
 * Registrando um aplicativo no Azure Active Directory [link](../../active-directory/develop/quickstart-register-app.md)
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Atribua sua entidade de segurança a uma função no Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Atribuir sua entidade de segurança a uma função
 
-O Azure Active Directory usa o RBAC (controle de acesso baseado em função) para atribuir permissões a entidades de segurança. Essas permissões são chamadas de atribuições de função.
+Você pode usar o controle de acesso baseado em função do Azure (RBAC do Azure) para atribuir permissões a entidades de segurança. Essas permissões são chamadas de atribuições de função.
 
 No contexto do cofre de chaves, essas atribuições de função determinam o nível de acesso da entidade de segurança ao plano de gerenciamento (também conhecido como plano de controle) do cofre de chaves. Essas atribuições de função não fornecem acesso aos segredos do plano de dados diretamente, mas fornecem acesso para gerenciar Propriedades do cofre de chaves. Por exemplo, um usuário ou aplicativo atribuído a uma **função de leitor** não terá permissão para fazer alterações nas configurações de firewall do Key Vault, enquanto um usuário ou aplicativo atribuído a uma **função colaborador** pode fazer alterações. Nenhuma função terá acesso direto para executar operações em segredos, chaves e certificados, como criar ou recuperar seu valor até receber acesso ao plano de dados do cofre de chaves. Isso é abordado na próxima etapa.
 
@@ -57,7 +57,7 @@ No contexto do cofre de chaves, essas atribuições de função determinam o ní
 >[!NOTE]
 > Quando você atribui uma atribuição de função a um usuário no nível de Azure Active Directory locatário, esse conjunto de permissões será trickledo a todas as assinaturas, grupos de recursos e recursos dentro do escopo da atribuição. Para seguir a entidade de privilégio mínimo, você pode fazer essa atribuição de função em um escopo mais granular. Por exemplo, você pode atribuir um usuário a uma função de leitor no nível de assinatura e uma função de proprietário para um único cofre de chaves. Vá para as configurações de IAM (gerenciamento de acesso de identidade) de uma assinatura, grupo de recursos ou cofre de chaves para fazer uma atribuição de função em um escopo mais granular.
 
-* Para saber mais sobre Azure Active Directory [link](../../role-based-access-control/built-in-roles.md) de funções
+* Para saber mais sobre o [link](../../role-based-access-control/built-in-roles.md) de funções do Azure
 * Para saber mais sobre como atribuir ou remover o [link](../../role-based-access-control/role-assignments-portal.md) de atribuições de função
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configurar políticas de acesso do cofre de chaves para sua entidade de segurança
@@ -91,7 +91,7 @@ O acesso ao plano de dados ou o acesso para executar operações em chaves, segr
 As políticas de acesso do cofre de chaves concedem aos usuários e aplicativos acesso para executar operações de plano de dados em um cofre de chaves.
 
 > [!NOTE]
-> Este modelo de acesso não é compatível com o RBAC do Key Vault (opção 2) documentado abaixo. Você deve escolher um. Você terá a oportunidade de fazer essa seleção ao clicar na guia política de acesso do cofre de chaves.
+> Este modelo de acesso não é compatível com o RBAC do Azure para o Key Vault (opção 2) documentado abaixo. Você deve escolher um. Você terá a oportunidade de fazer essa seleção ao clicar na guia política de acesso do cofre de chaves.
 
 As políticas de acesso clássico são granulares, o que significa que você pode permitir ou negar a capacidade de cada usuário ou aplicativo individual executar operações individuais em um cofre de chaves. Veja alguns exemplos:
 
@@ -104,25 +104,25 @@ No entanto, as políticas de acesso clássico não permitem permissões de níve
 > [!IMPORTANT]
 > As políticas de acesso do cofre de chaves clássicas e as atribuições de função Azure Active Directory são independentes umas das outras. Atribuir uma entidade de segurança a uma função de ' colaborador ' em um nível de assinatura não permitirá automaticamente que a entidade de segurança possa executar operações de plano de dados em cada cofre de chaves dentro do escopo da assinatura. A entidade de segurança ainda deve ser concedida ou conceder permissões de política de acesso para executar operações de plano de dados.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Opção de acesso do plano de dados 2: Key Vault RBAC (versão prévia)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opção de acesso do plano de dados 2: RBAC do Azure para Key Vault (versão prévia)
 
-Uma nova maneira de conceder acesso ao plano de dados do cofre de chaves é por meio do RBAC (controle de acesso baseado em função) do cofre de chaves.
+Uma nova maneira de conceder acesso ao plano de dados do cofre de chaves é por meio do controle de acesso baseado em função do Azure (RBAC do Azure) para o Key Vault.
 
 > [!NOTE]
 > Este modelo de acesso não é compatível com as políticas de acesso clássico do Key Vault mostradas acima. Você deve escolher um. Você terá a oportunidade de fazer essa seleção ao clicar na guia política de acesso do cofre de chaves.
 
 Key Vault atribuições de função são um conjunto de atribuições de função internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar chaves, segredos e certificados. Esse modelo de permissão também habilita recursos adicionais que não estão disponíveis no modelo de política de acesso do cofre de chaves clássico.
 
-* As permissões de RBAC podem ser gerenciadas em escala, permitindo que os usuários tenham essas funções atribuídas em uma assinatura, grupo de recursos ou nível de cofre de chave individual. Um usuário terá as permissões de plano de dados para todos os cofres de chaves dentro do escopo da atribuição de RBAC. Isso elimina a necessidade de atribuir permissões de política de acesso individuais por usuário/aplicativo por cofre de chaves.
+* As permissões do RBAC do Azure podem ser gerenciadas em escala, permitindo que os usuários tenham essas funções atribuídas em uma assinatura, grupo de recursos ou nível de cofre de chaves individuais. Um usuário terá as permissões de plano de dados para todos os cofres de chaves dentro do escopo da atribuição de RBAC do Azure. Isso elimina a necessidade de atribuir permissões de política de acesso individuais por usuário/aplicativo por cofre de chaves.
 
-* As permissões de RBAC são compatíveis com Privileged Identity Management ou PIM. Isso permite que você configure controles de acesso just-in-time para funções com privilégios como administrador de Key Vault. Essa é uma prática recomendada de segurança e segue a entidade de privilégio mínimo, eliminando o acesso à sua chave para seus cofres de chaves.
+* As permissões do RBAC do Azure são compatíveis com Privileged Identity Management ou PIM. Isso permite que você configure controles de acesso just-in-time para funções com privilégios como administrador de Key Vault. Essa é uma prática recomendada de segurança e segue a entidade de privilégio mínimo, eliminando o acesso à sua chave para seus cofres de chaves.
 
-* As permissões de RBAC são compatíveis com permissões granulares por objeto, para que você possa restringir um usuário de executar operações apenas em alguns dos objetos do cofre de chaves. Isso permite que vários aplicativos compartilhem um único cofre de chaves enquanto ainda isolam o acesso entre aplicativos.
+* As permissões do RBAC do Azure são compatíveis com permissões granulares por objeto, para que você possa restringir um usuário de executar operações apenas em alguns dos objetos do cofre de chaves. Isso permite que vários aplicativos compartilhem um único cofre de chaves enquanto ainda isolam o acesso entre aplicativos.
 
-Para saber mais sobre o Key Vault RBAC, consulte os seguintes documentos:
+Para saber mais sobre o RBAC do Azure para Key Vault, consulte os seguintes documentos:
 
-* Azure Key Vault [vincular](./secure-your-key-vault.md#management-plane-and-azure-rbac) o RBAC
-* Azure Key Vault o [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) de funções RBAC (versão prévia)
+* [Link](./secure-your-key-vault.md#management-plane-and-azure-rbac) do Azure RBAC para Key Vault
+* [Link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) do Azure RBAC para funções de Key Vault (versão prévia)
 
 ## <a name="configure-key-vault-firewall"></a>Configurar Key Vault firewall
 

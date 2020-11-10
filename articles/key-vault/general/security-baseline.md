@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289888"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445516"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para o Key Vault
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: alterar senhas padrão quando aplicável
 
-**Orientação** : não aplicável; Azure Key Vault não tem o conceito de senhas padrão, pois a autenticação é fornecida pelo Active Directory e protegida com o controle de acesso baseado em função.
+**Orientação** : não aplicável; Azure Key Vault não tem o conceito de senhas padrão, pois a autenticação é fornecida pelo Active Directory e protegida com o controle de acesso baseado em função do Azure (RBAC do Azure).
 
 
 **Monitoramento da Central de Segurança do Azure** : Não aplicável
@@ -445,7 +445,7 @@ Qual é a condição de local em Azure Active Directory acesso condicional?: htt
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
-**Diretrizes** : Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central para recursos do Azure, como key Vault. Isso permite que o RBAC (controle de acesso baseado em função) para administrar recursos confidenciais.
+**Diretrizes** : Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central para recursos do Azure, como key Vault. Isso permite que o controle de acesso baseado em função do Azure (RBAC do Azure) administra recursos confidenciais.
 
  
 

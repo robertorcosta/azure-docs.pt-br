@@ -3,14 +3,14 @@ title: Visão geral do Controle de Alterações e Inventário da Automação do 
 description: Este artigo descreve o Controle de Alterações e o recurso de inventário, que ajuda a identificar alterações de software e serviço da Microsoft em seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130333"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445414"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -62,6 +62,16 @@ O Controle de Alterações e Inventário tem suporte em todos os sistemas operac
 
 Para entender os requisitos do cliente para o TLS 1,2, confira [imposição tls 1,2 para a automação do Azure](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
+### <a name="python-requirement"></a>Requisito do Python
+
+Controle de Alterações e o inventário dão suporte apenas a Python2. Se seu computador estiver usando um distribuição que não inclui o Python 2 por padrão, você deverá instalá-lo. Os comandos de exemplo a seguir instalarão o Python 2 em distribuições diferentes.
+
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
+
+O executável python2 deve ter um alias para *Python*.
+
 ## <a name="network-requirements"></a>Requisitos de rede
 
 Os endereços a seguir são necessários especificamente para Controle de Alterações e inventário. A comunicação para esses endereços ocorre pela porta 443.
@@ -73,7 +83,7 @@ Os endereços a seguir são necessários especificamente para Controle de Altera
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.Azure automation.us|
 
-Quando você cria regras de segurança de grupo de rede ou configura o Firewall do Azure para permitir o tráfego para o serviço de automação e o espaço de trabalho Log Analytics, use a [marca de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor** . Isso simplifica o gerenciamento contínuo de suas regras de segurança de rede. Para se conectar ao serviço de automação de suas VMs do Azure de forma segura e privada, examine [usar o link privado do Azure](../how-to/private-link-security.md). Para obter a marca de serviço e as informações de intervalo atuais para incluir como parte de suas configurações de firewall local, consulte [arquivos JSON para download](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Quando você cria regras de segurança de grupo de rede ou configura o Firewall do Azure para permitir o tráfego para o serviço de automação e o espaço de trabalho Log Analytics, use a [marca de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isso simplifica o gerenciamento contínuo de suas regras de segurança de rede. Para se conectar ao serviço de automação de suas VMs do Azure de forma segura e privada, examine [usar o link privado do Azure](../how-to/private-link-security.md). Para obter a marca de serviço e as informações de intervalo atuais para incluir como parte de suas configurações de firewall local, consulte [arquivos JSON para download](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 
@@ -108,16 +118,16 @@ O Controle de Alterações e o inventário permitem o monitoramento de alteraç�
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitora scripts que são executados no desligamento.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitora as chaves que são carregadas antes que o usuário entre na conta do Windows. A chave é usada para aplicativos de 32 bits em execução em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitora as alterações às configurações do aplicativo.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora manipuladores de menu de contexto que se conectam diretamente ao Windows Explorer e geralmente são executados em processo com **explorer.exe** .
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de cabo de cópia que se conectam diretamente ao Windows Explorer e geralmente são executados em processo com **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora manipuladores de menu de contexto que se conectam diretamente ao Windows Explorer e geralmente são executados em processo com **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de cabo de cópia que se conectam diretamente ao Windows Explorer e geralmente são executados em processo com **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora o registro do manipulador de sobreposição de ícone.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora o registro do manipulador de sobreposição de ícone para aplicativos de 32 bits executados em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o modelo DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora os novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o modelo DOM (Modelo de Objeto do Documento) da página atual e para controlar a navegação para aplicativos de 32 bits em execução em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora novas extensões do Internet Explorer, tais como menus de ferramentas personalizadas e botões da barra de ferramentas personalizada.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramentas personalizada para aplicativos de 32 bits executados em computadores de 64 bits.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à seção [drivers] no arquivo **system.ini** .
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para aplicativos de 32 bits executados em computadores de 64 bits. Semelhante à seção [drivers] no arquivo **system.ini** .
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à seção [drivers] no arquivo **system.ini**.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para aplicativos de 32 bits executados em computadores de 64 bits. Semelhante à seção [drivers] no arquivo **system.ini**.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora a lista de DLLs de sistema conhecidas ou comumente usadas. O monitoramento impede que as pessoas explorem as permissões de diretório de aplicativo fracas descartando as versões do cavalo de Troia das DLLs do sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora a lista de pacotes que pode receber notificações de eventos do **winlogon.exe** , o modelo de suporte de logon interativo para o Windows.
 
@@ -127,7 +137,7 @@ O Controle de Alterações e Inventário dá suporte à recursão, o que permite
 
 - Caracteres curinga são necessários para acompanhar vários arquivos.
 
-- Você pode usar curingas somente no último segmento de um caminho de arquivo, por exemplo, **c:\folder \\ File** _ ou _ */etc/* . conf * *.
+- Você pode usar curingas somente no último segmento de um caminho de arquivo, por exemplo, **c:\folder \\ File** _ ou _ */etc/*. conf * *.
 
 - Se uma variável de ambiente tiver um caminho inválido, a validação terá êxito, mas o caminho falhará durante a execução.
 
@@ -162,7 +172,7 @@ O uso médio de dados do Log Analytics para uma máquina usando o Controle de Al
 
 ### <a name="microsoft-service-data"></a>Dados de serviço da Microsoft
 
-A frequência da coleta padrão para os serviços da Microsoft é de 30 minutos. Você pode configurar a frequência usando um controle deslizante na guia **Serviços da Microsoft** em **Editar Configurações** .
+A frequência da coleta padrão para os serviços da Microsoft é de 30 minutos. Você pode configurar a frequência usando um controle deslizante na guia **Serviços da Microsoft** em **Editar Configurações**.
 
 ![Controle deslizante dos serviços da Microsoft](./media/overview/windowservices.png)
 

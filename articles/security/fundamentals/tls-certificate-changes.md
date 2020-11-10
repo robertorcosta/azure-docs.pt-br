@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbc426144678f5bd7382b0961bf9bc3f5339b97a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409800"
+ms.locfileid: "94444870"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
@@ -22,12 +22,15 @@ A Microsoft está atualizando os serviços do Azure para que eles usem certifica
 
 ## <a name="when-will-this-change-happen"></a>Quando ocorrerá essa alteração?
 
+Os pontos de extremidade existentes do Azure passaram por transição de uma maneira em fases desde 13 de agosto de 2020. Todos os pontos de extremidade do TLS/SSL do Azure recém-criados contêm o encadeamento de certificados atualizados até as novas ACs raiz.
+
+Detalhes específicos do serviço:
+
 - Os serviços do [Azure AD (Active Directory)](../../active-directory/index.yml) iniciaram essa transição em 7 de julho de 2020.
-- Todos os pontos de extremidade do TLS/SSL do Azure recém-criados contêm o encadeamento de certificados atualizados até as novas ACs raiz.
-- Os pontos de extremidade existentes do Azure estão fazendo a transição em fases desde 13 de agosto de 2020.
 - O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub) e o [DPS](../../iot-dps/index.yml) permanecerão na AC Baltimore CyberTrust Root, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - O [Armazenamento do Azure](../../storage/index.yml) permanecerá na AC Raiz Baltimore CyberTrust, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - O [cache do Azure para Redis](../../azure-cache-for-redis/index.yml) permanecerá na AC raiz Baltimore Cybertrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](../../azure-cache-for-redis/cache-whats-new.md).
+
 > [!IMPORTANT]
 > É possível que os clientes precisem atualizar os respectivos aplicativos após essa alteração para evitar falhas de conectividade durante a tentativa de se conectarem aos serviços do Azure.
 

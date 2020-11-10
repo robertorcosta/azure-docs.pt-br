@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380990"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445142"
 ---
 # <a name="hierarchical-state-override"></a>Substituição de estado hierárquico
 
@@ -39,6 +39,13 @@ O conjunto fixo de estados que podem ser substituídos é:
 
   > [!IMPORTANT]
   > O efeito de transparência só funciona quando é usado o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition*.
+
+* **`Shell`** : A geometria é renderizada como um shell transparente e dessaturado. Esse modo permite desbotar partes não importantes de uma cena enquanto ainda mantém uma noção de forma e posicionamento relativo. Para alterar a aparência da renderização do Shell, use o estado [ShellRenderingSettings](shell-effect.md) . Consulte a imagem a seguir para que o modelo de carro seja totalmente renderizado pelo shell, exceto pelas molas azuis:
+
+  ![Modo de shell usado para esmaecer objetos específicos](./media/shell.png)
+
+  > [!IMPORTANT]
+  > O efeito do shell só funciona quando o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* é usado.
 
 * **`Selected`** : A geometria é renderizada com uma [estrutura de tópicos de seleção](outlines.md).
 
@@ -101,7 +108,7 @@ A `tint color` substituição é um pouco especial, pois há um estado ligado/de
 
 Uma instância do `HierarchicalStateOverrideComponent` em si não adiciona muita sobrecarga de runtime. No entanto, é sempre uma boa prática manter um número baixo de componentes ativos. Por exemplo, ao implementar um sistema de seleção que realça o objeto selecionado, é recomendável excluir o componente quando o realce é removido. Manter os componentes com recursos neutros pode gerar acúmulo rapidamente.
 
-A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do grafo de cena forem alternadas para *see-through* , com muitas camadas de geometria ficando visíveis, ele poderá se tornar um gargalo de desempenho. O mesmo se dá para objetos com [contornos de seleção](../../overview/features/outlines.md#performance).
+A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do grafo de cena forem alternadas para *see-through* , com muitas camadas de geometria ficando visíveis, ele poderá se tornar um gargalo de desempenho. O mesmo é válido para objetos com [contornos de seleção](../../overview/features/outlines.md#performance) e para [renderização de shell](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>Documentação da API
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287595"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445125"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -79,7 +79,7 @@ Para obter tutoriais sobre como se autenticar no Key Vault em aplicativos, consu
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gerenciar chaves, certificados e segredos
 
-O acesso a chaves, segredos e certificados é controlado pelo plano de dados. O controle de acesso do plano de dados pode ser feito usando políticas de acesso do cofre local ou RBAC (versão prévia).
+O acesso a chaves, segredos e certificados é controlado pelo plano de dados. O controle de acesso do plano de dados pode ser feito usando políticas de acesso do cofre local ou RBAC do Azure (versão prévia).
 
 **APIs e SDKs de chaves**
 
@@ -104,7 +104,7 @@ O acesso a chaves, segredos e certificados é controlado pelo plano de dados. O 
 
 Consulte [bibliotecas de cliente](client-libraries.md) para pacotes de instalação e código-fonte.
 
-Para obter mais informações sobre Key Vault segurança do plano de dados, consulte [Key Vault plano de dados e políticas de acesso](./secure-your-key-vault.md#data-plane-and-access-policies) e [Key Vault plano de dados e RBAC (versão prévia)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+Para obter mais informações sobre Key Vault segurança do plano de dados, consulte [Key Vault plano de dados e políticas de acesso](./secure-your-key-vault.md#data-plane-and-access-policies) e o [plano de dados do Key Vault e o RBAC do Azure (versão prévia)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### <a name="code-examples"></a>Exemplos de código
 

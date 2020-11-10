@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322317"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444771"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -46,6 +46,19 @@ Um espaço de trabalho inclui outros recursos do Azure que são usados pelo espa
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): armazena segredos que são usados por destinos de computação e outras informações confidenciais que são necessárias para o espaço de trabalho.
 
 Você pode compartilhar um workspace com outras pessoas.
+
+### <a name="create-workspace"></a>Criar workspace
+
+O diagrama a seguir mostra o fluxo de trabalho da criação de um workspace.
+
+* Você entra no Azure AD de um dos clientes do Azure Machine Learning com suporte (CLI do Azure, SDK do Python, portal do Azure) e solicita o token apropriado do Azure Resource Manager.
+* Você chama o Azure Resource Manager para criar o workspace. 
+* O Azure Resource Manager contata o provedor de recursos do Azure Machine Learning para provisionar o workspace.
+* Se você não especificar recursos existentes, recursos adicionais necessários serão criados em sua assinatura.
+
+Você também pode provisionar outros destinos de computação anexados a um espaço de trabalho (como o serviço kubernetes do Azure ou VMs), conforme necessário.
+
+[![Criar fluxo de trabalho do workspace](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Calcula
 
@@ -114,7 +127,11 @@ Por exemplo, execute as configurações, consulte [Configurar uma execução de 
 
 Ao enviar uma execução, o Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é expandido e o script é executado lá. O Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao workspace pode procurar um registro de execução e baixar o instantâneo.
 
-### <a name="logging"></a>Registro em log
+O diagrama a seguir mostra o fluxo de trabalho do instantâneo do código.
+
+[![Fluxo de trabalho do instantâneo de código](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
+
+### <a name="logging"></a>Registrando em log
 
 Azure Machine Learning registra automaticamente as métricas de execução padrão para você. No entanto, você também pode [usar o SDK do Python para registrar métricas arbitrárias](how-to-track-experiments.md).
 
@@ -129,6 +146,31 @@ Há várias maneiras de exibir seus logs: status de execução de monitoramento 
 Quando você inicia uma execução de treinamento em que o diretório de origem é um repositório Git local, as informações sobre o repositório são armazenadas no histórico de execuções. Isso funciona com execuções enviadas usando uma configuração de execução de script ou um pipeline de ML. Também funciona para execuções enviadas do SDK ou da CLI do Machine Learning.
 
 Para obter mais informações, confira [Integração do Git com o Azure Machine Learning](concept-train-model-git-integration.md).
+
+### <a name="training-workflow"></a>Fluxo de trabalho do treinamento
+
+Quando você executa um experimento para treinar um modelo, ocorrem as etapas a seguir. Eles são ilustrados no diagrama de fluxo de trabalho de treinamento abaixo:
+
+* O Azure Machine Learning é chamado com a ID de instantâneo do instantâneo de código salvo na seção anterior.
+* O Azure Machine Learning cria uma ID de execução (opcional) e um token de serviço do Machine Learning, que é usado posteriormente por destinos de computação como Computação do Machine Learning/VMs para se comunicar com o serviço do Machine Learning.
+* Para executar trabalhos de treinamento, você pode escolher um destino de computação gerenciado (como Computação do Machine Learning) ou um destino de computação não gerenciado (como VMs). Veja os fluxos de dados para ambos os cenários:
+   * VMs/HDInsight acessadas por credenciais SSH em um cofre de chaves na assinatura da Microsoft. O Azure Machine Learning executa o código de gerenciamento no destino de computação que:
+
+   1. Prepara o ambiente. (O Docker é uma opção para VMs e computadores locais. Consulte as etapas a seguir para a Computação do Machine Learning entender como funciona a execução de experimentos em contêineres do Docker.)
+   1. Baixa o código.
+   1. Define as configurações e variáveis do ambiente.
+   1. Executa scripts de usuário (o instantâneo de código mencionado na seção anterior).
+
+   * A Computação do Machine Learning, acessada por meio de uma identidade gerenciada por workspace.
+Como a Computação do Machine Learning é um destino de computação gerenciado (ou seja, é gerenciado pela Microsoft), ela é executada em sua assinatura da Microsoft.
+
+   1. A construção remota do Docker é inicializada, se for necessário.
+   1. O código de gerenciamento é gravado no compartilhamento de Arquivos do Azure do usuário.
+   1. O contêiner é iniciado com um comando inicial. Ou seja, o código de gerenciamento, conforme descrito na etapa anterior.
+
+* Após a conclusão da execução, você poderá consultar as execuções e métricas. No diagrama de fluxo abaixo, essa etapa ocorre quando o destino de computação de treinamento grava as métricas de execução de volta ao Azure Machine Learning a partir do armazenamento no banco de dados do Cosmos DB. Os clientes podem chamar o Azure Machine Learning. O Machine Learning, por sua vez, transformará as métricas de pull do banco de dados do Cosmos DB e as retornará ao cliente.
+
+[![Fluxo de trabalho do treinamento](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>Modelos
 
@@ -178,9 +220,21 @@ Um ponto de extremidade é uma instanciação do modelo em um serviço Web que p
 
 Ao implantar um modelo como um serviço Web, o ponto de extremidade pode ser implantado em instâncias de contêiner do Azure, serviço kubernetes do Azure ou FPGAs. O serviço é criado a partir de um modelo, script e arquivos associados. Eles são colocados em uma imagem de contêiner de base, que contém o ambiente de execução do modelo. A imagem tem um balanceamento de carga, ponto de extremidade HTTP que recebe as solicitações de pontuação enviadas para o serviço Web.
 
-Você pode habilitar a telemetria Application Insights ou telemetria de modelo para monitorar seu serviço Web. Os dados de telemetria só podem ser acessados por você.  Ele é armazenado em suas instâncias de conta de armazenamento e Application Insights.
+Você pode habilitar a telemetria Application Insights ou telemetria de modelo para monitorar seu serviço Web. Os dados de telemetria só podem ser acessados por você.  Ele é armazenado em suas instâncias de conta de armazenamento e Application Insights. Se você tiver habilitado o dimensionamento automático, o Azure dimensionará automaticamente sua implantação.
 
-Se você tiver habilitado o dimensionamento automático, o Azure dimensionará automaticamente sua implantação.
+O diagrama a seguir mostra o fluxo de trabalho de inferência para um modelo implantado como um ponto de extremidade de serviço Web:
+
+Estes são os detalhes:
+
+* O usuário registra um modelo por meio de um cliente como o SDK do Azure Machine Learning.
+* O usuário cria uma imagem por meio de um modelo, um arquivo de pontuação e outras dependências de modelo.
+* A imagem do Docker é criada e armazenada no Registro de Contêiner do Azure.
+* O serviço Web é implantado no destino de computação (Instâncias de Contêiner/AKS) usando a imagem criada na etapa anterior.
+* Os detalhes da solicitação de pontuação são armazenados no Application Insights, o qual está na assinatura do usuário.
+* A telemetria também é enviada por push para a assinatura do Microsoft/Azure.
+
+[![Fluxo de trabalho da inferência](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 Para obter um exemplo de implantação de um modelo como um serviço web, consulte [Implantar um modelo de classificação de imagem nas Instâncias de Contêiner do Azure](tutorial-deploy-models-with-aml.md).
 

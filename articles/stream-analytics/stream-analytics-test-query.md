@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127630"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444955"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testar um trabalho de Azure Stream Analytics no portal
 
@@ -29,7 +29,7 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
 
 3. Na página de trabalho do Stream Analytics, sob o título **Topologia de Trabalho** , selecione **Consulta** para abrir a janela Editor de consultas. 
 
-4. Para ver uma lista de exemplos de eventos de entrada, selecione o ícone entrada com arquivo e os eventos de exemplo serão exibidos automaticamente na **visualização de entrada** .
+4. Para ver uma lista de exemplos de eventos de entrada, selecione o ícone entrada com arquivo e os eventos de exemplo serão exibidos automaticamente na **visualização de entrada**.
 
    a. O tipo de serialização para seus dados será detectado automaticamente se seu JSON ou CSV. Você pode alterá-lo manualmente, bem como JSON, CSV, AVRO alterando a opção no menu suspenso.
     
@@ -45,15 +45,15 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
 
    ![Azure Stream Analytics entrada de exemplo no formato bruto](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. Para testar sua consulta com os dados de entrada, selecione **testar consulta** . Os resultados aparecem na guia **resultados do teste** . Você também pode selecionar **baixar resultados** para baixar os resultados.
+5. Para testar sua consulta com os dados de entrada, selecione **testar consulta**. Os resultados aparecem na guia **resultados do teste** . Você também pode selecionar **baixar resultados** para baixar os resultados.
 
    ![Azure Stream Analytics resultados da consulta de teste de exemplo](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. Para testar sua consulta em um intervalo de tempo específico de eventos de entrada, selecione **selecionar intervalo de tempo** .
+6. Para testar sua consulta em um intervalo de tempo específico de eventos de entrada, selecione **selecionar intervalo de tempo**.
    
    ![Azure Stream Analytics intervalo de tempo para eventos de exemplo de entrada](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7. Defina o intervalo de tempo dos eventos que você deseja usar para testar sua consulta e selecione **exemplo** . Dentro desse período, você pode recuperar até 1000 eventos ou 1 MB, o que vier primeiro.
+7. Defina o intervalo de tempo dos eventos que você deseja usar para testar sua consulta e selecione **exemplo**. Dentro desse período, você pode recuperar até 1000 eventos ou 1 MB, o que vier primeiro.
 
    ![Azure Stream Analytics definir intervalo de tempo para eventos de exemplo de entrada](./media/stream-analytics-test-query/asa-set-time-range.png)
 
@@ -81,7 +81,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
    ![Captura de tela mostra a opção carregar entrada de exemplo.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Carregue seu arquivo local para testar a consulta. Você só pode carregar arquivos com os formatos JSON, CSV ou AVRO. Selecione **OK** .
+5. Carregue seu arquivo local para testar a consulta. Você só pode carregar arquivos com os formatos JSON, CSV ou AVRO. Selecione **OK**.
 
    ![Captura de tela mostra a caixa de diálogo carregar dados de exemplo, em que é possível selecionar um arquivo.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
@@ -111,6 +111,19 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 4.  O tamanho do tempo limite é de um minuto. Portanto, qualquer consulta com um tamanho de janela maior que um minuto não pode obter dados.
 
 5.  Não há suporte para Machine Learning.
+
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+1.  Se você receber esse erro "houve um problema de conectividade de rede ao buscar os resultados. Verifique suas configurações de rede e firewall. ", siga as etapas abaixo:
+
+  * Para verificar a conexão com o serviço, abra [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) em um navegador. Se você não puder abrir este link, atualize suas configurações de firewall.
+  
+2. Se você receber esse erro "o tamanho da solicitação é muito grande. Reduza o tamanho dos dados de entrada e tente novamente. ", siga as etapas abaixo:
+
+  * Reduzir o tamanho de entrada – teste sua consulta com um arquivo de exemplo de tamanho menor ou com um intervalo de tempo menor.
+  * Reduzir o tamanho da consulta – para testar uma seleção de consulta, selecione uma parte da consulta e clique em **testar consulta selecionada**.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Crie uma solução de IOT usando Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): Este tutorial orientará você a criar uma solução de ponta a ponta com um gerador de dados que simulará o tráfego em um estande de Tarifa.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: eac930971cab041fbf398da1ac5f8a055412832d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376852"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444853"
 ---
 # <a name="service-configuration"></a>Configuração de serviço
 
@@ -20,7 +20,7 @@ Cada versão do QnA Maker usa um conjunto diferente de recursos do Azure (servi�
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
-QnA Maker usa o serviço de aplicativo para fornecer o tempo de execução de consulta usado pela [API generateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
+QnA Maker usa o serviço de aplicativo para fornecer o tempo de execução de consulta usado pela [API generateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
 Essas configurações estão disponíveis no portal do Azure, para o serviço de aplicativo. As configurações estão disponíveis selecionando **configurações** e, em seguida, **configuração**.
 

@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425942"
+ms.locfileid: "94444496"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
 
@@ -38,7 +38,7 @@ Uma versão captura o estado de um blob em um determinado ponto no tempo. Quando
 
 Quando você cria um blob com o controle de versão habilitado, o novo BLOB é a versão atual do blob (ou o blob de base). Se você Modificar posteriormente esse BLOB, o armazenamento do Azure criará uma versão que captura o estado do blob antes de ser modificado. O blob modificado torna-se a nova versão atual. Uma nova versão é criada cada vez que você modifica o blob.
 
-Um blob pode ter um número ilimitado de versões. No entanto, ter um grande número de versões por blob pode aumentar a latência para operações de listagem de BLOBs. A Microsoft recomenda a manutenção de menos de 1000 versões por blob. Você pode usar o gerenciamento do ciclo de vida para excluir automaticamente versões antigas. Para obter mais informações sobre o gerenciamento do ciclo de vida, consulte [otimizar custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md).
+Ter um grande número de versões por blob pode aumentar a latência para operações de listagem de BLOBs. A Microsoft recomenda a manutenção de menos de 1000 versões por blob. Você pode usar o gerenciamento do ciclo de vida para excluir automaticamente versões antigas. Para obter mais informações sobre o gerenciamento do ciclo de vida, consulte [otimizar custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md).
 
 Quando você exclui um blob com o controle de versão habilitado, o armazenamento do Azure cria uma versão que captura o estado do blob antes de ele ser excluído. A versão atual do blob é excluída, mas as versões do blob persistem, para que possam ser recriadas se necessário. 
 
@@ -187,7 +187,7 @@ O controle de versão de blob foi projetado para proteger seus dados contra excl
 
 A tabela a seguir mostra quais ações do RBAC do Azure dão suporte à exclusão de um BLOB ou uma versão de BLOB.
 
-| Description | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
+| Descrição | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Excluindo a versão atual do blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de dados de blob de armazenamento |
 | Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/ação** | Proprietário de Dados do Blob de Armazenamento |

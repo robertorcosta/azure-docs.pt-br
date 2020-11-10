@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286595"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445176"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)
 
@@ -79,11 +79,11 @@ Para adicionar as atribuições de função, você precisa ter:
 
 1.  Habilitar permissões do RBAC do Azure no novo cofre de chaves:
 
-    ![Habilitar permissões de RBAC-novo cofre](../media/rbac/image-1.png)
+    ![Habilitar permissões de RBAC do Azure-novo cofre](../media/rbac/image-1.png)
 
 2.  Habilitar permissões do RBAC do Azure no cofre de chaves existente:
 
-    ![Habilitar permissões RBAC-cofre existente](../media/rbac/image-2.png)
+    ![Habilitar permissões do RBAC do Azure-cofre existente](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Atribuir função
 
