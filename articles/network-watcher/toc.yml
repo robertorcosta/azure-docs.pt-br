@@ -29,7 +29,7 @@
 - name: Conceitos
   items:
     - name: Monitor de Conexão (Versão Prévia)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnosticar problemas de filtro de tráfego de rede de VM
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnosticar regras de NSG e filtragem de Tráfego
@@ -61,9 +61,9 @@
     - name: Criar Monitor da Conexão (versão prévia)
       items:
         - name: Usando o Portal do Azure
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Usando o ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Usar o PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Migrar para o Monitor da Conexão (versão prévia)
