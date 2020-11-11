@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166923"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366750"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
@@ -23,7 +23,7 @@ O recurso Análise de Sentimento da API de Análise de Texto avalia o texto e re
 
 Depois de enviar uma solicitação de análise de sentimento, a API retorna rótulos de sentimento (como "negativo", "neutro" e "positivo") e pontuações de confiança no nível da frase e do documento.
 
-A Análise de Sentimento dá suporte a uma ampla variedade de idiomas, com mais opções na versão prévia. Para obter mais informações, consulte [Linguagens com suporte](../text-analytics-supported-languages.md).
+A Análise de Sentimento dá suporte a uma ampla variedade de idiomas, com mais opções na versão prévia. Para obter mais informações, consulte [Linguagens com suporte](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e recursos da Análise de Sentimento
 
@@ -40,7 +40,7 @@ A Análise de Sentimento dá suporte a uma ampla variedade de idiomas, com mais 
 
 A Análise de Sentimento na v3 aplica rótulos de sentimento a um texto, que são retornados em um nível da frase e do documento, com uma pontuação de confiança para cada um. 
 
-Os rótulos são *positivos*, *negativos* e *neutros*. No nível do documento, o rótulo de sentimento *misto* também pode ser retornado. O sentimento do documento é determinado abaixo:
+Os rótulos são *positivos* , *negativos* e *neutros*. No nível do documento, o rótulo de sentimento *misto* também pode ser retornado. O sentimento do documento é determinado abaixo:
 
 | Sentimento da frase                                                                            | Rótulo do documento retornado |
 |-----------------------------------------------------------------------------------------------|-------------------------|

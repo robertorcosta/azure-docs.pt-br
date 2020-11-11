@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357276"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487781"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -194,6 +194,12 @@ Não. Não é permitido o tráfego de rede de entrada da Internet diretamente pa
 
 Sim. Você precisará usar o NSX-T Manager para criar um firewall que restringe o acesso da VM à Internet.
 
+
+#### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>A solução do Azure VMware pode usar gateways de ExpressRoute hospedados da WAN virtual do Azure?
+Sim.
+
+#### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>A conectividade de trânsito pode ser estabelecida entre a solução local e a VMware do Azure por meio da WAN virtual por meio do ExpressRoute Alcance Global?
+A WAN virtual do Azure não fornece roteamento transitivo entre dois circuitos de ExpressRoute conectados e um gateway de ExpressRoute de WAN não virtual. O uso do ExpressRoute Alcance Global permite a conectividade entre a solução local e a VMware do Azure, mas passa pela rede global da Microsoft em vez do hub de WAN virtual.
 
 
 ## <a name="accounts-and-privileges"></a>Contas e privilégios

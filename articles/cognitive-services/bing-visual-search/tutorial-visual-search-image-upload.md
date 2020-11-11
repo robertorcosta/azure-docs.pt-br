@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102197"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366121"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carregar imagens para a API da Pesquisa Visual do Bing
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Exibir insights para ações diferentes
 
-As funções a seguir exibem insights para ações diferentes. As funções fornecem uma imagem que pode ser clicada ou um link que pode ser clicado que direciona você a uma página da Web com mais informações sobre a imagem. Esta página é hospedada pelo Bing.com ou pelo site original da imagem. Nem todos os dados dos insights são exibidos neste aplicativo. Para ver todos os campos disponíveis para um insight, confira a referência de [Imagens – Pesquisa Visual](https://aka.ms/bingvisualsearchreferencedoc).
+As funções a seguir exibem insights para ações diferentes. As funções fornecem uma imagem que pode ser clicada ou um link que pode ser clicado que direciona você a uma página da Web com mais informações sobre a imagem. Esta página é hospedada pelo Bing.com ou pelo site original da imagem. Nem todos os dados dos insights são exibidos neste aplicativo. Para ver todos os campos disponíveis para um insight, confira a referência de [Imagens – Pesquisa Visual](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 > [!NOTE]
 > Há uma quantidade mínima de informações de insight que deve ser exibida na página. Veja [Requisitos de uso e exibição da API de Pesquisa do Bing](../bing-web-search/use-display-requirements.md) para saber mais.

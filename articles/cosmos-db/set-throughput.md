@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098766"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490251"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Se sua conta de Azure Cosmos DB já contiver um banco de dados de taxa de transf
 
 Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção. A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que hospeda uma ou mais partições lógicas que pertencem a contêineres diferentes " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Definir taxa de transferência em um banco de dados e um contêiner
 
@@ -82,9 +82,9 @@ Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um 
 * Você pode criar um banco de dados do Azure Cosmos *Z* com a taxa de transferência provisionada padrão (manual) de RUs *"K"* . 
 * Em seguida, crie cinco contêineres chamados *A* , *B* , *C* , *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Definir a taxa de transferência no nível do contêiner":::
 
-* O *"K"* a taxa de transferência de RUs é compartilhada entre os quatro contêineres *A* , *C* , *D* e *E* . A quantidade exata de taxa de transferência disponível para *A* , *C* , *D* ou *E* varia. Não há SLAs para taxa de transferência de cada contêiner individual.
+* O *"K"* a taxa de transferência de RUs é compartilhada entre os quatro contêineres *A* , *C* , *D* e *E*. A quantidade exata de taxa de transferência disponível para *A* , *C* , *D* ou *E* varia. Não há SLAs para taxa de transferência de cada contêiner individual.
 * O contêiner nomeado *B* tem a garantia de obter a taxa de transferência de RUs *"P"* o tempo todo. É respaldado por SLAs.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ A resposta desses métodos também contém a [taxa de transferência mínima pro
 O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Mas, em geral, é o máximo de:
 
 * 400 RU/s 
-* Armazenamento atual em GB * 10 RU/s
+* Armazenamento atual em GB * 10 RU/s (a menos que seu contêiner ou banco de dados contenha mais de 1 TB, consulte nosso [programa de alto armazenamento/baixa taxa de transferência](#high-storage-low-throughput-program))
 * RU/s mais alto provisionado no banco de dados ou contêiner/100
 * Contagem de contêineres * 100 RU/s (somente banco de dados de taxa de transferência compartilhada)
 

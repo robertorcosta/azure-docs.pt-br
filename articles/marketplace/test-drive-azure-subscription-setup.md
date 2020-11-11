@@ -4,15 +4,15 @@ description: Explica como configurar uma assinatura do Azure Marketplace para o 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 8e77c21c6d776aef20fa3ca71ad12fdb424b07ab
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414321"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489379"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurar uma assinatura do Azure Marketplace para unidades de teste hospedadas
 
@@ -91,7 +91,7 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
     4. Adicionar um novo usuário (verifique se o formulário é para o usuário do aplicativo).
     5. Insira o mesmo nome de usuário nos campos de **email primário** e **nome de usuários** . Adicione o **ApplicationId do Azure** na **ID do aplicativo**.
     6. Forneça qualquer **nome completo**.
-    7. Selecione **Salvar**.
+    7. Clique em **Salvar**.
     8. Selecione **gerenciar funções**.
     9. Atribua uma função de segurança personalizada ou OOB que contenha privilégios de leitura, gravação e atribuição de função, como *administrador do sistema*.
 

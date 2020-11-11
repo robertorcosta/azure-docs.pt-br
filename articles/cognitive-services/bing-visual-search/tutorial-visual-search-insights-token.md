@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f68618c4387bc5105914eccc4e6149650119fd0f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102172"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366070"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Tutorial: Localizar imagens semelhantes de pesquisas anteriores usando o token de insights de imagem
 
@@ -44,7 +44,7 @@ O código-fonte completo desse tutorial pode ser encontrado com anotações e tr
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Obter o ImageInsightsToken da biblioteca de clientes da Pesquisa de Imagem do Bing
 
-Esse aplicativo usa um `ImageInsightsToken` obtido por meio da [biblioteca de clientes da Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Em um aplicativo de console C#, crie um cliente para chamar a API usando `ImageSearchClient()`. Em seguida, use `SearchAsync()` com sua consulta:
+Esse aplicativo usa um `ImageInsightsToken` obtido por meio da [biblioteca de clientes da Pesquisa de Imagem do Bing](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp). Em um aplicativo de console C#, crie um cliente para chamar a API usando `ImageSearchClient()`. Em seguida, use `SearchAsync()` com sua consulta:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ Obter as URLs de imagem real requer que uma conversão que lê um `ActionType` c
     }
 ```
 
-Pra obter informações sobre esses tipos de dados, consulte [Imagens - Pesquisa Visual](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+Pra obter informações sobre esses tipos de dados, consulte [Imagens - Pesquisa Visual](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 ## <a name="returned-urls"></a>URLs retornadas
 

@@ -1,20 +1,20 @@
 ---
-title: Painel de uso no Microsoft Commercial Marketplace Analytics, Azure Marketplace e Microsoft AppSource
-description: Saiba como acessar todas as métricas de cobrança limitada e uso de ofertas de VM. Sob o painel de uso no Partner Center, em Marketplace Comercial.
+title: Painel de uso na análise do Marketplace comercial | Azure Marketplace
+description: Saiba como acessar todas as métricas de uso e cobrança limitada para ofertas publicadas no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414295"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490110"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial da Microsoft
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial
 
 Este artigo fornece informações sobre o painel de uso no Partner Center. Este painel exibe todas as máquinas virtuais (VM) oferece uso normalizado, uso bruto e métricas de cobrança limitada em três guias separadas: uso normalizado da VM, uso bruto da VM e uso de cobrança medido.
 

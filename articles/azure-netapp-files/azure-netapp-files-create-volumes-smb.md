@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932338"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488172"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -119,10 +119,10 @@ Outras considerações de AADDS que se aplicam ao Azure NetApp Files:
 
 Ao criar uma conexão do Active Directory, observe as seguintes especificações para o AADDS:
 
-* Você pode encontrar informações sobre **DNS primário**, **DNS secundário** e **Nome de Domínio DNS do AD** no menu AADDS.  
+* Você pode encontrar informações sobre **DNS primário** , **DNS secundário** e **Nome de Domínio DNS do AD** no menu AADDS.  
 Para servidores DNS, dois endereços IP serão usados para configurar a conexão do Active Directory. 
 * O **caminho da unidade organizacional** é `OU=AADDC Computers`.  
-Essa configuração é definida em **Conexões do Active Directory** em **Conta do NetApp**:
+Essa configuração é definida em **Conexões do Active Directory** em **Conta do NetApp** :
 
   ![Caminho da unidade organizacional](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 
@@ -146,7 +146,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
     * **Nome de Domínio DNS do AD**  
         É o nome de domínio do Active Directory Domain Services em que você deseja ingressar.
     * **Nome do site do AD**  
-        Esse é o nome do site ao qual a descoberta do controlador de domínio será limitada.
+        Esse é o nome do site ao qual a descoberta do controlador de domínio será limitada. Isso deve corresponder ao nome do site em Active Directory sites e serviços.
     * **Prefixo do Servidor SMB (conta do computador)**  
         É o prefixo de nomenclatura da conta do computador no Active Directory que o Azure NetApp Files usará para criar novas contas.
 

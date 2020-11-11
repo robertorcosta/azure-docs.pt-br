@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331695"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489141"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -73,6 +73,9 @@ A segunda etapa é chamar a operação [obter resultados de leitura](https://wes
 
 Quando o campo **status** tiver o valor **êxito** , a resposta JSON conterá o conteúdo de texto extraído de sua imagem ou documento. A resposta JSON mantém os agrupamentos de linhas originais de palavras reconhecidas. Ele inclui as linhas de texto extraídas e suas coordenadas de caixa delimitadora. Cada linha de texto inclui todas as palavras extraídas com suas coordenadas e pontuações de confiança.
 
+> [!NOTE]
+> Os dados enviados para a `Read` operação são temporariamente criptografados e armazenados em repouso e excluídos dentro de 48 horas. Isso permite que seus aplicativos recuperem o texto extraído como parte da resposta do serviço.
+
 ## <a name="sample-json-output"></a>Saída JSON de exemplo
 
 Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
@@ -87,7 +90,6 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 1414f2ce53d1764e788749fc2d225c56f624bcdc
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369935"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488512"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>Como configurar suas propriedades de oferta de Aplicativo Azure
 
@@ -76,10 +76,6 @@ Você pode optar por fornecer seus próprios termos e condições, em vez do con
 
 1. Em **ofício** , verifique se a caixa de seleção **usar o contrato padrão para o Marketplace comercial da Microsoft** está desmarcada.
 1. Na caixa **termos e condições** , insira até 10.000 caracteres de texto.
-
-   > [!NOTE]
-   > Se você precisar de uma descrição mais longa, insira um único endereço Web que aponte para onde os termos e condições podem ser encontrados. Ele será exibido aos clientes como um link ativo.
-
 1. Selecione **salvar rascunho** antes de continuar para a próxima guia: lista de ofertas.
 
 ## <a name="next-steps"></a>Próximas etapas

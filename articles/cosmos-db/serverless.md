@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098749"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490348"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Consulte o artigo [como escolher entre produtividade provisionada e sem servidor
 ## <a name="using-serverless-resources"></a>Usando recursos sem servidor
 
 Sem servidor é um novo tipo de conta do Azure Cosmos, o que significa que você precisa escolher entre a **taxa de transferência provisionada** e sem **servidor** ao criar uma nova conta. Você deve criar uma nova conta sem servidor para começar com o servidor. Durante a versão de visualização, a única maneira com suporte para criar uma nova conta sem servidor é [usando o portal do Azure](create-cosmosdb-resources-portal.md). Atualmente, não há suporte para a migração de contas existentes para/do modo sem servidor.
-
-> [!NOTE]
-> No momento, há suporte para servidor somente na API do Azure Cosmos DB Core (SQL).
 
 Qualquer contêiner criado em uma conta sem servidor é um contêiner sem servidor. Os contêineres sem servidor expõem os mesmos recursos que os contêineres criados no modo de taxa de transferência provisionado, de modo que você lê, grava e consulta seus dados exatamente da mesma maneira. No entanto, as contas e os contêineres sem servidor também têm características específicas:
 

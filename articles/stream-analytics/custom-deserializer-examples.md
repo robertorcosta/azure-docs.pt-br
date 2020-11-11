@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a69ca707577ceddc56ae691d6e5e701458cae28
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346594"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488427"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entradas em qualquer formato usando desserializadores .NET personalizados
 
@@ -249,9 +249,9 @@ Não há mais suporte para essa funcionalidade. Se você precisar desse recurso,
 
 Depois de implementar seu desserializador, você poderá ajudar outras pessoas compartilhando-o com a comunidade. Envie seu código para o [repositório do Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Quais são as outras limitações do uso de desserializadores personalizados no Stream Analytics?
 
-Se a entrada for do formato Protobuf com esquema que contenha o tipo MapField, você não poderá implementar um desserializador personalizado. Estamos trabalhando para oferecer suporte a esse tipo no futuro.
+Se a entrada for do formato Protobuf com um esquema que contém o `MapField` tipo, você não poderá implementar um desserializador personalizado. Além disso, os desserializadores personalizados não dão suporte a dados de exemplo ou dados de visualização. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
