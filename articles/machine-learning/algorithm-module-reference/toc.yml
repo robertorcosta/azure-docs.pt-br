@@ -92,6 +92,8 @@
           href: multiclass-neural-network.md
         - name: Multiclasse Um contra Todos
           href: one-vs-all-multiclass.md
+        - name: Multiclasse Um contra Um
+          href: one-vs-one-multiclass.md
         - name: Perceptron Médio de Duas Classes
           href: two-class-averaged-perceptron.md
         - name: Árvore de decisão aumentada em duas classes
