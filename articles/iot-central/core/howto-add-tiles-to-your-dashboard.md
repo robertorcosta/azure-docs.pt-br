@@ -1,18 +1,17 @@
 ---
-title: Adicionar blocos ao painel de IoT Central do Azure | Microsoft Docs
+title: Configurar para o painel de IoT Central do Azure | Microsoft Docs
 description: Como um construtor, saiba como configurar o painel de aplicativo padrão do Azure IoT Central com blocos.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376972"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491963"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o painel de aplicativo
 
@@ -29,29 +28,32 @@ A captura de tela a seguir mostra o painel em um aplicativo criado a partir do m
 
 Depois de selecionar **Editar** ou **novo** , o painel estará no modo de *edição* . Você pode usar as ferramentas no painel **Editar painel** para adicionar blocos ao painel e personalizar e remover blocos no próprio Dashboard. Por exemplo, para adicionar um bloco de **telemetria** para mostrar a temperatura atual relatada por um ou mais dispositivos:
 
-1. No painel **Editar painel** , selecione um **grupo de dispositivos**.
-1. Selecione um ou mais dispositivos no menu suspenso **dispositivos** para mostrar no bloco. Agora você verá a telemetria, as propriedades e os comandos disponíveis dos dispositivos.
-1. Selecione **temperatura** na seção telemetria e, em seguida, selecione **Adicionar bloco**. O bloco agora aparece no painel em que você pode alterar a visualização, redimensionar o bloco e configurá-lo:
+1. Selecione um **grupo de dispositivos** e, em seguida, escolha seus dispositivos no menu suspenso **dispositivos** para mostrar no bloco. Agora você verá a telemetria, as propriedades e os comandos disponíveis dos dispositivos.
+
+1. Se necessário, use a lista suspensa para selecionar um valor de telemetria para mostrar no bloco. Você pode adicionar mais itens ao bloco outro selecionando **+ telemetria** , **+ Propriedade** ou **+ propriedade de nuvem**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicionar um bloco de telemetria de temperatura ao painel":::
 
-Quando terminar de adicionar e personalizar blocos no painel, selecione **salvar**.
+Quando você tiver selecionado todos os valores para mostrar no bloco, clique em **Adicionar bloco.** O bloco agora aparece no painel em que você pode alterar a visualização, redimensioná-la, movê-la e configurá-la.
+
+Quando terminar de adicionar e personalizar blocos no painel, selecione **salvar** para salvar as alterações no painel, o que o levará do modo de edição.
 
 ## <a name="customize-tiles"></a>Personalizar blocos
 
-Para personalizar um bloco no painel, o painel deve estar no modo de edição. As opções de personalização disponíveis dependem do [tipo de bloco](#tile-types):
+Para editar um bloco, você deve estar no modo de edição.  As opções de personalização disponíveis dependem do [tipo de bloco](#tile-types):
 
-* O ícone de régua em um bloco permite que você altere a visualização. As visualizações incluem gráficos de linhas, últimos valores conhecidos e mapas de calor.
+* O ícone de régua em um bloco permite que você altere a visualização. As visualizações incluem gráficos de linhas, gráficos de barras, gráficos de pizza, últimos valores conhecidos, indicadores chave de desempenho (ou KPIs), calor e mapas.
 
 * O ícone quadrado permite redimensionar o bloco.
 
 * O ícone de engrenagem permite que você configure a visualização. Por exemplo, para uma visualização de gráfico de linhas, você pode optar por mostrar a legenda e os eixos e escolher o intervalo de tempo para plotar.
 
+
 ## <a name="tile-types"></a>Tipos de bloco
 
 A tabela a seguir descreve os diferentes tipos de bloco que você pode adicionar a um painel:
 
-| Tile             | Description |
+| Tile             | Descrição |
 | ---------------- | ----------- |
 | Markdown         | Blocos de redução são blocos clicáveis que exibem um texto de título e descrição formatado usando a redução. A URL pode ser um link relativo para outra página no aplicativo ou um link absoluto para um site externo.|
 | Imagem            | Os blocos de imagem exibem uma imagem personalizada e podem ser clicáveis. A URL pode ser um link relativo para outra página no aplicativo ou um link absoluto para um site externo.|
@@ -91,11 +93,16 @@ Para o **KPI** numérico, o **último valor conhecido** e os blocos de **Proprie
 
 Adicione suas regras de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Captura de tela mostrando regras de formatação condicional para o fluxo médio. Há três regras-menos de Tha 20 é verde, menos de 50 é amarelo e qualquer coisa acima de 50 é vermelho":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Captura de tela mostrando regras de formatação condicional para o fluxo médio. Há três regras – menos de 20 é verde, menos de 50 é amarelo e qualquer coisa acima de 50 é vermelho":::
+   
 A captura de tela a seguir mostra o efeito da regra de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Captura de tela mostrando a cor do plano de fundo amarelo no bloco de fluxo de água médio. O número no bloco é 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Captura de tela mostrando a cor vermelha do plano de fundo no bloco média de fluxo de água. O número no bloco é 50,54":::
+
+### <a name="tile-formatting"></a>formatação de "bloco"
+Esse recurso, disponível nos blocos KPI, LKV e propriedade, permite aos usuários ajustar o tamanho da fonte, escolher precisão decimal, abreviar valores numéricos (por exemplo, o formato 1.700 como 1.7 K) ou encapsular valores de cadeia de caracteres em seus blocos.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Formato do bloco":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

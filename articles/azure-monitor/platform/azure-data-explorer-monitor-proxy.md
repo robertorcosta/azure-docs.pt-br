@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049676"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491249"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consultar dados em Azure Monitor usando o Data Explorer do Azure (versão prévia)
 O cluster do proxy de Data Explorer do Azure permite executar consultas entre produtos entre o Azure Data Explorer, espaços de trabalho Log Analytics e aplicativos Application Insights clássicos no Azure Monitor. Você pode mapear Log Analytics espaços de trabalho em aplicativos Azure Monitor ou clássicos Application Insights como clusters de proxy. Você pode consultar o cluster de proxy usando as ferramentas de Data Explorer do Azure e consultá-lo em uma consulta entre clusters. O artigo mostra como se conectar a um cluster de proxy, adicionar um cluster de proxy ao Azure Data Explorer interface do usuário da Web e executar consultas em seus espaços de trabalho Log Analytics ou aplicativos Application Insights clássicos do Azure Data Explorer.
@@ -28,7 +28,7 @@ O diagrama a seguir mostra o fluxo do proxy de Data Explorer do Azure:
 ## <a name="connect-to-the-proxy"></a>Conectar-se ao proxy
 Para conectar seu espaço de trabalho Log Analytics ou Application Insights aplicativo clássico, abra a[interface do usuário da Web do Azure data Explorer](https://dataexplorer.azure.com/clusters). Verifique se o seu cluster nativo do Azure Data Explorer (como o cluster de *ajuda* ) aparece no menu à esquerda antes de se conectar ao seu Log Analytics ou Application insights cluster.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Fluxo de proxy do Azure data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Cluster nativo do Azure Data Explorer.":::
 
 Clique em **Adicionar cluster** e adicione a URL do Log Analytics ou Application insights cluster em um dos formatos a seguir. 
     
@@ -37,14 +37,14 @@ Clique em **Adicionar cluster** e adicione a URL do Log Analytics ou Application
 
 Clique em **Adicionar** para fazer a conexão.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Fluxo de proxy do Azure data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Adicionar cluster.":::
  
 > [!NOTE]
 > Se você adicionar uma conexão a mais de um cluster de proxy, dê a cada um deles um nome diferente. Caso contrário, eles terão o mesmo nome no painel esquerdo.
 
 Depois que a conexão for estabelecida, seu Log Analytics ou Application Insights cluster aparecerá no painel esquerdo com seu cluster de Data Explorer nativo do Azure. 
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Fluxo de proxy do Azure data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics e clusters de Data Explorer do Azure.":::
  
 > [!NOTE]
 > O número de espaços de trabalho Azure Monitor que podem ser mapeados é limitado a 100.
@@ -70,7 +70,7 @@ Execute consultas em seu Log Analytics ou cluster de Application Insights. Verif
 Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Fluxo de proxy do Azure data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Consultar Log Analytics espaço de trabalho.":::
 
 ### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Consulta cruzada de seu Log Analytics ou Application Insights cluster de proxy e o cluster nativo do Azure Data Explorer
 
@@ -85,7 +85,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Usar o [ `join` operador](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer), em vez de Union, pode exigir uma [dica](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) para executá-lo em um cluster nativo do Azure data Explorer (e não no proxy). 
+Usar o [ `join` operador](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), em vez de Union, pode exigir uma [dica](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) para executá-lo em um cluster nativo do Azure data Explorer (e não no proxy). 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Unir dados de um cluster de Data Explorer do Azure em um locatário com um recurso de Azure Monitor em outro
 
@@ -113,7 +113,7 @@ Os comandos a seguir têm suporte pelo proxy:
 
 A imagem a seguir ilustra um exemplo de consulta de uma função de tabela da interface do usuário da Web do Azure Data Explorer. Para usar a função, execute o nome na janela de consulta.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Fluxo de proxy do Azure data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Consultar uma função de tabela do Azure Data Explorer interface do usuário da Web.":::
  
 > [!NOTE]
 > Azure Monitor só dá suporte a funções de tabela, que não dão suporte a parâmetros.
@@ -124,7 +124,7 @@ As seguintes opções de sintaxe estão disponíveis ao chamar os clusters Log A
 
 |Descrição da sintaxe  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Banco de dados dentro de um cluster que contém apenas o recurso definido nesta assinatura (**recomendado para consultas entre clusters**) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| Banco de dados dentro de um cluster que contém apenas o recurso definido nesta assinatura ( **recomendado para consultas entre clusters** ) |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | Cluster que contém todos os aplicativos/espaços de trabalho nesta assinatura    |     cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |Cluster que contém todos os aplicativos/espaços de trabalho na assinatura e que são membros deste grupo de recursos    |   cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |Cluster que contém apenas o recurso definido nesta assinatura      |    cluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  cluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |

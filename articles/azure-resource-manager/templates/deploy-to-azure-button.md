@@ -2,13 +2,13 @@
 title: Botão Implantar no Azure
 description: Use o botão para implantar modelos de Azure Resource Manager de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675400"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490892"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar um botão de implantação para implantar modelos do repositório GitHub
 
@@ -35,7 +35,7 @@ A imagem aparece como:
 
 ## <a name="create-url-for-deploying-template"></a>Criar URL para o modelo de implantação
 
-Para criar a URL para o modelo, comece com a URL bruta para o modelo em seu repositório. Para ver a URL bruta, selecione **RAW** .
+Para criar a URL para o modelo, comece com a URL bruta para o modelo em seu repositório. Para ver a URL bruta, selecione **RAW**.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="selecionar bruto":::
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Você tem a URL completa para o link.
 
+Se você estiver usando o [git com Azure Repos](/azure/devops/repos/git/) em vez de um repositório GitHub, ainda poderá usar o botão implantar no Azure. Verifique se seu repositório é público. Use a [operação itens](/rest/api/azure/devops/git/items/get) para obter o modelo. Sua solicitação deve estar no seguinte formato:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Codifique essa URL de solicitação.
+
 ## <a name="create-deploy-to-azure-button"></a>Botão criar implantação no Azure
 
 Por fim, coloque o link e a imagem juntos.
@@ -87,6 +95,12 @@ Para HTML, use:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+Para o Git com o repositório do Azure, o botão está no formato:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Implantar o modelo

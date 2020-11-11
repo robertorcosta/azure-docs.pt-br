@@ -4,15 +4,15 @@ description: Saiba como configurar o Dynamics 365 Customer Engagement para geren
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 54754f4c7753661b247f3f90942fb3074c34a38b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5d07dda82361ff59a43aa6753669bf38f4463059
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130605"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491130"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurar o gerenciamento de clientes potenciais para o Dynamics 365 Customer Engagement
 
@@ -36,11 +36,11 @@ As permissões de usuário a seguir são necessárias para concluir as etapas ne
 
 1. Abra o Dynamics 365 Customer Engagement acessando a URL para sua instância do Dynamics, como `https://tenant.crm.dynamics.com`.
 
-1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Configurações Avançadas** .
+1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Configurações Avançadas**.
  
     ![Item de menu das Configurações Avançadas do Dynamics 365](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
 
-1. Na página **Configurações** , abra o menu **Configurações** na barra superior e selecione **Soluções** .
+1. Na página **Configurações** , abra o menu **Configurações** na barra superior e selecione **Soluções**.
 
     >[!NOTE]
     >Caso não veja as opções na tela a seguir, você não tem as permissões necessárias para continuar. Contate um administrador em sua instância do Dynamics 365 Customer Engagement.
@@ -68,17 +68,17 @@ Recomendamos esta opção porque você nunca precisa atualizar seu nome de usuá
 
 Para configurar o Azure Active Directory para o Dynamics 365 Customer Engagement:
 
-1. Entre no [portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory** .
+1. Entre no [portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**.
 
-1. Selecione **Propriedades** e copie o valor da **ID de diretório** na página **Propriedades do diretório** . Salve esse valor porque você precisará fornecê-lo no portal de publicação para receber clientes potenciais para sua oferta do Marketplace.
+1. Selecione **Propriedades** e copie o valor da **ID de diretório** na página **Propriedades do diretório**. Salve esse valor porque você precisará fornecê-lo no portal de publicação para receber clientes potenciais para sua oferta do Marketplace.
 
     ![Item de menu das propriedades do Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
 
 1. Selecione **Registros de aplicativo** no painel Azure Active Directory à esquerda e, em seguida, selecione **Novo registro** na página.
 1. Insira um nome significativo para o nome do aplicativo.
-1. Em **Tipos de conta com suporte** , selecione **Contas em qualquer diretório organizacional** .
+1. Em **Tipos de conta com suporte** , selecione **Contas em qualquer diretório organizacional**.
 1. Em **URI de redirecionamento (opcional)** , selecione **Web** e insira um URI, como `https://contosoapp1/auth`. 
-1. Selecione **Registrar** .
+1. Selecione **Registrar**.
 
     ![Registrar uma página de aplicativo](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
@@ -86,22 +86,22 @@ Para configurar o Azure Active Directory para o Dynamics 365 Customer Engagement
 
     ![Caixa da ID do Aplicativo (cliente)](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
-1. Selecione **Certificados e segredos** no painel esquerdo do aplicativo e selecione o botão **Novo segredo do cliente** . Insira uma descrição significativa para o segredo do cliente e selecione a opção **Nunca** em **Expira em** . Selecione **Adicionar** para criar o segredo do cliente.
+1. Selecione **Certificados e segredos** no painel esquerdo do aplicativo e selecione o botão **Novo segredo do cliente**. Insira uma descrição significativa para o segredo do cliente e selecione a opção **Nunca** em **Expira em**. Selecione **Adicionar** para criar o segredo do cliente.
 
     ![Item de menu Certificados e segredos](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
-1. Assim que o segredo do cliente for criado com êxito, copie o valor do **Segredo do cliente** . Você não poderá recuperá-lo depois de sair da página. Salve esse valor porque você precisará fornecê-lo no portal de publicação para receber clientes potenciais para sua oferta do Marketplace. 
-1. Selecione **Permissões de API** no painel esquerdo do aplicativo e, em seguida, selecione **+ Adicionar uma permissão** .
+1. Assim que o segredo do cliente for criado com êxito, copie o valor do **Segredo do cliente**. Você não poderá recuperá-lo depois de sair da página. Salve esse valor porque você precisará fornecê-lo no portal de publicação para receber clientes potenciais para sua oferta do Marketplace. 
+1. Selecione **Permissões de API** no painel esquerdo do aplicativo e, em seguida, selecione **+ Adicionar uma permissão**.
 1. Selecione **APIs da Microsoft** e, em seguida, selecione **Dynamics CRM** como a API.
 1. Em **Que tipo de permissões seu aplicativo exige?** , verifique se as **Permissões delegadas** estão selecionadas. 
-1. Em **Permissão** , marque a caixa de seleção **user_impersonation** para **Acessar o Common Data Service como usuários da organização** . Em seguida, selecione **Adicionar permissões** .
+1. Em **Permissão** , marque a caixa de seleção **user_impersonation** para **Acessar o Common Data Service como usuários da organização**. Em seguida, selecione **Adicionar permissões**.
 
     ![Adicionar botão de permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
 1. Depois de concluir as etapas de 1 a 14 no portal do Azure, acesse a instância do Dynamics 365 Customer Engagement pela URL, como `https://tenant.crm.dynamics.com`.
-1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Configurações Avançadas** .
-1. Na página **Configurações** , abra o menu **Configurações** na barra superior e selecione **Segurança** .
-1. Na página **Segurança** , selecione **Usuários** . Na página **Usuários** , selecione a lista suspensa **Usuários Habilitados** e, em seguida, selecione **Usuários do Aplicativo** .
+1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Configurações Avançadas**.
+1. Na página **Configurações** , abra o menu **Configurações** na barra superior e selecione **Segurança**.
+1. Na página **Segurança** , selecione **Usuários**. Na página **Usuários** , selecione a lista suspensa **Usuários Habilitados** e, em seguida, selecione **Usuários do Aplicativo**.
 1. Selecione **Novo** para criar um novo usuário. 
 
     ![Criar um novo usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
@@ -120,14 +120,14 @@ Para configurar o Office 365 para o Dynamics 365 Customer Engagement:
 
 1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com).
 
-1. Selecione **Adicionar um usuário** .
+1. Selecione **Adicionar um usuário**.
 
     ![Opção “Adicionar um usuário” no Centro de Administração do Microsoft 365](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-add-user.png)
 
 1. Crie um novo usuário para o serviço de gravação do lead. Defina as seguintes configurações:
 
     * Digite um nome de usuário.
-    * Insira uma senha e desmarque a opção **Trocar senha do usuário na primeira conexão** .
+    * Insira uma senha e desmarque a opção **Trocar senha do usuário na primeira conexão**.
     * Selecione **Usuário (sem acesso de administrador)** como a função para o usuário.
     * Selecione **Dynamics 365 Customer Engagement Plan** como a licença do produto, conforme mostrado na tela a seguir. Você será cobrado pela licença que você escolher. 
 
@@ -140,9 +140,9 @@ Salve esses valores porque você precisará fornecer os valores de **Nome de usu
 A etapa final é permitir que o usuário que você criou grave os clientes potenciais.
 
 1. Abra o Dynamics 365 Customer Engagement acessando a URL para sua instância do Dynamics, como `https://tenant.crm.dynamics.com`.
-1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Configurações Avançadas** .
-1. Na página **Configurações** , abra o menu **Configurações** na barra superior e selecione **Segurança** .
-1. Na página **Segurança** , selecione **Usuários** e selecione o usuário que você criou na seção “Configurar permissões de usuário” deste documento. Em seguida, selecione **Gerenciar Funções** . 
+1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Configurações Avançadas**.
+1. Na página **Configurações** , abra o menu **Configurações** na barra superior e selecione **Segurança**.
+1. Na página **Segurança** , selecione **Usuários** e selecione o usuário que você criou na seção “Configurar permissões de usuário” deste documento. Em seguida, selecione **Gerenciar Funções**. 
 
     ![Guia Gerenciar Funções](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
@@ -153,26 +153,26 @@ A etapa final é permitir que o usuário que você criou grave os clientes poten
     >[!NOTE]
     >Essa função é criada pela solução que você importou e tem permissões apenas para gravar os leads e acompanhar a versão da solução para garantir a compatibilidade.
 
-1. Volte para a página **Segurança** e selecione **Funções de Segurança** . Procure o nome da função **Microsoft Marketplace Lead Writer** e selecione-a.
+1. Volte para a página **Segurança** e selecione **Funções de Segurança**. Procure o nome da função **Microsoft Marketplace Lead Writer** e selecione-a.
 
     ![Painel Funções de Segurança](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-1. Na função de segurança, selecione a guia **Registros principais** . Procure o item **Configurações de UI da Entidade do Usuário** . Habilite as permissões Criar, Ler e Gravar para o Usuário (círculo 1/4 amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
+1. Na função de segurança, selecione a guia **Registros principais**. Procure o item **Configurações de UI da Entidade do Usuário**. Habilite as permissões Criar, Ler e Gravar para o Usuário (círculo 1/4 amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
 
     ![Guia Registros principais do Microsoft Marketplace Lead Writer](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-1. Na guia **Personalização** , procure o item **Trabalho do Sistema** . Habilite as permissões Ler, Gravar e Acrescentar para a Organização (círculos verdes sólidos) para essa entidade, clicando quatro vezes em cada um dos círculos correspondentes.
+1. Na guia **Personalização** , procure o item **Trabalho do Sistema**. Habilite as permissões Ler, Gravar e Acrescentar para a Organização (círculos verdes sólidos) para essa entidade, clicando quatro vezes em cada um dos círculos correspondentes.
 
     ![Guia Personalização do Microsoft Marketplace Lead Writer](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
-1. Selecione **Salvar e fechar** .
+1. Selecione **Salvar e fechar**.
 
 ## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Configurar sua oferta para enviar clientes potenciais para o Dynamics 365 Customer Engagement 
 
 Para configurar as informações de gerenciamento de clientes potenciais para sua oferta no portal de publicação:
 
 1. Vá para a página **Configuração de oferta** da sua oferta.
-1. Na seção **Clientes potenciais** , selecione **Conectar** .
+1. Na seção **Clientes potenciais** , selecione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Clientes potenciais":::
 
@@ -192,9 +192,9 @@ Para configurar as informações de gerenciamento de clientes potenciais para su
     ![Caixa “Nome de usuário” do Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. Para **Emails de contato** , insira os endereços de email para as pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email separando-os com pontos-e-vírgulas.
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-Para verificar se você se conectou com êxito a um destino de cliente potencial, selecione o botão **Validar** . Se for bem-sucedido, você terá um cliente potencial de teste no destino do cliente potencial.
+Para verificar se você se conectou com êxito a um destino de cliente potencial, selecione o botão **Validar**. Se for bem-sucedido, você terá um cliente potencial de teste no destino do cliente potencial.
 
 ![Caixa “Email de contato”](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 

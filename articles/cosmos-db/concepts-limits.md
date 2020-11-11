@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319832"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491810"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ Você pode provisionar a taxa de transferência em um nível de contêiner ou em
 
 Um contêiner do Cosmos (ou banco de dados de produtividade compartilhado) deve ter uma taxa de transferência mínima de 400 RU/s. À medida que o contêiner cresce, a taxa de transferência mínima compatível também depende dos seguintes fatores:
 
-* A taxa de transferência máxima já provisionada no contêiner. Por exemplo, se a taxa de transferência aumentar para 50 mil RU/s, a menor taxa de transferência provisionada será de 500 RU/s
-* O armazenamento atual em GB no contêiner. Por exemplo, se o contêiner tiver 100 GB de armazenamento, a taxa de transferência provisionada mais baixa possível será de 1 mil RU/s
-* A taxa de transferência mínima em um banco de dados de produtividade compartilhada também depende do número total de contêineres que você já criou em um banco de dados de produtividade compartilhado, medido em 100 RU/s por contêiner. Por exemplo, se você tiver criado cinco contêineres em um banco de dados de produtividade compartilhado, a taxa de transferência deverá ser de pelo menos 500 RU/s
+* A taxa de transferência máxima já provisionada no contêiner. Por exemplo, se a taxa de transferência foi aumentada para 50.000 RU/s, a menor taxa de transferência provisionada pode ser 500 RU/s.
+* O armazenamento atual em GB no contêiner. Por exemplo, se o contêiner tiver 100 GB de armazenamento, a taxa de transferência provisionada mais baixa possível será 1000 RU/s. **Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
+* A taxa de transferência mínima em um banco de dados de produtividade compartilhada também depende do número total de contêineres que você já criou em um banco de dados de produtividade compartilhado, medido em 100 RU/s por contêiner. Por exemplo, se você tiver criado cinco contêineres em um banco de dados de produtividade compartilhado, a taxa de transferência deverá ser de pelo menos 500 RU/s.
 
 A taxa de transferência atual e mínima de um contêiner ou de um banco de dados pode ser recuperada do portal do Azure ou dos SDKs. Para obter mais informações, confira [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md). 
 

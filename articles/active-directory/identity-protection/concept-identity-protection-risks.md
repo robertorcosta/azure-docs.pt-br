@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042616"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490603"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -24,14 +24,14 @@ As detecções de risco no Azure AD Identity Protection incluem quaisquer açõe
 
 A proteção de identidade fornece às organizações acesso a recursos avançados para ver e responder rapidamente a essas ações suspeitas. 
 
->**Observação:** A proteção de identidade gera detecções de risco somente quando as credenciais corretas são usadas. Se credenciais incorretas forem usadas em uma entrada, isso não representará o risco de comprometimento de credenciais.
-
 ![Visão geral de segurança mostrando usuários e entradas arriscadas](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> A proteção de identidade gera detecções de risco somente quando as credenciais corretas são usadas. Se credenciais incorretas forem usadas em uma entrada, isso não representará o risco de comprometimento de credenciais.
 
 ## <a name="risk-types-and-detection"></a>Tipos de risco e detecção
 
-Há dois tipos de **usuário** de risco e **entrada** e dois tipos de detecção ou cálculo em **tempo real** e **offline** .
+Há dois tipos de **usuário** de risco e **entrada** e dois tipos de detecção ou cálculo em **tempo real** e **offline**.
 
 As detecções em tempo real podem não aparecer no relatório de cinco a dez minutos. As detecções offline podem não aparecer no relatório de duas a vinte e quatro horas.
 
@@ -41,7 +41,7 @@ Um risco de usuário representa a probabilidade de que uma determinada identidad
 
 Esses riscos são calculados offline usando fontes de inteligência contra ameaças internas e externas da Microsoft, incluindo pesquisadores de segurança, profissionais de imposição de leis, equipes de segurança da Microsoft e outras fontes confiáveis.
 
-| Detecção de riscos | Description |
+| Detecção de riscos | Descrição |
 | --- | --- |
 | Credenciais vazadas | Esse tipo de detecção de risco indica que as credenciais válidas do usuário foram vazadas. Quando criminosos cibernéticos comprometem senhas válidas de usuários legítimos, geralmente compartilham essas credenciais. Normalmente, esse compartilhamento é feito postando-se publicamente na Web escura, colando sites ou negociando e vendendo as credenciais no mercado preto. Quando o serviço de credenciais vazadas da Microsoft adquire credenciais de usuário da Web escura, colar sites ou outras fontes, eles são verificados em relação às credenciais válidas atuais dos usuários do Azure AD para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [perguntas comuns](#common-questions). |
 | Inteligência contra ameaças do Azure AD | Esse tipo de detecção de risco indica a atividade do usuário que é incomum para o usuário determinado ou é consistente com padrões de ataque conhecidos com base nas fontes de inteligência contra ameaças internas e externas da Microsoft. |
@@ -52,7 +52,7 @@ Um risco de entrada representa a probabilidade de que uma determinada solicitaç
 
 Esses riscos podem ser calculados em tempo real ou calculados offline usando fontes de inteligência contra ameaças internas e externas da Microsoft, incluindo pesquisadores de segurança, profissionais de imposição de leis, equipes de segurança da Microsoft e outras fontes confiáveis.
 
-| Detecção de riscos | Tipo de detecção | Description |
+| Detecção de riscos | Tipo de detecção | Descrição |
 | --- | --- | --- |
 | Endereço IP anônimo | Tempo real | Esse tipo de detecção de risco indica entradas de um endereço IP anônimo (por exemplo, navegador Tor ou VPN anônima). Normalmente, esses endereços IP são usados por atores que desejam ocultar sua telemetria de logon (endereço IP, localização, dispositivo etc.) para, potencialmente, más intenções. |
 | Viagem atípica | Offline | Esse tipo de detecção de risco identifica duas entradas provenientes de locais geograficamente distantes, em que pelo menos um dos locais também pode ser atípicos para o usuário, dado o comportamento passado. Entre muitos outros fatores, esse algoritmo de aprendizado de máquina leva em consideração o tempo entre as duas entradas e o tempo que seria necessário para o usuário ir do primeiro até o segundo local, indicando que um usuário diferente está usando as mesmas credenciais. <br><br> Esse algoritmo ignora “falsos positivos” óbvios que contribuem para condições impossíveis de viagem, como VPNs e locais regularmente usados por outros usuários na organização. O sistema tem um período de aprendizado inicial do anterior de 14 dias ou 10 logons, durante o qual ele aprende o comportamento de entrada de um novo usuário. |
@@ -66,7 +66,7 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 
 ### <a name="other-risk-detections"></a>Outras detecções de risco
 
-| Detecção de riscos | Tipo de detecção | Description |
+| Detecção de riscos | Tipo de detecção | Descrição |
 | --- | --- | --- |
 | Risco adicional detectado | Em tempo real ou offline | Essa detecção indica que uma das detecções Premium acima foi detectada. Como as detecções Premium são visíveis apenas para clientes Azure AD Premium P2, elas são intituladas "risco adicional detectado" para clientes sem licenças Azure AD Premium P2. |
 
@@ -77,6 +77,10 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 O Identity Protection categoriza os riscos em três camadas: baixa, média e alta. 
 
 Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, diremos que cada nível traz uma maior confiança de que a entrada ou o usuário está comprometido. Por exemplo, algo como uma instância de propriedades de entrada desconhecidas para um usuário pode não ser tão ameaçador quanto as credenciais vazadas para outro usuário.
+
+### <a name="password-hash-synchronization"></a>Sincronização de hash de senha
+
+As detecções de risco como credenciais vazadas e a irrigação de senha exigem a presença de hashes de senha para que a detecção ocorra. Para obter mais informações sobre a sincronização de hash de senha, consulte o artigo [implementar a sincronização de hash de senha com Azure ad Connect sincronização](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 

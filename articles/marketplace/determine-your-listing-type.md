@@ -4,15 +4,15 @@ description: Este artigo descreve os critérios de qualificação e os requisito
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128990"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492099"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -54,9 +54,9 @@ As opções de listagem disponíveis oferecem o envolvimento do cliente diferenc
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|
 | **Lista** | Listagem simples de seu aplicativo ou serviço que permite que um usuário do Marketplace comercial solicite que você se conecte ao cliente por meio das opções de listagem **entre em contato comigo** . |
-| **Avaliação** | Use o marketplace comercial para melhorar a capacidade de descoberta e automatizar o provisionamento da experiência de avaliação da sua solução, permitindo que os usuários em potencial usem sua experiência no aplicativo SaaS, IaaS ou da Microsoft sem nenhum custo, por tempo limitado, antes de comprar. As opções de listagem usadas para a opção de publicação de avaliação são a **avaliação gratuita** ou o **Test Drive** . |
-| **BYOL** | Use o marketplace comercial para aprimorar a capacidade de descoberta, automatizar o provisionamento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações do local para a nuvem. A opção de listagem é **obtê-la agora** .
-| **Transação** | As ofertas transacionais são vendidas por meio do marketplace comercial. A Microsoft é responsável pelas cobranças. A opção de listagem é **obtê-la agora** .|
+| **Avaliação** | Use o marketplace comercial para melhorar a capacidade de descoberta e automatizar o provisionamento da experiência de avaliação da sua solução, permitindo que os usuários em potencial usem sua experiência no aplicativo SaaS, IaaS ou da Microsoft sem nenhum custo, por tempo limitado, antes de comprar. As opções de listagem usadas para a opção de publicação de avaliação são a **avaliação gratuita** ou o **Test Drive**. |
+| **BYOL** | Use o marketplace comercial para aprimorar a capacidade de descoberta, automatizar o provisionamento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações do local para a nuvem. A opção de listagem é **obtê-la agora**.
+| **Transação** | As ofertas transacionais são vendidas por meio do marketplace comercial. A Microsoft é responsável pelas cobranças. A opção de listagem é **obtê-la agora**.|
 
 > [!Note]
 > Ao usar a opção de publicação de Transação, é importante entender as considerações de preços, cobrança, faturamento e pagamento antes de selecionar um tipo de oferta e criação de sua oferta. Para saber mais, leia o artigo [Recursos de transação do marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).

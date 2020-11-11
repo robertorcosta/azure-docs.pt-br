@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 4d21bfa69022cbebdcbf80c3bee4aec76bf99c53
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380225"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491113"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
@@ -111,7 +111,7 @@ Falta de suporte para concessões de diretório.
 
 - Se possível, evite um excesso de identificadores de abertura/fechamento no mesmo diretório em um curto período de tempo.
 - Para VMs do Linux, aumente o tempo limite do cache de entrada de diretório especificando **actimeo = \<sec>** como uma opção de montagem. Por padrão, é um segundo, portanto, um valor maior, como três ou cinco, pode ajudar.
-- Para VMs do Linux, atualize o kernel para 4,20 ou superior.
+- Para VMs RHEL/CentOS, atualize o sistema para RHEL/CentOS 8,2. Para outras VMs do Linux, atualize o kernel para 5,0 ou superior.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS baixo no CentOS/RHEL
 

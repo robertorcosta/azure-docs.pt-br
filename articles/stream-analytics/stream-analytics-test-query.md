@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444955"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490960"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testar um trabalho de Azure Stream Analytics no portal
 
@@ -101,8 +101,8 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 1.  A política de tempo não tem suporte no teste do portal:
 
-   * Fora de ordem: todos os eventos de entrada serão ordenados.
-   * Chegada tardia: não haverá evento de chegada tardia, pois Stream Analytics só poderá usar dados existentes para teste.
+    * Fora de ordem: todos os eventos de entrada serão ordenados.
+    * Chegada tardia: não haverá evento de chegada tardia, pois Stream Analytics só poderá usar dados existentes para teste.
    
 2.  Não há suporte para UDF em C#.
 
@@ -112,6 +112,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 5.  Não há suporte para Machine Learning.
 
+6. A API de dados de exemplo é limitada após cinco solicitações em uma janela de 15 minutos. Após o final da janela de 15 minutos, você pode fazer mais solicitações de dados de exemplo. Essa limitação é aplicada no nível de assinatura.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

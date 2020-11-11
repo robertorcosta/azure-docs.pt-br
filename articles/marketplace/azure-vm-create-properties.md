@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: cc5702d973150b80188354719333fb7cf22d58b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283571"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491198"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>Como configurar propriedades de oferta de máquina virtual
 
@@ -29,7 +29,7 @@ Veja a lista completa de categorias e subcategorias nas [melhores práticas de l
 
 ## <a name="provide-terms-and-conditions"></a>Fornecer termos e condições
 
-Sob **legal**, forneça os termos e condições para sua oferta. Você tem duas opções:
+Sob **legal** , forneça os termos e condições para sua oferta. Você tem duas opções:
 
 - [Use o contrato padrão com emendas opcionais](#use-the-standard-contract)
 - [Usar seus termos e condições](#use-your-own-terms-and-conditions)
@@ -59,7 +59,7 @@ Nos **termos de emendas universais para o contrato padrão da caixa do Marketpla
 
 #### <a name="add-one-or-more-custom-amendments"></a>Adicionar uma ou mais emendas personalizadas
 
-1. Em **termos de emendas personalizadas ao contrato padrão do Marketplace comercial da Microsoft**, selecione o link **Adicionar termo de emenda personalizada (máx. 10)** .
+1. Em **termos de emendas personalizadas ao contrato padrão do Marketplace comercial da Microsoft** , selecione o link **Adicionar termo de emenda personalizada (máx. 10)** .
 1. Na caixa **termos personalizados de emenda** , insira seus termos de emenda.
 1. Na caixa **ID do locatário** , insira uma ID de locatário. Somente os clientes associados às IDs de locatário que você especificar para esses termos personalizados poderão vê-los no fluxo de compra da oferta na portal do Azure.
    > [!TIP]
@@ -73,12 +73,8 @@ Nos **termos de emendas universais para o contrato padrão da caixa do Marketpla
 
 Você pode optar por fornecer seus próprios termos e condições, em vez do contrato Standard. Os clientes precisam aceitar esses termos antes de poderem experimentar sua oferta.
 
-1. Em **ofício**, verifique se a caixa de seleção **usar o contrato padrão para o Marketplace comercial da Microsoft** está desmarcada.
+1. Em **ofício** , verifique se a caixa de seleção **usar o contrato padrão para o Marketplace comercial da Microsoft** está desmarcada.
 1. Na caixa **termos e condições** , insira até 10.000 caracteres de texto.
-
-   > [!NOTE]
-   > Se você precisar de uma descrição mais longa, insira um único endereço Web que aponte para onde os termos e condições podem ser encontrados. Ele será exibido aos clientes como um link ativo.
-
 1. Selecione **salvar rascunho** antes de continuar para a próxima guia, **lista de ofertas**.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234113"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490875"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -71,7 +71,7 @@ Execute as etapas a seguir para preparar as unidades.
 7. Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho dos dados, isso pode levar de várias horas a dias.**
 
     ```powershell
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
     Um arquivo de diário é criado na mesma pasta em que você executou a ferramenta. Dois outros arquivos também são criados - um arquivo *.xml* (pasta onde você executa a ferramenta) e um arquivo *drive-manifest.xml* (pasta onde os dados residem).
@@ -101,17 +101,17 @@ Execute as etapas a seguir para preparar as unidades.
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 
 1. Faça logon em https://portal.azure.com/.
-2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação** .
+2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Clique em **criar trabalho de importação/exportação** .
+3. Clique em **criar trabalho de importação/exportação**.
 
     ![Clique em Criar Trabalho de Importação/Exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. Em **Noções básicas** :
 
-   * Selecione **Importar para o Azure** .
+   * Selecione **Importar para o Azure**.
    * Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
        * O nome pode conter apenas letras minúsculas, números e hifens.
        * O nome deve começar com uma letra e não pode conter espaços.

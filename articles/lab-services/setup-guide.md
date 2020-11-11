@@ -1,18 +1,18 @@
 ---
-title: Guia de configuração acelerada do laboratório de sala de aula do Azure Lab Services
+title: Guia de configuração do laboratório acelerado para Azure Lab Services
 description: Este guia ajuda desenvolvedores a configurar rapidamente uma conta de laboratório para uso em escolas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7423a76fd3ceb238c8c5c1a4ea794ff83b28b4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652203"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491657"
 ---
-# <a name="classroom-lab-setup-guide"></a>Guia de configuração de laboratórios de sala de aula
+# <a name="lab-setup-guide"></a>Guia de configuração do laboratório
 
-O processo de publicação de um laboratório para os alunos pode levar várias horas, dependendo do número de VMs (máquinas virtuais) que serão criadas. Reserve pelo menos um dia para configurar um laboratório. Isso garantirá que ele esteja funcionando corretamente e dará tempo suficiente para publicar as VMs dos alunos.
+O processo de publicação de um laboratório para seus alunos pode levar várias horas.  A quantidade de tempo depende do número de VMs (máquinas virtuais) que serão criadas em seu laboratório. Permita pelo menos um dia para configurar um laboratório, para garantir que ele esteja funcionando corretamente e para permitir tempo suficiente para publicar as VMs dos alunos.
 
 ## <a name="understand-the-lab-requirements-of-your-class"></a>Entenda os requisitos de laboratório de sua classe
 
@@ -22,47 +22,48 @@ Antes de configurar um novo laboratório, lembre-se de pensar no seguinte.
 
 Com base nos objetivos de aprendizado da classe, decida quais sistemas operacionais, aplicativos e ferramentas precisam ser instalados nas VMs do laboratório. Para configurar VMs de laboratório, você tem três opções:
 
-- **Usar uma de imagem do Azure Marketplace**: o Azure Marketplace fornece centenas de imagens que você pode usar ao criar um laboratório. Para algumas classes, uma dessas imagens já pode conter tudo o que você precisa.
+- **Usar uma de imagem do Azure Marketplace** : o Azure Marketplace fornece centenas de imagens que você pode usar ao criar um laboratório. Para algumas classes, uma dessas imagens já pode conter tudo o que você precisa.
 
-- **Criar uma imagem personalizada**: você pode criar sua própria imagem personalizada usando uma imagem do Azure Marketplace como ponto de partida e personalizando-a ao instalar softwares adicionais e fazendo alterações na configuração.
+- **Criar uma imagem personalizada** : você pode criar sua própria imagem personalizada usando uma imagem do Azure Marketplace como ponto de partida e personalizando-a ao instalar softwares adicionais e fazendo alterações na configuração.
 
-- **Usar uma imagem personalizada existente**: você pode reutilizar as imagens personalizadas que criou anteriormente ou que foram criadas por outros administradores ou pelo corpo docente da sua escola. Isso exige que os administradores tenham configurado uma galeria de imagens compartilhadas, que é um repositório para salvar imagens personalizadas.
+- **Usar uma imagem personalizada existente** : você pode reutilizar as imagens personalizadas que criou anteriormente ou que foram criadas por outros administradores ou pelo corpo docente da sua escola. Para usar imagens personalizadas, os administradores precisam configurar uma galeria de imagens compartilhada.  Uma galeria de imagens compartilhadas é um repositório que é usado para salvar imagens personalizadas.
 
 > [!NOTE]
 > Os administradores são responsáveis por habilitar as imagens personalizadas e as do Azure Marketplace para que você possa usá-las. Coordene com o departamento de TI para garantir que as imagens necessárias estejam habilitadas. As imagens personalizadas que você cria são habilitadas automaticamente para uso nos laboratórios que você possui.
 
 ### <a name="what-hardware-requirements-does-the-class-have"></a>Quais são os requisitos de hardware da classe?
 
-Há uma variedade de tamanhos de computação que você pode escolher:
+Há diferentes tamanhos de computação que você pode escolher:
 
-- Tamanhos de virtualização aninhados, para que você possa conceder acesso aos alunos a uma máquina capaz de hospedar várias VMs aninhadas. Por exemplo, você pode usar esse tamanho de computação para cursos de rede.
+- Tamanhos de virtualização aninhados, para que você possa conceder acesso a alunos a uma VM que pode hospedar várias VMs aninhadas. Por exemplo, você pode usar esse tamanho de computação para redes ou aulas de Ethical Hacking.
 
-- Tamanhos de GPU, para que os alunos possam usar tipos de aplicativos que usam muito o computador. Por exemplo, essa opção pode ser apropriada para inteligência artificial e aprendizado de máquina.
+- Tamanhos de GPU, para que os alunos possam usar tipos de aplicativos que usam muito o computador. Por exemplo, essa opção é geralmente usada com inteligência artificial e aprendizado de máquina.
 
-Confira o guia sobre [Dimensionamento de VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) para ver a lista completa de tamanhos de computação disponíveis.
+Para obter orientação sobre como selecionar o tamanho apropriado da VM, leia os seguintes artigos:
+- [Dimensionamento da VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing)
+- [Mudando de um laboratório físico para Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 > [!NOTE]
 > Dependendo da região em que você criará o laboratório, poderá ver menos tamanhos de computação disponíveis, pois isso varia por região. De maneira geral, você deve selecionar o menor tamanho de computação mais próximo a suas necessidades. Com o Azure Lab Services, você poderá configurar um novo laboratório com uma capacidade de computação diferente posteriormente, se necessário.
 
 ### <a name="what-dependencies-does-the-class-have-on-external-azure-or-network-resources"></a>Quais são as dependências da classe em recursos externos do Azure ou da rede?
-
-Se suas VMs de laboratório precisarem usar recursos externos, como um banco de dados, compartilhamento de arquivos ou servidor de licenciamento, coordene com seus administradores para garantir que seu laboratório tenha acesso a esses recursos.
-
-Para obter acesso aos recursos do Azure *não* protegidos por uma rede virtual, não é necessário buscar configurações adicionais por seus administradores. Você pode acessar esses recursos por meio da Internet pública.
+Suas VMs de laboratório podem precisar de acesso a recursos externos, como acessar um banco de dados, um compartilhamento de arquivos ou um servidor de licenciamento.  Para permitir que suas VMs de laboratório usem recursos externos, coordene com os administradores de ti.
 
 > [!NOTE]
 > Você deve considerar se pode reduzir as dependências do laboratório para recursos externos fornecendo o recurso diretamente na VM. Por exemplo, para eliminar a necessidade de ler dados de um banco de dados externo, você poderá instalar o banco de dados diretamente na VM.  
 
 ### <a name="how-will-costs-be-controlled"></a>Como os custos serão controlados?
-
 Os serviços de laboratório usam um modelo de preços pago conforme o uso, o que significa que você paga apenas pelo tempo em que a VM está em execução no laboratório. Para controlar os custos, você tem três opções que normalmente são usadas em conjunto:
 
-- **Agendamento**: o agendamento permite que você controle automaticamente quando as VMs nos laboratórios são iniciadas e desligadas.
-- **Cota**: a cota controla o número de horas durante as quais os alunos terão acesso a uma VM fora das horas agendadas. Se a cota for atingida enquanto um aluno a estiver usando, a VM será desligada automaticamente. O aluno não conseguirá reiniciar a VM, a menos que a cota seja aumentada.
-- **Desligamento automático**: quando habilitada, a configuração de desligamento automático faz com que as VMs do Windows sejam desligadas automaticamente após um determinado período de tempo, depois que um aluno se desconectou de uma sessão de protocolo RDP (Remote Desktop). Por padrão, essa configuração é desabilitada.  
+- **Agendamento** : o agendamento permite que você controle automaticamente quando as VMs nos laboratórios são iniciadas e desligadas.
+- **Cota** : a cota controla o número de horas durante as quais os alunos terão acesso a uma VM fora das horas agendadas.  Quando um aluno está usando sua VM e sua cota é atingida, a VM é desligada automaticamente.  O aluno não conseguirá reiniciar a VM, a menos que a cota seja aumentada.
+- **Desligamento** automático: quando habilitado, a configuração de desligamento automática faz com que as VMs do Windows sejam desligadas automaticamente depois que um aluno é desconectado de uma sessão de protocolo RDP (RDP). Por padrão, essa configuração está desabilitada.
+
+Leia os artigos a seguir para obter mais informações:
+- [Estimar custos](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
+- [Gerenciar os custos](https://docs.microsoft.com/azure/lab-services/cost-management-guide#manage-costs)
 
 ### <a name="how-will-students-save-their-work"></a>Como os alunos salvarão seus trabalhos?
-
 Cada aluno tem uma VM atribuída a ele durante seu tempo de vida útil da máquina no laboratório. Eles podem optar por:
 
 - Salvar diretamente na VM.
@@ -74,16 +75,23 @@ Cada aluno tem uma VM atribuída a ele durante seu tempo de vida útil da máqui
 > Para garantir que os alunos tenham acesso contínuo ao trabalho salvo fora do laboratório e, depois que a aula terminar, recomendamos que os alunos salvem seus trabalhos em um repositório externo.
 
 ### <a name="how-will-students-connect-to-their-vm"></a>Como os alunos se conectarão à VM?
-
 Para VMs do RDP com Windows, recomendamos que os alunos usem a [Área de Trabalho Remota da Microsoft](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). O cliente de Área de Trabalho Remota é compatível com Macs, Chromebooks e Windows.
 
 Para VMs do Linux, os alunos podem usar SSH ou RDP. Para que os alunos se conectem usando RDP, você deve instalar e configurar os pacotes RDP e GUI necessários.
 
+### <a name="will-students-also-be-using-microsoft-teams"></a>Os alunos também estarão usando o Microsoft Teams?
+O Azure Lab Services integra-se com as equipes da Microsoft para que os professores possam criar e gerenciar seus laboratórios dentro das equipes.  Da mesma forma, os alunos podem acessar o laboratório dentro das equipes.
+
+Para obter mais informações, consulte o seguinte artigo:
+- [Azure Lab Services no Microsoft Teams](https://docs.microsoft.com/azure/lab-services/lab-services-within-teams-overview)
+
 ## <a name="set-up-your-lab"></a>Configurar o laboratório
 
-Depois de entender os requisitos para a criação do laboratório de sua classe, você estará pronto para configurá-lo. Acompanhe os links nesta seção para ver como configurar seu laboratório.
+Depois de entender os requisitos para a criação do laboratório de sua classe, você estará pronto para configurá-lo. Acompanhe os links nesta seção para ver como configurar seu laboratório.  Observe que diferentes etapas são fornecidas dependendo de se você estiver usando laboratórios dentro de equipes.
 
-1. **Criar um laboratório.** Confira o tutorial em [criando um de laboratório de sala de aula](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) para obter instruções.
+1. **Criar um laboratório.** Consulte os tutoriais sobre como criar um laboratório:
+    - [Crie um laboratório de sala de aula](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) para obter instruções.
+    - [Criar um laboratório por meio do Teams](https://docs.microsoft.com/azure/lab-services/how-to-get-started-create-lab-within-teams)
 
     > [!NOTE]
     > Se sua classe requer virtualização aninhada, siga as etapas em [Como habilitar a virtualização aninhada](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
@@ -95,17 +103,21 @@ Depois de entender os requisitos para a criação do laboratório de sua classe,
     > [!NOTE]
     > Se você usa o Windows, veja também as instruções em [como preparar uma VM de modelo do Windows](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). Essas instruções incluem etapas para configurar o OneDrive e o Office para uso pelos alunos.
 
-1. **Gerenciar a capacidade e o pool de VMs.** Você pode ampliar ou reduzir a capacidade da VM com facilidade, conforme necessário para sua classe. Tenha em mente que aumentar a capacidade da VM pode levar várias horas, pois isso exige que se configure novas VMs. Siga as etapas em [configuração e gerenciamento de um pool de VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords).
+1. **Gerenciar a capacidade e o pool de VMs.** Você pode ampliar ou reduzir a capacidade da VM com facilidade, conforme necessário para sua classe. Tenha em mente que aumentar a capacidade da VM pode levar várias horas porque as novas VMs estão sendo configuradas. Consulte as etapas nos seguintes artigos:
+    - [Configurar e gerenciar um pool de VMs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords)
+    - [Gerenciar um pool de VMs no Lab Services das equipes](https://docs.microsoft.com/azure/lab-services/how-to-manage-vm-pool-within-teams)
 
 1. **Adicionar e gerenciar os usuários do laboratório.** Para adicionar usuários ao laboratório, siga as etapas nos seguintes tutoriais:
    - [Adicionar usuários ao laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
    - [Enviar convites aos usuários](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
+   - [Gerenciar listas de usuários do Lab Services de equipes](https://docs.microsoft.com/azure/lab-services/how-to-manage-user-lists-within-teams)
 
     Para obter informações sobre os tipos de contas que os alunos podem usar, confira [Contas de alunos](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
   
-1. **Definir controles de custo.** Para controlar os custos de um laboratório, defina agendamentos, cotas e desligamento automático. Consulte os seguintes tutoriais:
+1. **Definir controles de custo.** Para controlar os custos do seu laboratório, defina agendas, cotas e desligamento automático. Consulte os seguintes tutoriais:
 
    - [Definir um agendamento](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
+
         > [!NOTE]
         > Dependendo do tipo de sistema operacional que você instalou, uma VM pode levar vários minutos para ser iniciada. Para garantir que uma VM de laboratório esteja pronta para ser usada durante um horário de agendamento, recomendamos iniciar as VMs com 30 minutos de antecedência.
 
@@ -118,8 +130,9 @@ Depois de entender os requisitos para a criação do laboratório de sua classe,
         > 
         > Quando você cria um laboratório, a VM modelo é criada, mas não iniciada. Você pode iniciá-la, conectar-se a ela e instalar qualquer software de pré-requisito para o laboratório e, em seguida, publicá-la. Quando você publicar a VM de modelo, ela será desligada automaticamente, caso você ainda não tenha feito isso. 
         > 
-        > Durante a execução, as VMs modelo incorrem em **custos**, portanto, verifique se elas estão desligadas quando não estiverem em uso. 
+        > As VMs de modelo incorrem em **custos** durante a execução, portanto, verifique se elas estão desligadas quando não precisam estar em execução.
 
+    - [Criar e gerenciar agendas de serviços de laboratório dentro de equipes](https://docs.microsoft.com/azure/lab-services/how-to-create-schedules-within-teams) 
 
 1. **Usar o painel.** Para obter instruções, confira [Como usar o painel do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 

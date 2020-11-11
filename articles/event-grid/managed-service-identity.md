@@ -3,12 +3,12 @@ title: Entrega de eventos, identidade de serviço gerenciada e link privado
 description: Este artigo descreve como habilitar a identidade do serviço gerenciado para um tópico da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460913"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491708"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
 Este artigo descreve como habilitar uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para os tópicos ou domínios da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
@@ -24,7 +24,7 @@ Aqui estão as etapas abordadas em detalhes neste artigo:
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Criar um tópico ou domínio com uma identidade
 Primeiro, vamos dar uma olhada em como criar um tópico ou domínio com uma identidade gerenciada pelo sistema.
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 Você pode habilitar a identidade atribuída pelo sistema para um tópico ou domínio enquanto o cria no portal do Azure. A imagem a seguir mostra como habilitar uma identidade gerenciada pelo sistema para um tópico. Basicamente, você seleciona a opção **Habilitar identidade atribuída pelo sistema** na página **Avançado** do assistente de criação de tópico. Você também verá essa opção na página **avançado** do assistente de criação de domínio. 
 
 ![Habilitar identidade ao criar um tópico](./media/managed-service-identity/create-topic-identity.png)
@@ -42,10 +42,10 @@ Da mesma forma, você pode usar o comando `az eventgrid domain create` para cria
 ## <a name="enable-an-identity-for-an-existing-topic-or-domain"></a>Habilitar uma identidade para um tópico ou domínio existente
 Na seção anterior, você aprendeu como habilitar uma identidade gerenciada pelo sistema enquanto você criou um tópico ou um domínio. Nesta seção, você aprenderá a habilitar uma identidade gerenciada pelo sistema para um tópico ou domínio existente. 
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 O procedimento a seguir mostra como habilitar a identidade gerenciada pelo sistema para um tópico. As etapas para habilitar uma identidade para um domínio são semelhantes. 
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Acesse o [portal do Azure](https://portal.azure.com).
 2. Procure **Tópicos da grade de eventos** na barra de pesquisa na parte superior.
 3. Selecione o **tópico** para o qual deseja habilitar a identidade gerenciada. 
 4. Alterne para a guia **Identidade**. 
@@ -74,14 +74,14 @@ Atualmente, a grade de eventos do Azure dá suporte a tópicos ou domínios conf
 | Destino | Função do Azure | 
 | ----------- | --------- | 
 | Filas e tópicos do Barramento de Serviço | [Remetente de dados do Barramento de Serviço do Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Hubs de eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Hubs de Eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Armazenamento de Blobs do Azure | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Armazenamento de Filas do Azure |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
 ## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Adicionar uma identidade às funções do Azure em destinos
 Esta seção descreve como adicionar a identidade do seu tópico ou domínio a uma função do Azure. 
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 Você pode usar a portal do Azure para atribuir o tópico ou a identidade de domínio a uma função apropriada para que o tópico ou domínio possa encaminhar eventos para o destino. 
 
 O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade de eventos chamado **msitesttopic** à função **Remetente de dados do Barramento de Serviço do Azure** para um namespace do Barramento de Serviço que contém um recurso de fila ou tópico. Quando você adiciona à função no nível de namespace, o tópico pode encaminhar eventos para todas as entidades no namespace. 
@@ -89,7 +89,7 @@ O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade d
 1. Vá para o **namespace do barramento de serviço** na [portal do Azure](https://portal.azure.com). 
 1. Selecione **controle de acesso** no painel esquerdo. 
 1. Selecione **Adicionar** na seção **Adicionar uma atribuição de função**. 
-1. Na página **Adicionar uma atribuição de função**, siga os seguintes passos:
+1. Na página **Adicionar uma atribuição de função** , siga os seguintes passos:
     1. Selecione a função. Neste caso, é **Remetente de dados do Barramento de Serviço do Azure**. 
     1. Selecione a **identidade** para seu tópico ou domínio. 
     1. Selecione **salvar** para salvar a configuração.
@@ -140,7 +140,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ## <a name="create-event-subscriptions-that-use-an-identity"></a>Criar assinaturas de evento que usam uma identidade
 Depois que você tiver um tópico ou um domínio com uma identidade gerenciada pelo sistema e tiver adicionado a identidade à função apropriada no destino, você estará pronto para criar assinaturas que usam a identidade. 
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 Ao criar uma assinatura de evento, você verá uma opção para habilitar o uso de uma identidade atribuída pelo sistema para um ponto de extremidade na seção **detalhes do ponto de extremidade** . 
 
 ![Habilitar identidade ao criar uma assinatura de evento para uma fila do barramento de serviço](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
@@ -285,7 +285,7 @@ az eventgrid event-subscription create
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
 Atualmente, não é possível entregar eventos usando pontos de [extremidade privados](../private-link/private-endpoint-overview.md). Ou seja, não haverá suporte se você tiver requisitos estritos de isolamento de rede em que o tráfego de eventos entregues não deve sair do espaço IP privado. 
 
-No entanto, se seus requisitos chamarem uma maneira segura de enviar eventos usando um canal criptografado e uma identidade conhecida do remetente (nesse caso, a grade de eventos) usando o espaço IP público, você poderá entregar eventos aos hubs de eventos, ao barramento de serviço ou ao serviço de armazenamento do Azure usando um tópico da grade de eventos do Azure ou um domínio com identidade gerenciada pelo sistema Em seguida, você pode usar um link privado configurado em Azure Functions ou seu webhook implantado em sua rede virtual para efetuar pull de eventos. Consulte o exemplo: [conectar-se a pontos de extremidade privados com Azure functions.](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+No entanto, se seus requisitos chamarem uma maneira segura de enviar eventos usando um canal criptografado e uma identidade conhecida do remetente (nesse caso, a grade de eventos) usando o espaço IP público, você poderá entregar eventos aos hubs de eventos, ao barramento de serviço ou ao serviço de armazenamento do Azure usando um tópico da grade de eventos do Azure ou um domínio com identidade gerenciada pelo sistema Em seguida, você pode usar um link privado configurado em Azure Functions ou seu webhook implantado em sua rede virtual para efetuar pull de eventos. Consulte o exemplo: [conectar-se a pontos de extremidade privados com Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 Observe que, nessa configuração, o tráfego passa pelo IP público/Internet da grade de eventos para os hubs de eventos, barramento de serviço ou armazenamento do Azure, mas o canal pode ser criptografado e uma identidade gerenciada da grade de eventos é usada. Se você configurar seu Azure Functions ou webhook implantado em sua rede virtual para usar os hubs de eventos, o barramento de serviço ou o armazenamento do Azure por meio do link privado, essa seção do tráfego permanecerá, de forma evidente, no Azure.
 

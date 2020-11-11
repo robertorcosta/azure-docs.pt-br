@@ -4,15 +4,15 @@ description: Obtenha respostas para perguntas comuns sobre o Azure Marketplace e
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126712"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491470"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -58,10 +58,10 @@ Para inscrever-se para ser um editor do marketplace comercial, acesse o [Partner
 
 As maneiras como os clientes podem usar sua oferta do marketplace comercial dependem de como você cria as ofertas.
 
-- Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora* .
-- Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive* . 
-- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita* .
-- As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo* .
+- Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora*.
+- Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive*. 
+- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita*.
+- As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo*.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como faço para criar ofertas para o marketplace comercial?
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906259"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491725"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB saída de Azure Stream Analytics
 
@@ -34,12 +34,12 @@ A tabela a seguir descreve as propriedades para a criação de uma saída do Azu
 | ID da Conta | O nome ou o URI do ponto de extremidade da conta do Azure Cosmos DB. |
 | Chave de conta | A chave de acesso compartilhado da conta do Azure Cosmos DB. |
 | Banco de dados | O nome do banco de dados do Azure Cosmos DB. |
-| Nome do contêiner | O nome do contêiner a ser usado, o qual deve existir no Cosmos DB. Exemplo:  <br /><ul><li> _MyContainer_: Já deve existir um contêiner chamado "MyContainer".</li>|
+| Nome do contêiner | O nome do contêiner a ser usado, o qual deve existir no Cosmos DB. Exemplo:  <br /><ul><li> _MyContainer_ : Já deve existir um contêiner chamado "MyContainer".</li>|
 | ID do documento |Opcional. O nome do campo em eventos de saída que é usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.
 
 ## <a name="partitioning"></a>Particionamento
 
-A chave de partição é baseada na cláusula PARTITION BY na consulta. O número de gravadores de saída segue o particionamento de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). Stream Analytics converte a chave de partição de saída Cosmos DB em uma cadeia de caracteres. Por exemplo, se você tiver uma chave de partição com um valor de 1 do tipo bigint, ela será convertida em "1" do tipo cadeia de caracteres.
+A chave de partição é baseada na cláusula PARTITION BY na consulta. O número de gravadores de saída segue o particionamento de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). Stream Analytics converte a chave de partição de saída Cosmos DB em uma cadeia de caracteres. Por exemplo, se você tiver uma chave de partição com um valor de 1 do tipo bigint, ela será convertida em "1" do tipo cadeia de caracteres. Essa conversão sempre acontece, independentemente de a propriedade de partição ser gravada em Cosmos DB.
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 

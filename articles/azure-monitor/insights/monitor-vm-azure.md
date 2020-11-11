@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029454"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491623"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
 Este artigo descreve como usar o Azure Monitor para coletar e analisar dados de monitoramento de máquinas virtuais do Azure para manter sua integridade. As máquinas virtuais podem ser monitoradas quanto à disponibilidade e ao desempenho com Azure Monitor como qualquer [outro recurso do Azure](monitor-azure-resource.md), mas são exclusivas de outros recursos, já que você também precisa monitorar o sistema operacional e as cargas de trabalho convidadas que são executadas nelas. 
@@ -98,7 +98,7 @@ Selecione **Configurações Avançadas** do menu do espaço de trabalho e, em se
 ### <a name="enable-diagnostics-extension-and-telegraf-agent"></a>Habilitar a extensão de diagnóstico e o agente Telegraf
 O Azure Monitor para VMs é baseado no agente de Log Analytics que envia dados para um espaço de trabalho Log Analytics. Isso é compatível com vários recursos de Azure Monitor, como [consultas de log](../log-query/log-query-overview.md), [alertas de log](../platform/alerts-log.md) e [pastas de trabalho](../platform/workbooks-overview.md). A [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) coleta dados de desempenho do sistema operacional convidado de máquinas virtuais do Windows para o armazenamento do Azure e, opcionalmente, envia dados de desempenho para [Azure Monitor Metrics](../platform/data-platform-metrics.md). Para máquinas virtuais do Linux, o [agente do Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) é necessário para enviar dados para as métricas do Azure.  Isso habilita outros recursos de Azure Monitor como [Metrics Explorer](../platform/metrics-getting-started.md) e [alertas de métricas](../platform/alerts-metric.md). Você também pode configurar a extensão de diagnóstico para enviar eventos e dados de desempenho fora do Azure Monitor usando os hubs de eventos do Azure.
 
-Instale a extensão de diagnóstico para uma única máquina virtual do Windows no portal do Azure na opção **Configuração de diagnóstico** no menu da VM. Selecione a opção para habilitar **Azure Monitor** na guia**Coletores**. Para habilitar a extensão de um modelo ou linha de comando para várias máquinas virtuais, consulte [Instalação e configuração](../platform/diagnostics-extension-overview.md#installation-and-configuration). Ao contrário do agente de Log Analytics, os dados a serem coletados são definidos na configuração da extensão em cada máquina virtual.
+Instale a extensão de diagnóstico para uma única máquina virtual do Windows no portal do Azure na opção **Configuração de diagnóstico** no menu da VM. Selecione a opção para habilitar **Azure Monitor** na guia **Coletores**. Para habilitar a extensão de um modelo ou linha de comando para várias máquinas virtuais, consulte [Instalação e configuração](../platform/diagnostics-extension-overview.md#installation-and-configuration). Ao contrário do agente de Log Analytics, os dados a serem coletados são definidos na configuração da extensão em cada máquina virtual.
 
 ![Configuração de diagnóstico](media/monitor-vm-azure/diagnostic-setting.png)
 
@@ -139,7 +139,7 @@ Depois de configurar a coleta de dados de monitoramento para uma máquina virtua
 | Métricas | Abra o [Metrics Explorer](../platform/metrics-getting-started.md) com o escopo definido para a máquina virtual atual. |
 | Configurações de Diagnóstico | Habilite e configure a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para a máquina virtual atual. |
 | Recomendações do Assistente | Recomendações para a máquina virtual atual de [Azure Advisor](../../advisor/index.yml). |
-| Logs | Abra o [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) com o [escopo](../log-query/scope.md) definido para a máquina virtual atual. |
+| Logs | Abra o [Log Analytics](../log-query/log-analytics-overview.md) com o [escopo](../log-query/scope.md) definido para a máquina virtual atual. |
 | Monitor de conexão | Abra [Monitor de conexão do observador de rede](../../network-watcher/connection-monitor-preview.md) para monitorar as conexões entre a máquina virtual atual e outras máquinas virtuais. |
 
 
@@ -170,7 +170,7 @@ O Azure Monitor para VMs habilita a coleta de um conjunto predeterminado de cont
 
 
 > [!NOTE]
-> Os dados de desempenho coletados pelo agente de Log Analytics gravam na tabela *Perf* enquanto o Azure Monitor para VMs os coletarão para a tabela *InsightsMetrics*. São os mesmos dados, mas as tabelas têm uma estrutura diferente. Se você tiver consultas existentes com base em *Perf*, será necessário reescrever para usar *InsightsMetrics*.
+> Os dados de desempenho coletados pelo agente de Log Analytics gravam na tabela *Perf* enquanto o Azure Monitor para VMs os coletarão para a tabela *InsightsMetrics*. São os mesmos dados, mas as tabelas têm uma estrutura diferente. Se você tiver consultas existentes com base em *Perf* , será necessário reescrever para usar *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alertas

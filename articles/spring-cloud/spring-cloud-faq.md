@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900271"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491929"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -73,9 +73,9 @@ O Azure Spring Cloud dá suporte ao Java 8 e 11. Consulte [Java Runtime e versõ
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Onde posso exibir meus logs e métricas de aplicativos de nuvem Spring?
 
-Encontre métricas na guia Visão Geral do Aplicativo e na guia [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics).
+Encontre métricas na guia Visão Geral do Aplicativo e na guia [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer).
 
-O Azure Spring Cloud dá suporte à exportação de métricas e logs de aplicativos de nuvem Spring para o armazenamento do Azure, o EventHub e o [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). O nome da tabela em Log Analytics é *AppPlatformLogsforSpring* . Para saber como habilitá-lo, consulte [serviços de diagnóstico](diagnostic-services.md).
+O Azure Spring Cloud dá suporte à exportação de métricas e logs de aplicativos de nuvem Spring para o armazenamento do Azure, o EventHub e o [log Analytics](../azure-monitor/platform/data-platform-logs.md). O nome da tabela em Log Analytics é *AppPlatformLogsforSpring*. Para saber como habilitá-lo, consulte [serviços de diagnóstico](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud dá suporte ao rastreamento distribuído?
 

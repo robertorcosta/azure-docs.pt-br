@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376631"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491436"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
 
@@ -19,7 +19,7 @@ O gatilho de armazenamento de filas executa uma função à medida que as mensag
 
 ## <a name="encoding"></a>Codificação
 
-O Functions espera uma cadeia de caracteres codificada *base64*. Todos os ajustes ao tipo de codificação (para preparar os dados como uma cadeia de caracteres codificada *base64*) precisam ser implementados no serviço de chamada.
+O Functions espera uma cadeia de caracteres codificada *base64*. Todos os ajustes ao tipo de codificação (para preparar os dados como uma cadeia de caracteres codificada *base64* ) precisam ser implementados no serviço de chamada.
 
 ## <a name="example"></a>Exemplo
 
@@ -46,7 +46,7 @@ public static class QueueFunctions
 
 O exemplo a seguir mostra uma associação de gatilho de fila em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
 
-Aqui está o arquivo *function.json*:
+Aqui está o arquivo *function.json* :
 
 ```json
 {
@@ -101,7 +101,7 @@ A seção [uso](#usage) explica `myQueueItem`, que é chamado pela `name` propri
 
 O exemplo a seguir mostra uma associação de gatilho de fila em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
 
-Aqui está o arquivo *function.json*:
+Aqui está o arquivo *function.json* :
 
 ```json
 {
@@ -163,7 +163,7 @@ Um gatilho de fila de armazenamento é definido em *function.jsem* que o *tipo* 
 }
 ```
 
-O código * _ \_ init_ \_ . py* declara um parâmetro como `func.QueueMessage` , que permite que você leia a mensagem da fila em sua função.
+O código *_\_ init_ \_ . py* declara um parâmetro como `func.QueueMessage` , que permite que você leia a mensagem da fila em sua função.
 
 ```python
 import logging
@@ -363,7 +363,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. As propriedades são membros da classe [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` o terá o mesmo valor que a variável nomeada pela `name` propriedade em *function.js*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
@@ -375,7 +375,7 @@ O gatilho de fila fornece várias propriedades de [metadados](./functions-bindin
 
 ## <a name="poison-messages"></a>Mensagens suspeitas
 
-Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução do Functions adicionará uma mensagem a uma fila chamada * &lt; originalqueuename>-suspeita*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
+Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução do Functions adicionará uma mensagem a uma fila chamada *&lt; originalqueuename>-suspeita*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
 
 Para tratar mensagens suspeitas manualmente, verifique o [dequeueCount](#message-metadata) da mensagem de fila.
 
@@ -408,7 +408,7 @@ O arquivo [host.json](functions-host-json.md#queues) contém configurações que
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gravar mensagens de armazenamento de BLOBs (Associação de saída)](./functions-bindings-storage-blob-output.md)
+- [Gravar mensagens de armazenamento de fila (Associação de saída)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

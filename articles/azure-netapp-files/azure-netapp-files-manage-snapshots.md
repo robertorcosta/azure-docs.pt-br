@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421848"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491640"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -97,7 +97,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Salvar**.  
+4.  Clique em **Save** (Salvar).  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.
@@ -107,6 +107,8 @@ Se desejar que um volume use a política de instantâneo, você precisará [apli
 ### <a name="apply-a-snapshot-policy-to-a-volume"></a>Aplicar uma política de instantâneo a um volume
 
 Se desejar que um volume use uma política de instantâneo que você criou, você precisará aplicar a política ao volume. 
+
+Não é possível aplicar uma política de instantâneo a um volume de destino na replicação entre regiões.  
 
 1.  Vá para a página **volumes** , clique com o botão direito do mouse no volume ao qual você deseja aplicar uma política de instantâneo e selecione **Editar**.
 
@@ -172,6 +174,8 @@ Se você não quiser [restaurar o instantâneo inteiro para um volume](#restore-
 O volume montado contém um diretório de instantâneos chamado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório de instantâneo contém subdiretórios correspondentes aos instantâneos do volume. Cada subdiretório contém os arquivos do instantâneo. Se você excluir ou substituir um arquivo acidentalmente, poderá restaurá-lo para o diretório de leitura-gravação pai copiando o arquivo de um subdiretório de instantâneo para o diretório de leitura/gravação. 
 
 Se você marcou a caixa de seleção Ocultar caminho do instantâneo quando criou o volume, o diretório do instantâneo ficará oculto. Você pode exibir o status ocultar caminho do instantâneo do volume selecionando o volume. Você pode editar a opção ocultar caminho do instantâneo clicando em **Editar** na página do volume.  
+
+Para um volume de destino na replicação entre regiões, ocultar caminho do instantâneo é habilitado por padrão e a configuração não pode ser modificada.
 
 ![Editar opções de instantâneo de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
