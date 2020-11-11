@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 1d1db69215294ac4aa4849bbaa1a886a91f0ba7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cececc8ba297057a372766381de0fd2c145815f2
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89439156"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358874"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 
@@ -42,7 +42,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 * **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** e de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para conhecer as etapas para criar uma.
 * Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. Você pode usar ferramentas como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar ao armazenamento de Blobs do Azure, criar um contêiner de blobs, carregar arquivo de entrada e verificar o arquivo de saída.
 * Instale o **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps). Este guia de início rápido usa o PowerShell para invocar chamadas à API REST.
-* **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo**, **clientSecrets** e **ID do locatário**. Atribua o aplicativo à função "**Colaborador**".
+* **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo** , **clientSecrets** e **ID do locatário**. Atribua o aplicativo à função " **Colaborador** ".
 
 ## <a name="set-global-variables"></a>Definir variáveis globais
 
@@ -83,7 +83,7 @@ Execute os comandos a seguir para autenticar com o AAD (Azure Active Directory):
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]"https://login.microsoftonline.com/${tenantId}"
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $clientSecrets)
 $result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
-$authHeader = @{
+$authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()
@@ -98,7 +98,7 @@ Execute os seguintes comandos para criar um data factory:
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}?api-version=${apiVersion}"
 $body = @"
 {
-    "name": "$dataFactoryName",
+    "name": "$factoryName",
     "location": "East US",
     "properties": {},
     "identity": {
@@ -117,7 +117,7 @@ Observe os seguintes pontos:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 Veja a resposta de exemplo:
 
@@ -147,7 +147,7 @@ Veja a resposta de exemplo:
 
 Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste guia de início rápido, você só precisa criar um serviço vinculado do Armazenamento do Azure tanto como a origem da cópia quanto como o repositório de coletor, denominado "AzureStorageLinkedService" na amostra.
 
-Execute os comandos a seguir para criar um serviço vinculado chamado **AzureStorageLinkedService**:
+Execute os comandos a seguir para criar um serviço vinculado chamado **AzureStorageLinkedService** :
 
 Antes de executar os comandos, substitua &lt;accountName&gt; e &lt;accountKey&gt; pelo nome e pela chave da sua conta de armazenamento do Azure, respectivamente.
 

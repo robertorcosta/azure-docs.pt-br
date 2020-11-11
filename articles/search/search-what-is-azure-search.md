@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d045014cd92df084e4dd409012fdb668d312de1a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f9a5197b982958fe0a0ff21c4b442142beb38882
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442313"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422460"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é a Pesquisa Cognitiva do Azure?
 
@@ -78,7 +78,7 @@ O modelo de pull "efetua pull" dos dados de fontes no Azure e os envia para um �
 
 ### <a name="step-4-send-queries-and-handle-responses"></a>Etapa 4: Enviar consultas e lidar com respostas
 
-Depois de preencher um índice, você pode [emitir consultas de pesquisa](search-query-overview.md) para o ponto de extremidade de serviço usando solicitações HTTP simples com a [API REST](/rest/api/searchservice/Search-Documents) ou o [SDK do .NET](/dotnet/api/microsoft.azure.search.idocumentsoperations).
+Depois de preencher um índice, você pode [emitir consultas de pesquisa](search-query-overview.md) para o ponto de extremidade de serviço usando solicitações HTTP simples com a [API REST](/rest/api/searchservice/Search-Documents) ou o [SDK do .NET](/dotnet/api/azure.search.documents.searchclient.search).
 
 Percorra as etapas de [Criar seu primeiro aplicativo de pesquisa](tutorial-csharp-create-first-app.md) para criar e, em seguida, estender uma página da Web que coleta a entrada do usuário e manipula os resultados. Use também o [Postman para chamadas REST interativas](search-get-started-postman.md) ou o [Gerenciador de Pesquisa](search-explorer.md) interno no portal do Azure para consultar um índice existente.
 

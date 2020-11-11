@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646be410cceb214efad19757378c74f086e58578
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8166e2a937b905ae153e6b86cb026ff2be2415a8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89263054"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360540"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Resource Manager
 
@@ -37,6 +37,7 @@ Este início rápido mostra como acessar a API do Azure Resource Manager usando 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Conceder acesso a um Grupo de Recursos no Azure Resource Manager para sua VM
+
 Usando a identidades gerenciadas para recursos do Azure, seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD.  O Azure Resource Manager oferece suporte à autenticação do Azure AD.  Primeiro, é preciso conceder à identidade gerenciada atribuída pelo sistema da VM acesso a um recurso no Resource Manager, neste caso, o Grupo de Recursos no qual a VM está contida.  
 
 1.  Navegue até a guia para **Grupos de Recursos**. 
@@ -44,7 +45,7 @@ Usando a identidades gerenciadas para recursos do Azure, seu código pode obter 
 3.  Acesse **Controle de acesso (IAM)** no painel esquerdo. 
 4.  Em seguida, opte por **Adicionar atribuição de função** uma nova atribuição de função para a **VM do Windows**.  Escolha **Função** como **Leitor**. 
 5.  No menu suspenso seguinte, **Atribuir acesso a** **Máquina Virtual** do recurso. 
-6.  Em seguida, certifique-se de que a assinatura correta está listada na lista suspensa **Assinatura**. E para **Grupo de Recursos**, selecione **Todos os grupos de recursos**. 
+6.  Em seguida, certifique-se de que a assinatura correta está listada na lista suspensa **Assinatura**. E para **Grupo de Recursos** , selecione **Todos os grupos de recursos**. 
 7.  Por fim, em **Selecionar** escolha sua VM do Windows na lista suspensa e clique em **Salvar**.
 
     ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
@@ -53,7 +54,7 @@ Usando a identidades gerenciadas para recursos do Azure, seu código pode obter 
 
 Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **PowerShell** instalado, baixe-o [aqui](/powershell/azure/). 
 
-1.  No portal, navegue até **Máquinas Virtuais** e vá para a máquina virtual do Windows e em **Visão geral**, clique em **Conectar**. 
+1.  No portal, navegue até **Máquinas Virtuais** e vá para a máquina virtual do Windows e em **Visão geral** , clique em **Conectar**. 
 2.  Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3.  Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota. 
 4.  Usando o cmdlet Invoke-WebRequest, faça uma solicitação para a identidade gerenciada local do ponto de extremidade de recursos do Azure para obter um token de acesso para o Azure Resource Manager.

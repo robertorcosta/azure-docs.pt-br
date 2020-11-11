@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787373"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345747"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Filas
 
@@ -60,18 +60,17 @@ Se você está se aproximando do número máximo de contas de armazenamento perm
 
 ### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e de transação
 
-Se seu aplicativo estiver lidando com metas de escalabilidade de uma única conta de armazenamento, você pode adotar uma destas abordagens:  
+Se seu aplicativo estiver lidando com metas de escalabilidade de uma única conta de armazenamento, você pode adotar uma destas abordagens:
 
 - Se as metas de escalabilidade para filas forem insuficientes para seu aplicativo, use várias filas e distribua mensagens entre elas.
 - Repensar a carga de trabalho que faz com que o aplicativo se aproxime da meta de escalabilidade ou a ultrapasse. Você pode alterar o aplicativo para que ele use menos largura de banda, menos capacidade ou menos transações?
 - Se o aplicativo ultrapassar uma das metas de escalabilidade propositalmente, crie diversas contas de armazenamento e particione os dados do seu aplicativo nessas contas. Se você usar esse padrão, crie o aplicativo de forma que seja possível adicionar mais contas de armazenamento posteriormente, para balancear a carga. O único custo das contas de armazenamento é o uso dos dados armazenados, das transações feitas ou dos dados transferidos.
-- Se o aplicativo estiver atingindo as metas de largura de banda, considere compactar os dados no cliente para reduzir a largura de banda necessária para enviar os dados para o Armazenamento do Azure.
-    Embora a compactação de dados possa economizar largura de banda e melhorar o desempenho de rede, ela também pode ter efeitos negativos sobre o desempenho. Avalie o impacto de desempenho dos requisitos de processamento adicionais para compactação e descompactação de dados no lado do cliente. Tenha em mente que armazenar dados compactados pode dificultar a solução de problemas, porque pode ser mais desafiador exibir os dados usando ferramentas padrão.
+- Se o aplicativo estiver atingindo as metas de largura de banda, considere compactar os dados no cliente para reduzir a largura de banda necessária para enviar os dados para o Armazenamento do Azure. Embora a compactação de dados possa economizar largura de banda e melhorar o desempenho de rede, ela também pode ter efeitos negativos sobre o desempenho. Avalie o impacto de desempenho dos requisitos de processamento adicionais para compactação e descompactação de dados no lado do cliente. Tenha em mente que armazenar dados compactados pode dificultar a solução de problemas, porque pode ser mais desafiador exibir os dados usando ferramentas padrão.
 - Se o aplicativo estiver se aproximando das metas de escalabilidade, verifique se você está usando uma retirada exponencial para novas tentativas. É melhor tentar evitar alcançar as metas de escalabilidade implementando as recomendações descritas neste artigo. No entanto, usar uma retirada exponencial para novas tentativas impedirá que seu aplicativo tente novamente com rapidez, o que poderia piorar a limitação. Para obter mais informações, confira a seção intitulada [Erros de Tempo Limite e Servidor Ocupado](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Rede
 
-As restrições físicas da rede do aplicativo podem ter um impacto considerável no desempenho. As seções a seguir descrevem algumas das limitações que os usuários podem enfrentar.  
+As restrições físicas da rede do aplicativo podem ter um impacto considerável no desempenho. As seções a seguir descrevem algumas das limitações que os usuários podem enfrentar.
 
 ### <a name="client-network-capability"></a>Funcionalidade da rede do cliente
 
@@ -83,11 +82,11 @@ No caso da largura de banda, muitas vezes o problema está relacionado às funci
 
 #### <a name="link-quality"></a>Qualidade do link
 
-Como acontece com qualquer uso de rede, tenha em mente que as condições de rede que resultam em erros e a perda do pacote desacelerarão a taxa de transferência efetiva.  Usar WireShark ou NetMon pode ajudar a identificar esse problema.  
+Como acontece com qualquer uso de rede, tenha em mente que as condições de rede que resultam em erros e a perda do pacote desacelerarão a taxa de transferência efetiva. Usar WireShark ou NetMon pode ajudar a identificar esse problema.
 
 ### <a name="location"></a>Location
 
-Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se tiver um aplicativo Web do Azure que usa o Armazenamento do Azure, localize-os dentro de uma única região, como o Oeste dos EUA ou o Sudeste Asiático. Colocalizar recursos reduz a latência e o custo, pois o uso de largura de banda em uma única região é gratuito.  
+Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se tiver um aplicativo Web do Azure que usa o Armazenamento do Azure, localize-os dentro de uma única região, como o Oeste dos EUA ou o Sudeste Asiático. Colocalizar recursos reduz a latência e o custo, pois o uso de largura de banda em uma única região é gratuito.
 
 Se os aplicativos cliente acessarem o Armazenamento do Azure, mas não estiverem hospedados no Azure, como aplicativos de dispositivo móvel ou serviços corporativos locais, a localização da conta de armazenamento em uma região próxima a esses clientes poderá reduzir a latência. Se os clientes estiverem amplamente distribuídos (por exemplo, alguns na América do Norte e outros na Europa), considere usar uma conta de armazenamento por região. A implementação dessa solução é mais fácil se os dados armazenados pelo aplicativo são específicos aos usuários e se não é necessário replicar os dados entre as contas de armazenamento.
 
@@ -95,17 +94,17 @@ Se os aplicativos cliente acessarem o Armazenamento do Azure, mas não estiverem
 
 Suponha que você precise autorizar um código, como o JavaScript que está sendo executado no navegador da Web de um usuário ou em um aplicativo de celular, a acessar dados no armazenamento do Azure. Uma abordagem é criar um aplicativo de serviço que funcione como um proxy. O dispositivo do usuário é autenticado no serviço que, por sua vez, autoriza o acesso aos recursos do Armazenamento do Azure. Dessa forma, você pode evitar a exposição das chaves de conta de armazenamento em dispositivos que não são seguros. No entanto, essa abordagem gera uma sobrecarga significativa no aplicativo do serviço, porque todos os dados transferidos entre o dispositivo do usuário e o Armazenamento do Azure devem passar pelo aplicativo do serviço.
 
-Você pode evitar usar um aplicativo de serviço como um proxy para o Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado). Usando SAS, você pode permitir que o dispositivo do seu usuário faça solicitações diretamente ao Armazenamento do Azure usando um token de acesso limitado. Por exemplo, se um usuário desejar fazer upload de uma foto para seu aplicativo, seu aplicativo de serviço poderá gerar uma SAS e enviá-la ao dispositivo do usuário. O token SAS pode conceder permissão para gravar em um recurso do Armazenamento do Azure durante um intervalo especificado de tempo; depois disso, o token SAS expirará. Para obter mais informações sobre SAS, confira [Conceder acesso limitado a recursos de Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).  
+Você pode evitar usar um aplicativo de serviço como um proxy para o Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado). Usando SAS, você pode permitir que o dispositivo do seu usuário faça solicitações diretamente ao Armazenamento do Azure usando um token de acesso limitado. Por exemplo, se um usuário desejar fazer upload de uma foto para seu aplicativo, seu aplicativo de serviço poderá gerar uma SAS e enviá-la ao dispositivo do usuário. O token SAS pode conceder permissão para gravar em um recurso do Armazenamento do Azure durante um intervalo especificado de tempo; depois disso, o token SAS expirará. Para obter mais informações sobre SAS, confira [Conceder acesso limitado a recursos de Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
 
 Normalmente, um navegador da Web não permitirá que o JavaScript em uma página hospedada por um site em um domínio execute determinadas operações, como de gravação, em outro domínio. Conhecida como a política de mesma origem, essa política impede que um script mal-intencionado em uma página obtenha acesso a dados em outra página da Web. No entanto, a política de mesma origem pode ser uma limitação ao criar uma solução na nuvem. O CORS (compartilhamento de recurso entre origens) é um recurso do navegador que permite que o domínio de destino se comunique com o navegador ao qual ele confia as solicitações que se originam no domínio de origem.
 
-Por exemplo, suponha que um aplicativo Web em execução no Azure faça uma solicitação para um recurso para uma conta do Armazenamento do Azure. O aplicativo Web é o domínio de origem e a conta de armazenamento é o domínio de destino. Você pode configurar o CORS para que qualquer um dos serviços do Armazenamento do Azure se comunique com o navegador da Web cujas solicitações do domínio de origem têm a confiança do Armazenamento do Azure. Para obter mais informações sobre o CORS, confira [Suporte ao CORS (compartilhamento de recurso entre origens) para o Armazenamento do Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
-  
-SAS e CORS podem ajudar você a evitar uma carga desnecessária em seu aplicativo Web.  
+Por exemplo, suponha que um aplicativo Web em execução no Azure faça uma solicitação para um recurso para uma conta do Armazenamento do Azure. O aplicativo Web é o domínio de origem e a conta de armazenamento é o domínio de destino. Você pode configurar o CORS para que qualquer um dos serviços do Armazenamento do Azure se comunique com o navegador da Web cujas solicitações do domínio de origem têm a confiança do Armazenamento do Azure. Para obter mais informações sobre o CORS, confira [Suporte ao CORS (compartilhamento de recurso entre origens) para o Armazenamento do Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+
+SAS e CORS podem ajudar você a evitar uma carga desnecessária em seu aplicativo Web.
 
 ## <a name="net-configuration"></a>Configuração do .NET
 
-Esta seção é útil para quem usa o .NET Framework, pois lista diversas configurações rápidas que você pode usar para fazer melhorias significativas no desempenho.  Se estiver usando outras linguagens, verifique se conceitos parecidos aplicam-se à linguagem escolhida.  
+Esta seção é útil para quem usa o .NET Framework, pois lista diversas configurações rápidas que você pode usar para fazer melhorias significativas no desempenho. Se estiver usando outras linguagens, verifique se conceitos parecidos aplicam-se à linguagem escolhida.
 
 ### <a name="use-net-core"></a>Usar o .NET Core
 
@@ -118,17 +117,17 @@ Para saber mais sobre os aprimoramentos de desempenho no .NET Core, confira as s
 
 ### <a name="increase-default-connection-limit"></a>Aumentar limite de conexão padrão
 
-No .NET, o código a seguir aumenta o limite de conexão de padrão (que geralmente é 2 em um ambiente de cliente ou 10 em um ambiente de servidor) a 100. Normalmente, você deve definir o valor para aproximadamente igual ao número de threads utilizados pelo seu aplicativo.  
+No .NET, o código a seguir aumenta o limite de conexão de padrão (que geralmente é 2 em um ambiente de cliente ou 10 em um ambiente de servidor) a 100. Normalmente, você deve definir o valor para aproximadamente igual ao número de threads utilizados pelo seu aplicativo.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Defina o limite da conexão antes de abrir conexões.  
+Defina o limite da conexão antes de abrir conexões.
 
-No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.  
+No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.
 
-Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
+Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -138,11 +137,11 @@ Se você estiver usando chamadas síncronas juntamente com tarefas assíncronas,
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Para obter mais informações, confira o método [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).  
+Para obter mais informações, confira o método [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Paralelismo não associado
 
-Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o paralelismo não associado, que significa que não há nenhum limite imposto sobre o número de threads ou solicitações paralelas. Limite as solicitações paralelas para fazer upload ou baixar dados, para acessar várias partições na mesma conta de armazenamento ou acessar vários itens na mesma partição. Se o paralelismo não estiver associado, o aplicativo poderá ultrapassar as funcionalidades do dispositivo cliente ou as metas de escalabilidade da conta de armazenamento, o que resultará em limitação e latências mais longas.  
+Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o paralelismo não associado, que significa que não há nenhum limite imposto sobre o número de threads ou solicitações paralelas. Limite as solicitações paralelas para fazer upload ou baixar dados, para acessar várias partições na mesma conta de armazenamento ou acessar vários itens na mesma partição. Se o paralelismo não estiver associado, o aplicativo poderá ultrapassar as funcionalidades do dispositivo cliente ou as metas de escalabilidade da conta de armazenamento, o que resultará em limitação e latências mais longas.
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas de cliente e ferramentas
 
@@ -154,9 +153,9 @@ O Armazenamento do Azure retorna um erro quando o serviço não pode processar u
 
 ### <a name="timeout-and-server-busy-errors"></a>Erros de Tempo Limite e Servidor Ocupado
 
-O Armazenamento do Azure poderá limitar seu aplicativo se ele se aproximar dos limites de escalabilidade. Em alguns casos, o Armazenamento do Azure pode ser incapaz de manipular uma solicitação devido a algumas condições transitórias. Em ambos os casos, o serviço pode retornar um erro 503 (Servidor Ocupado) ou 500 (Tempo Limite). Esses erros também poderão ocorrer se o serviço estiver reequilibrando partições de dados para permitir uma taxa de transferência mais alta. Normalmente, o aplicativo cliente deve repetir a operação que gera um erro desses erros. No entanto, se o Armazenamento do Azure estiver limitando o aplicativo porque ele está ultrapassando as metas de escalabilidade ou porque o serviço não pôde atender à solicitação por algum motivo, novas tentativas poderão piorar o problema. O uso de uma política de repetição de retirada exponencial é recomendado e o padrão das bibliotecas de cliente é esse comportamento. Por exemplo, o aplicativo pode fazer uma nova tentativa em 2 segundos, 4 segundos, 10 segundos e 30 segundos para então abandonar o processo. Dessa forma, seu aplicativo reduz significativamente sua carga sobre o serviço, em vez de exacerbar o comportamento que poderia causar a limitação.  
+O Armazenamento do Azure poderá limitar seu aplicativo se ele se aproximar dos limites de escalabilidade. Em alguns casos, o Armazenamento do Azure pode ser incapaz de manipular uma solicitação devido a algumas condições transitórias. Em ambos os casos, o serviço pode retornar um erro 503 (Servidor Ocupado) ou 500 (Tempo Limite). Esses erros também poderão ocorrer se o serviço estiver reequilibrando partições de dados para permitir uma taxa de transferência mais alta. Normalmente, o aplicativo cliente deve repetir a operação que gera um erro desses erros. No entanto, se o Armazenamento do Azure estiver limitando o aplicativo porque ele está ultrapassando as metas de escalabilidade ou porque o serviço não pôde atender à solicitação por algum motivo, novas tentativas poderão piorar o problema. O uso de uma política de repetição de retirada exponencial é recomendado e o padrão das bibliotecas de cliente é esse comportamento. Por exemplo, o aplicativo pode fazer uma nova tentativa em 2 segundos, 4 segundos, 10 segundos e 30 segundos para então abandonar o processo. Dessa forma, seu aplicativo reduz significativamente sua carga sobre o serviço, em vez de exacerbar o comportamento que poderia causar a limitação.
 
-Pode haver novas tentativas imediatas em caso de erros de conectividade porque esses erros não são resultado de limitações e devem ser temporários.  
+Pode haver novas tentativas imediatas em caso de erros de conectividade porque esses erros não são resultado de limitações e devem ser temporários.
 
 ### <a name="non-retryable-errors"></a>Erros sem nova tentativa
 
@@ -170,17 +169,17 @@ O algoritmo de Nagle é implementado largamente em redes TCP/IP como meio de mel
 
 ## <a name="message-size"></a>Tamanho da mensagem
 
-O desempenho de fila e a escalabilidade diminuem conforme o tamanho da mensagem aumenta. Coloque apenas as informações de que o receptor precisa em uma mensagem.  
+O desempenho de fila e a escalabilidade diminuem conforme o tamanho da mensagem aumenta. Coloque apenas as informações de que o receptor precisa em uma mensagem.
 
 ## <a name="batch-retrieval"></a>Recuperação em lote
 
-Você pode recuperar até 32 mensagens de uma fila em uma única operação. A recuperação em lote pode reduzir o número de viagens de ida e volta do aplicativo cliente, o que é especialmente útil para ambientes, como dispositivos móveis, com alta latência.  
+Você pode recuperar até 32 mensagens de uma fila em uma única operação. A recuperação em lote pode reduzir o número de viagens de ida e volta do aplicativo cliente, o que é especialmente útil para ambientes, como dispositivos móveis, com alta latência.
 
 ## <a name="queue-polling-interval"></a>Intervalo de sondagem de fila
 
-A maioria dos aplicativos de sondagem para mensagens de uma fila, pode ser uma das principais fontes de transações para o aplicativo. Selecione o intervalo de sondagem com sabedoria: a sondagem muito frequente pode fazer com que seu aplicativo se aproxime das metas de escalabilidade para a fila. No entanto, em 200.000 transações para US $0,01 (no momento da gravação), um único processador sondando uma vez por segundo em um mês custaria menos de 15 centavos, assim o custo de sondagem não é normalmente um fator que afeta sua opção de intervalo de sondagem.  
+A maioria dos aplicativos de sondagem para mensagens de uma fila, pode ser uma das principais fontes de transações para o aplicativo. Selecione o intervalo de sondagem com sabedoria: a sondagem muito frequente pode fazer com que seu aplicativo se aproxime das metas de escalabilidade para a fila. No entanto, em 200.000 transações para US $0,01 (no momento da gravação), um único processador sondando uma vez por segundo em um mês custaria menos de 15 centavos, assim o custo de sondagem não é normalmente um fator que afeta sua opção de intervalo de sondagem.
 
-Para obter informações atualizadas sobre custos, confira [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
+Para obter informações atualizadas sobre custos, confira [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="use-update-message"></a>Usar Atualizar Mensagem
 
@@ -188,10 +187,10 @@ Você pode usar a operação **Atualizar Mensagem** para aumentar o tempo limite
 
 ## <a name="application-architecture"></a>Arquitetura do aplicativo
 
-Use filas para tornar a arquitetura do seu aplicativo escalonável. A seguir temos algumas maneiras de usar filas para que seu aplicativo seja mais escalonável:  
+Use filas para tornar a arquitetura do seu aplicativo escalonável. A seguir temos algumas maneiras de usar filas para que seu aplicativo seja mais escalonável:
 
 - Você pode usar as filas para criar listas de pendências de trabalho para processamento e suavização das cargas de trabalho no seu aplicativo. Por exemplo, você pode colocar na fila as solicitações dos usuários para execução de trabalhos que requerem trabalho muito intenso do processador, como o redimensionamento das imagens carregadas.
-- Você pode usar as filas para desassociar parte do aplicativo, a fim de poder escaloná-las de forma independente. Por exemplo, um front-end da Web pode colocar os resultados de pesquisa dos usuários em uma fila para análise posterior e armazenamento. Você pode adicionar mais instâncias de função de trabalho para processar os dados da fila conforme necessário.  
+- Você pode usar as filas para desassociar parte do aplicativo, a fim de poder escaloná-las de forma independente. Por exemplo, um front-end da Web pode colocar os resultados de pesquisa dos usuários em uma fila para análise posterior e armazenamento. Você pode adicionar mais instâncias de função de trabalho para processar os dados da fila conforme necessário.
 
 ## <a name="next-steps"></a>Próximas etapas
 

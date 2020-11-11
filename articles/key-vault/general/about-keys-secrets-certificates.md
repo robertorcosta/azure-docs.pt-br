@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91296830"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357769"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 
@@ -45,10 +46,10 @@ Segredos|/secrets|Com suporte|Sem suporte
 Certificados|/certificates|Com suporte|Sem suporte
 Chaves de conta de armazenamento|/storageaccount|Com suporte|Sem suporte
 |||
-- **Chaves de criptografia**: Dá suporte a vários tipos de chave e algoritmos e habilita o uso de chaves protegidas por HSM e por software. Para obter mais informações, confira [Sobre chaves](../keys/about-keys.md).
-- **Segredos**: Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados. Para obter mais informações, confira [Sobre segredos](../secrets/about-secrets.md).
-- **Certificados**: Oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática. Para obter mais informações, confira [Sobre certificados](../certificates/about-certificates.md).
-- **Chaves de conta de Armazenamento do Azure**: Pode gerenciar chaves de uma conta de Armazenamento do Microsoft Azure para você. Internamente, o Key Vault pode listar (sincronizar) chaves com uma conta de Armazenamento do Azure e gerar novamente (gira) as chaves periodicamente. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
+- **Chaves de criptografia** : Dá suporte a vários tipos de chave e algoritmos e habilita o uso de chaves protegidas por HSM e por software. Para obter mais informações, confira [Sobre chaves](../keys/about-keys.md).
+- **Segredos** : Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados. Para obter mais informações, confira [Sobre segredos](../secrets/about-secrets.md).
+- **Certificados** : Oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática. Para obter mais informações, confira [Sobre certificados](../certificates/about-certificates.md).
+- **Chaves de conta de Armazenamento do Azure** : Pode gerenciar chaves de uma conta de Armazenamento do Microsoft Azure para você. Internamente, o Key Vault pode listar (sincronizar) chaves com uma conta de Armazenamento do Azure e gerar novamente (gira) as chaves periodicamente. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
 
 Para obter mais informações gerais sobre o Key Vault, confira [Sobre o Azure Key Vault](overview.md). Para obter mais informações sobre os pools do HSM Gerenciado, confira [O que é o HSM Gerenciado do Azure Key Vault?](../managed-hsm/overview.md)
 
@@ -80,9 +81,9 @@ Para mais informações, consulte [Autenticação, solicitações e respostas](a
 
 Um identificador de objeto tem o seguinte formato geral (dependendo do tipo de contêiner):  
 
-- **Para Cofres**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Para Cofres** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **Para pools do HSM Gerenciado**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Para pools do HSM Gerenciado** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Confira [Suporte de tipo de objeto](#object-types) para tipos de objetos com suporte em cada tipo de contêiner.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f72d8b332f00b3d298f4d5a1a04937f562647f9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783412"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347141"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para JavaScript
 
@@ -21,26 +21,26 @@ Introdução à biblioteca de clientes do armazenamento de Filas do Azure versã
 
 Use a biblioteca de clientes do armazenamento de Filas do Azure v12 para JavaScript a fim de:
 
-* Criar uma fila
-* Adicionar mensagens a uma fila
-* Espiar mensagens em uma fila
-* Atualizar uma mensagem em uma fila
-* Receber mensagens de uma fila
-* Excluir mensagens de uma fila
-* Excluir uma fila
+- Criar uma fila
+- Adicionar mensagens a uma fila
+- Espiar mensagens em uma fila
+- Atualizar uma mensagem em uma fila
+- Receber mensagens de uma fila
+- Excluir mensagens de uma fila
+- Excluir uma fila
 
 Recursos adicionais:
 
-* [Documentação de referência da API](/javascript/api/@azure/storage-queue/)
-* [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-* [Pacote (Gerenciador de Pacotes do Node)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Amostras](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentação de referência da API](/javascript/api/@azure/storage-queue/)
+- [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+- [Pacote (Gerenciador de Pacotes do Node)](https://www.npmjs.com/package/@azure/storage-queue)
+- [Amostras](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure – [criar uma conta de armazenamento](../common/storage-account-create.md)
-* [Node.js](https://nodejs.org/en/download/) atual para o seu sistema operacional.
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Conta de armazenamento do Azure – [criar uma conta de armazenamento](../common/storage-account-create.md)
+- [Node.js](https://nodejs.org/en/download/) atual para o seu sistema operacional.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -48,7 +48,7 @@ Esta seção fornece instruções sobre como preparar um projeto para operar com
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Crie um aplicativo Node.js chamado *queues-quickstart-v12* .
+Crie um aplicativo Node.js chamado *queues-quickstart-v12*.
 
 1. Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório para o projeto.
 
@@ -62,7 +62,7 @@ Crie um aplicativo Node.js chamado *queues-quickstart-v12* .
     cd queues-quickstart-v12
     ```
 
-1. Crie um novo arquivo de texto chamado *package.JSON* . Esse arquivo define o projeto Node.js. Salve esse arquivo no diretório *queues-quickstart-v12* . Este é o conteúdo do arquivo:
+1. Crie um novo arquivo de texto chamado *package.JSON*. Esse arquivo define o projeto Node.js. Salve esse arquivo no diretório *queues-quickstart-v12*. Este é o conteúdo do arquivo:
 
     ```json
     {
@@ -118,7 +118,7 @@ No diretório do projeto:
 
     ```
 
-1. Salve o novo arquivo como *queues-quickstart-v12.js* no diretório *queues-quickstart-v12* .
+1. Salve o novo arquivo como *queues-quickstart-v12.js* no diretório *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -126,9 +126,9 @@ No diretório do projeto:
 
 O Armazenamento de Filas do Azure é um serviço usado para armazenar grandes quantidades de mensagens. Uma mensagem da fila pode ter até 64 KB. Uma fila pode conter milhões de mensagens, até o limite da capacidade total de uma conta de armazenamento. As filas são normalmente usadas para criar uma lista de pendências de trabalho para processamento assíncrono. O armazenamento de Filas oferece três tipos de recursos:
 
-* A conta de armazenamento
-* Uma fila na conta de armazenamento
-* Mensagens na fila
+- A conta de armazenamento
+- Uma fila na conta de armazenamento
+- Mensagens na fila
 
 O diagrama a seguir mostra a relação entre esses recursos.
 
@@ -136,22 +136,22 @@ O diagrama a seguir mostra a relação entre esses recursos.
 
 Use as seguintes classes de JavaScript para interagir com esses recursos:
 
-* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): O `QueueServiceClient` permite que você gerencie todas as filas em sua conta de armazenamento.
-* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): A classe `QueueClient` permite que você gerencie e manipule uma fila individual e as mensagens dela.
-* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): A classe `QueueMessage` representa os objetos individuais retornados ao chamar [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) em uma fila.
+- [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): O `QueueServiceClient` permite que você gerencie todas as filas em sua conta de armazenamento.
+- [QueueClient](/javascript/api/@azure/storage-queue/queueclient): A classe `QueueClient` permite que você gerencie e manipule uma fila individual e as mensagens dela.
+- [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): A classe `QueueMessage` representa os objetos individuais retornados ao chamar [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) em uma fila.
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Esses snippets de código de exemplo mostram como executar as ações a seguir com a biblioteca de clientes do armazenamento de Filas do Azure para JavaScript:
 
-* [Obter a cadeia de conexão](#get-the-connection-string)
-* [Criar uma fila](#create-a-queue)
-* [Adicionar mensagens a uma fila](#add-messages-to-a-queue)
-* [Espiar mensagens em uma fila](#peek-at-messages-in-a-queue)
-* [Atualizar uma mensagem em uma fila](#update-a-message-in-a-queue)
-* [Receber mensagens de uma fila](#receive-messages-from-a-queue)
-* [Excluir mensagens de uma fila](#delete-messages-from-a-queue)
-* [Excluir uma fila](#delete-a-queue)
+- [Obter a cadeia de conexão](#get-the-connection-string)
+- [Criar uma fila](#create-a-queue)
+- [Adicionar mensagens a uma fila](#add-messages-to-a-queue)
+- [Espiar mensagens em uma fila](#peek-at-messages-in-a-queue)
+- [Atualizar uma mensagem em uma fila](#update-a-message-in-a-queue)
+- [Receber mensagens de uma fila](#receive-messages-from-a-queue)
+- [Excluir mensagens de uma fila](#delete-messages-from-a-queue)
+- [Excluir uma fila](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obter a cadeia de conexão
 
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 
-Baixe as mensagens adicionadas anteriormente chamando o método [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-).  No campo `numberOfMessages`, transmita o número máximo de mensagens a serem recebidas para esta chamada.
+Baixe as mensagens adicionadas anteriormente chamando o método [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-). No campo `numberOfMessages`, transmita o número máximo de mensagens a serem recebidas para esta chamada.
 
 Adicione este código ao final da função `main`:
 
@@ -356,5 +356,5 @@ Para obter tutoriais, amostras, inícios rápidos e outros tipos de documentaç�
 > [!div class="nextstepaction"]
 > [Documentação do Azure para JavaScript](/azure/developer/javascript/)
 
-* Para saber mais, confira a [Biblioteca de clientes do Armazenamento de Filas do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-* Para ver mais aplicativos de amostra de armazenamento de Filas do Azure, continue para [Exemplos da biblioteca de clientes do armazenamento de Filas do Azure v12 para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+- Para saber mais, confira a [Biblioteca de clientes do Armazenamento de Filas do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+- Para ver mais aplicativos de amostra de armazenamento de Filas do Azure, continue para [Exemplos da biblioteca de clientes do armazenamento de Filas do Azure v12 para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

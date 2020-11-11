@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7ec4515d5f1d096cfb83f06c398da4c1254279f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099140"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337450"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Início Rápido: Criar seu fluxo de trabalho de Aplicativos Lógicos – portal do Azure
 
@@ -112,7 +112,7 @@ Seu aplicativo lógico agora está ativo, mas ele não faz nada além de verific
 
 ## <a name="add-the-send-email-action"></a>Selecione a ação "enviar email"
 
-Depois de [adicionar um gatilho para seu aplicativo lógico](#add-rss-trigger), você precisa adicionar uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) para determinar qual será a resposta quando seu aplicativo lógico verificar o RSS feed e um novo item for exibido. Você também pode criar aplicativos lógicos com ações muito mais complexas, como no tutorial para [processar emails com Aplicativos Lógicos, o Azure Functions e o Armazenamento do Azure](/tutorial-process-email-attachments-workflow.md).
+Depois de [adicionar um gatilho para seu aplicativo lógico](#add-rss-trigger), você precisa adicionar uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) para determinar qual será a resposta quando seu aplicativo lógico verificar o RSS feed e um novo item for exibido. Você também pode criar aplicativos lógicos com ações muito mais complexas, como no tutorial para [processar emails com Aplicativos Lógicos, o Azure Functions e o Armazenamento do Azure](/azure/logic-apps/tutorial-process-email-attachments-workflow).
 
 > [!NOTE]
 > Este exemplo usa o Outlook do Office 365 como o serviço de email. Se você estiver usando outro serviço de email com suporte em seu aplicativo lógico, a interface do usuário poderá parecer diferente. No entanto, os conceitos básicos para se conectar a outro serviço de email permanecem os mesmos.

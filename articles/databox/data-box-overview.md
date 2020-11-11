@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123555"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336668"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -47,7 +47,7 @@ Veja a seguir os vários cenários em que o Data Box pode ser usado para exporta
 
 - **Requisitos de segurança** – quando você precisa ser capaz de exportar dados provenientes do Azure devido a requisitos governamentais ou de segurança. Por exemplo, o Armazenamento do Azure está disponível nas nuvens Secreto e Altamente Secreto dos EUA, e você pode usar o Data Box para exportar dados provenientes do Azure. 
 
-- **Migre de volta para o local ou para outro provedor de serviços de nuvem**: quando desejar mover todos os dados de volta para o local ou para outro provedor de serviços de nuvem, exporte os dados por meio do Data Box para migrar as cargas de trabalho.
+- **Migre de volta para o local ou para outro provedor de serviços de nuvem** : quando desejar mover todos os dados de volta para o local ou para outro provedor de serviços de nuvem, exporte os dados por meio do Data Box para migrar as cargas de trabalho.
 
 
 ## <a name="benefits"></a>Benefícios
@@ -90,12 +90,12 @@ O Data Box inclui os seguintes componentes:
 
 * **Dispositivo Data Box** – um dispositivo físico que oferece armazenamento primário, gerencia a comunicação com o armazenamento em nuvem e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo. O dispositivo Data Box tem uma capacidade de armazenamento utilizável de 80 TB. 
 
-    ![Plano frontal e traseiro do Data Box](media/data-box-overview/data-box-combined3.png)
+    ![Plano frontal e traseiro do Data Box](media/data-box-overview/data-box-combined.png)
 
     
 * **Serviço Data Box** – uma extensão do portal do Azure que permite gerenciar um dispositivo Data Box por meio uma interface da Web que você pode acessar em diferentes locais geográficos. Use o serviço Data Box para realizar a administração diária do dispositivo Data Box. As tarefas do serviço incluem como criar e gerenciar pedidos, exibir e gerenciar alertas e gerenciar compartilhamentos.  
 
-    ![O serviço do Data Box no portal do Azure](media/data-box-overview/data-box-service1.png)
+    ![O serviço do Data Box no portal do Azure](media/data-box-overview/data-box-service.png)
 
     Para obter mais informações, acesse [Usar o serviço do Data Box para administrar seu dispositivo Data Box](data-box-portal-ui-admin.md).
 
@@ -132,7 +132,7 @@ Um fluxo de exportação típico inclui as seguintes etapas:
 
 4. **Devolução** – prepare, desligue e envie o dispositivo novamente para o datacenter do Azure.
 
-5. **Apagamento de dados**: os discos do dispositivo são apagados com segurança, de acordo com as diretrizes do NIST (National Institute of Standards and Technology).
+5. **Apagamento de dados** : os discos do dispositivo são apagados com segurança, de acordo com as diretrizes do NIST (National Institute of Standards and Technology).
 
 Ao longo do processo de exportação, você receberá uma notificação por email sobre todas as alterações de status. Para saber mais sobre o fluxo detalhado, acesse [Implantar Data Box no portal do Azure](data-box-deploy-export-ordered.md).
 

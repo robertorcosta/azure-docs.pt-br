@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783293"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345712"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para Python
 
@@ -21,26 +21,26 @@ Introdução à biblioteca de clientes do armazenamento de Filas do Azure versã
 
 Use a biblioteca de clientes do armazenamento de Filas do Azure v12 para Python para:
 
-* Criar uma fila
-* Adicionar mensagens a uma fila
-* Espiar mensagens em uma fila
-* Atualizar uma mensagem em uma fila
-* Receber mensagens de uma fila
-* Excluir mensagens de uma fila
-* Excluir uma fila
+- Criar uma fila
+- Adicionar mensagens a uma fila
+- Espiar mensagens em uma fila
+- Atualizar uma mensagem em uma fila
+- Receber mensagens de uma fila
+- Excluir mensagens de uma fila
+- Excluir uma fila
 
 Recursos adicionais:
 
-* [Documentação de referência da API](/python/api/azure-storage-queue/index)
-* [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [Pacote (Índice de Pacotes do Python)](https://pypi.org/project/azure-storage-queue/)
-* [Amostras](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentação de referência da API](/python/api/azure-storage-queue/index)
+- [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [Pacote (Índice de Pacotes do Python)](https://pypi.org/project/azure-storage-queue/)
+- [Amostras](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure – [criar uma conta de armazenamento](../common/storage-account-create.md)
-* [Python](https://www.python.org/downloads/) para seu sistema operacional – 2.7, 3.5 ou superior
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Conta de armazenamento do Azure – [criar uma conta de armazenamento](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) para seu sistema operacional – 2.7, 3.5 ou superior
 
 ## <a name="setting-up"></a>Configurando
 
@@ -48,7 +48,7 @@ Esta seção fornece instruções sobre como preparar um projeto para funcionar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Crie um aplicativo Python chamado *queues-quickstart-v12* .
+Crie um aplicativo Python chamado *queues-quickstart-v12*.
 
 1. Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório para o projeto.
 
@@ -93,7 +93,7 @@ Esse comando instala a biblioteca de clientes do armazenamento de Filas do Azure
 
     ```
 
-1. Salve o novo arquivo como *queues-quickstart-v12.py* no diretório *queues-quickstart-v12* .
+1. Salve o novo arquivo como *queues-quickstart-v12.py* no diretório *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -101,9 +101,9 @@ Esse comando instala a biblioteca de clientes do armazenamento de Filas do Azure
 
 O Armazenamento de Filas do Azure é um serviço usado para armazenar grandes quantidades de mensagens. Uma mensagem da fila pode ter até 64 KB. Uma fila pode conter milhões de mensagens, até o limite da capacidade total de uma conta de armazenamento. As filas são normalmente usadas para criar uma lista de pendências de trabalho para processamento assíncrono. O armazenamento de Filas oferece três tipos de recursos:
 
-* A conta de armazenamento
-* Uma fila na conta de armazenamento
-* Mensagens na fila
+- A conta de armazenamento
+- Uma fila na conta de armazenamento
+- Mensagens na fila
 
 O diagrama a seguir mostra a relação entre esses recursos.
 
@@ -111,22 +111,22 @@ O diagrama a seguir mostra a relação entre esses recursos.
 
 Use as classes Python a seguir para interagir com esses recursos:
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): O `QueueServiceClient` permite que você gerencie todas as filas em sua conta de armazenamento.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): A classe `QueueClient` permite que você gerencie e manipule uma fila individual e as mensagens dela.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): A classe `QueueMessage` representa os objetos individuais retornados ao chamar [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) em uma fila.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): O `QueueServiceClient` permite que você gerencie todas as filas em sua conta de armazenamento.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): A classe `QueueClient` permite que você gerencie e manipule uma fila individual e as mensagens dela.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): A classe `QueueMessage` representa os objetos individuais retornados ao chamar [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) em uma fila.
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Esses snippets de código de exemplo mostram como executar as ações a seguir com a biblioteca de clientes do armazenamento de Filas do Azure para Python:
 
-* [Obter a cadeia de conexão](#get-the-connection-string)
-* [Criar uma fila](#create-a-queue)
-* [Adicionar mensagens a uma fila](#add-messages-to-a-queue)
-* [Espiar mensagens em uma fila](#peek-at-messages-in-a-queue)
-* [Atualizar uma mensagem em uma fila](#update-a-message-in-a-queue)
-* [Receber mensagens de uma fila](#receive-messages-from-a-queue)
-* [Excluir mensagens de uma fila](#delete-messages-from-a-queue)
-* [Excluir uma fila](#delete-a-queue)
+- [Obter a cadeia de conexão](#get-the-connection-string)
+- [Criar uma fila](#create-a-queue)
+- [Adicionar mensagens a uma fila](#add-messages-to-a-queue)
+- [Espiar mensagens em uma fila](#peek-at-messages-in-a-queue)
+- [Atualizar uma mensagem em uma fila](#update-a-message-in-a-queue)
+- [Receber mensagens de uma fila](#receive-messages-from-a-queue)
+- [Excluir mensagens de uma fila](#delete-messages-from-a-queue)
+- [Excluir uma fila](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obtenha a cadeia de conexão
 
@@ -316,5 +316,5 @@ Para obter tutoriais, amostras, inícios rápidos e outros tipos de documentaç�
 > [!div class="nextstepaction"]
 > [Azure para desenvolvedores Python](/azure/python/)
 
-* Para saber mais, confira as [bibliotecas do Armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-* Para ver mais aplicativos de exemplo do armazenamento de Filas do Azure, prossiga para os [Exemplos da biblioteca de clientes do armazenamento de Filas do Azure v12 para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Para saber mais, confira as [bibliotecas do Armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+- Para ver mais aplicativos de exemplo do armazenamento de Filas do Azure, prossiga para os [Exemplos da biblioteca de clientes do armazenamento de Filas do Azure v12 para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

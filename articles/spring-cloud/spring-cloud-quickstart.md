@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a4400adeff8907e2d4ff690a83c63d32da8031bd
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289326"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505284"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud
 
@@ -144,8 +144,8 @@ No Visual Studio, crie um aplicativo Web ASP.NET Core chamado "Olá, mundo" com 
 
    ```xml
    <ItemGroup>
-     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
-     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
    </ItemGroup>
    <Target Name="Publish-Zip" AfterTargets="Publish">
        <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
@@ -163,11 +163,11 @@ No Visual Studio, crie um aplicativo Web ASP.NET Core chamado "Olá, mundo" com 
    ```csharp
    public static IHostBuilder CreateHostBuilder(string[] args) =>
                Host.CreateDefaultBuilder(args)
+                   .UseAzureSpringCloudService()
                    .ConfigureWebHostDefaults(webBuilder =>
                    {
                        webBuilder.UseStartup<Startup>();
-                   })
-                   .UseAzureSpringCloudService();
+                   });
    ```
 
 4. No arquivo *Startup.cs* , adicione uma diretiva `using` e um código que usa a Descoberta de Serviço Steeltoe no final dos métodos `ConfigureServices` e `Configure`:

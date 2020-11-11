@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 399c078481fb205221a683e44f74b4d70c383cbe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096556"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412912"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -138,7 +138,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 |$lookup    |    Sim|
 |$out        |Sim|
 |$indexStats|        Não|
-|$facet    |Yes|
+|$facet    |Sim|
 |$bucket|    Não|
 |$bucketAuto|    Não|
 |$sortByCount|    Sim|
@@ -148,7 +148,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 |$currentOp|    Não|
 |$listLocalSessions    |Não|
 |$listSessions    |Não|
-|$graphLookup    |Não|
+|$graphLookup    |Sim|
 
 ### <a name="boolean-expressions"></a>Expressões boolianas
 
@@ -496,10 +496,10 @@ $nearSphere |  Sim |
 $geometry |  Sim |
 $minDistance | Sim |
 $maxDistance | Sim |
-$center | No |
-$centerSphere | No |
-$box | No |
-$polygon |  No |
+$center | Não |
+$centerSphere | Não |
+$box | Não |
+$polygon |  Não |
 
 ## <a name="cursor-methods"></a>Métodos de cursor
 
