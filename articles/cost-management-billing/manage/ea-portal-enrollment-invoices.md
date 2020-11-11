@@ -3,21 +3,102 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316130"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410939"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
 Este artigo explica como gerenciar e usar sua fatura do Azure EA (Contrato Enterprise do Azure). A fatura é uma representação de sua conta. Examine sua precisão. Conheça outras tarefas que podem ser necessárias para gerenciar sua fatura.
+
+## <a name="view-usage-summary-and-download-reports"></a>Exibir resumo de uso e baixar relatórios
+
+Os administradores corporativos podem exibir um resumo dos dados de uso, do pagamento antecipado do Azure consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
+
+Para exibir o uso detalhado de contas específicas, baixe o relatório de detalhes de uso:
+
+1. Entre no Azure Enterprise Portal.
+1. Selecione **Relatórios**.
+1. Selecione a guia **Baixar Uso**.
+1. Na lista de relatórios, selecione **Baixar** para o relatório mensal que deseja obter.
+
+   > [!NOTE]
+   > O relatório de detalhe de uso não inclui as tributos incidentes.
+   >
+   > Pode haver uma latência de até oito horas do momento em que o uso foi feito até ser refletido no relatório.
+
+Para exibir os relatórios e os grafos de resumo de uso:
+
+1. Entre no Azure Enterprise Portal.
+
+1. Selecione uma condição de Pagamento antecipado.
+
+   Para alterar o intervalo de datas do **Resumo de Uso** , você pode alternar de **M** (mensal) para **C** (personalizado) no canto superior direito da página e, em seguida, inserir as datas de início e término personalizadas.
+
+   ![Criar e exibir o resumo de uso e baixar relatórios no modo de exibição personalizado](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Para exibir detalhes adicionais, selecione um período ou mês no gráfico.
+
+   - O gráfico mostra o uso mês a mês com um detalhamento do uso utilizado, os encargos adicionais de serviço, os encargos cobrados separadamente e os encargos do Azure Marketplace.
+   - Para o mês selecionado, use os campos abaixo do gráfico para filtrar por departamentos, contas e assinaturas.
+   - Você pode alternar entre **Cobrar por Serviços** e **Cobrar por Hierarquia**.
+   - Veja os detalhes de **Serviço do Azure** , dos **Encargos Cobrados Separadamente** e do **Azure Marketplace** expandindo as seções pertinentes.
+
+Assista a este vídeo para ver como exibir o uso:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Baixar relatórios CSV
+
+Os administradores corporativos usam a página de Download de Relatório Mensal para baixar vários relatórios como arquivos CSV:
+
+- Saldo e preço
+- Detalhes de uso
+- Encargos do Azure Marketplace
+- Tabela de preços
+
+Para baixar relatórios:
+
+1. No Azure Enterprise Portal, selecione **Relatórios**.
+2. Selecione **Baixar Uso** na parte superior da página.
+3. Selecione **Baixar** ao lado do relatório do mês.
+
+   > [!NOTE]
+   > Pode haver uma latência de até cinco dias entre a data em que o uso ocorreu e o momento em que ele é mostrado nos relatórios.
+   >
+   > Os usuários que baixarem arquivos CSV com o Safari para Excel poderão encontrar erros de formatação. Para evitar erros, abra o arquivo usando um editor de texto.
+
+![Exemplo mostrando a página Baixar Uso](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Assista a este vídeo para ver como baixar informações de uso:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Download do relatório avançado
+
+Você pode usar o download de relatório avançado para obter relatórios que abrangem intervalos de datas ou contas específicas. O arquivo de saída está no formato CSV para acomodar grandes conjuntos de registros.
+
+1. No Azure Enterprise Portal, selecione **Download de Relatório Avançado**.
+1. Selecione um intervalo de datas e as contas apropriadas.
+1. Escolha **Solicitar dados de uso**.
+1. Selecione o botão **Atualizar** até que o status do relatório seja atualizado para **Baixar**.
+1. Baixe o relatório.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Baixar relatórios de uso e informações de cobrança de um registro anterior
+
+Você pode baixar relatórios de uso e informações de cobrança para um registro anterior depois que uma transferência de registro tiver sido feita. Os relatórios históricos estão disponíveis no Azure Enterprise Portal e no gerenciamento de custos.
+
+O Azure Enterprise Portal filtra os registros inativos, deixando-os fora da exibição. Você precisará desmarcar a caixa de **Ativo** para exibir registros transferidos inativos.  
+
+![Desmarcar a caixa Ativo permite que o usuário veja registros inativos](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Alterar o número da OC de uma fatura de excedente a vencer
 
@@ -61,20 +142,20 @@ O intervalo de cobrança depende de como você opta por fazer suas compras do pa
 
 A data em que você recebe a fatura excedente depende da data de início e da configuração do registro:
 
-- **Registros diretos com uma data de início anterior a 1º de maio de 2018**:
+- **Registros diretos com uma data de início anterior a 1º de maio de 2018** :
   - Se você estiver em um EA (Contrato Enterprise) direto, o ciclo de cobrança será anual para os serviços do Azure, exceto serviços do Azure Marketplace. Seu ciclo de cobrança é baseado na data de aniversário: a data em que seu contrato se tornou efetivo.
   - Se você ultrapassar 150% do seu limite do pagamento antecipado do Azure EA, será automaticamente convertido em um período de cobrança trimestral com base na sua data de aniversário. Você também receberá uma fatura de excedente do serviço do Azure.
   - Se você não ultrapassar 150% do seu limite do pagamento antecipado do Azure, seu registro permanecerá em um período de cobrança anual. A fatura de excedente será recebida no final do ano do pagamento antecipado.
 
-- **Registros diretos com uma data de início posterior a 1º de maio de 2018**:
+- **Registros diretos com uma data de início posterior a 1º de maio de 2018** :
   - As faturas de consumo e cobranças do Azure cobradas separadamente estão em um ciclo de cobrança mensal.
   - Os custos não cobertos pelo seu pagamento antecipado do Azure são devidos como um pagamento de excedente.  
 
-- **Registros indiretos com um registro iniciado antes de 1º de maio de 2018**:
+- **Registros indiretos com um registro iniciado antes de 1º de maio de 2018** :
 
   Se você for um cliente indireto de EA (Contrato Enterprise) com uma data de início antes de 1º de maio de 2018, estará configurado em um ciclo de cobrança trimestral. O CP (parceiro de canal) fatura você diretamente.  
 
-- **Registros indiretos com uma data de início posterior a 1º de maio de 2018**:
+- **Registros indiretos com uma data de início posterior a 1º de maio de 2018** :
 
   Você está em um ciclo de cobrança mensal.  
 
@@ -88,9 +169,9 @@ No caso de excedente, você é cobrado pelo uso ou pelas reservas que excedem o 
 
 Para cada item na fatura, você verá:
 
-- **Valor ampliado**: o total de cobranças
-- **Uso do pagamento antecipado**: o valor do pagamento antecipado usado para cobrir os custos
-- **Valor líquido**: os custos que excedem o pagamento antecipado
+- **Valor ampliado** : o total de cobranças
+- **Uso do pagamento antecipado** : o valor do pagamento antecipado usado para cobrir os custos
+- **Valor líquido** : os custos que excedem o pagamento antecipado
 
 Os tributos incidentes são calculados somente sobre o valor líquido que excede o pagamento antecipado.
 

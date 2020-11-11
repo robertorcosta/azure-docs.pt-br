@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742843"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516730"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Etapa 1: implantar o encaminhador de log
 
@@ -38,15 +38,15 @@ Nesta etapa, você designará e configurará o computador Linux que encaminhará
 
 - Você deve ter permissões elevadas (sudo) em seu computador Linux designado.
 
-- Você deve ter o **python 2,7** instalado no computador Linux.<br>Use o `python -version` comando para verificar.
+- Você deve ter o **python 2,7** ou **3** instalado no computador Linux.<br>Use o `python -version` comando para verificar.
 
 - O computador Linux não deve estar conectado a nenhum espaço de trabalho do Azure antes de instalar o agente de Log Analytics.
 
-- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes** .
+- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implantação
  
-1. No menu de navegação do Azure Sentinel, clique em **conectores de dados** . Na lista de conectores, clique no bloco **CEF (formato de evento comum)** e, em seguida, no botão **abrir página do conector** no canto inferior direito. 
+1. No menu de navegação do Azure Sentinel, clique em **conectores de dados**. Na lista de conectores, clique no bloco **CEF (formato de evento comum)** e, em seguida, no botão **abrir página do conector** no canto inferior direito. 
 
 1. Em **1,2 Instale o coletor CEF no computador Linux** , copie o link fornecido em **executar o script a seguir para instalar e aplicar o coletor CEF** ou do texto abaixo (aplicando a ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
 

@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283479"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517080"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
-Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
+Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
 
 As seguintes fases do SDL são abordadas neste artigo:
 
@@ -34,11 +34,11 @@ Imagine que seu aplicativo venha a ser usado de maneiras que você não pretendi
 
 ### <a name="perform-code-reviews"></a>Executar revisões de código
 
-Antes de fazer verificar o código, faça [revisões de código](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
+Antes de fazer verificar o código, faça [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
 
 ### <a name="perform-static-code-analysis"></a>Executar análise de código estático
 
-A [análise de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (também conhecida como *análise de código-fonte*) geralmente é executada como parte de uma revisão de código. A análise de código estático normalmente refere-se à execução de ferramentas de análise de código estático para encontrar possíveis vulnerabilidades no código que não está em execução por meio de técnicas como [verificação de contaminação](https://en.wikipedia.org/wiki/Taint_checking) e [análise de fluxo de dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
+A [análise de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (também conhecida como *análise de código-fonte* ) geralmente é executada como parte de uma revisão de código. A análise de código estático normalmente refere-se à execução de ferramentas de análise de código estático para encontrar possíveis vulnerabilidades no código que não está em execução por meio de técnicas como [verificação de contaminação](https://en.wikipedia.org/wiki/Taint_checking) e [análise de fluxo de dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 O Azure Marketplace oferece [ferramentas de desenvolvedor](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) que fazem análise de código estático e auxiliam nas revisões de código.
 
@@ -62,7 +62,7 @@ Faça isso no servidor, não no lado do cliente (ou no servidor e no lado do cli
 
 ### <a name="verify-your-applications-outputs"></a>Verificar as saídas do aplicativo
 
-Qualquer saída que você apresente visualmente ou dentro de um documento sempre deve ser codificada e com escape. O [Escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecido como *codificação de saída*, é usado para garantir que os dados não confiáveis não sejam um veículo para um ataque de injeção. O escape, combinado com a validação de dados, oferece defesas em camadas para aumentar a segurança do sistema como um todo.
+Qualquer saída que você apresente visualmente ou dentro de um documento sempre deve ser codificada e com escape. O [Escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecido como *codificação de saída* , é usado para garantir que os dados não confiáveis não sejam um veículo para um ataque de injeção. O escape, combinado com a validação de dados, oferece defesas em camadas para aumentar a segurança do sistema como um todo.
 
 O escape faz com que tudo seja exibido como *saída.* O escape também permite que o intérprete saiba que os dados não devem ser executados, e isso impede o sucesso dos ataques. Essa é outra técnica de ataque comum chamada *XSS* (Script entre sites).
 
@@ -99,7 +99,7 @@ Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas ge
 
 Se seu aplicativo permitir [uploads de arquivos](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), considere as precauções que você pode tomar nessa atividade arriscada. A primeira etapa em muitos ataques é inserir código mal-intencionado em um sistema que está sob ataque. O uso de um upload de arquivo ajuda o invasor a realizar a primeira etapa. O OWASP oferece soluções para validar um arquivo e garantir a segurança do que você está carregando.
 
-A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [ Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de pontos de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [ Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de pontos de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) e [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 O [Microsoft Antimalware](../fundamentals/antimalware.md) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de exemplos e coleção de eventos de exclusão. Você pode integrar o Antimalware da Microsoft e as soluções de parceiros com a [Central de Segurança do Azure](../../security-center/security-center-partner-integration.md) para facilidade de implantação e detecções internas (alertas e incidentes).
 

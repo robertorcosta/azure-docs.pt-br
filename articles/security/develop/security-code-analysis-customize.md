@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816780"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517199"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -39,7 +39,7 @@ Na caixa de listagem **tipo** da captura de tela, **básico** é selecionado. Se
 
 O Windows Defender usa o cliente Windows Update para baixar e instalar assinaturas. Se a atualização de assinatura falhar em seu agente de compilação, o código de erro **HRESULT** provavelmente será proveniente de Windows Update.
 
-Para obter mais informações sobre erros de Windows Update e sua mitigação, consulte [Windows Update códigos de erro por componente](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) e o artigo do TechNet [Windows Update códigos de erro de agente](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+Para obter mais informações sobre erros de Windows Update e sua mitigação, consulte [Windows Update códigos de erro por componente](/windows/deployment/update/windows-update-error-reference) e o artigo do TechNet [Windows Update códigos de erro de agente](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de anti-malware](yaml-configuration.md#anti-malware-scanner-task)
 
@@ -58,7 +58,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 - Para evitar a pesquisa e a criação da sua própria linha de comando:
      - Na lista **tipo** , selecione **básico**.
      - Na lista de **funções** , selecione **analisar**.
-- Em **destino**, insira um ou mais especificadores para um arquivo, diretório ou padrão de filtro. Esses especificadores são resolvidos para um ou mais binários a serem analisados:
+- Em **destino** , insira um ou mais especificadores para um arquivo, diretório ou padrão de filtro. Esses especificadores são resolvidos para um ou mais binários a serem analisados:
     - Vários destinos especificados devem ser separados por um ponto-e-vírgula (;).
     - Um especificador pode ser um único arquivo ou conter curingas.
     - As especificações de diretório sempre devem terminar com \\ *.
@@ -95,20 +95,20 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 ![Configurando a tarefa de compilação do verificador de credenciais](./media/security-tools/3-taskdetails.png)
 
 As opções disponíveis incluem:
-  - **Nome de exibição**: o nome da tarefa DevOps do Azure. O valor padrão é executar o verificador de credenciais
-  - **Versão principal da ferramenta**: os valores disponíveis incluem **CredScan v2**, **CredScan v1**. Recomendamos que os clientes usem a versão **CredScan v2** .
-  - **Formato de saída**: os valores disponíveis incluem **TSV**, **CSV**, **SARIF**e **PREfast**.
-  - **Versão da ferramenta**: Recomendamos que você selecione **mais recente**.
-  - **Pasta de verificação**: a pasta do repositório a ser verificada.
-  - **Tipo de arquivo do Searchers**: as opções para localizar o arquivo de pesquisa que é usado para verificação.
-  - **Arquivo de supressão**: um arquivo [JSON](https://json.org/) pode suprimir problemas no log de saída. Para obter mais informações sobre cenários de supressão, consulte a seção de perguntas frequentes deste artigo.
-  - **Saída detalhada**: autoexplicativa.
-  - **Tamanho do lote**: o número de threads simultâneos usados para executar o verificador de credenciais. O valor padrão é 20. Os valores possíveis variam de 1 a 2.147.483.647.
-  - **Tempo limite de correspondência**: a quantidade de tempo em segundos a ser gasto tentando uma correspondência de pesquisador antes de abandonar a verificação.
-  - **Tamanho do buffer de leitura de verificação de arquivo**: o tamanho em bytes do buffer usado enquanto o conteúdo é lido. O valor padrão é 524.288.  
-  - **Máximo de bytes lidos da verificação de arquivo**: o número máximo de bytes a serem lidos de um arquivo durante a análise de conteúdo. O valor padrão é 104.857.600.
-  - **Opções**  >  de controle **Executar esta tarefa**: especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
-  - **Versão**: a versão da tarefa de compilação no Azure DevOps. Essa opção não é usada com frequência.
+  - **Nome de exibição** : o nome da tarefa DevOps do Azure. O valor padrão é executar o verificador de credenciais
+  - **Versão principal da ferramenta** : os valores disponíveis incluem **CredScan v2** , **CredScan v1**. Recomendamos que os clientes usem a versão **CredScan v2** .
+  - **Formato de saída** : os valores disponíveis incluem **TSV** , **CSV** , **SARIF** e **PREfast**.
+  - **Versão da ferramenta** : Recomendamos que você selecione **mais recente**.
+  - **Pasta de verificação** : a pasta do repositório a ser verificada.
+  - **Tipo de arquivo do Searchers** : as opções para localizar o arquivo de pesquisa que é usado para verificação.
+  - **Arquivo de supressão** : um arquivo [JSON](https://json.org/) pode suprimir problemas no log de saída. Para obter mais informações sobre cenários de supressão, consulte a seção de perguntas frequentes deste artigo.
+  - **Saída detalhada** : autoexplicativa.
+  - **Tamanho do lote** : o número de threads simultâneos usados para executar o verificador de credenciais. O valor padrão é 20. Os valores possíveis variam de 1 a 2.147.483.647.
+  - **Tempo limite de correspondência** : a quantidade de tempo em segundos a ser gasto tentando uma correspondência de pesquisador antes de abandonar a verificação.
+  - **Tamanho do buffer de leitura de verificação de arquivo** : o tamanho em bytes do buffer usado enquanto o conteúdo é lido. O valor padrão é 524.288.  
+  - **Máximo de bytes lidos da verificação de arquivo** : o número máximo de bytes a serem lidos de um arquivo durante a análise de conteúdo. O valor padrão é 104.857.600.
+  - **Opções**  >  de controle **Executar esta tarefa** : especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
+  - **Versão** : a versão da tarefa de compilação no Azure DevOps. Essa opção não é usada com frequência.
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML do verificador de credenciais](yaml-configuration.md#credential-scanner-task)
 
@@ -124,10 +124,10 @@ Os detalhes da configuração de tarefa são mostrados na lista e observação a
 
 As opções disponíveis incluem:
 
-- **RuleSet**: os valores são o **SDL necessário**, o **SDL é recomendado**ou seu próprio conjunto de regras personalizado.
-- **Versão do analisadores**: Recomendamos que você selecione **mais recente**.
-- **Arquivo de supressões de avisos do compilador**: um arquivo de texto com uma lista de IDs de Avisos suprimidos.
-- **Opções**  >  de controle **Executar esta tarefa**: especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
+- **RuleSet** : os valores são o **SDL necessário** , o **SDL é recomendado** ou seu próprio conjunto de regras personalizado.
+- **Versão do analisadores** : Recomendamos que você selecione **mais recente**.
+- **Arquivo de supressões de avisos do compilador** : um arquivo de texto com uma lista de IDs de Avisos suprimidos.
+- **Opções**  >  de controle **Executar esta tarefa** : especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
 
 > [!NOTE]
 >
@@ -143,7 +143,7 @@ As opções disponíveis incluem:
 >
 >   Se a nova tarefa for executada no mesmo agente que a tarefa original, a saída da nova tarefa substituirá a saída da tarefa original na pasta *s* sources. Embora a saída da compilação seja a mesma, aconselhamos que você execute o MSBuild, copie a saída para o diretório de preparo dos artefatos e, em seguida, execute os analisadores do Roslyn.
 
-Para obter recursos adicionais para a tarefa analisadores de Roslyn, confira [os analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) no Microsoft docs.
+Para obter recursos adicionais para a tarefa analisadores de Roslyn, confira [os analisadores baseados em Roslyn](/dotnet/standard/analyzers/api-analyzer) no Microsoft docs.
 
 Você pode encontrar o pacote do analisador instalado e usado por essa tarefa de compilação na página do NuGet [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -164,9 +164,9 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 
 ![Configurando a tarefa de compilação de logs de análise de segurança de publicação](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Nome do artefato**: qualquer identificador de cadeia de caracteres.
-- **Tipo de artefato**: dependendo da sua seleção, você pode publicar logs em seu Azure DevOps Server ou em um arquivo compartilhado que seja acessível para o agente de compilação.
-- **Ferramentas**: você pode optar por preservar os logs para ferramentas específicas ou pode selecionar **todas as ferramentas** para preservar todos os logs.
+- **Nome do artefato** : qualquer identificador de cadeia de caracteres.
+- **Tipo de artefato** : dependendo da sua seleção, você pode publicar logs em seu Azure DevOps Server ou em um arquivo compartilhado que seja acessível para o agente de compilação.
+- **Ferramentas** : você pode optar por preservar os logs para ferramentas específicas ou pode selecionar **todas as ferramentas** para preservar todos os logs.
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de logs de segurança de publicação](yaml-configuration.md#publish-security-analysis-logs-task)
 
@@ -176,10 +176,10 @@ Os detalhes da configuração do relatório de segurança são mostrados na segu
 
 ![Configurando a tarefa de compilação do relatório de segurança](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Relatórios**: selecione qualquer um dos formatos do **console do pipeline**, do **arquivo TSV**e do **arquivo HTML** . Um arquivo de relatório é criado para cada formato selecionado.
-- **Ferramentas**: selecione as ferramentas em sua definição de compilação para as quais você deseja um resumo dos problemas detectados. Para cada ferramenta selecionada, pode haver uma opção para selecionar se você vê somente erros ou vê erros e avisos no relatório de resumo.
-- **Opções avançadas**: se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
-- **Pasta de logs de base**: você pode personalizar a pasta de logs de base onde os logs devem ser encontrados. Mas essa opção normalmente não é usada.
+- **Relatórios** : selecione qualquer um dos formatos do **console do pipeline** , do **arquivo TSV** e do **arquivo HTML** . Um arquivo de relatório é criado para cada formato selecionado.
+- **Ferramentas** : selecione as ferramentas em sua definição de compilação para as quais você deseja um resumo dos problemas detectados. Para cada ferramenta selecionada, pode haver uma opção para selecionar se você vê somente erros ou vê erros e avisos no relatório de resumo.
+- **Opções avançadas** : se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
+- **Pasta de logs de base** : você pode personalizar a pasta de logs de base onde os logs devem ser encontrados. Mas essa opção normalmente não é usada.
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de relatório de segurança](yaml-configuration.md#security-report-task)
 
@@ -189,9 +189,9 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 
 ![Configurando a tarefa de compilação pós-análise](./media/security-tools/a-post-analysis600.png)
 
-- **Ferramentas**: selecione as ferramentas em sua definição de compilação para as quais você deseja injetar condicionalmente uma quebra de compilação. Para cada ferramenta selecionada, pode haver uma opção para selecionar se deseja interromper somente erros ou se há erros e avisos.
-- **Relatório**: opcionalmente, você pode gravar os resultados que estão causando a quebra de compilação. Os resultados são gravados na janela do console DevOps do Azure e no arquivo de log.
-- **Opções avançadas**: se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
+- **Ferramentas** : selecione as ferramentas em sua definição de compilação para as quais você deseja injetar condicionalmente uma quebra de compilação. Para cada ferramenta selecionada, pode haver uma opção para selecionar se deseja interromper somente erros ou se há erros e avisos.
+- **Relatório** : opcionalmente, você pode gravar os resultados que estão causando a quebra de compilação. Os resultados são gravados na janela do console DevOps do Azure e no arquivo de log.
+- **Opções avançadas** : se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de pós-análise](yaml-configuration.md#post-analysis-task)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744217"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515703"
 ---
 # <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
 
@@ -29,15 +29,15 @@ Depois de implantar o encaminhador de log (na etapa 1) e configurar sua soluçã
 
 - Você deve ter permissões elevadas (sudo) em seu computador do encaminhador de log.
 
-- Você deve ter o **python 2,7** instalado no computador do encaminhador de log.<br>
+- Você deve ter o **python 2,7** ou **3** instalado em seu computador do encaminhador de log.<br>
 Use o `python –version` comando para verificar.
 
-- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes** .
+- Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 ## <a name="how-to-validate-connectivity"></a>Como validar a conectividade
 
-1. No menu de navegação do Azure Sentinel, abra **logs** . Execute uma consulta usando o esquema **CommonSecurityLog** para ver se você está recebendo logs de sua solução de segurança.<br>
-Lembre-se de que pode levar cerca de 20 minutos até que os logs comecem a aparecer na **log Analytics** . 
+1. No menu de navegação do Azure Sentinel, abra **logs**. Execute uma consulta usando o esquema **CommonSecurityLog** para ver se você está recebendo logs de sua solução de segurança.<br>
+Lembre-se de que pode levar cerca de 20 minutos até que os logs comecem a aparecer na **log Analytics**. 
 
 1. Se você não vir nenhum resultado da consulta, verifique se os eventos estão sendo gerados de sua solução de segurança ou tente gerar alguns e verifique se eles estão sendo encaminhados para o computador do Encaminhador do syslog que você designou. 
 
@@ -47,9 +47,9 @@ Lembre-se de que pode levar cerca de 20 minutos até que os logs comecem a apare
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com o **mapeamento do campo *computador*** . Consulte a [explicação no script de validação](#mapping-command) para obter detalhes.
+   - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com o **mapeamento do campo *computador***. Consulte a [explicação no script de validação](#mapping-command) para obter detalhes.
 
-    - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com a **análise dos logs do firewall do Cisco ASA** . Consulte a [explicação no script de validação](#parsing-command) para obter detalhes.
+    - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com a **análise dos logs do firewall do Cisco ASA**. Consulte a [explicação no script de validação](#parsing-command) para obter detalhes.
 
 ## <a name="validation-script-explained"></a>Script de validação explicado
 

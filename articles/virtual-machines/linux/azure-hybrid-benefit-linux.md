@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443425"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516434"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Visualização pública: Benefício Híbrido do Azure – como ele se aplica ao Máquinas Virtuais do Linux
 
@@ -53,10 +53,12 @@ O Benefício Híbrido do Azure (para Linux) está na fase de visualização púb
 
 ### <a name="red-hat-customers"></a>Clientes do Red Hat
 
-1.    Registrar com o [programa de acesso à nuvem do Red Hat](https://aka.ms/rhel-cloud-access)
-1.    Habilite suas assinaturas do Azure para acesso à nuvem e habilite as assinaturas que contêm as VMs com as quais você deseja usar o benefício
-1.    Aplique o benefício às VMs existentes por meio de CLI do Azure
-1.    Registre suas VMs recebendo o benefício com uma fonte separada de atualizações
+Benefício Híbrido do Azure para RHEL está disponível para clientes que têm assinaturas RHEL ativas/não usadas qualificadas para uso no Azure e que habilitaram uma ou mais dessas assinaturas para uso no Azure com o programa [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) . 
+
+1.  Habilite uma ou mais de suas assinaturas RHEL qualificadas para uso no Azure usando a [interface do cliente do Red Hat Cloud Access](https://access.redhat.com/management/cloud).
+1.  As assinaturas do Azure fornecidas durante o processo de habilitação do acesso à nuvem Red Hat terão permissão para usar o recurso Benefício Híbrido do Azure.
+1.  Aplique o Benefício Híbrido do Azure a qualquer uma das suas VMs PAYG do RHEL existentes, bem como a novas VMs RHEL que você implantar de imagens PAYG do Azure Marketplace.
+1.  Siga [as próximas etapas](https://access.redhat.com/articles/5419341) recomendadas para configurar fontes de atualização para suas VMs RHEL e para obter diretrizes de conformidade de assinatura do RHEL.
 
 
 ### <a name="suse-customers"></a>Clientes do SUSE
@@ -124,7 +126,19 @@ De dentro da própria VM, você pode consultar os metadados atestados do IMDS pa
 
 ### <a name="red-hat"></a>Red Hat
 
-Para usar Benefício Híbrido do Azure para suas VMs RHEL, você deve primeiro ser registrado com o programa Red Hat Cloud Access. Você pode fazer isso por meio do site do Red Hat Cloud Access aqui. Depois de habilitar o benefício em sua VM, você deve registrar a VM com sua própria fonte de atualizações com o Gerenciador de assinaturas do Red Hat ou o satélite do Red Hat. O registro para atualizações garantirá que você permaneça em um estado com suporte.
+Os clientes que usam o Benefício Híbrido do Azure para RHEL concordam com os [termos legais](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) padrão e a [política de privacidade](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associada às ofertas do Azure Marketplace RHEL.
+
+Os clientes que usam o Benefício Híbrido do Azure para RHEL têm três opções para fornecer atualizações de software e patches para essas VMs:
+
+1.  [RHUI (Red Hat Update Infrastructure)](../workloads/redhat/redhat-rhui.md) (opção padrão)
+1.  Servidor de satélite Red Hat
+1.  Gerenciador de assinaturas do Red Hat
+
+Os clientes que escolhem a opção RHUI podem continuar a usar o RHUI como a principal origem de atualização para suas VMs AHB RHEL sem anexar assinaturas de RHEL a essas VMs.  Os clientes que escolhem a opção RHUI são responsáveis por garantir a conformidade da assinatura do RHEL.
+
+Os clientes que escolherem o servidor satélite Red Hat ou o Gerenciador de assinaturas do Red Hat devem remover a configuração do RHUI e anexar uma assinatura RHEL habilitada para acesso à nuvem às VMs do AHB RHEL.  
+
+Mais informações sobre a conformidade da assinatura do Red Hat, atualizações de software e fontes para VMs AHB RHEL podem ser encontradas [aqui](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 
