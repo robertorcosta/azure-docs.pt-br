@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83e046ca97ceee249e707e30f478fad89345f4de
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064867"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94503868"
 ---
 ### <a name="general-query-limits"></a>Limites de consulta geral
 
 | Limite | Descrição |
 |:---|:---|
 | Idioma de consulta | O Azure Monitor usa a mesma [linguagem de consulta Kusto](/azure/kusto/query/) que o Azure Data Explorer. Confira [Diferenças de linguagem de consulta de log do Azure Monitor](../articles/azure-monitor/log-query/data-explorer-difference.md) para elementos de linguagem KQL sem suporte no Azure Monitor. |
-| Regiões do Azure | As consultas de log podem enfrentar sobrecarga excessiva quando os dados abrangem workspaces do Log Analytics em várias regiões do Azure. Confira os [Limites de consulta](../articles/azure-monitor/log-query/scope.md#query-limits) para obter detalhes. |
+| Regiões do Azure | As consultas de log podem enfrentar sobrecarga excessiva quando os dados abrangem workspaces do Log Analytics em várias regiões do Azure. Confira os [Limites de consulta](../articles/azure-monitor/log-query/scope.md#query-scope-limits) para obter detalhes. |
 | Consultas entre recursos | Número máximo de recursos do Application Insights e workspaces do Log Analytics em uma consulta limitada a 100.<br>Não há suporte para a consulta entre recursos no Designer de Exibição.<br>A consulta de recursos cruzados nos alertas de log é compatível com a nova API scheduledQueryRules.<br>Confira [Limites de consulta entre recursos](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) para obter detalhes. |
 
 ### <a name="user-query-throttling"></a>Limitação de consulta de usuário

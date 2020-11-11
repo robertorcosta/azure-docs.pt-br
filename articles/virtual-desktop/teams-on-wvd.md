@@ -3,15 +3,15 @@ title: Microsoft Teams na área de trabalho virtual do Windows – Azure
 description: Como usar o Microsoft Teams na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131761"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505539"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usar o Microsoft Teams na área de trabalho virtual do Windows
 
@@ -32,7 +32,6 @@ Antes de poder usar o Microsoft Teams na área de trabalho virtual do Windows, v
 - [Prepare sua rede para o](/microsoftteams/prepare-network/) Microsoft Teams.
 - Instale o [cliente de área de trabalho do Windows](connect-windows-7-10.md) em um dispositivo Windows 10 ou Windows 10 IOT Enterprise que atenda aos requisitos de hardware do Microsoft Team [para equipes em um computador Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conecte-se a uma VM (máquina virtual) do Windows 10 de várias sessões ou do Windows 10 Enterprise.
-- [Baixe](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e instale o aplicativo de área de trabalho de equipes no host usando a instalação por máquina. A otimização de mídia para o Microsoft Teams requer o aplicativo de área de trabalho de equipes versão 1.3.00.4461 ou posterior.
 
 ## <a name="install-the-teams-desktop-app"></a>Instalar o aplicativo de área de trabalho de equipes
 
@@ -42,16 +41,17 @@ Esta seção mostrará a você como instalar o aplicativo de área de trabalho d
 
 Para habilitar a otimização de mídia para equipes, defina a seguinte chave do registro no host:
 
-1. No menu Iniciar, execute **regedit** como administrador. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
+1. No menu Iniciar, execute **regedit** como administrador. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Crie a chave de equipes se ela ainda não existir.
+
 2. Crie o seguinte valor para a chave de equipes:
 
-| Nome             | Type   | Dados/valor  |
+| Nome             | Tipo   | Dados/valor  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>Instalar o serviço WebSocket de equipes
 
-Instale o [serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) mais recente em sua imagem de VM. Se você encontrar um erro de instalação, instale os [Microsoft Visual C++ redistribuíveis mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
+Instale o [serviço Redirecionador de área de trabalho remota WebRTC](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) mais recente em sua imagem de VM. Se você encontrar um erro de instalação, instale os [Microsoft Visual C++ redistribuíveis mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
 
 #### <a name="latest-websocket-service-versions"></a>Versões mais recentes do serviço WebSocket
 
@@ -94,7 +94,7 @@ Você pode implantar o aplicativo de área de trabalho de equipes usando uma ins
 
         Isso instala as equipes na pasta arquivos de programas (x86) em um sistema operacional de 32 bits e na pasta arquivos de programas em um sistema operacional de 64 bits. Neste ponto, a configuração da imagem dourada foi concluída. A instalação de equipes por máquina é necessária para configurações não persistentes.
 
-        Há dois sinalizadores que podem ser definidos ao instalar equipes, **usuário = 1** e **AllUsers = 1**. É importante entender a diferença entre esses parâmetros. O parâmetro de **usuário = 1** é usado somente em ambientes de VDI para especificar uma instalação por computador. O parâmetro **AllUsers = 1** pode ser usado em ambientes não VDI e VDI. Quando você define esse parâmetro, o Team Machine-Wide Installer aparece em programa e recursos no painel de controle, bem como aplicativos & recursos nas configurações do Windows. Todos os usuários com credenciais de administrador no computador podem desinstalar as equipes.
+        Há dois sinalizadores que podem ser definidos ao instalar equipes, **usuário = 1** e **AllUsers = 1**. É importante entender a diferença entre esses parâmetros. O parâmetro de **usuário = 1** é usado somente em ambientes de VDI para especificar uma instalação por computador. O parâmetro **AllUsers = 1** pode ser usado em ambientes não VDI e VDI. Quando você define esse parâmetro, o **team Machine-Wide Installer** aparece em programa e recursos no painel de controle, bem como aplicativos & recursos nas configurações do Windows. Todos os usuários com credenciais de administrador no computador podem desinstalar as equipes.
 
         > [!NOTE]
         > Os usuários e administradores não podem desabilitar o lançamento automático para equipes durante a entrada no momento.
@@ -114,14 +114,19 @@ Você pode implantar o aplicativo de área de trabalho de equipes usando uma ins
 
 Depois de instalar o serviço WebSocket e o aplicativo de área de trabalho das equipes, siga estas etapas para verificar se as otimizações de mídia de equipes foram carregadas:
 
-1. Selecione sua imagem de perfil de usuário e, em seguida, selecione **sobre**.
-2. Selecione a **versão**.
+1. Encerre e reinicie o aplicativo Teams.
 
-      Se as otimizações de mídia forem carregadas, a faixa mostrará a você a **WVD de mídia otimizada**. Se a faixa mostrar que a **mídia WVD não está conectada**, saia do aplicativo de equipes e tente novamente.
+2. Selecione sua imagem de perfil de usuário e, em seguida, selecione **sobre**.
 
-3. Selecione sua imagem de perfil de usuário e, em seguida, selecione **configurações**.
+3. Selecione a **versão**.
 
-      Se as otimizações de mídia estiverem carregadas, os dispositivos de áudio e câmeras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu Mostrar **áudio remoto**, saia do aplicativo de equipes e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as configurações de privacidade no seu computador local. Verifique se a opção em **configurações**  >  **Privacy**  >  **permissões do aplicativo** de privacidade a configuração **permitir que os aplicativos acessem seu microfone** está ativada. **On** Desconecte-se da sessão remota e reconecte-se e verifique novamente os dispositivos de áudio e vídeo. Para unir chamadas e reuniões com vídeo, você também deve conceder permissão para que os aplicativos acessem a câmera.
+      Se as otimizações de mídia forem carregadas, a faixa mostrará a você a **WVD de mídia otimizada**. Se a faixa mostrar que a **mídia WVD não está conectada** , saia do aplicativo de equipes e tente novamente.
+
+4. Selecione sua imagem de perfil de usuário e, em seguida, selecione **configurações**.
+
+      Se as otimizações de mídia estiverem carregadas, os dispositivos de áudio e câmeras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu Mostrar **áudio remoto** , saia do aplicativo de equipes e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as configurações de privacidade no seu computador local. Verifique se a opção em **configurações**  >  **Privacy**  >  **permissões do aplicativo** de privacidade a configuração **permitir que os aplicativos acessem seu microfone** está ativada. **On** Desconecte-se da sessão remota e reconecte-se e verifique novamente os dispositivos de áudio e vídeo. Para unir chamadas e reuniões com vídeo, você também deve conceder permissão para que os aplicativos acessem a câmera.
+
+      Se as otimizações não forem carregadas, desinstale e reinstale as equipes e verifique novamente.
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995726"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506287"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar o workspace do Log Analytics para o Azure Monitor para VMs
 Azure Monitor para VMs coleta seus dados de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes de realizar a integração de agentes, você deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e para configurá-lo para Azure Monitor para VMs.
@@ -20,10 +20,10 @@ Azure Monitor para VMs coleta seus dados de um ou mais espaços de trabalho do L
 ## <a name="overview"></a>Visão geral
 Uma única assinatura pode usar qualquer número de espaços de trabalho, dependendo dos requisitos, o único requisito do espaço de trabalho é que ele esteja localizado em um local com suporte e seja configurado com a solução *VMInsights* .
 
-Depois que o espaço de trabalho tiver sido configurado, você poderá usar qualquer uma das opções disponíveis para instalar os agentes necessários em VM e VMMS e especificar um espaço de trabalho para que eles enviem seus dados. Azure Monitor para VMs coletará dados de qualquer espaço de trabalho configurado em sua assinatura.
+Depois que o espaço de trabalho tiver sido configurado, você poderá usar qualquer uma das opções disponíveis para instalar os agentes necessários em VM e VMSS e especificar um espaço de trabalho para que eles enviem seus dados. Azure Monitor para VMs coletará dados de qualquer espaço de trabalho configurado em sua assinatura.
 
 > [!NOTE]
-> Quando você habilita Azure Monitor para VMs em uma única VM ou VMMS usando o portal do Azure, você tem a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada nesse espaço de trabalho se ainda não estiver. Você pode usar esse espaço de trabalho para outros agentes.
+> Quando você habilita Azure Monitor para VMs em uma única VM ou VMSS usando o portal do Azure, você tem a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada nesse espaço de trabalho se ainda não estiver. Você pode usar esse espaço de trabalho para outros agentes.
 
 
 ## <a name="create-log-analytics-workspace"></a>Criar espaço de trabalho do Log Analytics
@@ -89,7 +89,7 @@ Para configurar vários espaços de trabalho, selecione a guia **configuração 
 [![Configuração do workspace](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Quando você habilita Azure Monitor para VMs em uma única VM ou VMMS usando o portal do Azure, você tem a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada nesse espaço de trabalho se ainda não estiver. Você pode usar esse espaço de trabalho para outros agentes.
+Quando você habilita Azure Monitor para VMs em uma única VM ou VMSS usando o portal do Azure, você tem a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada nesse espaço de trabalho se ainda não estiver. Você pode usar esse espaço de trabalho para outros agentes.
 
 [![Habilitar VM única no portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

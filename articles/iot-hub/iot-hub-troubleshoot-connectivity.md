@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+- fasttrack-edit
+- iot
+ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357332"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506389"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorar, diagnosticar e solucionar problemas de desconexões com o Hub IoT
 
@@ -159,6 +161,11 @@ AzureDiagnostics
 Como desenvolvedor ou operador de soluções de IoT, você precisa estar ciente desse comportamento para interpretar eventos de conexão/desconexão e erros relacionados em logs. Se você quiser alterar a vida útil do token ou o comportamento de renovação para dispositivos, verifique se o dispositivo implementa uma configuração de dispositivo de troca ou um método de dispositivo que torna isso possível.
 
 Se você estiver monitorando conexões de dispositivo com o Hub de eventos, certifique-se de criar uma maneira de filtrar as desconexões periódicas devido à renovação de token SAS; por exemplo, não disparar ações com base em desconexões, desde que o evento de desconexão seja seguido por um evento de conexão dentro de um determinado período de tempo.
+
+> [!NOTE]
+> O Hub IoT oferece suporte apenas a uma conexão MQTT ativa por dispositivo. Qualquer nova conexão MQTT em nome da mesma ID de dispositivo faz com que o Hub IoT descarte a conexão existente.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection serão registrados nos logs do Hub IoT
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>Tentei as etapas, mas elas não funcionaram
 

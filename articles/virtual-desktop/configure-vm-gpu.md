@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441741"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505301"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a Área de Trabalho Virtual do Windows
 
@@ -21,9 +21,12 @@ A Área de Trabalho Virtual do Windows dá suporte à renderização e à codifi
 
 Siga as instruções neste artigo para criar uma máquina virtual do Azure otimizada para GPU, adicioná-la ao seu pool de host e configurá-la para usar a aceleração de GPU para renderização e codificação. Este artigo pressupõe que você já tenha um locatário da Área de Trabalho Virtual do Windows.
 
-## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selecione um tamanho de máquina virtual do Azure com otimização de GPU
+## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Selecione um tamanho apropriado de máquina virtual do Azure otimizada para GPU
 
-O Azure oferece uma série de [tamanhos de máquina virtual otimizada para GPU](/azure/virtual-machines/windows/sizes-gpu). A escolha certa para seu pool de host depende de vários fatores, incluindo suas cargas de trabalho de aplicativo específicas, a qualidade desejada da experiência do usuário e o custo. Em geral, GPUs maiores e mais compatíveis oferecem uma experiência de usuário melhor em uma determinada densidade do usuário.
+Selecione um dos tamanhos de VM da série [NV](/azure/virtual-machines/nv-series), da [série NVv3](/azure/virtual-machines/nvv3-series)ou da série [NVv4](/azure/virtual-machines/nvv4-series) do Azure. Eles são adaptados para virtualização de aplicativos e desktops e permitem que aplicativos e a interface do usuário do Windows sejam acelerados por GPU. A escolha certa para seu pool de host depende de vários fatores, incluindo suas cargas de trabalho de aplicativo específicas, a qualidade desejada da experiência do usuário e o custo. Em geral, as GPUs maiores e mais compatíveis oferecem uma melhor experiência de usuário em uma determinada densidade de usuário, enquanto tamanhos menores e fracionários de GPU permitem um controle mais refinado sobre custo e qualidade.
+
+>[!NOTE]
+>As VMs NC, NCv2, NCv3, ND e NDv2 Series do Azure geralmente não são apropriadas para hosts de sessão de área de trabalho virtual do Windows. Essas VMs são personalizadas para ferramentas especializadas de alto desempenho ou de aprendizado de máquina, como aquelas criadas com NVIDIA CUDA. A aceleração geral do aplicativo e da área de trabalho com GPUs NVIDIA requer licenciamento NVIDIA GRID; Isso é fornecido pelo Azure para os tamanhos de VM recomendados, mas precisa ser organizado separadamente para VMs de série NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Criar um pool de host, provisionar sua máquina virtual e configurar um grupo de aplicativos
 
@@ -40,7 +43,7 @@ Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicat
 
 Para aproveitar as funcionalidades de GPU de VMs da série N do Azure na Área de Trabalho Virtual do Windows, você deve instalar os drivers gráficos apropriados. Siga as instruções em [Sistemas operacionais e drivers com suporte](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar drivers do fornecedor de gráficos apropriado, seja manualmente ou usando uma extensão de VM do Azure.
 
-Há suporte apenas a drivers distribuídos pelo Azure na Área de Trabalho Virtual do Windows. Além disso, para VMs do Azure com GPUs NVIDIA, há suporte apenas a [drivers NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) na Área de Trabalho Virtual do Windows.
+Há suporte apenas a drivers distribuídos pelo Azure na Área de Trabalho Virtual do Windows. Para VMs da série NV do Azure com GPUs NVIDIA, somente [drivers de grade NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)e não Drivers NVIDIA Tesla (CUDA), dão suporte à aceleração de GPU para aplicativos de uso geral e áreas de trabalho.
 
 Após a instalação do driver, será necessário reiniciar a VM. Use as etapas de verificação nas instruções acima para confirmar que os drivers gráficos foram instalados com êxito.
 

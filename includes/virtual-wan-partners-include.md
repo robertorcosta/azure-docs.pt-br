@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70a8ee78bbc90725346edbb7c83c247d48d86c4c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 827b4689629dec0318ad66b21b59744392bf9919
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014011"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94503943"
 ---
 Você pode verificar os links nesta seção para obter mais informações sobre os serviços oferecidos por parceiros. Caso seu parceiro de dispositivo de branch não esteja listado na seção abaixo, peça que seu provedor de dispositivo branch entre em contato conosco. Ele pode entrar em contato conosco enviando um email para azurevirtualwan@microsoft.com.
 
@@ -27,7 +27,7 @@ Você pode verificar os links nesta seção para obter mais informações sobre 
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[Guia de implantação da integração da WAN virtual FortiGate e Microsoft Azure](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[blog do cenário de roteamento ](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE Aruba]( https://www.arubanetworks.com/microsoft-vwan/)|[Guia de implantação de WAN virtual de Aruba SD-WAN e Microsoft Azure](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 | [NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Hub de suporte do netfoundal: WAN virtual do Azure](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
-|[Nuage/Nokia (fornecido somente por meio da British Telecom)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Guia de implantação de WAN virtual do Nuage e do Azure](https://onestore.nokia.com/asset/210073)|
+|[Nuage/Nokia](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Guia de implantação de WAN virtual do Nuage e do Azure](https://onestore.nokia.com/asset/210073)|
 |[Sistemas abertos]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Guia de implantação de sistemas abertos e WAN virtual do Azure](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |

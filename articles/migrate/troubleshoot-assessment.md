@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314752"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505216"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -26,7 +26,7 @@ Corrija os problemas de preparação da avaliação da seguinte maneira:
 **Problema** | **Correção**
 --- | ---
 Tipo de inicialização sem suporte | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
-Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](/troubleshoot/azure/virtual-machines/server-software-support). Considere a atualização antes de migrar para o Azure.
+Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](/troubleshoot/azure/virtual-machines/server-software-support). Considere a atualização antes de migrar para o Azure. [Examine]() as informações sobre como [preparar computadores que executam o Windows Server 2003](prepare-windows-server-2003-migration.md) para migração para o Azure.
 Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões selecionadas do sistema operacional Windows](/troubleshoot/azure/virtual-machines/server-software-support). Considere atualizar o computador antes de migrar para o Azure.
 SO Linux condicionalmente endossado | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure. Consulte também [aqui](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) para obter mais detalhes.
 SO Linux não endossado | O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. Considere atualizar para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure.
@@ -48,7 +48,7 @@ Não foi possível determinar a adequação da VM devido a um erro interno | Ten
 Não foi possível determinar a adequação para um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação para um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Nenhum tamanho de VM encontrado para a instância reservada de moeda de oferta | Computador marcado como não adequado porque o tamanho da VM não foi encontrado para a combinação selecionada de RI, oferta e moeda. Edite as propriedades de avaliação para escolher as combinações válidas e recalcular a avaliação. 
-Protocolo de Internet condicionalmente pronto | Aplicável somente a avaliações da AVS (solução VMware do Azure). A AVS não dá suporte ao fator de endereços de Internet IPv6.Entre em contato com a equipe da AVS para obter diretrizes de correção se seu computador for detectado com o IPv6.
+Protocolo de Internet condicionalmente pronto | Aplicável somente a avaliações da AVS (solução VMware do Azure). A AVS não dá suporte ao fator de endereços de Internet IPv6. Entre em contato com a equipe da AVS para obter diretrizes de correção se seu computador for detectado com o IPv6.
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importação marcada como desconhecida
 
@@ -75,7 +75,7 @@ Para servidores físicos, as informações de versão secundária do sistema ope
 A avaliação de servidor de migrações para Azure pode recomendar SKUs de VM do Azure com mais núcleos e memória do que a alocação local atual com base no tipo de avaliação:
 
 - A recomendação de SKU de VM depende das propriedades de avaliação.
-- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *baseada em desempenho*ou *como local*.
+- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *baseada em desempenho* ou *como local*.
 - Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Ela também adiciona um fator de conforto ao determinar a utilização efetiva.
 - Para o dimensionamento local, os dados de desempenho não são considerados e o SKU de destino é recomendado com base na alocação local.
 
@@ -83,7 +83,7 @@ Para mostrar como isso pode afetar as recomendações, vamos usar um exemplo:
 
 Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utilização da CPU e 50% de utilização da memória e um fator de conforto especificado de 1,3.
 
--  Se a avaliação for **como local**, é recomendável um SKU de VM do Azure com quatro núcleos e 8 GB de memória.
+-  Se a avaliação for **como local** , é recomendável um SKU de VM do Azure com quatro núcleos e 8 GB de memória.
 - Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (tamanho de memória mais próximo com suporte
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o dimensionamento da avaliação.
 
@@ -91,8 +91,8 @@ Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utiliza
 
 A avaliação de servidor de migrações para Azure pode recomendar um disco maior com base no tipo de avaliação.
 - O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
-- Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for definido como **automático**, os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local.
-- Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for **Premium**, um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para executar o dimensionamento de disco quando os critérios de dimensionamento são **locais** e o tipo de armazenamento é **HDD Standard**, **SSD Standard**ou **Premium**.
+- Se os critérios de dimensionamento forem **baseados em desempenho** e o tipo de armazenamento for definido como **automático** , os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local.
+- Se os critérios de dimensionamento forem **baseados em desempenho** e o tipo de armazenamento for **Premium** , um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para executar o dimensionamento de disco quando os critérios de dimensionamento são **locais** e o tipo de armazenamento é **HDD Standard** , **SSD Standard** ou **Premium**.
 
 Por exemplo, se você tiver um disco local com 32 GB de memória, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco que possa dar suporte ao IOPS e ao tamanho necessários. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomenda um disco maior devido ao requisito de IOPS alto do disco local.
 
@@ -156,7 +156,7 @@ Depois de instalar os agentes de visualização de dependência em VMs locais, a
 
 Para VMs do Windows:
 1. No painel de controle, inicie o MMA.
-2. Nas **Propriedades de Microsoft Monitoring Agent**  >  **log Analytics do Azure (OMS)**, verifique se o **status** do espaço de trabalho está verde.
+2. Nas **Propriedades de Microsoft Monitoring Agent**  >  **log Analytics do Azure (OMS)** , verifique se o **status** do espaço de trabalho está verde.
 3. Se o status não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
 
     ![Status do MMA](./media/troubleshoot-assessment/mma-properties.png)
@@ -165,8 +165,8 @@ Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-- **Agente MMS**: examine os sistemas operacionais [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) com suporte.
-- **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
+- **Agente MMS** : examine os sistemas operacionais [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) com suporte.
+- **Agente de dependência** : os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências por > hora
 
@@ -209,7 +209,7 @@ Colete os logs de tráfego de rede da seguinte maneira:
    - No Chrome, clique com o botão direito do mouse e selecione **salvar como Har com conteúdo**. Essa ação compacta e exporta os logs como um arquivo. Har.
    - No Microsoft Edge ou Internet Explorer, selecione a opção **Exportar tráfego capturado** . Essa ação compacta e exporta o log.
 6. Selecione a guia **console** para verificar se há avisos ou erros. Para salvar o log do console:
-   - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **salvar como**, para exportar e compactar o log.
+   - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **salvar como** , para exportar e compactar o log.
    - No Microsoft Edge ou no Internet Explorer, clique com o botão direito do mouse nos erros e selecione **copiar tudo**.
 7. Fechar as Ferramentas para Desenvolvedores.
 

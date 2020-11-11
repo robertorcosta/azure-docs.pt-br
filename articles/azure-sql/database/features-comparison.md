@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 07/22/2020
-ms.openlocfilehash: 265828cc34d73409b91c55be64b087d22f1a11f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/10/2020
+ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789583"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506015"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de recursos: banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -72,7 +72,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [FileStream](/sql/relational-databases/blob/filestream-sql-server) | Não | [Não](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Pesquisa de texto completo (FTS)](/sql/relational-databases/search/full-text-search) |  Sim, mas não há suporte para separadores de palavras de terceiros | Sim, mas [não há suporte para separadores de palavras de terceiros](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Funções](/sql/t-sql/functions/functions) | Maioria - veja funções individuais | Sim – consulte [Diferenças entre procedimentos armazenados, funções e gatilhos](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [Otimização na memória](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim-as [camadas Premium e comercialmente crítico só](../in-memory-oltp-overview.md) têm suporte limitado para objetos In-Memory não persistentes, como tipos de tabela | Sim - [Camada Comercialmente Crítico somente](../managed-instance/sql-managed-instance-paas-overview.md) |
+| [Otimização na memória](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim [, nas camadas de serviço Premium e comercialmente crítico](../in-memory-oltp-overview.md).</br> Suporte limitado para objetos OLTP In-Memory não persistentes, como variáveis de tabela com otimização de memória na [camada de serviço de hiperescala](service-tier-hyperscale.md).| Sim na [camada de serviço comercialmente crítico](../managed-instance/sql-managed-instance-paas-overview.md) |
 | [Elementos de linguagem](/sql/t-sql/language-elements/language-elements-transact-sql) | Maioria - veja elementos individuais |  Sim – consulte [Diferenças do T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Servidores vinculados](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - veja [Consulta elástica](elastic-query-horizontal-partitioning.md) | Sim. Somente para [SQL Server e o banco de dados SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) sem transações distribuídas. |
 | [Servidores vinculados](/sql/relational-databases/linked-servers/linked-servers-database-engine) que lêem de arquivos (CSV, Excel)| Não. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) como uma alternativa para o formato CSV. | Não. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) como uma alternativa para o formato CSV. Acompanhar essas solicitações no [item de comentário sobre o SQL instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|

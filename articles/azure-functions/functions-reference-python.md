@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358041"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506066"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -312,10 +312,10 @@ Uma chave para melhorar o desempenho é entender como seu aplicativo usa recurso
 
 As configurações padrão são adequadas para a maioria dos aplicativos Azure Functions. No entanto, você pode melhorar o desempenho da taxa de transferência de seus aplicativos empregando configurações com base em seu perfil de carga de trabalho. A primeira etapa é entender o tipo de carga de trabalho que você está executando.
 
-|&nbsp;| Carga de trabalho associada à e/s | Carga de trabalho associada à CPU |
+| | Carga de trabalho associada à e/s | Carga de trabalho associada à CPU |
 |--| -- | -- |
-|Características do aplicativo de funções| <ul><li>O aplicativo precisa lidar com muitas invocações simultâneas.</li> <li> O aplicativo processa um grande número de eventos de e/s, como chamadas de rede e leitura/gravação em disco.</li> </ul>| <ul><li>O aplicativo executa cálculos de execução longa, como o redimensionamento de imagem.</li> <li>O aplicativo faz a transformação de dados.</li> </ul> |
-|Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de Machine Learning</li><ul>|
+|**Características do aplicativo de funções**| <ul><li>O aplicativo precisa lidar com muitas invocações simultâneas.</li> <li> O aplicativo processa um grande número de eventos de e/s, como chamadas de rede e leitura/gravação em disco.</li> </ul>| <ul><li>O aplicativo executa cálculos de execução longa, como o redimensionamento de imagem.</li> <li>O aplicativo faz a transformação de dados.</li> </ul> |
+|**Exemplos**| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de Machine Learning</li><ul>|
 
 
 > [!NOTE]

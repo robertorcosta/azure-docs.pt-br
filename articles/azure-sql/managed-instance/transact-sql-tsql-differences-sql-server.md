@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337637"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506372"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -410,7 +410,7 @@ Operações:
 
 ### <a name="polybase"></a>PolyBase
 
-Não há suporte para tabelas externas que fazem referência aos arquivos no Armazenamento de Blobs do Azure ou HDFS. Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
+O único tipo de fonte externa com suporte é RDBMS, para o banco de dados SQL do Azure e para outros Instância Gerenciada do SQL do Azure. Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 

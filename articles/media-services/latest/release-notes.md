@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791589"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505250"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -56,6 +56,11 @@ Os eventos ao vivo agora têm um estado de espera.  Consulte [eventos ao vivo e 
 Um evento ao vivo dá suporte ao recebimento de várias taxas de proporção de entrada. O modo de ampliação permite que os clientes especifiquem o comportamento de alongamento para a saída.
 
 A codificação ativa agora adiciona o recurso de saída de fragmentos de intervalo de quadro chave fixo entre 0,5 e 20 segundos.
+
+## <a name="accounts"></a>Contas
+
+> [!WARNING]
+> Se você criar uma conta de serviços de mídia com a versão de API 2020-05-01, ela não funcionará com RESTv2 
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -109,7 +114,7 @@ Os documentos do Player de Mídia do Azure foram migrados para a [documentação
 
 ### <a name="azure-government-cloud-updates"></a>Atualizações da nuvem do Azure Government
 
-Os Serviços de Mídia estão em disponibilidade geral nas seguintes regiões do Azure Government: *USGov – Arizona* e *USGov – Texas* .
+Os Serviços de Mídia estão em disponibilidade geral nas seguintes regiões do Azure Government: *USGov – Arizona* e *USGov – Texas*.
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
@@ -173,7 +178,7 @@ Os Serviços de Mídia v3 estão anunciando a versão prévia por 365 dias, 24 h
 
 #### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição do *Azure Media Indexer* e da *versão prévia do Azure Media Indexer 2* . Para as datas de desativação, consulte o artigo  [componentes herdados](../previous/legacy-components.md) . O [Video Indexer dos Serviços de Mídia do Azure](../video-indexer/index.yml) substitui esses processadores de mídia herdados.
+Estamos anunciando a substituição do *Azure Media Indexer* e da *versão prévia do Azure Media Indexer 2*. Para as datas de desativação, consulte o artigo  [componentes herdados](../previous/legacy-components.md) . O [Video Indexer dos Serviços de Mídia do Azure](../video-indexer/index.yml) substitui esses processadores de mídia herdados.
 
 Para obter mais informações, confira [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para o Video Indexer dos Serviços de Mídia do Azure](../previous/migrate-indexer-v1-v2.md).
 
@@ -275,10 +280,10 @@ Você não deve modificar nem remover o arquivo MPI, nem usar qualquer dependên
 
 As atualizações da versão disponível ao público geral da API V3 incluem:
        
-* As propriedades **PresentationTimeRange** não são mais “obrigatórias” para **Filtros de Ativo** e **Filtros de Conta** . 
+* As propriedades **PresentationTimeRange** não são mais “obrigatórias” para **Filtros de Ativo** e **Filtros de Conta**. 
 * As opções de consulta $top e $skip para **Trabalhos** e **Transformações** foram removidas e $orderby foi adicionado. Como parte da adição da nova funcionalidade de ordenação, foi descoberto que as opções $top e $skip acidentalmente tinham sido expostas anteriormente, embora não tenham sido implementadas.
 * A extensibilidade da enumeração foi reabilitada. Esse recurso estava habilitado nas versões prévias do SDK e foi acidentalmente desabilitado na versão disponível ao público geral.
-* Duas políticas predefinidas de transmissão foram renomeadas. **SecureStreaming** agora é **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** agora é **Predefined_MultiDrmStreaming** .
+* Duas políticas predefinidas de transmissão foram renomeadas. **SecureStreaming** agora é **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** agora é **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembro de 2018
 
