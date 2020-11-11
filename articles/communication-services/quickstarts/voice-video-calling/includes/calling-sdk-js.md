@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779769"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482666"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Um recurso dos Serviços de Comunicação implantado. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
-- Um `User Access Token` para habilitar o cliente de chamada. Para obter mais informações sobre [como obter um `User Access Token` ](../../access-tokens.md)
+- Um `User Access Token` para habilitar o cliente de chamada. Para obter mais informações sobre [como obter um `User Access Token`](../../access-tokens.md)
 - Opcional: conclua o guia de início rápido para [começar a adicionar a chamada ao seu aplicativo](../getting-started-with-calling.md)
 
 ## <a name="setting-up"></a>Configurando
@@ -99,7 +99,7 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
-### <a name="join-a-group-call"></a>Ingressar em uma chamada de grupo
+### <a name="join-a-group-call"></a>Ingressar em um grupo
 Para iniciar uma nova chamada de grupo ou ingressar em uma chamada de grupo em andamento, use o método ' join ' e passe um objeto com uma `groupId` propriedade. O valor deve ser um GUID.
 ```js
 
@@ -147,7 +147,8 @@ Isso retorna uma cadeia de caracteres que representa o estado atual de uma chama
 * ' Conectado '-a chamada está conectada
 * ' Hold '-a chamada é colocada em espera, nenhuma mídia está fluindo entre o ponto de extremidade local e os participantes remotos
 * ' Desconectando '-estado de transição antes que a chamada vá para o estado ' desconectado '
-* ' Desconectado '-estado de chamada final
+* ' Desconectado '-estado de chamada final.
+   * Se a conexão de rede for perdida, o estado vai para ' desconectado ' após cerca de 2 minutos.
 
 
 * Para ver por que uma determinada chamada foi encerrada, inspecione a `callEndReason` propriedade.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Perguntas frequentes
+ * Se a conectividade de rede for perdida, o estado de chamada será alterado para ' desconectado '?
+    * Sim, se a conexão de rede for perdida por mais de 2 minutos, a chamada passará para o estado desconectado e a chamada será encerrada.
 
 ## <a name="remote-participants-management"></a>Gerenciamento de participantes remotos
 
@@ -270,7 +274,8 @@ O estado pode ser um de
 * ' Conectado '-o participante está conectado à chamada
 * ' Hold '-o participante está em espera
 * ' EarlyMedia '-o comunicado é reproduzido antes de o participante estar conectado à chamada
-* ' Desconectado '-estado final-o participante está desconectado da chamada
+* ' Desconectado '-estado final-o participante está desconectado da chamada.
+   * Se o participante remoto perder a conectividade de rede, o estado do participante remoto vai para ' desconectado ' após cerca de 2 minutos.
 
 Para saber por que o participante saiu da chamada, inspecione a `callEndReason` Propriedade:
 ```js
@@ -410,7 +415,9 @@ Posteriormente, você pode atualizar o modo de dimensionamento invocando o `upda
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Perguntas frequentes
+* Se um participante remoto perder sua conexão de rede, seu estado mudará para ' desconectado '?
+    * Sim, se um participante remoto perder sua conexão de rede por mais de 2 minutos, seu estado passará para desconectado e será removido da chamada.
 ## <a name="device-management"></a>Gerenciamento de dispositivo
 
 `DeviceManager` permite que você enumere dispositivos locais que podem ser usados em uma chamada para transmitir seus fluxos de áudio/vídeo. Ele também permite solicitar permissão de um usuário para acessar o microfone e a câmera usando a API do navegador nativo.
