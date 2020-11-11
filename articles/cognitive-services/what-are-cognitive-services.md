@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 82531466c80917087ca007900ca79b3485f38a21
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d134532e7f285f391b6791a9fc73d5e3251ddac8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546255"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369402"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos do Azure?
 
@@ -39,59 +39,59 @@ As seções a seguir neste artigo fornecem uma lista de serviços que fazem part
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visual Computacional")|O serviço de Pesquisa Visual Computacional fornece acesso a algoritmos cognitivos avançados para processar imagens e retornar informações.|
-|[Serviço de Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite criar classificadores de imagem personalizada.|
-|[Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| O serviço de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando a detecção e o reconhecimento de atributos faciais.|
-|[Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Reconhecimento de Formulários")|O Reconhecimento de Formulários identifica e extrai pares chave-valor e dados de tabela de documentos de formulário e, em seguida, gera dados estruturados, incluindo as relações no arquivo original.|
-|[Reconhecimento de Tinta Digital](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Reconhecimento de Tinta Digital") (desativação)|O Reconhecimento de Tinta Digital permite que você reconheça e analise dados de traço de tinta digital, formas e conteúdo manuscrito e gere uma estrutura de documento com todas as entidades reconhecidas.|
-|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|O Video Indexer permite extrair insights de seus vídeos.|
+|[Pesquisa Visual Computacional](./computer-vision/index.yml "Visual Computacional")|O serviço de Pesquisa Visual Computacional fornece acesso a algoritmos cognitivos avançados para processar imagens e retornar informações.|
+|[Serviço de Visão Personalizada](./custom-vision-service/overview.md "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite criar classificadores de imagem personalizada.|
+|[Detecção Facial](./face/index.yml "Face")| O serviço de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando a detecção e o reconhecimento de atributos faciais.|
+|[Reconhecimento de Formulários](./form-recognizer/index.yml "Reconhecimento de Formulários")|O Reconhecimento de Formulários identifica e extrai pares chave-valor e dados de tabela de documentos de formulário e, em seguida, gera dados estruturados, incluindo as relações no arquivo original.|
+|[Reconhecimento de Tinta Digital](./ink-recognizer/index.yml "Reconhecimento de Tinta Digital") (desativação)|O Reconhecimento de Tinta Digital permite que você reconheça e analise dados de traço de tinta digital, formas e conteúdo manuscrito e gere uma estrutura de documento com todas as entidades reconhecidas.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Video Indexer permite extrair insights de seus vídeos.|
 
 ## <a name="speech-apis"></a>Speech APIs
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de Fala")|O serviço de fala adiciona recursos habilitados para fala aos aplicativos. O serviço de Fala inclui vários recursos, como conversão de texto em fala e de fala em texto, tradução de fala e muito mais.|
+|[Serviço de Fala](./speech-service/index.yml "Serviço de Fala")|O serviço de fala adiciona recursos habilitados para fala aos aplicativos. O serviço de Fala inclui vários recursos, como conversão de texto em fala e de fala em texto, tradução de fala e muito mais.|
 <!--
-|[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
-|[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
-|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
+|[Speaker Recognition API](./speech-service/speaker-recognition-overview.md "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
+|[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
+|[Translator Speech](/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
 -->
 ## <a name="language-apis"></a>APIs de Linguagem
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[LUIS (Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/ "Reconhecimento Vocal")|O serviço de reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.|
-|[O QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|A QnA Maker permite que você crie um serviço de perguntas e respostas do seu conteúdo semiestruturado.|
-|[Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Análise de texto")| A Análise de Texto oferece processamento de linguagem natural sobre texto bruto para análise de sentimento, extração de frases-chave e detecção de idioma.|
-|[Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/ "Tradutor")|O Tradutor fornece uma tradução de texto baseada em máquina quase em tempo real.|
-| [Leitura Avançada](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/ "Leitura Avançada") | A Leitura Avançada adiciona recursos de leitura e compreensão de tela aos seus aplicativos. |
+|[LUIS (Reconhecimento vocal)](./luis/index.yml "Reconhecimento Vocal")|O serviço de reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.|
+|[O QnA Maker](./qnamaker/index.yml "QnA Maker")|A QnA Maker permite que você crie um serviço de perguntas e respostas do seu conteúdo semiestruturado.|
+|[Análise de Texto](./text-analytics/index.yml "Análise de texto")| A Análise de Texto oferece processamento de linguagem natural sobre texto bruto para análise de sentimento, extração de frases-chave e detecção de idioma.|
+|[Tradutor](./translator/index.yml "Tradutor")|O Tradutor fornece uma tradução de texto baseada em máquina quase em tempo real.|
+| [Leitura Avançada](./immersive-reader/index.yml "Leitura Avançada") | A Leitura Avançada adiciona recursos de leitura e compreensão de tela aos seus aplicativos. |
 
 ## <a name="decision-apis"></a>APIs de decisão
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Detector de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Detector de Anomalias") |O Detector de Anomalias permite que você monitore e detecte anormalidades em seus dados de série temporal.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Content Moderator fornece monitoramento para um possível conteúdo ofensivo, indesejável e arriscado.|
-|[Assistente de Métricas](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (versão prévia) | O Assistente de Métricas fornece detecção de anomalias personalizável em dados de série temporal multivariados, além de um portal da Web completo para ajudar você a usar o serviço.|
-|[Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizador")|O Personalizador permite escolher a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.|
+|[Detector de Anomalias](./anomaly-detector/index.yml "Detector de Anomalias") |O Detector de Anomalias permite que você monitore e detecte anormalidades em seus dados de série temporal.|
+|[Content Moderator](./content-moderator/overview.md "Content Moderator")|O Content Moderator fornece monitoramento para um possível conteúdo ofensivo, indesejável e arriscado.|
+|[Assistente de Métricas](./metrics-advisor/index.yml) (versão prévia) | O Assistente de Métricas fornece detecção de anomalias personalizável em dados de série temporal multivariados, além de um portal da Web completo para ajudar você a usar o serviço.|
+|[Personalizador](./personalizer/index.yml "Personalizador")|O Personalizador permite escolher a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.|
 
 ## <a name="search-apis"></a>APIs de pesquisa
 
 > [!NOTE]
-> Procurando a [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Embora ele use os Serviços Cognitivos para algumas tarefas, é uma tecnologia de pesquisa diferente, que dá suporte a outros cenários.
+> Procurando a [Azure Cognitive Search](../search/index.yml)? Embora ele use os Serviços Cognitivos para algumas tarefas, é uma tecnologia de pesquisa diferente, que dá suporte a outros cenários.
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Pesquisa de Notícias do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Pesquisa de Notícias do Bing")|A Pesquisa de Notícias do Bing retorna uma lista de artigos de notícias determinados como relevantes para a consulta do usuário.|
-|[Pesquisa de Vídeo do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Pesquisa de Vídeo do Bing")|A Pesquisa de Vídeo do Bing retorna uma lista de vídeos determinados como relevantes para a consulta do usuário.|
-|[Pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Pesquisa da Web do Bing")|A Pesquisa na Web do Bing retorna uma lista de resultados de pesquisa determinados como relevantes para a consulta do usuário.|
-|[Sugestão Automática do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "Sugestão Automática do Bing")|A Sugestão Automática do Bing permite enviar um termo de consulta de pesquisa parcial ao Bing e recuperar uma lista de consultas sugeridas.|
-|[Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "Pesquisa Personalizada do Bing")|A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você.|
-|[Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Pesquisa de Entidade do Bing")|A Pesquisa de Entidade do Bing retorna informações sobre entidades que o Bing determina como relevantes para a consulta de um usuário.|
-|[Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Pesquisa de Imagem do Bing")|A Pesquisa de Imagem do Bing retorna uma exibição de imagens determinadas como relevantes para a consulta do usuário.|
-|[Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Pesquisa Visual do Bing")|A Pesquisa Visual do Bing retorna insights sobre uma imagem, como imagens visualmente semelhantes, fontes de compras de produtos encontrados na imagem e pesquisas relacionadas.|
-|[Pesquisa de Negócios Locais do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Pesquisa de Negócios Locais do Bing")| A API de Pesquisa de Negócios Locais do Bing permite que seus aplicativos encontrem informações de contato e localização sobre locais e negócios com base em consultas de pesquisa.|
-|[Verificação de Ortografia do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|A Verificação Ortográfica do Bing permite fazer verificações de gramática contextual e ortográfica.|
+|[Pesquisa de Notícias do Bing](/azure/cognitive-services/bing-news-search/ "Pesquisa de Notícias do Bing")|A Pesquisa de Notícias do Bing retorna uma lista de artigos de notícias determinados como relevantes para a consulta do usuário.|
+|[Pesquisa de Vídeo do Bing](/azure/cognitive-services/Bing-Video-Search/ "Pesquisa de Vídeo do Bing")|A Pesquisa de Vídeo do Bing retorna uma lista de vídeos determinados como relevantes para a consulta do usuário.|
+|[Pesquisa na Web do Bing](./bing-web-search/index.yml "Pesquisa da Web do Bing")|A Pesquisa na Web do Bing retorna uma lista de resultados de pesquisa determinados como relevantes para a consulta do usuário.|
+|[Sugestão Automática do Bing](/azure/cognitive-services/Bing-Autosuggest "Sugestão Automática do Bing")|A Sugestão Automática do Bing permite enviar um termo de consulta de pesquisa parcial ao Bing e recuperar uma lista de consultas sugeridas.|
+|[Pesquisa Personalizada do Bing](/azure/cognitive-services/bing-custom-search "Pesquisa Personalizada do Bing")|A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você.|
+|[Pesquisa de Entidade do Bing](/azure/cognitive-services/bing-entities-search/ "Pesquisa de Entidade do Bing")|A Pesquisa de Entidade do Bing retorna informações sobre entidades que o Bing determina como relevantes para a consulta de um usuário.|
+|[Pesquisa de Imagem do Bing](/azure/cognitive-services/bing-image-search "Pesquisa de Imagem do Bing")|A Pesquisa de Imagem do Bing retorna uma exibição de imagens determinadas como relevantes para a consulta do usuário.|
+|[Pesquisa Visual do Bing](/azure/cognitive-services/bing-visual-search "Pesquisa Visual do Bing")|A Pesquisa Visual do Bing retorna insights sobre uma imagem, como imagens visualmente semelhantes, fontes de compras de produtos encontrados na imagem e pesquisas relacionadas.|
+|[Pesquisa de Negócios Locais do Bing](/azure/cognitive-services/bing-local-business-search/ "Pesquisa de Negócios Locais do Bing")| A API de Pesquisa de Negócios Locais do Bing permite que seus aplicativos encontrem informações de contato e localização sobre locais e negócios com base em consultas de pesquisa.|
+|[Verificação de Ortografia do Bing](/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|A Verificação Ortográfica do Bing permite fazer verificações de gramática contextual e ortográfica.|
 
 ## <a name="development-options"></a>Opções de desenvolvimento 
 
@@ -111,7 +111,7 @@ Comece criando um recurso dos Serviços Cognitivos com inícios rápidos prátic
 * [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Portal do Azure")
 * [CLI do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "CLI do Azure")
 * [As bibliotecas de cliente do SDK do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
-* [Modelos do Azure Resource Manager (ARM)](resource-manager-template.md?tabs=portal "Modelos do Azure Resource Manager (ARM)")
+* [Modelos do Azure Resource Manager (ARM)](./create-account-resource-manager-template.md?tabs=portal "Modelos do Azure Resource Manager (ARM)")
 
 <!--
 ## Subscription management

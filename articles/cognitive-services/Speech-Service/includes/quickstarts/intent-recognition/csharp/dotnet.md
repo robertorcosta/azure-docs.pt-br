@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 83e2c0486c193608739b78665d9dbbc3a52afc9e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c242bbb803e359664eb2fb63262f0c540723f9c6
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470883"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424978"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,14 +46,14 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 Insira esse código no método `RecognizeIntentAsync()`. Atualize estes valores:
 
 * Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use **identificador de região** da [região](https://aka.ms/speech/sdkregion).
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. Use **identificador de região** da [região](../../../../regions.md).
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esses valores, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
+Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet).
 
 O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
@@ -103,7 +103,7 @@ Neste momento, seu código deverá ter a seguinte aparência:
 
 Agora está tudo pronto para você compilar o aplicativo e testar o reconhecimento de fala usando o serviço de fala.
 
-1. **Compilar o código** : na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução** .
+1. **Compilar o código** : na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
 2. **Iniciar o aplicativo** : na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
 3. **Iniciar o reconhecimento** : ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
 

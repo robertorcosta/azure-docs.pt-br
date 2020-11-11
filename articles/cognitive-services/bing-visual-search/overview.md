@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082038"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369334"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API da Pesquisa Visual do Bing?
 
@@ -53,7 +53,7 @@ Os resultados da Pesquisa Visual do Bing também incluem caixas delimitadoras pa
 
 A API da Pesquisa Visual do Bing é um serviço Web RESTful, facilitando a chamada de qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. É possível usar a API REST ou o SDK para o serviço.
 
-1. Crie uma [conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para acessar as APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta gratuitamente](https://azure.microsoft.com/free/cognitive-services/).
+1. Crie uma [conta de Serviços Cognitivos](../cognitive-services-apis-create-account.md) para acessar as APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta gratuitamente](https://azure.microsoft.com/free/cognitive-services/).
 2. Envie uma solicitação para a API com uma consulta de pesquisa válida.
 3. Processe a resposta da API analisando a mensagem JSON retornada.
 
@@ -74,8 +74,8 @@ Para uma introdução rápida à primeira solicitação, consulte os guias de in
 
 ## <a name="see-also"></a>Confira também
 
-* A documentação de referência de [Imagens – Pesquisa Visual](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) descreve definições e informações sobre os pontos de extremidade, os cabeçalhos de solicitação, as respostas e os parâmetros de consulta que podem ser usados para solicitar os resultados da pesquisa com base em imagem.
+* A documentação de referência de [Imagens – Pesquisa Visual](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) descreve definições e informações sobre os pontos de extremidade, os cabeçalhos de solicitação, as respostas e os parâmetros de consulta que podem ser usados para solicitar os resultados da pesquisa com base em imagem.
 
 * Os [Requisitos de exibição e uso da API de Pesquisa do Bing](../bing-web-search/use-display-requirements.md) especificam os usos aceitáveis do conteúdo e as informações obtidas por meio das APIs de pesquisa do Bing.
 
-* Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+* Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/overview.md) para explorar as outras APIs disponíveis.

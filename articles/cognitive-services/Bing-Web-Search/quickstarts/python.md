@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 9d6de9b29f0e68d48eab0b2c4081470858d3d69c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 63706eefd4f46c055e8bcbd58a86fdded6f3527d
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076428"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381041"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Início Rápido: usar Python para chamar a API de Pesquisa na Web do Bing  
 
@@ -62,7 +62,7 @@ Este exemplo é executado como um Jupyter Notebook em [MyBinder](https://mybinde
 
 Este código usa a biblioteca `requests` para chamar a API de Pesquisa na Web do Bing e retornar os resultados como um objeto JSON. A chave de API é passada no dicionário `headers` e os parâmetros de consulta e termo de pesquisa são passados no dicionário `params`. 
 
-Para obter uma lista completa de opções e parâmetros, confira [API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
+Para obter uma lista completa de opções e parâmetros, confira [API de Pesquisa na Web do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests

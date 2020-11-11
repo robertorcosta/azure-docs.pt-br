@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: b2369e3f941b3d7c86b5c09a11d3e17ade8e99cf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136270"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425305"
 ---
 Um dos principais recursos do serviço de Fala é a capacidade de reconhecer e transcrever a fala humana (frequentemente denominada conversão de fala em texto). Neste guia de início rápido, você aprende a usar o SDK de Fala em seus aplicativos e produtos para executar uma conversão de fala em texto de alta qualidade.
 
@@ -23,7 +23,7 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, instale o [SDK de Fala para Go](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Cwindows%2Cjre%2Cbrowser&pivots=programming-language-go).
+Antes de fazer qualquer coisa, instale o [SDK de Fala para Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
 
 ## <a name="speech-to-text-from-microphone"></a>Conversão de fala em texto de um microfone
 

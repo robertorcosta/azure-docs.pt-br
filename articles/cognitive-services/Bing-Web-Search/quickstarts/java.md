@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4db81571fe4b77382ccf269351ddbf46ef5f06e2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c19aca20b1b5dff53630c0b51c75689394ad3d53
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076700"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381075"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Início Rápido: Usar o Java para pesquisar a Web com a API REST de Pesquisa na Web do Bing, um serviço cognitivo do Azure
 
@@ -31,7 +31,7 @@ Neste início rápido, você usará um aplicativo Java para fazer sua primeira c
 
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
-* [JDK 7 ou 8](https://aka.ms/azure-jdks)
+* [JDK 7 ou 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Biblioteca Gson](https://github.com/google/gson)
 * Uma chave de assinatura
 
@@ -333,4 +333,4 @@ As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este e
 > [!div class="nextstepaction"]
 > [Tutorial de aplicativo de página única da API de Pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

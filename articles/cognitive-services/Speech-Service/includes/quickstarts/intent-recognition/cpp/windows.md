@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298745"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424938"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,14 +46,14 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 Insira esse código no método `recognizeIntent()`. Atualize estes valores:
 
 * Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS.  Use **identificador de região** da [região](https://aka.ms/speech/sdkregion).
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS.  Use **identificador de região** da [região](../../../../regions.md).
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esses valores, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](/cpp/cognitive-services/speech/speechconfig).
 
 O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
@@ -105,9 +105,9 @@ Neste momento, seu código deverá ter a seguinte aparência:
 
 Agora está tudo pronto para você compilar o aplicativo e testar o reconhecimento de fala usando o serviço de fala.
 
-1. **Compilar o código**: na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
-2. **Iniciar o aplicativo**: na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
-3. **Iniciar o reconhecimento**: ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
+1. **Compilar o código** : na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
+2. **Iniciar o aplicativo** : na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione <kbd>F5</kbd>.
+3. **Iniciar o reconhecimento** : ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
 
 ## <a name="next-steps"></a>Próximas etapas
 

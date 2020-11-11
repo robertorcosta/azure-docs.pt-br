@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0e2324f7e524567b07f0228e046605b781bc4916
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135694"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425414"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se quiser apenas o nome do pacote para começar por conta própria, execute `pip install azure-cognitiveservices-speech`.
 
@@ -90,7 +90,7 @@ As atualizações do pacote Python do SDK de Fala são distribuídas por meio do
 Se uma nova versão estiver disponível, você poderá atualizar para ela com o comando `pip install --upgrade azure-cognitiveservices-speech`.
 Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
 
-Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](~/articles/cognitive-services/speech-service/support.md) (Opções de Ajuda e Suporte).
+Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext) (Opções de Ajuda e Suporte).
 
 ## <a name="next-steps"></a>Próximas etapas
 
