@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507422"
+ms.locfileid: "94517760"
 ---
 # <a name="identity-model"></a>Modelo de identidade
 
@@ -47,7 +47,7 @@ O token de acesso é um token JWT que pode ser usado para obter acesso aos primi
 
 As propriedades do token de acesso são: *identidade, expiração* e *escopos*. O token de acesso é sempre válido por 24 horas. Após esse tempo, o token de acesso é invalidado e não pode ser usado para acessar nenhum primitivo. A identidade deve ter uma forma, como solicitar novo token de acesso do serviço do servidor. O *escopo* do parâmetro define um conjunto não vazio de primitivos, que pode ser usado. Os serviços de comunicação do Azure dão suporte aos seguintes escopos para tokens de acesso:
 
-|Name|Descrição|
+|Nome|DESCRIÇÃO|
 |---|---|
 |Chat|  Concede a capacidade de participar de um chat|
 |VoIP|  Concede a capacidade de chamar identidades e números de telefone|
@@ -59,3 +59,9 @@ A rotação de chaves de acesso do serviço de comunicação do Azure causará a
 É recomendável emitir tokens de acesso em seu serviço do lado do servidor e não no aplicativo do cliente. O raciocínio é que a emissão exige a chave de acesso ou a identidade gerenciada. Não é recomendável por motivos de segurança para compartilhar as chaves de acesso com o aplicativo do cliente. O aplicativo cliente deve usar um ponto de extremidade de serviço confiável que possa autenticar seus clientes e emitir o token de acesso em seu nome. Mais detalhes sobre a arquitetura podem ser encontrados [aqui](./client-and-server-architecture.md).
 
 Se você armazenar em cache tokens de acesso a um repositório de backup, recomendamos o uso da criptografia. O token de acesso é de dados confidenciais e pode ser usado para atividades mal-intencionadas se não estiver protegido. Com a posse do token de acesso, você pode inicializar o SDK e obter acesso à API. A API acessível é restrita somente com base em escopos, que o token de acesso tem. É recomendável emitir tokens de acesso somente com escopos, que são necessários.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Para obter uma introdução ao gerenciamento de tokens de acesso, consulte [criar e gerenciar tokens de acesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* Para obter uma introdução à autenticação, consulte [autenticar para os serviços de comunicação do Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* Para obter uma introdução à privacidade e à residência de dados, consulte [disponibilidade de região e residência de dados](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

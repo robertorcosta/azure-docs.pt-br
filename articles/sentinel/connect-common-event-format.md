@@ -1,6 +1,6 @@
 ---
 title: Conectar dados de CEF à visualização do Azure Sentinel | Microsoft Docs
-description: Conecte uma solução externa que envia mensagens de formato de evento comum (CEF) para o Azure Sentinel usando um computador Linux como encaminhador de log.
+description: Conecte uma solução externa que envia mensagens de formato de evento comum (CEF) para o Azure Sentinel, usando um computador Linux como encaminhador de log.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347600"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517964"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
@@ -27,14 +27,14 @@ Quando você conecta uma solução externa que envia mensagens CEF, há três et
 
 ETAPA 1: [conectar o CEF implantando uma etapa 2 do syslog/CEF encaminhador](connect-cef-agent.md) : [Executar etapas específicas da solução](connect-cef-solution-config.md) etapa 3: [verificar a conectividade](connect-cef-verify.md)
 
-Este artigo descreve como a conexão funciona, fornece pré-requisitos e fornece as etapas para implantar o agente em soluções de segurança que enviam mensagens de formato de evento comum (CEF) sobre o syslog. 
+Este artigo descreve como a conexão funciona, lista os pré-requisitos e mostra as etapas para implantar um mecanismo para soluções de segurança para enviar mensagens de formato de evento comum (CEF) sobre o syslog. 
 
 > [!NOTE] 
 > Os dados são armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 
 Para fazer essa conexão, você precisa implantar um servidor de encaminhador syslog para dar suporte à comunicação entre o dispositivo e o Azure Sentinel.  O servidor consiste em um computador Linux dedicado (VM ou local) com o agente de Log Analytics para Linux instalado. 
 
-O diagrama a seguir descreve a configuração no caso de uma VM do Linux no Azure:
+O diagrama a seguir descreve a instalação no caso de uma VM do Linux no Azure:
 
  ![CEF no Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -53,18 +53,18 @@ Para usar a comunicação TLS entre a origem do syslog e o encaminhador do syslo
 Verifique se o computador Linux que você usa como encaminhador de log está executando um dos seguintes sistemas operacionais:
 
 - 64 bits
-  - CentOS 7 e 8, incluindo subversões (não 6)
+  - CentOS 7 e 8, incluindo versões secundárias (não 6)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo subversões (não 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo versões secundárias (não 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32 bits
-  - CentOS 7 e 8, incluindo subversões (não 6)
+  - CentOS 7 e 8, incluindo versões secundárias (não 6)
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo subversões (não 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo versões secundárias (não 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS and 16.04 LTS
  
@@ -82,7 +82,7 @@ Verifique se o computador também atende aos seguintes requisitos:
   - Você deve ter permissões elevadas (sudo) em seu computador. 
 
 - Requisitos de software
-  - Verifique se você tem o Python 2,7 em execução em seu computador.
+  - Verifique se você tem o Python 2,7 ou 3 em execução no seu computador.
 
 ## <a name="next-steps"></a>Próximas etapas
 
