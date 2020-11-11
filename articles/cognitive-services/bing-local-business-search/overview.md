@@ -10,17 +10,17 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee31eac55298c86a7bdd784ea54c9a0c8caa47a4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095366"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364608"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é o Bing Local Business Search?
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
 > Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite que seus aplicativos localizem informações sobre empresas locais com base em consultas de pesquisa. Por exemplo, `q=<business-name> in Redmond, Washington`, ou `q=Italian restaurants near me`. 
@@ -35,7 +35,7 @@ A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite qu
 ## <a name="workflow"></a>Fluxo de trabalho
 Chame a API de Pesquisa de Empresa Local do Bing em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar respostas JSON. Esse serviço é acessível por meio da API REST.
  
-1. Crie uma [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/).   
+1. Crie uma [conta da API de serviços cognitivos](../cognitive-services-apis-create-account.md) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/).   
 2. URL codifique seus termos de pesquisa para o parâmetro de consulta `q=""`. Por exemplo, `q=nearby+restaurant` ou `q=nearby%20restaurant`. Defina a paginação também, se necessário. 
 3. Envie uma [solicitação para a API da Pesquisa de empresa local do Bing](quickstarts/local-quickstart.md) 
 4. Analisar a resposta JSON 
@@ -49,4 +49,4 @@ Chame a API de Pesquisa de Empresa Local do Bing em qualquer linguagem de progra
 - [Consulta e resposta](local-search-query-response.md)
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
 - [Referência de API de pesquisa de negócios local](local-search-reference.md)
-- [Requisitos de uso e exibição](use-display-requirements.md)
+- [Requisitos de uso e exibição](../bing-web-search/use-display-requirements.md)

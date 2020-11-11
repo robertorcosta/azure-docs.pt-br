@@ -10,17 +10,17 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: cdb4a174ee5d33270b89e34ce9b80d997486978a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bbb1009fb45f1f1040dbab1c7be7edb6603c2a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101792"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367617"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Início Rápido: Sugerir consultas de pesquisa com a API de REST de Sugestão Automática do Bing e do Ruby
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
 > Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
@@ -43,7 +43,7 @@ Siga este guia de início rápido para saber como fazer chamadas à API de Suges
     require 'json'
     ```
 
-2. Criar variáveis para o host de API e o caminho, [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e uma consulta de pesquisa parcial. Use o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Criar variáveis para o host de API e o caminho, [código do mercado](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e uma consulta de pesquisa parcial. Use o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -159,4 +159,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 ## <a name="see-also"></a>Confira também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
-- [Referência de API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referência de API de Sugestão Automática do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

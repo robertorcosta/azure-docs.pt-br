@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3b922dca46b575abc428aa6e76fb920ffc13d6b0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06f37404db1c07a97aa1bb2d6b7ca88485dc31a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86027997"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365169"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
 
-Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Go.
+Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com Go.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -442,7 +442,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 ## <a name="identify-entities"></a>Identificar entidades
 
-A API de Entidades identifica as entidades conhecidas em um documento de texto, usando o [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [Entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de um texto, como "Estados Unidos" e, em seguida, fornecem o tipo e/ou link da Wikipédia para essas palavras. O tipo para "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O exemplo a seguir identifica as entidades de documentos em inglês.
+A API de Entidades identifica as entidades conhecidas em um documento de texto, usando o [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [Entidades](../how-tos/text-analytics-how-to-entity-linking.md) extraem palavras de um texto, como "Estados Unidos" e, em seguida, fornecem o tipo e/ou link da Wikipédia para essas palavras. O tipo para "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O exemplo a seguir identifica as entidades de documentos em inglês.
 
 1. Crie um novo projeto Go em seu editor de código favorito.
 1. Adicione o código fornecido abaixo.

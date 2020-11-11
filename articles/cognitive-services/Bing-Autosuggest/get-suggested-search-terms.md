@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: d55ff4ed8717a449628e94a940c0896d31818da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0187a5d2be6b2f93897fc358e26ad095e5a70f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101928"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364574"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
@@ -36,7 +36,7 @@ Se o aplicativo enviar consultas para uma das APIs de Pesquisa do Bing, você po
 
 A API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de ser chamado em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON.
 
-1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/cognitive-services/) gratuitamente.
+1. Crie uma [Conta da API dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/cognitive-services/) gratuitamente.
 2. Envie uma solicitação a essa API sempre que um usuário digitar um novo caractere na caixa de pesquisa de seu aplicativo.
 3. Processe a resposta da API analisando a mensagem JSON retornada.
 
@@ -52,11 +52,11 @@ Quando um usuário seleciona uma sugestão na lista suspensa, você pode usá-la
 
 Para se familiarizar rapidamente com sua primeira solicitação, confira [Fazendo sua primeira consulta](quickstarts/csharp.md).
 
-Familiarize-se com a referência [API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). A referência contém a lista de pontos de extremidade, cabeçalhos e parâmetros de consulta que você usaria para solicitar os termos de consulta sugeridos, além das definições dos objetos de resposta.
+Familiarize-se com a referência [API de Sugestão Automática do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). A referência contém a lista de pontos de extremidade, cabeçalhos e parâmetros de consulta que você usaria para solicitar os termos de consulta sugeridos, além das definições dos objetos de resposta.
 
-Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/overview.md) para explorar as outras APIs disponíveis.
 
 
-Saiba como pesquisar na Web usando a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md) e explore as outras [APIs de Pesquisa do Bing](../bing-web-search/index.yml).
+Saiba como pesquisar na Web usando a [API de Pesquisa na Web do Bing](../bing-web-search/overview.md) e explore as outras [APIs de Pesquisa do Bing](../bing-web-search/index.yml).
 
-Leia os [Requisitos de exibição e uso do Bing](./useanddisplayrequirements.md) para não violar nenhuma das regras sobre como usar os resultados da pesquisa.
+Leia os [Requisitos de exibição e uso do Bing](../bing-web-search/use-display-requirements.md) para não violar nenhuma das regras sobre como usar os resultados da pesquisa.

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: e82ac36b0943a4286ac883de5b95c26e9e13a1e5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b9f5ffb0134bd036e7dcc1a4142d22027ecf76cd
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083950"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366903"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o PHP
 
@@ -150,4 +150,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
 - [O que é API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência de API de Verificação Ortográfica do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referência de API de Verificação Ortográfica do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

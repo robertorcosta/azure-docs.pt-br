@@ -8,14 +8,14 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/25/2020
-ms.openlocfilehash: 18fa74562b50ac832c7512351065bf8fedeba74f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 791e46e73ad7292528f0197f8424d44486ea9795
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055355"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371555"
 ---
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Pacote (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
+[Documentação de referência](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Pacote (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,11 +56,11 @@ endpoint = "<paste-your-personalizer-endpoint-here>"
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente do Personalizador é um objeto [PersonalizerClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient?view=azure-python) que se autentica no Azure usando Microsoft.Rest.ServiceClientCredentials, que contém sua chave.
+O cliente do Personalizador é um objeto [PersonalizerClient](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient?view=azure-python) que se autentica no Azure usando Microsoft.Rest.ServiceClientCredentials, que contém sua chave.
 
-Para solicitar o melhor item do conteúdo, crie uma [RankRequest](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest?view=azure-python) e, em seguida, transmita-a para o método client.Rank. O método Rank retornará uma RankResponse.
+Para solicitar o melhor item do conteúdo, crie uma [RankRequest](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest?view=azure-python) e, em seguida, transmita-a para o método client.Rank. O método Rank retornará uma RankResponse.
 
-Para enviar uma pontuação de recompensa ao Personalizador, defina a ID do evento e a pontuação de recompensa (valor) a serem enviados ao método [Reward](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations?view=azure-python#reward-event-id--value--custom-headers-none--raw-false----operation-config-) na classe EventOperations.
+Para enviar uma pontuação de recompensa ao Personalizador, defina a ID do evento e a pontuação de recompensa (valor) a serem enviados ao método [Reward](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations?view=azure-python#reward-event-id--value--custom-headers-none--raw-false----operation-config-) na classe EventOperations.
 
 Determinar a recompensa neste início rápido é trivial. Em um sistema de produção, a determinação do que afeta a [pontuação de recompensa](../concept-rewards.md) e em que medida pode ser um processo complexo; você pode decidir alterá-lo ao longo do tempo. Isso deve ser uma das principais decisões de design na arquitetura do Personalizador.
 

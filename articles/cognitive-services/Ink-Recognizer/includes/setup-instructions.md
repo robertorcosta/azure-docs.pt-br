@@ -5,15 +5,15 @@ ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: include
 ms.date: 06/20/2019
-ms.openlocfilehash: ede1fb4bd2a9a6e6536959053e3ca4d8e4a82f87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c68e5b7ab24e2d7e7f30ddc356ae3c4382137507
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327334"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369063"
 ---
 >[!NOTE]
-> Pontos de extremidade para recursos criados após 1º de julho de 2019, use o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Pontos de extremidade para recursos criados após 1º de julho de 2019, use o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../../cognitive-services-custom-subdomains.md). 
 
 Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Reconhecimento de Tinta Digital usando o [portal do Azure](../../cognitive-services-apis-create-account.md).
 
@@ -23,4 +23,4 @@ Criar duas [variáveis de ambiente](../../cognitive-services-apis-create-account
 
 * `INK_RECOGNITION_SUBSCRIPTION_KEY` – A chave de assinatura para autenticar suas solicitações. 
 
-* `INK_RECOGNITION_ENDPOINT` – O ponto de extremidade para seu recurso. Ele terá esta aparência: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com`   
+* `INK_RECOGNITION_ENDPOINT` – O ponto de extremidade para seu recurso. Ele terá esta aparência: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com`

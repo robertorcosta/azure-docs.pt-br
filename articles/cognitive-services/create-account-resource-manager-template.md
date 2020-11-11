@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347826"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363384"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Início Rápido: Criar um recurso dos Serviços Cognitivos usando um modelo do ARM
 
@@ -45,7 +45,7 @@ O modelo usado neste início rápido é proveniente dos [Modelos de Início Ráp
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 Um recurso do Azure é definido no modelo:
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): cria um recurso dos Serviços Cognitivos.
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): cria um recurso dos Serviços Cognitivos.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -60,7 +60,7 @@ Um recurso do Azure é definido no modelo:
     |Valor  |Descrição  |
     |---------|---------|
     | **Assinatura** | Selecione uma assinatura do Azure. |
-    | **Grupo de recursos** | Selecione **Criar**, insira um nome exclusivo para o grupo de recursos e clique em **OK**. |
+    | **Grupo de recursos** | Selecione **Criar** , insira um nome exclusivo para o grupo de recursos e clique em **OK**. |
     | **Região** | Selecione uma região.  Por exemplo, **Leste dos EUA** |
     | **Nome do Serviço Cognitivo** | Substitua por um nome exclusivo para seu recurso. Você precisará do nome na próxima seção ao validar a implantação. |
     | **Localidade** | Substitua pela região usada acima. |
@@ -73,9 +73,9 @@ Um recurso do Azure é definido no modelo:
 # <a name="azure-cli"></a>[CLI do Azure](#tab/CLI)
 
 > [!NOTE]
-> A criação do `az deployment group` requer a CLI do Azure versão 2.6 ou mais recente. Para exibir a versão, digite `az --version`. Para obter mais informações, confira a [documentação](https://docs.microsoft.com/cli/azure/deployment/group).
+> A criação do `az deployment group` requer a CLI do Azure versão 2.6 ou mais recente. Para exibir a versão, digite `az --version`. Para obter mais informações, confira a [documentação](/cli/azure/deployment/group).
 
-Execute o script a seguir usando a CLI (interface de linha de comando) do Azure [em seu computador local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou em um navegador com o botão **Experimentar**. Insira um nome e uma localização (por exemplo, `centralus`) para um novo grupo de recursos e o modelo do ARM será usado para implantar um recurso dos Serviços Cognitivos dentro dele. Lembre-se do nome que você usar. Você o usará posteriormente para validar a implantação.
+Execute o script a seguir usando a CLI (interface de linha de comando) do Azure [em seu computador local](/cli/azure/install-azure-cli?view=azure-cli-latest) ou em um navegador com o botão **Experimentar**. Insira um nome e uma localização (por exemplo, `centralus`) para um novo grupo de recursos e o modelo do ARM será usado para implantar um recurso dos Serviços Cognitivos dentro dele. Lembre-se do nome que você usar. Você o usará posteriormente para validar a implantação.
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
-* [O que são os Serviços Cognitivos do Azure?](Welcome.md)
+* [O que são os Serviços Cognitivos do Azure?](./what-are-cognitive-services.md)
 * [Suporte para idioma natural](language-support.md)
 * [Suporte ao contêiner do Docker](cognitive-services-container-support.md)

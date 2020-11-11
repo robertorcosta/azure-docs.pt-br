@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 9ba749d671e24e86e2cd0a299e98ba03e47cf354
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2f793c675b045f995d3f8b208e11b60bc2140ec9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101673"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367141"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>O que é a API de Pesquisa de Notícias do Bing?
 
@@ -27,7 +27,7 @@ ms.locfileid: "93101673"
 
 A API de Pesquisa de Notícias do Bing facilita a integração das funcionalidades de pesquisa cognitiva de notícias do Bing aos seus aplicativos. A API fornece uma experiência semelhante ao [Bing Notícias](https://www.bing.com/news), permitindo que você envie consultas de pesquisa e receba artigos de notícias relevantes.
 
-Lembre-se de que a API de Pesquisa de Notícias do Bing fornece apenas resultados da pesquisa de notícias. Use a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md), a [API de Pesquisa de Vídeo do Bing](../bing-video-search/search-the-web.md) e a [API de Pesquisa de Imagem do Bing](../bing-image-search/overview.md) para outros tipos de conteúdo da Web.
+Lembre-se de que a API de Pesquisa de Notícias do Bing fornece apenas resultados da pesquisa de notícias. Use a [API de Pesquisa na Web do Bing](../bing-web-search/overview.md), a [API de Pesquisa de Vídeo do Bing](../bing-video-search/overview.md) e a [API de Pesquisa de Imagem do Bing](../bing-image-search/overview.md) para outros tipos de conteúdo da Web.
 
 ## <a name="bing-news-search-api-features"></a>Recursos da API de Pesquisa de Notícias do Bing
 
@@ -45,7 +45,7 @@ Embora a API de Pesquisa de Notícias do Bing encontre e retorne principalmente 
 
 A API de Pesquisa de Notícias do Bing é um serviço Web RESTful, facilitando a chamada em qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON. É possível usar o serviço usando a API REST ou o SDK.
 
-1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/cognitive-services/) gratuitamente.
+1. Crie uma [Conta da API dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/cognitive-services/) gratuitamente.
 2. Envie uma solicitação para a API, com uma consulta de pesquisa válida.
 3. Processe a resposta da API analisando a mensagem JSON retornada.
 
@@ -53,10 +53,10 @@ A API de Pesquisa de Notícias do Bing é um serviço Web RESTful, facilitando a
 
 Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/) para a API de Pesquisa de Notícias do Bing. Essa demonstração explica como você pode personalizar rapidamente uma consulta de pesquisa e encontrar notícias na Web.
 
-Para começar rapidamente com sua primeira solicitação de API, experimente um início rápido para a [API REST](quickstart.md) ou um dos [SDKs](sdk.md).
+Para começar rapidamente com sua primeira solicitação de API, experimente um início rápido para a [API REST](./csharp.md) ou um dos [SDKs](./quickstarts/client-libraries.md?pivots=programming-language-csharp).
 
 ## <a name="see-also"></a>Confira também
 
-* A seção de referência da [API de Pesquisa de Notícias do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contém definições e informações sobre os pontos de extremidade, os cabeçalhos, as respostas de API e os parâmetros de consulta que podem ser usados para solicitar resultados da pesquisa baseada em imagem.
-* Os [Requisitos de exibição e uso do Bing](./useanddisplayrequirements.md) especificam os usos aceitáveis do conteúdo e das informações obtidas por meio das APIs de pesquisa do Bing.
-* Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+* A seção de referência da [API de Pesquisa de Notícias do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contém definições e informações sobre os pontos de extremidade, os cabeçalhos, as respostas de API e os parâmetros de consulta que podem ser usados para solicitar resultados da pesquisa baseada em imagem.
+* Os [Requisitos de exibição e uso do Bing](../bing-web-search/use-display-requirements.md) especificam os usos aceitáveis do conteúdo e das informações obtidas por meio das APIs de pesquisa do Bing.
+* Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/overview.md) para explorar as outras APIs disponíveis.
