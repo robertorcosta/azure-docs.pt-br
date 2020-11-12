@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de desempenho de consultas – Banco de Dados do Azure para MariaDB
 description: Saiba como usar o EXPLAIN para solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ae3637eb5e9f6f70d0f53d7b1cb97bd348c114bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424417"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537230"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho da consulta no Banco de Dados do Azure para MariaDB
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como pode ser visto na saída, o MariaDB não usa nenhum índice porque nenhum índice adequado está disponível. Também mostra *Usando temporário; Usando file sort*, o que significa que o MariaDB cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
+Como pode ser visto na saída, o MariaDB não usa nenhum índice porque nenhum índice adequado está disponível. Também mostra *Usando temporário; Usando file sort* , o que significa que o MariaDB cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
  
 Criar um índice na coluna **c2** sozinho não faz diferença, e o MariaDB ainda precisa criar uma tabela temporária:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2**" diretamente no índice para eliminar pesquisa de dados adicionais.
+Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2** " diretamente no índice para eliminar pesquisa de dados adicionais.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

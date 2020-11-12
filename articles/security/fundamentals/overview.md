@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408199"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536484"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -60,7 +60,7 @@ Dependendo do modelo de serviço de nuvem, a responsabilidade de quem gerencia a
 
 Os recursos internos são organizados em seis áreas funcionais: operações, aplicativos, armazenamento, rede, computação e identidade. Detalhes adicionais sobre os recursos e funcionalidades disponíveis na plataforma do Azure nessas seis áreas são fornecidos por meio de informações de resumo.
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 Esta seção fornece outras informações sobre os principais recursos em operações de segurança, e informações de resumo sobre esses recursos.
 
 ### <a name="security-and-audit-dashboard"></a>Painel Segurança e Auditoria
@@ -221,7 +221,7 @@ Para enviar o tráfego de rede entre sua Rede Virtual do Azure e seu site local,
 ### <a name="express-route"></a>ExpressRoute
 O Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) é uma conexão WAN dedicada que permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade.
 
-![ExpressRoute](./media/overview/azure-security-fig1.png)
+![ExpressRoute](./media/overview/azure-security-figure-1.png)
 
 Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure, Microsoft 365 e CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização.
 
@@ -231,7 +231,7 @@ As conexões de ExpressRoute não passam pela Internet pública e, portanto, pod
 ### <a name="application-gateway"></a>Gateway de Aplicativo
 O [Gateway de Aplicativo](../../application-gateway/overview.md) do Microsoft Azure fornece um [ADC (Controlador de Entrega de Aplicativos)](https://en.wikipedia.org/wiki/Application_delivery_controller) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo.
 
-![Gateway de Aplicativo](./media/overview/azure-security-fig2.png)
+![Gateway de Aplicativo](./media/overview/azure-security-figure-2.png)
 
 Ele permite que você otimize a produtividade web farm descarregando a terminação de TLS com uso intensivo de CPU para o gateway de aplicativo (também conhecido como "descarregamento de TLS" ou "ponte TLS"). Ele também fornece outros recursos de roteamento de Camada 7, incluindo distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e a capacidade de hospedar vários sites por trás de um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7.
 
@@ -242,7 +242,7 @@ O aplicativo fornece muitos recursos do ADC (controlador de entrega de aplicativ
 ### <a name="web-application-firewall"></a>Firewall do Aplicativo Web
 O Firewall do aplicativo Web é um recurso do [Gateway de Aplicativo do Azure](../../application-gateway/overview.md) que fornece proteção para aplicativos Web que utilizam o gateway de aplicativo para as funções ADC (controle de entrega de aplicativos) padrão. O firewall do aplicativo Web faz isso protegendo-os contra a maioria das 10 vulnerabilidades mais comuns da Web segundo o OWASP.
 
-![Firewall do Aplicativo Web](./media/overview/azure-security-fig1.png)
+![Firewall do Aplicativo Web](./media/overview/azure-security-figure-3.png)
 
 -   Proteção contra injeção de SQL
 
@@ -322,7 +322,7 @@ As atualizações de patch fornecem a base para encontrar e corrigir problemas e
 ### <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios
 A [central de segurança](../../security-center/security-center-introduction.md) ajuda você a prevenir, detectar e responder a ameaças, além de oferecer maior visibilidade e controle sobre a segurança de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-## <a name="identity-and-access-management"></a>Gerenciamento de identidades e acesso
+## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
 A proteção de sistemas, aplicativos e dados começa com controles de acesso baseados em identidade. Os recursos de gerenciamento de identidades e acesso integrados aos produtos e serviços comerciais da Microsoft ajudam a proteger as informações pessoais e corporativas contra o acesso não autorizado, mas as disponibilizam aos usuários legítimos, quando e onde eles precisarem.
 
 ### <a name="secure-identity"></a>Proteção da identidade

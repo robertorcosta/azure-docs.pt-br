@@ -1,17 +1,17 @@
 ---
 title: Configurar o data-in Replication-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar Replicação de Dados no banco de dados do Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426001"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535360"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurar Replicação de Dados no banco de dados do Azure para MariaDB
 
@@ -54,7 +54,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
 1. Examine os [requisitos do servidor mestre](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-2. Verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público**, se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
+2. Verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público** , se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
    
    Teste a conectividade com o servidor de origem tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](../cloud-shell/overview.md) disponível no portal do Azure.
 
@@ -149,7 +149,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
    ![Sincronizar usuário](./media/howto-data-in-replication/syncuser.png)
  
-   Selecione o painel **funções administrativas** e, em seguida, na lista de **privilégios globais**, selecione **replicação escravo**. Selecione **aplicar** para criar a função de replicação.
+   Selecione o painel **funções administrativas** e, em seguida, na lista de **privilégios globais** , selecione **replicação escravo**. Selecione **aplicar** para criar a função de replicação.
 
    ![Replicação subordinada](./media/howto-data-in-replication/replicationslave.png)
 

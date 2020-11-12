@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899555"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535938"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um aplicativo sem monitoração de estado do PHP com Redis em um cluster kubernetes habilitado para Arc na GPU pro Azure Stack Edge
 
@@ -79,9 +79,9 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
 1. Vá para **configurações** e selecione **+ Adicionar configuração**.
 
-    ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure com adicionar configuração selecionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. Em **Adicionar configuração**, insira os valores apropriados para os campos e selecione **aplicar**.
+1. Em **Adicionar configuração** , insira os valores apropriados para os campos e selecione **aplicar**.
 
     |Parâmetro  |Descrição |
     |---------|---------|
@@ -100,14 +100,14 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
 1. A implantação de configuração é iniciada e o **estado do operador** é exibido como **pendente**. 
 
-    ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado pendente conforme ele é atualizado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. A implantação leva alguns minutos. Quando a implantação for concluída, o **estado do operador** será exibido como **instalado**.
 
-    ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
-## <a name="verify-deployment"></a>Verificar implantação
+## <a name="verify-deployment"></a>Verificar a implantação
 
 A implantação por meio da configuração GitOps cria um `demotestguestbook` namespace conforme especificado nos arquivos de implantação `yaml` localizados no repositório git.
 

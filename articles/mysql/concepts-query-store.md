@@ -1,17 +1,17 @@
 ---
 title: Repositório de Consultas – Banco de Dados do Azure para MySQL
 description: Saiba mais sobre o recurso Repositório de Consultas no Banco de Dados do Azure para MySQL para ajudar você a acompanhar o desempenho com o tempo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766133"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535071"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorar o desempenho do Banco de Dados do Azure para MySQL com o Repositório de Consultas
 
@@ -104,7 +104,7 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 > [!NOTE]
 > No momento, **query_store_capture_mode** substitui essa configuração, o que significa que **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** precisam estar habilitados para TODOS para que as estatísticas de espera funcionem. Se **query_store_capture_mode** estiver desativado, as estatísticas de espera estarão desativadas também, pois elas utilizam performance_schema habilitado e query_text capturado por repositório de consultas.
 
-Use o [portal do Azure](howto-server-parameters.md) ou a [CLI do Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
+Use o [portal do Azure](howto-server-parameters.md) ou a [CLI do Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
 
 ## <a name="views-and-functions"></a>Exibições e funções
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279425"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534748"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -23,6 +23,10 @@ As operações de gerenciamento incluem carregamento, validação, recuperação
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Maneiras de gerenciar modelos
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Criar modelos
 
@@ -73,17 +77,7 @@ Seguindo esse método, você pode ir para definir modelos para as regiões, zona
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Gerenciar modelos com APIs
-
-As seções a seguir mostram como concluir diferentes operações de gerenciamento de modelos usando os [SDKs e APIs do gêmeos digital do Azure](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> Os exemplos a seguir não incluem o tratamento de erros para fins de brevidade. No entanto, é altamente recomendável em seus projetos encapsular chamadas de serviço em blocos try/catch.
-
-> [!TIP] 
-> Lembre-se de que todos os métodos do SDK vêm em versões síncronas e assíncronas. Para chamadas de paginação, os métodos assíncronos retornam `AsyncPageable<T>` enquanto as versões síncronas retornam `Pageable<T>` .
-
-### <a name="upload-models"></a>Carregar modelos
+## <a name="upload-models"></a>Carregar modelos
 
 Depois que os modelos são criados, você pode carregá-los na instância do gêmeos digital do Azure.
 
@@ -136,7 +130,7 @@ Os arquivos de modelo podem conter mais de um único modelo. Nesse caso, os mode
  
 No carregamento, os arquivos de modelo são validados pelo serviço.
 
-### <a name="retrieve-models"></a>Recuperar modelos
+## <a name="retrieve-models"></a>Recuperar modelos
 
 Você pode listar e recuperar modelos armazenados em sua instância do gêmeos digital do Azure. 
 
@@ -166,13 +160,13 @@ A `RetrieveModelWithDependencies` chamada retorna não apenas o modelo solicitad
 
 Os modelos não são necessariamente retornados exatamente no formulário de documento em que foram carregados. O gêmeos digital do Azure só garante que o formulário de retorno será semanticamente equivalente. 
 
-### <a name="update-models"></a>Atualizar modelos
+## <a name="update-models"></a>Atualizar modelos
 
 Depois que um modelo é carregado em sua instância do gêmeos digital do Azure, toda a interface do modelo é imutável. Isso significa que não há "edição" tradicional de modelos. O Azure digital gêmeos também não permite o novo carregamento do mesmo modelo.
 
 Em vez disso, se você quiser fazer alterações em um modelo — como atualização `displayName` ou `description` – a maneira de fazer isso é carregar uma **versão mais recente** do modelo. 
 
-#### <a name="model-versioning"></a>Controle de versão de modelo
+### <a name="model-versioning"></a>Controle de versão de modelo
 
 Para criar uma nova versão de um modelo existente, comece com o DTDL do modelo original. Atualize, adicione ou remova os campos que você deseja alterar.
 
@@ -194,7 +188,7 @@ Em seguida, carregue a nova versão do modelo em sua instância.
 
 Essa versão do modelo estará disponível em sua instância para ser usada para gêmeos digital. Ele **não** substitui as versões anteriores do modelo, portanto, várias versões do modelo coexistirão em sua instância até você [removê-las](#remove-models).
 
-#### <a name="impact-on-twins"></a>Impacto no gêmeos
+### <a name="impact-on-twins"></a>Impacto no gêmeos
 
 Quando você cria um novo "/", uma vez que a nova versão do modelo e a versão do modelo antiga coexistem, o novo "/" pode usar a nova versão do modelo ou a versão mais antiga.
 
@@ -202,7 +196,7 @@ Isso também significa que o carregamento de uma nova versão de um modelo não 
 
 Você pode atualizar esses gêmeos existentes para a nova versão do modelo, aplicando patches a eles, conforme descrito na seção [*atualizar um modelo do digital r*](how-to-manage-twin.md#update-a-digital-twins-model) de " *como": gerenciar o digital gêmeos*. No mesmo patch, você deve atualizar a ID do **modelo** (para a nova versão) e **todos os campos que devem ser alterados no campo de atualização para torná-lo compatível com o novo modelo**.
 
-### <a name="remove-models"></a>Remover modelos
+## <a name="remove-models"></a>Remover modelos
 
 Os modelos também podem ser removidos do serviço, de uma das duas maneiras:
 * **Encerramento** : depois que um modelo é encerrado, você não pode mais usá-lo para criar um novo gêmeos digital. As gêmeos digitais existentes que já usam esse modelo não são afetadas, portanto, você ainda pode atualizá-las com itens como alterações de propriedade e adicionar ou excluir relações.
@@ -210,7 +204,7 @@ Os modelos também podem ser removidos do serviço, de uma das duas maneiras:
 
 Esses são recursos separados e não afetam uns aos outros, embora possam ser usados juntos para remover um modelo gradualmente. 
 
-#### <a name="decommissioning"></a>Encerramento
+### <a name="decommissioning"></a>Encerramento
 
 Este é o código para desativar um modelo:
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 O status de descomissionamento de um modelo é incluído nos `ModelData` registros retornados pelas APIs de recuperação de modelo.
 
-#### <a name="deletion"></a>Exclusão
+### <a name="deletion"></a>Exclusão
 
 Você pode excluir todos os modelos em sua instância de uma só vez ou pode fazê-lo em uma base individual.
 
@@ -231,7 +225,7 @@ Para obter um exemplo de como excluir todos os modelos, baixe o aplicativo de ex
 
 O restante desta seção divide a exclusão do modelo em detalhes mais detalhadamente e mostra como fazê-lo para um modelo individual.
 
-##### <a name="before-deletion-deletion-requirements"></a>Antes da exclusão: requisitos de exclusão
+#### <a name="before-deletion-deletion-requirements"></a>Antes da exclusão: requisitos de exclusão
 
 Em geral, os modelos podem ser excluídos a qualquer momento.
 
@@ -239,7 +233,7 @@ A exceção são modelos dos quais outros modelos dependem, com uma `extends` re
 
 Você pode fazer isso atualizando o modelo dependente para remover as dependências ou excluir completamente o modelo dependente.
 
-##### <a name="during-deletion-deletion-process"></a>Durante a exclusão: processo de exclusão
+#### <a name="during-deletion-deletion-process"></a>Durante a exclusão: processo de exclusão
 
 Mesmo que um modelo atenda aos requisitos para excluí-lo imediatamente, você pode querer percorrer algumas etapas primeiro para evitar consequências indesejadas para o gêmeos deixados para trás. Aqui estão algumas etapas que podem ajudá-lo a gerenciar o processo:
 1. Primeiro, descomissionar o modelo
@@ -255,7 +249,7 @@ Para excluir um modelo, use esta chamada:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Após a exclusão: gêmeos sem modelos
+#### <a name="after-deletion-twins-without-models"></a>Após a exclusão: gêmeos sem modelos
 
 Depois que um modelo é excluído, todas as gêmeos digitais que estavam usando o modelo agora são consideradas sem um modelo. Observe que não há nenhuma consulta que possa fornecer a você uma lista de todos os gêmeos nesse estado — embora você ainda *possa* consultar o gêmeos pelo modelo excluído para saber quais gêmeos são afetados.
 
@@ -274,17 +268,13 @@ Coisas que você **não pode** fazer:
 * Editar relações *de* saída (como em, relações desta gêmeos para outras)
 * Editar propriedades
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Após a exclusão: recarregar um modelo
+#### <a name="after-deletion-re-uploading-a-model"></a>Após a exclusão: recarregar um modelo
 
 Depois que um modelo tiver sido excluído, você poderá decidir posteriormente carregar um novo modelo com a mesma ID que aquele que você excluiu. Aqui está o que acontece nesse caso.
 * Da perspectiva do repositório de soluções, isso é o mesmo que carregar um modelo completamente novo. O serviço não se lembra de que o antigo já foi carregado.   
 * Se houver qualquer gêmeos restante no grafo que referencia o modelo excluído, eles não serão mais órfãos; Essa ID de modelo é válida novamente com a nova definição. No entanto, se a nova definição para o modelo for diferente da definição de modelo que foi excluída, essas gêmeos podem ter propriedades e relações que correspondam à definição excluída e não são válidas com a nova.
 
 O Azure digital gêmeos não impede esse Estado, portanto, tenha cuidado para aplicar o patch gêmeos adequadamente para garantir que eles permaneçam válidos por meio da opção de definição de modelo.
-
-## <a name="manage-models-with-cli"></a>Gerenciar modelos com a CLI
-
-Os modelos também podem ser gerenciados usando a CLI do Azure digital gêmeos. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

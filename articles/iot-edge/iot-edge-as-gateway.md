@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444328"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536431"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
 
@@ -45,21 +45,21 @@ Todos padrões de gateway fornecem os seguintes benefícios:
 
 No padrão de gateway transparente, os dispositivos que, teoricamente, poderiam se conectar ao Hub IoT podem se conectar a um dispositivo de gateway. Os dispositivos downstream têm suas próprias identidades do Hub IoT e se conectam usando os protocolos MQTT ou AMQP. O gateway simplesmente passa as comunicações entre os dispositivos e o Hub IoT. Os dispositivos e os usuários que interagem com eles por meio do Hub IoT não sabem que um gateway está mediando suas comunicações. Essa falta de conscientização significa que o gateway é considerado *transparente*.
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-IoT Edge dispositivos podem se conectar por meio de gateways transparentes, bem como de dispositivos IoT regulares.
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 IoT Edge dispositivos não podem ser downstream de um gateway de IoT Edge.
 
 ![Diagrama-padrão de gateway transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+A partir da versão 1.2.0, os dispositivos IoT Edge podem se conectar por meio de gateways transparentes.
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ Quando vários gateways de IoT Edge se conectam entre si em uma hierarquia de ga
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>Recursos do dispositivo por trás de gateways transparentes
 
-
 Todos os primitivos do Hub IoT que funcionam com o pipeline de mensagens do IoT Edge também oferecem suporte a cenários de gateway transparentes. Cada gateway de IoT Edge tem recursos de armazenamento e encaminhamento para mensagens que chegam por ele.
 
 Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte para dispositivos em comparação com dispositivos por trás de gateways.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| Funcionalidade | Dispositivo IoT | IoT por trás de um gateway |
+| ---------- | ---------- | -------------------- |
+| [Mensagens do dispositivo para a nuvem (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sim – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-D2C IoT filho](./media/iot-edge-as-gateway/check-yes.png) |
+| [Mensagens de nuvem para dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sim – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-C2D filho de IoT](./media/iot-edge-as-gateway/check-yes.png) |
+| [Métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Sim – método direto de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-método de IoT direto filho](./media/iot-edge-as-gateway/check-yes.png) |
+| [Dispositivo gêmeos](../iot-hub/iot-hub-devguide-device-twins.md) e [módulo gêmeos](../iot-hub/iot-hub-devguide-module-twins.md) | ![Sim – IoT gêmeos](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-gêmeos IoT filho](./media/iot-edge-as-gateway/check-yes.png) |
+| [Carregamento de arquivos](../iot-hub/iot-hub-devguide-file-upload.md) | ![Sim-carregamento de arquivo de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sem-carregamento de arquivo filho de IoT](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte 
 As **imagens de contêiner** podem ser baixadas, armazenadas e entregues de dispositivos pai a dispositivos filho.
 
 Os **BLOBs** , incluindo pacotes de suporte e logs, podem ser carregados de dispositivos filho para dispositivos pai.
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| Funcionalidade | Dispositivo IoT | IoT por trás de um gateway |
-| ---------- | ---------- | -------------------- |
-| [Mensagens do dispositivo para a nuvem (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sim – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-D2C IoT filho](./media/iot-edge-as-gateway/check-yes.png) |
-| [Mensagens de nuvem para dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sim – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-C2D filho de IoT](./media/iot-edge-as-gateway/check-yes.png) |
-| [Métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Sim – método direto de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-método de IoT direto filho](./media/iot-edge-as-gateway/check-yes.png) |
-| [Dispositivo gêmeos](../iot-hub/iot-hub-devguide-device-twins.md) e [módulo gêmeos](../iot-hub/iot-hub-devguide-module-twins.md) | ![Sim – IoT gêmeos](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-gêmeos IoT filho](./media/iot-edge-as-gateway/check-yes.png) |
-| [Carregamento de arquivos](../iot-hub/iot-hub-devguide-file-upload.md) | ![Sim-carregamento de arquivo de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sem-carregamento de arquivo filho de IoT](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

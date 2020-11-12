@@ -2,13 +2,13 @@
 title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913799"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537604"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -72,9 +72,9 @@ O [agente de nó de lote](https://github.com/Azure/Batch/blob/master/changelogs/
 
 ### <a name="cloud-services-configuration"></a>Configuração de Serviços de Nuvem
 
-A **Configuração dos Serviços de Nuvem** especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os Serviços de Nuvem fornecem *apenas* nós de computação do Windows.
+A **Configuração dos Serviços de Nuvem** especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os serviços de nuvem fornecem apenas nós de computação do Windows.
 
-Os sistemas operacionais disponíveis para pools de Configuração de Serviços de Nuvem são listados na [matriz de compatibilidade de SDK e versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria um pool que contém os nós dos Serviços de Nuvem, especifique o tamanho do nó e sua *Família de SOs* (que determina quais versões do .NET são instaladas com o SO). Os Serviços de Nuvem são implantados no Azure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
+Os sistemas operacionais disponíveis para os pools de configuração dos serviços de nuvem são listados na [matriz de compatibilidade do SDK e versões do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md), e os tamanhos de nó de computação disponíveis são listados em [tamanhos para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md). Ao criar um pool que contém nós de serviços de nuvem, você especifica o tamanho do nó e sua *família de sistemas operacionais* (que determina quais versões do .NET são instaladas com o sistema operacional). Os Serviços de Nuvem são implantados no Azure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
 
 Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pode especificar uma *Versão do SO* (para obter mais informações sobre as funções de trabalho, consulte [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)). É recomendável especificar `Latest (*)` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada. As tarefas em execução serão interrompidas e colocadas novamente na fila.
 
@@ -127,7 +127,7 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 
 - **métricas do tempo** são baseadas nas estatísticas coletadas a cada cinco minutos no número de horas especificado.
 - **métricas do recurso** são baseadas nos usos da CPU, da largura de banda e da memória, e no número de nós.
-- As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída* .
+- As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída*.
 
 Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para aceitar isso, o Lote fornece uma [*opção de desalocação do nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool. Observe que definir a opção de desalocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de pool até que todas as tarefas sejam concluídas ou que todos os períodos de retenção da tarefa tenham expirado, respectivamente.
 

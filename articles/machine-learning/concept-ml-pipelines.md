@@ -1,5 +1,6 @@
 ---
 title: O que são pipelines Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Saiba como os pipelines do ML (Machine Learning) ajudam a criar, otimizar e gerenciar fluxos de trabalho de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2ebe3976813c00e92f041faf267ef0d8ae98a909
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323016"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535292"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -141,7 +142,7 @@ Quando você cria pipelines visualmente, as entradas e saídas de uma etapa são
 
 As principais vantagens de usar pipelines para seus fluxos de trabalho de aprendizado de máquina são:
 
-|Principal vantagem|Descrição|
+|Principal vantagem|Description|
 |:-------:|-----------|
 |**Execuções&nbsp;autônomas**|Agende as etapas para execução em paralelo ou em sequência de maneira confiável e autônoma. A preparação e a modelagem de dados podem durar dias ou semanas, e os pipelines permitem que você se concentre em outras tarefas enquanto o processo está em execução. |
 |**Computação heterogênea**|Use vários pipelines que são coordenados de forma confiável entre os recursos de computação heterogêneos e escalonáveis e os locais de armazenamento. Faça uso eficiente dos recursos de computação disponíveis executando etapas de pipeline individuais em diferentes destinos de computação, como o HDInsight, VMs de ciência de dados de GPU e databricks.|

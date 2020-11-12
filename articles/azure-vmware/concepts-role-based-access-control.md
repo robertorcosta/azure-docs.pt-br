@@ -2,13 +2,13 @@
 title: Conceitos – RBAC (controle de acesso baseado em função)
 description: Saiba mais sobre os principais recursos do controle de acesso baseado em função para a solução do Azure VMware
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 4fbda24ec6a8c1d08570d7f64270a954eb3d8a35
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 10/23/2020
+ms.openlocfilehash: 6e1864fdfe397325a7c5ba601b625bcc1776174c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440936"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535479"
 ---
 # <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>RBAC (controle de acesso baseado em função) para a solução VMware do Azure
 
@@ -31,14 +31,14 @@ O usuário da nuvem privada não tem acesso ao e não pode configurar componente
 Você pode exibir os privilégios concedidos à função CloudAdmin da solução VMware do Azure em sua nuvem privada da solução Azure VMware vCenter.
 
 1. Faça logon no cliente SDDC vSphere e vá para o **menu**  >  **Administração**.
-1. Em **controle de acesso**, selecione **funções**.
+1. Em **controle de acesso** , selecione **funções**.
 1. Na lista de funções, selecione **CloudAdmin** e, em seguida, selecione **privilégios**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Como exibir os privilégios da função CloudAdmin no cliente vSphere":::
 
 A função CloudAdmin na solução VMware do Azure tem os seguintes privilégios no vCenter. Consulte a [documentação do produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
 
-| Privilege | Descrição |
+| Privilege | Description |
 | --------- | ----------- |
 | **Alarmes** | Reconhecer alerta<br />Criar alarme<br />Desabilitar ação de alarme<br />Modificar alarme<br />Remover alarme<br />Definir status do alarme |
 | **Permissões** | Modificar permissões |
