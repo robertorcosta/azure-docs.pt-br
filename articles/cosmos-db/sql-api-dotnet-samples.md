@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cbf2893896b7258115ed3f59224caef9cf843b1f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a9badc6548f1c5e5e4cadeaccb02381bd3c80d12
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481509"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098681"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos do .NET para a API do SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Exemplos de SDK do .NET V2](sql-api-dotnet-samples.md)
@@ -38,7 +39,7 @@ Para obter exemplos de código do SDK do .NET versão 3.0 (versão prévia), con
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Visual Studio 2019 com o fluxo de trabalho de desenvolvimento do Azure instalado
-- Você pode baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito** . Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio. 
+- Você pode baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio. 
 
 O [pacote NuGet Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 

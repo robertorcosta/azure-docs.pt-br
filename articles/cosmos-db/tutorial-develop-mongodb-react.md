@@ -10,14 +10,15 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cdb8612bb04d52df3603aa4520cad4cbacb661da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476579"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074073"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com React e Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este tutorial em vídeo com várias partes demonstra como criar um aplicativo de acompanhamento de hero com um front-end em React. O aplicativo usa o Node e o Express para o servidor, conecta-se ao banco de dados Cosmos configurado com a [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md) e conecta o front-end React com a parte de servidor do aplicativo. O tutorial também demonstra como fazer o dimensionamento de apontar e clicar do Cosmos DB no portal do Azure e como implantar o aplicativo na Internet para que todos possam acompanhar seus heroes favoritos. 
 
@@ -91,7 +92,7 @@ Este vídeo mostra como concluir o aplicativo e concluir a conexão da interface
 Se você não continuar usando este aplicativo, siga as seguintes etapas para excluir todos os recursos criados neste tutorial no portal do Azure. 
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
-2. Em sua página de grupo de recursos, clique em **Excluir** , digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir** .
+2. Em sua página de grupo de recursos, clique em **Excluir** , digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

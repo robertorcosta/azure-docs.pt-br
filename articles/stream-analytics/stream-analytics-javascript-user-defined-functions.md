@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317711"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124774"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo usuário do JavaScript no Azure Stream Analytics
  
-O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String**, **RegExp**, **Math**, **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
+O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String** , **RegExp** , **Math** , **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
 
 ## <a name="overview"></a>Visão geral
 
@@ -55,7 +55,7 @@ Você deve fornecer as propriedades a seguir e selecionar **Salvar**.
 
 ## <a name="test-and-troubleshoot-javascript-udfs"></a>Testar e solucionar problemas de UDFs do JavaScript 
 
-Você pode testar e depurar a lógica de UDF do JavaScript em qualquer navegador. Atualmente, não há suporte para a depuração e o teste da lógica dessas funções definidas pelo usuário no portal Stream Analytics. Depois que a função funcionar conforme o esperado, você poderá adicioná-la ao trabalho do Stream Analytics conforme mencionado acima e, em seguida, chamá-la diretamente da sua consulta. Você pode testar sua lógica de consulta com a UDF do JavaScript usando as [ferramentas do Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
+Você pode testar e depurar a lógica de UDF do JavaScript em qualquer navegador. Atualmente, não há suporte para a depuração e o teste da lógica dessas funções definidas pelo usuário no portal Stream Analytics. Depois que a função funcionar conforme o esperado, você poderá adicioná-la ao trabalho do Stream Analytics conforme mencionado acima e, em seguida, chamá-la diretamente da sua consulta. Você pode testar sua lógica de consulta com a UDF do JavaScript usando as [ferramentas do Stream Analytics para Visual Studio](./stream-analytics-tools-for-visual-studio-install.md).
 
 Os erros de runtime do JavaScript são considerados fatais e exibidos no Log de atividades. Para recuperar o log, no Portal do Azure, vá para o seu trabalho e clique em **Log de atividades**.
 
@@ -188,5 +188,5 @@ FROM
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [UDF do Machine Learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [UDF do C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [UDF do Machine Learning](./machine-learning-udf.md)
+* [UDF do C#](./stream-analytics-edge-csharp-udf-methods.md)

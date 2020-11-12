@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161785"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040796"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster Pivotal Cloud Foundry no Azure
 
@@ -36,13 +36,13 @@ Há várias maneiras de gerar uma chave SSH (secure shell) pública usando o Win
 ssh-keygen -t rsa -b 2048
 ```
 
-Para saber mais, confira [Use SSH keys with Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) (Usar chaves SSH com o Windows no Azure).
+Para saber mais, confira [Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md) (Usar chaves SSH com o Windows no Azure).
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
 > [!NOTE]
 >
-> Para criar uma entidade de serviço, é necessária uma permissão de conta de proprietário. Também é possível escrever um script para automatizar a criação da entidade de serviço. Por exemplo, é possível usar [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) da CLI do Azure.
+> Para criar uma entidade de serviço, é necessária uma permissão de conta de proprietário. Também é possível escrever um script para automatizar a criação da entidade de serviço. Por exemplo, é possível usar [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest) da CLI do Azure.
 
 1. Entre em sua conta do Azure.
 
@@ -84,7 +84,7 @@ Para saber mais, confira [Use SSH keys with Windows on Azure](https://docs.micro
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Crie um arquivo .json com o seguinte formato. Use os valores de **ID da assinatura**, **tenantID**, **clientID** e **clientSecret** que você copiou anteriormente. Salve o arquivo.
+7. Crie um arquivo .json com o seguinte formato. Use os valores de **ID da assinatura** , **tenantID** , **clientID** e **clientSecret** que você copiou anteriormente. Salve o arquivo.
 
     ```json
     {
@@ -128,4 +128,3 @@ Insira os parâmetros e crie o cluster do PCF.
 5. O PCF Ops Manager exibe as instâncias implantadas do Azure. Agora é possível implantar e gerenciar seus aplicativos aqui.
                
     ![Instância implantada do Azure no Pivotal](media/deploy/ops-mgr.png )
- 

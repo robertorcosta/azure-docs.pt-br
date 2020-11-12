@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1f3f5a35beeac6c683aeb6db16a417b897755666
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079760"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB do Java
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -62,7 +63,7 @@ Você pode se conectar à conta de armazenamento do Azure ou à conta da API de 
 
 ### <a name="add-an-azure-storage-connection-string"></a>Adicionar uma cadeia de conexão de armazenamento do Azure
 
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey** . 
+Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey**. 
 
 Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
@@ -76,7 +77,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Adicionar uma cadeia de conexão da API de Tabela do Azure Cosmos DB
 
-Uma conta de banco de dados do Azure Cosmos DB usa uma cadeia de caracteres de conexão para armazenar o ponto de extremidade de tabela e suas credenciais. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento do Azure Cosmos DB no formato a seguir, usando o nome de sua conta do Azure Cosmos DB e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey** . 
+Uma conta de banco de dados do Azure Cosmos DB usa uma cadeia de caracteres de conexão para armazenar o ponto de extremidade de tabela e suas credenciais. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento do Azure Cosmos DB no formato a seguir, usando o nome de sua conta do Azure Cosmos DB e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores **AccountName** e **AccountKey**. 
 
 Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão do Azure Cosmos DB:
 
@@ -88,7 +89,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-Em um aplicativo que esteja sendo executado no Azure, você pode armazenar essa cadeia no arquivo de configuração do serviço, *ServiceConfiguration.cscfg* , e você pode acessar com uma chamada para o método **RoleEnvironment.getConfigurationSettings** . Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
+Em um aplicativo que esteja sendo executado no Azure, você pode armazenar essa cadeia no arquivo de configuração do serviço, *ServiceConfiguration.cscfg* , e você pode acessar com uma chamada para o método **RoleEnvironment.getConfigurationSettings**. Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -434,7 +435,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>Modificar uma entidade
 
-Para modificar uma entidade, recupere-a do serviço Tabela, altere o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela com uma operação de substituição ou mesclagem. O código a seguir altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** como fizemos para inserir, esse código chama **TableOperation.replace** . O método **CloudTableClient.execute** chamará o serviço Tabela e a entidade será atualizada, a menos que outro aplicativo a tenha alterado desde o momento em que ela foi recuperada por esse aplicativo. Quando isso acontece, uma exceção é lançada e a entidade deve ser recuperada, modificada e salva novamente. Esse padrão de repetição de simultaneidade otimista é comum em um sistema de armazenamento distribuído.
+Para modificar uma entidade, recupere-a do serviço Tabela, altere o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela com uma operação de substituição ou mesclagem. O código a seguir altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** como fizemos para inserir, esse código chama **TableOperation.replace**. O método **CloudTableClient.execute** chamará o serviço Tabela e a entidade será atualizada, a menos que outro aplicativo a tenha alterado desde o momento em que ela foi recuperada por esse aplicativo. Quando isso acontece, uma exceção é lançada e a entidade deve ser recuperada, modificada e salva novamente. Esse padrão de repetição de simultaneidade otimista é comum em um sistema de armazenamento distribuído.
 
 ```java
 try

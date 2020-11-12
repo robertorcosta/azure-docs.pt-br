@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e87432ad4437f41e70d988e7e2b3cd82aa3bd82
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903837"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123380"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines
 Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Azure Pipelines. 
@@ -35,7 +35,7 @@ Antes de começar, execute as seguintes etapas:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho de **Desenvolvimento do Azure** ou **Armazenamento e processamento de dados**.
-* Crie um [projeto do Stream Analytics no Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Crie um [projeto do Stream Analytics no Visual Studio](./stream-analytics-quick-create-vs.md).
 * Criar uma organização do [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurar a dependência do pacote NuGet
@@ -56,7 +56,7 @@ Compartilhe os arquivos de origem do aplicativo em um projeto no Azure DevOps pa
 
 1. Crie um novo repositório Git local para seu projeto escolhendo **Adicionar ao controle do código-fonte** e **Git** na barra de status no canto inferior direito do Visual Studio. 
 
-2. Na exibição **Sincronização** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Enviar por Push para o Azure DevOps**.
+2. Na exibição **Sincronização** no **Team Explorer** , selecione o botão **Publicar Repositório Git** em **Enviar por Push para o Azure DevOps**.
 
    ![Enviar por push para o Azure DevOps Services, botão Publicar Repositório Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
@@ -67,32 +67,32 @@ Compartilhe os arquivos de origem do aplicativo em um projeto no Azure DevOps pa
     A publicação do repositório cria um novo projeto na sua organização com o mesmo nome do repositório local. Para criar o repositório em um projeto existente, clique em **Avançado** ao lado do nome do **Repositório** e escolha um projeto. Você pode exibir seu código no navegador escolhendo **Vê-lo na Web**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar entrega contínua com o Azure DevOps
-Um pipeline de build do Azure Pipelines descreve um fluxo de trabalho composto por etapas de build que são executadas sequencialmente. Saiba mais sobre os [pipelines de build do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
+Um pipeline de build do Azure Pipelines descreve um fluxo de trabalho composto por etapas de build que são executadas sequencialmente. Saiba mais sobre os [pipelines de build do Azure Pipelines](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts).
 
-Um pipeline de lançamento do Azure Pipelines descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usados juntos, o pipeline de lançamento e o pipeline de build executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre os [pipelines de lançamento](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) do Azure Pipelines.
+Um pipeline de lançamento do Azure Pipelines descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usados juntos, o pipeline de lançamento e o pipeline de build executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre os [pipelines de lançamento](/azure/devops/pipelines/release/define-multistage-release-process?preserve-view=true&view=vsts) do Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Criar um pipeline de build
 Abra um navegador da Web e navegue até o projeto que você acabou de criar no [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Na guia **Build e versão**, escolha **Builds**e **+Novo**.  Selecione **Git do Azure DevOps Services** e **Continuar**.
+1. Na guia **Build e versão** , escolha **Builds** e **+Novo**.  Selecione **Git do Azure DevOps Services** e **Continuar**.
     
     ![Selecione a fonte do Git de DevOps no Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
-2. Em **Selecionar um modelo**, clique em **Processo vazio** para começar com um pipeline vazio.
+2. Em **Selecionar um modelo** , clique em **Processo vazio** para começar com um pipeline vazio.
     
     ![Selecione o processo vazio nas opções de modelo no DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
-3. Em **Gatilhos**, habilite a integração contínua marcando o status do gatilho **Habilitar a integração contínua**.  Selecione **Salvar e enfileirar** para iniciar uma compilação manualmente. 
+3. Em **Gatilhos** , habilite a integração contínua marcando o status do gatilho **Habilitar a integração contínua**.  Selecione **Salvar e enfileirar** para iniciar uma compilação manualmente. 
     
     ![Habilite o status de gatilho de integração contínua](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Os builds também serão disparados no envio por push ou no check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Assim que verificar que o build é executado com êxito, defina um pipeline de lançamento que implante seu aplicativo em um cluster. Clique com o botão direito nas elipses ao lado do seu pipeline de build e escolha **Editar**.
 
-5.  Em **Tarefas**, insira "Hospedado" como a **Fila do agente**.
+5.  Em **Tarefas** , insira "Hospedado" como a **Fila do agente**.
     
     ![Selecione a fila de agentes no menu de Tarefas](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
-6. Em **Fase 1**, clique em **+** e adicione uma tarefa do **NuGet**.
+6. Em **Fase 1** , clique em **+** e adicione uma tarefa do **NuGet**.
     
     ![Adicione uma tarefa do NuGet na fila de agentes](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
@@ -100,7 +100,7 @@ Abra um navegador da Web e navegue até o projeto que você acabou de criar no [
 
    ![Configure a tarefa de restauração do NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
-8. Em **Fase 1**, clique em **+** e adicione uma tarefa do **MSBuild**.
+8. Em **Fase 1** , clique em **+** e adicione uma tarefa do **MSBuild**.
 
    ![Adicione uma tarefa do MSBuild na fila de agentes](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
@@ -112,7 +112,7 @@ Abra um navegador da Web e navegue até o projeto que você acabou de criar no [
 
    ![Configurar a tarefa do MSBuild no DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
-10. Em **Fase 1**, clique em **+** e adicione uma tarefa de **Implantação do Grupo de Recursos do Azure**. 
+10. Em **Fase 1** , clique em **+** e adicione uma tarefa de **Implantação do Grupo de Recursos do Azure**. 
     
     ![Adicionar uma tarefa de Implantação do Grupo de Recursos do Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
@@ -158,7 +158,7 @@ O push das alterações para o Azure DevOps Services dispara um build automatica
 Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.  
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+2. Em sua página de grupo de recursos, clique em **Excluir** , digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

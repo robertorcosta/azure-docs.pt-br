@@ -4,15 +4,15 @@ description: Saiba como usar e compilar um aplicativo multicontêiner no Serviç
 keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, compose, vários contêineres, aplicativo web para contêineres, contêiner, wordpress, bd do azure para mysql, banco de dados de produção com contêineres
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f2f1713866eb06b4b514ff988ef3e010491e1efc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743454"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131336"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA* . Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard** , execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA*. Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard** , execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -151,7 +151,7 @@ Crie um Banco de Dados do Azure para MySQL com o comando [`az mysql server creat
 No comando a seguir, substitua o nome do servidor MySQL no qual o espaço reservado _&lt;mysql-server-name>_ é exibido (os caracteres válidos são `a-z`, `0-9` e `-`). Esse nome faz parte do nome do host do MySQL Server (`<mysql-server-name>.database.windows.net`) e precisa ser global exclusivo.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 A conclusão da criação do servidor pode demorar alguns minutos. Quando o servidor MySQL for criado, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
@@ -262,14 +262,14 @@ As alterações a seguir foram feitas para Redis (a ser usado em uma seção pos
 * [Adicionar plug-in do WordPress do Cache de Objetos do Redis 1.3.8.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Usar Configuração do Aplicativo para nome do host do Redis no wp-config.php do WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Para usar a imagem personalizada, você atualizará o arquivo docker-compose-wordpress.yml. No Cloud Shell, digite `nano docker-compose-wordpress.yml` para abrir o editor de texto nano. Altere `image: wordpress` para usar `image: microsoft/multicontainerwordpress`. Não será mais necessário o contêiner do banco de dados. Remova as seções  `db`, `environment`, `depends_on` e `volumes` do arquivo de configuração. O arquivo deverá ser semelhante ao código a seguir:
+Para usar a imagem personalizada, você atualizará o arquivo docker-compose-wordpress.yml. No Cloud Shell, digite `nano docker-compose-wordpress.yml` para abrir o editor de texto nano. Altere `image: wordpress` para usar `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Não será mais necessário o contêiner do banco de dados. Remova as seções  `db`, `environment`, `depends_on` e `volumes` do arquivo de configuração. O arquivo deverá ser semelhante ao código a seguir:
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -401,13 +401,15 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 
@@ -464,21 +466,21 @@ Conclua as etapas e instale o WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Conecte o WordPress ao Redis
 
-Entre no administrador do WordPress. Na navegação esquerda, selecione **Plug-ins** , e, em seguida, selecione **Plug-ins Instalados** .
+Entre no administrador do WordPress. Na navegação esquerda, selecione **Plug-ins** , e, em seguida, selecione **Plug-ins Instalados**.
 
 ![Selecione Plug-ins do WordPress][2]
 
 Mostrar todos os plug-ins aqui
 
-Na página de plug-ins, localize **Cache de Objetos do Redis** e clique em **Ativar** .
+Na página de plug-ins, localize **Cache de Objetos do Redis** e clique em **Ativar**.
 
 ![Ativar Redis][3]
 
-Clique em **Configurações** .
+Clique em **Configurações**.
 
 ![Clique em configurações][4]
 
-Clique no botão **Habilitar Cache de Objetos** .
+Clique no botão **Habilitar Cache de Objetos**.
 
 ![Clicar no botão "Habilitar Cache de Objetos"][5]
 
@@ -486,7 +488,7 @@ O WordPress conecta-se ao servidor de Redis. A conexão **status** aparece na me
 
 ![O WordPress conecta-se ao servidor de Redis. A conexão ** status ** aparece na mesma página.][6]
 
-**Parabéns** , você conectou o WordPress ao Redis. O aplicativo pronto para produção agora está usando **Banco de Dados do Azure para MySQL, armazenamento persistente e Redis** . Agora é possível escalar horizontalmente o Plano do Serviço de Aplicativo para várias instâncias.
+**Parabéns** , você conectou o WordPress ao Redis. O aplicativo pronto para produção agora está usando **Banco de Dados do Azure para MySQL, armazenamento persistente e Redis**. Agora é possível escalar horizontalmente o Plano do Serviço de Aplicativo para várias instâncias.
 
 ## <a name="find-docker-container-logs"></a>Localizar logs do contêiner do Docker
 

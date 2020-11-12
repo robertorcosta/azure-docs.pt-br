@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: b1a361b2c1b1010c6593defa37ef92a3c36b0693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89015604"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130486"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escrever uma função em C# definida pelo usuário para um trabalho do Azure Stream Analytics (versão prévia)
 
@@ -36,7 +36,7 @@ Antes de começar, verifique se que você concluiu os pré-requisitos a seguir:
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Criar um contêiner na sua conta de armazenamento do Azure
 
-O contêiner que você criar será usado para armazenar o pacote C# compilado. Se você criar um trabalho de borda, essa conta de armazenamento também será usada para implantar o pacote em seu dispositivo de IoT Edge. Use um contêiner dedicado para cada trabalho do Stream Analytics. Não há suporte para reutilizar o mesmo contêiner para vários trabalhos de borda do Stream Analytics. Se você já tiver uma conta de armazenamento com contêineres existentes, você pode usá-los. Se não, você precisará [criar um novo contêiner](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
+O contêiner que você criar será usado para armazenar o pacote C# compilado. Se você criar um trabalho de borda, essa conta de armazenamento também será usada para implantar o pacote em seu dispositivo de IoT Edge. Use um contêiner dedicado para cada trabalho do Stream Analytics. Não há suporte para reutilizar o mesmo contêiner para vários trabalhos de borda do Stream Analytics. Se você já tiver uma conta de armazenamento com contêineres existentes, você pode usá-los. Se não, você precisará [criar um novo contêiner](../storage/blobs/storage-quickstart-blobs-portal.md). 
 
 ## <a name="create-a-stream-analytics-project-in-visual-studio"></a>Criar um projeto do Stream Analytics no Visual Studio
 
@@ -44,7 +44,7 @@ O contêiner que você criar será usado para armazenar o pacote C# compilado. S
 
 2. Selecione **Arquivo > Novo > Projeto**.
 
-3. Na lista de modelos à esquerda, selecione **Stream Analytics**e, em seguida, selecione **aplicativo do Azure Stream Analytics Edge** ou **aplicativo do Azure Stream Analytics**.
+3. Na lista de modelos à esquerda, selecione **Stream Analytics** e, em seguida, selecione **aplicativo do Azure Stream Analytics Edge** ou **aplicativo do Azure Stream Analytics**.
 
 4.  Digite o **Nome** e **Local** do projeto e o **Nome da solução** e selecione **OK**.
 
@@ -71,7 +71,7 @@ O contêiner que você criar será usado para armazenar o pacote C# compilado. S
 ## <a name="write-a-c-udf-with-codebehind"></a>Escreva um UDF C# com o código atrás
 Um arquivo CodeBehind é um arquivo C# associado a um único script de consulta do ASA. Ferramentas do Visual Studio serão automaticamente o arquivo code-behind zip e carregá-lo à sua conta de armazenamento do Azure após o envio. Todas as classes devem ser definidas como *pública* e todos os objetos devem ser definidos como *estáticos públicos*.
 
-1. Na **Gerenciador de soluções**, expanda **Script.asql** para encontrar o **Script.asaql.cs** arquivo code-behind.
+1. Na **Gerenciador de soluções** , expanda **Script.asql** para encontrar o **Script.asaql.cs** arquivo code-behind.
 
 2. Substitua o código com o exemplo a seguir:
 
@@ -97,7 +97,7 @@ Um arquivo CodeBehind é um arquivo C# associado a um único script de consulta 
 
 ## <a name="implement-the-udf"></a>Implementar o UDF
 
-1. Na **Gerenciador de soluções**, abra o **asaql** arquivo.
+1. Na **Gerenciador de soluções** , abra o **asaql** arquivo.
 
 2. Substitua a consulta existente pelo seguinte:
 
@@ -111,7 +111,7 @@ Um arquivo CodeBehind é um arquivo C# associado a um único script de consulta 
 
 1. Baixe o [arquivo de dados de exemplo de simulador de temperatura](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json).
 
-2. Na **Gerenciador de soluções**, expanda **entradas**, clique com botão direito **Input**e selecione **Adicionar entrada Local**.
+2. Na **Gerenciador de soluções** , expanda **entradas** , clique com botão direito **Input** e selecione **Adicionar entrada Local**.
 
    ![Adicionar entrada local para o trabalho do Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
@@ -144,7 +144,7 @@ Depois de testar sua consulta localmente, selecione **enviar para o Azure** no e
 ![Enviar o trabalho de borda do Stream Analytics do Azure do Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Implantar em dispositivos IoT Edge
-Se você optar por criar um trabalho do Edge do Stream Analytics, agora ele poderá ser implantado como um módulo do IoT Edge. Siga as [guia de início rápido do IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) para criar um IoT Hub, registrar um dispositivo IoT Edge e instalar e iniciar o runtime do IoT Edge em seu dispositivo. Em seguida, siga as [implantar o trabalho](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) tutorial para implantar o trabalho do Stream Analytics como um módulo IoT Edge. 
+Se você optar por criar um trabalho do Edge do Stream Analytics, agora ele poderá ser implantado como um módulo do IoT Edge. Siga as [guia de início rápido do IoT Edge](../iot-edge/quickstart.md) para criar um IoT Hub, registrar um dispositivo IoT Edge e instalar e iniciar o runtime do IoT Edge em seu dispositivo. Em seguida, siga as [implantar o trabalho](../iot-edge/tutorial-deploy-stream-analytics.md#deploy-the-job) tutorial para implantar o trabalho do Stream Analytics como um módulo IoT Edge. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
