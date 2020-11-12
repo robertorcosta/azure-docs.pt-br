@@ -1,17 +1,17 @@
 ---
 title: Gerenciar servidor-portal do Azure-banco de dados do Azure para MariaDB
 description: Saiba como gerenciar um banco de dados do Azure para MariaDB Server do portal do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562444"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537978"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerenciar um banco de dados do Azure para o MariaDB Server usando o portal do Azure
 Este artigo mostra como gerenciar o banco de dados do Azure para servidores MariaDB. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.
@@ -30,9 +30,9 @@ Após a criação do servidor, você pode dimensionar entre as camadas de Uso Ge
 
 Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não há suporte para a alteração de e para a camada básica após a criação do servidor. 
 
-1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço** , localizado na seção **configurações** .
 
-2. Selecione **uso geral** ou **memória otimizada**, dependendo do que você está dimensionando. 
+2. Selecione **uso geral** ou **memória otimizada** , dependendo do que você está dimensionando. 
 
     ![Captura de tela mostra a portal do Azure com o tipo de preço selecionado e um valor de memória otimizada selecionada.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
@@ -44,9 +44,9 @@ Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não
 
 ### <a name="scale-vcores-up-or-down"></a>Dimensionar vCores para cima ou para baixo
 
-1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço** , localizado na seção **configurações** .
 
-2. Altere a configuração **vCore**, movendo o controle deslizante para o valor desejado.
+2. Altere a configuração **vCore** , movendo o controle deslizante para o valor desejado.
 
     ![scale-compute](./media/howto-create-manage-server-portal/scaling-compute.png)
 
@@ -58,7 +58,7 @@ Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não
 
 ### <a name="scale-storage-up"></a>Escalar o armazenamento verticalmente
 
-1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço** , localizado na seção **configurações** .
 
 2. Altere a configuração de **armazenamento** movendo o controle deslizante para cima até o valor desejado.
 

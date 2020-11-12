@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506066"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539066"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -723,6 +723,8 @@ Para saber mais, consulte os recursos a seguir:
 * [Associações HTTP e webhook](functions-bindings-http-webhook.md)
 * [Associações de Armazenamento de Filas](functions-bindings-storage-queue.md)
 * [Gatilho de temporizador](functions-bindings-timer.md)
+
+[Está com problemas? Fale conosco.](https://aka.ms/python-functions-ref-survey)
 
 
 [HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true

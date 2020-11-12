@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447533"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540001"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Criptografia de dados com Azure Machine Learning
 
@@ -53,7 +53,7 @@ Para obter informações sobre como regenerar as chaves de acesso, consulte [Reg
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-O Azure Machine Learning armazena métricas e metadados em uma instância do Azure Cosmos DB. Essa instância é associada a uma assinatura da Microsoft gerenciada pelo Azure Machine Learning. Todos os dados armazenados no Azure Cosmos DB são criptografados em repouso com chaves gerenciadas pela Microsoft.
+Azure Machine Learning armazena metadados em uma instância de Azure Cosmos DB. Essa instância é associada a uma assinatura da Microsoft gerenciada pelo Azure Machine Learning. Todos os dados armazenados no Azure Cosmos DB são criptografados em repouso com chaves gerenciadas pela Microsoft.
 
 Para usar suas próprias chaves (gerenciadas pelo cliente) para criptografar a instância do Azure Cosmos DB, você pode criar uma instância do Cosmos DB dedicada para usar no seu workspace. Recomendamos essa abordagem caso você queira armazenar seus dados, como informações de histórico de execução, fora da instância de Cosmos DB multilocatária hospedada em nossa assinatura da Microsoft. 
 

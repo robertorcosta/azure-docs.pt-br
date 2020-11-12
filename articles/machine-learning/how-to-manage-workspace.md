@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445618"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540120"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
 
@@ -128,8 +128,8 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
    Campo|Descrição 
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
-   Subscription |Selecione a assinatura do Azure que você deseja usar.
-   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
+   Assinatura |Selecione a assinatura do Azure que você deseja usar.
+   Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
    Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
 
     ![Configurar seu novo workspace](./media/how-to-manage-workspace/create-workspace-form.png)
@@ -191,7 +191,7 @@ A Central de Segurança do Azure fornece um gerenciamento de segurança unificad
 
 ### <a name="advanced"></a>Avançado
 
-Por padrão, as métricas e os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft.
+Por padrão, os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft.
 
 Para limitar os dados que a Microsoft coleta em seu espaço de trabalho, selecione __espaço de trabalho de alto impacto nos negócios__ no portal ou defina `hbi_workspace=true ` em Python. Para obter mais informações sobre essa configuração, consulte [criptografia em repouso](concept-data-encryption.md#encryption-at-rest).
 
@@ -200,7 +200,7 @@ Para limitar os dados que a Microsoft coleta em seu espaço de trabalho, selecio
 
 #### <a name="use-your-own-key"></a>Use sua própria chave
 
-Você pode fornecer sua própria chave para criptografia de dados. Isso cria a instância de Azure Cosmos DB que armazena métricas e metadados em sua assinatura do Azure.
+Você pode fornecer sua própria chave para criptografia de dados. Isso cria a instância de Azure Cosmos DB que armazena metadados em sua assinatura do Azure.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -355,7 +355,7 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

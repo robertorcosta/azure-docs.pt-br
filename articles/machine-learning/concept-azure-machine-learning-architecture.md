@@ -1,7 +1,7 @@
 ---
 title: Arquitetura e principais conceitos
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre a arquitetura, os termos e os conceitos que compõem Azure Machine Learning.
+description: Este artigo fornece uma compreensão de alto nível da arquitetura, dos termos e dos conceitos que compõem Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444771"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540167"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -267,6 +267,18 @@ A [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) é um
 Você usa [pipelines de Machine Learning](concept-ml-pipelines.md) para criar e gerenciar fluxos de trabalho que unem as fases de aprendizado de máquina. Por exemplo, um pipeline pode incluir preparação de dados, treinamento de modelo, implantação de modelo e fases de inferência/pontuação. Cada fase pode incluir várias etapas, cada uma delas pode ser executada de modo autônomo em vários destinos de computação. 
 
 As etapas do pipeline são reutilizáveis e poderão ser executadas sem realizar novamente as etapas anteriores se o resultado dessas etapas não tiver sido alterado. Por exemplo, você poderá treinar novamente um modelo sem executar pela segunda vez as caras etapas de preparação de dados se os dados não forem alterados. Os pipelines também permitem que cientistas de dados colaborem enquanto trabalham em áreas separadas de um fluxo de trabalho de aprendizado de máquina.
+
+## <a name="monitoring-and-logging"></a>Monitoramento e registro em log
+
+Azure Machine Learning fornece os seguintes recursos de monitoramento e registro em log:
+
+* Para __cientistas de dados__ , você pode monitorar seus experimentos e informações de log de suas execuções de treinamento. Para obter mais informações, confira os seguintes artigos:
+   * [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md)
+   * [Métricas de logs para execuções de treinamento](how-to-track-experiments.md)
+   * [Acompanhar experimentos com o MLflow](how-to-use-mlflow.md)
+   * [Visualizar execuções com o TensorBoard](how-to-monitor-tensorboard.md)
+* Para __Administradores__ , você pode monitorar informações sobre o espaço de trabalho, recursos do Azure relacionados e eventos, como a criação e exclusão de recursos usando Azure monitor. Para obter mais informações, consulte [como monitorar Azure Machine Learning](monitor-azure-machine-learning.md).
+* Para __DevOps__ ou __MLOps__ , você pode monitorar as informações geradas por modelos implantados como serviços web ou módulos de IOT Edge para identificar problemas com as implantações e coletar dados enviados para o serviço. Para obter mais informações, consulte [coletar dados de modelo](how-to-enable-data-collection.md) e [monitorar com Application insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interagindo com seu espaço de trabalho
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791419"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540613"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -46,7 +46,7 @@ Um grupo de sincronização tem as seguintes propriedades:
 - O **Esquema de Sincronização** descreve quais dados estão sendo sincronizados.
 - A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro* ou *membro para Hub* , ou ambos.
 - O **Intervalo de Sincronização** descreve a frequência com a qual ocorre a sincronização.
-- A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha* .
+- A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha*.
 
 ## <a name="when-to-use"></a>Quando usar
 
@@ -72,7 +72,7 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 
 - **Controle de alterações de dados:** A Sincronização de Dados controla alterações usando os gatilhos inserir, atualizar e excluir. As alterações são registradas em uma tabela secundária do banco de dados do usuário. Observe que BULK INSERT não dispara gatilhos por padrão. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção será executado. Adicionar a opção de FIRE_TRIGGERS para a Sincronização de dados rastrear essas inserções. 
 - **Sincronizando dados:** A sincronização de dados é projetada em um modelo de Hub e spoke. O Hub é sincronizado com cada membro individualmente. As alterações do hub são baixadas para o membro e, em seguida, as alterações do membro são carregadas no Hub.
-- **Resolução de conflitos:** A Sincronização de Dados fornece duas opções para a resolução de conflito, *Hub ganha* ou *Membro ganha* .
+- **Resolução de conflitos:** A Sincronização de Dados fornece duas opções para a resolução de conflito, *Hub ganha* ou *Membro ganha*.
   - Se você selecionar *Hub ganha* , as alterações no hub sempre substituem as alterações no membro.
   - Se você selecionar *Membro ganha* , as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
 
@@ -166,7 +166,7 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas em uma tabela em um grupo de sincronização                              | 1000                   |                             |
 | Tamanho da linha de dados em uma tabela                                        | 24 Mb                  |                             |
-| Intervalo de frequência de sincronização mínima                                 | 5 Minutos              |                             |
+| Intervalo de frequência de sincronização mínima (desde o início da sincronização anterior)     | 5 Minutos              |                             |
 
 > [!NOTE]
 > Pode haver até 30 pontos de extremidade em um único grupo de sincronização, se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se um banco de dados pertencer a vários grupos de sincronização, ele será contado como vários pontos de extremidade, não um.
@@ -175,7 +175,7 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 
 Quando o grupo de sincronização é estabelecido, o serviço de sincronização de dados precisa se conectar ao banco de dado Hub. No momento em que você estabelece o grupo de sincronização, o SQL Server do Azure deve ter a seguinte configuração em suas `Firewalls and virtual networks` configurações:
 
- * *Negar acesso à rede pública* deve ser definido como *desativado* .
+ * *Negar acesso à rede pública* deve ser definido como *desativado*.
  * *Permitir que os serviços e recursos do Azure acessem este servidor* deve ser definido como *Sim* ou você deve criar regras de IP para os [endereços IP usados pelo serviço de sincronização de dados](network-access-controls-overview.md#data-sync).
 
 Depois que o grupo de sincronização for criado e provisionado, você poderá desabilitar essas configurações. O agente de sincronização se conectará diretamente ao banco de dados de Hub e você poderá usar as [regras de IP de firewall](firewall-configure.md) do servidor ou os pontos de [extremidade privados](private-endpoint-overview.md) para permitir que o agente acesse o servidor de Hub.
@@ -240,7 +240,7 @@ O Banco de Dados de Raiz da Federação pode ser usado no Serviço da Sincroniza
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Posso usar a sincronização de dados para sincronizar dados exportados do Dynamics 365 usando o recurso traga seu próprio banco de dados (BYOD)?
 
-O recurso traga seu próprio banco de dados do Dynamics 365 permite que os administradores exportem entidades do aplicativo para suas próprias Microsoft Azure banco de dado SQL. A sincronização de dados pode ser usada para sincronizar esses dados em outros bancos de dado se os dados forem exportados usando o **Push incremental** (não há suporte para Push completo) e **habilitar gatilhos no banco de dados de destino** estiver definido como **Sim** .
+O recurso traga seu próprio banco de dados do Dynamics 365 permite que os administradores exportem entidades do aplicativo para suas próprias Microsoft Azure banco de dado SQL. A sincronização de dados pode ser usada para sincronizar esses dados em outros bancos de dado se os dados forem exportados usando o **Push incremental** (não há suporte para Push completo) e **habilitar gatilhos no banco de dados de destino** estiver definido como **Sim**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

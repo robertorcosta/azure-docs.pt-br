@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 9bd7e7dab5384ecd3e1e87d763d4b8f081b669be
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b065b36103b69f0601daa1388b45865856543d2b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329825"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540511"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
 
@@ -56,9 +56,9 @@ As APIs de OCR do Pesquisa Visual Computacional dão suporte a vários idiomas. 
 
 ## <a name="image-analysis"></a>Análise de imagem
 
-Algumas ações da API de [análise de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) podem retornar resultados em outras linguagens, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do idioma especificado, e outras geram uma exceção para idiomas sem suporte. As ações são especificadas com `visualFeatures` os `details` parâmetros de consulta e. consulte a [visão geral](overview.md) para obter uma lista de todas as ações que você pode fazer com a análise de imagem.
+Algumas ações da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) podem retornar resultados em outras linguagens, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do idioma especificado, e outras geram uma exceção para idiomas sem suporte. As ações são especificadas com `visualFeatures` os `details` parâmetros de consulta e. consulte a [visão geral](overview.md) para obter uma lista de todas as ações que você pode fazer com a análise de imagem.
 
-|Linguagem | Código de idioma | Categorias | Marcações | Descrição | Adulto | Marcas | Color | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código de idioma | Categorias | Marcações | Description | Adulto | Marcas | Color | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

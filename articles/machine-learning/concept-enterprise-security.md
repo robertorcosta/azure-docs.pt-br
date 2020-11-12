@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441776"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539644"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governança corporativas para Azure Machine Learning
 
@@ -123,14 +123,15 @@ Talvez também seja interessante criptografar [informações de diagnóstico reg
 
 Há vários cenários de monitoramento com Azure Machine Learning, dependendo da função e o que está sendo monitorado.
 
-| Função | Monitorando para usar |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Métricas de Azure monitor](#azure-monitor), [log de atividades](#activity-log), [verificação de vulnerabilidade](#vulnerability-scanning) |
-| Cientista de dados, MLOps | [Monitorar execuções](#monitor-runs) |
+| Função | Monitorando para usar | Description |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Métricas de Azure monitor](#azure-monitor), [log de atividades](#activity-log), [verificação de vulnerabilidade](#vulnerability-scanning) | Informações de nível de serviço |
+| Cientista de dados, MLOps | [Monitorar execuções](#monitor-runs) | Informações registradas durante execuções de treinamento |
+| MLOps | [Coletar dados de modelo](how-to-enable-data-collection.md), [monitorar com Application insights](how-to-enable-app-insights.md) | Informações registradas em log por modelos implantados como serviços Web ou módulos de IoT Edge|
 
 ### <a name="monitor-runs"></a>Monitorar execuções
 
-Você pode monitorar execuções de teste em Azure Machine Learning, incluindo informações de registro em log de seus scripts de treinamento. Essas informações podem ser exibidas por meio do SDK, CLI do Azure e Studio. Para obter mais informações, consulte os seguintes artigos:
+Você pode monitorar execuções de teste em Azure Machine Learning, incluindo informações de registro em log de seus scripts de treinamento. Essas informações podem ser exibidas por meio do SDK, CLI do Azure e Studio. Para obter mais informações, confira os seguintes artigos:
 
 * [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md)
 * [Habilitar logs](how-to-track-experiments.md)

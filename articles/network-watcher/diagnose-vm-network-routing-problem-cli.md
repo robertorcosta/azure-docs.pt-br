@@ -17,32 +17,34 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302206"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539695"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - CLI do Azure
 
 Neste artigo, você implanta uma VM (máquina virtual ) e, em seguida, verifica a comunicação com um endereço IP e uma URL. Você determina a causa de uma falha de comunicação e como resolvê-la.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar o CLI do Azure localmente, este artigo exigirá que você esteja executando a versão CLI do Azure 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI do Azure, execute `az login` para criar uma conexão com o Azure. Os comandos CLI do Azure neste artigo estão formatados para serem executados em um shell bash.
+- Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
+
+- Os comandos CLI do Azure neste artigo estão formatados para serem executados em um shell bash.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`. O exemplo a seguir cria uma VM chamada *myVm*:
+Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`. O exemplo a seguir cria uma VM chamada *myVm* :
 
 ```azurecli-interactive
 az vm create \
@@ -85,7 +87,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Depois de alguns segundos, a saída informa que o **nextHopType** é a **Internet**e que o **RouteTableId** é a rota do **sistema**. Esse resultado permite que você saiba que há uma rota válida para o destino.
+Depois de alguns segundos, a saída informa que o **nextHopType** é a **Internet** e que o **RouteTableId** é a rota do **sistema**. Esse resultado permite que você saiba que há uma rota válida para o destino.
 
 Teste a comunicação de saída da VM em 172.31.0.100:
 
@@ -99,7 +101,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-A saída retornada informa que **nenhum** é o **nextHopType**, e que o **routeTableId** também é a rota do **sistema**. Esse resultado permite que você saiba que, embora haja uma rota do sistema válida para o destino, não há nenhum próximo salto para encaminhar o tráfego para o destino.
+A saída retornada informa que **nenhum** é o **nextHopType** , e que o **routeTableId** também é a rota do **sistema**. Esse resultado permite que você saiba que, embora haja uma rota do sistema válida para o destino, não há nenhum próximo salto para encaminhar o tráfego para o destino.
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 O texto a seguir está incluído na saída retornada:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ Quando você usou o comando `az network watcher show-next-hop` para testar a com
 
 Quando você usou o comando `az network watcher show-next-hop` para testar a comunicação de saída 172.31.0.100, no entanto, o resultado informou que não houve nenhum tipo de próximo salto. O texto a seguir também está na saída retornada:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

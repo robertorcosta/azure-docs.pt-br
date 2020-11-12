@@ -1,18 +1,18 @@
 ---
 title: Reinicie o servidor-Azure PowerShell-banco de dados do Azure para MariaDB
 description: Este artigo descreve como você pode reiniciar um banco de dados do Azure para o MariaDB Server usando o PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ad8ea20e26c71a4775e98d3457204ff2181ee493
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 14cde5b1302c46b819bb7d841fb5b84a43c580c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425811"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538930"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-powershell"></a>Reiniciar o banco de dados do Azure para o servidor MariaDB usando o PowerShell
 

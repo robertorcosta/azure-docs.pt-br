@@ -1,7 +1,7 @@
 ---
 title: O que são destinos de computação
 titleSuffix: Azure Machine Learning
-description: Defina onde você deseja treinar ou implantar seu modelo com Azure Machine Learning.
+description: Saiba como designar um recurso ou ambiente de computação para treinar ou implantar seu modelo com Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322295"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540039"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -76,7 +76,7 @@ Você pode criar Azure Machine Learning instâncias de computação ou clusters 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
 
-|Recurso  |Cluster de computação  |Instância de computação  |
+|Funcionalidade  |Cluster de computação  |Instância de computação  |
 |---------|---------|---------|
 |Cluster único ou com vários nós     |    **&check;**       |         |
 |Dimensionamento a cada vez que você envia uma execução     |     **&check;**      |         |
@@ -100,21 +100,21 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 
 | **Série de VMs com suporte**  | **Restrições** |
 |------------|------------|
-| D | Nenhum. |
-| Dv2 | Nenhum. |  
-| Dv3 | Nenhum.|
-| DSv2 | Nenhum. | 
-| DSv3 | Nenhum.|
-| FSv2 | Nenhum. | 
+| D | nenhuma. |
+| Dv2 | nenhuma. |  
+| Dv3 | nenhuma.|
+| DSv2 | nenhuma. | 
+| DSv3 | nenhuma.|
+| FSv2 | nenhuma. | 
 | HBv2 | Requer aprovação. |  
 | HCS | Requer aprovação. |  
 | M | Requer aprovação. |
-| NC | Nenhum. |    
+| NC | nenhuma. |    
 | NCsv2 | Requer aprovação. |
 | NCsv3 | Requer aprovação. |  
 | NDs | Requer aprovação. |
 | NDv2 | Requer aprovação. |
-| NV | Nenhum. |
+| NV | nenhuma. |
 | NVv3 | Requer aprovação. | 
 
 

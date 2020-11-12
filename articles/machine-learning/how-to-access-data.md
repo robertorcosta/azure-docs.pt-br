@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489294"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538590"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conectar-se aos serviços de armazenamento no Azure
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Para um armazenamento de dados de Azure Data Lake Storage Generation 2 (ADLS Gen 2), use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um armazenamento de dados de credenciais conectado a um armazenamento do Azure Data Lake Gen 2 com [permissões de entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](../active-directory/develop/app-objects-and-service-principals.md) e conceder a entidade de serviço com acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre [configuração de controle de acesso para ADLS Gen 2](../storage/blobs/data-lake-storage-access-control.md). 
+Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](../active-directory/develop/app-objects-and-service-principals.md) e conceder acesso a dados da entidade de serviço por meio de controle de acesso baseado em função (RBAC do Azure) ou listas de controle de acesso (ACL). Saiba mais sobre [configuração de controle de acesso para ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 O código a seguir cria e registra o armazenamento de dados `adlsgen2_datastore_name` no workspace `ws`. Esse armazenamento de dados acessa o sistema de arquivos `test` na conta de armazenamento `account_name` com as credenciais de entidade de serviço fornecidas. Examine a seção [permissões de acesso de armazenamento &](#storage-access-and-permissions) para obter orientação sobre cenários de rede virtual e onde encontrar as credenciais de autenticação necessárias. 
 

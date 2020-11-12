@@ -1,17 +1,17 @@
 ---
 title: Gerenciar réplicas de leitura-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o portal
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742852"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537740"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -110,7 +110,7 @@ Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
 1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MariaDB.
 
-2. Na **Visão geral**, selecione **Excluir**.
+2. Na **Visão geral** , selecione **Excluir**.
 
    ![Banco de dados do Azure para MariaDB-excluir mestre](./media/howto-read-replica-portal/delete-master-overview.png)
 
@@ -122,7 +122,7 @@ Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
 1. Na [portal do Azure](https://portal.azure.com/), selecione a réplica do banco de dados do Azure para o servidor MariaDB que você deseja monitorar.
 
-2. Na seção **Monitoramento** da barra lateral, selecione **Métricas**:
+2. Na seção **Monitoramento** da barra lateral, selecione **Métricas** :
 
 3. Selecione o **atraso de replicação em segundos** na lista suspensa de métricas disponíveis.
 
