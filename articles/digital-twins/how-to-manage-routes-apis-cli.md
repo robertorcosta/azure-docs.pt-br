@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279461"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533745"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -20,9 +20,9 @@ ms.locfileid: "93279461"
 
 No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-interpret-event-data.md) para serviços de downstream ou recursos de computação conectados. Isso é feito primeiro Configurando **pontos de extremidade** que podem receber os eventos. Em seguida, você pode criar  [**rotas de eventos**](concepts-route-events.md) que especificam quais eventos gerados pelo Azure digital gêmeos são entregues a quais pontos de extremidade.
 
-Os pontos de extremidade e as rotas podem ser gerenciados com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas por meio desses mecanismos.
+Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
-Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.azure.com). Para obter uma versão deste artigo que usa o portal em vez disso, consulte [*como: gerenciar pontos de extremidade e rotas (Portal)*](how-to-manage-routes-portal.md).
+Como alternativa, você também pode gerenciar pontos de extremidade e rotas com o [portal do Azure](https://portal.azure.com). Para obter uma versão deste artigo que usa o portal em vez disso, consulte [*como: gerenciar pontos de extremidade e rotas (Portal)*](how-to-manage-routes-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

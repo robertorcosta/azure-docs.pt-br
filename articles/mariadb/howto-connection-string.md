@@ -1,18 +1,18 @@
 ---
 title: Cadeias de conexão-banco de dados do Azure para MariaDB
 description: Este documento lista as cadeias de conexão atualmente com suporte para os aplicativos conectarem-se o Banco de Dados do Azure para MariaDB, incluindo ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 73c91343057c12d7534cd79de346182f32964f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8119f0bfd1f9007cab0df93ad2c7ef22b4db2199
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268752"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532997"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Como conectar aplicativos ao Banco de Dados do Azure para MariaDB
 Este tópico lista os tipos de cadeia de conexão com suporte no Banco de Dados do Azure para MariaDB, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.

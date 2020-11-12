@@ -1,7 +1,7 @@
 ---
 title: Coletar dados em seus modelos de produção
 titleSuffix: Azure Machine Learning
-description: Saiba como coletar dados de um modelo de Azure Machine Learning implantado
+description: Saiba como coletar dados de um modelo de Azure Machine Learning implantado em um cluster do AKS (serviço de kubernetes do Azure).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,14 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357636"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532810"
 ---
 # <a name="collect-data-from-models-in-production"></a>Coletar dados de modelos em produção
-
-
 
 Este artigo mostra como coletar dados de um modelo de Azure Machine Learning implantado em um cluster do AKS (serviço de kubernetes do Azure). Os dados coletados são então armazenados no armazenamento de BLOBs do Azure.
 

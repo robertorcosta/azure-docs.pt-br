@@ -1,17 +1,17 @@
 ---
 title: Replicação de dados-para MariaDB
 description: Saiba mais sobre como usar a replicação de dados para sincronizar de um servidor externo no banco de dados do Azure para o serviço MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 331e064bcf11af31a778cb8dd06c463712421b7c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425569"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533422"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar dados no Banco de Dados do Azure para MariaDB
 
@@ -37,7 +37,7 @@ O [*banco de dados do sistema MySQL*](https://mariadb.com/kb/en/library/the-mysq
 - Se o servidor de origem tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio foi incluído no `mariadb.az_replication_change_master` procedimento armazenado. Consulte os [exemplos](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) a seguir e o `master_ssl_ca` parâmetro.
 - Verifique se o endereço IP do servidor de origem foi adicionado ao banco de dados do Azure para as regras de firewall do servidor de réplica MariaDB. Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
 - Verifique se o computador que hospeda o servidor de origem permite o tráfego de entrada e de saída na porta 3306.
-- Verifique se o servidor de origem tem um **endereço IP público**, se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
+- Verifique se o servidor de origem tem um **endereço IP público** , se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
 
 ### <a name="other"></a>Outro
 - A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.

@@ -4,23 +4,23 @@ description: O Azure Functions é compatível com várias versões do runtime. A
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208115"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533728"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
 O Azure Functions atualmente dá suporte a três versões do host de tempo de execução: 1. x, 2. x e 3. x. Todas as três versões têm suporte para cenários de produção.  
 
 > [!IMPORTANT]
-> A versão 1. x está no modo de manutenção e só dá suporte ao desenvolvimento no portal do Azure ou localmente em computadores com Windows. Os aprimoramentos são fornecidos somente em versões posteriores. 
+> A versão 1. x está no modo de manutenção e só dá suporte ao desenvolvimento no portal do Azure, no portal do Hub Azure Stack ou localmente em computadores com Windows. Os aprimoramentos são fornecidos somente em versões posteriores. 
 
 Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Idiomas
 
 A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade de linguagem e todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. O idioma das funções em um aplicativo de funções é escolhido ao criar o aplicativo e é mantido na configuração do [ \_ tempo de \_ execução do Works Worker](functions-app-settings.md#functions_worker_runtime) . 
 

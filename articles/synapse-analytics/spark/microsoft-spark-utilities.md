@@ -4,33 +4,36 @@ description: Tutorial de como usar o MSSparkutils nos blocos de anotações do A
 author: ruxu
 services: synapse-analytics
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 648c5b75f125725ebda2966d3ebc4200ee76b98c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c03d8e744598386db3d6d03a71e4d1b735d9d71f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428554"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533269"
 ---
 # <a name="introduction-of-microsoft-spark-utilities"></a>Introdução dos utilitários do Microsoft Spark
-Os utilitários do Microsoft Spark (MSSparkUtils) são um pacote interno para ajudá-lo a realizar tarefas comuns usadas com mais facilidade. Você pode usar o MSSparkUtils para trabalhar com o sistema de arquivos com eficiência, para obter variáveis de ambiente e para trabalhar com segredos. MSSparkUtils estão disponíveis nos `PySpark (Python)` `Scala` blocos de anotações, e `.NET Spark (C#)` notebooks e Synapse.
+
+Os utilitários do Microsoft Spark (MSSparkUtils) são um pacote interno para ajudá-lo a executar tarefas comuns com facilidade. Você pode usar o MSSparkUtils para trabalhar com sistemas de arquivos, obter variáveis de ambiente e trabalhar com segredos. MSSparkUtils estão disponíveis nos `PySpark (Python)` `Scala` blocos de anotações, e `.NET Spark (C#)` notebooks e Synapse.
 
 ## <a name="pre-requisites"></a>Pré-requisitos
+
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configurar o acesso ao Azure Data Lake Storage Gen2 
+
 Os notebooks Synapse usam a passagem do Azure Active Directory (Azure AD) para acessar as contas de ADLS Gen2. Você precisa ser um **colaborador de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta). 
 
-Os pipelines do Synapse usam a identidade do espaço de trabalho (MSI) para acessar as contas de armazenamento. Para usar o MSSparkUtils em suas atividades de pipeline, sua identidade de espaço de trabalho precisa ser um **colaborador de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta).
+Os pipelines do Synapse usam a identidade do espaço de trabalho (MSI) para acessar as contas de armazenamento. Para usar o MSSparkUtils em suas atividades de pipeline, sua identidade de espaço de trabalho precisa ser **colaborador de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta).
 
 Siga estas etapas para verificar se o Azure AD e o MSI do espaço de trabalho têm acesso à conta de ADLS Gen2:
 1. Abra o [portal do Azure](https://portal.azure.com/) e a conta de armazenamento que você deseja acessar. Você pode navegar até o contêiner específico que deseja acessar.
 2. Selecione o **iam (controle de acesso)** no painel esquerdo.
-3. Para a função **colaborador de dados do blob de armazenamento** na conta de armazenamento, atribua **sua conta do Azure ad** e **a identidade do espaço de trabalho** (o mesmo que o nome do espaço de trabalho) ou verifique se ele já está atribuído. 
-4. Clique em **Save** (Salvar).
+3. Atribua **sua conta do Azure ad** e **a identidade do espaço de trabalho** (o mesmo que o nome do seu espaço de trabalho) à função **colaborador de dados de blob de armazenamento** na conta de armazenamento se ela ainda não estiver atribuída. 
+4. Selecione **Salvar**.
 
 Você pode acessar dados em ADLS Gen2 com o Synapse Spark por meio da seguinte URL:
 
@@ -45,10 +48,10 @@ Siga estas etapas para adicionar um novo serviço vinculado para uma conta de ar
 1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
 2. Selecione **gerenciar** no painel esquerdo e selecione **Serviços vinculados** em **conexões externas**.
 3. Pesquise **armazenamento de BLOBs do Azure** no novo painel de **serviço vinculado** à direita.
-4. Clique em **Continue**.
+4. Selecione **Continuar**.
 5. Selecione a conta de armazenamento de BLOBs do Azure para acessar e configurar o nome do serviço vinculado. Sugira usar **chave de conta** para o **método de autenticação**.
-6. Clique em **testar conexão** para validar se as configurações estão corretas.
-7. Clique em **criar** primeiro e clique em **publicar tudo** para salvar suas alterações. 
+6. Selecione **testar conexão** para validar se as configurações estão corretas.
+7. Selecione **criar** primeiro e clique em **publicar tudo** para salvar suas alterações. 
 
 Você pode acessar dados no armazenamento de BLOBs do Azure com o Synapse Spark por meio da seguinte URL:
 
@@ -103,25 +106,25 @@ Você pode adicionar um Azure Key Vault como um serviço vinculado para gerencia
 2. Selecione **gerenciar** no painel esquerdo e selecione **Serviços vinculados** em **conexões externas**.
 3. Pesquise **Azure Key Vault** no novo painel de **serviço vinculado** à direita.
 4. Selecione a conta de Azure Key Vault para acessar e configurar o nome do serviço vinculado.
-5. Clique em **testar conexão** para validar se as configurações estão corretas.
-6. Clique em **criar** primeiro e clique em **publicar tudo** para salvar suas alterações. 
+5. Selecione **testar conexão** para validar se as configurações estão corretas.
+6. Selecione **criar** primeiro e clique em **publicar tudo** para salvar suas alterações. 
 
 Os notebooks Synapse usam a passagem do Azure Active Directory (Azure AD) para acessar Azure Key Vault. Os pipelines do Synapse usam a identidade do espaço de trabalho (MSI) para acessar Azure Key Vault. Para garantir que seu código funcione no bloco de anotações e no pipeline do Synapse, é recomendável conceder permissão de acesso de segredo para sua conta do Azure AD e a identidade do espaço de trabalho.
 
 Siga estas etapas para conceder acesso secreto à sua identidade de espaço de trabalho:
 1. Abra o [portal do Azure](https://portal.azure.com/) e o Azure Key Vault que você deseja acessar. 
 2. Selecione as **políticas de acesso** no painel esquerdo.
-3. Clique em **Adicionar política de acesso** : 
+3. Selecione **Adicionar política de acesso** : 
     - Escolha **chave, segredo & gerenciamento de certificados** como modelo de configuração.
     - Selecione **sua conta do Azure ad** e **a identidade do espaço de trabalho** (igual ao nome do seu espaço de trabalho) em selecionar entidade de segurança ou verifique se ela já está atribuída. 
-4. Clique em **selecionar** e **Adicionar**.
-5. Clique no botão **salvar** para confirmar as alterações.  
+4. Selecione **selecionar** e **Adicionar**.
+5. Selecione o botão **salvar** para confirmar as alterações.  
 
 ## <a name="file-system-utilities"></a>Utilitários do sistema de arquivos
 
 `mssparkutils.fs` Fornece utilitários para trabalhar com vários sistemas de arquivos, incluindo Azure Data Lake Storage Gen2 (ADLS Gen2) e o armazenamento de BLOBs do Azure. Certifique-se de configurar o acesso ao [Azure data Lake Storage Gen2](#configure-access-to-azure-data-lake-storage-gen2) e ao [armazenamento de BLOBs do Azure](#configure-access-to-azure-blob-storage) adequadamente.
 
-Execute o comando a seguir para obter uma visão geral sobre os métodos disponíveis:
+Execute os seguintes comandos para obter uma visão geral dos métodos disponíveis:
 
 :::zone pivot = "programming-language-python"
 
@@ -196,7 +199,7 @@ FS.Ls("Your directory path")
 
 
 ### <a name="view-file-properties"></a>Exibir propriedades de arquivo
-Retorna as propriedades do arquivo, incluindo o nome do arquivo, o caminho do arquivo, o tamanho do arquivo, se ele é um diretório e se ele é um arquivo.
+Retorna as propriedades do arquivo, incluindo o nome do arquivo, o caminho do arquivo, o tamanho do arquivo e se ele é um diretório e um arquivo.
 
 :::zone pivot = "programming-language-python"
 
@@ -230,7 +233,8 @@ foreach(var File in Files) {
 ::: zone-end
 
 ### <a name="create-new-directory"></a>Criar novo diretório
-Cria o diretório fornecido se ele não existir, criando também todos os diretórios pai necessários.
+
+Cria o diretório fornecido se ele não existir e todos os diretórios pai necessários.
 
 :::zone pivot = "programming-language-python"
 
@@ -256,7 +260,8 @@ FS.Mkdirs("new directory name")
 ::: zone-end
 
 ### <a name="copy-file"></a>Copiar arquivo
-Copia um arquivo ou diretório, dá suporte à cópia em sistemas de arquivos.
+
+Copia um arquivo ou diretório. Oferece suporte à cópia em sistemas de arquivos.
 
 :::zone pivot = "programming-language-python"
 
@@ -282,6 +287,7 @@ FS.Cp("source file or directory", "destination file or directory", true) // Set 
 ::: zone-end
 
 ### <a name="preview-file-content"></a>Visualizar conteúdo do arquivo
+
 Retorna até os primeiros ' maxBytes ' bytes do arquivo fornecido como uma cadeia de caracteres codificada em UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -308,7 +314,8 @@ FS.Head("file path", maxBytes to read)
 ::: zone-end
 
 ### <a name="move-file"></a>Mover arquivo
-Move um arquivo ou diretório; o suporte é movido entre sistemas de arquivos.
+
+Move um arquivo ou diretório. Dá suporte à movimentação entre sistemas de arquivos.
 
 :::zone pivot = "programming-language-python"
 
@@ -334,6 +341,7 @@ FS.Mv("source file or directory", "destination directory", true)
 ::: zone-end
 
 ### <a name="write-file"></a>Gravar arquivo
+
 Grava a cadeia de caracteres fornecida em um arquivo, codificada em UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -360,6 +368,7 @@ FS.Put("file path", "content to write", true) // Set the last parameter as True 
 ::: zone-end
 
 ### <a name="append-content-to-a-file"></a>Acrescentar conteúdo a um arquivo
+
 Acrescenta a cadeia de caracteres fornecida a um arquivo, codificada em UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -386,6 +395,7 @@ FS.Append("file path","content to append",true) // Set the last parameter as Tru
 ::: zone-end
 
 ### <a name="delete-file-or-directory"></a>Excluir arquivo ou diretório
+
 Remove um arquivo ou um diretório.
 
 :::zone pivot = "programming-language-python"
@@ -416,7 +426,7 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 Você pode usar os utilitários de credenciais do MSSparkUtils para obter os tokens de acesso de serviços vinculados e gerenciar segredos no Azure Key Vault. 
 
-Execute o comando a seguir para obter uma visão geral sobre os métodos disponíveis:
+Execute o seguinte comando para obter uma visão geral dos métodos disponíveis:
 
 :::zone pivot = "programming-language-python"
 
@@ -454,6 +464,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 ```
 
 ### <a name="get-token"></a>Obter o token
+
 Retorna o token do Azure AD para um determinado público, nome (opcional). A tabela abaixo lista todos os tipos de audiência disponíveis: 
 
 |Tipo de público|Chave de público|
@@ -492,6 +503,7 @@ mssparkutils.credentials.getToken("audience Key")
 
 
 ### <a name="validate-token"></a>Validar token
+
 Retornará true se o token não tiver expirado.
 
 :::zone pivot = "programming-language-python"
@@ -519,6 +531,7 @@ mssparkutils.credentials.isValidToken("your token")
 
 
 ### <a name="get-connection-string-or-credentials-for-linked-service"></a>Obter cadeia de conexão ou credenciais para o serviço vinculado
+
 Retorna a cadeia de conexão ou as credenciais do serviço vinculado. 
 
 :::zone pivot = "programming-language-python"
@@ -546,6 +559,7 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 
 
 ### <a name="get-secret-using-workspace-identity"></a>Obter segredo usando a identidade do espaço de trabalho
+
 Retorna Azure Key Vault segredo para um determinado nome de Azure Key Vault, nome do segredo e nome do serviço vinculado usando a identidade do espaço de trabalho. Certifique-se de configurar o acesso para [Azure Key Vault](#configure-access-to-azure-key-vault) adequadamente.
 
 :::zone pivot = "programming-language-python"
@@ -573,6 +587,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 
 
 ### <a name="get-secret-using-user-credentials"></a>Obter segredo usando as credenciais do usuário
+
 Retorna Azure Key Vault segredo para um determinado nome de Azure Key Vault, nome do segredo e nome do serviço vinculado usando as credenciais do usuário. 
 
 :::zone pivot = "programming-language-python"
@@ -599,6 +614,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 ::: zone-end
 
 ### <a name="put-secret-using-workspace-identity"></a>Colocar segredo usando a identidade do espaço de trabalho
+
 Coloca Azure Key Vault segredo para um determinado nome de Azure Key Vault, nome do segredo e nome do serviço vinculado usando a identidade do espaço de trabalho. Certifique-se de configurar o acesso para [Azure Key Vault](#configure-access-to-azure-key-vault) adequadamente.
 
 :::zone pivot = "programming-language-python"
@@ -626,6 +642,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 
 ### <a name="put-secret-using-user-credentials"></a>Colocar segredo usando as credenciais do usuário
+
 Coloca Azure Key Vault segredo para um determinado nome de Azure Key Vault, nome do segredo e nome do serviço vinculado usando as credenciais do usuário. 
 
 :::zone pivot = "programming-language-python"
@@ -654,7 +671,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 ## <a name="environment-utilities"></a>Utilitários de ambiente 
 
-Execute o comando a seguir para obter uma visão geral sobre os métodos disponíveis:
+Execute os comandos a seguir para obter uma visão geral dos métodos disponíveis:
 
 :::zone pivot = "programming-language-python"
 
@@ -689,6 +706,7 @@ getClusterId(): returns cluster id
 ```
 
 ### <a name="get-user-name"></a>Obter nome de usuário
+
 Retorna o nome de usuário atual.
 
 :::zone pivot = "programming-language-python"
@@ -715,6 +733,7 @@ mssparkutils.env.getUserName()
 ::: zone-end
 
 ### <a name="get-user-id"></a>Obter ID de usuário
+
 Retorna a ID de usuário atual.
 
 :::zone pivot = "programming-language-python"
@@ -741,6 +760,7 @@ mssparkutils.env.getUserId()
 ::: zone-end
 
 ### <a name="get-job-id"></a>Obter ID do trabalho
+
 Retorna a ID do trabalho.
 
 :::zone pivot = "programming-language-python"
@@ -767,6 +787,7 @@ mssparkutils.env.getJobId()
 ::: zone-end
 
 ### <a name="get-workspace-name"></a>Obter nome do espaço de trabalho
+
 Retorna o nome do espaço de trabalho.
 
 :::zone pivot = "programming-language-python"
@@ -793,6 +814,7 @@ mssparkutils.env.getWorkspaceName()
 ::: zone-end
 
 ### <a name="get-pool-name"></a>Obter nome do pool
+
 Retorna o nome do pool do Spark.
 
 :::zone pivot = "programming-language-python"
@@ -819,6 +841,7 @@ mssparkutils.env.getPoolName()
 ::: zone-end
 
 ### <a name="get-cluster-id"></a>Obter ID do cluster
+
 Retorna a ID do cluster atual.
 
 :::zone pivot = "programming-language-python"
@@ -845,6 +868,7 @@ mssparkutils.env.getClusterId()
 ::: zone-end
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - [Confira os blocos de anotações de exemplo do Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Início Rápido: Criar um Pool do Apache Spark (versão prévia) no Azure Synapse Analytics usando ferramentas da Web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark no Azure Synapse Analytics](apache-spark-overview.md)

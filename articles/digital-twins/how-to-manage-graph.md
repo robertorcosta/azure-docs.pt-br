@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359571"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533864"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -25,7 +25,13 @@ Este artigo se concentra no gerenciamento de relações e no grafo como um todo;
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>Maneiras de gerenciar o Graph
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+Você também pode fazer alterações em seu grafo usando o exemplo do Explorer do gêmeos (ADT) do Azure digital, que permite visualizar o gêmeos e o grafo e usa o SDK nos bastidores. A próxima seção descreve esse exemplo em detalhes.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Criar relações
@@ -219,7 +225,8 @@ Agora você pode chamar esse método para excluir uma relação como esta:
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>Criar um gráfico de entrelaçamento 
+
+## <a name="runnable-twin-graph-sample"></a>Exemplo de monograph executável
 
 O seguinte trecho de código executável usa as operações de relação deste artigo para criar um grafo de bispersão de gêmeos e relações digitais.
 
@@ -451,8 +458,8 @@ Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e rela�
 
 |  ID do Modelo    | ID de entrelaça (deve ser exclusivo) | Nome da Relação  | ID do entrelaçado de destino  | Dados de inicialização de entrelaçamento |
 | --- | --- | --- | --- | --- |
-| dtmi: exemplo: Floor; 1    | Floor1 | contém | Room1 | |
-| dtmi: exemplo: Floor; 1    | Floor0 | contém | Room0 | |
+| dtmi: exemplo: Floor; 1    | Floor1 | contains | Room1 | |
+| dtmi: exemplo: Floor; 1    | Floor0 | contains | Room0 | |
 | dtmi: exemplo: sala; 1    | Room1 | | | {"Temperatura": 80} |
 | dtmi: exemplo: sala; 1    | Room0 | | | {"Temperatura": 70} |
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>Gerenciar relações com a CLI
-
-Gêmeos e suas relações também podem ser gerenciadas usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,17 +3,17 @@ title: Monitorar o desempenho do aplicativo Web Java no Linux - Azure | Microsof
 description: Monitoramento estendido do desempenho de aplicativo do seu site Java com o plug-in CollectD para Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: a4ce1ad6a8248680b8bdeec8a98195c3dbfe31a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379002"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532861"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>coletado: métricas de desempenho do Linux no Application Insights [preterido]
 
 > [!IMPORTANT]
-> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
+> A **abordagem recomendada** para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para **[Application insights o agente do Java 3,0](./java-in-process-agent.md)**.
 
 Para explorar as métricas de desempenho do sistema Linux no [Application Insights](./app-insights-overview.md), instale [collectd](https://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 

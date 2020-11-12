@@ -9,24 +9,26 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: b8ca96dd0b11f7a4c76f7a954959ef5005fb4a40
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323985"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533473"
 ---
 # <a name="monitor-azure-machine-learning"></a>Monitorar o Azure Machine Learning
 
 Quando você tem aplicativos e processos de negócios críticos que dependem de recursos do Azure, recomendamos monitorar a disponibilidade, o desempenho e a operação desses recursos. Este artigo descreve os dados de monitoramento gerados pelo Azure Machine Learning e como analisar e alertar sobre esses dados com o Azure Monitor.
 
 > [!TIP]
-> As informações contidas neste documento são basicamente para administradores, pois descrevem o monitoramento do Azure Machine Learning no nível do *espaço de trabalho* . Se você for um cientista de dados ou desenvolvedor e quiser monitorar informações específicas para suas *execuções de treinamento de modelo* , consulte os seguintes documentos:
+> As informações contidas neste documento são basicamente para __Administradores__ , pois descrevem o monitoramento do serviço de Azure Machine Learning e dos serviços do Azure associados. Se você for um __cientista de dados__ ou __desenvolvedor__ e quiser monitorar informações específicas para suas *execuções de treinamento de modelo* , consulte os seguintes documentos:
 >
 > * [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md)
 > * [Métricas de logs para execuções de treinamento](how-to-track-experiments.md)
 > * [Acompanhar experimentos com o MLflow](how-to-use-mlflow.md)
 > * [Visualizar execuções com o TensorBoard](how-to-monitor-tensorboard.md)
+>
+> Se você quiser monitorar as informações geradas por modelos implantados como serviços Web ou módulos IoT Edge, consulte [coletar dados de modelo](how-to-enable-data-collection.md) e [monitorar com Application insights](how-to-enable-app-insights.md).
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 

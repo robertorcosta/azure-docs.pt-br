@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279484"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533779"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -22,7 +22,7 @@ No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-i
 
 Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas usando o [portal do Azure](https://portal.azure.com).
 
-Você também pode gerenciar pontos de extremidade e rotas com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Para obter uma versão deste artigo que usa esses mecanismos em vez do portal, consulte [*como: gerenciar pontos de extremidade e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
+Como alternativa, você também pode gerenciar pontos de extremidade e rotas com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), os [SDKS](how-to-use-apis-sdks.md#overview-data-plane-apis)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Para obter uma versão deste artigo que usa esses mecanismos em vez do portal, consulte [*como: gerenciar pontos de extremidade e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

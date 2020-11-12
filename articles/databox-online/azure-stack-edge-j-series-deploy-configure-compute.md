@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952158"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504420"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformar dados com o Azure Stack Edge Pro
 
@@ -45,15 +45,15 @@ Antes de configurar uma função de computação em seu dispositivo Azure Stack 
 
 Para configurar a computação no Azure Stack Edge Pro, você criará um recurso do Hub IoT.
 
-1. No portal do Azure do recurso do Azure Stack Edge, acesse **Visão geral**. No painel direito, no bloco **Computação**, selecione **Introdução**.
+1. No portal do Azure do recurso do Azure Stack Edge, acesse **Visão geral**. No painel direito, no bloco **Computação** , selecione **Introdução**.
 
     ![Introdução à computação](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. No bloco **Configurar computação de borda**, selecione **Configurar computação**.
+2. No bloco **Configurar computação de borda** , selecione **Configurar computação**.
 
     ![Configurar a computação](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. Na folha **Configurar computação de borda**, insira o seguinte:
+3. Na folha **Configurar computação de borda** , insira o seguinte:
 
    
     |Campo  |Valor  |
@@ -84,13 +84,13 @@ Para a implantação simples neste tutorial, você precisará de dois compartilh
 1. Adicione um compartilhamento do Microsoft Edge no dispositivo seguindo as seguintes etapas:
 
     1. No recurso Azure Stack Edge, acesse **Computação de Borda > Introdução**.
-    2. No bloco **Adicionar compartilhamentos**, selecione **Adicionar**.
+    2. No bloco **Adicionar compartilhamentos** , selecione **Adicionar**.
 
         ![Adicionar bloco de compartilhamento](./media/azure-stack-edge-j-series-deploy-configure-compute/add-share-1.png) 
 
-    3. Na folha **Adicionar compartilhamento**, forneça o nome do compartilhamento e selecione o tipo de compartilhamento.
+    3. Na folha **Adicionar compartilhamento** , forneça o nome do compartilhamento e selecione o tipo de compartilhamento.
     4. Para montar o compartilhamento do Microsoft Edge, marque a caixa de seleção **Usar o compartilhamento com a computação de borda**.
-    5. Selecione a **Conta de armazenamento**, o **Serviço de armazenamento**, um usuário existente e, em seguida, selecione **Criar**.
+    5. Selecione a **Conta de armazenamento** , o **Serviço de armazenamento** , um usuário existente e, em seguida, selecione **Criar**.
 
         ![Adicionar um compartilhamento do Microsoft Edge](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -121,8 +121,8 @@ Você pode adicionar um módulo personalizado ou pré-criado. Não há módulos 
 
 Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
 
-1. Acesse **Computação de borda > Introdução**. No bloco **Adicionar módulos**, selecione o tipo de cenário como **simples**. Selecione **Adicionar**.
-2. Na folha **Configurar e adicionar módulo**, insira os seguintes valores:
+1. Acesse **Computação de borda > Introdução**. No bloco **Adicionar módulos** , selecione o tipo de cenário como **simples**. Selecione **Adicionar**.
+2. Na folha **Configurar e adicionar módulo** , insira os seguintes valores:
 
     
     |Campo  |Valor  |
@@ -152,19 +152,19 @@ Para verificar se o módulo está em execução, faça o seguinte:
 
     ![Exibir o módulo implantado](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
  
-1.   No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
+1. No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
 
     ![Verifique a transformação de dados](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
-1.   Adicione dados ao compartilhamento de local.
+1. Adicione dados ao compartilhamento de local.
 
     ![Verifique a transformação de dados](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
-    Os dados são movidos para o compartilhamento em nuvem.
+   Os dados são movidos para o compartilhamento em nuvem.
 
     ![Verifique a transformação de dados](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
-    Os dados são então enviados por push do compartilhamento em nuvem para a conta de armazenamento. Para ver os dados, você pode usar o Gerenciador de Armazenamento.
+   Os dados são então enviados por push do compartilhamento em nuvem para a conta de armazenamento. Para ver os dados, você pode usar o Gerenciador de Armazenamento.
 
     <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
  

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216582"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489464"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Compartilhar dados usando o Azure Data Share  
 
@@ -137,8 +137,15 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
 1. Na guia Examinar + Criar, examine o Conteúdo do Pacote, Configurações, Destinatários e Configurações de Sincronização. Selecione **Criar**.
 
-O Azure Data Share agora foi criado e o destinatário de seu Compartilhamento de Dados agora está pronto para aceitar seu convite. 
+O Azure Data Share agora foi criado e o destinatário de seu Compartilhamento de Dados agora está pronto para aceitar seu convite.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando o recurso não for mais necessário, acesse a página **Visão Geral do Data Share** e selecione **Excluir** para removê-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar um Azure Data Share e convidar destinatários. Para saber mais sobre como um Consumidor de Dados pode aceitar e receber um compartilhamento de dados, prossiga para o tutorial [Aceitar e receber dados](subscribe-to-data-share.md).
+Neste tutorial, você aprendeu a criar um Azure Data Share e convidar destinatários. Para saber mais sobre como um Consumidor de Dados pode aceitar e receber um compartilhamento de dados, prossiga para o tutorial Aceitar e receber dados.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Aceitar e receber dados usando o Azure Data Share](subscribe-to-data-share.md)

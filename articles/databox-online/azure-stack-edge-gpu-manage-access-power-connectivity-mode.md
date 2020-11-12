@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933104"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532436"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gerenciar o acesso, a energia e o modo de conectividade para sua GPU pro do Azure Stack Edge
 
@@ -49,12 +49,12 @@ O fluxo de trabalho de redefinição não exige que o usuário recupere a senha 
 
 1. No portal do Azure, acesse **visão geral > Redefinir senha de administrador**.
 
-    ![Redefinir senha](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Captura de tela mostra o dispositivo com a senha de redefinição do dispositivo selecionada.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Digite a nova senha e confirme-a. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Selecione **Restaurar**.
 
-    ![Redefinir senha](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Captura de tela mostra a caixa de diálogo Redefinir senha do dispositivo.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerenciar o acesso de recursos
 
@@ -115,7 +115,7 @@ Além do modo totalmente conectado padrão, o dispositivo também pode ser execu
 Para alterar o modo de dispositivo, siga estas etapas:
 
 1. Na interface do usuário da Web local do seu dispositivo, vá para **configuração > nuvem**.
-2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente**conectado, **parcialmente conectado**e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
+2. Na lista suspensa, selecione o modo no qual você deseja operar o dispositivo. Você pode selecionar entre **totalmente** conectado, **parcialmente conectado** e **totalmente desconectado**. Para executar o dispositivo no modo desconectado parcialmente, habilite **gerenciamento do portal do Azure**.
 
  
 ## <a name="manage-power"></a>Gerenciar potência

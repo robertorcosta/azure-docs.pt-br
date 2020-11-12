@@ -1,17 +1,17 @@
 ---
 title: Pontos de extremidade de serviço de VNet-banco de dados do Azure para MariaDB
 description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 15bfeb3860c3a7dd5f9dc11f7fb18473116f5ff4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0863ccda9f292f3da9f7064a78ba700ab5962eb2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425608"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533456"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
 
@@ -34,7 +34,7 @@ Você também pode considerar o uso de [link privado](concepts-data-access-secur
 
 **Sub-rede:** uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Nós de computadores que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure a segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de Rede Virtual:** Um [ponto de extremidade de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também aplica-se aos serviços do Banco de Dados do Azure para MariaDB, MySQL e PostgreSQL. É importante observar que, ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade de serviço de VNet, ela configurará o tráfego do ponto de extremidade para todos os servidores do Banco de Dados SQL do Azure, Banco de Dados do Azure para MariaDB, Banco de Dados do Azure para MySQL e Banco de Dados do Azure para PostgreSQL na sub-rede.
+**Ponto de extremidade de serviço de Rede Virtual:** Um [ponto de extremidade de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql** , que faz referência ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também aplica-se aos serviços do Banco de Dados do Azure para MariaDB, MySQL e PostgreSQL. É importante observar que, ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade de serviço de VNet, ela configurará o tráfego do ponto de extremidade para todos os servidores do Banco de Dados SQL do Azure, Banco de Dados do Azure para MariaDB, Banco de Dados do Azure para MySQL e Banco de Dados do Azure para PostgreSQL na sub-rede.
 
 **Regra da rede virtual:** uma regra da rede virtual para seu servidor do Banco de Dados do Azure para MariaDB é uma sub-rede listada no ACL (lista de controle de acesso) do seu servidor do Banco de Dados do Azure para MariaDB. Para estar no ACL do seu servidor do Banco de Dados do Azure para MariaDB, a sub-rede deve conter o nome do tipo **Microsoft.Sql**.
 
