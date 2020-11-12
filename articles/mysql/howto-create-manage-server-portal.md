@@ -1,17 +1,17 @@
 ---
 title: Gerenciar servidor-portal do Azure-banco de dados do Azure para MySQL
 description: Saiba como gerenciar um servidor de banco de dados do Azure para MySQL do portal do Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882456"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541446"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerenciar um servidor de banco de dados do Azure para MySQL usando o portal do Azure
 
@@ -33,9 +33,9 @@ Após a criação do servidor, você pode dimensionar entre as camadas de Uso Ge
 
 Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não há suporte para a alteração de e para a camada básica após a criação do servidor.
 
-1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço** , localizado na seção **configurações** .
 
-2. Selecione **uso geral** ou **memória otimizada**, dependendo do que você está dimensionando.
+2. Selecione **uso geral** ou **memória otimizada** , dependendo do que você está dimensionando.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
 
@@ -46,11 +46,11 @@ Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não
 
 ### <a name="scale-vcores-up-or-down"></a>Dimensionar vCores para cima ou para baixo
 
-1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço** , localizado na seção **configurações** .
 
-2. Altere a configuração **vCore**, movendo o controle deslizante para o valor desejado.
+2. Altere a configuração **vCore** , movendo o controle deslizante para o valor desejado.
 
-    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Captura de tela de portal do Azure para escolher a opção vCore no banco de dados do Azure para MySQL":::
 
     > [!NOTE]
     > O dimensionamento de vCores causa uma reinicialização do servidor.
@@ -59,11 +59,11 @@ Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não
 
 ### <a name="scale-storage-up"></a>Escalar o armazenamento verticalmente
 
-1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço** , localizado na seção **configurações** .
 
 2. Altere a configuração de **armazenamento** movendo o controle deslizante para cima até o valor desejado.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Captura de tela de portal do Azure para escolher a escala de armazenamento no banco de dados do Azure para MySQL":::
 
    > [!NOTE]
    > O armazenamento não pode ser reduzido verticalmente.
@@ -76,11 +76,11 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
 
 1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **Redefinir senha**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Captura de tela de portal do Azure para redefinir a senha no banco de dados do Azure para MySQL":::
 
 2. Insira uma nova senha e confirme-a. A caixa de texto solicitará os requisitos de complexidade de senha.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Captura de tela de portal do Azure para redefinir sua senha e salvar no banco de dados do Azure para MySQL":::
 
 3. Selecione **OK** para salvar a nova senha.
 
@@ -90,11 +90,11 @@ Você pode excluir o servidor se não precisar mais dele.
 
 1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **excluir**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Captura de tela de portal do Azure para excluir o servidor no banco de dados do Azure para MySQL":::
 
 2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que você deseja excluir.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Captura de tela de portal do Azure para confirmar a exclusão do servidor no banco de dados do Azure para MySQL":::
 
    > [!NOTE]
    > A exclusão de um servidor é irreversível.

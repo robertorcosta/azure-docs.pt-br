@@ -2,13 +2,13 @@
 title: Suporte para implantação de solução do Azure VMware ou falha de provisionamento
 description: Obtenha informações de sua nuvem privada da solução Azure VMware para arquivar uma solicitação de serviço para uma implantação de solução do Azure VMware ou falha de provisionamento.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 10/28/2020
+ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349113"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542398"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Abrir uma solicitação de suporte para uma implantação de solução do Azure VMware ou falha de provisionamento
 
@@ -96,8 +96,8 @@ Se a verificação de pré-validação da nuvem privada falhou (antes da implant
 
 - Mensagens de erro e falha. Essas mensagens podem ser úteis em muitas falhas, por exemplo, para problemas relacionados à cota. É importante copiar essas mensagens e incluí-las na solicitação de suporte, conforme descrito neste artigo.
 - Informações usadas para criar a nuvem privada da solução Azure VMware, incluindo:
-  - Location
-  - Resource group
+  - Localização
+  - Grupo de recursos
   - Nome do recurso
 
 ## <a name="create-your-support-request"></a>Criar sua solicitação de suporte

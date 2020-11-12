@@ -1,17 +1,17 @@
 ---
 title: Limitações-banco de dados do Azure para MySQL-servidor flexível
 description: Este artigo descreve as limitações no banco de dados do Azure para MySQL-servidor flexível, como o número de opções de mecanismo de armazenamento e conexão.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504332"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543078"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações no banco de dados do Azure para MySQL – servidor flexível (visualização)
 

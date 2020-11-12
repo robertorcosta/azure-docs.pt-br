@@ -8,19 +8,19 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979012"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542143"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
 O Host Dedicado do Azure é um serviço que fornece servidores físicos - que podem hospedar uma ou mais máquinas virtuais - dedicados a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, uma zona de disponibilidade e em um domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
 
-## <a name="benefits"></a>Vantagens 
+## <a name="benefits"></a>Benefícios 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
@@ -84,7 +84,6 @@ Problemas conhecidos e limitações ao usar o posicionamento automático da VM:
 
 - Você não poderá aplicar os benefícios híbridos do Azure em seus hosts dedicados.
 - Você não poderá reimplantar a VM. 
-- Você não poderá controlar a manutenção para seus hosts dedicados.
 - Não será possível usar VMs Lsv2, NVasv4, NVsv3, Msv2 ou série M com hosts dedicados 
 
 
@@ -120,7 +119,7 @@ Nem todas as configurações de orquestração e otimizações de conjunto de es
 
 Às vezes, a infraestrutura de suporte às suas máquinas virtuais pode ser atualizada para melhorar a confiabilidade, o desempenho, a segurança e a inicialização de novos recursos. A plataforma Azure tenta minimizar o impacto da manutenção da plataforma sempre que possível, mas os clientes com cargas de trabalho *sensíveis à manutenção* não podem tolerar até poucos segundos que a VM precisa ser congelada ou desconectada para manutenção.
 
-O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias.
+O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias. Na janela de manutenção, você pode aplicar a manutenção diretamente no nível do host, em qualquer ordem. Depois que a janela de manutenção terminar, a Microsoft avançará e aplicará a manutenção pendente aos hosts em uma ordem que pode não seguir os domínios de falha definidos pelo usuário.
 
 Para obter mais informações, consulte [gerenciando atualizações de plataforma com o controle de manutenção](./maintenance-control.md).
 
@@ -172,7 +171,7 @@ Os tamanhos e tipos de hardware variam por região. Consulte a [página de preç
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de Integridade   | Descrição       |
+| Estado de Integridade   | Description       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |

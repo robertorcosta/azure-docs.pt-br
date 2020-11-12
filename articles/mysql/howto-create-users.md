@@ -1,17 +1,17 @@
 ---
 title: Criar bancos de dados e usuários-Azure para MySQL
 description: Este artigo descreve como criar novas contas de usuário para interagir com um servidor de banco de dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766873"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541412"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Criar bancos de dados e usuários no Azure Database para MySQL
 
@@ -22,7 +22,7 @@ Este artigo descreve como criar usuários no banco de dados do Azure para MySQL.
 > [!NOTE]
 > **Comunicação livre de desvio**
 >
-> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra *subordinada*. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência, pois é a palavra que aparece atualmente no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra *escravo*. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, pois é a palavra que aparece atualmente no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
 >
 
 Ao criar pela primeira vez o banco de dados do Azure para o servidor MySQL, você forneceu um nome de usuário e uma senha de administrador do servidor. Para obter mais informações, consulte este guia de [início rápido](quickstart-create-mysql-server-database-using-azure-portal.md). Você pode determinar o nome de usuário do administrador do servidor no portal do Azure.
@@ -94,7 +94,7 @@ Depois de criar um banco de dados do Azure para o servidor MySQL, você pode usa
    
    Se você não tiver certeza de como se conectar, consulte [usar o MySQL Workbench para se conectar e consultar dados](./connect-workbench.md).
 
-3. Edite e execute o código SQL a seguir. Substitua o valor do espaço reservado `new_master_user` pelo novo nome de usuário. Essa sintaxe concede os privilégios listados em todos os esquemas de banco de dados (*.*) ao usuário ( `new_master_user` neste exemplo).
+3. Edite e execute o código SQL a seguir. Substitua o valor do espaço reservado `new_master_user` pelo novo nome de usuário. Essa sintaxe concede os privilégios listados em todos os esquemas de banco de dados ( *.* ) ao usuário ( `new_master_user` neste exemplo).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

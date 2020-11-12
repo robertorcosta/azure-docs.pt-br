@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653606"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540919"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para carga de trabalho SAP
 O Azure tem vários tipos de armazenamento que diferem amplamente em recursos, taxa de transferência, latência e preços. Alguns dos tipos de armazenamento não são, ou do uso limitado para cenários SAP. Enquanto que vários tipos de armazenamento do Azure são adequados ou otimizados para cenários de carga de trabalho SAP específicos. Especialmente para SAP HANA, alguns tipos de armazenamento do Azure receberam certificação para o uso com SAP HANA. Neste documento, vamos percorrer os diferentes tipos de armazenamento e descrever sua capacidade e usabilidade com cargas de trabalho do SAP e componentes SAP.
@@ -146,7 +146,7 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Latency | baixo para médio | - |
 | SLA DE IOPS | YES | - |
 | IOPS linear para capacidade | semilineares entre colchetes  | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| IOPS máximo por disco | 20.000 [depende do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites da VM](../../sizes.md) |
+| IOPS máxima por disco | 20.000 [depende do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites da VM](../../sizes.md) |
 | SLA de produtividade | YES | - |
 | Taxa de transferência linear para a capacidade | semilineares entre colchetes | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Certificado pelo HANA | YES | [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
@@ -204,7 +204,7 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Latency | muito baixo | - |
 | SLA DE IOPS | YES | - |
 | IOPS linear para capacidade | semilineares entre colchetes  | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| IOPS máximo por disco | 1.200 a 160.000 | dependente da capacidade do disco |
+| IOPS máxima por disco | 1.200 a 160.000 | dependente da capacidade do disco |
 | SLA de produtividade | YES | - |
 | Taxa de transferência linear para a capacidade | semilineares entre colchetes | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Certificado pelo HANA | YES | - |
@@ -273,7 +273,7 @@ Funcionalidade interna adicional do armazenamento seja:
 - Clonagem de volumes seja de instantâneos
 - Restaurar volumes de instantâneos (snap-REVERT)
 
-**Resumo**: Azure NetApp Files é um armazenamento de baixa latência certificado pelo Hana que permite implantar volumes e compartilhamentos de NFS e SMB. O armazenamento vem com três níveis de serviço diferentes que fornecem taxa de transferência e IOPS diferentes de maneira linear por capacidade de GiB do volume. O armazenamento seja está habilitando para implantar SAP HANA cenários de expansão com um nó em espera. O armazenamento é adequado para fornecer compartilhamentos de arquivos conforme necessário para o/sapmnt ou o diretório de transporte global do SAP. O armazenamento seja é fornecido com a disponibilidade de funcionalidade que está disponível como uma funcionalidade nativa do NetApp.  
+**Resumo** : Azure NetApp Files é um armazenamento de baixa latência certificado pelo Hana que permite implantar volumes e compartilhamentos de NFS e SMB. O armazenamento vem com três níveis de serviço diferentes que fornecem taxa de transferência e IOPS diferentes de maneira linear por capacidade de GiB do volume. O armazenamento seja está habilitando para implantar SAP HANA cenários de expansão com um nó em espera. O armazenamento é adequado para fornecer compartilhamentos de arquivos conforme necessário para o/sapmnt ou o diretório de transporte global do SAP. O armazenamento seja é fornecido com a disponibilidade de funcionalidade que está disponível como uma funcionalidade nativa do NetApp.  
 
 
 
@@ -291,7 +291,7 @@ Em comparação com o armazenamento HDD standard do Azure, o armazenamento SSD s
 | Resiliência | LRS, GRS | Nenhum ZRS disponível para discos |
 | Latency | high | muito alto para o diretório de transporte global do SAP ou sistemas de produção |
 | SLA DE IOPS | Não | - |
-| IOPS máximo por disco | 500 | Independentemente do tamanho do disco |
+| IOPS máxima por disco | 500 | Independentemente do tamanho do disco |
 | SLA de produtividade | Não | - |
 | Certificado pelo HANA | Não | - |
 | Instantâneos de disco possíveis | YES | - |
@@ -318,7 +318,7 @@ O armazenamento de HDD Standard do Azure era o único tipo de armazenamento quan
 | Resiliência | LRS, GRS | Nenhum ZRS disponível para discos |
 | Latency | high | muito alto para uso de DBMS, diretório de transporte global do SAP ou sapmnt/saploc |
 | SLA DE IOPS | Não | - |
-| IOPS máximo por disco | 500 | Independentemente do tamanho do disco |
+| IOPS máxima por disco | 500 | Independentemente do tamanho do disco |
 | SLA de produtividade | Não | - |
 | Certificado pelo HANA | Não | - |
 | Instantâneos de disco possíveis | YES | - |
@@ -352,11 +352,10 @@ Ao dimensionar as VMs do Azure no ciclo de vida de um sistema SAP, você deve av
 
 
 ## <a name="striping-or-not-striping"></a>Distribuição ou não distribuição
-A criação de um conjunto de distribuição de vários discos do Azure em um volume maior permite que você acumule a IOPS e a taxa de transferência dos discos individuais em um volume. Ele é usado somente para armazenamento standard do Azure e armazenamento Premium do Azure. O ultra Disk do Azure, no qual você pode configurar a taxa de transferência e IOPS independentes da capacidade de um disco, não requer o uso de conjuntos de distribuição. Volumes compartilhados baseados em NFS ou SMB não podem ser distribuídos. Devido à natureza não linear da taxa de transferência e do IOPS do armazenamento Premium do Azure, você pode provisionar capacidade menor com a mesma IOPS e taxa de transferência do que grandes discos únicos de armazenamento Premium do Azure. Esse é o método para obter uma taxa de transferência maior ou IOPS com custo mais baixo usando o armazenamento Premium do Azure. Por exemplo:
+A criação de um conjunto de distribuição de vários discos do Azure em um volume maior permite que você acumule a IOPS e a taxa de transferência dos discos individuais em um volume. Ele é usado somente para armazenamento standard do Azure e armazenamento Premium do Azure. O ultra Disk do Azure, no qual você pode configurar a taxa de transferência e IOPS independentes da capacidade de um disco, não requer o uso de conjuntos de distribuição. Volumes compartilhados baseados em NFS ou SMB não podem ser distribuídos. Devido à natureza não linear da taxa de transferência e do IOPS do armazenamento Premium do Azure, você pode provisionar capacidade menor com a mesma IOPS e taxa de transferência do que grandes discos únicos de armazenamento Premium do Azure. Esse é o método para obter uma taxa de transferência maior ou IOPS com custo mais baixo usando o armazenamento Premium do Azure. Por exemplo, a distribuição entre dois discos de armazenamento P15 Premium leva a uma taxa de transferência de: 
 
-- A distribuição entre dois discos de armazenamento P15 Premium leva você a uma taxa de transferência de 
 - 250 MiB/s. Esse volume terá 512 GiB de capacidade. Se você quiser ter um único disco que fornece 250 de taxa de transferência de MiB por segundo, precisaria escolher um disco P40 com 2 TiB de capacidade. 
-- Ou você pode obter uma taxa de transferência de 400 MiB/s distribuindo quatro discos de armazenamento Premium P10 com uma capacidade geral de 512 GiB por distribuição. Se você quiser ter um único disco com um mínimo de 500 de taxa de transferência MiB por segundo, precisaria escolher um disco de armazenamento Premium P60 com 8 TiB. Como o armazenamento Premium ou de custo é quase linear com a capacidade, você pode perceber a economia de custos usando a distribuição.
+- 400 MiB/s por meio da distribuição de quatro discos de armazenamento Premium P10 com uma capacidade geral de 512 GiB por distribuição. Se você quiser ter um único disco com um mínimo de 500 de taxa de transferência MiB por segundo, precisaria escolher um disco de armazenamento Premium P60 com 8 TiB. Como o custo do armazenamento Premium é quase linear com a capacidade, você pode perceber a economia de custos usando a distribuição.
 
 Algumas regras precisam ser seguidas na distribuição:
 

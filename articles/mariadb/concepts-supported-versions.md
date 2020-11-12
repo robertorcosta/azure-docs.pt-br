@@ -1,17 +1,17 @@
 ---
 title: Versões com suporte – banco de dados do Azure para MariaDB
 description: Saiba quais versões do servidor MariaDB têm suporte no banco de dados do Azure para o serviço MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/20/2020
-ms.openlocfilehash: 0b495bf21b1f78e5e6a9285f67e1769d2d2a0db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbf32626714200e6712c67b701ebc597c4a7ba7e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065692"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541021"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Banco de Dados do Azure Suportado para as versões do servidor MariaDB
 
@@ -43,4 +43,4 @@ Atualmente, não há suporte para atualizações de versão principal e secundá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço**, confira [Camadas de serviço](./concepts-pricing-tiers.md).
+- Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço** , confira [Camadas de serviço](./concepts-pricing-tiers.md).

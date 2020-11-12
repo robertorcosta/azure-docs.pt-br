@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489124"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542126"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -107,6 +107,16 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
   + **azureml-train-automl-client**
     + Corrigido um problema em que get_output pode gerar um XGBoostError.
 
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de outubro)
++ **Novos recursos**
+  + [Suporte completo à rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [Modo de foco](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + Salvar blocos de anotações Ctrl-S
+  + Números de Linha
+
++ **Correções de bugs e melhorias**
+  + Melhoria em velocidade e confiabilidade do kernel
+  + Atualizações da interface do usuário do widget Jupyter
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -787,7 +797,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Descrição  |
+| Ferramenta baseada na Web  |     Description  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1299,7 +1309,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Descrição | 
+| Ferramenta baseada na Web | Description | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 

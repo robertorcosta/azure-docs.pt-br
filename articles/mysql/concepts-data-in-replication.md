@@ -1,17 +1,17 @@
 ---
 title: Replicação de dados do Azure para MySQL
 description: Saiba mais sobre como usar a replicação de dados para sincronizar de um servidor externo no banco de dados do Azure para o serviço MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: e84f0c9beaee8a755499467925d28a83ba3139fc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544045"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541582"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
 
@@ -46,7 +46,7 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/8.0/en/rep
 - Verifique se o computador que hospeda o servidor de origem permite o tráfego de entrada e de saída na porta 3306.
 - Verifique se o servidor de origem tem um **endereço IP público** , se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 - A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.
 - O GTID (identificadores de transação globais) não são compatíveis.
 

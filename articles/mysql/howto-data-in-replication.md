@@ -1,17 +1,17 @@
 ---
 title: Configurar o data-in Replication-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544028"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541395"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
@@ -20,7 +20,7 @@ Este artigo descreve como configurar [replicação de dados](concepts-data-in-re
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_ . O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
 >
 
 Para criar uma réplica no serviço de banco de dados do Azure para MySQL, [replicação de dados](concepts-data-in-replication.md)  sincroniza dados de um servidor MySQL de origem local, em VMS (máquinas virtuais) ou em serviços de banco de dados de nuvem. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -134,17 +134,17 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    **Workbench do MySQL**
 
-   Para criar a função de replicação no Workbench do MySQL, abra o painel **Usuários e Privilégios** do painel **Gerenciamento** . Em seguida, clique em **Adicionar Conta** . 
+   Para criar a função de replicação no Workbench do MySQL, abra o painel **Usuários e Privilégios** do painel **Gerenciamento**. Em seguida, clique em **Adicionar Conta**. 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Privilégios e usuários":::
 
-   Digite o nome de usuário no campo **Nome de Logon** . 
+   Digite o nome de usuário no campo **Nome de Logon**. 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Privilégios e usuários":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Sincronizar usuário":::
  
-   Clique no painel **Funções Administrativas** painel e selecione **Replicação Subordinada** na lista de **Privilégios Globais** . Em seguida, clique em **Aplicar** para criar a função de replicação.
+   Clique no painel **Funções Administrativas** painel e selecione **Replicação Subordinada** na lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar a função de replicação.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Privilégios e usuários":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replicação subordinada":::
 
 1. Definir o servidor de origem para o modo somente leitura
 
@@ -164,7 +164,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    ```
    Os resultados devem ser assim. Anote o nome de arquivo binário, pois ele será usado em etapas posteriores.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Privilégios e usuários":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Resultados de status do mestre":::
  
 ## <a name="dump-and-restore-source-server"></a>Despejar e restaurar o servidor de origem
 
@@ -206,7 +206,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
    > [!NOTE]
-   > Se o servidor de origem estiver hospedado em uma VM do Azure, defina "permitir acesso aos serviços do Azure" como "ativado" para permitir que os servidores de origem e de réplica se comuniquem entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão** . Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
+   > Se o servidor de origem estiver hospedado em uma VM do Azure, defina "permitir acesso aos serviços do Azure" como "ativado" para permitir que os servidores de origem e de réplica se comuniquem entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão**. Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
       
    **Exemplos**
    

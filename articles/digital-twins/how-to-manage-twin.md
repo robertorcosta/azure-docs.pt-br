@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360064"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540960"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -26,6 +26,10 @@ Este artigo se concentra no gerenciamento de gêmeos digitais; para trabalhar co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Maneiras de gerenciar gêmeos
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Criar um teledigital
 
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Você pode ler mais sobre as classes auxiliares de serialização em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Exibir todos os gêmeos digitais
+
+Para exibir todas as gêmeos digitais em sua instância, use uma [consulta](how-to-query-graph.md). Você pode executar uma consulta com as [APIs de consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos da CLI](how-to-use-cli.md).
+
+Aqui está o corpo da consulta básica que retornará uma lista de todos os gêmeos digitais na instância:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Atualizar um gêmeo digital
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [_Tutorial: Explore os conceitos básicos com um aplicativo cliente de exemplo *](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllTwins()` função.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Gerenciar gêmeos usando o exemplo de código executável
+## <a name="runnable-digital-twin-code-sample"></a>Exemplo de código de teledigital executável
 
 Você pode usar o exemplo de código executável abaixo para criar um entrelaçar, atualizar seus detalhes e excluir o. 
 
@@ -535,22 +550,6 @@ Aqui está a saída do console do programa acima:
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Saída do console mostrando que o &quot;atualizar&quot; é criado, atualizado e excluído" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Gerenciar o gêmeos com a CLI
-
-O gêmeos também pode ser gerenciado usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [_How-to: Use a CLI do gêmeos digital do Azure *](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Exibir todos os gêmeos digitais
-
-Para exibir todas as gêmeos digitais em sua instância, use uma [consulta](how-to-query-graph.md). Você pode executar uma consulta com as [APIs de consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos da CLI](how-to-use-cli.md).
-
-Aqui está o corpo da consulta básica que retornará uma lista de todos os gêmeos digitais na instância:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte como criar e gerenciar relações entre seu gêmeos digital:
-* [*Como: gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md)
+Veja como criar e gerenciar relações entre seu gêmeos digital: _ [ *como: gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md)
