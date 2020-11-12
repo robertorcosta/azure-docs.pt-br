@@ -3,19 +3,21 @@ title: 'Tutorial: Criar aplicativos móveis com o Xamarin e o Azure Cosmos DB'
 description: 'Tutorial: Um tutorial que cria um aplicativo iOS, Android ou Forms do Xamarin usando o Azure Cosmos DB. O Azure Cosmos DB é um banco de dados na nuvem para aplicativos móveis rápido e em escala mundial.'
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2aa4e7d063141f74dc94e5f23cd227fcc16ba84f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ec5888ba596579c6bbbf6891ca5e578e80003d80
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487408"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333266"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutorial: Criar aplicativos móveis com o Xamarin e o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -46,9 +48,9 @@ O Azure Cosmos DB fornece as seguintes funcionalidades principais para desenvolv
 O tutorial a seguir mostra como criar um aplicativo móvel usando o Xamarin e o Azure Cosmos DB. Encontre o código-fonte completo para o tutorial em [Xamarin e Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
 ### <a name="get-started"></a>Introdução
-É fácil começar a usar o Azure Cosmos DB. Acesse o portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique na guia **Início rápido** . Baixe a amostra de lista de tarefas pendentes do Xamarin Forms que já está conectada à sua conta do Azure Cosmos DB. 
+É fácil começar a usar o Azure Cosmos DB. Acesse o portal do Azure e crie uma nova conta do Azure Cosmos DB. Clique na guia **Início rápido**. Baixe a amostra de lista de tarefas pendentes do Xamarin Forms que já está conectada à sua conta do Azure Cosmos DB. 
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Funcionalidades do Azure Cosmos DB para aplicativos móveis":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Início rápido do Azure Cosmos DB para aplicativos móveis":::
 
 Ou se você tiver um aplicativo do Xamarin existente, adicione o [pacote NuGet do Azure Cosmos DB](sql-api-sdk-dotnet-core.md). O Azure Cosmos DB dá suporte às bibliotecas compartilhadas do Xamarin.iOS, Xamarin.Android e Xamarin Forms.
 
@@ -86,19 +88,19 @@ Siga estas etapas para modificar o aplicativo de lista de tarefas pendentes para
 
 Você pode encontrar um exemplo de código completo desse padrão em [Agente de Token de Recurso no GitHub](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Este diagrama ilustra a solução:
 
-:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Funcionalidades do Azure Cosmos DB para aplicativos móveis" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Agente de usuários e permissões do Azure Cosmos DB" border="false":::
 
 Se você desejar que dois usuários tenham acesso à mesma lista de tarefas pendentes, poderá adicionar permissões adicionais para o token de acesso no Agente de Token de Recurso.
 
 ### <a name="scale-on-demand"></a>Dimensionar sob demanda
 O Azure Cosmos DB é um banco de dados como serviço gerenciado. Conforme cresce a sua base de usuários, você não precisa se preocupar sobre o provisionamento de máquinas virtuais ou aumentando núcleos. Basta informar ao Azure Cosmos DB de quantas operações por segundo (produtividade) seu aplicativo precisa. Você pode especificar a taxa de transferência por meio da guia **Escala** usando uma medida de taxa de transferência chamada RUs (unidades de solicitação) por segundo. Por exemplo, uma operação de leitura em um documento de 1 KB exige uma RU. Você pode também adicionar alertas à métrica **Taxa de transferência** para monitorar o aumento do tráfego e alterar a taxa de transferência programaticamente conforme os alertas são disparados.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Funcionalidades do Azure Cosmos DB para aplicativos móveis":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Taxa de transferência de escala do Azure Cosmos DB sob demanda":::
 
 ### <a name="go-planet-scale"></a>Escala mundial
 À medida que o aplicativo ganhar popularidade, talvez você ganhe usuários em todo o mundo. Ou talvez você queira estar preparado para eventos inesperados. Acesse o portal do Azure e abra sua conta do Azure Cosmos DB. Clique no mapa para fazer com que seus dados sejam replicados continuamente para qualquer número de regiões em todo o mundo. Essa funcionalidade torna os dados disponíveis, onde quer que os usuários estejam. Você também pode adicionar políticas de failover para estar preparado para contingências.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Funcionalidades do Azure Cosmos DB para aplicativos móveis" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Escala do Azure Cosmos DB entre regiões geográficas" border="false":::
 
 Parabéns. Você concluiu a solução e tem um aplicativo móvel com o Xamarin e o Azure Cosmos DB. Siga etapas semelhantes para criar aplicativos Cordova usando o SDK do JavaScript do Azure Cosmos DB e aplicativos iOS/Android nativos usando APIs REST do Azure Cosmos DB.
 

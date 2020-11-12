@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069605"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422919"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning no Azure Functions com o Python e o TensorFlow
 
@@ -116,7 +116,7 @@ Você executará todos os comandos posteriores neste ambiente virtual ativado. (
 
 No Azure Functions, um projeto de função é um contêiner para uma ou mais funções individuais que respondem, cada uma, a um gatilho específico. Todas as funções em um projeto compartilham as configurações locais e de hospedagem. Nesta seção, você criará um projeto de função que contém uma só função clichê chamada `classify` que fornece um ponto de extremidade HTTP. Você adicionará um código mais específico em uma seção posterior.
 
-1. Na pasta *start*, use o Azure Functions Core Tools para inicializar um aplicativo de funções do Python:
+1. Na pasta *start* , use o Azure Functions Core Tools para inicializar um aplicativo de funções do Python:
 
     ```
     func init --worker-runtime python
@@ -133,12 +133,12 @@ No Azure Functions, um projeto de função é um contêiner para uma ou mais fun
     func new --name classify --template "HTTP trigger"
     ```
 
-    Esse comando cria uma pasta correspondente ao nome da função, *classify*. Nessa pasta, há dois arquivos: *\_\_init\_\_.py*, que contém o código da função, e *function.json*, que descreve o gatilho da função e as associações de entrada e saída. Para obter detalhes sobre o conteúdo desses arquivos, confira [Examinar o conteúdo do arquivo](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) no início rápido do Python.
+    Esse comando cria uma pasta correspondente ao nome da função, *classify*. Nessa pasta, há dois arquivos: *\_\_init\_\_.py* , que contém o código da função, e *function.json* , que descreve o gatilho da função e as associações de entrada e saída. Para obter detalhes sobre o conteúdo desses arquivos, confira [Examinar o conteúdo do arquivo](./create-first-function-cli-python.md#optional-examine-the-file-contents) no início rápido do Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
-1. Inicie a função iniciando o host de runtime local do Azure Functions na pasta *start*:
+1. Inicie a função iniciando o host de runtime local do Azure Functions na pasta *start* :
 
     ```
     func start
@@ -158,7 +158,7 @@ Para criar o próprio modelo usando a camada gratuita do Serviço de Visão Pers
 > [!TIP]
 > Se desejar hospedar seu modelo TensorFlow independente do aplicativo de funções, poderá montar um compartilhamento de arquivo que contenha seu modelo para seu aplicativo de funções do Linux. Para saber mais, confira [Montar um compartilhamento de arquivo para um aplicativo de funções Python usando a CLI do Azure](./scripts/functions-cli-mount-files-storage-linux.md).
 
-1. Na pasta *start*, execute o comando a seguir para copiar os arquivos de modelo para a pasta *classify*. Lembre-se de incluir `\*` no comando. 
+1. Na pasta *start* , execute o comando a seguir para copiar os arquivos de modelo para a pasta *classify*. Lembre-se de incluir `\*` no comando. 
 
     # <a name="bash"></a>[Bash](#tab/bash)
     
@@ -182,7 +182,7 @@ Para criar o próprio modelo usando a camada gratuita do Serviço de Visão Pers
     
 1. Verifique se a pasta *classify* contém arquivos chamados *model.pb* e *labels.txt*. Caso contrário, verifique se você executou o comando na pasta *start*.
 
-1. Na pasta *start*, execute o seguinte comando para copiar um arquivo com o código auxiliar para a pasta *classify*:
+1. Na pasta *start* , execute o seguinte comando para copiar um arquivo com o código auxiliar para a pasta *classify* :
 
     # <a name="bash"></a>[Bash](#tab/bash)
     
@@ -229,7 +229,7 @@ Para criar o próprio modelo usando a camada gratuita do Serviço de Visão Pers
 
 ## <a name="update-the-function-to-run-predictions"></a>Atualizar a função para executar previsões
 
-1. Abra *classify/\_\_init\_\_.py* em um editor de texto e adicione as seguintes linhas após as instruções `import` existentes para importar a biblioteca JSON padrão e os auxiliares de *previsão*:
+1. Abra *classify/\_\_init\_\_.py* em um editor de texto e adicione as seguintes linhas após as instruções `import` existentes para importar a biblioteca JSON padrão e os auxiliares de *previsão* :
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

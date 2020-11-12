@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 294a3dc9525ba0a0c533d68027b148ad402cd7ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f69b62f39b7e62eea26cc4d8511505056c6821bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321273"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treinar e implantar um modelo da CLI
 
@@ -39,7 +39,7 @@ Saiba como executar as seguintes ações:
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Para usar os comandos da CLI deste documento em seu **ambiente local** , você precisará da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se você usar o [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), a CLI será acessada por meio do navegador e residirá na nuvem.
 
@@ -103,7 +103,7 @@ az extension update -n azure-cli-ml
 
 Um grupo de recursos é um contêiner de recursos na plataforma do Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá seu workspace do Azure Machine Learning. Ele também conterá outros serviços do Azure usados pelo workspace. Por exemplo, se você treinar seu modelo usando um recurso de computação baseado em nuvem, esse recurso será criado no grupo de recursos.
 
-Para __criar um grupo de recursos__, use o comando a seguir. Substitua `<resource-group-name>` pelo nome a ser usado para esse grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
+Para __criar um grupo de recursos__ , use o comando a seguir. Substitua `<resource-group-name>` pelo nome a ser usado para esse grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
 
 > [!TIP]
 > Você deve selecionar uma região na qual o Azure Machine Learning está disponível. Para obter informações, veja [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -128,7 +128,7 @@ A resposta desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest&preserve-view=true).
+Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 

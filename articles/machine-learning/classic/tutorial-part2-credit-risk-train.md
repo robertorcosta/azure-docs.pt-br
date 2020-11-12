@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c2782d15d8be82d07f14f7ada5732b1dbef699c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337634"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325683"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: treinar modelos de risco de crédito – Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvimento de uma solução de análise preditiva. Você desenvolverá um modelo simples no Machine Learning Studio (clássico).  Em seguida, você implantará o modelo como um serviço Web do Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **segunda parte de uma série de tutoriais de três partes**.
@@ -82,9 +82,9 @@ Esta parte do teste se parece um pouco com o seguinte:
 
 Agora, você precisará informar o módulo [Treinar Modelo][train-model] de que deseja que o modelo preveja o valor do Risco de Crédito.
 
-1. Selecione o módulo [Treinar Modelo][train-model]. No painel **Propriedades**, clique em **Iniciar seletor de coluna**.
+1. Selecione o módulo [Treinar Modelo][train-model]. No painel **Propriedades** , clique em **Iniciar seletor de coluna**.
 
-1. Na caixa de diálogo **Selecionar uma única coluna**, digite "risco de crédito" no campo de pesquisa sob **Colunas Disponíveis**, selecione "Risco de Crédito" abaixo e clique no botão de seta para a direita ( **>** ) para mover o "Risco de crédito" para **Colunas Selecionadas**. 
+1. Na caixa de diálogo **Selecionar uma única coluna** , digite "risco de crédito" no campo de pesquisa sob **Colunas Disponíveis** , selecione "Risco de Crédito" abaixo e clique no botão de seta para a direita ( **>** ) para mover o "Risco de crédito" para **Colunas Selecionadas**. 
 
     ![Selecione a coluna Risco de Crédito para o módulo Modelo de Treinamento](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -116,9 +116,9 @@ Esta parte de nosso teste deve se parecer um pouco com o seguinte:
 
 Agora configure o módulo [Normalizar Dados][normalize-data]:
 
-1. clique para selecionar o módulo [Normalizar Dados][normalize-data]. No painel **Propriedades**, selecione **Tanh** para o parâmetro **Método de transformação**.
+1. clique para selecionar o módulo [Normalizar Dados][normalize-data]. No painel **Propriedades** , selecione **Tanh** para o parâmetro **Método de transformação**.
 
-1. Clique no **Seletor de coluna de inicialização**, selecione “Sem colunas” para **Começar Com**, selecione **Incluir** na primeira lista suspensa, selecione **tipo de coluna** na segunda lista suspensa e selecione **Numérico** na terceira lista suspensa. Isso especifica que todas as colunas numéricas (e somente as numéricas) serão transformadas.
+1. Clique no **Seletor de coluna de inicialização** , selecione “Sem colunas” para **Começar Com** , selecione **Incluir** na primeira lista suspensa, selecione **tipo de coluna** na segunda lista suspensa e selecione **Numérico** na terceira lista suspensa. Isso especifica que todas as colunas numéricas (e somente as numéricas) serão transformadas.
 
 1. Clique no sinal de adição (+) à direita desta linha - isso cria uma nova linha de listas suspensas. Selecione **Excluir** na primeira lista suspensa, selecione **nomes de coluna** na segunda lista suspensa e insira "Risco de Crédito" no campo de texto. Isso especifica que a coluna Risco de Crédito deve ser ignorada (você precisará fazer isso porque essa coluna é numérica e, portanto, será transformada se você não a excluir).
 
@@ -224,14 +224,14 @@ Agora você está pronto para implantar modelos para esses dados.
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

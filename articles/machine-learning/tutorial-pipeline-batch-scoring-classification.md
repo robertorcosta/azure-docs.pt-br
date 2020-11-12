@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 3f131e1f8d5604e566c8d7b41fa9d45cb7d2a7a2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054875"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309462"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 
@@ -63,7 +63,7 @@ ws = Workspace.from_config()
 
 Na conta `pipelinedata`, obtenha a amostra de dados públicos de avaliação do ImageNet do contêiner de blobs público `sampledata`. Chamar `register_azure_blob_container()` disponibiliza os dados para o workspace com o nome `images_datastore`. Em seguida, defina o armazenamento de dados padrão do workspace como o armazenamento de dados de saída. Use o armazenamento de dados de saída para pontuar a saída no pipeline.
 
-Para obter mais informações sobre como acessar dados, confira [Como acessar dados](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk).
+Para obter mais informações sobre como acessar dados, confira [Como acessar dados](./how-to-access-data.md).
 
 ```python
 from azureml.core.datastore import Datastore
@@ -142,7 +142,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Os pipelines de aprendizado de máquina não podem ser executados localmente; portanto, execute-os nos recursos de nuvem ou nos *destinos de computação remota*. Um destino de computação remota é um ambiente de computação virtual reutilizável em que você executa experimentos e fluxos de trabalho de aprendizado de máquina. 
 
-Execute o código a seguir para criar um destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) habilitado para GPU e anexe-o ao seu workspace. Para obter mais informações sobre destinos de computação, confira o [artigo conceitual](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
+Execute o código a seguir para criar um destino [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) habilitado para GPU e anexe-o ao seu workspace. Para obter mais informações sobre destinos de computação, confira o [artigo conceitual](./concept-compute-target.md).
 
 
 ```python
@@ -305,7 +305,7 @@ Uma etapa de pipeline é um objeto que encapsula tudo o que você precisa para e
 * Dados de entrada e de saída e parâmetros personalizados
 * Referência a um script ou lógica de SDK a ser executada durante a etapa
 
-Várias classes herdam da classe pai [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true). É possível escolher classes para usar estruturas específicas ou pilhas para criar uma etapa. Neste exemplo, você usará a classe `ParallelRunStep` para definir a lógica da etapa usando um script Python personalizado. Se um argumento para o script for uma entrada para a etapa ou uma saída da etapa, ele precisará ser definido *igualmente* na matriz `arguments`*e* no parâmetro `input` ou `output`, respectivamente. 
+Várias classes herdam da classe pai [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). É possível escolher classes para usar estruturas específicas ou pilhas para criar uma etapa. Neste exemplo, você usará a classe `ParallelRunStep` para definir a lógica da etapa usando um script Python personalizado. Se um argumento para o script for uma entrada para a etapa ou uma saída da etapa, ele precisará ser definido *igualmente* na matriz `arguments`*e* no parâmetro `input` ou `output`, respectivamente. 
 
 Nos cenários em que há mais de uma etapa, uma referência de objeto na matriz `outputs` torna-se disponível como uma *entrada* para uma etapa de pipeline seguinte.
 
@@ -329,7 +329,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Para obter uma lista de todas as classes que podem ser usadas para diferentes tipos de etapa, confira o [pacote de etapas](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true).
+Para obter uma lista de todas as classes que podem ser usadas para diferentes tipos de etapa, confira o [pacote de etapas](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
@@ -386,9 +386,9 @@ published_pipeline
 
 Para executar o pipeline no ponto de extremidade REST, é necessário um cabeçalho de autenticação do tipo Portador do OAuth2. O exemplo a seguir usa a autenticação interativa (para fins de ilustração), mas para a maioria dos cenários de produção que exigem autenticação automatizada ou sem periféricos, use a autenticação da entidade de serviço [descrita neste artigo](how-to-setup-authentication.md).
 
-A autenticação de entidade de serviço envolve a criação de um *Registro de Aplicativo* no *Azure Active Directory*. Primeiro, gere um segredo do cliente e, em seguida, conceda à sua entidade de serviço *acesso de função* ao Workspace do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) para gerenciar o fluxo de autenticação. 
+A autenticação de entidade de serviço envolve a criação de um *Registro de Aplicativo* no *Azure Active Directory*. Primeiro, gere um segredo do cliente e, em seguida, conceda à sua entidade de serviço *acesso de função* ao Workspace do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) para gerenciar o fluxo de autenticação. 
 
-Ambos [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) e `ServicePrincipalAuthentication` são herdados de `AbstractAuthentication`. Em ambos os casos, você usa a função [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) da mesma maneira para buscar o cabeçalho:
+Ambos [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) e `ServicePrincipalAuthentication` são herdados de `AbstractAuthentication`. Em ambos os casos, você usa a função [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) da mesma maneira para buscar o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

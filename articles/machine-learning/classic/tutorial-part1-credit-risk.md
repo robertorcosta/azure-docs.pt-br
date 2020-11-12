@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6947c567ee2ffd70fdb3a1dfc17a641f63124ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337675"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325795"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito – Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -65,7 +65,7 @@ Após criar o espaço de trabalho, abra o Microsoft Machine Learning Studio (cl�
 > [!TIP]
 > Se você for proprietário do workspace, será possível compartilhar os experimentos em que está trabalhando convidando outras pessoas para o workspace. Você pode fazer isso no Machine Learning Studio (clássico) na página **CONFIGURAÇÕES**. Basta ter a conta da Microsoft ou a conta da empresa de cada usuário.
 > 
-> Na página **CONFIGURAÇÕES**, clique em **USUÁRIOS** e, em seguida, clique em **CONVIDAR MAIS USUÁRIOS** na parte inferior da janela.
+> Na página **CONFIGURAÇÕES** , clique em **USUÁRIOS** e, em seguida, clique em **CONVIDAR MAIS USUÁRIOS** na parte inferior da janela.
 > 
 
 ## <a name="upload-existing-data"></a><a name="upload"></a>Carregar dados existentes
@@ -75,7 +75,7 @@ Para desenvolver um modelo preditivo para risco de crédito, você precisará de
 
 Use o arquivo chamado **german.data**. Baixe esse arquivo em sua unidade de disco rígido local.  
 
-O conjunto de dados **german.data** contém linhas de 20 variáveis para 1000 candidatos antigos de crédito. Essas 20 variáveis representam o conjunto de recursos do conjunto de dados (o *vetor de recurso*), que fornece características de identificação para cada candidato de crédito. Uma coluna adicional em cada linha representa o risco de crédito calculado do candidato, com 700 candidatos identificados como um risco de crédito baixo e 300 como um alto risco.
+O conjunto de dados **german.data** contém linhas de 20 variáveis para 1000 candidatos antigos de crédito. Essas 20 variáveis representam o conjunto de recursos do conjunto de dados (o *vetor de recurso* ), que fornece características de identificação para cada candidato de crédito. Uma coluna adicional em cada linha representa o risco de crédito calculado do candidato, com 700 candidatos identificados como um risco de crédito baixo e 300 como um alto risco.
 
 O website do UCI fornece uma descrição dos atributos do vetor de recurso para esses dados. Esses dados incluem informações financeiras, histórico de crédito, status de emprego e informações pessoais. Para cada candidato, foi dada uma classificação binária indicando se são um risco baixo ou alto de crédito. 
 
@@ -119,7 +119,7 @@ Depois que os dados tiverem sido convertidos no formato CSV, você deverá fazer
 
 1. Abra a página inicial do Machine Learning Studio (clássico) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Clique em ![Menu](./media/tutorial-part1-credit-risk/menu.png) no canto superior esquerdo da janela, clique em **Azure Machine Learning**, selecione **Estúdio** e entre.
+2. Clique em ![Menu](./media/tutorial-part1-credit-risk/menu.png) no canto superior esquerdo da janela, clique em **Azure Machine Learning** , selecione **Estúdio** e entre.
 
 3. Clique em **+NOVO** na parte inferior da janela.
 
@@ -129,7 +129,7 @@ Depois que os dados tiverem sido convertidos no formato CSV, você deverá fazer
 
     ![Adicionar um conjunto de dados de um arquivo local](./media/tutorial-part1-credit-risk/add-dataset.png)
 
-6. Na caixa de diálogo **Carregar um novo conjunto de dados**, clique em Pesquisar e localize o arquivo **german.csv** que você criou.
+6. Na caixa de diálogo **Carregar um novo conjunto de dados** , clique em Pesquisar e localize o arquivo **german.csv** que você criou.
 
 7. Insira um nome para o conjunto de dados. Para este tutorial, vamos chamá-lo de "Dados do cartão de crédito alemão UCI".
 
@@ -154,7 +154,7 @@ Para saber mais sobre como importar outros tipos de dados para um experimento, c
 A próxima etapa do tutorial é criar um experimento no Machine Learning Studio (clássico) que usa o conjunto de dados que você carregou.  
 
 1. No Studio (clássico), clique em **+NOVO** na parte inferior da janela.
-1. Selecione **TESTE**e, em seguida, selecione "Teste em branco". 
+1. Selecione **TESTE** e, em seguida, selecione "Teste em branco". 
 
     ![Criar um novo experimento](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -164,7 +164,7 @@ A próxima etapa do tutorial é criar um experimento no Machine Learning Studio 
     ![Renomear o teste](./media/tutorial-part1-credit-risk/rename-experiment.png)
 
    > [!TIP]
-   > É uma boa prática preencher**Resumo** e **Descrição** para o experimento no painel **Propriedades**. Essas propriedades lhe dão a chance de documentar o experimento para que qualquer pessoa que olhe para ele mais tarde compreenda as suas metas e a metodologia.
+   > É uma boa prática preencher **Resumo** e **Descrição** para o experimento no painel **Propriedades**. Essas propriedades lhe dão a chance de documentar o experimento para que qualquer pessoa que olhe para ele mais tarde compreenda as suas metas e a metodologia.
    > 
    > ![Propriedades de teste](./media/tutorial-part1-credit-risk/experiment-properties.png)
    > 
@@ -205,9 +205,9 @@ Para usar o módulo [Editar metadados][edit-metadata] é necessário especificar
     > ![Módulo Editar Metadados com comentário adicionado](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
     > 
 
-1. Selecione [Editar metadados][edit-metadata] e, no painel **Propriedades**, à direita da tela, clique em **Iniciar seletor de colunas**.
+1. Selecione [Editar metadados][edit-metadata] e, no painel **Propriedades** , à direita da tela, clique em **Iniciar seletor de colunas**.
 
-1. Na caixa de diálogo **Selecionar colunas**, selecione todas as linhas de **Colunas disponíveis** e clique em > para movê-las para **Colunas selecionadas**.
+1. Na caixa de diálogo **Selecionar colunas** , selecione todas as linhas de **Colunas disponíveis** e clique em > para movê-las para **Colunas selecionadas**.
    A caixa de diálogo deve ter esta aparência:
 
    ![Seletor de coluna com todas as colunas selecionadas](./media/tutorial-part1-credit-risk/select-columns.png)
@@ -215,7 +215,7 @@ Para usar o módulo [Editar metadados][edit-metadata] é necessário especificar
 
 1. Clique na marca de seleção **OK**.
 
-1. Volte ao painel **Propriedades**, procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar a seguinte lista:  
+1. Volte ao painel **Propriedades** , procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar a seguinte lista:  
 
    ```   
    Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
@@ -239,7 +239,7 @@ Para isso, use o módulo [Dividir Dados][split].
 
 1. Localize o módulo [Dividir Dados][split], arraste-o para a tela e conecte-o ao módulo [Editar metadados][edit-metadata].
 
-1. Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo [Dividir Dados][split] e a outra metade sairá por outra porta. É possível ajustar isso, bem como o parâmetro **Semente aleatória**, a fim de alterar a divisão entre dados de treinamento e teste. Neste exemplo, deixe no estado em que se encontra.
+1. Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo [Dividir Dados][split] e a outra metade sairá por outra porta. É possível ajustar isso, bem como o parâmetro **Semente aleatória** , a fim de alterar a divisão entre dados de treinamento e teste. Neste exemplo, deixe no estado em que se encontra.
    
    > [!TIP]
    > A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à *esquerda*. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
@@ -260,7 +260,7 @@ Você pode fazer essa replicação usando código em R:
 
 1. Clique duas vezes no módulo [Executar Script R][execute-r-script] e insira o comentário "Definir ajuste de custo".
 
-1. No painel **Propriedades**, exclua o texto padrão no parâmetro **Script R** e insira esse script:
+1. No painel **Propriedades** , exclua o texto padrão no parâmetro **Script R** e insira esse script:
    
     ```r
     dataset1 <- maml.mapInputPort(1)
@@ -313,6 +313,6 @@ Agora você está pronto para treinar e avaliar modelos para esses dados.
 > [Tutorial 2 – treinar e avaliar modelos](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

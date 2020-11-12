@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530061"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423021"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer o acesso a sites particulares do Azure Functions
 
@@ -57,7 +57,7 @@ A primeira etapa deste tutorial é criar uma máquina virtual dentro de uma rede
 
 1. Selecione **Windows Server 2019 Datacenter** na lista de opções do Windows Server e selecione o botão **Criar**.
 
-1. Na guia _Informações Básicas_, use as configurações da VM, conforme especificado na tabela abaixo da imagem:
+1. Na guia _Informações Básicas_ , use as configurações da VM, conforme especificado na tabela abaixo da imagem:
 
     >[!div class="mx-imgBorder"]
     >![Guia Informações Básicas de uma nova VM do Windows](./media/functions-create-private-site-access/create-vm-3.png)
@@ -75,7 +75,7 @@ A primeira etapa deste tutorial é criar uma máquina virtual dentro de uma rede
     >[!div class="mx-imgBorder"]
     >![Captura de tela que mostra a guia "Rede" com a ação "Criar" realçada na seção "Rede virtual".](./media/functions-create-private-site-access/create-vm-networking.png)
 
-1. Em _Criar rede virtual_, use as configurações na tabela abaixo da imagem:
+1. Em _Criar rede virtual_ , use as configurações na tabela abaixo da imagem:
 
     >[!div class="mx-imgBorder"]
     >![Criar uma rede virtual para a nova VM](./media/functions-create-private-site-access/create-vm-vnet-1.png)
@@ -88,9 +88,9 @@ A primeira etapa deste tutorial é criar uma máquina virtual dentro de uma rede
     | _Intervalo de endereços_ (sub-rede) | 10.10.1.0/24 | O tamanho da sub-rede define o número de interfaces que podem ser adicionadas à sub-rede. Essa sub-rede é usada pela VM. Uma sub-rede /24 fornece 254 endereços de host. |
 
 1. Selecione **OK** para criar a rede virtual.
-1. De volta à guia _Rede_, verifique se **Nenhum** está selecionado em _IP Público_.
-1. Escolha a guia _Gerenciamento_ e, em _Conta de armazenamento de diagnóstico_, escolha **Criar** para criar uma conta de armazenamento.
-1. Mantenha os valores padrão nas seções _Identidade_, _Desligamento automático_ e _Backup_.
+1. De volta à guia _Rede_ , verifique se **Nenhum** está selecionado em _IP Público_.
+1. Escolha a guia _Gerenciamento_ e, em _Conta de armazenamento de diagnóstico_ , escolha **Criar** para criar uma conta de armazenamento.
+1. Mantenha os valores padrão nas seções _Identidade_ , _Desligamento automático_ e _Backup_.
 1. Selecione _Examinar + criar_. Depois de concluir a validação, selecione **Criar**. O processo de criação da VM leva alguns minutos.
 
 ## <a name="configure-azure-bastion"></a>Configurar o Azure Bastion
@@ -100,7 +100,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
 1. No portal, escolha **Adicionar** na parte superior da exibição do grupo de recursos.
 1. No campo de pesquisa, digite **Bastion**.
 1. Selecione **Bastion** nos resultados da pesquisa.
-1. Selecione **Criar** para iniciar o processo de criação de um recurso do Azure Bastion. Você observará uma mensagem de erro na seção _Rede virtual_, pois ainda não há uma sub-rede AzureBastionSubnet. A sub-rede será criada nas etapas a seguir. Use as configurações da tabela abaixo da imagem:
+1. Selecione **Criar** para iniciar o processo de criação de um recurso do Azure Bastion. Você observará uma mensagem de erro na seção _Rede virtual_ , pois ainda não há uma sub-rede AzureBastionSubnet. A sub-rede será criada nas etapas a seguir. Use as configurações da tabela abaixo da imagem:
 
     >[!div class="mx-imgBorder"]
     >![Início da criação do Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
@@ -121,7 +121,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
     >[!div class="mx-imgBorder"]
     >![Criar a sub-rede para o host do Azure Bastion](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
-1. Na página _Criar um Bastion_, selecione o **AzureBastionSubnet** recém-criado na lista de sub-redes disponíveis.
+1. Na página _Criar um Bastion_ , selecione o **AzureBastionSubnet** recém-criado na lista de sub-redes disponíveis.
 
     >[!div class="mx-imgBorder"]
     >![Criar um host do Azure Bastion com uma sub-rede específica](./media/functions-create-private-site-access/create-bastion-basics-2.png)
@@ -134,7 +134,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
 
 1. No portal, escolha **Adicionar** na parte superior da exibição do grupo de recursos.
 1. Selecione **Computação > Aplicativo de Funções**
-1. Na seção _Informações Básicas_, use as configurações do aplicativo de funções especificadas na tabela abaixo.
+1. Na seção _Informações Básicas_ , use as configurações do aplicativo de funções especificadas na tabela abaixo.
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
@@ -145,7 +145,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
     | _Região_ | Centro-Norte dos EUA | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
     Selecione **Próximo: Hospedagem >** .
-1. Na seção _Hospedagem_, selecione a _Conta de armazenamento_, o _Sistema operacional_ e o _Plano_ adequados, conforme descrito na tabela a seguir.
+1. Na seção _Hospedagem_ , selecione a _Conta de armazenamento_ , o _Sistema operacional_ e o _Plano_ adequados, conforme descrito na tabela a seguir.
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
@@ -164,8 +164,8 @@ O acesso a [sites particulares](functions-networking-options.md#private-site-acc
 1. No aplicativo de funções, selecione o link **Rede** no cabeçalho da seção _Configurações_.
 1. A página _Rede_ é o ponto de partida para configurar o Azure Front Door, a CDN do Azure e também as Restrições de Acesso.
 1. Selecione **Configurar Restrições de Acesso** para configurar o acesso a sites particulares.
-1. Na página _Restrições de Acesso_, apenas a restrição padrão em vigor é exibida. O padrão não coloca nenhuma restrição no acesso ao aplicativo de funções.  Selecione **Adicionar regra** para criar uma configuração de restrição de acesso a sites particulares.
-1. No painel _Adicionar Restrição de Acesso_, forneça um _Nome_, uma _Prioridade_ e _Descrição_ para a nova regra.
+1. Na página _Restrições de Acesso_ , apenas a restrição padrão em vigor é exibida. O padrão não coloca nenhuma restrição no acesso ao aplicativo de funções.  Selecione **Adicionar regra** para criar uma configuração de restrição de acesso a sites particulares.
+1. No painel _Adicionar Restrição de Acesso_ , forneça um _Nome_ , uma _Prioridade_ e _Descrição_ para a nova regra.
 1. Selecione **Rede Virtual** na caixa suspensa _Tipo_ e a rede virtual criada anteriormente. Depois, selecione a sub-rede **Tutorial**. 
     > [!NOTE]
     > Podem ser necessários vários minutos para que o ponto de extremidade de serviço seja habilitado.
@@ -176,7 +176,7 @@ O acesso a [sites particulares](functions-networking-options.md#private-site-acc
 
 ## <a name="access-the-functions-app"></a>Acessar o aplicativo de funções
 
-1. Volte ao aplicativo de funções criado anteriormente.  Na seção _Visão Geral_, copie a URL.
+1. Volte ao aplicativo de funções criado anteriormente.  Na seção _Visão Geral_ , copie a URL.
 
     >[!div class="mx-imgBorder"]
     >![Obter a URL do aplicativo de funções](./media/functions-create-private-site-access/access-function-overview.png)
@@ -197,7 +197,7 @@ A próxima etapa deste tutorial será criar uma Função do Azure disparada por 
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Linha de comando](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Ao publicar seu projeto do Azure Functions, escolha o recurso de aplicativo de funções criado anteriormente neste tutorial.
 1. Verifique se a função foi implantada.

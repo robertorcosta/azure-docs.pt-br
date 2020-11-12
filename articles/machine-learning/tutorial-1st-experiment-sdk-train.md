@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f5c2690ea97136c2b7887a8450c2788e3902d4e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3ba5751e7a0c2369d505535896bbb4ff7523c02
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369953"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314572"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutorial: Treinar seu primeiro modelo de machine learning (parte 3 de 4)
 
@@ -98,7 +98,7 @@ trainset = torchvision.datasets.CIFAR10(
     transform=torchvision.transforms.ToTensor(),
 )
 trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True, num_workers=2
+    trainset, batch_size=4, shuffle=True
 )
 
 if __name__ == "__main__":
@@ -220,7 +220,7 @@ if __name__ == "__main__":
       `env = ...`
    :::column-end:::
    :::column span="2":::
-      O Azure Machine Learning fornece o conceito de [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) para representar um ambiente reproduzível com controle de versão do Python para a execução de experimentos. É fácil criar um ambiente de um ambiente Conda ou pip local.
+      O Azure Machine Learning fornece o conceito de [ambiente](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) para representar um ambiente reproduzível com controle de versão do Python para a execução de experimentos. É fácil criar um ambiente de um ambiente Conda ou pip local.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -228,7 +228,7 @@ if __name__ == "__main__":
       `config.run_config.environment = env`
    :::column-end:::
    :::column span="2":::
-      Adiciona o ambiente a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+      Adiciona o ambiente a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
    :::column-end:::
 :::row-end:::
 
@@ -398,7 +398,7 @@ Envie este script mais uma vez:
 python 04-run-pytorch.py
 ```
 
-Desta vez, quando você visitar o estúdio, acesse a guia **Métricas**, na qual agora poderá ver atualizações dinâmicas sobre a perda de treinamento do modelo.
+Desta vez, quando você visitar o estúdio, acesse a guia **Métricas** , na qual agora poderá ver atualizações dinâmicas sobre a perda de treinamento do modelo.
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Grafo de perda de treinamento na guia Métricas.":::
 
@@ -406,7 +406,7 @@ Desta vez, quando você visitar o estúdio, acesse a guia **Métricas**, na qual
 
 Nesta sessão, você atualizou de um script "Olá, Mundo!" básico para um script de treinamento mais realista que exigia a execução de um ambiente específico do Python. Você viu como levar um ambiente Conda local para a nuvem com ambientes do Azure Machine Learning. Por fim, em algumas linhas de código, você viu como pode registrar métricas em log para o Azure Machine Learning.
 
-Há outras maneiras de criar ambientes do Azure Machine Learning, incluindo [por meio de um arquivo requirements.txt do Pip](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-) ou [de um ambiente Conda local existente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
+Há outras maneiras de criar ambientes do Azure Machine Learning, incluindo [por meio de um arquivo requirements.txt do Pip](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#from-pip-requirements-name--file-path-) ou [de um ambiente Conda local existente](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-).
 
 Na próxima sessão, você verá como trabalhar com os dados no Azure Machine Learning carregando o conjunto de dados CIFAR10 para o Azure.
 

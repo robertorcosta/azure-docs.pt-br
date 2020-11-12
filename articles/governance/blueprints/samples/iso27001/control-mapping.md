@@ -1,14 +1,14 @@
 ---
 title: Exemplo de controles de blueprint da ISO 27001
 description: Mapeamento de controles da amostra de blueprint da ISO 27001. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 6e72f8ca25939b1cad8b2a5dc5bd3fc5fc286027
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931947"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420217"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint ISO 27001
 
@@ -65,7 +65,6 @@ Esse blueprint atribui três definições do [Azure Policy](../../../policy/over
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
 - Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
-- Implantar pré-requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisão dos direitos de acesso do usuário
 
@@ -100,11 +99,6 @@ Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de 10 
 - Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
 - Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
 - Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Política sobre o uso de controles de criptografia
 
@@ -113,7 +107,6 @@ Esse blueprint ajuda você a impor sua política sobre o uso de controles de cri
 - O aplicativo de funções deve ser acessível apenas por HTTPS
 - Aplicativo Web deve ser acessível somente por HTTPS
 - O aplicativo de API só deve estar acessível via HTTPS
-- Implantar pré-requisitos para auditar as VMs do Windows que não armazenam senhas usando a criptografia reversível
 - Mostrar os resultados da auditoria das VMs do Windows que não armazenam senhas usando a criptografia reversível
 - A criptografia de disco deve ser aplicada em máquinas virtuais
 - As variáveis da conta de automação devem ser criptografadas

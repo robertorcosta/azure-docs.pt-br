@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027504"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314843"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados com Spark
 
 Saiba como usar o HDInsight Spark para treinar modelos de machine learning para previsão de tarifa de táxi usando o Spark MLlib.
 
-Este exemplo demonstra as várias etapas no [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Um subconjunto do conjunto de dados da corrida de táxi de NYC e da tarifa 2013 é usado para carregar, explorar e preparar o dado. Em seguida, usando o Spark MLlib, os modelos de classificação binária e regressão são treinados para prever se será paga uma gorjeta pela viagem e estimar o valor da gorjeta.
+Este exemplo demonstra as várias etapas no [Processo de Ciência de Dados de Equipe](./index.yml). Um subconjunto do conjunto de dados da corrida de táxi de NYC e da tarifa 2013 é usado para carregar, explorar e preparar o dado. Em seguida, usando o Spark MLlib, os modelos de classificação binária e regressão são treinados para prever se será paga uma gorjeta pela viagem e estimar o valor da gorjeta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -697,7 +697,7 @@ Tempo necessário para executar a célula acima: 57,61 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results* , na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
 ```python
 # QUERY RESULTS                              
@@ -1119,4 +1119,4 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 
 **Consumo do modelo:** para saber como pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar e avaliar modelos de machine learning criados no Spark](spark-model-consumption.md).
 
-**Validação cruzada e limpeza de hiperparâmetro**: Confira [Modelagem e exploração de dados avançados com o Spark](spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
+**Validação cruzada e limpeza de hiperparâmetro** : Confira [Modelagem e exploração de dados avançados com o Spark](spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
