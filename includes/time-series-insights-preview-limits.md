@@ -1,28 +1,28 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 07/09/2020
+ms.date: 11/11/2020
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ec1f71d13d5d2fb3af86c1c63d5e61ce13d2c82
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287399"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553141"
 ---
 ### <a name="property-limits"></a>Limites de propriedade
 
-Azure Time Series Insights os limites de propriedade aumentaram para 1.000 de um limite máximo de 800 em Gen1. As propriedades de evento fornecidas têm as colunas JSON, CSV e de gráfico correspondentes que você pode exibir dentro do [Azure Time Series insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Azure Time Series Insights os limites de propriedade aumentaram para 1.000 para o armazenamento quente e nenhum limite de propriedade para o armazenamento frio. As propriedades de evento fornecidas têm as colunas JSON, CSV e de gráfico correspondentes que você pode exibir dentro do [Azure Time Series insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
 | SKU | Propriedades máximas |
 | --- | --- |
-| Gen2 (L1) | Propriedades de 1.000 (colunas) |
+| Gen2 (L1) | 1.000 Propriedades (colunas) para armazenamento quente e ilimitado para armazenamento frio|
 | Gen1 (S1) | Propriedades de 600 (colunas) |
 | Gen1 (S2) | Propriedades de 800 (colunas) |
 

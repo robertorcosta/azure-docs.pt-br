@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18bf8d865a5bb4d96fb55199137b38ec30861dbe
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50fbaf5092e793369daaa71fc7364dfd406e03b3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793034"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444887"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com o Key Vault e o Azure PowerShell
 
@@ -33,13 +33,13 @@ Recomendamos usar a integração do Armazenamento do Azure ao Azure AD (Azure Ac
 
 O Azure AD permite que você autentique seu aplicativo cliente usando uma identidade de aplicativo ou de usuário, em vez das credenciais da conta de armazenamento. Você pode usar uma [identidade gerenciada do Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) durante a execução no Azure. As identidades gerenciadas eliminam a necessidade de autenticação de cliente e do armazenamento de credenciais no ou com o seu aplicativo.
 
-O Azure AD usa o RBAC (controle de acesso baseado em função) para gerenciar a autorização, que também é compatível com o Key Vault.
+O Azure AD usa o Azure RBAC (controle de acesso baseado em função do Azure) para gerenciar a autorização, que também é compatível com o Key Vault.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="service-principal-application-id"></a>ID do aplicativo da entidade de serviço
 
-Um locatário do Azure AD fornece a cada aplicativo registrado uma [entidade de serviço](../../active-directory/develop/developer-glossary.md#service-principal-object). A entidade de serviço serve como a ID do aplicativo, que é usada durante a configuração de autorização para acesso a outros recursos do Azure por meio do RBAC.
+Um locatário do Azure AD fornece a cada aplicativo registrado uma [entidade de serviço](../../active-directory/develop/developer-glossary.md#service-principal-object). A entidade de serviço serve como a ID do aplicativo, que é usada durante a configuração de autorização para acesso a outros recursos do Azure por meio do Azure RBAC.
 
 O Key Vault é um aplicativo da Microsoft que é pré-registrado em todos os locatários do Azure AD. O Key Vault é registrado na mesma ID do Aplicativo em cada nuvem do Azure.
 
