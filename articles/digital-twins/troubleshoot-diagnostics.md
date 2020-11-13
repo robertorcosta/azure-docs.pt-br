@@ -1,18 +1,18 @@
 ---
-title: Habilitar e consultar logs de diagnóstico
+title: Habilitar e consultar logs de diagnósticos
 titleSuffix: Azure Digital Twins
 description: Consulte Como habilitar o registro em log com as configurações de diagnóstico e consultar os logs para exibição imediata.
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411738"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616647"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -63,7 +63,7 @@ Para obter informações mais detalhadas sobre as configurações de diagnóstic
 
 Aqui estão mais detalhes sobre as categorias de logs que o Azure digital gêmeos coleta.
 
-| Categoria do log | Descrição |
+| Categoria do log | Description |
 | --- | --- |
 | ADTModelsOperation | Registrar em log todas as chamadas de API pertencentes a modelos |
 | ADTQueryOperation | Registrar em log todas as chamadas de API pertencentes a consultas |
@@ -76,7 +76,7 @@ Cada categoria de log consiste em operações de gravação, leitura, exclusão 
 | --- | --- |
 | Gravar | PUT e PATCH |
 | Ler | GET |
-| Excluir | DELETE |
+| Excluir | Delete (excluir) |
 | Ação | POST |
 
 Aqui está uma lista abrangente das operações e das [chamadas da API REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/) que são registradas em log em cada categoria. 
@@ -115,18 +115,18 @@ Aqui estão as descrições de campo e propriedade para logs de API.
 | Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
-| `ResourceID` | String | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
-| `OperationName` | String  | O tipo de ação que está sendo executada durante o evento |
-| `OperationVersion` | String | A versão da API utilizada durante o evento |
-| `Category` | String | O tipo de recurso que está sendo emitido |
-| `ResultType` | String | Resultado do evento |
-| `ResultSignature` | String | Código de status HTTP para o evento |
-| `ResultDescription` | String | Detalhes adicionais sobre o evento |
-| `DurationMs` | String | Quanto tempo demorou para executar o evento em milissegundos |
-| `CallerIpAddress` | String | Um endereço IP de origem mascarado para o evento |
+| `ResourceID` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
+| `OperationVersion` | Cadeia de caracteres | A versão da API utilizada durante o evento |
+| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
+| `ResultType` | Cadeia de caracteres | Resultado do evento |
+| `ResultSignature` | Cadeia de caracteres | Código de status HTTP para o evento |
+| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
+| `DurationMs` | Cadeia de caracteres | Quanto tempo demorou para executar o evento em milissegundos |
+| `CallerIpAddress` | Cadeia de caracteres | Um endereço IP de origem mascarado para o evento |
 | `CorrelationId` | Guid | Identificador exclusivo fornecido pelo cliente para o evento |
-| `Level` | String | A severidade de log do evento |
-| `Location` | String | A região onde o evento ocorreu |
+| `Level` | Cadeia de caracteres | A severidade de log do evento |
+| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
 | `RequestUri` | Uri | O ponto de extremidade utilizado durante o evento |
 
 Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
@@ -201,13 +201,13 @@ Este é o esquema para `ADTEventRoutesOperation` logs. Eles contêm detalhes ref
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
-| `ResourceId` | String | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
-| `OperationName` | String  | O tipo de ação que está sendo executada durante o evento |
-| `Category` | String | O tipo de recurso que está sendo emitido |
-| `ResultDescription` | String | Detalhes adicionais sobre o evento |
-| `Level` | String | A severidade de log do evento |
-| `Location` | String | A região onde o evento ocorreu |
-| `EndpointName` | String | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
+| `ResourceId` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
+| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
+| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
+| `Level` | Cadeia de caracteres | A severidade de log do evento |
+| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
+| `EndpointName` | Cadeia de caracteres | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
 
 Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
 

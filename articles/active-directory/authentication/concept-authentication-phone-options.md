@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377744"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593069"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em opções de Azure Active Directory-telefone
 
@@ -32,7 +32,7 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 
 ## <a name="mobile-phone-verification"></a>Verificação por celular
 
-Para a Autenticação Multifator do Azure ou SSPR, os usuários podem optar por receber uma mensagem de texto com um código de verificação para entrar na interface de entrada ou receber uma chamada telefônica com um prompt para inserir o código PIN definido.
+Para a autenticação multifator do Azure ou o SSPR, os usuários podem optar por receber uma mensagem de texto com um código de verificação para entrar na interface de entrada ou receber uma chamada telefônica.
 
 Se os usuários não quiserem que o número do telefone celular seja visível no diretório, mas ainda quiserem usá-lo para redefinição de senha, os administradores não deverão preencher o número de telefone no diretório. Em vez disso, os usuários devem preencher o atributo **Telefone de Autenticação** por meio do registro combinado das informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar.
 
@@ -46,11 +46,11 @@ Com a verificação por mensagem de texto durante a SSPR ou Autenticação Multi
 
 ### <a name="phone-call-verification"></a>Verificação por chamada telefônica
 
-Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário deve inserir o número do PIN seguido por # no teclado.
+Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário será solicitado a pressionar # no respectivo teclado.
 
 ## <a name="office-phone-verification"></a>Verificação por telefone comercial
 
-Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário deve inserir o número do PIN seguido por # no teclado.
+Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário será solicitado a pressionar # no respectivo teclado.
 
 ## <a name="troubleshooting-phone-options"></a>Solucionar problemas das opções por telefone
 
@@ -61,7 +61,7 @@ Se você tiver problemas com a autenticação por telefone do Azure AD, examine 
 * Número de telefone errado, código de país/região incorreto ou confusão entre número de telefone pessoal e o número de telefone comercial.
    * Solucione os problemas com o objeto do usuário e os métodos de autenticação configurados. Verifique se os números de telefone corretos estão registrados.
 * PIN incorreto inserido.
-   * Confirme se o usuário usou o PIN correto registrado para a conta.
+   * Confirme se o usuário usou o PIN correto como registrado para sua conta (somente usuários do servidor MFA).
 * Chamada encaminhada para a caixa postal.
    * Verifique se o telefone do usuário está ativado e se o serviço está disponível na área dele ou use um método alternativo.
 * Usuário está bloqueado

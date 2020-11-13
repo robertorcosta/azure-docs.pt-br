@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 32748a996e0622c4b75d887aebf8a1805c5368bd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3056c500453c2249d66a05079334851c851df33
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319077"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616613"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Criar & usar ambientes de software no Azure Machine Learning
 
@@ -114,7 +114,7 @@ Por padrão, a imagem do Docker criada recentemente aparece no registro de cont�
 
 #### <a name="use-a-prebuilt-docker-image"></a>Usar uma imagem do Docker pré-criados
 
-Por padrão, o serviço usa automaticamente uma das [imagens base](https://github.com/Azure/AzureML-Containers)baseadas em Ubuntu Linux, especificamente aquela definida por `azureml.core.environment.DEFAULT_CPU_IMAGE` . Em seguida, ele instala todos os pacotes do Python especificados pelo ambiente do Azure ML fornecido. Também é possível usar uma imagem de [base do Docker personalizada](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+Por padrão, o serviço usa automaticamente uma das [imagens base](https://github.com/Azure/AzureML-Containers)baseadas em Ubuntu Linux, especificamente aquela definida por `azureml.core.environment.DEFAULT_CPU_IMAGE` . Em seguida, ele instala todos os pacotes do Python especificados pelo ambiente do Azure ML fornecido. Outras imagens de base de CPU e GPU do Azure ML estão disponíveis no [repositório](https://github.com/Azure/AzureML-Containers)de contêiner. Também é possível usar uma imagem de [base do Docker personalizada](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults

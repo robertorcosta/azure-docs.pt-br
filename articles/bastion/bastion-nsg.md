@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079183"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594259"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 
@@ -34,15 +34,16 @@ Esta seção mostra o tráfego de rede entre o usuário e a bastiões do Azure e
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-A bastiões do Azure é implantada especificamente para ***AzureBastionSubnet***.
+A bastiões do Azure é implantada especificamente para * **AzureBastionSubnet** _.
 
-* **Tráfego de entrada:**
+_ **Tráfego de entrada:**
 
    * **Tráfego de entrada da Internet pública:** A bastiões do Azure criará um IP público que precisa da porta 443 habilitada no IP público para o tráfego de entrada. A porta 3389/22 não precisa ser aberta no AzureBastionSubnet.
    * **Tráfego de entrada do plano de controle de bastiões do Azure:** Para conectividade do plano de controle, habilite a porta 443 de entrada da marca de serviço do **gatewaymanager** . Isso permite que o plano de controle, ou seja, o Gerenciador de gateway seja capaz de se comunicar com a bastiões do Azure.
+   * **Tráfego de entrada do balanceador de carga do Azure:** Para investigações de integridade, habilite a porta 443 de entrada da marca de serviço **AzureLoadBalancer** . Isso habilita o Azure Load Balancer, para detectar problemas de conectividade com o back-end.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de tela mostra regras de segurança de entrada para conectividade de bastiões do Azure.":::
 
 * **Tráfego de saída:**
 
@@ -50,7 +51,7 @@ A bastiões do Azure é implantada especificamente para ***AzureBastionSubnet***
    * **Tráfego de saída para outros pontos de extremidade públicos no Azure:** A bastiões do Azure precisa ser capaz de se conectar a vários pontos de extremidade públicos no Azure (por exemplo, para armazenar logs de diagnóstico e logs de medição). Por esse motivo, a bastiões do Azure precisa de saída para 443 para a marca de serviço **AzureCloud** .
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Captura de tela mostra regras de segurança de saída para conectividade de bastiões do Azure.":::
 
 ### <a name="target-vm-subnet"></a>Sub-rede VM de destino
 Essa é a sub-rede que contém a máquina virtual de destino para a qual você deseja RDP/SSH.

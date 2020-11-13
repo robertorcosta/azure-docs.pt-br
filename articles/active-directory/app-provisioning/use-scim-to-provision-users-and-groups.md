@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424581"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616171"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial – Criar um ponto de extremidade do SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -88,7 +88,8 @@ O esquema definido anteriormente será representado pelo conteúdo JSON abaixo. 
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Tabela 2: Mapeamento padrão de atributo do usuário
 Em seguida, você pode usar a tabela abaixo para entender como os atributos que seu aplicativo requer podem ser mapeados para um atributo no Azure AD e no SCIM RFC. Você pode [personalizar](customize-application-attributes.md) como os atributos são mapeados entre o Azure AD e o ponto de extremidade do SCIM. Observe que você não precisa dar suporte a usuários e grupos ou a todos os atributos mostrados abaixo. Eles são uma referência para como os atributos no Azure AD geralmente são mapeados para propriedades no protocolo SCIM. 
@@ -126,7 +127,7 @@ Em seguida, você pode usar a tabela abaixo para entender como os atributos que 
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-Há vários pontos de extremidade definidos no SCIM RFC. Você pode começar a usar o ponto de extremidade /User e, em seguida, expandir a partir dele. O ponto de extremidade /Schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade /Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. O ponto de extremidade /Schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade /Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM. 
+Há vários pontos de extremidade definidos no SCIM RFC. Você pode começar a usar o ponto de extremidade /User e, em seguida, expandir a partir dele. O ponto de extremidade /Schemas é útil ao usar atributos personalizados ou se o esquema for alterado com frequência. Ele permite que um cliente recupere o esquema mais atualizado automaticamente. O ponto de extremidade /Bulk é especialmente útil ao dar suporte a grupos. A tabela a seguir descreve os vários pontos de extremidade definidos no padrão SCIM.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabela 4: Determine os pontos de extremidade que você deseja desenvolver
 |ENDPOINT|DESCRIPTION|
@@ -759,13 +760,13 @@ O [código de referência](https://aka.ms/SCIMReferenceCode) do .NET Core de sof
    > [!Note]
    > O código de referência destina-se a ajudá-lo a começar a criar seu ponto de extremidade do SCIM e é fornecido "no estado em que se encontra". As contribuições da comunidade são úteis para ajudar a criar e manter o código.
 
-A solução é composta por dois projetos, _Microsoft.SCIM_ e _Microsoft.SCIM.WebHostSample_ .
+A solução é composta por dois projetos, _Microsoft.SCIM_ e _Microsoft.SCIM.WebHostSample_.
 
 O projeto _Microsoft.SCIM_ é a biblioteca que define os componentes do serviço Web que está de acordo com a especificação SCIM. Ele declara a interface _Microsoft.SCIM.IProvider_ , as solicitações são convertidas em chamadas para os métodos do provedor, que seriam programados para operar em um repositório de identidades.
 
 ![Detalhamento: uma solicitação convertida em chamadas para os métodos do provedor](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-O projeto _Microsoft.SCIM.WebHostSample_ é um aplicativo Web do Visual Studio ASP.NET Core, com base no modelo _Empty_ . Isso permite que o código de exemplo seja implantado como autônomo, hospedado em contêineres ou dentro de Serviços de Informações da Internet. Ele também implementa a interface _Microsoft.SCIM.IProvider_ mantendo classes na memória como um repositório de identidade de exemplo.
+O projeto _Microsoft.SCIM.WebHostSample_ é um aplicativo Web do Visual Studio ASP.NET Core, com base no modelo _Empty_. Isso permite que o código de exemplo seja implantado como autônomo, hospedado em contêineres ou dentro de Serviços de Informações da Internet. Ele também implementa a interface _Microsoft.SCIM.IProvider_ mantendo classes na memória como um repositório de identidade de exemplo.
 
 ```csharp
     public class Startup
@@ -810,7 +811,7 @@ As solicitações do Active Directory do Azure incluem um token de portador do O
 
 No token, o emissor é identificado por uma declaração iss, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. Neste exemplo, o endereço básico do valor da declaração, `https://sts.windows.net`, identifica o Azure Active Directory como o emissor, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , é um identificador exclusivo do locatário do Azure Active Directory para o qual o token foi emitido.
 
-O público-alvo do token será a ID do modelo de aplicativo para o aplicativo na Galeria, cada um dos aplicativos registrados em um único locatário pode receber a mesma declaração de `iss` com solicitações SCIM. A ID do modelo de aplicativo para todos os aplicativos personalizados é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_ . O token gerado pelo serviço de provisionamento do Azure AD só deve ser usado para teste. Ele não devem ser usados em ambientes de produção.
+O público-alvo do token será a ID do modelo de aplicativo para o aplicativo na Galeria, cada um dos aplicativos registrados em um único locatário pode receber a mesma declaração de `iss` com solicitações SCIM. A ID do modelo de aplicativo para todos os aplicativos personalizados é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O token gerado pelo serviço de provisionamento do Azure AD só deve ser usado para teste. Ele não devem ser usados em ambientes de produção.
 
 No código de exemplo, as solicitações são autenticadas usando o pacote Microsoft.AspNetCore.Authentication.JwtBearer. O código a seguir impõe que as solicitações para qualquer um dos pontos de extremidade do serviço sejam autenticadas usando o token de portador emitido pelo Azure Active Directory para um locatário especificado:
 
@@ -1132,20 +1133,20 @@ Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser c
 
 1. Entre no [Portal do Azure Active Directory](https://aad.portal.azure.com). Observe que você pode acessar uma avaliação gratuita do Azure Active Directory com licenças P2 inscrevendo-se no [programa do desenvolvedor](https://developer.microsoft.com/office/dev-program)
 2. Selecione **Aplicativos empresariais** no painel esquerdo. É mostrada uma lista com todos os aplicativos configurados, incluindo aplicativos que foram adicionados da galeria.
-3. Selecione **+ Novo aplicativo** > **Todos** > **Aplicativo não pertencente à galeria** .
+3. Selecione **+ Novo aplicativo** > **Todos** > **Aplicativo não pertencente à galeria**.
 4. Insira um nome para seu aplicativo e selecione **Adicionar** para criar um objeto de aplicativo. O novo aplicativo é adicionado à lista de aplicativos empresariais e é aberto em sua tela de gerenciamento de aplicativo.
 
    ![Captura de tela mostra a galeria de aplicativos do Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
    *Galeria de aplicativos do Azure AD*
 
 5. Na tela de gerenciamento de aplicativos, selecione **P Aprovisionamento** no painel esquerdo.
-6. No menu **Modo de Provisionamento** , selecione **Automático** .
+6. No menu **Modo de Provisionamento** , selecione **Automático**.
 
    ![Exemplo: Página de Provisionamento de um aplicativo no portal do Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configurar o provisionamento no portal do Azure*
 
 7. No campo **URL do locatário** , insira a URL do ponto de extremidade do SCIM do aplicativo. Exemplo: `https://api.contoso.com/scim/`
-8. Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo opcional **Token Secreto** . Se esse campo estiver em branco, o Azure AD inclui um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD. 
+8. Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo opcional **Token Secreto**. Se esse campo estiver em branco, o Azure AD inclui um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD. 
    > [!NOTE]
    > * *_Não_* _ é recomendável deixar esse campo em branco e contar com um token gerado pelo Azure AD. Essa opção está disponível principalmente para fins de teste.
 9. Selecione _ *Testar Conectividade* * para fazer com que o Azure Active Directory tente se conectar ao ponto de extremidade do SCIM. Se a tentativas falhar, informações de erro serão exibidas.  
@@ -1154,13 +1155,13 @@ Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser c
     > **Testar Conexão** consulta o ponto de extremidade SCIM para um usuário que não existe, usando um GUID aleatório como a propriedade correspondente selecionada na configuração do Azure AD. A resposta correta esperada é HTTP 200 OK com uma mensagem de SCIM ListResponse vazia.
 
 10. Se as tentativas de conexão ao aplicativo forem bem-sucedidas, selecione **Salvar** para salvar as credenciais de administrador.
-11. Na seção **Mapeamento** , há dois conjuntos selecionáveis de [mapeamentos de atributos](customize-application-attributes.md): um para objetos de usuário e outro para objetos de grupo. Selecione cada um para revisar os atributos que são sincronizados do Azure Active Directory para seu aplicativo. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre os usuários e os grupos no seu aplicativo para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar** .
+11. Na seção **Mapeamento** , há dois conjuntos selecionáveis de [mapeamentos de atributos](customize-application-attributes.md): um para objetos de usuário e outro para objetos de grupo. Selecione cada um para revisar os atributos que são sincronizados do Azure Active Directory para seu aplicativo. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre os usuários e os grupos no seu aplicativo para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
     > [!NOTE]
     > Opcionalmente, você pode desabilitar a sincronização dos objetos de grupo desabilitando o mapeamento "grupos".
 
-12. Em **Configurações** , o campo **Escopo** define quais usuários e grupos são sincronizados. Selecione **Sincronizar apenas usuários e grupos atribuídos** (recomendado) sincroniza somente usuários e grupos atribuídos na guia **Usuários e grupos** .
-13. Depois que a configuração estiver concluída, defina o **Status de provisionamento** para **Ligado** .
+12. Em **Configurações** , o campo **Escopo** define quais usuários e grupos são sincronizados. Selecione **Sincronizar apenas usuários e grupos atribuídos** (recomendado) sincroniza somente usuários e grupos atribuídos na guia **Usuários e grupos**.
+13. Depois que a configuração estiver concluída, defina o **Status de provisionamento** para **Ligado**.
 14. Selecione **Salvar** para iniciar o serviço de provisionamento do Azure AD.
 15. Caso esteja sincronizando apenas usuários e grupos atribuídos (recomendado), certifique-se de selecionar a guia **Usuários e grupos** e designar os usuários ou grupos que você deseja sincronizar.
 

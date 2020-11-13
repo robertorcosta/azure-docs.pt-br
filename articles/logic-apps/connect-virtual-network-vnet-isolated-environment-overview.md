@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500378"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616919"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
 
@@ -65,9 +65,9 @@ Ao criar e executar aplicativos lógicos em um ISE, você obtém as mesmas exper
 
   Com exceções raras, se um conector do ISE estiver disponível para um sistema local ou fonte de dados, você poderá se conectar diretamente sem usar o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Para obter mais informações, consulte [acesso a sistemas locais](#on-premises) mais adiante neste tópico.
 
-* Os conectores gerenciados que não exibem o rótulo do **ISE** continuam a funcionar para aplicativos lógicos dentro de um ISE. Esses conectores *sempre são executados no serviço de aplicativos lógicos multilocatários*, e não no ISE.
+* Os conectores gerenciados que não exibem o rótulo do **ISE** continuam a funcionar para aplicativos lógicos dentro de um ISE. Esses conectores *sempre são executados no serviço de aplicativos lógicos multilocatários* , e não no ISE.
 
-* Conectores personalizados que você cria *fora de um ISE*, independentemente de eles exigirem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md), continuam funcionando para aplicativos lógicos dentro de um ISE. No entanto, os conectores personalizados criados *dentro de um ISE* não funcionarão com o gateway de dados local. Para obter mais informações, consulte [acesso a sistemas locais](#on-premises).
+* Conectores personalizados que você cria *fora de um ISE* , independentemente de eles exigirem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md), continuam funcionando para aplicativos lógicos dentro de um ISE. No entanto, os conectores personalizados criados *dentro de um ISE* não funcionarão com o gateway de dados local. Para obter mais informações, consulte [acesso a sistemas locais](#on-premises).
 
 <a name="on-premises"></a>
 
@@ -83,11 +83,11 @@ Os aplicativos lógicos que são executados dentro de um ISE podem acessar diret
 
 * Um conector personalizado
 
-  * Conectores personalizados que você cria *fora de um ISE*, independentemente de eles exigirem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md), continuam funcionando para aplicativos lógicos dentro de um ISE.
+  * Conectores personalizados que você cria *fora de um ISE* , independentemente de eles exigirem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md), continuam funcionando para aplicativos lógicos dentro de um ISE.
 
   * Os conectores personalizados que você cria *dentro de um ISE* não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente sistemas locais e fontes de dados que estão dentro ou conectadas à rede virtual que hospeda o ISE. Portanto, os aplicativos lógicos que estão dentro de um ISE geralmente não precisam do gateway de dados ao acessar esses recursos.
 
-Para acessar sistemas locais e fontes de dados que não têm conectores do ISE, estão fora da sua rede virtual ou não estão conectados à sua rede virtual, você ainda precisa usar o gateway de dados local. Os aplicativos lógicos em um ISE podem continuar usando conectores que não têm o rótulo **principal** ou **ISE** . Esses conectores simplesmente são executados no serviço de aplicativos lógicos multilocatários, e não em seu ISE. 
+Para acessar sistemas locais e fontes de dados que não têm conectores do ISE, estão fora da sua rede virtual ou não estão conectados à sua rede virtual, você ainda precisa usar o gateway de dados local. Os aplicativos lógicos em um ISE podem continuar usando conectores que não têm o rótulo **principal** ou **ISE** . Esses conectores são executados no serviço de aplicativos lógicos multilocatários, em vez de em seu ISE. 
 
 <a name="ise-level"></a>
 
@@ -117,18 +117,26 @@ Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso intern
 > [!IMPORTANT]
 > Você pode selecionar o ponto de extremidade de acesso somente durante a criação do ISE e não pode alterar essa opção posteriormente.
 
-* **Interno**: pontos de extremidade privados permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *somente de dentro de sua rede virtual*.
+* **Interno** : pontos de extremidade privados permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *somente de dentro de sua rede virtual*.
 
   > [!IMPORTANT]
-  > Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execução. Caso contrário, ao tentar exibir o histórico de execução do aplicativo lógico, você receberá um erro que diz "erro inesperado. Falha ao buscar ".
+  > Se você precisar usar esses gatilhos baseados em webhook, use pontos de extremidade externos, *não* pontos de extremidade internos, ao criar o ISE:
+  > 
+  > * Azure DevOps
+  > * Grade de Eventos do Azure
+  > * Common Data Service
+  > * Office 365
+  > * SAP (versão do ISE)
+  > 
+  > Além disso, verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execução. Caso contrário, ao tentar exibir o histórico de execução do aplicativo lógico, você receberá um erro que diz "erro inesperado. Falha ao buscar ".
   >
   > ![Erro de ação de armazenamento do Azure resultante da incapacidade de enviar tráfego por meio do firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
   > Por exemplo, o computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual conectada à rede virtual do ISE por meio de emparelhamento ou de uma rede virtual privada. 
 
-* **Externo**: pontos de extremidade públicos permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **Externo** : pontos de extremidade públicos permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
-Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações**, selecione **Propriedades**e localize a propriedade **ponto de extremidade de acesso** :
+Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações** , selecione **Propriedades** e localize a propriedade **ponto de extremidade de acesso** :
 
 ![Localizar ponto de extremidade de acesso do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 

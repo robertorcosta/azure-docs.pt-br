@@ -4,12 +4,12 @@ description: Referência de Azure Monitor entender os serviços com suporte e o 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318293"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593001"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
 
@@ -354,7 +354,7 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |OperationalLogs|Logs operacionais|
 
 
-## <a name="microsofthealthcareapisservices"></a>Microsoft. HealthcareApis/serviços
+## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
 
 |Categoria|Nome de exibição da categoria|
 |---|---|
@@ -497,7 +497,6 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |Categoria|Nome de exibição da categoria|
 |---|---|
 |NetworkSecurityGroupEvent|Network Security Group Event|
-|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
 |NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
 
 

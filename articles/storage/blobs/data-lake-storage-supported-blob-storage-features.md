@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579208"
+ms.locfileid: "94594208"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de blobs no Azure Data Lake Storage Gen2
 
@@ -52,8 +52,8 @@ A tabela a seguir mostra como cada recurso de armazenamento de BLOBs tem suporte
 |Domínios personalizados|Ainda não compatível|Ainda não compatível|[Mapear um domínio personalizado para um ponto de extremidade do armazenamento de blobs do Azure](storage-custom-domain-name.md)|
 |Escopos de criptografia|Ainda não compatível|Ainda não compatível|[Criar e gerenciar escopos de criptografia (visualização)](encryption-scope-manage.md)|
 |Feed de alteração|Ainda não compatível|Ainda não compatível|[Suporte ao feed de alterações no armazenamento de blobs do Azure](storage-blob-change-feed.md)|
-|Replicação de objeto|Ainda não compatível|Ainda não compatível|[Configurar a replicação de objeto para blobs de blocos (versão prévia)](object-replication-configure.md)|
-|Controle de versão de BLOB|Ainda não compatível|Ainda não compatível|[Habilitar e gerenciar o controle de versão de BLOB (visualização)](versioning-enable.md)|
+|Replicação de objeto|Ainda não compatível|Ainda não compatível|[Configurar a replicação de objeto para BLOBs de blocos](object-replication-configure.md)|
+|Controle de versão de BLOB|Ainda não compatível|Ainda não compatível|[Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> você pode definir ACLs na pasta raiz do contêiner, mas não no próprio contêiner.</div><br>
 

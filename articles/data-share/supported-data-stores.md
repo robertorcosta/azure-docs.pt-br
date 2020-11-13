@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577214"
+ms.locfileid: "94592423"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no Azure Data Share
 
@@ -55,7 +55,7 @@ O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos
 Veja [compartilhar e receber dados do armazenamento de BLOBs do Azure e Azure data Lake Storage](how-to-share-from-storage.md) para obter detalhes.
 
 ## <a name="share-from-a-sql-based-source"></a>Compartilhar de uma fonte baseada em SQL
-O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas ou exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) e compartilhamento de tabelas do pool SQL do Azure Synapse Analytics (espaço de trabalho). Os consumidores de dados podem optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet, bem como no banco de dados SQL do Azure e no Azure Synapse Analytics como tabelas.
+O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas e exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) e compartilhamento de tabelas do pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho). O compartilhamento do pool SQL sem servidor do Azure Synapse Analytics (espaço de trabalho) não tem suporte no momento. Os consumidores de dados podem optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet, bem como no banco de dados SQL do Azure e no Azure Synapse Analytics como tabelas.
 
 Ao aceitar dados no Azure Data Lake Store Gen2 ou no armazenamento de BLOBs do Azure, instantâneos completos substituem o conteúdo do arquivo de destino, se já existir.
 Quando os dados são recebidos na tabela e se a tabela de destino ainda não existir, o compartilhamento de dados do Azure criará a tabela SQL com o esquema de origem. Se uma tabela de destino já existir com o mesmo nome, ela será descartada e substituída pelo instantâneo completo mais recente. Não há suporte para instantâneos incrementais no momento.

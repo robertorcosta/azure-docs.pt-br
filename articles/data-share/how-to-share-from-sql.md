@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575894"
+ms.locfileid: "94593732"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575894"
 
 O compartilhamento de dados do Azure dá suporte ao compartilhamento baseado em instantâneo do Azure SQL Database e ao Azure Synapse Analytics. Este artigo explica como compartilhar e receber dados dessas fontes.
 
-O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas ou exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) e compartilhamento de tabelas do pool SQL do Azure Synapse Analytics (espaço de trabalho). Os consumidores de dados podem optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet, bem como no banco de dados SQL do Azure e no Azure Synapse Analytics como tabelas.
+O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas e exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) e compartilhamento de tabelas do pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho). O compartilhamento do pool SQL sem servidor do Azure Synapse Analytics (espaço de trabalho) não tem suporte no momento. Os consumidores de dados podem optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet, bem como no banco de dados SQL do Azure e no Azure Synapse Analytics como tabelas.
 
 Ao aceitar dados no Azure Data Lake Store Gen2 ou no armazenamento de BLOBs do Azure, instantâneos completos substituem o conteúdo do arquivo de destino, se já existir.
 Quando os dados são recebidos na tabela SQL e, se a tabela de destino ainda não existir, o compartilhamento de dados do Azure criará a tabela SQL com o esquema de origem. Se uma tabela de destino já existir com o mesmo nome, ela será descartada e substituída pelo instantâneo completo mais recente. Não há suporte para instantâneos incrementais no momento.
@@ -61,7 +61,7 @@ Você pode seguir a [demonstração passo a passo](https://youtu.be/hIE-TjJD8Dc)
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para compartilhamento do pool de SQL do Azure Synapse Analytics (espaço de trabalho)
 
-* Um pool de SQL do Azure Synapse Analytics (espaço de trabalho) com tabelas que você deseja compartilhar. Não há suporte para o compartilhamento de exibição no momento.
+* Um pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho) com tabelas que você deseja compartilhar. Não há suporte para o compartilhamento de exibição no momento. O compartilhamento do pool SQL sem servidor não tem suporte no momento.
 * Permissão para gravar no pool de SQL no espaço de trabalho Synapse, que está presente em *Microsoft. Synapse/Workspaces/Sqlpools/Write*. Essa permissão existe na função **Colaborador**.
 * Permissão para a identidade gerenciada do recurso de compartilhamento de dados para acessar o pool SQL do espaço de trabalho Synapse. Isso pode ser feito executando as seguintes etapas: 
     1. Em portal do Azure, navegue até Synapse espaço de trabalho. Selecione o administrador do SQL Active Directory da navegação esquerda e defina você mesmo como o **administrador do Azure Active Directory**.
@@ -132,7 +132,7 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
     ![AddDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 
-1. Selecione seu espaço de trabalho do SQL Server ou do Synapse, forneça credenciais, se solicitado, e selecione **Avançar** para navegar até o objeto que deseja compartilhar e selecione ' Adicionar conjuntos de valores '. 
+1. Selecione seu espaço de trabalho do SQL Server ou do Synapse, forneça credenciais, se solicitado, e selecione **Avançar** para navegar até o objeto que deseja compartilhar e selecione ' Adicionar conjuntos de valores '. Você pode selecionar tabelas e exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) ou tabelas do pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Selecionar conjuntos de dados")    
 
@@ -201,7 +201,7 @@ Você pode seguir a [demonstração passo a passo](https://youtu.be/aeGISgK1xro)
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para o recebimento de dados no pool do SQL do Azure Synapse Analytics (espaço de trabalho)
 
-* Um pool de SQL do Azure Synapse Analytics (espaço de trabalho).
+* Um pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho). No momento, não há suporte para o recebimento de dados no pool SQL sem servidor.
 * Permissão para gravar no pool de SQL no espaço de trabalho Synapse, que está presente em *Microsoft. Synapse/Workspaces/Sqlpools/Write*. Essa permissão existe na função **Colaborador**.
 * Permissão para a identidade gerenciada do recurso de compartilhamento de dados para acessar o pool SQL do espaço de trabalho Synapse. Isso pode ser feito executando as seguintes etapas: 
     1. Em portal do Azure, navegue até Synapse espaço de trabalho. Selecione o administrador do SQL Active Directory da navegação esquerda e defina você mesmo como o **administrador do Azure Active Directory**.

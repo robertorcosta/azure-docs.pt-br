@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736679"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616783"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -26,7 +26,7 @@ Os idiomas compatíveis variam de acordo com a funcionalidade do serviço de Fal
 
 O SDK do Microsoft Speech e a API REST são compatíveis com os idiomas (localidades) a seguir. 
 
-Para melhorar a precisão, a personalização é oferecida para um subconjunto de idiomas por meio do upload de **Áudio + Transcrições rotuladas por humanos** ou **Texto relacionado: sentenças** . Para saber mais sobre a personalização, confira [Introdução à Fala Personalizada](how-to-custom-speech.md).
+Para melhorar a precisão, a personalização é oferecida para um subconjunto de idiomas por meio do upload de **Áudio + Transcrições rotuladas por humanos** ou **Texto relacionado: sentenças**. Para saber mais sobre a personalização, confira [Introdução à Fala Personalizada](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Linguagem                          | Localidade | Personalizações                                   |
+| Idioma                          | Localidade (BCP-47) | Personalizações                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Árabe (Bahrein), padrão moderno  |`ar-BH` | Modelo de linguagem                                   |
 |Árabe (Egito)                     |`ar-EG` | Modelo de linguagem                                   |
@@ -136,7 +136,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 
 Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-|Linguagem  | Localidade           | Gênero | Nome da voz | Suporte de estilo |
+|Idioma  | Localidade (BCP-47)          | Gênero | Nome da voz | Suporte de estilo |
 |--|--|--|--|--|
 | Árabe (Egito) | `ar-EG` | Feminino | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Arábia Saudita) | `ar-SA` | Feminino | `ar-SA-ZariyahNeural` | Geral |
@@ -219,7 +219,7 @@ Para saber como você pode configurar e ajustar as vozes neurais, confira [Lingu
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-| Linguagem | Localidade | Gênero | Nome da voz |
+| Idioma | Localidade (BCP-47) | Gênero | Nome da voz |
 |--|--|--|--|
 | Árabe (árabe)  |  `ar-EG`  |  Feminino  |  `ar-EG-Hoda`|
 | Árabe (Arábia Saudita)  |  `ar-SA`  |  Masculino  |  `ar-SA-Naayf`|
@@ -397,9 +397,9 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
 
-| Linguagem | Localidade | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+| Idioma | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
-|Inglês (EUA)  |  pt-BR  |  sim  |  sim  |  sim |
+|Inglês (EUA)  |  en-US  |  sim  |  sim  |  sim |
 |Chinês (mandarim, simplificado) | zh-CN     |     n/d |     sim |     sim|
 |Inglês (Austrália)     | en-AU     | n/d     | sim     | sim|
 |Inglês (Canadá)     | en-CA     | n/d |     sim |     sim|

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: af2a58ecb97e4c62f437d0c693ec79a4b5f618b0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579225"
+ms.locfileid: "94591505"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Política de controle de versão do banco de dados do Azure para MySQL
 
@@ -30,7 +30,7 @@ O banco de dados do Azure para MySQL dá suporte às seguintes versões de banco
 
 
 ## <a name="major-version-support"></a>Suporte de versão principal
-Cada versão principal do MySQL terá suporte do banco de dados do Azure para MySQL a partir da data em que o Azure começa a dar suporte à versão até que a versão seja desativada pela Comunidade do MySQL, conforme fornecido na [política de controle de versão](https://en.wikipedia.org/wiki/mysql).
+Cada versão principal do MySQL terá suporte do banco de dados do Azure para MySQL a partir da data em que o Azure começa a dar suporte à versão até que a versão seja desativada pela Comunidade do MySQL, conforme fornecido na [política de controle de versão](https://www.mysql.com/support/eol-notice.html).
 
 ## <a name="minor-version-support"></a>Suporte de versão secundária
 O banco de dados do Azure para MySQL executa automaticamente atualizações de versão secundárias para a versão do MySQL preferida do Azure como parte da manutenção periódica. 
