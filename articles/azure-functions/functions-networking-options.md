@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413081"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578801"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -30,18 +30,36 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
+## <a name="inbound-access-restrictions"></a>Restrições de acesso de entrada
 
-Você pode usar restrições de IP para definir uma lista de prioridade ordenada dos endereços IP que podem ou não acessar o seu aplicativo. A lista pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, há uma negação implícita de tudo no final da lista. As restrições de IP funcionam com todas as opções de hospedagem de função.
+Você pode usar as restrições de acesso para definir uma lista ordenada de prioridade de endereços IP que têm acesso permitido ou negado ao seu aplicativo. A lista pode incluir endereços IPv4 e IPv6 ou sub-redes de rede virtual específicas usando [pontos de extremidade de serviço](#use-service-endpoints). Quando há uma ou mais entradas, há uma negação implícita de tudo no final da lista. As restrições de IP funcionam com todas as opções de hospedagem de função.
+
+As restrições de acesso estão disponíveis no serviço [Premium](functions-premium-plan.md), [consumo](functions-scale.md#consumption-plan)e [aplicativo](functions-scale.md#app-service-plan).
 
 > [!NOTE]
-> Com as restrições de rede em vigor, você pode usar o editor do portal somente de dentro de sua rede virtual ou quando tiver colocado o endereço IP do computador que está usando para acessar o portal do Azure na lista de destinatários seguros. No entanto, você ainda pode acessar os recursos na guia **Recursos da plataforma** de qualquer computador.
+> Com as restrições de rede em vigor, você pode implantar somente de dentro de sua rede virtual ou quando você colocou o endereço IP do computador que está usando para acessar o portal do Azure na lista de destinatários seguros. No entanto, você ainda pode gerenciar a função usando o Portal.
 
 Para saber mais, confira [Restrições de acesso ao serviço do Serviço de Aplicativo do Azure](../app-service/app-service-ip-restrictions.md).
 
-## <a name="private-site-access"></a>Acesso a site particular
+### <a name="use-service-endpoints"></a>Usar pontos de extremidade de serviço
+
+Usando pontos de extremidade de serviço, você pode restringir o acesso às sub-redes selecionadas da rede virtual do Azure. Para restringir o acesso a uma sub-rede específica, crie uma regra de restrição com um tipo de **rede virtual** . Você pode selecionar a assinatura, a rede virtual e a sub-rede às quais você deseja permitir ou negar acesso. 
+
+Se os pontos de extremidade de serviço ainda não estiverem habilitados com o Microsoft. Web para a sub-rede que você selecionou, eles serão habilitados automaticamente, a menos que você marque a caixa de seleção **ignorar pontos de extremidade do serviço Microsoft. Web ausentes** . O cenário em que você pode querer habilitar pontos de extremidade de serviço no aplicativo, mas não a sub-rede depende principalmente de você ter as permissões para habilitá-los na sub-rede. 
+
+Se você precisar que outra pessoa habilite os pontos de extremidade de serviço na sub-rede, marque a caixa de seleção **ignorar pontos de extremidade do serviço Microsoft. Web ausentes** . Seu aplicativo será configurado para pontos de extremidade de serviço na antecipação de tê-los habilitados mais tarde na sub-rede. 
+
+![Captura de tela do painel "Adicionar restrição de IP" com o tipo de rede virtual selecionado.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+Você não pode usar pontos de extremidade de serviço para restringir o acesso a aplicativos que são executados em um Ambiente do Serviço de Aplicativo. Quando seu aplicativo estiver em um Ambiente do Serviço de Aplicativo, você poderá controlar o acesso a ele aplicando regras de acesso IP. 
+
+Para saber como configurar pontos de extremidade de serviço, consulte [estabelecer Azure Functions acesso ao site privado](functions-create-private-site-access.md).
+
+## <a name="private-endpoint-connections"></a>Conexões de ponto de extremidade privado
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Para chamar outros serviços que têm uma conexão de ponto de extremidade privada, como armazenamento ou barramento de serviço, certifique-se de configurar seu aplicativo para fazer [chamadas de saída para pontos de extremidade privados](#private-endpoints).
 
 ## <a name="virtual-network-integration"></a>Integração de rede virtual
 
@@ -80,7 +98,7 @@ Quando você cria um aplicativo de funções, é necessário criar ou vincular u
 1. [Crie um compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento protegida.
 1. Habilite os pontos de extremidade de serviço ou o Endpoint particular para a conta de armazenamento.  
     * Certifique-se de habilitar a sub-rede dedicada para seus aplicativos de funções se estiver usando um ponto de extremidade de serviço.
-    * Certifique-se de criar um registro DNS e configurar seu aplicativo para [trabalhar com pontos de extremidade de ponto de extremidades privados](#azure-dns-private-zones) , se estiver usando um ponto de extremidade privado.  A conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
+    * Certifique-se de criar um registro DNS e configurar seu aplicativo para [trabalhar com pontos de extremidade de ponto de extremidades privados](#azure-dns-private-zones) , se estiver usando um ponto de extremidade privado.  A conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions, você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
 1. Adicional Copie o conteúdo do arquivo e do blob da conta de armazenamento do aplicativo de funções para a conta de armazenamento protegida e o compartilhamento de arquivos.
 1. Copie a cadeia de conexão para esta conta de armazenamento.
 1. Atualize as **configurações do aplicativo** em **configuração** para o aplicativo de funções para o seguinte:

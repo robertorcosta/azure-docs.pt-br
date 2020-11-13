@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491640"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591727"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -144,6 +144,17 @@ Você pode excluir uma política de instantâneo que não deseja mais manter.
 
     ![Confirmação de exclusão de política de instantâneo](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Editar a opção ocultar caminho do instantâneo
+A opção ocultar caminho do instantâneo controla se o caminho do instantâneo de um volume está visível. Durante a criação de um volume de [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) ou [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) , você tem a opção de especificar se o caminho do instantâneo deve estar oculto. Posteriormente, você pode editar a opção ocultar caminho do instantâneo, conforme necessário.  
+
+> [!NOTE]
+> Para um [volume de destino](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) na replicação entre regiões, a opção ocultar caminho do instantâneo é habilitada por padrão e a configuração não pode ser modificada. 
+
+1. Para exibir a configuração da opção ocultar caminho do instantâneo de um volume, selecione o volume. O campo **ocultar caminho do instantâneo** mostra se a opção está habilitada.   
+    ![Captura de tela que descreve o campo ocultar caminho do instantâneo.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Para editar a opção ocultar caminho do instantâneo, clique em **Editar** na página volume e modifique a opção **ocultar caminho do instantâneo** , conforme necessário.   
+    ![Captura de tela que descreve a opção Editar instantâneo de volume.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurar um instantâneo para um novo volume
 
 No momento, você pode restaurar um instantâneo somente para um novo volume. 
@@ -173,11 +184,7 @@ Se você não quiser [restaurar o instantâneo inteiro para um volume](#restore-
 
 O volume montado contém um diretório de instantâneos chamado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório de instantâneo contém subdiretórios correspondentes aos instantâneos do volume. Cada subdiretório contém os arquivos do instantâneo. Se você excluir ou substituir um arquivo acidentalmente, poderá restaurá-lo para o diretório de leitura-gravação pai copiando o arquivo de um subdiretório de instantâneo para o diretório de leitura/gravação. 
 
-Se você marcou a caixa de seleção Ocultar caminho do instantâneo quando criou o volume, o diretório do instantâneo ficará oculto. Você pode exibir o status ocultar caminho do instantâneo do volume selecionando o volume. Você pode editar a opção ocultar caminho do instantâneo clicando em **Editar** na página do volume.  
-
-Para um volume de destino na replicação entre regiões, ocultar caminho do instantâneo é habilitado por padrão e a configuração não pode ser modificada.
-
-![Editar opções de instantâneo de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Se você não vir o diretório de instantâneo, ele poderá estar oculto porque a opção ocultar caminho de instantâneo está habilitada no momento. Você pode [Editar a opção ocultar caminho do instantâneo](#edit-the-hide-snapshot-path-option) para desabilitá-la.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurar um arquivo usando um cliente NFS do Linux 
 

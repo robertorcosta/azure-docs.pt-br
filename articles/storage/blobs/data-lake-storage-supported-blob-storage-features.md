@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8ab001636cc6fac921f552070b9b064d9c53a8d7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042070"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579208"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de blobs no Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ A tabela a seguir mostra como cada recurso de armazenamento de BLOBs tem suporte
 |Armazenamento imutável|Visualização|Visualização|[Armazenar dados de blob comercialmente críticos com armazenamento imutável](storage-blob-immutable-storage.md)|
 |Exclusão reversível do contêiner|Visualização|Visualização|[Exclusão reversível para contêineres (visualização)](soft-delete-container-overview.md)|
 |Exclusão reversível de BLOB|Ainda não compatível|Ainda não compatível|[Exclusão reversível para blobs](storage-blob-soft-delete.md)|
-|Blobfuse|Visualização|Visualização|[Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse](storage-how-to-mount-container-linux.md)|
+|Blobfuse|Disponível para o público geral|Disponível para o público geral|[Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse](storage-how-to-mount-container-linux.md)|
 |Failover da conta|Ainda não compatível|Ainda não compatível|[Recuperação de desastre e failover de conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL do contêiner de blob|Sem suporte<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Sem suporte<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte a observação relacionada abaixo desta tabela.|
 |Chaves fornecidas pelo cliente|Ainda não compatível|Ainda não compatível|[Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs](encryption-customer-provided-keys.md)|

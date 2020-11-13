@@ -11,15 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358330"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579565"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
-
 
 Neste artigo, você aprenderá a controlar a versão e o acompanhamento de conjuntos de Azure Machine Learning para reprodução. O controle de versão do conjunto de dados é uma maneira de marcar o estado de seus dados de forma que você possa aplicar uma versão específica do conjunto para experimentos futuros.
 
@@ -116,11 +115,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Versão um conjunto de uma saída de pipeline
+## <a name="version-an-ml-pipeline-output-dataset"></a>Versão um conjunto de uma saída de pipeline de ML
 
-Você pode usar um conjunto de dados como entrada e saída de cada etapa Machine Learning pipeline. Quando você executa novamente os pipelines, a saída de cada etapa de pipeline é registrada como uma nova versão do conjunto de resultados.
+Você pode usar um conjunto de dados como entrada e saída de cada etapa de [pipeline ml](concept-ml-pipelines.md) . Quando você executa novamente os pipelines, a saída de cada etapa de pipeline é registrada como uma nova versão do conjunto de resultados.
 
-Como Machine Learning pipelines preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reproduzido, os conjuntos de resultados de saída com versão são reproduzíveis. Saiba mais sobre [conjuntos de informações em pipelines](how-to-create-your-first-pipeline.md#steps).
+Os pipelines ML preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reexecutado. Esse comportamento permite que os conjuntos de valores de saída com versão sejam reproduzíveis. Saiba mais sobre [conjuntos de informações em pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -154,9 +153,36 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Acompanhar conjuntos de os testes em experimentos
+## <a name="track-datas-in-your-experiments"></a>Acompanhe os dados em seus experimentos
 
-Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada por meio do `Run` objeto experimento.
+Azure Machine Learning rastreia seus dados em todo o teste como conjuntos de dado de entrada e saída.  
+
+A seguir estão os cenários em que os dados são rastreados como um conjunto de dado de **entrada**. 
+
+* Como um `DatasetConsumptionConfig` objeto por meio do `inputs` `arguments` parâmetro ou do seu `ScriptRunConfig` objeto ao enviar a execução do experimento. 
+
+* Quando métodos como, get_by_name () ou get_by_id () são chamados em seu script. Para esse cenário, o nome atribuído ao conjunto de os quando você o registrou no espaço de trabalho é o nome exibido. 
+
+A seguir estão os cenários em que os dados são rastreados como um conjunto de dado de **saída**.  
+
+* Passe um `OutputFileDatasetConfig` objeto por meio do `outputs` `arguments` parâmetro ou ao enviar uma execução de experimento. `OutputFileDatasetConfig` os objetos também podem ser usados para manter os dados entre as etapas do pipeline. Consulte [mover dados entre as etapas do pipeline ml.](how-to-move-data-in-out-of-pipelines.md)
+    > [!TIP]
+    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) é uma classe de visualização pública que contém recursos de visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) que podem ser alterados a qualquer momento.
+
+* Registrar um conjunto de registros em seu script. Para esse cenário, o nome atribuído ao conjunto de os quando você o registrou no espaço de trabalho é o nome exibido. No exemplo a seguir, `training_ds` é o nome que seria exibido.
+
+    ```Python
+   training_ds = unregistered_ds.register(workspace = workspace,
+                                     name = 'training_ds',
+                                     description = 'training data'
+                                     )
+    ```
+
+* Envie uma execução filha com um conjunto de um DataSet não registrado no script. Isso resulta em um conjunto de um DataSet anônimo salvo.
+
+### <a name="trace-datasets-in-experiment-runs"></a>Rastrear conjuntos de valores em execuções de experimento
+
+Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada com o `Run` objeto experimento.
 
 O código a seguir usa o [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) método para controlar quais conjuntos de dados de entrada foram usados com a execução do experimento:
 
@@ -169,7 +195,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Você também pode encontrar o `input_datasets` de experimentos usando https://ml.azure.com/ . 
+Você também pode encontrar o `input_datasets` de experimentos usando o [Azure Machine Learning Studio](). 
 
 A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento no Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento, `keras-mnist` .
 
@@ -183,7 +209,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou ir para https://ml.azure.com/ .
+Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando o Python ou ir para o [estúdio](https://ml.azure.com/).
 
 A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos registrados com o conjunto de um. 
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310302"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579378"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 
@@ -42,7 +42,9 @@ OPENROWSET(
 A cadeia de conexão Azure Cosmos DB especifica o nome da conta de Azure Cosmos DB, o nome do banco de dados, a chave mestra da conta do banco de dados e um nome de região opcional para `OPENROWSET` funcionar. 
 
 > [!IMPORTANT]
-> Certifique-se de usar alias após `OPENROWSET` . Há um [problema conhecido](#known-issues) que causa o problema de conexão com o ponto de extremidade SQL sem servidor Synapse se você não especificar o alias após a `OPENROWSET` função.
+> Verifique se você está usando algum agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ) porque os valores de cadeia de caracteres em Cosmos DB repositório analítico são codificados como texto UTF-8.
+> A incompatibilidade entre a codificação de texto no arquivo e o agrupamento pode causar erros de conversão de texto inesperado.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 A cadeia de conexão tem o seguinte formato:
 ```sql
@@ -255,11 +257,11 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Tipo de propriedade Azure Cosmos DB | Tipo de coluna SQL |
 | --- | --- |
 | Booliano | bit |
-| Integer | bigint |
-| Decimal | float |
-| String | varchar (agrupamento de banco de dados UTF8) |
+| Integer | BIGINT |
+| Decimal | FLOAT |
+| Cadeia de caracteres | varchar (agrupamento de banco de dados UTF8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
-| Data e hora (carimbo de hora do UNIX) | bigint |
+| Data e hora (carimbo de hora do UNIX) | BIGINT |
 | Nulo | `any SQL type` 
 | Objeto ou matriz aninhada | varchar (max) (agrupamento de banco de dados UTF8), serializado como texto JSON |
 
@@ -338,8 +340,8 @@ Neste exemplo, o número de casos é armazenado como `int32` , `int64` ou `float
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- O alias **deve** ser especificado após `OPENROWSET` a função (por exemplo, `OPENROWSET (...) AS function_alias` ). A omissão do alias pode causar problemas de conexão e o ponto de extremidade SQL sem servidor Synapse pode estar temporariamente indisponível. Esse problema será resolvido em 2020 de novembro.
 - A experiência de consulta que o pool SQL sem servidor fornece para [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema que `OPENROWSET` a função sem a `WITH` cláusula fornece durante a visualização pública, pois a experiência de consulta pode estar alinhada ao esquema bem definido com base nos comentários dos clientes. Contate a [equipe do produto Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer comentários.
+- O pool SQL sem servidor não retornará erro de tempo de compilação se o `OPENROSET` agrupamento de coluna não tiver codificação UTF-8. Você pode alterar facilmente o agrupamento padrão para todas as `OPENROWSET` funções em execução no banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Possíveis erros e ações de solução de problemas estão listados na tabela a seguir:
 

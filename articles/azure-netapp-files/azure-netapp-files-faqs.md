@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089308"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591539"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -150,7 +150,7 @@ Sim, você deve criar uma conexão de Active Directory antes de implantar um vol
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Há suporte para quantas conexões Active Directory?
 
-Azure NetApp Files não oferece suporte a várias conexões de Active Directory (AD) em uma única *região*, mesmo que as conexões do AD estejam em contas diferentes do NetApp. No entanto, você pode ter várias conexões do AD em uma única *assinatura*, desde que as conexões do AD estejam em regiões diferentes. Se você precisar de várias conexões do AD em uma única região, poderá usar assinaturas separadas para fazer isso. 
+Azure NetApp Files não oferece suporte a várias conexões de Active Directory (AD) em uma única *região* , mesmo que as conexões do AD estejam em contas diferentes do NetApp. No entanto, você pode ter várias conexões do AD em uma única *assinatura* , desde que as conexões do AD estejam em regiões diferentes. Se você precisar de várias conexões do AD em uma única região, poderá usar assinaturas separadas para fazer isso. 
 
 Uma conexão do AD é configurada por conta da NetApp; a conexão do AD é visível somente por meio da conta do NetApp na qual ela é criada.
 
@@ -173,16 +173,6 @@ O tamanho do volume relatado pelo cliente SMB é o tamanho máximo para o qual o
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>Perguntas frequentes sobre protocolo duplo
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Tentei usar a "raiz" e os usuários locais para acessar um volume de protocolo duplo com o estilo de segurança NTFS em um sistema UNIX. Por que encontrei um erro de "permissão negada"?   
-
-Consulte [solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md) para resoluções.
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando tento criar um volume de protocolo duplo, por que o processo de criação falha com o erro "falha ao validar a configuração de LDAP, tente novamente depois de corrigir a configuração de LDAP"?  
-
-Consulte [solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md) para resoluções.
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes sobre gerenciamento de capacidade
 

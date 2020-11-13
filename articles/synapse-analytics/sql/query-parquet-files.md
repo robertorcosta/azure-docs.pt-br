@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306854"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579344"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consultar arquivos parquet usando o pool SQL sem servidor (versão prévia) na análise de Synapse do Azure
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 Certifique-se de acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada do Azure, será necessário configurar a [credencial de nível de servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Verifique se você está usando algum agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ) porque os valores de cadeia de caracteres em arquivos PARQUET são codificados usando a codificação UTF-8.
+> A incompatibilidade entre a codificação de texto no arquivo PARQUET e o Agrupamento podem causar erros de conversão inesperados.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Uso da fonte de dados
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Certifique-se de que você está explicilty especificando algum agrupamento UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ) para todas as colunas de cadeia de caracteres na `WITH` cláusula ou defina algum agrupamento UTF-8 no nível do banco de dados.
+> A incompatibilidade entre a codificação de texto no agrupamento de coluna de arquivo e cadeia de caracteres pode causar erros de conversão inesperados.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Você pode definir facilmente o agrupamento nos tipos de coluna usando a seguinte definição: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Nas seções a seguir, você pode ver como consultar vários tipos de arquivos PARQUET.
 

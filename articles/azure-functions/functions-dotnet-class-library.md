@@ -4,12 +4,12 @@ description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380956"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578766"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -17,12 +17,13 @@ ms.locfileid: "94380956"
 
 Este artigo é uma introdução ao desenvolvimento do Azure Functions usando o script C# em biblioteca de classes .NET.
 
+Como desenvolvedor de C#, você também pode estar interessado em um dos seguintes artigos:
+
+| Introdução | Conceitos| Aprendizado guiado/amostras |
+| -- | -- | -- | 
+| <ul><li>[Usando o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Usar o Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Exemplos do C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 O Azure Functions oferece suporte às linguagens de programação C# e script C#. Se estiver procurando diretrizes sobre [como usar C# no portal do Azure](functions-create-function-app-portal.md), consulte [Referência do desenvolvedor de script C# (.csx)](functions-reference-csharp.md).
-
-Este artigo pressupõe que você tenha completado as seguintes etapas:
-
-* [Guia do desenvolvedor do Azure Functions](functions-reference.md)
-* [Ferramentas do Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versões com suporte
 

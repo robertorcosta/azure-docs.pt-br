@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d94ee3145fb073dae982019fd4096cc2ceb7cd86
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392496"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578324"
 ---
 # <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>Conectar-se a recursos de espaço de trabalho do Synapse Studio de uma rede restrita
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a se conectar ao seu espaço de trabalho Synapse 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Etapa 1: adicionar regras de segurança de saída de rede à rede restrita
 
-Você precisará adicionar quatro regras de segurança de saída de rede com quatro marcas de serviço. Saiba mais sobre a [visão geral das marcas de serviço](/azure/virtual-network/service-tags-overview.md) 
+Você precisará adicionar quatro regras de segurança de saída de rede com quatro marcas de serviço. Saiba mais sobre a [visão geral das marcas de serviço](/azure/virtual-network/service-tags-overview) 
 * AzureResourceManager
 * AzureFrontDoor.Frontend
 * AzureActiveDirectory

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554709"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591981"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de Azure Machine Learning
 
@@ -53,6 +53,8 @@ Se os dados de saída do módulo estiverem em um formato tabular, você deverá 
 ### <a name="use-a-dataset"></a>Usar um conjunto de dados
 
 Seus conjuntos de valores registrados podem ser encontrados na paleta de módulos, em **DataSets**. Para usar um conjunto de dados, arraste-o e solte-o na tela do pipeline. Em seguida, conecte a porta de saída do conjunto de resultados a outros módulos na tela. 
+
+Se você registrar um conjunto de registros de arquivo, o tipo de porta de saída do conjunto de registros será **AnyDirectory**. Se você registrar um conjunto de registros de tabela, o tipo de porta de saída do conjunto de resultados se **DataFrameDirectory**. Observe que se você conectar a porta de saída do conjunto de resultados a outros módulos no designer, o tipo de porta de conjuntos de valores e módulos precisarão ser alinhados.
 
 ![Captura de tela mostrando o local dos conjuntos de dados salvos na paleta do designer](media/how-to-designer-import-data/use-datasets-designer.png)
 

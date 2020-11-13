@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e87be0db65cf12a265566e0c05815722ce3cc609
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337569"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578868"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -43,7 +43,7 @@ A estrutura de base de código usada neste exemplo é semelhante à seguinte:
 
 * Uma pasta **arm-templates** , que contém vários modelos do Azure Resource Manager. Os modelos são explicados neste artigo.
 * Uma pasta **client-application** , que é uma cópia do exemplo de [Processamento de arquivo .NET do Lote do Azure com ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial). Isso não é necessário para este artigo.
-* Uma pasta **HPC-Application** , que é a versão do Windows 64 bits do [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
+* Uma pasta **HPC-Application** , que é a versão do Windows 64 bits do [ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
 * Uma pasta de **pipelines**. Ela contém um arquivo YAML que descreve nosso processo de build. Isso é abordado no artigo.
 
 Esta seção pressupõe que você esteja familiarizado com o controle de versão e a criação de modelos do Resource Manager. Se você não estiver familiarizado com esses conceitos, confira as páginas a seguir para saber mais.

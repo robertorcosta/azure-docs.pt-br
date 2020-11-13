@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963509"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591641"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
@@ -58,7 +58,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
     ![Navegar até Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Na janela criar um volume, clique em **criar**e forneça informações para os seguintes campos na guia noções básicas:   
+2.  Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos na guia noções básicas:   
     * **Nome do volume**      
         Especifique o nome para o volume que você está criando.   
 
@@ -135,7 +135,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
     ![Assistente de Exportação de Certificados](../media/azure-netapp-files/certificate-export-wizard.png)
 
-4. Vá para a conta do NetApp do volume de protocolo duplo, clique em **Active Directory conexões**e carregue o certificado de autoridade de certificação raiz usando a janela **ingressar Active Directory** :  
+4. Vá para a conta do NetApp do volume de protocolo duplo, clique em **Active Directory conexões** e carregue o certificado de autoridade de certificação raiz usando a janela **ingressar Active Directory** :  
 
     ![Certificado de autoridade de certificação raiz do servidor](../media/azure-netapp-files/server-root-ca-certificate.png)
 
@@ -161,5 +161,5 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-* [Perguntas frequentes sobre protocolo duplo](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md)
+* [Solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md)

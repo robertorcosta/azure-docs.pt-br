@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100061"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579304"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Otimize os custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure
 
@@ -80,7 +80,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 1. Selecione **blobs de base** para definir as condições para a regra. No exemplo a seguir, os BLOBs são movidos para o armazenamento frio, caso não tenham sido modificados por 30 dias.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Gerenciamento do ciclo de vida adicionar uma página de detalhes de regra no portal do Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Página blobs de base de gerenciamento do ciclo de vida no portal do Azure":::
 
    A opção **último acessado** está disponível na visualização nas seguintes regiões:
 
@@ -95,7 +95,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 1. Se você selecionou **limitar BLOBs com filtros** na página de **detalhes** , selecione **conjunto de filtros** para adicionar um filtro opcional. O exemplo a seguir filtra os BLOBs no contêiner *mylifecyclecontainer* que começam com "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Gerenciamento do ciclo de vida adicionar uma página de detalhes de regra no portal do Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Página conjunto de filtros de gerenciamento do ciclo de vida no portal do Azure":::
 
 1. Selecione **Adicionar** para adicionar a nova política.
 
@@ -137,7 +137,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
    }
    ```
 
-1. Selecione **Salvar** .
+1. Selecione **Salvar**.
 
 1. Para obter mais informações sobre este exemplo de JSON, consulte as seções [política](#policy) e [regras](#rules) .
 
@@ -247,7 +247,7 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | Verdadeiro |
+| `name`         | Cadeia de caracteres |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | Verdadeiro |
 | `enabled`      | Booliano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
 | `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | Verdadeiro |
 | `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
@@ -317,9 +317,9 @@ Filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte a `blockBlob` e `appendBlob` . Somente a exclusão tem suporte para o `appendBlob` , não há suporte para a camada de conjunto. | Yes |
-| prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo` . | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | No |
-| blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs com `Project = Contoso` em `https://myaccount.blob.core.windows.net/` para uma regra, o blobIndexMatch será `{"name": "Project","op": "==","value": "Contoso"}` . | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | No |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte a `blockBlob` e `appendBlob` . Somente a exclusão tem suporte para o `appendBlob` , não há suporte para a camada de conjunto. | Sim |
+| prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo` . | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
+| blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs com `Project = Contoso` em `https://myaccount.blob.core.windows.net/` para uma regra, o blobIndexMatch será `{"name": "Project","op": "==","value": "Contoso"}` . | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
 
 > [!NOTE]
 > O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central** , **leste do Canadá** , **França central** e **França** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
@@ -342,7 +342,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs, ver
 
 As condições de execução se baseiam na idade. Os blobs de base usam a hora da última modificação, as versões de blob usam a hora de criação da versão e os instantâneos de blob usam o tempo de criação do instantâneo para controlar a idade.
 
-| Condição de execução de ação               | Valor de condição                          | Descrição                                                                      |
+| Condição de execução de ação               | Valor de condição                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Valor inteiro que indica a idade em dias | A condição para ações de blob de base                                              |
 | daysAfterCreationGreaterThan       | Valor inteiro que indica a idade em dias | A condição para a versão do blob e ações de instantâneo de BLOB                         |
@@ -439,7 +439,7 @@ O controle de horário do último acesso está disponível para os seguintes tip
 
 Se sua conta de armazenamento for uma conta v1 de uso geral, use o portal do Azure para atualizar para uma conta v2 de uso geral.
 
-As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 ainda não têm suporte.
+As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 agora têm suporte.
 
 #### <a name="pricing-and-billing"></a>Preços e cobrança
 

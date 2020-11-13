@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220451"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579140"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solucionar problemas comuns no Azure Data Share 
 
@@ -52,11 +52,11 @@ Isso pode ocorrer devido aos seguintes motivos:
 
 "Não foi possível adicionar permissões de gravação para a conta do compartilhamento de dados do Azure a um ou mais dos seus recursos selecionados"
 
-Se você receber qualquer um dos erros acima ao criar um novo compartilhamento ou mapear conjuntos de dados, isso pode ser devido a permissões insuficientes para o armazenamento do Azure Data. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter as permissões necessárias. 
+Se você receber qualquer um dos erros acima ao criar um novo compartilhamento, Adicionar conjuntos de dados ou mapear conjuntos de dados, isso pode ser devido a permissões insuficientes para o armazenamento do Azure Data. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter as permissões necessárias. 
 
-Você precisa de permissão de gravação para compartilhar ou receber dados de um armazenamento de dados do Azure, que normalmente existe na função colaborador. 
+Você precisa de permissão de gravação para compartilhar ou receber dados de um armazenamento de dados do Azure, que normalmente existe na função **colaborador** . 
 
-Se esta for a primeira vez que você está compartilhando ou recebendo dados do armazenamento de dados do Azure, você também precisa da permissão *Microsoft. Authorization/role/Write* , que normalmente existe na função Owner. Mesmo que você tenha criado o recurso de armazenamento de dados do Azure, ele não o torna automaticamente o proprietário do recurso. Com a permissão adequada, o serviço de compartilhamento de dados do Azure concede automaticamente ao armazenamento de dados acesso de identidade gerenciada do recurso de compartilhamento de dados. Esse processo pode levar alguns minutos para entrar em vigor. Se você tiver uma falha devido a esse atraso, tente novamente em alguns minutos.
+Se esta for a primeira vez que você está compartilhando ou recebendo dados do armazenamento de dados do Azure, você também precisa da permissão *Microsoft. Authorization/role/Write* , que normalmente existe na função **Owner** . Mesmo que você tenha criado o recurso de armazenamento de dados do Azure, ele não o torna automaticamente o proprietário do recurso. Com a permissão adequada, o serviço de compartilhamento de dados do Azure concede automaticamente ao armazenamento de dados acesso de identidade gerenciada do recurso de compartilhamento de dados. Esse processo pode levar alguns minutos para entrar em vigor. Se você tiver uma falha devido a esse atraso, tente novamente em alguns minutos.
 
 O compartilhamento baseado em SQL requer permissões adicionais. Consulte [compartilhar de fontes SQL](how-to-share-from-sql.md) para obter uma lista detalhada de pré-requisitos.
 
@@ -69,7 +69,7 @@ O instantâneo pode falhar por vários motivos. Você pode encontrar uma mensage
 
 Para fontes SQL, veja a seguir as causas adicionais de falhas de instantâneo. 
 
-* O script SQL de origem ou de destino para conceder permissão de compartilhamento de dados não é executado ou é executado usando a autenticação do SQL em vez de Azure Active Directory autenticação.  
+* O script SQL de origem ou de destino para conceder a permissão de compartilhamento de dados não é executado. Ou para o banco de dados SQL do Azure ou o Azure Synapse Analytics (anteriormente Azure SQL DW), ele é executado usando a autenticação do SQL em vez de Azure Active Directory autenticação.  
 * O armazenamento de dados SQL de origem ou de destino está em pausa.
 * Os tipos de dados SQL não são suportados pelo processo de instantâneo ou pelo armazenamento de dados de destino. Consulte [compartilhar de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter detalhes.
 * O armazenamento de dados SQL de origem ou de destino está bloqueado por outros processos. O compartilhamento de dados do Azure não aplica bloqueios ao repositório de dados SQL de origem e de destino. No entanto, os bloqueios existentes no armazenamento de dados SQL de origem e de destino causarão falha de instantâneo.

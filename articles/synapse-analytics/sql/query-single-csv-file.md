@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9896b62ab347ec3b4751eb517c00222f00ddb1c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321453"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579395"
 ---
 # <a name="query-csv-files"></a>Consultar arquivos CSV
 
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 A opção `firstrow` é usada para ignorar a primeira linha no arquivo CSV que representa o cabeçalho nesse caso. Verifique se você pode acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada, você precisará configurar a [credencial de nível de servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Se o arquivo CSV contiver caracteres UTF-8, verifique se você está usando algum agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ).
+> A incompatibilidade entre a codificação de texto no arquivo e o agrupamento pode causar erros de conversão inesperados.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Uso da fonte de dados
 
@@ -90,6 +95,12 @@ from openrowset(
 ```
 
 Os números após um tipo de dados na `WITH` cláusula representam o índice de coluna no arquivo CSV.
+
+> [!IMPORTANT]
+> Se o arquivo CSV contiver caracteres UTF-8, certifique-se de que você está explicilty especificando algum agrupamento UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ,) para todas as colunas na `WITH` cláusula ou defina algum agrupamento UTF-8 no nível do banco de dados.
+> A incompatibilidade entre a codificação de texto no arquivo e o agrupamento pode causar erros de conversão inesperados.
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Você pode definir facilmente o agrupamento nos tipos de coluna usando a seguinte definição: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 Nas seções a seguir, você pode ver como consultar vários tipos de arquivos CSV.
 

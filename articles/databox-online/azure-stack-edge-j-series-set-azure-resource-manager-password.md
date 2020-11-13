@@ -1,6 +1,6 @@
 ---
 title: Definir Azure Resource Manager senha em seu dispositivo de GPU pro Azure Stack Edge
-description: Descreve como se conectar ao Azure Resource Manager em execução em sua GPU do Azure Stack Edge pro usando o Azure PowerShell.
+description: Descreve como definir a senha de Azure Resource Manager em sua GPU do Azure Stack Edge pro usando o Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904483"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578783"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir Azure Resource Manager senha no dispositivo Azure Stack GPU pro Edge
 
@@ -28,7 +28,7 @@ O procedimento para definir a senha pode ser diferente dependendo se você usa o
 
 1. Na portal do Azure, vá para o recurso de borda do Azure Stack que você criou para gerenciar seu dispositivo. Acesse **Computação de borda > Introdução**.
 
-2. No painel direito, na barra de comandos, selecione **Redefinir senha do ARM de borda**. 
+2. No painel direito, na barra de comandos, selecione **Redefinir senha do ARM do Edge**. 
 
     ![Redefinir senha de usuário do EdgeARM 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
@@ -47,7 +47,7 @@ O procedimento para definir a senha pode ser diferente dependendo se você usa o
 
 2. Vá para **configurações > Propriedades**. Anote os parâmetros a seguir na página **Propriedades** .
 
-    - Resource group
+    - Grupo de recursos
     - Chave de criptografia CIK: selecione Exibir e, em seguida, copie a **chave de criptografia**.
 
     ![Obter chave de criptografia CIK](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)

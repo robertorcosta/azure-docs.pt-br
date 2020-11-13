@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605083"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578307"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Active Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (linha de negócios) para o Azure Active Directory (AD). O público-alvo é Active Directory/Microsoft 365 administradores globais.
@@ -27,7 +27,7 @@ A criação de aplicativos integrados ao Azure AD fornece aos usuários em sua o
 
 Registre seu aplicativo com o Azure Active Directory. Registrar o aplicativo significa que seus desenvolvedores podem usar o Azure AD para autenticar usuários e solicitar acesso a recursos de usuário como email, calendário e documentos.
 
-Qualquer membro do diretório (não convidados) pode registrar um aplicativo, também conhecido como *criação de um objeto de aplicativo*.
+Qualquer membro do diretório (não convidados) pode registrar um aplicativo, também conhecido como *criação de um objeto de aplicativo*. Se você não conseguir registrar um aplicativo, significa que o administrador global do seu diretório restringiu essa funcionalidade e talvez seja necessário contatá-las para [obter os direitos apropriados](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) para registrar o aplicativo. Para saber mais sobre como restringir [as permissões de registro de aplicativo delegado do usuário no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
 
 Registrar um aplicativo permite que qualquer usuário faça o seguinte:
 
