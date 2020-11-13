@@ -1,6 +1,6 @@
 ---
 title: Delegação restrita de Kerberos com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de delegação restrita de Kerberos com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114070"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577117"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Autenticação do Windows-delegação restrita de Kerberos com Azure Active Directory
 
@@ -36,19 +36,19 @@ Há a necessidade de fornecer acesso remoto, proteger com pré-autenticação e 
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Usuário**: acessa o aplicativo herdado servido pelo proxy de aplicativo.
+* **Usuário** : acessa o aplicativo herdado servido pelo proxy de aplicativo.
 
-* **Navegador da Web**: o componente com o qual o usuário interage para acessar a URL externa do aplicativo.
+* **Navegador da Web** : o componente com o qual o usuário interage para acessar a URL externa do aplicativo.
 
-* **AD do Azure**: autentica o usuário. 
+* **AD do Azure** : autentica o usuário. 
 
-* **Serviço de proxy de aplicativo**: atua como proxy reverso para enviar solicitação do usuário para o aplicativo local. Ele fica no Azure AD. O proxy de aplicativo também pode impor qualquer política de acesso condicional.
+* **Serviço de proxy de aplicativo** : atua como proxy reverso para enviar solicitação do usuário para o aplicativo local. Ele fica no Azure AD. O proxy de aplicativo também pode impor qualquer política de acesso condicional.
 
-* **Conector de proxy de aplicativo**: instalado no local em servidores Windows para fornecer conectividade ao aplicativo. Retorna a resposta ao Azure AD. Executa a negociação KCD com Active Directory, representando o usuário para obter um token Kerberos para o aplicativo.
+* **Conector de proxy de aplicativo** : instalado no local em servidores Windows para fornecer conectividade ao aplicativo. Retorna a resposta ao Azure AD. Executa a negociação KCD com Active Directory, representando o usuário para obter um token Kerberos para o aplicativo.
 
-* **Active Directory**: envia o token Kerberos para o aplicativo para o conector de proxy de aplicativo.
+* **Active Directory** : envia o token Kerberos para o aplicativo para o conector de proxy de aplicativo.
 
-* **Aplicativos herdados**: aplicativos que recebem solicitações de usuário do proxy de aplicativo. Os aplicativos herdados retornam a resposta para o conector de proxy de aplicativo.
+* **Aplicativos herdados** : aplicativos que recebem solicitações de usuário do proxy de aplicativo. Os aplicativos herdados retornam a resposta para o conector de proxy de aplicativo.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementar a autenticação do Windows (KCD) com o Azure AD
 

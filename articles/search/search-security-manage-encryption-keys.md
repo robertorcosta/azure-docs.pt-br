@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287147"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575859"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurar chaves gerenciadas pelo cliente para criptografia de dados no Azure Pesquisa Cognitiva
 
@@ -169,9 +169,11 @@ As permissões de acesso podem ser revogadas em um determinado momento. Depois d
 > [!Important]
 > O conteúdo criptografado no Azure Pesquisa Cognitiva está configurado para usar uma chave de Azure Key Vault específica com uma **versão** específica. Se você alterar a chave ou a versão, o mapa de índice ou sinônimo deverá ser atualizado para usar o novo key\version **antes** de excluir o key\version. anterior A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, em você não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.
 
+<a name="encrypt-content"></a>
+
 ## <a name="5---encrypt-content"></a>5-criptografar conteúdo
 
-Para adicionar uma chave gerenciada pelo cliente em um mapa de índice ou sinônimo, use uma API REST ou SDK para criar um objeto cuja definição inclua `encryptionKey` .
+Para adicionar uma chave gerenciada pelo cliente em um índice, fonte de dados, habilidades, indexador ou mapa de sinônimos, você deve usar a [API REST de pesquisa](https://docs.microsoft.com/rest/api/searchservice/) ou um SDK. O portal não expõe mapas de sinônimos ou propriedades de criptografia. Quando você usa índices de API, fontes de dados, habilidades, indexadores e mapas de sinônimos válidos dão suporte a uma propriedade **encryptionKey** de nível superior.
 
 Este exemplo usa a API REST, com valores para Azure Key Vault e Azure Active Directory:
 
@@ -192,6 +194,12 @@ Este exemplo usa a API REST, com valores para Azure Key Vault e Azure Active Dir
 > [!Note]
 > Nenhum desses detalhes do cofre de chaves são considerados secretos e podem ser recuperados facilmente navegando até a página de chave Azure Key Vault relevante em portal do Azure.
 
+## <a name="example-index-encryption"></a>Exemplo: index Encryption
+
+Crie um índice criptografado usando a [API REST criar índice do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-index). Use a `encryptionKey` propriedade para especificar a chave de criptografia a ser usada.
+> [!Note]
+> Nenhum desses detalhes do cofre de chaves são considerados secretos e podem ser recuperados facilmente navegando até a página de chave Azure Key Vault relevante em portal do Azure.
+
 ## <a name="rest-examples"></a>Exemplos de REST
 
 Esta seção mostra o JSON completo para um índice criptografado e um mapa de sinônimos
@@ -202,7 +210,7 @@ Os detalhes da criação de um novo índice por meio da API REST podem ser encon
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -231,19 +239,19 @@ Agora você pode enviar a solicitação de criação de índice e começar a usa
 
 ### <a name="synonym-map-encryption"></a>Criptografia do mapa de sinônimos
 
-Os detalhes da criação de um novo mapa de sinônimos por meio da API REST podem ser encontrados em [criar mapa de sinônimos (API REST)](/rest/api/searchservice/create-synonym-map), em que a única diferença aqui é especificar os detalhes da chave de criptografia como parte da definição do mapa de sinônimos: 
+Crie um mapa de sinônimos criptografados usando a [API REST criar mapa de sinônimos do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Use a `encryptionKey` propriedade para especificar a chave de criptografia a ser usada.
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -252,6 +260,86 @@ Os detalhes da criação de um novo mapa de sinônimos por meio da API REST pode
 ```
 
 Agora você pode enviar a solicitação de criação de mapa de sinônimo e começar a usá-la normalmente.
+
+## <a name="example-data-source-encryption"></a>Exemplo: criptografia de fonte de dados
+
+Crie uma fonte de dados criptografada usando a [API REST de criação (Azure pesquisa cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Use a `encryptionKey` propriedade para especificar a chave de criptografia a ser usada.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Agora você pode enviar a solicitação de criação da fonte de dados e começar a usá-la normalmente.
+
+## <a name="example-skillset-encryption"></a>Exemplo: criptografia do skillset
+
+Crie um decodificador de qualificações criptografadas usando a [API REST de criação de conPesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Use a `encryptionKey` propriedade para especificar a chave de criptografia a ser usada.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Agora você pode enviar a solicitação de criação de contratação e começar a usá-la normalmente.
+
+## <a name="example-indexer-encryption"></a>Exemplo: criptografia do indexador
+
+Crie um indexador criptografado usando a [API REST criar indexador do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Use a `encryptionKey` propriedade para especificar a chave de criptografia a ser usada.
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Agora você pode enviar a solicitação de criação do indexador e começar a usá-la normalmente.
 
 >[!Important]
 > Embora `encryptionKey` não possa ser adicionado a índices de pesquisa ou mapas de sinônimos existentes, ele pode ser atualizado fornecendo valores diferentes para qualquer um dos três detalhes do cofre de chaves (por exemplo, atualizando a versão da chave). Ao mudar para uma nova chave de Key Vault ou uma nova versão de chave, qualquer índice de pesquisa ou mapa de sinônimos que usa a chave deve primeiro ser atualizado para usar o novo key\version **antes** de excluir o key\version. anterior A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, pois ele não poderá descriptografar o conteúdo depois que o acesso à chave for perdido. Embora a restauração das permissões de acesso do cofre de chaves posteriormente, o acesso ao conteúdo será restaurado.
@@ -265,7 +353,6 @@ Essa abordagem permite omitir as etapas para o registro do aplicativo e os segre
 Em geral, uma identidade gerenciada permite que o serviço de pesquisa se autentique em Azure Key Vault sem armazenar credenciais (ApplicationID ou ApplicationSecret) no código. O ciclo de vida desse tipo de identidade gerenciada está vinculado ao ciclo de vida do seu serviço de pesquisa, que só pode ter uma identidade gerenciada. Para obter mais informações sobre como as identidades gerenciadas funcionam, consulte [o que são identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Torne seu serviço de pesquisa um serviço confiável.
-
    ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Ativar a identidade gerenciada atribuída ao sistema")
 
 1. Ao configurar uma política de acesso no Azure Key Vault, escolha o serviço de pesquisa confiável como o princípio (em vez do aplicativo registrado pelo AD). Atribua as mesmas permissões (Multiple obter, ENCAPSULAr, desencapsular) conforme instruído na etapa conceder permissões de chave de acesso.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149265"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566258"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -91,11 +91,11 @@ Você obtém códigos de status de erro 403 e 429 ao exceder as transações por
 
 Quando você usar todas essas consultas de ponto de extremidade 1000 gratuitas ou exceder a cota de transações mensais do seu tipo de preço, você receberá um código de status de erro HTTP 403.
 
-Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier) para uma camada superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-azure-subscription.md#change-the-pricing-tier) para uma camada superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 As soluções para esse erro incluem:
 
-* No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->**, altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
+* No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->** , altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
 *  Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 429. Como corrigi-la?
@@ -106,7 +106,7 @@ Esse código de status é retornado quando suas transações por segundo excedem
 
 As soluções incluem:
 
-* Você pode [aumentar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier), se não estiver na camada mais alta.
+* Você pode [aumentar seu tipo de preço](luis-how-to-azure-subscription.md#change-the-pricing-tier), se não estiver na camada mais alta.
 * Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 * Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status.
 
@@ -268,13 +268,13 @@ O primeiro problema é descobrir se o problema está relacionado ao LUIS ou se o
 #### <a name="resolve-issue-in-luis"></a>Resolver problema no LUIS
 Transmita o mesmo enunciado do [ponto de extremidade do LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) para o LUIS. Se você receber um erro, resolva o problema no LUIS até que o erro já não seja retornado. Os erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver o problema no Serviço de Bot do Azure
 
 Se você estiver usando o Serviço de Bot do Azure e o problema for que o **Teste no Webchat** retorna `Sorry, my bot code is having an issue`, verifique os logs:
 
-1. No portal do Azure, na seção **Gerenciamento de bot**, escolha **Compilar** para seu bot.
+1. No portal do Azure, na seção **Gerenciamento de bot** , escolha **Compilar** para seu bot.
 1. Abra o editor de código online.
 1. Na barra de navegação superior azul, escolha o nome do bot (o segundo item à direita).
 1. Na lista suspensa resultante, escolha **Abrir o Console do Kudu**.

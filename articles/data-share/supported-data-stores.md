@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/30/2020
+ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318589"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577214"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no Azure Data Share
 
@@ -23,14 +23,15 @@ Neste artigo, você aprenderá sobre o rico conjunto de armazenamentos de dados 
 
 A tabela abaixo detalha as fontes de dados com suporte para o compartilhamento de dados do Azure. 
 
-| Armazenamento de dados | Compartilhamento baseado em instantâneo | Compartilhamento in-loco 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Armazenamento de Blobs do Azure |✓ | |
-| Azure Data Lake Storage Gen1 |✓ | |
-| Azure Data Lake Storage Gen2 |✓ ||
-| Banco de Dados SQL do Azure |✓ | |
-| Análise do Azure Synapse (anteriormente Azure SQL DW) |✓ | |
-| Azure Data Explorer | |✓ |
+| Armazenamento de dados | Compartilhamento baseado em instantâneo (instantâneo completo) | Compartilhamento baseado em instantâneo (instantâneo incremental) | Compartilhamento in-loco 
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Armazenamento de Blobs do Azure |✓ |✓ | |
+| Azure Data Lake Storage Gen1 |✓ |✓ | |
+| Azure Data Lake Storage Gen2 |✓ |✓ ||
+| Banco de Dados SQL do Azure |✓ | | |
+| Análise do Azure Synapse (anteriormente Azure SQL DW) |✓ | | |
+| Pool de SQL do Azure Synapse Analytics (espaço de trabalho) | Visualização pública | | |
+| Azure Data Explorer | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de suporte do armazenamento de dados
 
@@ -38,14 +39,15 @@ O compartilhamento de dados do Azure oferece flexibilidade aos consumidores de d
 
 A tabela abaixo detalha combinações diferentes e escolhas que os consumidores de dados têm ao aceitar e configurar seu compartilhamento de dados. Para obter mais informações sobre como configurar mapeamentos de conjunto de dados, consulte [como configurar mapeamentos de conjunto](how-to-configure-mapping.md)de dados.
 
-| Armazenamento de dados | Armazenamento do Blobs do Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Banco de Dados SQL do Azure | Azure Synapse Analytics | Azure Data Explorer
-|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Armazenamento de Blobs do Azure | ✓ || ✓ ||
-| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
-| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
-| Banco de Dados SQL do Azure | ✓ | | ✓ | ✓ | ✓ ||
-| Análise do Azure Synapse (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
-| Azure Data Explorer |||||| ✓ |
+| Armazenamento de dados | Armazenamento do Blobs do Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Banco de Dados SQL do Azure | Análise do Azure Synapse (anteriormente Azure SQL DW) | Pool de SQL do Azure Synapse Analytics (espaço de trabalho) | Azure Data Explorer
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
+| Armazenamento de Blobs do Azure | ✓ || ✓ |||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
+| Banco de Dados SQL do Azure | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Análise do Azure Synapse (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Pool de SQL do Azure Synapse Analytics (espaço de trabalho) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Compartilhar de uma conta de armazenamento
 O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos, pastas e sistemas de arquivos do Azure Data Lake Gen1 e Azure Data Lake Gen2. Ele também dá suporte ao compartilhamento de BLOBs, pastas e contêineres do armazenamento de BLOBs do Azure. No momento, só há suporte para blob de blocos. Quando os sistemas de arquivos, contêineres ou pastas são compartilhados no compartilhamento baseado em instantâneo, o consumidor de dados pode optar por fazer uma cópia completa dos dados de compartilhamento ou aproveitar a capacidade de instantâneo incremental para copiar somente arquivos novos ou atualizados. O instantâneo incremental é baseado na hora da última modificação dos arquivos. Os arquivos existentes com o mesmo nome serão substituídos.
@@ -53,7 +55,7 @@ O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos
 Veja [compartilhar e receber dados do armazenamento de BLOBs do Azure e Azure data Lake Storage](how-to-share-from-storage.md) para obter detalhes.
 
 ## <a name="share-from-a-sql-based-source"></a>Compartilhar de uma fonte baseada em SQL
-O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas ou exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW). Os consumidores de dados podem optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet, bem como no banco de dados SQL do Azure e no Azure Synapse Analytics como tabelas.
+O compartilhamento de dados do Azure dá suporte ao compartilhamento de tabelas ou exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) e compartilhamento de tabelas do pool SQL do Azure Synapse Analytics (espaço de trabalho). Os consumidores de dados podem optar por aceitar os dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure como arquivos CSV ou parquet, bem como no banco de dados SQL do Azure e no Azure Synapse Analytics como tabelas.
 
 Ao aceitar dados no Azure Data Lake Store Gen2 ou no armazenamento de BLOBs do Azure, instantâneos completos substituem o conteúdo do arquivo de destino, se já existir.
 Quando os dados são recebidos na tabela e se a tabela de destino ainda não existir, o compartilhamento de dados do Azure criará a tabela SQL com o esquema de origem. Se uma tabela de destino já existir com o mesmo nome, ela será descartada e substituída pelo instantâneo completo mais recente. Não há suporte para instantâneos incrementais no momento.

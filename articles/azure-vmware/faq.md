@@ -2,14 +2,14 @@
 title: Perguntas frequentes
 description: Fornece respostas para algumas das perguntas mais comuns sobre a solução do Azure VMware.
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487781"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577508"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -229,9 +229,15 @@ Você terá privilégios totais de administrador no NSX-T e poderá gerenciar o 
 
 Para perguntas gerais sobre preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/azure-vmware) da solução VMware do Azure. 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>A solução do Azure VMware pode ser adquirida por meio de um Microsoft CSP?
+
+Sim, os clientes podem implantar a solução do Azure VMware em uma assinatura do Azure gerenciada por um CSP.
+
 #### <a name="who-supports-azure-vmware-solution"></a>Quem dá suporte à solução Azure VMware?
 
-A Microsoft oferece suporte à solução Azure VMware. Você pode enviar uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+A Microsoft oferece suporte à solução Azure VMware. Você pode enviar uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+Para assinaturas gerenciadas pelo CSP, o primeiro nível de suporte será fornecido pelo provedor de solução da mesma maneira que o CSP faz para outros serviços do Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Quais contas eu preciso para criar uma nuvem privada da solução Azure VMware?
 
@@ -246,6 +252,10 @@ A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocaliz
 O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como fazer solicitar um aumento de cota de host para a solução do Azure VMware?
+
+Para assinaturas gerenciadas pelo CSP, o cliente deve executar a solicitação para o parceiro e a equipe de parceiros entrará na Microsoft para obter a cota aumentada para a assinatura. 
+
+Para assinaturas EA, o cliente deve seguir este procedimento.
 
 * Você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta do Azure em uma assinatura do Azure.
@@ -283,9 +293,12 @@ Antes de criar o recurso da solução Azure VMware, você deve enviar um tíquet
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication

@@ -1,6 +1,6 @@
 ---
 title: Personalização de idioma nos fluxos dos usuários do Azure AD
-description: Saiba como personalizar a experiência de idioma nos seus fluxos dos usuários.
+description: Saiba mais sobre como personalizar a experiência de idioma em seus fluxos de usuário em Azure Active Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441429"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576505"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalização de idioma no Azure Active Directory (versão prévia)
 
@@ -37,14 +37,14 @@ Por padrão, a personalização de idioma é habilitada para os usuários que se
 A personalização de idioma permite personalizar qualquer cadeia de caracteres no fluxo de usuário.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador do Microsoft Azure AD.
-2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
+2. Em **Serviços do Azure** , selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
 4. Selecione **fluxos dos usuários (Versão Prévia)** .
 3. Selecione o fluxo do usuário que deseja habilitar para traduções.
 4. Selecione os **Idiomas**.
 5. Na página **Idiomas** do fluxo de usuário, selecione o idioma que você quer personalizar.
 6. Expanda a **página Coleção de Atributos**.
-7. Selecione **Baixar Padrões** (ou **Baixar substituições**, se esse idioma já foi editado anteriormente).
+7. Selecione **Baixar Padrões** (ou **Baixar substituições** , se esse idioma já foi editado anteriormente).
 
 Essas etapas fornecem um arquivo JSON que você pode usar para começar a editar suas cadeias de caracteres.
 

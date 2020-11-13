@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628840"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575961"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -99,13 +99,13 @@ Se você ainda não tiver um certificado, será possível usar um certificado au
 Em seguida, carregue a declaração SAML e o certificado de assinatura de resposta para o Azure AD B2C.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o locatário do Azure AD B2C.
-1. Em **Políticas** , selecione **Identity Experience Framework** e **Chaves de política** .
-1. Selecione **Adicionar** e depois **Opções** > **Carregar** .
-1. Insira um **Nome** , por exemplo *SamlIdpCert* . O prefixo *B2C_1A_* será adicionado automaticamente ao nome da chave.
+1. Em **Políticas** , selecione **Identity Experience Framework** e **Chaves de política**.
+1. Selecione **Adicionar** e depois **Opções** > **Carregar**.
+1. Insira um **Nome** , por exemplo *SamlIdpCert*. O prefixo *B2C_1A_* será adicionado automaticamente ao nome da chave.
 1. Carregue seu certificado usando carregar o controle de arquivo.
 1. Insira a senha do certificado.
-1. Selecione **Criar** .
-1. Verifique se a chave aparece como esperado. Por exemplo, *B2C_1A_SamlIdpCert* .
+1. Selecione **Criar**.
+1. Verifique se a chave aparece como esperado. Por exemplo, *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Preparar sua política
 
@@ -159,7 +159,7 @@ Agora que seu locatário pode emitir declarações SAML, você precisa criar a p
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3.1 Criar uma política de inscrição ou entrada
 
-1. Crie uma cópia do arquivo *SignUpOrSignin.xml* no diretório de trabalho do pacote inicial e salve-o com um novo nome. Por exemplo, *SignUpOrSigninSAML.xml* . Este é o arquivo de política de terceira parte confiável.
+1. Crie uma cópia do arquivo *SignUpOrSignin.xml* no diretório de trabalho do pacote inicial e salve-o com um novo nome. Por exemplo, *SignUpOrSigninSAML.xml*. Este é o arquivo de política de terceira parte confiável.
 
 1. Abra o arquivo *SignUpOrSigninSAML.xml* no editor de sua preferência.
 
@@ -176,7 +176,7 @@ Agora que seu locatário pode emitir declarações SAML, você precisa criar a p
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Adicione o snippet XML a seguir logo antes do elemento `<RelyingParty>`. Esse XML substitui a etapa de orquestração número 7 do percurso do usuário _SignUpOrSignIn_ . Se você começou em uma pasta diferente no pacote inicial ou personalizou seu percurso do usuário adicionando ou removendo etapas de orquestração, verifique se o número (no elemento `order`) está alinhado com o especificado no percurso do usuário para etapa de emissor de token (por exemplo, nas outras pastas do pacote inicial, é a etapa número 4 para `LocalAccounts`, 6 para `SocialAccounts` e 9 para `SocialAndLocalAccountsWithMfa`).
+1. Adicione o snippet XML a seguir logo antes do elemento `<RelyingParty>`. Esse XML substitui a etapa de orquestração número 7 do percurso do usuário _SignUpOrSignIn_. Se você começou em uma pasta diferente no pacote inicial ou personalizou seu percurso do usuário adicionando ou removendo etapas de orquestração, verifique se o número (no elemento `order`) está alinhado com o especificado no percurso do usuário para etapa de emissor de token (por exemplo, nas outras pastas do pacote inicial, é a etapa número 4 para `LocalAccounts`, 6 para `SocialAccounts` e 9 para `SocialAndLocalAccountsWithMfa`).
 
     ```xml
     <UserJourneys>
@@ -260,7 +260,7 @@ O arquivo de política de terceira parte confiável final deve ser semelhante ao
 
 Salve as alterações e carregue o novo arquivo de política. Depois de carregar ambas as políticas (a extensão e os arquivos de terceira parte confiável), abra um navegador da Web e navegue até os metadados de política.
 
-Os metadados do IDP de política do Azure AD B2C são informações usadas no protocolo SAML para expor a configuração de um provedor de identidade SAML. Metadados definem o local dos serviços, como entrada e saída, certificados, método de entrada e muito mais. Os metadados de política do Azure AD B2C estão disponíveis na URL a seguir. Substitua `tenant-name` pelo nome do seu locatário do Azure AD B2C e `policy-name` pelo nome (ID) da política:
+Os metadados do IDP de política do Azure AD B2C são informações usadas no protocolo SAML para expor a configuração de um provedor de identidade SAML. Metadados definem o local dos serviços, como entrada e saída, certificados, método de entrada e muito mais. Os metadados de política do Azure AD B2C estão disponíveis na URL a seguir. Substitua `tenant-name` pelo nome do seu locatário do Azure ad B2C e `policy-name` pelo nome (ID) da política, por exemplo,.../B2C_1A_SAML2_signup_signin/samlp/Metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -272,12 +272,12 @@ Sua política personalizada e o locatário do Azure AD B2C agora estão prontos.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
-1. No menu à esquerda, selecione **Azure AD B2C** . Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C** .
-1. Escolha **Registros de aplicativo** e **Novo registro** .
-1. Insira um **Nome** para o aplicativo. Por exemplo, *SAMLApp1* .
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
+1. Escolha **Registros de aplicativo** e **Novo registro**.
+1. Insira um **Nome** para o aplicativo. Por exemplo, *SAMLApp1*.
 1. Em **Tipos de contas com suporte** , selecione **Contas somente neste diretório organizacional**
 1. Em **URI de Redirecionamento** , selecione **Web** e, em seguida, digite `https://localhost`. Você modificará esse valor posteriormente no manifesto do registro de aplicativo.
-1. Selecione **Registrar** .
+1. Selecione **Registrar**.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Atualizar o manifesto do aplicativo
 
@@ -296,7 +296,7 @@ Essa propriedade representa a URL de metadados publicamente disponível do prove
 
 Os metadados são informações usadas no protocolo SAML para expor a configuração de uma entidade SAML, como um provedor de serviços. Os metadados definem o local dos serviços como entrada e saída, certificados, método de entrada e muito mais. O Azure AD B2C lê os metadados do provedor de serviços e age de acordo. Os metadados não são necessários. Você também pode especificar alguns atributos como o URI de resposta e o URI de saída diretamente no manifesto do aplicativo.
 
-Se houver propriedades especificadas *tanto* na URL de metadados SAML quanto no manifesto do registro de aplicativo, elas serão **mescladas** . As propriedades especificadas na URL de metadados são processadas primeiro e têm precedência.
+Se houver propriedades especificadas *tanto* na URL de metadados SAML quanto no manifesto do registro de aplicativo, elas serão **mescladas**. As propriedades especificadas na URL de metadados são processadas primeiro e têm precedência.
 
 Para este tutorial, que usa o aplicativo de teste SAML, use o seguinte valor para `samlMetadataUrl`:
 
@@ -347,7 +347,7 @@ Alguns ou todos os seguintes itens são normalmente necessários:
     1. acesse a URL de metadados especificada acima.
     1. Copie o valor no elemento `<X509Certificate>`.
     1. Cole-o em um arquivo de texto.
-    1. Salve o arquivo de texto como um arquivo *.cer* .
+    1. Salve o arquivo de texto como um arquivo *.cer*.
 
 ### <a name="51-test-with-the-saml-test-app-optional"></a>5.1 Testar com o aplicativo de teste SAML (opcional)
 

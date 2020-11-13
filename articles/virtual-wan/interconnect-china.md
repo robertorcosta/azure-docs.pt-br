@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399101"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566632"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconexão com a China usando a WAN Virtual do Azure e um hub seguro
 
@@ -111,7 +111,7 @@ Dependendo da sua escolha em relação à conexão com Hong Kong, a arquitetura 
 
 Todas essas opções fazem uso do Hub seguro de WAN virtual do Azure para conectividade de Microsoft 365 direta em Hong Kong. Essas arquiteturas também dão suporte aos requisitos de conformidade para [Microsoft 365 várias geografias](/microsoft-365/enterprise/microsoft-365-multi-geo) e mantêm esse tráfego próximo ao próximo local de porta frontal do Azure. Como resultado, também é uma melhoria para o uso do Microsoft 365 fora da China.
 
-Ao usar a WAN Virtual do Azure junto com as conexões à Internet, todas as conexões podem se beneficiar de serviços adicionais como o [Serviço de Emparelhamento do Microsoft Azure (MAPS)](https://docs.microsoft.com/azure/peering-service/about). O MAPS foi criado para otimizar o tráfego que chega à Rede Global da Microsoft de Provedores de Serviços de Internet de Terceiros.
+Ao usar a WAN Virtual do Azure junto com as conexões à Internet, todas as conexões podem se beneficiar de serviços adicionais como o [Serviço de Emparelhamento do Microsoft Azure (MAPS)](../peering-service/about.md). O MAPS foi criado para otimizar o tráfego que chega à Rede Global da Microsoft de Provedores de Serviços de Internet de Terceiros.
 
 ### <a name="option-1-sdwan-or-vpn"></a><a name="option-1"></a>Opção 1: SDWAN ou VPN
 
@@ -151,4 +151,4 @@ Confira os artigos a seguir para saber mais:
 
 * [Configurar um hub seguro de WAN virtual](../firewall-manager/secure-cloud-network.md)
 
-* [Visão Geral da Versão Prévia do Serviço de Emparelhamento do Azure](https://docs.microsoft.com/azure/peering-service/about)
+* [Visão Geral da Versão Prévia do Serviço de Emparelhamento do Azure](../peering-service/about.md)

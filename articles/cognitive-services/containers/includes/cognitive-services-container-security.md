@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545548"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574415"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Segurança do contêiner de serviços cognitivas do Azure
 
@@ -33,7 +33,7 @@ Como uma abordagem alternativa e *segura* , os consumidores de contêineres de s
 
 ### <a name="container-networking"></a>Rede de contêineres
 
-Os contêineres de serviços cognitivas são necessários para enviar informações de medição para fins de cobrança. A única exceção é os *contêineres offline* , pois eles seguem uma metodologia de cobrança diferente. Falha ao permitir listar vários canais de rede dos quais os contêineres de serviços cognitivas dependem impedirão que o contêiner funcione.
+Os contêineres de serviços cognitivas são necessários para enviar informações de medição para fins de cobrança. Falha ao permitir listar vários canais de rede dos quais os contêineres de serviços cognitivas dependem impedirão que o contêiner funcione.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Permitir listar domínios e portas de serviços cognitivas
 

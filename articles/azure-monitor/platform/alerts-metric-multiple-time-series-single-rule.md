@@ -4,14 +4,14 @@ description: Alerta em escala usando uma única regra de alerta para várias sé
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704473"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566496"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorar várias séries temporais em uma única regra de alerta de métrica
 
@@ -43,7 +43,7 @@ Um exemplo dessa regra de alerta (com apenas as propriedades relevantes mostrada
 
 
 Para essa regra de alerta, uma única série temporal de métrica é monitorada:
--   Percentual de CPU em que *Resource*= ' myVM1 ' > 70%
+-   Percentual de CPU em que *Resource* = ' myVM1 ' > 70%
 
 ![Uma regra de alerta em uma única série temporal](media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png)
 
@@ -65,8 +65,8 @@ Um exemplo dessa regra de alerta:
 -   Limite: *70*
 
 Para esta regra de alerta, duas séries temporais de métrica estão sendo monitoradas separadamente:
--   Percentual de CPU em que *Resource*= ' myVM1 ' > 70%
--   Percentual de CPU em que *Resource*= ' myVM2 ' > 70%
+-   Percentual de CPU em que *Resource* = ' myVM1 ' > 70%
+-   Percentual de CPU em que *Resource* = ' myVM2 ' > 70%
 
 ![Uma regra de alerta de vários recursos](media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png)
  
@@ -76,7 +76,7 @@ Por exemplo, suponha que definimos a regra de alerta acima para monitorar a CPU 
 -   A *porcentagem de CPU* de *myVM1* é maior que 70% 
 -   A *porcentagem de CPU* de *myVM2* está em 50%
 
-A regra de alerta é disparada em *myVM1*, mas não *myVM2*. Esses alertas disparados são independentes. Elas também podem ser resolvidas em momentos diferentes, dependendo do comportamento individual de cada uma das máquinas virtuais.
+A regra de alerta é disparada em *myVM1* , mas não *myVM2*. Esses alertas disparados são independentes. Elas também podem ser resolvidas em momentos diferentes, dependendo do comportamento individual de cada uma das máquinas virtuais.
 
 Para obter mais informações sobre regras de alerta de vários recursos e os tipos de recursos com suporte para esse recurso, consulte [monitoramento em escala usando alertas de métrica no Azure monitor](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
@@ -101,8 +101,8 @@ Por exemplo:
 
 Para esta regra de alerta, duas séries temporais de métrica estão sendo monitoradas:
 
-- Percentual de CPU em que *Resource*= ' myVM1 ' > 70%
-- Rede no total em que *Resource*= ' myVM1 ' > 20 MB
+- Percentual de CPU em que *Resource* = ' myVM1 ' > 70%
+- Rede no total em que *Resource* = ' myVM1 ' > 20 MB
 
 ![Uma regra de alerta de várias condições](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -114,7 +114,7 @@ Um operador ' AND ' é usado entre as condições. A regra de alerta dispara um 
 
 ## <a name="multiple-dimensions-multi-dimension"></a>Várias dimensões (várias dimensões)
 
-Uma regra de alerta de métrica única também pode monitorar vários valores de dimensão de uma métrica. As dimensões de uma métrica são pares de nome-valor que contêm dados adicionais para descrever o valor da métrica. Por exemplo, a métrica de **Transações** de uma conta de armazenamento tem uma dimensão chamada **nome da API**, descrevendo o nome da API chamada por cada transação (por exemplo, getBlob, DeleteBlob, PutPage). O uso de dimensões é opcional, mas permite filtrar a métrica e monitorar apenas séries temporais específicas, em vez de monitorar a métrica como uma agregação de todos os valores dimensionais agrupados. 
+Uma regra de alerta de métrica única também pode monitorar vários valores de dimensão de uma métrica. As dimensões de uma métrica são pares de nome-valor que contêm dados adicionais para descrever o valor da métrica. Por exemplo, a métrica de **Transações** de uma conta de armazenamento tem uma dimensão chamada **nome da API** , descrevendo o nome da API chamada por cada transação (por exemplo, getBlob, DeleteBlob, PutPage). O uso de dimensões é opcional, mas permite filtrar a métrica e monitorar apenas séries temporais específicas, em vez de monitorar a métrica como uma agregação de todos os valores dimensionais agrupados. 
 
 Por exemplo, você pode optar por um alerta disparado quando o número de transações estiver alto em todos os nomes de API (que são os dados agregados) ou dividi-lo em apenas alertas quando o número de transações for alto para nomes de API específicos. 
 
@@ -129,9 +129,9 @@ Um exemplo de uma regra de alerta monitorando várias dimensões é:
 
 Para esta regra de alerta, três séries temporais de métrica estão sendo monitoradas:
 
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' getblob ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' DeleteBlob ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' PutPage ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' getblob ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' DeleteBlob ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' PutPage ' > 70
 
 ![Uma regra de alerta de várias dimensões com valores de uma dimensão](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
 
@@ -149,12 +149,12 @@ Um exemplo desse tipo de regra de alerta:
 
 Para esta regra de alerta, seis séries temporais de métrica estão sendo monitoradas separadamente:
 
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' getBlob ' e *Authentication*= ' SAS ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' getBlob ' e *Authentication*= ' AccountKey ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' DeleteBlob ' e *Authentication*= ' SAS ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' DeleteBlob ' e *Authentication*= ' AccountKey ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' PutPage ' e *Authentication*= ' SAS ' > 70
-- Transações em que *Resource*= ' myStorage1 ' e *nome da API*= ' PutPage ' e *Authentication*= ' AccountKey ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' getBlob ' e *Authentication* = ' SAS ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' getBlob ' e *Authentication* = ' AccountKey ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' DeleteBlob ' e *Authentication* = ' SAS ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' DeleteBlob ' e *Authentication* = ' AccountKey ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' PutPage ' e *Authentication* = ' SAS ' > 70
+- Transações em que *Resource* = ' myStorage1 ' e *nome da API* = ' PutPage ' e *Authentication* = ' AccountKey ' > 70
 
 ![Uma regra de alerta de várias dimensões com valores de várias dimensões](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
  
@@ -163,6 +163,7 @@ Para esta regra de alerta, seis séries temporais de métrica estão sendo monit
 1.  **Selecionando todas as dimensões atuais e futuras** – você pode optar por monitorar todos os valores possíveis de uma dimensão, incluindo valores futuros. Essa regra de alerta será dimensionada automaticamente para monitorar todos os valores da dimensão sem a necessidade de modificar a regra de alerta toda vez que um valor de dimensão for adicionado ou removido.
 2.  **Excluindo dimensões** – selecionar o operador ' ≠ ' (excluir) para um valor de dimensão é equivalente a selecionar todos os outros valores dessa dimensão, incluindo valores futuros.
 3.  **Dimensões novas e personalizadas** – os valores de dimensão exibidos no portal do Azure são baseados nos dados de métrica coletados nos últimos três dias. Se o valor de dimensão que você está procurando ainda não for emitido, você poderá adicionar um valor de dimensão personalizado.
+4. **Correspondência de dimensões com um prefixo** -você pode optar por monitorar todos os valores de dimensão que começam com um padrão específico, selecionando o operador "começa com" e inserindo um prefixo personalizado.
 
 ![Recursos avançados de várias dimensões](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

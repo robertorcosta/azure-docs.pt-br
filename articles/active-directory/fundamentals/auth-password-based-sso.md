@@ -1,6 +1,6 @@
 ---
 title: Autenticação baseada em senha com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação baseada em senha com o Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114054"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576925"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Autenticação baseada em senha com Azure Active Directory
 
@@ -35,13 +35,13 @@ Você precisa proteger com pré-autenticação e fornecer SSO por meio de compar
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Usuário**: acessa o aplicativo com base em forma de meus aplicativos ou visitando diretamente o site. 
+* **Usuário** : acessa o aplicativo com base em forma de meus aplicativos ou visitando diretamente o site. 
 
-* **Navegador da Web**: o componente com o qual o usuário interage para acessar a URL externa do aplicativo. O usuário acessa o aplicativo baseado em formulário por meio da extensão myapps. 
+* **Navegador da Web** : o componente com o qual o usuário interage para acessar a URL externa do aplicativo. O usuário acessa o aplicativo baseado em formulário por meio da extensão myapps. 
 
-* **Extensão myapps**: identifica o aplicativo SSO baseado em senha configurado e fornece as credenciais para o formulário de entrada. A extensão myapps é instalada no navegador da Web. 
+* **Extensão myapps** : identifica o aplicativo SSO baseado em senha configurado e fornece as credenciais para o formulário de entrada. A extensão myapps é instalada no navegador da Web. 
 
-* **AD do Azure**: autentica o usuário.
+* **AD do Azure** : autentica o usuário.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementar SSO baseado em senha com o Azure AD
 

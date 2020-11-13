@@ -1,6 +1,6 @@
 ---
 title: Área de Trabalho Remota serviços de gateway com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de serviços Área de Trabalho Remota gateway com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114053"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576788"
 ---
 # <a name="remote-desktop-gateway-services"></a>Serviços de gateway Área de Trabalho Remota
 
@@ -32,15 +32,15 @@ Você precisa fornecer acesso remoto e proteger sua implantação de Serviços d
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Usuário**: acessa RDS servido pelo proxy de aplicativo.
+* **Usuário** : acessa RDS servido pelo proxy de aplicativo.
 
-* **Navegador da Web**: o componente com o qual o usuário interage para acessar a URL externa do aplicativo.
+* **Navegador da Web** : o componente com o qual o usuário interage para acessar a URL externa do aplicativo.
 
-* **AD do Azure**: autentica o usuário. 
+* **AD do Azure** : autentica o usuário. 
 
-* **Serviço de proxy de aplicativo**: atua como proxy reverso para encaminhar a solicitação do usuário para o RDS. O proxy de aplicativo também pode impor qualquer política de acesso condicional. 
+* **Serviço de proxy de aplicativo** : atua como proxy reverso para encaminhar a solicitação do usuário para o RDS. O proxy de aplicativo também pode impor qualquer política de acesso condicional. 
 
-* **Serviços de área de trabalho remota**: atua como uma plataforma para aplicativos virtualizados individuais, fornecendo acesso seguro de área de trabalho móvel e remota e fornecendo aos usuários finais a capacidade de executar seus aplicativos e desktops da nuvem. 
+* **Serviços de área de trabalho remota** : atua como uma plataforma para aplicativos virtualizados individuais, fornecendo acesso seguro de área de trabalho móvel e remota e fornecendo aos usuários finais a capacidade de executar seus aplicativos e desktops da nuvem. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementar serviços de gateway Área de Trabalho Remota com o Azure AD
 

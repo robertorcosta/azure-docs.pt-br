@@ -1,16 +1,16 @@
 ---
-title: Design base de dados de conhecimento-QnA Maker
+title: Design da base de dados de conhecimento-conceitos de QnA Maker
 description: Saiba como criar uma base de dados de conhecimento-QnA Maker.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776894"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576182"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Conceitos do par de perguntas e respostas
 
@@ -28,8 +28,8 @@ Cada par é representado por uma **ID**.
 As configurações **opcionais** para um par incluem:
 
 * **Formas alternativas da pergunta** – isso ajuda a QnA Maker retornar a resposta correta para uma variedade maior de frases de pergunta
-* **Metadados**: os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
-* **Prompts de múltipla ativação**, usados para continuar uma conversa com vários folheios
+* **Metadados** : os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
+* **Prompts de múltipla ativação** , usados para continuar uma conversa com vários folheios
 
 ![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Autenticação LDAP com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação LDAP com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a70cb4754d98f4573670860c510692a7a2d134c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d5314758acecae2a9d68f2405fc1c3d2196950b4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114064"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577049"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Autenticação LDAP com Azure Active Directory
 
@@ -40,23 +40,23 @@ Há a necessidade de um aplicativo ou serviço usar a autenticação LDAP.
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Usuário**: acessa aplicativos dependentes de LDAP por meio de um navegador.
+* **Usuário** : acessa aplicativos dependentes de LDAP por meio de um navegador.
 
-* **Navegador da Web**: a interface com a qual o usuário interage para acessar a URL externa do aplicativo.
+* **Navegador da Web** : a interface com a qual o usuário interage para acessar a URL externa do aplicativo.
 
-* **Rede virtual**: uma rede privada no Azure por meio da qual o aplicativo herdado pode consumir serviços LDAP. 
+* **Rede virtual** : uma rede privada no Azure por meio da qual o aplicativo herdado pode consumir serviços LDAP. 
 
-* **Aplicativos herdados**: cargas de trabalho de aplicativos ou servidores que exigem o LDAP implantado em uma rede virtual no Azure ou que têm visibilidade para AD DS IPS de instância por meio de rotas de rede. 
+* **Aplicativos herdados** : cargas de trabalho de aplicativos ou servidores que exigem o LDAP implantado em uma rede virtual no Azure ou que têm visibilidade para AD DS IPS de instância por meio de rotas de rede. 
 
-* **Azure ad**: sincroniza informações de identidade do diretório local da organização por meio de Azure ad Connect.
+* **Azure ad** : sincroniza informações de identidade do diretório local da organização por meio de Azure ad Connect.
 
-* **Azure AD Domain Services (AD DS)**: executa uma sincronização unidirecional do Azure ad para fornecer acesso a um conjunto central de usuários, grupos e credenciais. A instância de AD DS é atribuída a uma rede virtual. Aplicativos, serviços e VMs no Azure que se conectam à rede virtual atribuída a AD DS podem usar recursos comuns de AD DS, como LDAP, ingresso no domínio, diretiva de grupo, Kerberos e autenticação NTLM.
+* **Azure AD Domain Services (AD DS)** : executa uma sincronização unidirecional do Azure ad para fornecer acesso a um conjunto central de usuários, grupos e credenciais. A instância de AD DS é atribuída a uma rede virtual. Aplicativos, serviços e VMs no Azure que se conectam à rede virtual atribuída a AD DS podem usar recursos comuns de AD DS, como LDAP, ingresso no domínio, diretiva de grupo, Kerberos e autenticação NTLM.
    > [!NOTE]
    >  Em ambientes em que a organização não pode sincronizar hashes de senha ou os usuários entram usando cartões inteligentes, recomendamos que você use uma floresta de recursos no AD DS. 
 
-* **Azure ad Connect**: uma ferramenta para sincronizar informações de identidade local para Microsoft Azure AD. O assistente de implantação e experiências guiadas ajudam a configurar os pré-requisitos e os componentes necessários para a conexão, incluindo a sincronização e o logon do Active Directory ao Azure AD. 
+* **Azure ad Connect** : uma ferramenta para sincronizar informações de identidade local para Microsoft Azure AD. O assistente de implantação e experiências guiadas ajudam a configurar os pré-requisitos e os componentes necessários para a conexão, incluindo a sincronização e o logon do Active Directory ao Azure AD. 
 
-* **Active Directory**: serviço de diretório que armazena [informações de identidade locais, como informações de usuário e conta](https://www.dnsstuff.com/active-directory-service-accounts), e informações de segurança como senhas.
+* **Active Directory** : serviço de diretório que armazena [informações de identidade locais, como informações de usuário e conta](https://www.dnsstuff.com/active-directory-service-accounts), e informações de segurança como senhas.
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Implementar a autenticação LDAP com o Azure AD
 

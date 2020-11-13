@@ -1,6 +1,6 @@
 ---
 title: Autenticação RADIUS com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação RADIUS com Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff6210741d87602b4f695633b11d2641a6bb6781
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114102"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576805"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Autenticação RADIUS com Azure Active Directory
 
@@ -30,7 +30,7 @@ O Azure Active Directory (AD do Azure) permite a autenticação multifator com s
 
 O servidor NPS do Windows autentica as credenciais de um usuário em relação à Active Directory e, em seguida, envia a solicitação de autenticação multifator para o Azure. O usuário recebe um desafio em seu autenticador móvel. Uma vez bem-sucedido, o aplicativo cliente tem permissão para se conectar ao serviço. 
 
-## <a name="usewhen"></a>Use quando: 
+## <a name="use-when"></a>Use quando: 
 
 Você precisa adicionar a autenticação multifator a aplicativos como
 * uma VPN (rede virtual privada)
@@ -45,19 +45,19 @@ Você precisa adicionar a autenticação multifator a aplicativos como
 ![diagrama arquitetônico](./media/authentication-patterns/radius-auth.png)
 
 
-## <a name="componentsofthe-system"></a>Componentes do sistema 
+## <a name="components-of-the-system"></a>Componentes do sistema 
 
-* **Aplicativo cliente (cliente VPN)**: envia a solicitação de autenticação para o cliente RADIUS.
+* **Aplicativo cliente (cliente VPN)** : envia a solicitação de autenticação para o cliente RADIUS.
 
-* **Cliente RADIUS**: converte solicitações do aplicativo cliente e as envia ao servidor RADIUS que tem a extensão NPS instalada.
+* **Cliente RADIUS** : converte solicitações do aplicativo cliente e as envia ao servidor RADIUS que tem a extensão NPS instalada.
 
-* **Servidor RADIUS**: conecta-se com Active Directory para executar a autenticação primária para a solicitação RADIUS. Após o êxito, passa a solicitação para a extensão NPS da autenticação multifator do Azure.
+* **Servidor RADIUS** : conecta-se com Active Directory para executar a autenticação primária para a solicitação RADIUS. Após o êxito, passa a solicitação para a extensão NPS da autenticação multifator do Azure.
 
-* **Extensão do NPS**: dispara uma solicitação para a autenticação multifator do Azure para uma autenticação secundária. Se for bem-sucedido, a extensão do NPS concluirá a solicitação de autenticação fornecendo o servidor RADIUS com tokens de segurança que incluem a declaração de autenticação multifator, emitida pelo serviço de token de segurança do Azure.
+* **Extensão do NPS** : dispara uma solicitação para a autenticação multifator do Azure para uma autenticação secundária. Se for bem-sucedido, a extensão do NPS concluirá a solicitação de autenticação fornecendo o servidor RADIUS com tokens de segurança que incluem a declaração de autenticação multifator, emitida pelo serviço de token de segurança do Azure.
 
-* **Autenticação multifator do Azure**: comunica-se com o Azure ad para recuperar os detalhes do usuário e executa uma autenticação secundária usando um método de verificação configurado pelo usuário.
+* **Autenticação multifator do Azure** : comunica-se com o Azure ad para recuperar os detalhes do usuário e executa uma autenticação secundária usando um método de verificação configurado pelo usuário.
 
-## <a name="implementradiuswith-azure-ad"></a>Implementar RADIUS com o Azure AD 
+## <a name="implement-radius-with-azure-ad"></a>Implementar RADIUS com o Azure AD 
 
 * [Fornecer recursos de autenticação multifator do Azure usando NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 

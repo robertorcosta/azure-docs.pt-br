@@ -1,6 +1,6 @@
 ---
 title: Personalização de idioma no Azure Active Directory B2C
-description: Saiba como personalizar a experiência de idioma nos seus fluxos dos usuários.
+description: Saiba mais sobre como personalizar a experiência de idioma em seus fluxos de usuário em Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355085"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575944"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -28,9 +28,9 @@ Você usa a personalização de idioma para selecionar em quais idiomas o fluxo 
 
 Talvez você não precise desse nível de controle sobre quais idiomas seu cliente vê. Se você não fornecer um parâmetro `ui_locales` a experiência do cliente será determinada pelas configurações do navegador. Você ainda poderá controlar para quais idiomas o fluxo do usuário será traduzido, adicionando-o como um idioma com suporte. Se o navegador de um cliente estiver configurado para mostrar um idioma que você não deseja fornecer suporte, o idioma que você selecionou como padrão nas culturas com suporte será mostrado.
 
-* **idioma especificado da interface do**usuário: depois de habilitar a personalização de idioma, o fluxo do usuário é convertido para o idioma especificado aqui.
-* **Idioma solicitado pelo navegador**: se nenhum `ui_locales` parâmetro tiver sido especificado, seu fluxo de usuário será convertido para o idioma solicitado pelo navegador, *se houver suporte para o idioma*.
-* **Idioma padrão da política**: se o navegador não especificar um idioma ou especificar um que não tenha suporte, o fluxo do usuário será convertido para o idioma padrão do fluxo de usuário.
+* **idioma especificado da interface do** usuário: depois de habilitar a personalização de idioma, o fluxo do usuário é convertido para o idioma especificado aqui.
+* **Idioma solicitado pelo navegador** : se nenhum `ui_locales` parâmetro tiver sido especificado, seu fluxo de usuário será convertido para o idioma solicitado pelo navegador, *se houver suporte para o idioma*.
+* **Idioma padrão da política** : se o navegador não especificar um idioma ou especificar um que não tenha suporte, o fluxo do usuário será convertido para o idioma padrão do fluxo de usuário.
 
 > [!NOTE]
 > Se você estiver usando atributos de usuário personalizados, precisará fornecer suas próprias traduções. Para obter mais informações, consulte [Personalizar as cadeias de caracteres](#customize-your-strings).
@@ -65,8 +65,8 @@ A personalização de idioma permite personalizar qualquer cadeia de caracteres 
 
 1. Certifique-se de que o fluxo de usuário tenha a personalização de idioma habilitada a partir das instruções anteriores.
 1. Na página **Idiomas** do fluxo de usuário, selecione o idioma que você quer personalizar.
-1. Em **Arquivos de recursos de nível de página**, selecione a página que você quer editar.
-1. Selecione **Baixar Padrões** (ou **Baixar substituições**, se esse idioma já foi editado anteriormente).
+1. Em **Arquivos de recursos de nível de página** , selecione a página que você quer editar.
+1. Selecione **Baixar Padrões** (ou **Baixar substituições** , se esse idioma já foi editado anteriormente).
 
 Essas etapas fornecem um arquivo JSON que você pode usar para começar a editar suas cadeias de caracteres.
 

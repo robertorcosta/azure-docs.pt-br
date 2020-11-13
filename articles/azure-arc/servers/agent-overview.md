@@ -3,12 +3,12 @@ title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370161"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577576"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -60,7 +60,7 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows e 
 
 * Para os computadores de integração, você é membro da função **Integração do Azure Connected Machine**.
 
-* Para ler, modificar, reintegrer e excluir um computador, você é membro da função de **administrador de recursos do computador conectado do Azure** . 
+* Para ler, modificar e excluir um computador, você é membro da função de **administrador de recursos do computador conectado do Azure** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 

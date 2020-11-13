@@ -2,28 +2,30 @@
 title: Como habilitar o recurso de solução do Azure VMware
 description: Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: dc90a322b5592ca7f400a82deca65ea753711c27
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/12/2020
+ms.openlocfilehash: 7c805e9e622f55593ff1fbb72a355d233b7e3618
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948724"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576369"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como habilitar o recurso da solução Azure VMware
-Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
+Saiba como enviar uma solicitação de suporte para habilitar o recurso de [solução do Azure VMware](introduction.md) . Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
 
 ## <a name="eligibility-criteria"></a>Critérios de qualificação
 
-* Você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
-* Você precisará de uma conta do Azure em uma assinatura do Azure.
+Você precisará de uma conta do Azure em uma assinatura do Azure. A assinatura do Azure deve estar em conformidade com um dos seguintes critérios:
+
+* Uma assinatura em um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+* Uma assinatura gerenciada do CSP (provedor de soluções na nuvem) em um plano do Azure.
 
 
-## <a name="enable-azure-vmware-solution-resource"></a>Habilitar recurso da solução Azure VMware
+## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Habilitar solução Azure VMware para clientes EA
 Antes de criar o recurso da Solução VMware no Azure, você precisará enviar um tíquete de suporte para que os nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
 
 
-1. Em seu portal do Azure, em **ajuda + suporte**, crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:
+1. Em seu portal do Azure, em **ajuda + suporte** , crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:
    - **Tipo de problema:** técnico
    - **Assinatura:** Selecione sua assinatura
    - **Serviço:** Todos os serviços > solução VMware do Azure
@@ -56,3 +58,25 @@ Antes de criar o recurso da Solução VMware no Azure, você precisará enviar u
    ```
 
    Para conhecer outras maneiras de registrar o provedor de recursos, confira [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+
+## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Habilitar a solução Azure VMware para clientes CSP 
+
+Os CSPs devem usar [o Microsoft Partner Center](https://partner.microsoft.com) para habilitar a solução Azure VMware para seus clientes. 
+
+1. No **Partner Center** , selecione **CSP** para acessar a área **clientes** .
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Área de clientes do Microsoft Partner Center" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+
+1. Selecione o cliente e, em seguida, selecione **Adicionar produtos**.
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Microsoft Partner Center" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+
+1. Selecione **plano do Azure** e, em seguida, selecione **Adicionar ao carrinho**. 
+
+1. Examine e conclua a configuração geral da assinatura do plano do Azure para seu cliente. Para obter mais informações, consulte a [documentação do Microsoft Partner Center](https://docs.microsoft.com/partner-center/azure-plan-manage).
+
+Depois de configurar o plano do Azure e as permissões de RBAC necessárias estiverem em vigor como um CSP, você entrará em contato com a Microsoft usando um procedimento semelhante para habilitar a cota para uma assinatura do plano do Azure. Depois de adicionado ao plano do Azure, o cliente ou o administrador do parceiro pode implantar uma nuvem privada da solução Azure VMware por meio do portal do Azure. 
+
+## <a name="next-steps"></a>Próximas etapas
+
+Depois de habilitar o recurso de solução do Azure VMware e ter a rede adequada em vigor, você pode [criar uma nuvem privada](tutorial-create-private-cloud.md).
