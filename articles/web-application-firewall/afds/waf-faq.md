@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413064"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563640"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes sobre o Firewall do aplicativo Web do Azure no serviço de porta frontal do Azure
 
@@ -55,7 +55,7 @@ Você pode configurar a lista de controle de acesso IP em seu back-end para perm
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Quais opções do Azure WAF devo escolher?
 
-Há duas opções ao aplicar políticas de WAF no Azure. O WAF com o Azure front door é uma solução de segurança de borda distribuída globalmente. O WAF com o gateway de aplicativo é uma solução regional e dedicada. Recomendamos que você escolha uma solução com base em seus requisitos gerais de desempenho e segurança. Para obter mais informações, consulte [balanceamento de carga com o pacote de entrega de aplicativos do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Há duas opções ao aplicar políticas de WAF no Azure. O WAF com o Azure front door é uma solução de segurança de borda distribuída globalmente. O WAF com o gateway de aplicativo é uma solução regional e dedicada. Recomendamos que você escolha uma solução com base em seus requisitos gerais de desempenho e segurança. Para obter mais informações, consulte [balanceamento de carga com o pacote de entrega de aplicativos do Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Há suporte para os mesmos recursos do WAF em todas as plataformas integradas?

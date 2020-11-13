@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462421"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565697"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como executar um aplicativo com o Fortanix enclave Manager 
 
@@ -60,31 +60,31 @@ Este tutorial mostra como converter a imagem do aplicativo em uma imagem confide
 
 6. Neste tutorial, usaremos o registro do Docker do Fortanix para o aplicativo de exemplo. Preencha os detalhes das informações a seguir. Use seu registro do Docker privado para manter a imagem de saída. 
  
-    - **Nome do aplicativo**: servidor de aplicativos Python
-    - **Descrição**: servidor Python Flask
-    - **Nome da imagem de entrada**: fortanix/Python-Flask
-    - **Nome da imagem de saída**: fortanx-Private/Python-Flask-SGX
-    - **ISVPRODID**: 1
-    - **ISVSVM**: 1
-    - **Tamanho da memória**: 1 GB
-    - **Contagem de threads**: 128
+    - **Nome do aplicativo** : servidor de aplicativos Python
+    - **Descrição** : servidor Python Flask
+    - **Nome da imagem de entrada** : fortanix/Python-Flask
+    - **Nome da imagem de saída** : fortanx-Private/Python-Flask-SGX
+    - **ISVPRODID** : 1
+    - **ISVSVM** : 1
+    - **Tamanho da memória** : 1 GB
+    - **Contagem de threads** : 128
 
-    *Opcional*: execute o aplicativo.
-    - **Hub do Docker**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
-    - **Aplicativo**: fortanix/Python-Flask
+    *Opcional* : execute o aplicativo.
+    - **Hub do Docker** : [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
+    - **Aplicativo** : fortanix/Python-Flask
 
-        Execute o comando a seguir:
+        Execute o seguinte comando:
          ```bash
             sudo docker run fortanix/python-flask
          ```
 
-1. Adicione um certificado. Preencha as informações usando os detalhes abaixo e, em seguida, selecione **Avançar**:
-    - **Domínio**: MyApp. domain. dom
-    - **Tipo**: certificado emitido pelo enclave Manager 
-    - **Caminho da chave**:/appkey.pem
-    - **Tipo de chave**: RSA
-    - **Caminho do certificado**:/appcert.pem
-    - **Tamanho da chave RSA**: 2048 bits
+1. Adicione um certificado. Preencha as informações usando os detalhes abaixo e, em seguida, selecione **Avançar** :
+    - **Domínio** : MyApp. domain. dom
+    - **Tipo** : certificado emitido pelo enclave Manager 
+    - **Caminho da chave** :/appkey.pem
+    - **Tipo de chave** : RSA
+    - **Caminho do certificado** :/appcert.pem
+    - **Tamanho da chave RSA** : 2048 bits
     
 
 ## <a name="create-an-image"></a>Criar uma imagem
@@ -115,12 +115,12 @@ A criação de um agente de nó Fortanix implantará uma máquina virtual, uma i
 1. Acesse o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) e entre com suas credenciais do Azure.
 1. Na barra de pesquisa, digite **Fortanix confidencial computação nó agente**. Selecione o aplicativo que aparece na caixa de pesquisa chamada **agente de nó de computação confidencial Fortanix** para navegar até a Home Page da oferta. 
      ![pesquisar no Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. Selecione **obter agora**, preencha suas informações, se necessário, e selecione **continuar**. Você será redirecionado para a portal do Azure. 
+1. Selecione **obter agora** , preencha suas informações, se necessário, e selecione **continuar**. Você será redirecionado para a portal do Azure. 
 1. Selecione **criar** para inserir a página de implantação do agente de nó de computação confidencial do Fortanix.
 1. Nessa página, você inserirá informações para implantar uma máquina virtual. Especificamente, essa VM é uma DCsv2-Series máquina virtual habilitada para o Intel SGX do Azure com o software do agente de nó do Fortanix instalado. O agente de nó permitirá que a imagem convertida seja executada com segurança em nós de SGX Intel no Azure.  Selecione a **assinatura** e o **grupo de recursos** em que você deseja implantar a máquina virtual e os recursos associados. 
  
     > [!NOTE]
-    > Há restrições ao implantar máquinas virtuais DCsv2-Series no Azure. Talvez seja necessário solicitar uma cota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs do Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para obter mais informações. 
+    > Há restrições ao implantar máquinas virtuais DCsv2-Series no Azure. Talvez seja necessário solicitar uma cota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs do Azure](./virtual-machine-solutions.md) para obter mais informações. 
 
 1. Selecione uma região disponível.
 1. Insira um nome para sua máquina virtual no campo **nome do nó** . 
@@ -158,7 +158,7 @@ onde:
 1. Verifique se há um aplicativo em execução com um nó de computação associado
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você poderá excluir o grupo de recursos, a máquina virtual e os recursos associados. A exclusão do grupo de recursos cancelará o registro dos nós associados à imagem convertida. 
 
@@ -174,4 +174,4 @@ Neste guia de início rápido, você usou as ferramentas Fortanix para converter
 
 Para saber mais sobre as ofertas de computação confidencial do Azure, confira [visão geral da computação confidencial do Azure](overview.md)
 
- Saiba como concluir tarefas semelhantes usando outras ofertas de terceiros no Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) [e o](https://sconedocs.github.io)  
+ Saiba como concluir tarefas semelhantes usando outras ofertas de terceiros no Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) [e o](https://sconedocs.github.io)

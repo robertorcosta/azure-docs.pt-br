@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377013"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565629"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -57,7 +57,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -115,7 +115,7 @@ Você sempre pode retornar para o dimensionamento automático clicando em **Habi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Rotear o tráfego para instâncias íntegras (serviço de aplicativo)
 
-Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Salvar**.
+Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Save** (Salvar).
 
 Para habilitar o recurso com modelos ARM, defina a `healthcheckpath` Propriedade do `Microsoft.Web/sites` recurso para o caminho de verificação de integridade em seu site, por exemplo: `"/api/health/"` . Para desabilitar o recurso, defina a propriedade de volta para a cadeia de caracteres vazia, `""` .
 
@@ -127,7 +127,7 @@ O caminho de verificação de integridade deve verificar os componentes crítico
 
 #### <a name="security"></a>Segurança 
 
-As equipes de desenvolvimento em grandes empresas geralmente precisam aderir aos requisitos de segurança para suas APIs expostas. Para proteger o ponto de extremidade HealthCheck, você deve primeiro usar recursos como [restrições de IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), certificados de [cliente](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade HealthCheck em si, exigindo que o `User-Agent` da solicitação de entrada seja correspondente `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, pois a solicitação já foi protegida pelos recursos de segurança anteriores.
+As equipes de desenvolvimento em grandes empresas geralmente precisam aderir aos requisitos de segurança para suas APIs expostas. Para proteger o ponto de extremidade HealthCheck, você deve primeiro usar recursos como [restrições de IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), certificados de [cliente](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade HealthCheck em si, exigindo que o `User-Agent` da solicitação de entrada seja correspondente `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, pois a solicitação já foi protegida pelos recursos de segurança anteriores.
 
 ### <a name="behavior"></a>Comportamento
 

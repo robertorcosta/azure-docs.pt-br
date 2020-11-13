@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564099"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para a computação confidencial do Azure
 
@@ -32,14 +32,14 @@ Aqui estão algumas maneiras que de implantar uma VM DCsv2:
 
 **Todas as imagens do sistema operacional funcionarão com a computação confidencial do Azure?**
 
-Não. As máquinas virtuais só podem ser implantadas em máquinas operacionais de geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 datacenter e o Windows Server 2016 Datacenter. Leia mais sobre VMs de Gen 2 em [Linux](../virtual-machines/linux/generation-2.md) e [Windows](../virtual-machines/windows/generation-2.md)
+Não. As máquinas virtuais só podem ser implantadas em máquinas operacionais de geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 datacenter e o Windows Server 2016 Datacenter. Leia mais sobre VMs de Gen 2 em [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
 
 **As máquinas virtuais DCsv2 estão esmaecidas no portal e não consigo selecionar uma**
 
 Com base na bolha de informações ao lado da VM, há ações diferentes a serem tomadas:
-   -    **UnsupportedGeneration**: Altere a geração da imagem da máquina virtual para “Gen2”.
-   -    **NotAvailableForSubscription**: A região ainda não está disponível para sua assinatura. Selecione uma região disponível.
-   -    **InsufficientQuota**: [Crie uma solicitação de suporte para aumentar a cota](../azure-portal/supportability/per-vm-quota-requests.md). As assinaturas de avaliação gratuita não têm cota para VMs de computação confidencial. 
+   -    **UnsupportedGeneration** : Altere a geração da imagem da máquina virtual para “Gen2”.
+   -    **NotAvailableForSubscription** : A região ainda não está disponível para sua assinatura. Selecione uma região disponível.
+   -    **InsufficientQuota** : [Crie uma solicitação de suporte para aumentar a cota](../azure-portal/supportability/per-vm-quota-requests.md). As assinaturas de avaliação gratuita não têm cota para VMs de computação confidencial. 
 
 **As máquinas virtuais DCsv2 não aparecem quando tento procurá-las no seletor de tamanho do portal**
 

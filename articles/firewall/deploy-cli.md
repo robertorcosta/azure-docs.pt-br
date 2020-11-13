@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075419"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565867"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando o CLI do Azure
 
@@ -27,8 +27,8 @@ O tráfego de rede está sujeito às regras de firewall configuradas quando o tr
 
 Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). O firewall está na própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
-* **AzureFirewallSubnet**: o firewall está nesta sub-rede.
-* **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
+* **AzureFirewallSubnet** : o firewall está nesta sub-rede.
+* **Workload-SN** : o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
 * **Jump-SN** -o servidor “jump” está nessa sub-rede. O servidor jump tem um endereço IP público a que você pode se conectar usando a Área de Trabalho Remota. A partir daí, você pode se conectar (usando outra Área de Trabalho Remota) ao servidor de carga de trabalho.
 
 ![Infraestrutura de rede do tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
@@ -44,22 +44,11 @@ Neste artigo, você aprenderá como:
 
 Se preferir, você pode concluir este procedimento usando o [portal do Azure](tutorial-firewall-deploy-portal.md) ou [Azure PowerShell](deploy-ps.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-### <a name="azure-cli"></a>CLI do Azure
-
-Se você optar por instalar e usar a CLI localmente, execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute **AZ--Version**. Para saber mais sobre como instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-
-Instale a extensão do firewall do Azure:
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- Este artigo requer a versão 2.0.4 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 
@@ -264,7 +253,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
 1. Conecte uma área de trabalho remota à máquina virtual **Srv-Jump** e entre. A partir daí, abra uma conexão de área de trabalho remota para o endereço IP privado de **trabalho SRV** e entre.
 
-3. Em **SRV-trabalho**, abra uma janela do PowerShell e execute os seguintes comandos:
+3. Em **SRV-trabalho** , abra uma janela do PowerShell e execute os seguintes comandos:
 
    ```
    nslookup www.google.com
@@ -273,7 +262,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
 
-1. Execute os comandos a seguir:
+1. Execute os seguintes comandos:
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
