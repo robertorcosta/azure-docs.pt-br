@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286708"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488529"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -93,12 +93,14 @@ A tabela a seguir lista os valores de **operationName** e os comandos da API RES
 | **VaultDelete** |[Excluir um cofre de chaves](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Atualizar um cofre da chave](/rest/api/keyvault/vaults) |
 | **VaultList** |[Listar todos os cofres de chaves em um grupo de recursos](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Limpar um cofre excluído](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Recuperar um cofre excluído|
+| **VaultGetDeleted** |[Obter um cofre excluído](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Listar os cofres excluídos](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Criar uma chave](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Obter informações sobre uma chave](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importar uma chave para um cofre](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[Fazer backup de uma chave](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[Excluir uma chave](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[Restaurar uma chave](/rest/api/keyvault/restorekey) |
 | **KeySign** |[Assinar com uma chave](/rest/api/keyvault/sign) |
 | **KeyVerify** |[Verificar com uma chave](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[Encapsular uma chave](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ A tabela a seguir lista os valores de **operationName** e os comandos da API RES
 | **KeyEncrypt** |[Criptografar com uma chave](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[Descriptografar com uma chave](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[Atualizar uma chave](/rest/api/keyvault/updatekey) |
-| **KeyList** |[Listar as chaves em um cofre](/rest/api/keyvault/vaults) |
+| **KeyList** |[Listar as chaves em um cofre](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[Listar as versões de uma chave](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Limpar uma chave](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Fazer backup de uma chave](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Restaurar uma chave](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Recuperar uma chave](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Obter uma chave excluída](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Listar as chaves excluídas em um cofre](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Obter informações sobre um certificado](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Criar um certificado](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importar um certificado em um cofre](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Atualizar um certificado](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Listar os certificados em um cofre](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Listar as versões de um certificado](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Excluir um certificado](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Limpar um certificado](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Fazer backup de um certificado](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Restaurar um certificado](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Recuperar um certificado](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Obter um certificado excluído](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Listar os certificados excluídos em um cofre](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Obter uma política de certificação](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Atualizar uma política de certificação](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Criar uma política de certificação](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Obter contatos de certificado](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Definir contatos de certificado](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Excluir contatos de certificado](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Obter o emissor do certificado](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Definir o emissor do certificado](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Atualizar o emissor do certificado](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Excluir o emissor do certificado](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Listar os emissores do certificado](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Registrar um certificado |
+| **CertificateRenew** |{1&gt;Renovar um certificado&lt;1} |
+| **CertificatePendingGet** |Recuperar certificado pendente |
+| **CertificatePendingMerge** |Colocar uma mesclagem de certificado como pendente |
+| **CertificatePendingUpdate** |Colocar uma atualização de certificado como pendente |
+| **CertificatePendingDelete** |Excluir certificado pendente |
 | **SecretSet** |[Criar um segredo](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Obter um segredo](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Atualizar um segredo](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Excluir um segredo](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[Listar segredos em um cofre](/rest/api/keyvault/vaults) |
+| **SecretList** |[Listar segredos em um cofre](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[Listar versões de um segredo](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Limpar um segredo](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Fazer backup de um segredo](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Restaurar um segredo](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recuperar um segredo](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Obter um segredo excluído](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Listar os segredos excluídos em um cofre](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Evento de alteração da política de acesso ao cofre publicado |
 | **SecretNearExpiryEventGridNotification** |Evento de segredo próximo do vencimento publicado |
 | **SecretExpiredEventGridNotification** |Evento de segredo vencido publicado |

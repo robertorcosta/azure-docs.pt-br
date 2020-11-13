@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521502"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377880"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -46,14 +46,12 @@ Os recursos a seguir fazem parte do serviço de Fala. Use os links nesta tabela 
 
 Nas etapas a seguir, você precisará de uma conta Microsoft e de uma conta do Azure. Se você não tiver uma conta Microsoft, poderá inscrever-se em uma gratuitamente no [portal da conta Microsoft](https://account.microsoft.com/account). Selecione **Entrar com a conta da Microsoft** e, quando solicitado a entrar, clique em **Criar uma conta Microsoft**. Siga as etapas para criar e confirmar sua nova conta Microsoft.
 
-Depois de ter uma conta Microsoft, acesse a [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente** e crie uma conta do Azure usando uma conta Microsoft.
+Depois de ter uma conta Microsoft, acesse a [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente** e crie uma conta do Azure usando uma conta Microsoft. Assista a um vídeo sobre [como se inscrever para ter uma conta gratuita do Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> O serviço de Fala tem duas camadas de serviço: gratuita e assinatura, que têm diferentes limitações e benefícios. Quando você inscreve-se em uma conta gratuita do Azure, ela vem com US$ 200 em crédito de serviço que podem ser aplicados a uma assinatura paga do serviço de Fala, válidos por até 30 dias.
+> Quando você se inscreve para ter uma conta gratuita do Azure, ela vem com US$ 200 em crédito de serviço que podem ser aplicados a uma assinatura paga do serviço de Fala, válidos por até 30 dias. Seus serviços do Azure são desabilitados quando o crédito é esgotado ou expira ao final dos 30 dias. Para continuar usando os serviços do Azure, é necessário atualizar sua conta. Para obter mais informações, confira [Como atualizar sua conta gratuita do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
 >
-> Se você usar a camada de serviço de fala gratuita e de baixo volume, poderá manter essa assinatura gratuita mesmo após a expiração da avaliação gratuita ou do crédito de serviço.
->
-> Para obter mais informações, confira [Preço dos Serviços Cognitivos – serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> O serviço de Fala tem duas camadas de serviço: gratuita (f0) e assinatura (s0), que têm diferentes limitações e benefícios. Se você usar a camada de serviço de fala gratuita e de baixo volume, poderá manter essa assinatura gratuita mesmo após a expiração da avaliação gratuita ou do crédito de serviço. Para obter mais informações, confira [Preço dos Serviços Cognitivos – serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="create-the-azure-resource"></a>Criar o recurso do Azure
 
@@ -72,11 +70,11 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
 1. Selecione **Criar** e:
 
    - Dê um nome exclusivo ao seu novo recurso. O nome ajuda a distinguir entre várias assinaturas associadas ao mesmo serviço.
-   - Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados.
-   - Escolha a [região](regions.md) em que o recurso será usado.
-   - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e cotas de uso para cada camada, selecione **Exibir detalhes de preço completos**. Para ver os limites dos recursos que você pode criar para cada assinatura, confira [Limites dos Serviços Cognitivos do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados. Veja a introdução a [como criar uma assinatura do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) no portal do Azure.
+   - Escolha a [região](regions.md) em que o recurso será usado. O Azure é uma plataforma de nuvem global que está em disponibilidade geral em muitas regiões em todo o mundo. Para obter o melhor desempenho, selecione a região mais próxima de você ou de onde o aplicativo é executado. A disponibilidade do serviço de Fala varia de acordo com a região. Crie seu recurso em uma região com suporte. Confira [suporte à região para os serviços de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e cotas de uso para cada camada, selecione **Exibir detalhes de preço completos** ou confira [preços dos serviços de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Para saber mais sobre os limites de recursos, confira [Limites dos Serviços Cognitivos do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Crie um grupo de recursos para esta assinatura de Fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recurso ajudam você a manter suas diversas assinaturas do Azure organizadas.
-   - Selecione **Criar**. Isso direcionará você à visão geral de implantação e exibirá mensagens sobre o progresso da implantação.
+   - Selecione **Criar**. Isso direcionará você à visão geral de implantação e exibirá mensagens sobre o progresso da implantação.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.

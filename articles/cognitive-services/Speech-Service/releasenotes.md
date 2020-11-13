@@ -11,14 +11,28 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2586b3aab9d1fb8e7ae12aea540df19ff6c37556
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356681"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553651"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
+
+## <a name="text-to-speech-2020-october-release"></a>Conversão de texto em fala 2020 – versão de outubro
+
+**Novos recursos**
+- Maria dá suporte a um novo `newscast` estilo. Veja [como usar os estilos de fala em SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+- **Vozes neurais atualizadas para HiFiNet vocoder, com maior fidelidade de áudio e velocidade de síntese mais rápida**. Isso beneficia os clientes cujo cenário depende de áudio de alta Fi ou interações longas, incluindo Dubbing de vídeo, livros de áudio ou materiais de educação online. [Leia mais sobre a história e ouça os exemplos de voz em nosso blog da comunidade de tecnologia](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- O ** &  [estúdio de criação de conteúdo de áudio](https://speech.microsoft.com/audiocontentcreation) de voz personalizado localizado para 17 localidades [Custom Voice](https://speech.microsoft.com/customvoice)**. Os usuários podem facilmente alternar a interface do usuário para um idioma local para uma experiência mais amigável.   
+- **Criação de conteúdo de áudio** : controle de grau de estilo adicionado para XiaoxiaoNeural; Refinado o recurso de quebra personalizada para incluir quebras incrementais de 50 ms. 
+
+**Melhorias gerais de qualidade de voz TTS**
+- Precisão de pronúncia de nível de palavra aprimorada `pl-PL` (redução da taxa de erro: 51%) e `fi-FI` (redução da taxa de erro: 58%)
+- `ja-JP`Leitura de palavra única aprimorada para o cenário de dicionário. Erro de pronúncia reduzido por 80%.
+- `zh-CN-XiaoxiaoNeural`: Qualidade de voz de estilo de sentimentos/CustomerService/newscast/cheerful/irritado aprimorada.
+- `zh-CN`: Pronúncia de Erhua e tom claro e Prosody de espaço refinados aprimorados, o que melhora muito o inteligibilidade. 
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>SDK de fala 1.14.0:2020 – versão de outubro
 
@@ -78,6 +92,18 @@ O SPX é a interface de linha de comando para usar o serviço de fala do Azure s
 - `spx * --http header A=B` – suporte a cabeçalhos personalizados (adicionados ao Office para autenticação personalizada). 
 - `spx help` – texto aprimorado e cor de texto com tique-back codificado (azul).
 
+## <a name="text-to-speech-2020-september-release"></a>Conversão de texto em fala 2020 – versão de setembro
+
+### <a name="new-features"></a>Novos recursos
+
+* **TTS de neural** 
+    * **Estendido para dar suporte a 18 novas linguagens/localidades.** Eles são búlgaro, tcheco, alemão (Áustria), alemão (Suíça), grego, inglês (Irlanda), francês (Suíça), Hebraico, Croata, húngaro, indonésio, malaio, romeno, eslovaco, esloveno, tâmil, télugo e vietnamita. 
+    * **Lançou 14 novas vozes para enriquecer a variedade de idiomas existentes.** Veja [lista de voz e idioma completo](language-support.md#neural-voices).
+    * **Novos estilos de fala `en-US` e `zh-CN` vozes.** Maria, a nova voz em inglês (EUA), dá suporte a estilos de chatbot, atendimento ao cliente e assistente. 10 novos estilos de fala estão disponíveis com nossa voz de zh-CN, XiaoXiao. Além disso, a voz neural XiaoXiao dá suporte ao `StyleDegree` ajuste. Veja [como usar os estilos de fala em SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+
+* **Contêineres: contêiner de TTS de neural liberado em visualização pública com 16 vozes disponíveis em 14 idiomas.** Saiba mais sobre [como implantar contêineres de fala para TTS de neural](speech-container-howto.md)  
+
+Leia o [anúncio completo das atualizações de TTS para Ignite 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 
 
 ## <a name="text-to-speech-2020-august-release"></a>Conversão de texto em fala 2020 – versão de agosto
 

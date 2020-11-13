@@ -1,7 +1,7 @@
 ---
 title: Importar dados para o designer
 titleSuffix: Azure Machine Learning
-description: Saiba como importar dados para o designer de Azure Machine Learning de várias fontes de dados.
+description: Saiba como importar dados para o designer de Azure Machine Learning usando conjuntos de dados do Azure Machine Learning e o módulo Import Data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985602"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554709"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Além disso, é possível registrar o resultado de qualquer módulo do designer 
 
 1. Selecione o módulo que gera os dados que você deseja registrar.
 
-1. No painel Propriedades, selecione **saídas + logs**  >  **registrar conjunto**de registros.
+1. No painel Propriedades, selecione **saídas + logs**  >  **registrar conjunto** de registros.
 
     ![Captura de tela mostrando como navegar até a opção Registrar conjunto de dados](media/how-to-designer-import-data/register-dataset-designer.png)
 

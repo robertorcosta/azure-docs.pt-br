@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836863"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505233"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
 
@@ -23,6 +23,14 @@ Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a vers
 
 Conheça as novidades do QnA Maker.
 
+### <a name="november-2020"></a>Novembro de 2020
+
+* Nova versão do QnA Maker iniciada na versão prévia pública gratuita. Leia mais [aqui](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+* Criação simplificada de recursos
+* Suporte de região de ponta a ponta
+* Modelo de classificação de aprendizado profundo
+* Compreensão da leitura de máquina para obter respostas precisas
+  
 ### <a name="july-2020"></a>Julho de 2020
 
 * [Metadados: `OR` combinação lógica de vários pares de metadados](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)

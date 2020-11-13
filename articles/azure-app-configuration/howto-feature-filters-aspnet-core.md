@@ -1,30 +1,31 @@
 ---
-title: Usar filtros de recurso para habilitar um recurso para um subconjunto de usuários
+title: Usar filtros de recurso para habilitar sinalizadores de recursos condicionais
 titleSuffix: Azure App Configuration
-description: Saiba como usar filtros de recurso para habilitar um recurso para um subconjunto de usuários
+description: Saiba como usar filtros de recurso para habilitar sinalizadores de recursos condicionais
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af8df66e02dc9316311f36dec60374a7c4e649b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206762"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554727"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Usar filtros de recurso para habilitar um recurso para um subconjunto de usuários
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Usar filtros de recurso para habilitar sinalizadores de recursos condicionais
 
 Os sinalizadores de recurso permitem ativar ou desativar a funcionalidade em seu aplicativo. Um sinalizador de recurso simples está ativado ou desativado. O aplicativo sempre se comporta da mesma maneira. Por exemplo, você pode distribuir um novo recurso por trás de um sinalizador de recurso. Quando o sinalizador de recurso está habilitado, todos os usuários veem o novo recurso. Desabilitar o sinalizador de recurso oculta o novo recurso.
 
 Por outro lado, um _sinalizador de recurso condicional_ permite que o sinalizador de recurso seja habilitado ou desabilitado dinamicamente. O aplicativo pode se comportar de forma diferente, dependendo dos critérios do sinalizador de recurso. Suponha que você deseja mostrar o novo recurso a um pequeno subconjunto de usuários a princípio. Um sinalizador de recurso condicional permite habilitar o sinalizador de recurso para alguns usuários ao desabilitá-lo para outros. Os _filtros de recurso_ determinam o estado do sinalizador de recurso cada vez que ele é avaliado.
 
-A `Microsoft.FeatureManagement` biblioteca inclui dois filtros de recursos:
+A `Microsoft.FeatureManagement` biblioteca inclui três filtros de recursos:
 
 - `PercentageFilter` habilita o sinalizador de recurso com base em uma porcentagem.
 - `TimeWindowFilter` habilita o sinalizador de recurso durante uma janela de tempo especificada.
+- `TargetingFilter` habilita o sinalizador de recurso para usuários e grupos especificados.
 
 Você também pode criar seu próprio filtro de recursos que implementa a [interface Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
@@ -84,9 +85,9 @@ Você pode definir essas configurações para sinalizadores de recursos definido
 Para ver os efeitos desse sinalizador de recurso, inicie o aplicativo e pressione o botão **Atualizar** no navegador várias vezes. Você verá que o item *beta* aparece na barra de ferramentas cerca de 50% do tempo. Ele fica oculto no restante do tempo, porque o `PercentageFilter` desativa o recurso *beta* para um subconjunto de solicitações. O vídeo a seguir mostra esse comportamento em ação.
 
 > [!div class="mx-imgBorder"]
-> ![PercentageFilter em ação](./media/feature-flags-percentagefilter.gif)
+> ![TargetingFilter em ação](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Visão geral do gerenciamento de recursos](./concept-feature-management.md)
+> [Habilitar a distribuição em etapas de recursos para públicos-alvo](./howto-targetingfilter-aspnet-core.md)

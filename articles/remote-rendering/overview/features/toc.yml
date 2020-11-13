@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Renderização de estrutura de tópicos
   href: outlines.md
+- name: Renderização do shell
+  href: shell-effect.md
 - name: Renderização de um lado
   href: single-sided-rendering.md
 - name: Consultas espaciais

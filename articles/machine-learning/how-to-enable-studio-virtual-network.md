@@ -1,7 +1,7 @@
 ---
 title: Habilitar o Azure Machine Learning Studio em uma rede virtual
 titleSuffix: Azure Machine Learning
-description: Use o Azure Machine Learning Studio para acessar os dados armazenados dentro de uma rede virtual.
+description: Saiba como configurar o Azure Machine Learning Studio para acessar dados armazenados dentro de uma rede virtual.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392989"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554658"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 

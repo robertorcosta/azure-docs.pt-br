@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146681"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504383"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidade Always On no SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,13 +72,13 @@ Para começar, confira [configurar um ouvinte DNN](availability-group-distribute
 
 Há várias opções para implantar um grupo de disponibilidade no SQL Server em VMs do Azure, algumas com mais automação do que outras. 
 
-A seguinte tabela fornece uma comparação das opções disponíveis: 
+A seguinte tabela fornece uma comparação das opções disponíveis:
 
-| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelos de início rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Portal do Azure | CLI do Azure/PowerShell | Modelos de Início Rápido | Manual |
+|---------|---------|---------|---------|---------|
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Tudo| 
+|**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Tudo|
 |**Cria o cluster para você**|Sim|Sim | Sim |Não|
 |**Cria o grupo de disponibilidade para você** |Sim |Não|Não|Não|
 |**Cria o ouvinte e o balanceador de carga de modo independente** |Não|Não|Não|Sim|
@@ -90,9 +90,8 @@ A seguinte tabela fornece uma comparação das opções disponíveis:
 |**DR com várias zonas na mesma região**|Sim|Sim|Sim|Sim|
 |**AG distribuído sem AD**|Não|Não|Não|Sim|
 |**AG distribuído sem cluster** |Não|Não|Não|Sim|
-||||||
 
-
+Para saber mais, confira [portal do Azure](availability-group-azure-portal-configure.md), [CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md), [Modelos de Início Rápido](availability-group-quickstart-template-configure.md) e [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Considerações 
 

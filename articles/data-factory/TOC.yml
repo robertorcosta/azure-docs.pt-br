@@ -451,6 +451,8 @@
           href: copy-activity-fault-tolerance.md
         - name: Verificação de consistência de dados
           href: copy-activity-data-consistency.md
+        - name: Log de atividades de cópia
+          href: copy-activity-log.md
         - name: Suporte à compactação e ao formato (herdado)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformar dados
