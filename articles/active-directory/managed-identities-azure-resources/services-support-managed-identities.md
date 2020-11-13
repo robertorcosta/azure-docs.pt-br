@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eee711917a732bfc24b10db82c75786fd9734b57
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289593"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555678"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -70,10 +70,20 @@ Veja a lista a seguir para configurar a identidade gerenciada para Serviço de A
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível | 
+| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 O kubernetes habilitado para Arc do Azure atualmente [dá suporte à identidade atribuída pelo sistema](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). O certificado de identidade de serviço gerenciado é usado por todos os agentes kubernetes habilitados para o Azure ARC para comunicação com o Azure.
+
+### <a name="azure-automanage"></a>Autogerenciamento do Azure
+
+| Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte o documento a seguir para reconfigurar uma identidade gerenciada se você moveu sua assinatura para um novo locatário:
+* [Reparar uma conta de autogerenciamento quebrada](../../automanage/repair-automanage-account.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -151,7 +161,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Fa
 
 
 
-### <a name="azure-event-grid"></a>Grade de Eventos do Azure 
+### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
 Tipo de identidade gerenciada |Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -202,7 +212,7 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível | 
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
 | Atribuído pelo usuário | Visualização | Não disponível | Não disponível | Não disponível |
 
 
@@ -222,7 +232,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Aplicativos L
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Modelo do Azure Resource Manager](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
-### <a name="azure-machine-learning"></a>Azure Machine Learning 
+### <a name="azure-machine-learning"></a>Azure Machine Learning
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -264,7 +274,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para aplicativos d
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível | 
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 
@@ -298,7 +308,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Conjuntos de 
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização | 
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
 | Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
 
 Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Virtuais do Azure (em regiões em que estiverem disponíveis):
@@ -315,7 +325,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Vir
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível | 
+| Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | [Disponível em regiões com suporte](../../virtual-machines/windows/image-builder-overview.md#regions) | Não disponível | Não disponível | Não disponível |
 
 Para saber como configurar a identidade gerenciada para o construtor de imagem de VM do Azure (em regiões onde disponível), consulte a [visão geral do Image Builder](../../virtual-machines/windows/image-builder-overview.md#permissions).

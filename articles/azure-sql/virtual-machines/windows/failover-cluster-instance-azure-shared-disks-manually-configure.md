@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285379"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556373"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos compartilhados do Azure (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -197,7 +197,7 @@ Os diretórios de dados do FCI precisam estar nos discos compartilhados do Azure
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrar com a VM do SQL RP
 
-Para gerenciar sua VM SQL Server no portal, registre-a com o provedor de recursos de VM do SQL (RP) no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
+Para gerenciar sua VM SQL Server no portal, registre-a com a extensão do SQL IaaS Agent (RP) no [modo de gerenciamento leve](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
 
 
 Registrar uma VM SQL Server no modo leve com o PowerShell:  
@@ -217,7 +217,7 @@ Para rotear o tráfego adequadamente para o nó primário atual, configure a op�
 
 ## <a name="limitations"></a>Limitações
 
-- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
+- Há suporte apenas para o registro com a extensão do SQL IaaS Agent no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

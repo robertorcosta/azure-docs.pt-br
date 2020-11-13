@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743126"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555429"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -25,7 +25,7 @@ Outras matrizes de suporte estão disponíveis:
 
 ## <a name="vault-support"></a>Suporte de cofre
 
-O Backup do Azure usa cofres dos Serviços de Recuperação para orquestrar e gerenciar backups. Ele também usa cofres para armazenar dados de backup.
+O backup do Azure usa cofres dos serviços de recuperação para orquestrar e gerenciar backups para os seguintes tipos de carga de trabalho – VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure, compartilhamentos de arquivos do Azure e cargas de trabalho locais usando o agente de backup do Azure, Servidor de Backup do Azure e System Center DPM. Ele também usa cofres dos serviços de recuperação para armazenar dados de backup para essas cargas de trabalho.
 
 A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 
@@ -151,7 +151,7 @@ O backup do Azure adicionou o recurso de restauração entre regiões para refor
 | Tipo de Gerenciamento de Backup | Com suporte                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | VM do Azure               | Sim.   Suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Todas as regiões públicas do Azure e nuvens soberanas.  |
-| SQL/SAP HANA | Sim                                                          | Todas as regiões públicas, exceto França |
+| SQL/SAP HANA | Yes                                                          | Todas as regiões públicas, exceto França |
 | Agente do MARS/Local  | Não                                                           | N/D               |
 | AFS (compartilhamentos de arquivos do Azure)                 | Não                                                           | N/D               |
 

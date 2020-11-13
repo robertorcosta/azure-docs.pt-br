@@ -1,6 +1,6 @@
 ---
 title: Pausar, retomar, dimensionar com APIs REST
-description: Gerenciar potência de computação no data warehouse do Azure Synapse Analytics por meio das APIs REST.
+description: Gerencie a potência de computação para o pool de SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics por meio de APIs REST.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213271"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556005"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>APIs REST para data warehouse do Azure Synapse Analytics
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>APIs REST para o pool do SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 
-APIs REST para gerenciar computação no data warehouse do Azure Synapse Analytics.
+APIs REST para gerenciar a computação para o pool de SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Computação de escala
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>Obter o agendamento de manutenção
 
-Verifique o agendamento de manutenção definido para um data warehouse.
+Verifique o agendamento de manutenção que foi definido para um pool SQL dedicado (anteriormente conhecido como SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>Definir o agendamento de manutenção
 
-Para definir e atualizar um agendamento de manutenção em um data warehouse existente.
+Para definir e atualizar um agendamento de manutenção em um pool SQL dedicado existente (anteriormente conhecido como SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

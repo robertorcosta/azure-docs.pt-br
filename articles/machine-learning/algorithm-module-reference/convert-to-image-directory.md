@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555576"
 ---
 # <a name="convert-to-image-directory"></a>Converter em Diretório de Imagem
 
@@ -47,7 +47,8 @@ Este artigo descreve como usar o módulo converter em diretório de imagem para 
     
     ![Conjunto de exemplo de imagem](./media/module/image-sample-dataset.png)
 
-    Para pontuação, a pasta do conjunto de imagens de imagem só precisa conter imagens não classificadas.
+    > [!NOTE]
+    > Para a inferência, a pasta do conjunto de imagens de imagem só precisa conter imagens não classificadas.
 
 1. [Registre o conjunto de dados de imagem como um conjunto](../how-to-create-register-datasets.md) de dado de arquivo em seu espaço de trabalho, já que a entrada do módulo converter em diretório de imagem deve ser um conjunto de dados de **arquivo**.
 
@@ -70,13 +71,13 @@ A saída do módulo **converter para o diretório de imagens** está no formato 
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome          | Type                  | Descrição   |
+| Nome          | Tipo                  | Description   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Nome                   | Type           | Descrição            |
+| Nome                   | Tipo           | Description            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagens de saída | ImageDirectory | Diretório de imagens de saída |
 

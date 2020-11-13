@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560784"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 
@@ -160,7 +160,7 @@ Os logs do Gateway de Aplicativo são integrados ao [Azure Monitor](../../azure-
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança](../../security-center/security-center-intro.md) ajuda você a evitar, detectar e responder a ameaças. Ela proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. O Gateway de Aplicativo é [integrado à Central de Segurança](../../application-gateway/application-gateway-integration-security-center.md). A Central de Segurança verifica seu ambiente para detectar aplicativos Web desprotegidos. Ela pode recomendar o WAF de Gateway de Aplicativo para proteger esses recursos vulneráveis. Você cria os firewalls diretamente na Central de Segurança. Essas instâncias do WAF estão integradas à Central de Segurança. Elas enviam informações de alertas e de integridade para a Central de Segurança com a finalidade de geração de relatórios.
+A [Central de Segurança](../../security-center/security-center-introduction.md) ajuda você a evitar, detectar e responder a ameaças. Ela proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. O Gateway de Aplicativo é [integrado à Central de Segurança](../../application-gateway/application-gateway-integration-security-center.md). A Central de Segurança verifica seu ambiente para detectar aplicativos Web desprotegidos. Ela pode recomendar o WAF de Gateway de Aplicativo para proteger esses recursos vulneráveis. Você cria os firewalls diretamente na Central de Segurança. Essas instâncias do WAF estão integradas à Central de Segurança. Elas enviam informações de alertas e de integridade para a Central de Segurança com a finalidade de geração de relatórios.
 
 ![Janela de Visão geral da Central de Segurança](../media/ag-overview/figure1.png)
 

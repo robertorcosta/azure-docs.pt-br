@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127817"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560886"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração do gateway de aplicativo com pontos de extremidade de serviço
 Há três variações do serviço de aplicativo que exigem uma configuração um pouco diferente da integração com Aplicativo Azure gateway. As variações incluem o serviço de aplicativo regular, também conhecido como ILB (multilocatário, Load Balancer interno) Ambiente do Serviço de Aplicativo (ASE) e ASE externo. Este artigo explicará como configurá-lo com o serviço de aplicativo (multilocatário) e discutirá considerações sobre o ILB e o ASE externo.
@@ -36,7 +36,7 @@ Com portal do Azure, siga quatro etapas para provisionar e configurar a instala�
 1. Criar um serviço de aplicativo usando um dos guias de início rápido na documentação do serviço de aplicativo, por exemplo [.NET Core início rápido](../quickstart-dotnetcore.md)
 2. Crie um gateway de aplicativo usando o [início rápido do portal](../../application-gateway/quick-create-portal.md), mas ignore a seção Adicionar destinos de back-end.
 3. Configure o [serviço de aplicativo como um back-end no gateway de aplicativo](../../application-gateway/configure-web-app-portal.md), mas ignore a seção de acesso restrito.
-4. Por fim, crie a [restrição de acesso usando pontos de extremidade de serviço](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Por fim, crie a [restrição de acesso usando pontos de extremidade de serviço](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 Agora você pode acessar o serviço de aplicativo por meio do gateway de aplicativo, mas se tentar acessar o serviço de aplicativo diretamente, você deverá receber um erro HTTP 403 indicando que o site está parado.
 

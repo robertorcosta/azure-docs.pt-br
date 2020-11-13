@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289945"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556311"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com Espaços de Armazenamento Diretos (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -217,7 +217,7 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrar com a VM do SQL RP
 
-Para gerenciar sua VM SQL Server no portal, registre-a com o provedor de recursos de VM do SQL (RP) no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
+Para gerenciar sua VM SQL Server no portal, registre-a com a extensão do SQL IaaS Agent (RP) no [modo de gerenciamento leve](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
 
 
 Registrar uma VM SQL Server no modo leve com o PowerShell:  
@@ -239,7 +239,7 @@ Para rotear o tráfego adequadamente para o nó primário atual, configure a op�
 
 - As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento no CSVs e um [balanceador de carga padrão](../../../load-balancer/load-balancer-overview.md).
 - Os discos que foram anexados como discos formatados com NTFS podem ser usados com Espaços de Armazenamento Diretos somente se a opção de qualificação de disco estiver desmarcada ou desmarcada quando o armazenamento estiver sendo adicionado ao cluster. 
-- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
+- Há suporte apenas para o registro com a extensão do SQL IaaS Agent no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372269"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555525"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 
@@ -29,14 +29,14 @@ As assinaturas de origem e destino do espaço de trabalho devem existir dentro d
 ```
 
 ## <a name="workspace-move-considerations"></a>Considerações de movimentação do espaço de trabalho
-As soluções gerenciadas que estão instaladas no espaço de trabalho serão movidas com a operação de movimentação do espaço de trabalho Log Analytics. Os agentes conectados permanecerão conectados e continuarão a enviar dados para o espaço de trabalho após a movimentação. Como a operação de movimentação requer que não haja serviços vinculados do espaço de trabalho, as soluções que dependem desse link devem ser removidas para permitir a movimentação do espaço de trabalho.
-
-Soluções que devem ser removidas para que você possa desvincular sua conta de automação:
-
-- Gerenciamento de atualizações
-- Controle de Alterações
-- Iniciar/Parar VMs durante os horários inativos
-- Central de Segurança do Azure
+- As soluções gerenciadas que estão instaladas no espaço de trabalho serão movidas com a operação de movimentação do espaço de trabalho Log Analytics. 
+- As chaves do espaço de trabalho são geradas novamente com a movimentação do espaço de trabalho (primária e secundária). Se você chave do espaço de trabalho é um cofre, atualize-os com as novas chaves geradas. 
+- Os agentes conectados permanecerão conectados e continuarão a enviar dados para o espaço de trabalho após a movimentação. 
+- Como a operação de movimentação requer que não haja serviços vinculados do espaço de trabalho, as soluções que dependem desse link devem ser removidas para permitir a movimentação do espaço de trabalho. Soluções que devem ser removidas para que você possa desvincular sua conta de automação:
+  - Gerenciamento de atualizações
+  - Controle de Alterações
+  - Iniciar/Parar VMs durante os horários inativos
+  - Central de Segurança do Azure
 
 >[!IMPORTANT]
 > **Clientes do Azure Sentinel**

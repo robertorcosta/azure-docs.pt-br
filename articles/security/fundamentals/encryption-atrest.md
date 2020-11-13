@@ -1,6 +1,6 @@
 ---
-title: Criptografia de dados em repouso no Microsoft Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da criptografia de dados em repouso no Microsoft Azure, os recursos gerais e as considerações gerais.
+title: Criptografia de dados do Azure em repouso-segurança do Azure
+description: Este artigo fornece uma visão geral da criptografia de dados do Azure em repouso, os recursos gerais e as considerações gerais.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412775"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556617"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso do Azure
 
@@ -60,7 +60,7 @@ Conforme descrito anteriormente, a meta da criptografia em repouso é que os dad
 
 ![Componentes](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="azure-key-vault"></a>Cofre de Chave do Azure
 
 O local de armazenamento das chaves de criptografia e controle de acesso a essas chaves é central para um modelo de criptografia em repouso. As chaves precisam ser altamente seguras, mas gerenciáveis por usuários especificados e disponíveis para serviços específicos. Para os serviços do Azure, o Azure Key Vault é a solução de armazenamento de chave recomendada e fornece uma experiência de gerenciamento comum em todos os serviços. As chaves são armazenadas e gerenciadas em cofres de chaves e o acesso a um cofre de chave pode ser fornecido para usuários ou serviços. O Azure Key Vault fornece suporte a criação de chaves do cliente ou importação de chaves do cliente para uso em cenários de chave de criptografia de cliente gerenciado.
 
@@ -128,7 +128,7 @@ Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazename
 
 O Banco de Dados SQL do Azure dá suporte à criptografia em repouso para cenários de criptografia gerenciada pela Microsoft no lado do cliente e no lado do serviço.
 
-O suporte para criptografia do servidor atualmente é fornecido através do recurso SQL chamado Transparent Data Encryption. Quando um cliente do Banco de Dados SQL do Azure habilita a chave de TDE, elas são criadas e gerenciadas automaticamente. A criptografia em repouso pode ser habilitada nos níveis de servidor e banco de dados. A partir de junho de 2017, a [TDE (Transparent Data Encryption)](/sql/relational-databases/security/encryption/transparent-data-encryption) estará habilitada por padrão em bancos de dados criados recentemente. O Banco de Dados SQL do Azure dá suporte a chaves gerenciadas pelo cliente RSA de 2048 bits no Azure Key Vault. Para obter mais informações, consulte [Transparent Data Encryption com suporte para Bring Your Own Key para Banco de Dados SQL do Azure e Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+O suporte para criptografia do servidor atualmente é fornecido através do recurso SQL chamado Transparent Data Encryption. Quando um cliente do Banco de Dados SQL do Azure habilita a chave de TDE, elas são criadas e gerenciadas automaticamente. A criptografia em repouso pode ser habilitada nos níveis de servidor e banco de dados. A partir de junho de 2017, a [TDE (Transparent Data Encryption)](/sql/relational-databases/security/encryption/transparent-data-encryption) estará habilitada por padrão em bancos de dados criados recentemente. O Banco de Dados SQL do Azure dá suporte a chaves gerenciadas pelo cliente RSA de 2048 bits no Azure Key Vault. Para obter mais informações, consulte [Transparent Data Encryption com suporte para Bring Your Own Key para Banco de Dados SQL do Azure e Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte por meio do recurso [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted utiliza uma chave criada e armazenada pelo cliente. Os clientes podem armazenar a chave mestre em um repositório de certificados do Windows, no Azure Key Vault ou em um Módulo de Segurança de Hardware local. Usando SQL Server Management Studio, os usuários do SQL escolhem qual chave gostaria de usar para criptografar qual coluna.
 
@@ -140,3 +140,4 @@ A proteção dos dados do cliente armazenados nos Serviços do Azure é de funda
 
 - Consulte [modelos de criptografia de dados](encryption-models.md) para saber mais sobre chaves gerenciadas por serviço e chaves gerenciadas pelo cliente.
 - Saiba como o Azure usa a [criptografia dupla](double-encryption.md) para atenuar as ameaças que vêm com a criptografia de dados.
+- Saiba o que a Microsoft faz para garantir a [integridade da plataforma e a segurança](platform.md) dos hosts que atravessam os pipelines de desenvolvimento, integração, operacionalização e reparo de hardware e firmware.

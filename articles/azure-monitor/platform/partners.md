@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460077"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555627"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -153,7 +153,7 @@ A **ponte de operações** de microfoco monitora automaticamente todos os recurs
 
 Saiba mais
 - [Visão geral do pacote de OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Baixar](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope é um componente do Operations Bridge Suite.
 
 
@@ -253,7 +253,7 @@ Reduza incidentes e MTTR com a plataforma AIOps agora para eliminar ruído, prio
 
 ![Logotipo do SignalFX](./media/partners/signalfx.png)
 
-SignalFx é líder em inteligência operacional em tempo real para DevOps controladas por dados. O serviço detecta e coleta métricas em todos os componentes na nuvem. Ele substitui as ferramentas de ponto tradicionais e fornece visibilidade em tempo real dos ambientes dinâmicos atuais. Potenciando a plataforma de SignalFx altamente escalonável, a plataforma de SaaS é otimizada para o contêiner e arquiteturas baseadas em microsserviços e fornece visualização avançada, alertas proativos e recursos de triagem de colaboração entre organizações de todos os tamanhos. O SignalFx integra-se diretamente com Azure Monitor, bem como por meio de conectores de software livre, como *Telegraf*, *estatísticas*e *coletados* para fornecer os melhores painéis, análises e alertas de classe para o Azure.
+SignalFx é líder em inteligência operacional em tempo real para DevOps controladas por dados. O serviço detecta e coleta métricas em todos os componentes na nuvem. Ele substitui as ferramentas de ponto tradicionais e fornece visibilidade em tempo real dos ambientes dinâmicos atuais. Potenciando a plataforma de SignalFx altamente escalonável, a plataforma de SaaS é otimizada para o contêiner e arquiteturas baseadas em microsserviços e fornece visualização avançada, alertas proativos e recursos de triagem de colaboração entre organizações de todos os tamanhos. O SignalFx integra-se diretamente com Azure Monitor, bem como por meio de conectores de software livre, como *Telegraf* , *estatísticas* e *coletados* para fornecer os melhores painéis, análises e alertas de classe para o Azure.
 
 [Documentação do signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -300,6 +300,16 @@ O Sumo Logic é um serviço de análise de dados do computador seguro e nativo d
 O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otimizando, de forma simultânea, o desempenho, o custo e a conformidade em tempo real. Turbonomic ajuda as organizações a serem elásticas no seu espaço do Azure otimizando continuamente o estado para garantir que aplicativos obtenham constantemente os recursos necessários para fornecer seu SLA e nada mais em computação, armazenamento e rede para a camada PaaS e IaaS. As organizações podem simular migrações, dimensionar as cargas de trabalho de modo correto e desativar recursos do datacenter para migrar responsavelmente para o Azure dentro do prazo e do orçamento, assegurando, ao mesmo tempo, o desempenho e a conformidade. O Turbonomic é controlado por API e executa como uma VM sem agente no Azure ou local.
 
 [Introdução ao o turbonomic](https://turbonomic.com/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![Logotipo do BMC Helix](./media/partners/BMCHelix.png)
+
+O BMC Helix é um serviço corporativo autônomo e uma plataforma SaaS de operações. Integrado à inteligência de 360 graus, ele capacita as empresas de forma proativa e preditivamente a descobrir, monitorar, realizar serviços, corrigir, otimizar e fornecer experiências de canal de Omni para ti e linhas de negócios.
+Além disso, ao integrar diretamente o ITSM e o ITOM (gerenciamento de operações de ti), o BMC Helix permite que os usuários de ti e negócios eliminem os silos de ti, tomem decisões de negócios controladas por dados e forneçam experiências de clientes líderes no setor.
+Os clientes podem implantar a plataforma Helix do BMC com a implantação em nuvem de sua escolha – pública, privada ou híbrida. Além disso, os clientes têm uma opção de soluções de ia/ML para aproveitar os provedores líderes do setor.
+
+[Saiba mais sobre o BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>Próximas etapas
 

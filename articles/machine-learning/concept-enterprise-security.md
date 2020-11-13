@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539644"
+ms.locfileid: "94561311"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governança corporativas para Azure Machine Learning
 
@@ -105,7 +105,13 @@ Opcionalmente, você pode configurar suas próprias identidades gerenciadas para
 
 Para restringir o acesso físico a recursos de Azure Machine Learning, você pode usar a VNet (rede virtual) do Azure. O VNets permite que você crie ambientes de rede que são parcialmente ou totalmente isolados da Internet pública. Isso reduz a superfície de ataque para sua solução, bem como as chances de vazamento de dados.
 
-Para obter mais informações, confira [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md).
+Para obter mais informações, consulte um dos seguintes documentos:
+
+* [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
+* [Recursos de workspace seguro](how-to-secure-workspace-vnet.md)
+* [Ambiente de treinamento seguro](how-to-secure-training-vnet.md)
+* [Ambiente de inferência seguro](how-to-secure-inferencing-vnet.md)
+* [Usar o estúdio em uma rede virtual segura](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -123,7 +129,7 @@ Talvez também seja interessante criptografar [informações de diagnóstico reg
 
 Há vários cenários de monitoramento com Azure Machine Learning, dependendo da função e o que está sendo monitorado.
 
-| Função | Monitorando para usar | Description |
+| Função | Monitorando para usar | Descrição |
 | ---- | ----- | ----- |
 | Admin, DevOps, MLOps | [Métricas de Azure monitor](#azure-monitor), [log de atividades](#activity-log), [verificação de vulnerabilidade](#vulnerability-scanning) | Informações de nível de serviço |
 | Cientista de dados, MLOps | [Monitorar execuções](#monitor-runs) | Informações registradas durante execuções de treinamento |
@@ -131,7 +137,7 @@ Há vários cenários de monitoramento com Azure Machine Learning, dependendo da
 
 ### <a name="monitor-runs"></a>Monitorar execuções
 
-Você pode monitorar execuções de teste em Azure Machine Learning, incluindo informações de registro em log de seus scripts de treinamento. Essas informações podem ser exibidas por meio do SDK, CLI do Azure e Studio. Para obter mais informações, confira os seguintes artigos:
+Você pode monitorar execuções de teste em Azure Machine Learning, incluindo informações de registro em log de seus scripts de treinamento. Essas informações podem ser exibidas por meio do SDK, CLI do Azure e Studio. Para obter mais informações, consulte os seguintes artigos:
 
 * [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md)
 * [Habilitar logs](how-to-track-experiments.md)

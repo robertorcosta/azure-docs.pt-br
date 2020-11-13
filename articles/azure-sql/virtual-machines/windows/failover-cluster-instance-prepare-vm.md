@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164237"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556328"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,9 +47,9 @@ O recurso de cluster de failover requer que as máquinas virtuais sejam colocada
 
 Selecione cuidadosamente a opção de disponibilidade de VM que corresponde à configuração de cluster pretendida: 
 
- - **Discos compartilhados do Azure**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurado com o domínio de falha e o domínio de atualização definido como 1 e colocados dentro de um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Compartilhamentos de arquivos Premium**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Os compartilhamentos de arquivos Premium serão a única opção de armazenamento compartilhado se você escolher zonas de disponibilidade como a configuração de disponibilidade para suas VMs. 
- - **Espaços de armazenamento diretos**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+ - **Discos compartilhados do Azure** : [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurado com o domínio de falha e o domínio de atualização definido como 1 e colocados dentro de um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+ - **Compartilhamentos de arquivos Premium** : [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Os compartilhamentos de arquivos Premium serão a única opção de armazenamento compartilhado se você escolher zonas de disponibilidade como a configuração de disponibilidade para suas VMs. 
+ - **Espaços de armazenamento diretos** : [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
 >[!IMPORTANT]
 >Você não pode definir nem alterar o conjunto de disponibilidade depois de criar uma máquina virtual.
@@ -71,15 +71,15 @@ Você pode criar uma máquina virtual do Azure usando uma imagem [com](sql-vm-cr
 
 ## <a name="uninstall-sql-server"></a>Desinstalar o SQL Server
 
-Como parte do processo de criação de FCI, você instalará SQL Server como uma instância clusterizada no cluster de failover. *Se você implantou uma máquina virtual com uma imagem do Azure Marketplace sem SQL Server, você pode ignorar esta etapa.* Se você implantou uma imagem com SQL Server pré-instalado, precisará cancelar o registro da VM SQL Server do provedor de recursos da VM do SQL e, em seguida, desinstalar o SQL Server. 
+Como parte do processo de criação de FCI, você instalará SQL Server como uma instância clusterizada no cluster de failover. *Se você implantou uma máquina virtual com uma imagem do Azure Marketplace sem SQL Server, você pode ignorar esta etapa.* Se você implantou uma imagem com SQL Server pré-instalado, precisará cancelar o registro da VM SQL Server da extensão do agente IaaS do SQL e, em seguida, desinstalar o SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Cancelar o registro do provedor de recursos da VM do SQL
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Cancelar o registro da extensão do SQL IaaS Agent
 
-SQL Server imagens de VM do Azure Marketplace são automaticamente registradas com o provedor de recursos de VM do SQL. Antes de desinstalar a instância do SQL Server pré-instalado, você deve primeiro [cancelar o registro de cada VM SQL Server do provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server imagens de VM do Azure Marketplace são automaticamente registradas com a extensão do SQL IaaS Agent. Antes de desinstalar a instância do SQL Server pré-instalado, você deve primeiro [cancelar o registro de cada VM SQL Server da extensão do agente IaaS do SQL](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Desinstalar o SQL Server
 
-Depois de cancelar o registro do provedor de recursos, você pode desinstalar o SQL Server. Siga estas etapas em cada máquina virtual: 
+Depois de cancelar o registro da extensão, você pode desinstalar o SQL Server. Siga estas etapas em cada máquina virtual: 
 
 1. Conecte-se à máquina virtual usando o RDP.
 
@@ -87,7 +87,7 @@ Depois de cancelar o registro do provedor de recursos, você pode desinstalar o 
 
 1. Se você estiver usando uma das imagens de máquina virtual com base em SQL Server, remova a instância SQL Server:
 
-   1. Em **Programas e Recursos**, clique com o botão direito do mouse em **Microsoft SQL Server 201_ (64 bits)** e selecione **Desinstalar/Alterar**.
+   1. Em **Programas e Recursos** , clique com o botão direito do mouse em **Microsoft SQL Server 201_ (64 bits)** e selecione **Desinstalar/Alterar**.
    1. Selecione **Remover**.
    1. Selecione a instância padrão.
    1. Remova todos os recursos em **Serviços de Mecanismo de Banco de Dados**. Não remova nada em **recursos compartilhados**. Você verá algo como a seguinte captura de tela:
@@ -107,9 +107,9 @@ Esta tabela detalha as portas que talvez você precise abrir, dependendo da conf
 
    | Finalidade | Porta | Observações
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente. </br> </br> **Usado por**: todas as configurações de FCI. |
-   | Investigação de integridade | TCP 59999 | Qualquer porta TCP aberta. Configure a [investigação de integridade](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para usar essa porta. </br> </br> **Usado por**: FCI com o balanceador de carga. |
-   | Compartilhamento de arquivo | UDP 445 | Porta que o serviço de compartilhamento de arquivos usa. </br> </br> **Usado por**: FCI com compartilhamento de arquivos premium. |
+   | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente. </br> </br> **Usado por** : todas as configurações de FCI. |
+   | Investigação de integridade | TCP 59999 | Qualquer porta TCP aberta. Configure a [investigação de integridade](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para usar essa porta. </br> </br> **Usado por** : FCI com o balanceador de carga. |
+   | Compartilhamento de arquivo | UDP 445 | Porta que o serviço de compartilhamento de arquivos usa. </br> </br> **Usado por** : FCI com compartilhamento de arquivos premium. |
 
 ## <a name="join-the-domain"></a>Ingressar no domínio
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285280"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556396"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com um compartilhamento de arquivos Premium (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -189,7 +189,7 @@ Depois de configurar o cluster de failover, crie a FCI do SQL Server.
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrar com a VM do SQL RP
 
-Para gerenciar sua VM SQL Server no portal, registre-a com o provedor de recursos de VM do SQL (RP) no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
+Para gerenciar sua VM SQL Server no portal, registre-a com a extensão do SQL IaaS Agent (RP) no [modo de gerenciamento leve](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), atualmente o único modo com suporte com FCI e SQL Server em VMs do Azure. 
 
 Registre uma VM de SQL Server no modo leve com o PowerShell (-LicenseType pode ser `PAYG` ou `AHUB` ):
 
@@ -210,7 +210,7 @@ Para rotear o tráfego adequadamente para o nó primário atual, configure a op�
 
 - O Microsoft Coordenador de Transações Distribuídas (MSDTC) não tem suporte no Windows Server 2016 e versões anteriores. 
 - Não há suporte para o fluxo de arquivos em um cluster de failover com um compartilhamento de arquivo premium. Para usar FILESTREAM, implante o cluster usando [espaços de armazenamento diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou [discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) em vez disso.
-- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
+- Há suporte apenas para o registro com a extensão do SQL IaaS Agent no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
 
 ## <a name="next-steps"></a>Próximas etapas
 

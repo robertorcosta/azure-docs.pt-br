@@ -1,7 +1,7 @@
 ---
 title: Criar e treinar modelos
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar modelos com Azure Machine Learning, incluindo o trabalho com estruturas populares como Scikit-learn, TensorFlow e PyTorch. Os pipelines do Machine Learning facilitam o agendamento de execuções autônomas, o uso de ambientes de computação heterogêneos e a reutilização de partes do seu fluxo de trabalho. As configurações de execução fornecem controle granular sobre os destinos de computação nos quais o processo de treinamento é executado.
+description: Saiba como treinar modelos com Azure Machine Learning. Explore os diferentes métodos de treinamento e escolha o correto para seu projeto.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324813"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555882"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 

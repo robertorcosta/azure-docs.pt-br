@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357464"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555814"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Fala Personalizada
 
@@ -37,7 +37,7 @@ Ao longo do caminho, os fluxos de trabalho devem nomear e armazenar dados, teste
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>Fluxo de trabalho de CI para testar atualizações de dados
 
-A finalidade principal dos fluxos de trabalho de CI/CD é criar um novo modelo usando os dados de treinamento e testar esse modelo usando os dados de teste para estabelecer se a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) foi aprimorada em comparação com o modelo de melhor desempenho anterior (o "modelo de parâmetro de comparação"). Se o novo modelo tiver um desempenho melhor, ele se tornará o novo modelo de benchmark em relação ao qual os modelos futuros são comparados.
+A finalidade principal dos fluxos de trabalho de CI/CD é criar um novo modelo usando os dados de treinamento e testar esse modelo usando os dados de teste para estabelecer se a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) foi aprimorada em comparação com o modelo de melhor desempenho anterior (o "modelo de parâmetro de comparação"). Se o novo modelo tiver um desempenho melhor, ele se tornará o novo modelo de benchmark em relação ao qual os modelos futuros são comparados.
 
 O fluxo de trabalho de CI para testar atualizações de dados deve testar novamente o modelo de parâmetro de comparação atual com os dados de teste atualizados para calcular o WER revisado. Isso garante que quando o WER de um novo modelo for comparado com o WER do parâmetro de comparação, ambos os modelos foram testados nos mesmos dados de teste e você está comparando como.
 
@@ -84,8 +84,8 @@ O [repositório de modelos de fala DevOps](https://github.com/Azure-Samples/Spee
 
 - Copie o repositório de modelos para sua conta do GitHub e, em seguida, crie recursos do Azure e uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho de CI/CD de ações do github.
 - Percorra o "[loop interno de desenvolvimento](https://mitchdenny.com/the-inner-loop/)". Atualize os dados de treinamento e teste de um Branch de recurso, teste as alterações com um modelo de desenvolvimento temporário e gere uma solicitação de pull para propor e revisar as alterações.
-- Quando os dados de treinamento são atualizados em uma solicitação de pull para o *mestre*, treine modelos com o fluxo de trabalho de CI de ações do github.
-- Execute o teste de precisão automatizado para estabelecer a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) do modelo (WER). Armazene os resultados de teste no blob do Azure.
+- Quando os dados de treinamento são atualizados em uma solicitação de pull para o *mestre* , treine modelos com o fluxo de trabalho de CI de ações do github.
+- Execute o teste de precisão automatizado para estabelecer a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) do modelo (WER). Armazene os resultados de teste no blob do Azure.
 - Execute o fluxo de trabalho do CD para criar um ponto de extremidade quando o WER melhorar.
 
 ## <a name="next-steps"></a>Próximas etapas
