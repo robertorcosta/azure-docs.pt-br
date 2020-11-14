@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594259"
+ms.locfileid: "94616817"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 
@@ -40,7 +40,7 @@ _ **Tráfego de entrada:**
 
    * **Tráfego de entrada da Internet pública:** A bastiões do Azure criará um IP público que precisa da porta 443 habilitada no IP público para o tráfego de entrada. A porta 3389/22 não precisa ser aberta no AzureBastionSubnet.
    * **Tráfego de entrada do plano de controle de bastiões do Azure:** Para conectividade do plano de controle, habilite a porta 443 de entrada da marca de serviço do **gatewaymanager** . Isso permite que o plano de controle, ou seja, o Gerenciador de gateway seja capaz de se comunicar com a bastiões do Azure.
-   * **Tráfego de entrada do balanceador de carga do Azure:** Para investigações de integridade, habilite a porta 443 de entrada da marca de serviço **AzureLoadBalancer** . Isso habilita o Azure Load Balancer, para detectar problemas de conectividade com o back-end.
+   * **Tráfego de entrada de Azure Load Balancer:** Para investigações de integridade, habilite a porta 443 de entrada da marca de serviço **AzureLoadBalancer** . Isso permite que Azure Load Balancer detecte conectividade 
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de tela mostra regras de segurança de entrada para conectividade de bastiões do Azure.":::
