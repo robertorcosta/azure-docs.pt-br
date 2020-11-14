@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09af5d9af749d43f9d15f42daee6b562a877397b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451597"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94633372"
 ---
 *Aquecendo o cache*  
 O disco com o cache de host ReadOnly pode oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso faz com que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente alcancem o cache, não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
@@ -21,24 +21,22 @@ O disco com o cache de host ReadOnly pode oferecer IOPS mais alta do que o limit
 > [!IMPORTANT]
 >  você deve aquecer o cache antes de executar os parâmetros de comparação, toda vez que a VM é reinicializada.
 
-## <a name="tools"></a>Ferramentas
-
-### <a name="iometer"></a>Iometer
+## <a name="iometer"></a>Iometer
 
 [Baixe a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) na VM.
 
-#### <a name="test-file"></a>Arquivo de teste
+### <a name="test-file"></a>Arquivo de teste
 
 O Iometer usa um arquivo de teste que fica armazenado no volume no qual você executa o teste de parâmetros de comparação. Ele orienta as leituras e gravações nesse arquivo de teste para avaliar a IOPS e a Taxa de Transferência do disco. O Iometer criará esse arquivo de teste caso você não tenha fornecido um. Crie um arquivo de teste de 200 GB chamado iobw.tst nos volumes CacheReads e NoCacheWrites.
 
-#### <a name="access-specifications"></a>Especificações de acesso
+### <a name="access-specifications"></a>Especificações de acesso
 
 As especificações, o tamanho da E/S de solicitação, a % de leitura/gravação, a % aleatória/sequencial são configurados usando a guia "Especificações de Acesso" no Iometer. Crie uma especificação de acesso para cada um dos cenários descritos abaixo. Crie as especificações de acesso e "Salve" com um nome apropriado como – RandomWrites\_8K, RandomReads\_8K. Selecione a especificação correspondente ao executar o cenário de teste.
 
 Um exemplo de especificações de acesso para o cenário de IOPS de gravação máxima é mostrado abaixo,   
     ![Exemplo de especificações de acesso para a IOPS de gravação máxima](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
-#### <a name="maximum-iops-test-specifications"></a>Especificações de teste de IOPS máxima
+### <a name="maximum-iops-test-specifications"></a>Especificações de teste de IOPS máxima
 
  Para demonstrar a IOPS máxima, use o tamanho de solicitação menor. Use o tamanho de solicitação de 8 K e crie especificações para gravações e leituras aleatórias.
 
@@ -47,7 +45,7 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
 | RandomWrites\_8K |8 K |100 |0 |
 | RandomReads\_8K |8 K |100 |100 |
 
-#### <a name="maximum-throughput-test-specifications"></a>Especificações de teste de taxa de transferência máxima
+### <a name="maximum-throughput-test-specifications"></a>Especificações de teste de taxa de transferência máxima
 
  Para demonstrar a Taxa de Transferência máxima, use o tamanho de solicitação maior. Use o tamanho de solicitação de 64K e crie especificações para gravações e leituras aleatórias.
 
@@ -56,24 +54,24 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
 | RandomWrites\_64K |64 k |100 |0 |
 | RandomReads\_64K |64 k |100 |100 |
 
-#### <a name="run-the-iometer-test"></a>Executar o teste Iometer
+### <a name="run-the-iometer-test"></a>Executar o teste Iometer
 
  Execute as etapas abaixo para aquecer o cache
 
 1. Crie duas especificações de acesso com os valores mostrados abaixo:
 
-   | Nome | Tamanho da solicitação | Aleatório % | Leitura % |
+   | Name | Tamanho da solicitação | Aleatório % | Leitura % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Nome | Duration |
+   | Cenário | Volume de destino | Name | Duração |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
 1. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Nome | Duration |
+   | Cenário | Volume de destino | Name | Duração |
    | --- | --- | --- | --- |
    | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
 
@@ -92,15 +90,15 @@ Depois de aquecer o disco do cache, prossiga com os cenários de teste listados 
 
 Veja abaixo as capturas de tela dos resultado do teste Iometer para cenários combinados de IOPS e Taxa de Transferência.
 
-#### <a name="combined-reads-and-writes-maximum-iops"></a>IOPS máxima de leituras e gravações combinadas
+### <a name="combined-reads-and-writes-maximum-iops"></a>IOPS máxima de leituras e gravações combinadas
 
 ![IOPS máxima de leituras e gravações combinadas](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
 
-#### <a name="combined-reads-and-writes-maximum-throughput"></a>Taxa de transferência máxima de leituras e gravações combinadas
+### <a name="combined-reads-and-writes-maximum-throughput"></a>Taxa de transferência máxima de leituras e gravações combinadas
 
 ![Taxa de transferência máxima de leituras e gravações combinadas](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
 
-### <a name="fio"></a>FIO
+## <a name="fio"></a>FIO
 
 FIO é uma ferramenta popular para o armazenamento de parâmetros de comparação em VMs Linux. Ela tem a flexibilidade para selecionar diferentes tamanhos de E/S, leituras e gravações sequenciais ou aleatórias. Ela gera threads ou processos de trabalho para executar as operações de E/S especificadas. Você pode especificar o tipo de operação de E/S que cada thread de trabalho deve executar usando arquivos de trabalho. Criamos um arquivo de trabalho por cenário ilustrado nos exemplos abaixo. É possível alterar as especificações nesses arquivos de trabalho para comparar diferentes cargas de trabalho em execução no Armazenamento Premium. Nos exemplos, estamos usando uma VM DS14 padrão executando o **Ubuntu**. Use a mesma configuração descrita no início da seção Parâmetros de comparação e aqueça o cache antes de executar os testes de parâmetros de comparação.
 
@@ -114,7 +112,7 @@ apt-get install fio
 
 Usamos quatro threads de trabalho para impulsionar operações de gravação e quatro threads de trabalho para impulsionar operações de leitura nos discos. Os trabalhos de gravação orientam o tráfego no volume "nocache", que tem 10 discos com o cache definido como "None". Os trabalhos de leitura orientam o tráfego no volume "readcache", que tem um disco com o cache definido como "ReadOnly".
 
-#### <a name="maximum-write-iops"></a>IOPS máxima de gravação
+### <a name="maximum-write-iops"></a>IOPS máxima de gravação
 
  Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de gravação. Dê o nome de "fiowrite.ini".
 
@@ -155,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 Enquanto o teste é executado, você pode ver o número de IOPS de gravação fornecido pela VM e pelos discos Premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo seu limite máximo de IOPS de gravação, isto é, 50.000 IOPS.  
     ![Número de discos de VM de gravação e Premium que estão entregando.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
-#### <a name="maximum-read-iops"></a>IOPS máxima de leitura
+### <a name="maximum-read-iops"></a>IOPS máxima de leitura
 
  Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de leitura. Dê o nome de "fioread.ini".
 
@@ -196,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 Enquanto o teste é executado, você pode ver o número de IOPS de leitura fornecido pela VM e pelos discos Premium. Conforme mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 64.000 IOPS de leitura. Essa é uma combinação do desempenho do cache e do disco.  
     ![Captura de tela do número de discos da VM de gravação e Premium que estão entregando.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
-#### <a name="maximum-read-and-write-iops"></a>IOPS máxima de leitura e gravação
+### <a name="maximum-read-and-write-iops"></a>IOPS máxima de leitura e gravação
 
  Crie o arquivo de trabalho com as especificações a seguir para obter a IOPS Máxima de Leitura e Gravação. Dê o nome de "fioreadwrite.ini".
 
@@ -254,6 +252,6 @@ sudo fio --runtime 30 fioreadwrite.ini
 Enquanto o teste é executado, você pode ver o número de IOPS de leitura e gravação combinadas fornecido pela VM e pelos discos Premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 100.000 IOPS de leitura e gravação combinadas. Essa é uma combinação do desempenho do cache e do disco.  
     ![IOPS de gravação e leitura combinadas](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
-#### <a name="maximum-combined-throughput"></a>Taxa de transferência máxima combinada
+### <a name="maximum-combined-throughput"></a>Taxa de transferência máxima combinada
 
  Para atingir a Taxa de Transferência máxima de Leitura e Gravação combinadas, use um tamanho de bloco maior e uma profundidade de fila grande com vários threads executando leituras e gravações. É possível usar um tamanho de bloco de 64 KB e uma profundidade de fila de 128.
