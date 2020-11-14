@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204632"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
@@ -85,7 +85,7 @@ Na portal do Azure, abra a folha circuito do ExpressRoute. Na seção ![3][3] da
 
 Nas Informações Gerais do ExpressRoute, o *Status do circuito* indica o status do circuito no lado da Microsoft. *Status do provedor* indica se o circuito foi *Provisionado/Não provisionado* no lado do provedor de serviços. 
 
-Para que um circuito do ExpressRoute esteja operacional, o *Status do circuito* deve ser *Habilitado* e o *Status do provedor* deve ser *Provisionado* .
+Para que um circuito do ExpressRoute esteja operacional, o *Status do circuito* deve ser *Habilitado* e o *Status do provedor* deve ser *Provisionado*.
 
 > [!NOTE]
 > Depois de configurar um circuito do ExpressRoute, se o *status do circuito* for com o status não habilitado, entre em contato com [suporte da Microsoft][Support]. Por outro lado, se o *status do provedor* for esbarrado no status não provisionado, entre em contato com seu provedor de serviços.

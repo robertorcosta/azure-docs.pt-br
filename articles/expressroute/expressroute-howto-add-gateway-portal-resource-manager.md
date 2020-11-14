@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761760"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar um gateway de rede virtual para ExpressRoute usando o portal do Azure
@@ -42,7 +42,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
     * Espaço de endereço da sub-rede = "192.168.1.0/24"
 * Grupo de recursos = “TestRG”
 * Local = "Leste dos EUA"
-* Nome da Sub-rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet* .
+* Nome da Sub-rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
     * Espaço de endereço da Sub-Rede do Gateway = “192.168.200.0/26”
 * Nome do gateway = "ERGW"
 * Nome do IP público do gateway = "MyERGWVIP"
@@ -60,11 +60,11 @@ Você pode exibir um [Vídeo](https://azure.microsoft.com/documentation/videos/a
 
 1. O **Nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Esse valor é necessário para que o Azure reconheça a sub-rede como a sub-rede de gateway. Ajuste os valores preenchidos automaticamente de **Intervalo de endereços** para corresponder aos seus requisitos de configuração. É recomendável criar uma sub-rede do gateway com um /27 ou maior (/ 26, / 25 e assim por diante). Em seguida, selecione **OK** para salvar os valores e criar a sub-rede de gateway.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adicionar a sub-rede de gateway":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adicionar a sub-rede":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
 
-1. No portal, do lado esquerdo, selecione **Criar um recurso** e digite “gateway de rede virtual” na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e selecione a entrada. Na página **Gateway de rede virtual** , selecione **Criar** .
+1. No portal, do lado esquerdo, selecione **Criar um recurso** e digite “gateway de rede virtual” na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e selecione a entrada. Na página **Gateway de rede virtual** , selecione **Criar**.
 1. Na página **Criar gateway de rede virtual** , insira ou selecione estas configurações:
 
     | Configuração | Valor |
@@ -75,19 +75,19 @@ Você pode exibir um [Vídeo](https://azure.microsoft.com/documentation/videos/a
     | Região | Altere o campo **Região** para apontar para o local onde se encontra sua rede virtual. Se o local não estiver apontando para a região onde está sua rede virtual, a rede virtual não aparecerá na lista suspensa 'Escolher uma rede virtual'. |
     | Tipo de gateway | Selecione **ExpressRoute**|
     | SKU | Selecione o SKU do gateway no menu suspenso. |
-    | Rede virtual | Selecione *TestVNet* . |
-    | Endereço IP público | Selecione **Criar novo** .|
+    | Rede virtual | Selecione *TestVNet*. |
+    | Endereço IP público | Selecione **Criar novo**.|
     | Nome do endereço IP público | Forneça um nome para o endereço IP público. |
 
 1. Selecione **Examinar + criar** e **Criar** para começar a criar o gateway. As configurações são validadas e o gateway é implantado. A criação de um gateway de rede virtual pode levar até 45 minutos para ser concluída.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Adicionar a sub-rede de gateway":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Campos da página Criar gateway de rede virtual":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se não precisar mais do gateway do ExpressRoute, localize-o no grupo de recursos de rede virtual e selecione **Excluir** . Certifique-se de que o gateway não tenha conexões com um circuito.
+Se não precisar mais do gateway do ExpressRoute, localize-o no grupo de recursos de rede virtual e selecione **Excluir**. Certifique-se de que o gateway não tenha conexões com um circuito.
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Adicionar a sub-rede de gateway":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Excluir gateway de rede virtual":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de criar o gateway de VNet, é possível vincular sua VNet a um circuito do ExpressRoute. 

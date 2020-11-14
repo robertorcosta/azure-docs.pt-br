@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129585"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628281"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planejar uma oferta de máquina virtual
 
@@ -100,7 +100,7 @@ O exemplo a seguir mostra uma oferta de VM no Azure Marketplace que tem preços 
 
 Você pode restringir a descoberta e a implantação de sua VM a um conjunto específico de clientes publicando a imagem e os preços como um plano privado. Os planos privados desbloqueiam a capacidade de você criar ofertas exclusivas para seus clientes mais próximos e oferecer softwares e termos personalizados. Os termos personalizados permitem a você destacar uma variedade de cenários, incluindo negócios de campos especializados com preços e termos especializados, e também acesso antecipado a software de versão limitada. Os planos privados permitem que você forneça preços ou produtos específicos a um conjunto limitado de clientes.
 
-Para obter mais informações, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md) e [ofertas privadas no Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+Para obter mais informações, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md) e [ofertas privadas no Microsoft Commercial Marketplace](private-offers.md).
 
 ## <a name="test-drives"></a>Test drives
 

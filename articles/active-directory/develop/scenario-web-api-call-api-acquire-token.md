@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 56bcc4e4936371b58d78f6de5ce4c2d25fbf614d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 465544f1d861fc09d4b843270c6f3527036ee6a8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442796"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627992"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma API Web que chama APIs da Web: adquirir um token para o aplicativo
 
@@ -25,7 +25,7 @@ Depois de criar um objeto de aplicativo cliente, use-o para adquirir um token qu
 
 ## <a name="code-in-the-controller"></a>Código no controlador
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 *Microsoft. Identity. Web* adiciona métodos de extensão que fornecem serviços de conveniência para chamar Microsoft Graph ou uma API da Web downstream. Esses métodos são explicados em detalhes em [uma API Web que chama APIs da Web: chamar uma API](scenario-web-api-call-api-call-api.md). Com esses métodos auxiliares, você não precisa adquirir um token manualmente.
 
@@ -63,7 +63,8 @@ public class MyApiController : Controller
 
 Para obter detalhes sobre o `callTodoListService` método, consulte  [uma API Web que chama APIs da Web: chamar uma API](scenario-web-api-call-api-call-api.md).
 
-# <a name="java"></a>[Java](#tab/java)
+### <a name="java"></a>[Java](#tab/java)
+
 Aqui está um exemplo de código que é chamado nas ações dos controladores de API. Ele chama o Microsoft Graph de API downstream.
 
 ```java
@@ -84,9 +85,13 @@ public class ApiController {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 Uma API Web do Python requer o uso do middleware para validar o token de portador recebido do cliente. A API da Web pode obter o token de acesso para uma API downstream usando a biblioteca MSAL Python chamando o [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) método. Um exemplo que demonstra esse fluxo com o MSAL Python ainda não está disponível.
+
+## <a name="advanced-accessing-the-signed-in-users-token-cache-from-background-apps-apis-and-services"></a>Avançadas Acessando o cache de tokens do usuário conectado de aplicativos, APIs e serviços em segundo plano
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ---
 

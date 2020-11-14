@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408395"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628213"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte do Red Hat OpenShift no Azure
 
@@ -23,6 +23,7 @@ Determinadas configurações dos clusters do Red Hat OpenShift no Azure 4 podem 
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
 * Todos os operadores do cluster do OpenShift devem permanecer em um estado gerenciado. A lista de operadores do cluster pode ser retornada executando `oc get clusteroperators`.
+* O cluster deve ter no mínimo um nó de trabalho. Não dimensione os trabalhadores do cluster para zero.
 * Não remova nem modifique os serviços Prometheus e Alertmanager do cluster.
 * Não remova as regras de Alertmanager do serviço.
 * Não remova nem modifique o registro em log do serviço do Red Hat OpenShift no Azure (pods mdsd).

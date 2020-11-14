@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593069"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628111"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em opções de Azure Active Directory-telefone
 
@@ -56,6 +56,8 @@ Com a verificação por chamada telefônica durante a SSPR ou a Autenticação M
 
 Se você tiver problemas com a autenticação por telefone do Azure AD, examine as seguintes etapas de solução de problemas:
 
+* "Você atingiu nosso limite de chamadas de verificação" ou "você atingiu nosso limite em códigos de verificação de texto" ao entrar
+   * Use o aplicativo Microsoft Authenticator ou o código de verificação para concluir a autenticação ou tente novamente mais tarde.
 * ID de chamador bloqueada em um único dispositivo.
    * Examine os números bloqueados configurados no dispositivo.
 * Número de telefone errado, código de país/região incorreto ou confusão entre número de telefone pessoal e o número de telefone comercial.

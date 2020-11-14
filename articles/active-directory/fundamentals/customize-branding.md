@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "89565847"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
@@ -37,7 +37,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 ### <a name="to-customize-your-branding"></a>Para personalizar a identidade visual
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar** .
+2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
 
     ![Contoso - Página de identidade visual da empresa, opção Configurar realçada](media/customize-branding/company-branding-configure-button.png)
 
@@ -56,7 +56,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
         
             É recomendável usar imagens sem um foco forte de assunto, por exemplo, uma caixa branca opaca aparece no centro da tela e pode cobrir qualquer parte da imagem, dependendo das dimensões do espaço visível.
 
-        - **Logotipo de faixa.** Selecione uma versão .png ou .jpg do logotipo para aparecer na página de entrada, depois que o usuário inserir um nome de usuário e na página do portal **Meus Aplicativos** .
+        - **Logotipo de faixa.** Selecione uma versão .png ou .jpg do logotipo para aparecer na página de entrada, depois que o usuário inserir um nome de usuário e na página do portal **Meus Aplicativos**.
             
             A imagem não pode ser mais alta que 60 pixels ou maior que 280 pixels. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
 
@@ -94,12 +94,12 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
             >Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários de poderem permanecer conectados. Se você definir essa opção como **Não** , os usuários poderão receber prompts adicionais e inesperados de entrada.
    
 
-3. Após adicionar sua identidade visual, selecione **Salvar** .
+3. Após adicionar sua identidade visual, selecione **Salvar**.
 
     Se esse processo criar a primeira configuração de identidade visual personalizada, ele se tornará o padrão para o locatário. Se você tiver configurações adicionais, poderá escolher a configuração padrão.
     
     >[!IMPORTANT]
-    >Para adicionar mais configurações de identidade visual corporativa ao locatário, você deverá escolher **Novo idioma** na página **Contoso - Identidade visual da empresa** . Isso abrirá a página **Identidade visual da empresa** , na qual você poderá seguir as mesmas etapas acima.
+    >Para adicionar mais configurações de identidade visual corporativa ao locatário, você deverá escolher **Novo idioma** na página **Contoso - Identidade visual da empresa**. Isso abrirá a página **Identidade visual da empresa** , na qual você poderá seguir as mesmas etapas acima.
 
 ## <a name="update-your-custom-branding"></a>Atualizar a identidade visual personalizada
 Após criar a identidade visual personalizada, você poderá retornar e fazer todas as alterações que desejar.
@@ -107,13 +107,13 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 ### <a name="to-edit-your-custom-branding"></a>Para editar a identidade visual personalizada
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar** .
+2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
 
     ![Contoso - Página de identidade visual da empresa, com a configuração padrão mostrada](media/customize-branding/company-branding-default-config.png)
 
 3. Na página **Configurar a identidade visual da empresa** , adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Salvar** .
+4. Selecione **Salvar**.
 
    Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
@@ -124,13 +124,13 @@ Não é possível alterar o idioma da configuração original do idioma padrão.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Novo idioma** .
+2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Novo idioma**.
 
     ![Contoso - Página de identidade visual da empresa, com a opção Novo idioma realçada](media/customize-branding/company-branding-new-language.png)
 
 3. Na página **Configurar a identidade visual da empresa** , selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Salvar** .
+4. Selecione **Salvar**.
 
     A página **Contoso – Identidade visual da empresa** é atualizada para mostrar a nova configuração em francês.
 

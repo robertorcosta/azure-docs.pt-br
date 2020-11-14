@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8608da33c747f76452a0106e4e2737849e06a75c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: cdda14bb579fc94414f9da89b8b1f1aa04ec3bf5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443221"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628094"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -183,7 +183,7 @@ No Android, você também precisa especificar a atividade pai usando `.WithParen
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-A interface do usuário é importante por ser interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que têm suporte para ele, a interface do usuário pai. Quando usado em um aplicativo de área de trabalho, `.WithParentActivityOrWindow` tem um tipo diferente, o qual depende da plataforma. Como alternativa, você pode omitir o parâmetro de janela pai opcional para criar uma janela, se não quiser controlar onde a caixa de diálogo de entrada aparecerá na tela. Isso seria aplicável a aplicativos que são baseados em linha de comando, usados para passar chamadas para qualquer outro serviço de back-end e não precisam de nenhuma interação com o usuário. 
+A interface do usuário é importante por ser interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que têm suporte para ele, a interface do usuário pai. Quando usado em um aplicativo de área de trabalho, `.WithParentActivityOrWindow` tem um tipo diferente, o qual depende da plataforma. Como alternativa, você pode omitir o parâmetro de janela pai opcional para criar uma janela, se não quiser controlar onde a caixa de diálogo de entrada aparecerá na tela. Isso seria aplicável a aplicativos que são baseados em linha de comando, usados para passar chamadas para qualquer outro serviço de back-end e não precisam de nenhuma interação com o usuário.
 
 ```csharp
 // net45
@@ -278,7 +278,7 @@ A equipe do MSAL.NET reescreveu os testes da interface do usuário para usar ess
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Ofereça uma ótima experiência com o SystemWebViewOptions
 
-No MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), você pode especificar:
+No MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions), você pode especificar:
 
 - O URI a ser acessado (`BrowserRedirectError`) ou o fragmento HTML a ser exibido (`HtmlMessageError`) em caso de erros de entrada ou de consentimento no navegador da Web do sistema.
 - O URI a ser acessado (`BrowserRedirectSuccess`) ou o fragmento HTML a ser exibido (`HtmlMessageSuccess`) em caso de entrada ou de consentimento bem-sucedidos.
@@ -304,7 +304,7 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### <a name="other-optional-parameters"></a>Outros parâmetros opcionais
 
-Para saber mais sobre todos os outros parâmetros opcionais de `AcquireTokenInteractive`, consulte [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Para saber mais sobre todos os outros parâmetros opcionais de `AcquireTokenInteractive`, consulte [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -532,7 +532,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Para obter a lista de possíveis modificadores de AcquireTokenByIntegratedWindowsAuthentication, consulte [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
+Para obter a lista de possíveis modificadores de AcquireTokenByIntegratedWindowsAuthentication, consulte [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -832,7 +832,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Para obter mais informações sobre todos os modificadores que podem ser aplicados ao `AcquireTokenByUsernamePassword`, consulte [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
+Para obter mais informações sobre todos os modificadores que podem ser aplicados ao `AcquireTokenByUsernamePassword`, consulte [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -1387,6 +1387,10 @@ namespace CommonCacheMsalV3
  }
 }
 ```
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>Avançadas Acessando os tokens em cache do usuário em aplicativos e serviços em segundo plano
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

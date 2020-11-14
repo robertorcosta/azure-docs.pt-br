@@ -3,17 +3,17 @@ title: Parceiro do Marketplace comercial e atribuição de uso do cliente
 description: Obtenha uma visão geral de como acompanhar o uso do cliente para soluções do Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337892"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628383"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
@@ -74,9 +74,9 @@ Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e regi
    * Parceiros podem registrar vários GUIDs.
    * Os parceiros podem registrar GUIDs para os modelos e ofertas de soluções que não são do Marketplace.
 
-1. No canto superior direito, selecione o ícone de engrenagem configurações e, em seguida, selecione **Configurações do desenvolvedor**.
+1. Selecione **configurações** (ícone de engrenagem) no canto superior direito > **configurações da conta**.
 
-1. Na página **Configurações da conta** , selecione **Adicionar GUID de acompanhamento**.
+1. Em **Organization profile**  >  **identificadores** de perfil da organização, selecione **Adicionar GUID de acompanhamento**.
 
 1. Na caixa **GUID** , insira seu GUID de acompanhamento. Insira apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição** , insira o nome ou a descrição da sua oferta.
 
@@ -183,9 +183,10 @@ Se você implantar recursos por meio do Azure PowerShell, acrescente seu GUID us
 
 Quando você usa a CLI do Azure para anexar seu GUID, defina a variável de ambiente **AZURE_HTTP_USER_AGENT**. Você pode definir essa variável dentro do escopo de um script. Você também pode definir a variável globalmente para o escopo da shell:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 Para obter mais informações, confira [SDK do Azure para linguagem Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Usar o Terraform
@@ -206,7 +207,6 @@ Os parceiros que desejam fazer a implantação por meio do Terraform acompanhado
 
 * Criar um GUID (que deve ser adicionado para cada oferta ou SKU)
 * Atualizar o Provedor do Azure para definir o valor de *partner_id* para o GUID (NÃO coloque no GUID o prefixo "pid-". Basta defini-lo como o GUID real)
-
 
 ## <a name="verify-the-guid-deployment"></a>Verificar a implantação de GUID
 
@@ -263,13 +263,13 @@ Os parceiros devem informar seus clientes sobre implantações que usam a atribu
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implantações de modelos do Resource Manager
 
-Quando você implanta esse modelo, a Microsoft é capaz de identificar a instalação do \<PARTNER> software com os recursos do Azure que são implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
+Quando você implanta esse modelo, a Microsoft é capaz de identificar a instalação do \<PARTNER> software com os recursos do Azure que são implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e governados pelas políticas de privacidade da Microsoft, que podem ser encontradas em [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificação para implantações de SDK ou a API
 
-Quando você implanta \<PARTNER> software, a Microsoft é capaz de identificar a instalação do \<PARTNER> software com os recursos do Azure que são implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
+Quando você implanta \<PARTNER> software, a Microsoft é capaz de identificar a instalação do \<PARTNER> software com os recursos do Azure que são implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e governados pelas políticas de privacidade da Microsoft, que podem ser encontradas em [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Saiba mais sobre as opções de suporte no Marketplace comercial em [suporte para o programa do Marketplace comercial no Partner Center](support.md).
 
@@ -282,6 +282,7 @@ Saiba mais sobre as opções de suporte no Marketplace comercial em [suporte par
     * Preencha/examine as informações de contato.
     * Os detalhes de consultoria podem ser preenchidos previamente ou selecionados nos menus suspensos.
     * Insira um título e a descrição do problema (forneça o máximo de detalhes possível).
+
 1. Clique em Enviar
 
 Veja as instruções passo a passo com capturas de tela em [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions) (Uso dos serviços técnicos de pré-vendas e implantação).

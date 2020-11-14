@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004775"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626734"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -40,26 +40,26 @@ uname -r
 * <a id="install-cifs-utils"></a>**Verifique se o pacote CIFS-utils está instalado.**  
     O pacote cifs-utils pode ser instalado usando o gerenciador de pacotes na distribuição do Linux escolhida. 
 
-    Em distribuições **Ubuntu** e **Debian**, use o gerenciador de pacotes do `apt`:
+    Em distribuições **Ubuntu** e **Debian** , use o gerenciador de pacotes do `apt`:
 
     ```bash
     sudo apt update
     sudo apt install cifs-utils
     ```
 
-    Em **Fedora**, **Red Hat Enterprise Linux 8 +** e **CentOS 8 +**, use o `dnf` Gerenciador de pacotes:
+    Em **Fedora** , **Red Hat Enterprise Linux 8 +** e **CentOS 8 +** , use o `dnf` Gerenciador de pacotes:
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS**, use o `yum` Gerenciador de pacotes:
+    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS** , use o `yum` Gerenciador de pacotes:
 
     ```bash
     sudo yum install cifs-utils 
     ```
 
-    No **openSUSE**, use o gerenciador de pacotes do `zypper`:
+    No **openSUSE** , use o gerenciador de pacotes do `zypper`:
 
     ```bash
     sudo zypper install cifs-utils
@@ -67,9 +67,9 @@ uname -r
 
     Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **A versão mais recente da CLI (interface de linha de comando) do Azure.** Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e selecionar o sistema operacional. Se preferir usar o módulo Azure PowerShell no PowerShell 6 +, você pode, no entanto, as instruções a seguir são apresentadas para o CLI do Azure.
+* **A versão mais recente da CLI (interface de linha de comando) do Azure.** Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e selecionar o sistema operacional. Se preferir usar o módulo Azure PowerShell no PowerShell 6 +, você pode, no entanto, as instruções a seguir são apresentadas para o CLI do Azure.
 
-* **Verifique se a porta 445 está aberta**: o SMB se comunica pela porta TCP 445, por isso confira se o firewall não está bloqueando as portas TCP 445 do computador cliente.  Substitua `<your-resource-group>` e `<your-storage-account>` Execute o seguinte script:
+* **Verifique se a porta 445 está aberta** : o SMB se comunica pela porta TCP 445, por isso confira se o firewall não está bloqueando as portas TCP 445 do computador cliente.  Substitua `<your-resource-group>` e `<your-storage-account>` Execute o seguinte script:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -99,7 +99,7 @@ Para usar um compartilhamento de arquivos do Azure com sua distribuição do Lin
 Você pode montar o mesmo compartilhamento de arquivos do Azure para vários pontos de montagem, se desejar.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montar o compartilhamento de arquivos do Azure sob demanda com `mount`
-1. **Crie uma pasta para o ponto de montagem**: substitua `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` com as informações apropriadas para seu ambiente:
+1. **Crie uma pasta para o ponto de montagem** : substitua `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` com as informações apropriadas para seu ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ Você pode montar o mesmo compartilhamento de arquivos do Azure para vários pon
 Quando tiver terminado de usar o compartilhamento de arquivos do Azure, você pode usar `sudo umount $mntPath` para desmontar o compartilhamento.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Criar um ponto de montagem persistente para o compartilhamento de arquivos do Azure com `/etc/fstab`
-1. **Criar uma pasta para o ponto de montagem**: uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é uma convenção comum criá-la em/mnt. Por exemplo, o comando a seguir cria um novo diretório, substitui `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` com as informações apropriadas para seu ambiente:
+1. **Criar uma pasta para o ponto de montagem** : uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é uma convenção comum criá-la em/mnt. Por exemplo, o comando a seguir cria um novo diretório, substitui `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` com as informações apropriadas para seu ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -174,7 +174,7 @@ Quando tiver terminado de usar o compartilhamento de arquivos do Azure, você po
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Use o comando a seguir para acrescentar a seguinte linha `/etc/fstab` a **: no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa leitura, gravação e execução para o proprietário (com base no proprietário do Linux de arquivo/diretório), leitura e execução para usuários no grupo proprietário e leitura e execução para outras pessoas no sistema. Você pode usar as `uid` `gid` Opções de montagem e para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
+1. **Use o comando a seguir para acrescentar a seguinte linha `/etc/fstab` a** : no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa leitura, gravação e execução para o proprietário (com base no proprietário do Linux de arquivo/diretório), leitura e execução para usuários no grupo proprietário e leitura e execução para outras pessoas no sistema. Você pode usar as `uid` `gid` Opções de montagem e para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
 
     ```bash
     # This command assumes you have logged in with az login
@@ -202,24 +202,24 @@ Quando tiver terminado de usar o compartilhamento de arquivos do Azure, você po
 
     O pacote do autofs pode ser instalado usando o Gerenciador de pacotes na distribuição do Linux de sua escolha. 
 
-    Em distribuições **Ubuntu** e **Debian**, use o gerenciador de pacotes do `apt`:
+    Em distribuições **Ubuntu** e **Debian** , use o gerenciador de pacotes do `apt`:
     ```bash
     sudo apt update
     sudo apt install autofs
     ```
-    Em **Fedora**, **Red Hat Enterprise Linux 8 +** e **CentOS 8 +**, use o `dnf` Gerenciador de pacotes:
+    Em **Fedora** , **Red Hat Enterprise Linux 8 +** e **CentOS 8 +** , use o `dnf` Gerenciador de pacotes:
     ```bash
     sudo dnf install autofs
     ```
-    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS**, use o `yum` Gerenciador de pacotes:
+    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS** , use o `yum` Gerenciador de pacotes:
     ```bash
     sudo yum install autofs 
     ```
-    No **openSUSE**, use o gerenciador de pacotes do `zypper`:
+    No **openSUSE** , use o gerenciador de pacotes do `zypper`:
     ```bash
     sudo zypper install autofs
     ```
-2. **Crie um ponto de montagem para os compartilhamentos**:
+2. **Crie um ponto de montagem para os compartilhamentos** :
    ```bash
     sudo mkdir /fileshares
     ```
@@ -326,5 +326,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [perguntas frequentes](../storage-files-faq.md)
+* [perguntas frequentes](./storage-files-faq.md)
 * [Solução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

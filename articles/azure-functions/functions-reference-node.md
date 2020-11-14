@@ -3,14 +3,14 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422545"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628825"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -204,8 +204,8 @@ O contexto passado para sua função expõe uma `executionContext` propriedade, 
 | Nome da propriedade  | Type  | Descrição |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador exclusivo para a invocação de função específica. |
-| `functionName` | String | Fornece o nome da função em execução |
-| `functionDirectory` | String | Fornece o diretório de aplicativos do functions. |
+| `functionName` | Cadeia de caracteres | Fornece o nome da função em execução |
+| `functionDirectory` | Cadeia de caracteres | Fornece o diretório de aplicativos do functions. |
 
 O exemplo a seguir mostra como retornar o `invocationId` .
 
@@ -508,12 +508,20 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
-| 2. x  | ~ 8<br/>~ 10 (recomendado)<br/>aproximadamente 12<sup>*</sup> | ~ 8 (recomendado)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (recomendado)  | ~ 10<br/>~ 12 (recomendado) |
+| 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
+| 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
 
-<sup>*</sup>No momento, o nó ~ 12 é permitido na versão 2. x do tempo de execução do functions. No entanto, para obter um melhor desempenho, é recomendável usar o Functions versão 3. x com o nó ~ 12. 
+Você pode ver a versão atual que o tempo de execução está usando registrando-se `process.version` em qualquer função.
 
-Veja versão atual que o runtime está usando verificando a configuração de aplicativo acima ou imprimindo `process.version` de qualquer função. Direcione a versão no Azure definindo a configuração do [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION como uma versão do LTS com suporte, como `~10` .
+### <a name="setting-the-node-version"></a>Configurando a versão do nó
+
+Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~12` .
+
+Para aplicativos de funções do Linux, execute o seguinte comando CLI do Azure para atualizar a versão do nó.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Gerenciamento de dependência
 Para usar as bibliotecas da comunidade no código JavaScript, como é mostrado no exemplo abaixo, você precisa garantir que todas as dependências sejam instaladas no aplicativo de funções no Azure.

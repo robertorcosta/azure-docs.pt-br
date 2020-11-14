@@ -9,24 +9,24 @@ ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92328413"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Em **Pesquisar recursos, serviço e documentos (G+/)** , digite *rede virtual* .
+1. Em **Pesquisar recursos, serviço e documentos (G+/)** , digite *rede virtual*.
 
    ![Localizar a página de recursos de Rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Localizar a página de recursos de rede virtual")
-1. Selecione **Rede Virtual** nos resultados do **Marketplace** .
+1. Selecione **Rede Virtual** nos resultados do **Marketplace**.
 
    ![Selecione a rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Localizar a página de recursos de rede virtual")
-1. Na página **Rede Virtual** , selecione **Criar** .
+1. Na página **Rede Virtual** , selecione **Criar**.
 
    ![página de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Selecione Criar")
 1. Depois que você selecionar, **Criar** , a página **Criar rede virtual** será aberta.
-1. Na guia **Básico** , configure os **Detalhes do projeto** e as definições de VNet dos **Detalhes da instância** .
+1. Na guia **Básico** , configure os **Detalhes do projeto** e as definições de VNet dos **Detalhes da instância**.
 
    ![Guia Básico](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Guia Básico") Quando você preencher os campos, verá a marca de seleção verde quando os caracteres inseridos no campo forem validados. Alguns valores são preenchidos automaticamente, que podem ser substituídos por seus próprios valores:
 
@@ -39,7 +39,7 @@ ms.locfileid: "92328413"
 
    ![Guia de endereços IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Guia de endereços IP")  
    - **Espaço de endereço IPv4** : por padrão, um espaço de endereço é criado automaticamente. Você pode clicar no espaço de endereço para ajustá-lo a fim de refletir seus valores. Também é possível adicionar outros espaços de endereço.
-   - **Sub-rede** : se você usar o espaço de endereço padrão, uma sub-rede padrão será criada automaticamente. Se você alterar o espaço de endereço, precisará adicionar uma sub-rede. Selecione **+ Adicionar sub-rede** para abrir a janela **Adicionar sub-rede** . Defina as seguintes configurações e selecione **Adicionar** para adicionar os valores:
+   - **Sub-rede** : se você usar o espaço de endereço padrão, uma sub-rede padrão será criada automaticamente. Se você alterar o espaço de endereço, precisará adicionar uma sub-rede. Selecione **+ Adicionar sub-rede** para abrir a janela **Adicionar sub-rede**. Defina as seguintes configurações e selecione **Adicionar** para adicionar os valores:
       - **Nome da sub-rede** : neste exemplo, nomeamos a sub-rede "FrontEnd".
       - **Intervalo de endereços da sub-rede** : o intervalo de endereços para esta sub-rede.
 
@@ -48,4 +48,4 @@ ms.locfileid: "92328413"
    - **Proteção contra DDoS** : Basic
    - **Firewall** : Desabilitado
 1. Selecione **Examinar + criar** para validar as configurações de rede virtual.
-1. Depois que as configurações forem validadas, selecione **Criar** .
+1. Depois que as configurações forem validadas, selecione **Criar**.

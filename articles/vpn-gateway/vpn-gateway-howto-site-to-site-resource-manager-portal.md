@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92541308"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma conexão Site a Site no portal do Azure
@@ -45,9 +45,9 @@ Crie uma rede virtual (VNet) usando os seguintes valores:
 
 * **Grupo de recursos:** TestRG1
 * **Nome:** VNet1
-* **Região:** (EUA) leste dos EUA
+* **Região:** (EUA) Leste dos EUA
 * **Espaço de endereço IPv4:** 10.1.0.0/16
-* **Nome da sub-rede:** Front-end
+* **Nome da sub-rede:** FrontEnd
 * **Espaço de endereço de sub-rede:** 10.1.0.0/24
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
@@ -68,13 +68,13 @@ Crie um gateway de VPN usando os seguintes valores:
 
 * **Nome:** VNet1GW
 * **Região:** Leste dos EUA
-* **Tipo de gateway:** VPNS
-* **Tipo de VPN:** Baseado em rota
+* **Tipo de gateway:** VPN
+* **Tipo de VPN:** Baseado em rotas
 * **SKU:** VpnGw1
-* **Geração:** Generation1
+* **Geração:** Geração 1
 * **Rede virtual:** VNet1
 * **Intervalo de endereços da sub-rede do gateway:** 10.1.255.0/27
-* **Endereço IP público:** Criar novo
+* **Endereço IP público:** Criar Novo
 * **Endereço IP público:** VNet1GWpip
 * **Habilitar o modo ativo-ativo:** Desabilitado
 * **Configurar BGP:** Desabilitado

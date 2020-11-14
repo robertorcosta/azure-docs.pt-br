@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119888"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628128"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
 
@@ -115,6 +115,10 @@ Quando o cliente solicita um token de acesso, o AD do Azure também retorna um r
 - A ID do locatário contém o locatário no qual o usuário foi encontrado. Para usuários convidados (cenários B2B do Azure AD), a ID do locatário é o locatário convidado e não o locatário exclusivo. Quando o token é entregue em nome de um usuário, o resultado da autenticação também contém informações sobre esse usuário. Para fluxos de clientes confidenciais em que os tokens são solicitados sem nenhum usuário (para o aplicativo), essas informações sobre o usuário são nulas.
 - Os escopos para os quais o token foi emitido.
 - A ID exclusiva para o usuário.
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>Avançadas Acessando os tokens em cache do usuário em aplicativos e serviços em segundo plano
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

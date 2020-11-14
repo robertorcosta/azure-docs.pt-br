@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006033"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628791"
 ---
 # <a name="tls-support-in-iot-hub"></a>Suporte a TLS no Hub IoT
 
@@ -107,4 +107,4 @@ Dispositivos do IoT Edge podem ser configurados para usar o TLS 1.2 ao se comuni
 
 ## <a name="device-authentication"></a>Autenticação de dispositivo
 
-Após um handshake de TLS bem-sucedido, o Hub IoT pode autenticar um dispositivo usando uma chave simétrica ou um certificado X. 509. Para a autenticação baseada em certificado, isso pode ser qualquer certificado X. 509, incluindo ECC. O Hub IoT valida o certificado em relação à impressão digital ou à AC (autoridade de certificação) fornecida por você. O Hub IoT não dá suporte à autenticação mútua com base em X. 509 ainda (mTLS). Para saber mais, consulte [certificados X. 509 com suporte](iot-hub-devguide-security.md#supported-x509-certificates).
+Após um handshake de TLS bem-sucedido, o Hub IoT pode autenticar um dispositivo usando uma chave simétrica ou um certificado X. 509. Para a autenticação baseada em certificado, isso pode ser qualquer certificado X. 509, incluindo ECC. O Hub IoT valida o certificado em relação à impressão digital ou à AC (autoridade de certificação) fornecida por você. Para saber mais, consulte [certificados X. 509 com suporte](iot-hub-devguide-security.md#supported-x509-certificates).

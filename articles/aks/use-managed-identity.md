@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371453"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627873"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -27,7 +27,6 @@ Você deve ter o seguinte recurso instalado:
 ## <a name="limitations"></a>Limitações
 
 * Os clusters AKS com identidades gerenciadas podem ser habilitados somente durante a criação do cluster.
-* Os clusters AKS existentes não podem ser migrados para identidades gerenciadas.
 * Durante as operações de **atualização** do cluster, a identidade gerenciada está temporariamente indisponível.
 * Não há suporte para a movimentação/migração de locatários de clusters habilitados para identidade gerenciada.
 * Se o cluster tiver `aad-pod-identity` habilitado, o pods de identidade gerenciada por nó (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
@@ -37,9 +36,9 @@ Você deve ter o seguinte recurso instalado:
 
 O AKS usa várias identidades gerenciadas para serviços e Complementos internos.
 
-| Identidade                       | Nome    | Caso de uso | Permissões padrão | Traga sua própria identidade
+| Identidade                       | Name    | Caso de uso | Permissões padrão | Traga sua própria identidade
 |----------------------------|-----------|----------|
-| Painel de controle | não visível | Usado pelo AKS para recursos de rede gerenciados, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS | Função de colaborador para grupo de recursos de nó | Visualização
+| Painel de controle | não visível | Usado pelo AKS para recursos de rede gerenciados, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS | Função de colaborador para grupo de recursos de nó | Versão Prévia
 | Kubelet | Nome do cluster AKS – agentpool | Autenticação com o ACR (registro de contêiner do Azure) | NA (para kubernetes v 1.15 +) | Sem suporte no momento
 | Complemento | AzureNPM | Nenhuma identidade necessária | NA | Não
 | Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | Não
@@ -106,6 +105,23 @@ Por fim, obtenha as credenciais para acessar o cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Atualizar um cluster AKS com base na entidade de serviço existente para identidades gerenciadas
+
+Agora você pode atualizar um cluster AKS com identidades gerenciadas usando os comandos da CLI a seguir.
+
+Primeiro, atualize a identidade atribuída ao sistema:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Em seguida, atualize a identidade atribuída ao usuário:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> Depois que o sistema atribuído ou as identidades atribuídas pelo usuário tiverem sido atualizadas para a identidade gerenciada, execute um `az nodepool upgrade --node-image-only` em seus nós para concluir a atualização para a identidade gerenciada.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Traga seu próprio plano de controle MI (visualização)
 Uma identidade de plano de controle personalizado permite que o acesso seja concedido à identidade existente antes da criação do cluster. Isso permite cenários como usar uma VNET personalizada ou uma saída de UDR com uma identidade gerenciada.
