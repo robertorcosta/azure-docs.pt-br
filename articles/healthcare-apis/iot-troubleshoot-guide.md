@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540936"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630491"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guia de solução de problemas do conector do Azure IoT para FHIR (versão prévia)
 
-Este artigo fornece etapas para solucionar problemas de mensagens e condições de erro comuns do conector do Azure IoT para FHIR *.  
+Este artigo fornece etapas para solucionar problemas do conector IoT do Azure comum para recursos de interoperabilidade do Fast Healthcare (FHIR&#174;) * mensagens de erro e condições.  
 
 Você também aprenderá a criar cópias do conector do Azure IoT para mapeamentos de conversão do FHIR JSON (por exemplo: Device e FHIR).  
 
@@ -102,7 +102,7 @@ Essa propriedade representa a operação que está sendo executada pelo conector
 
 |Estágio de fluxo de dados|Description|
 |---------------|-----------|
-|Configuração|Operação específica para configurar sua instância do conector IoT|
+|Instalação|Operação específica para configurar sua instância do conector IoT|
 |Normalização|Estágio de fluxo de dados em que os dados do dispositivo são normalizados|
 |Agrupamento|Estágio de fluxo de dados em que os dados normalizados são agrupados|
 |FHIRConversion|Estágio de fluxo de dados em que os dados normalizados agrupados são transformados em um recurso FHIR|
@@ -191,6 +191,4 @@ Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector para FHIR FAQs](fhir-faq.md)
 
-*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
-
-FHIR é uma marca registrada da HL7, usada com permissão da HL7.
+* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia). FHIR é uma marca registrada de HL7 e é usada com a permissão de HL7.

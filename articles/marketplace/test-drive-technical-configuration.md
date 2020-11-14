@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504825"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629896"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica de test drive
 
@@ -98,5 +98,5 @@ Se estiver criando seu test drive no Partner Center, selecione **salvar rascunho
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Práticas recomendadas do Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; Verifique se o bloqueador de pop-ups está desativado)
+- [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; Verifique se o bloqueador de pop-ups está desativado)
 - [Atualizar uma oferta existente no marketplace comercial](partner-center-portal/update-existing-offer.md)

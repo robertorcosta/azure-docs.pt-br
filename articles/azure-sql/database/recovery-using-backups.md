@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
-ms.openlocfilehash: 334495eeef410c42fb45445c400a86ff1b777061
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/13/2020
+ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790331"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629182"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -108,15 +108,18 @@ Você pode restaurar um banco de dados excluído para a hora de exclusão ou um 
 
 Você restaura bancos de dados excluídos do portal do Azure do servidor ou do recurso de instância gerenciada.
 
+> [!TIP]
+> Pode levar vários minutos para os bancos de dados excluídos recentemente aparecerem na página **bancos de dados excluídos** no portal do Azure ou ao exibir bancos de dados excluídos [programaticamente](#programmatic-recovery-using-automated-backups).
+
 #### <a name="sql-database"></a>Banco de Dados SQL
 
-Para recuperar um banco de dados excluído para a hora de exclusão usando o portal do Azure, abra a página Visão geral do servidor e selecione **bancos de dados excluídos** . Selecione um banco de dados excluído que você quer restaurar e digite o nome do novo banco de dados que será criado com os dados restaurados do backup.
+Para recuperar um banco de dados excluído para a hora de exclusão usando o portal do Azure, abra a página Visão geral do servidor e selecione **bancos de dados excluídos**. Selecione um banco de dados excluído que você quer restaurar e digite o nome do novo banco de dados que será criado com os dados restaurados do backup.
 
   ![Captura de tela de restaurar banco de dados excluído](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
 
-Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página de visão geral da instância gerenciada e selecione **Bancos de dados excluídos** . Selecione um banco de dados excluído que você quer restaurar e digite o nome do novo banco de dados que será criado com os dados restaurados do backup.
+Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página de visão geral da instância gerenciada e selecione **Bancos de dados excluídos**. Selecione um banco de dados excluído que você quer restaurar e digite o nome do novo banco de dados que será criado com os dados restaurados do backup.
 
   ![Captura de tela de restauração excluída do banco de dados SQL Instância Gerenciada do Azure](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -154,9 +157,9 @@ No portal do Azure, você cria um novo banco de dados de instância única ou ge
 
 Para restaurar geograficamente um único banco de dados do portal do Azure na região e no servidor de sua escolha, siga estas etapas:
 
-1. No **painel** , selecione **Adicionar** > **Criar Banco de Dados SQL** . Na guia **Noções básicas** , insira as informações necessárias.
-2. Selecione **Configurações adicionais** .
-3. Para **usar dados existentes** , selecione **Backup** .
+1. No **painel** , selecione **Adicionar** > **Criar Banco de Dados SQL**. Na guia **Noções básicas** , insira as informações necessárias.
+2. Selecione **Configurações adicionais**.
+3. Para **usar dados existentes** , selecione **Backup**.
 4. Para **fazer backup** , selecione um backup na lista de backups de restauração geográfica disponíveis.
 
     ![Captura de tela das opções para criar Banco de Dados SQL](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
@@ -167,9 +170,9 @@ Conclua o processo de criação de um novo banco de dados a partir do backup. Qu
 
 Para restaurar geograficamente um banco de dados de instância gerenciada do portal do Azure para uma instância gerenciada em uma região da sua escolha, selecione uma instância gerenciada na qual você deseja restaurar um banco de dados. Siga estas etapas:
 
-1. Selecione **Novo banco de dados** .
+1. Selecione **Novo banco de dados**.
 2. Digite um nome de banco de dados desejado.
-3. Em **Usar dados existentes** , selecione **Backup** .
+3. Em **Usar dados existentes** , selecione **Backup**.
 4. Selecione um backup na lista de backups de restauração geográfica disponíveis.
 
     ![Captura de tela das opções de novo banco de dados](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)

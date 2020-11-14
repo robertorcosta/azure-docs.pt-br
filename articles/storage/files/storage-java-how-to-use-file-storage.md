@@ -8,12 +8,12 @@ ms.date: 09/19/2017
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2c80d741ca1cf0b4d66bc18488af8ef1da44fd14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977777aff4aa32bf6876e1d573970d71ec71584e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462591"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629760"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolvimento para o Arquivos do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,7 +29,7 @@ Este tutorial demonstrará as noções básicas de usar Java para desenvolver ap
 * Carregar, baixar e excluir um arquivo
 
 > [!Note]  
-> Como os Arquivos do Azure podem ser acessados por meio do SMB, é possível gravação de aplicativos que acessam o compartilhamento de arquivos do Azure usando as classes de E / S padrão do Java. Este artigo descreverá como criar aplicativos que usam o SDK do Java do Armazenamento do Azure, que usa a [API REST do Arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para se comunicar com o Arquivos do Azure.
+> Como os Arquivos do Azure podem ser acessados por meio do SMB, é possível gravação de aplicativos que acessam o compartilhamento de arquivos do Azure usando as classes de E / S padrão do Java. Este artigo descreverá como criar aplicativos que usam o SDK do Java do Armazenamento do Azure, que usa a [API REST do Arquivos do Azure](/rest/api/storageservices/file-service-rest-api) para se comunicar com o Arquivos do Azure.
 
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 Para construir as amostras, você precisará do Java Development Kit (JDK) e do [ Azure Storage SDK para Java ](https://github.com/Azure/azure-storage-java). Você também deverá ter criado uma conta de armazenamento do Azure.
@@ -60,7 +60,7 @@ public static final String storageConnectionString =
 > 
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Conectar-se a uma conta de armazenamento do Azure
-Para se conectar à sua conta de armazenamento, você precisa usar o objeto **CloudStorageAccount**, passando uma cadeia de conexão para seu método de **análise**.
+Para se conectar à sua conta de armazenamento, você precisa usar o objeto **CloudStorageAccount** , passando uma cadeia de conexão para seu método de **análise**.
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account
@@ -122,7 +122,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código abaixo irá criar um subdiretório chamado ** sampledir ** sob o diretório raiz.
+Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código abaixo irá criar um subdiretório chamado **sampledir** sob o diretório raiz.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -166,7 +166,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 }
 ```
 
-## <a name="upload-a-file"></a>Fazer upload de um arquivo
+## <a name="upload-a-file"></a>Carregar um arquivo
 Nesta seção, você aprenderá a carregar um arquivo do armazenamento local para o diretório raiz de um compartilhamento.
 
 A primeira etapa do carregamento de um arquivo é obter uma referência para o diretório onde ele deve residir. Para isso, você deve chamar o método **getRootDirectoryReference** do objeto de compartilhamento.
@@ -229,7 +229,7 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [SDK de Armazenamento do Azure para Android](https://github.com/azure/azure-storage-android)
 * [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog da equipe de Armazenamento do Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
-* [Transferir dados com o Utilitário da Linha de Comando AzCopy](../common/storage-use-azcopy.md)
+* [API REST de serviços de armazenamento do Azure](/rest/api/storageservices/)
+* [Blog da equipe de Armazenamento do Azure](/archive/blogs/windowsazurestorage/)
+* [Transferir dados com o Utilitário da Linha de Comando AzCopy](../common/storage-use-azcopy-v10.md)
 * [Solução de problemas de Arquivos do Azure – Windows](storage-troubleshoot-windows-file-connection-problems.md)

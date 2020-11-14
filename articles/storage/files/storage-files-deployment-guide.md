@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034491"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629233"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo mostra como implantar Arquivos do Azure de maneira prática dentro de sua organização.
@@ -22,7 +22,7 @@ O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos d
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tenha completado as seguintes etapas:
 
-- Criado uma conta de Armazenamento do Azure com as opções de resiliência e de criptografia desejadas, na região desejada. Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- Criado uma conta de Armazenamento do Azure com as opções de resiliência e de criptografia desejadas, na região desejada. Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 - Criado um compartilhamento de arquivos do Azure com sua cota desejada na sua conta de armazenamento. Consulte [Criar um compartilhamento de arquivos](storage-how-to-create-file-share.md) para obter instruções passo a passo sobre como criar um compartilhamento de arquivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferir dados para Arquivos do Azure
@@ -63,7 +63,7 @@ As etapas a seguir importarão dados de uma localização local para o compartil
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [Preparar o arquivo CSV de conjunto de dados](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
+    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [Preparar o arquivo CSV de conjunto de dados](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para obter mais informações.
 
 5. Crie o arquivo CSV de conjunto de unidades. O arquivo CSV de conjunto de unidades lista os discos disponíveis para o agente de exportação local. Por exemplo, o arquivo CSV de conjunto de unidades a seguir lista as unidades `X:`, `Y:` e `Z:` para serem usadas no trabalho de exportação local:
 
@@ -74,7 +74,7 @@ As etapas a seguir importarão dados de uma localização local para o compartil
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Consulte [Preparar o arquivo CSV de conjunto de unidades](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
+    Consulte [Preparar o arquivo CSV de conjunto de unidades](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para obter mais informações.
 
 6. Use a [ferramenta WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar seus dados para um ou mais discos rígidos.
 
@@ -102,12 +102,12 @@ Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Window
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    O Robocopy tem um número significativo de opções para modificar o comportamento de cópia conforme desejado. Para obter mais informações, exiba a página de manual do [Robocopy](https://technet.microsoft.com/library/cc733145.aspx).
+    O Robocopy tem um número significativo de opções para modificar o comportamento de cópia conforme desejado. Para obter mais informações, exiba a página de manual do [Robocopy](/windows-server/administration/windows-commands/robocopy).
 
 ### <a name="azcopy"></a>AzCopy
 O AzCopy é um utilitário de linha de comando projetado para copiar dados de e para os Arquivos do Azure e o Armazenamento de Blobs do Azure, usando comandos simples com o desempenho ideal. É fácil usar o AzCopy:
 
-1. Baixe a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+1. Baixe a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy).
 2. Use `azcopy` na linha de comando para mover dados para o compartilhamento de Arquivos do Azure. A sintaxe no Windows é conforme a seguir: 
 
     ```
@@ -120,7 +120,7 @@ O AzCopy é um utilitário de linha de comando projetado para copiar dados de e 
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    O AzCopy tem um número significativo de opções para modificar o comportamento de cópia conforme desejado. Para obter mais informações, exiba [AzCopy no Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) e [AzCopy no Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    O AzCopy tem um número significativo de opções para modificar o comportamento de cópia conforme desejado. Para obter mais informações, consulte Introdução [ao AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Montar automaticamente em computadores/servidores necessários
 Para substituir um compartilhamento de arquivos local, vale a pena montar previamente os compartilhamentos nos computadores em que ele será usado. Isso pode ser feito automaticamente em uma lista de computadores.

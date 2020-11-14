@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394859"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629658"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Fluxo de dados do Conector IoT do Azure para FHIR (versão prévia)
 
-Este artigo fornece uma visão geral do fluxo de dados no conector IoT do Azure para FHIR *. Você aprenderá sobre os diferentes estágios de processamento de dados no conector IoT do Azure para FHIR que transformam dados de dispositivo em recursos de [Observação](https://www.hl7.org/fhir/observation.html) baseados em FHIR.
+Este artigo fornece uma visão geral do fluxo de dados no conector IoT do Azure para recursos de interoperabilidade do Fast Healthcare (FHIR&#174;) *. Você aprenderá sobre os diferentes estágios de processamento de dados no conector IoT do Azure para FHIR que transformam dados de dispositivo em recursos de [Observação](https://www.hl7.org/fhir/observation.html) baseados em FHIR.
 
 ![Fluxo de dados do Conector IoT do Azure para FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -36,7 +36,7 @@ Normalize é o próximo estágio em que os dados do dispositivo são recuperados
 
 O processo de normalização não apenas simplifica o processamento de dados em estágios posteriores, mas também fornece a capacidade de projetar uma mensagem de entrada em várias mensagens normalizadas. Por exemplo, um dispositivo poderia enviar vários sinais vitais para temperatura do corpo, taxa de pulso, pressão de sangue e taxa de Respiration em uma única mensagem. Essa mensagem de entrada criaria quatro recursos de FHIR separados. Cada recurso representaria um sinal vital diferente, com a mensagem de entrada projetada em quatro mensagens normalizadas diferentes.
 
-## <a name="group"></a>Agrupar
+## <a name="group"></a>Grupo
 O grupo é o próximo estágio em que as mensagens normalizadas disponíveis no estágio anterior são agrupadas usando três parâmetros diferentes: identidade do dispositivo, tipo de medida e período de tempo.
 
 A identidade do dispositivo e o agrupamento do tipo de medição habilitam o uso do tipo de medição [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) . Esse tipo fornece uma maneira concisa de representar uma série de medidas com base em tempo de um dispositivo no FHIR. E o período de tempo controla a latência na qual os recursos de observação gerados pelo conector do Azure IoT para FHIR são gravados na API do Azure para FHIR.
@@ -44,7 +44,7 @@ A identidade do dispositivo e o agrupamento do tipo de medição habilitam o uso
 > [!NOTE]
 > O valor do período de tempo é padronizado para 15 minutos e não pode ser configurado para visualização.
 
-## <a name="transform"></a>Transformar
+## <a name="transform"></a>Transformação
 No estágio de transformação, as mensagens de normalização agrupadas são processadas por meio de modelos de mapeamento FHIR. As mensagens que correspondem a um tipo de modelo são transformadas em recursos de observação com base em FHIR conforme especificado por meio do mapeamento.
 
 Neste ponto, o recurso de [dispositivo](https://www.hl7.org/fhir/device.html) , juntamente com seu recurso de [paciente](https://www.hl7.org/fhir/patient.html) associado, também é recuperado do servidor FHIR usando o identificador de dispositivo presente na mensagem. Esses recursos são adicionados como uma referência ao recurso de observação que está sendo criado.
@@ -64,6 +64,4 @@ Clique abaixo da próxima etapa para aprender a criar modelos de mapeamento de d
 >[!div class="nextstepaction"]
 >[Modelos de mapeamento do Conector IoT do Azure para FHIR](iot-mapping-templates.md)
 
-*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
-
-FHIR é uma marca registrada da HL7, usada com permissão da HL7.
+* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia). FHIR é uma marca registrada de HL7 e é usada com a permissão de HL7. 

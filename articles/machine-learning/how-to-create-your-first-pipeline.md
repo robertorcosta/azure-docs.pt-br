@@ -1,7 +1,7 @@
 ---
 title: Criar e executar pipelines ML
 titleSuffix: Azure Machine Learning
-description: Crie e execute um pipeline de aprendizado de máquina com o SDK do Azure Machine Learning para Python. Use pipelines ML para criar e gerenciar os fluxos de trabalho que unem fases de ML (Machine Learning). Essas fases incluem preparação de dados, treinamento de modelo, implantação de modelo e inferência/Pontuação.
+description: Crie e execute pipelines de Machine Learning para criar e gerenciar os fluxos de trabalho que unem as fases de ML (aprendizado de máquina).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 76369d3bc3ed152bf9e0b13f7bf4b4386a974c33
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322096"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630117"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 

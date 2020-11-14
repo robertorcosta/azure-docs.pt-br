@@ -8,18 +8,48 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3973e32fdc724bd3c0894d6aaf2eb06ad3ba3adc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535545"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629930"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
 ## <a name="summary"></a>Resumo
 
 O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure.
+
+## <a name="release-date-10082020"></a>Data de lançamento: 10/08/2020
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Clusters privados do HDInsight sem IP público e link privado (visualização)
+O HDInsight agora dá suporte à criação de clusters sem IP público e acesso de link privado aos clusters na versão prévia. Os clientes podem usar as novas configurações avançadas de rede para criar um cluster totalmente isolado sem IP público e usar seus próprios pontos de extremidade privados para acessar o cluster. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. A partir desta versão, o serviço migrará gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
+
+### <a name="deprecation"></a>Reprovação
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Substituição do cluster do HDInsight 3,6 ML Services
+O tipo de cluster de serviços do HDInsight 3,6 ML será o fim do suporte até Dec 31 2020. Os clientes não criarão novos clusters de serviços de 3,6 ML depois disso. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Verifique a expiração do suporte para versões e tipos de cluster do HDInsight [aqui](./hdinsight-component-versioning.md#available-versions).
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+Nenhuma alteração de comportamento para esta versão.
+
+### <a name="upcoming-changes"></a>Alterações futuras
+As alterações a seguir ocorrerão em versões futuras.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes tamanhos de máquina virtual Zookeeper para serviços Spark, Hadoop e ML
+Atualmente, o HDInsight não dá suporte à personalização do tamanho do nó Zookeeper para os tipos de cluster Spark, Hadoop e ML Services. O padrão é A2_v2 tamanhos de máquina virtual/a2, que são fornecidos gratuitamente. Na próxima versão, você pode selecionar um tamanho de máquina virtual Zookeeper que seja mais apropriado para seu cenário. Os nós Zookeeper com tamanho de máquina virtual diferente de A2_v2/a2 serão cobrados. As máquinas virtuais A2_v2 e a2 ainda são fornecidas gratuitamente.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
 
 ## <a name="release-date-09282020"></a>Data de lançamento: 09/28/2020
 
@@ -518,7 +548,7 @@ Os serviços Apache Storm e ML não estão disponíveis no HDInsight 4,0.
 
 Os recursos e novas atualizações se enquadram nas categorias a seguir:
 
-*  ***Atualizar o Hadoop e outros projetos de** software livre _ – além de mais de 1.000 correções de bugs em mais de 20 projetos de software livre, essa atualização contém uma nova versão de _ *Spark (2,3)* * e **Kafka (1,0)** .
+*  ***Atualizar o Hadoop e outros projetos de** software livre _ – além de mais de 1.000 correções de bugs em mais de 20 projetos de software livre, essa atualização contém uma nova versão de _ *Spark (2,3)* * e **Kafka (1,0)**.
 
     a.  [**Novos recursos no Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 

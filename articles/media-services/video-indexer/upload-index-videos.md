@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592916"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630253"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -66,7 +66,7 @@ Use o [carregar](https://api-portal.videoindexer.ai/docs/services/operations/ope
 
 ### <a name="configurations-and-params"></a>Configurações e parâmetros
 
-Esta seção descreve alguns parâmetros opcionais e quando você deseja defini-los.
+Esta seção descreve alguns parâmetros opcionais e quando você deseja defini-los. Para obter as informações de parâmetros mais atualizados, consulte carregar a API de [vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) .
 
 #### <a name="externalid"></a>externalID 
 
@@ -79,7 +79,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |Nome|Descrição|
+        |Name|Descrição|
         |---|---|
         |id|A ID do vídeo|
         |state|O estado do vídeo|  

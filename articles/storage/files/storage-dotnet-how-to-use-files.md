@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319793"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629335"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -41,7 +41,7 @@ Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: p
 
 API | Quando usar | Observações
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Seu aplicativo: <ul><li>Precisa ler/gravar arquivos usando SMB</li><li>Está em execução em um dispositivo que tem acesso pela porta 445 à sua conta do Arquivos do Azure</li><li>Não precisa gerenciar nenhum das configurações administrativas do compartilhamento de arquivo</li></ul> | A e/s de arquivo implementada com os arquivos do Azure via SMB geralmente é a mesma de e/s com qualquer compartilhamento de arquivos de rede ou dispositivo de armazenamento local. Para obter uma introdução a vários recursos no .NET, incluindo e/s de arquivo, consulte o tutorial [aplicativo de console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
+[System.IO](/dotnet/api/system.io) | Seu aplicativo: <ul><li>Precisa ler/gravar arquivos usando SMB</li><li>Está em execução em um dispositivo que tem acesso pela porta 445 à sua conta do Arquivos do Azure</li><li>Não precisa gerenciar nenhum das configurações administrativas do compartilhamento de arquivo</li></ul> | A e/s de arquivo implementada com os arquivos do Azure via SMB geralmente é a mesma de e/s com qualquer compartilhamento de arquivos de rede ou dispositivo de armazenamento local. Para obter uma introdução a vários recursos no .NET, incluindo e/s de arquivo, consulte o tutorial [aplicativo de console](/dotnet/csharp/tutorials/console-teleprompter) .
 [Azure. Storage. files. compartilhamentos](/dotnet/api/azure.storage.files.shares) | Seu aplicativo: <ul><li>Não é possível acessar os arquivos do Azure usando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Requer a funcionalidade administrativa, como a capacidade de definir uma cota de compartilhamento de arquivos ou criar uma assinatura de acesso compartilhado</li></ul> | Este artigo demonstra o uso de `Azure.Storage.Files.Shares` para e/s de arquivo usando REST em vez de SMB e gerenciamento do compartilhamento de arquivos.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Criar o aplicativo do console e obter o assembly
@@ -51,8 +51,8 @@ Você pode usar a biblioteca de cliente de arquivos do Azure em qualquer tipo de
 No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seguir mostram como criar um aplicativo de console no Visual Studio 2019. As etapas são semelhantes em outras versões do Visual Studio.
 
 1. Inicie o Visual Studio e selecione **Criar um projeto**.
-1. Em **criar um novo projeto**, escolha **aplicativo de console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
-1. Em **configurar seu novo projeto**, insira um nome para o aplicativo e selecione **criar**.
+1. Em **criar um novo projeto** , escolha **aplicativo de console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
+1. Em **configurar seu novo projeto** , insira um nome para o aplicativo e selecione **criar**.
 
 Adicione todos os exemplos de código neste artigo à `Program` classe no arquivo *Program.cs* .
 
@@ -69,8 +69,8 @@ Consulte estes pacotes em seu projeto:
 
 Você pode usar o NuGet para obter os pacotes. Siga estas etapas:
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
-1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**. Em seguida, pesquise e escolha **Azure. Core**e, em seguida, selecione **instalar**.
+1. Em **Gerenciador de soluções** , clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
+1. No **Gerenciador de Pacotes NuGet** , selecione **Procurar**. Em seguida, pesquise e escolha **Azure. Core** e, em seguida, selecione **instalar**.
 
    Esta etapa instala o pacote e suas dependências.
 
@@ -89,8 +89,8 @@ Você pode usar o NuGet para obter os pacotes. Siga estas etapas:
 
 Você pode usar o NuGet para obter os pacotes. Siga estas etapas:
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
-1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**. Em seguida, pesquise e escolha **Microsoft. Azure. Storage. blob**e, em seguida, selecione **instalar**.
+1. Em **Gerenciador de soluções** , clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
+1. No **Gerenciador de Pacotes NuGet** , selecione **Procurar**. Em seguida, pesquise e escolha **Microsoft. Azure. Storage. blob** e, em seguida, selecione **instalar**.
 
    Esta etapa instala o pacote e suas dependências.
 1. Pesquise e instale esses pacotes:
@@ -103,7 +103,7 @@ Você pode usar o NuGet para obter os pacotes. Siga estas etapas:
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salve as credenciais da conta de armazenamento no arquivo de App.config
 
-Em seguida, salve suas credenciais no arquivo de *App.config* do seu projeto. Em **Gerenciador de soluções**, clique duas vezes `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir.
+Em seguida, salve suas credenciais no arquivo de *App.config* do seu projeto. Em **Gerenciador de soluções** , clique duas vezes `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -135,7 +135,7 @@ Substitua `myaccount` pelo nome da conta de armazenamento e `StorageAccountKeyEn
 
 ## <a name="add-using-directives"></a>Adicionar diretivas using
 
-No **Gerenciador de soluções**, abra o arquivo *Program.cs* e adicione as seguintes diretivas using à parte superior do arquivo.
+No **Gerenciador de soluções** , abra o arquivo *Program.cs* e adicione as seguintes diretivas using à parte superior do arquivo.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -316,7 +316,7 @@ Para obter mais informações sobre como criar e usar assinaturas de acesso comp
 
 A partir da versão 5. x da biblioteca de cliente dos arquivos do Azure, você pode copiar um arquivo para outro arquivo, um arquivo para um BLOB ou um blob para um arquivo.
 
-Você também pode usar AzCopy para copiar um arquivo para outro ou para copiar um blob para um arquivo ou o contrário. Confira [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Você também pode usar AzCopy para copiar um arquivo para outro ou para copiar um blob para um arquivo ou o contrário. Confira [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 > [!NOTE]
 > Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autorizar o acesso ao objeto de origem, mesmo se estiver copiando dentro da mesma conta de armazenamento.
@@ -624,8 +624,8 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 
 ### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o armazenamento de arquivos
 
-- [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Solucionar problemas de Arquivos do Azure no Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Solucionar problemas de Arquivos do Azure no Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Referência
 

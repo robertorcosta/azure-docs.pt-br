@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612822"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629845"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos de extremidade de rede dos Arquivos do Azure
 
@@ -31,7 +31,7 @@ Este artigo se concentra em como configurar os pontos de extremidade de uma cont
 
 - Este artigo pressupõe que você já tenha criado uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Este artigo pressupõe que você já criou um compartilhamento de arquivos do Azure em uma conta de armazenamento à qual você deseja se conectar do local. Para saber como criar um compartilhamento de arquivo do Azure, confira [Criar um compartilhamento de arquivo do Azure](storage-how-to-create-file-share.md).
-- Se pretende usar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Se pretende usar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
 - Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Configurações de ponto de extremidade
@@ -45,9 +45,9 @@ Você pode configurar seus pontos de extremidade para restringir o acesso à red
 
 A criação de um ponto de extremidade privado para sua conta de armazenamento resultará na implantação dos seguintes recursos do Azure:
 
-- **Um ponto de extremidade privado**: um recurso do Azure que representa o ponto de extremidade privado da conta de armazenamento. Considere-o como um recurso que conecta uma conta de armazenamento e uma interface de rede.
+- **Um ponto de extremidade privado** : um recurso do Azure que representa o ponto de extremidade privado da conta de armazenamento. Considere-o como um recurso que conecta uma conta de armazenamento e uma interface de rede.
 - **Uma NIC (adaptador de rede)** : o adaptador de rede que mantém um endereço IP privado dentro da rede virtual/sub-rede especificada. É exatamente o mesmo recurso que é implantado quando você implanta uma máquina virtual. No entanto, em vez de ser atribuído a uma VM, ele pertence ao ponto de extremidade privado.
-- **Uma zona DNS privada**: se você nunca tiver implantado um ponto de extremidade privado para essa rede virtual, uma nova zona DNS privada será implantada em sua rede virtual. Um registro DNS A também será criado para a conta de armazenamento nesta zona DNS. Se você já tiver implantado um ponto de extremidade privado nessa rede virtual, um novo registro A para a conta de armazenamento será adicionado à zona DNS existente. A implantação da zona DNS é opcional, mas altamente recomendada e necessária se você estiver montando os compartilhamentos de arquivo do Azure com uma entidade de serviço do AD ou usando a API FileREST.
+- **Uma zona DNS privada** : se você nunca tiver implantado um ponto de extremidade privado para essa rede virtual, uma nova zona DNS privada será implantada em sua rede virtual. Um registro DNS A também será criado para a conta de armazenamento nesta zona DNS. Se você já tiver implantado um ponto de extremidade privado nessa rede virtual, um novo registro A para a conta de armazenamento será adicionado à zona DNS existente. A implantação da zona DNS é opcional, mas altamente recomendada e necessária se você estiver montando os compartilhamentos de arquivo do Azure com uma entidade de serviço do AD ou usando a API FileREST.
 
 > [!Note]  
 > Este artigo usa o sufixo DNS da conta de armazenamento para as regiões Públicas do Azure, `core.windows.net`. Esse comentário também se aplica a nuvens soberanas do Azure, como a nuvem do Governo dos EUA para Azure e a nuvem do Azure China – só substitua os sufixos apropriados para seu ambiente. 

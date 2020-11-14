@@ -8,16 +8,16 @@ ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5d900f105728efc6f58c4f9f7412cea157cbfe20
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746853"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630372"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure
 
-[Arquivos](storage-files-introduction.md)   do Azure oferece suporte à autenticação baseada em identidade sobre o protocolo SMB por meio de dois tipos de serviços de domínio: Active Directory Domain Services local (AD DS) e Azure Active Directory Domain Services (Azure AD DS). É altamente recomendável que você examine a [seção como funciona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para selecionar o serviço de domínio certo para autenticação. A instalação é diferente dependendo do serviço de domínio que você escolher. Este artigo se concentra na habilitação e configuração da AD DS do Azure para autenticação com compartilhamentos de arquivos do Azure.
+[Arquivos](storage-files-introduction.md)   do Azure oferece suporte à autenticação baseada em identidade sobre o protocolo SMB por meio de dois tipos de serviços de domínio: Active Directory Domain Services local (AD DS) e Azure Active Directory Domain Services (Azure AD DS). É altamente recomendável que você examine a [seção como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A instalação é diferente dependendo do serviço de domínio que você escolher. Este artigo se concentra na habilitação e configuração da AD DS do Azure para autenticação com compartilhamentos de arquivos do Azure.
 
 Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável ler nosso [Guia de planejamento](storage-files-planning.md) antes de ler a série de artigos a seguir.
 
@@ -33,7 +33,7 @@ Antes de habilitar o Azure AD sobre SMB para compartilhamentos de arquivos do Az
 
     Você pode usar um inquilino novo ou existente para a autenticação do Azure AD em SMB. O locatário e o compartilhamento de arquivos que você deseja acessar devem estar associados à mesma assinatura.
 
-    Para criar um novo locatário do Azure AD, você pode [adicionar um locatário do Azure AD e uma assinatura do Azure AD](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Se você tiver um locatário existente do Azure AD, mas quiser criar um novo locatário para uso com compartilhamentos de arquivos do Azure, consulte [criar um locatário Azure Active Directory](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
+    Para criar um novo locatário do Azure AD, você pode [adicionar um locatário do Azure AD e uma assinatura do Azure AD](/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Se você tiver um locatário existente do Azure AD, mas quiser criar um novo locatário para uso com compartilhamentos de arquivos do Azure, consulte [criar um locatário Azure Active Directory](/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
 1.  **Ative os Serviços de Domínio do Azure AD no locatário do Azure AD.**
 
@@ -87,9 +87,9 @@ Tenha em mente que você pode habilitar a autenticação AD DS do Azure somente 
 Para habilitar a autenticação de AD DS do Azure sobre SMB com o [portal do Azure](https://portal.azure.com), siga estas etapas:
 
 1. Na portal do Azure, vá para sua conta de armazenamento existente ou [crie uma conta de armazenamento](../common/storage-account-create.md).
-1. Na seção **Configurações** , selecione **Configuração** .
-1. Em **acesso baseado em identidade para compartilhamentos de arquivos** , alterne a alternância para o **serviço de domínio Azure Active Directory (AAD DS)** para **habilitado** .
-1. Clique em **Salvar** .
+1. Na seção **Configurações** , selecione **Configuração**.
+1. Em **acesso baseado em identidade para compartilhamentos de arquivos** , alterne a alternância para o **serviço de domínio Azure Active Directory (AAD DS)** para **habilitado**.
+1. Selecione **Salvar**.
 
 A imagem a seguir mostra como habilitar a autenticação de AD DS do Azure sobre SMB para sua conta de armazenamento.
 
@@ -97,9 +97,9 @@ A imagem a seguir mostra como habilitar a autenticação de AD DS do Azure sobre
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para habilitar a autenticação de AD DS do Azure sobre SMB com Azure PowerShell, instale o módulo AZ mais recente (2,4 ou mais recente) ou o módulo AZ. Storage (1,5 ou mais recente). Para obter mais informações sobre como instalar o PowerShell, consulte [instalar Azure PowerShell no Windows com PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Para habilitar a autenticação de AD DS do Azure sobre SMB com Azure PowerShell, instale o módulo AZ mais recente (2,4 ou mais recente) ou o módulo AZ. Storage (1,5 ou mais recente). Para obter mais informações sobre como instalar o PowerShell, consulte [instalar Azure PowerShell no Windows com PowerShellGet](/powershell/azure/install-Az-ps).
 
-Para criar uma nova conta de armazenamento, chame [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)e, em seguida, defina o parâmetro **EnableAzureActiveDirectoryDomainServicesForFile** como **true** . No exemplo a seguir, lembre-se de substituir os valores de espaço reservado pelos seus próprios valores. (Se você estava usando o módulo de visualização anterior, o parâmetro para habilitar o recurso é **EnableAzureFilesAadIntegrationForSMB** .)
+Para criar uma nova conta de armazenamento, chame [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)e, em seguida, defina o parâmetro **EnableAzureActiveDirectoryDomainServicesForFile** como **true**. No exemplo a seguir, lembre-se de substituir os valores de espaço reservado pelos seus próprios valores. (Se você estava usando o módulo de visualização anterior, o parâmetro para habilitar o recurso é **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para habilitar a autenticação do Azure AD em SMB com o CLI do Azure, instale a versão mais recente da CLI (versão 2.0.70 ou mais recente). Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para habilitar a autenticação do Azure AD em SMB com o CLI do Azure, instale a versão mais recente da CLI (versão 2.0.70 ou mais recente). Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Para criar uma nova conta de armazenamento, chame [AZ Storage Account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e defina a `--enable-files-aadds` propriedade como **true** . No exemplo a seguir, lembre-se de substituir os valores de espaço reservado pelos seus próprios valores. (Se você estava usando o módulo de visualização anterior, o parâmetro para habilitação de recurso é **File-AAD** .)
+Para criar uma nova conta de armazenamento, chame [AZ Storage Account Create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e defina a `--enable-files-aadds` propriedade como **true**. No exemplo a seguir, lembre-se de substituir os valores de espaço reservado pelos seus próprios valores. (Se você estava usando o módulo de visualização anterior, o parâmetro para habilitação de recurso é **File-AAD**.)
 
 ```azurecli-interactive
 # Create a new storage account

@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126729"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630287"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV Connect do Microsoft Business Applications
 
@@ -38,10 +38,10 @@ A participação neste programa exige que você examine e aceite o [adendo Busin
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para assinar contratos legais.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor** .
-1. Selecione **contratos** .
+1. Selecione **configurações** (ícone de engrenagem) e, em seguida, **configurações do desenvolvedor**.
+1. Selecione **contratos**.
 1. Selecione o link de versão e exiba o contrato.
-1. Para concordar e aceitar o contrato, selecione **aceitar contrato** .
+1. Para concordar e aceitar o contrato, selecione **aceitar contrato**.
 
 ## <a name="set-up-your-billing-information"></a>Configurar suas informações de cobrança
 
@@ -51,11 +51,12 @@ Configure as informações de cobrança para o Business Applications programa IS
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para atualizar as informações de cobrança.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor** .
-1. Em **conta** , selecione **perfil de cobrança** .
-1. Examine as informações de contato primário e de cobrança preenchidas em sua entidade legal e faça as atualizações necessárias.
+1. Selecione **configurações** (ícone de engrenagem) e, em seguida, **configurações do desenvolvedor**.
+1. Em **configurações da conta** , selecione **perfil de cobrança**.
+1. Examine as informações de contato principal e cobrança preenchidas em sua entidade legal.
+1. Para fazer alterações, selecione **Atualizar**.
 1. Se aplicável, forneça as configurações de ID do imposto/ID do IVA.
-1. Para salvar suas alterações, clique em **Salvar** .
+1. Para salvar suas alterações, selecione **Atualizar**.
 
 > [!NOTE]
 > Você pode atualizar seu perfil de cobrança a qualquer momento. No entanto, o *nome da empresa* e o *país* do endereço de cobrança não podem ser alterados posteriormente.

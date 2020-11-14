@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322214"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630270"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -45,7 +45,7 @@ As migrações para compartilhamentos de arquivos do Azure de volumes do StorSim
 
 Os compartilhamentos de arquivos do Azure abrem um mundo totalmente novo de oportunidades para estruturar sua implantação de serviços de arquivos. Um compartilhamento de arquivos do Azure é apenas um compartilhamento SMB na nuvem que você pode configurar para que os usuários acessem diretamente o protocolo SMB com a autenticação Kerberos familiar e as permissões NTFS existentes (ACLs de arquivo e pasta) funcionando nativamente. Saiba mais sobre o [acesso baseado em identidade aos compartilhamentos de arquivos do Azure](storage-files-active-directory-overview.md).
 
-Uma alternativa ao acesso direto é [sincronização de arquivos do Azure](https://aka.ms/AFS). Sincronização de Arquivos do Azure é uma analogia direta para a capacidade do StorSimple de armazenar em cache arquivos usados com frequência no local.
+Uma alternativa ao acesso direto é [sincronização de arquivos do Azure](./storage-sync-files-planning.md). Sincronização de Arquivos do Azure é uma analogia direta para a capacidade do StorSimple de armazenar em cache arquivos usados com frequência no local.
 
 Sincronização de Arquivos do Azure é um serviço de nuvem da Microsoft, com base em dois componentes principais:
 
@@ -56,7 +56,7 @@ Os compartilhamentos de arquivos do Azure mantêm aspectos importantes de fideli
 
 Este artigo se concentra nas etapas de migração. Se você quiser saber mais sobre Sincronização de Arquivos do Azure antes de migrar, consulte os seguintes artigos:
 
-* [Visão geral de Sincronização de Arquivos do Azure](https://aka.ms/AFS "Visão geral")
+* [Visão geral de Sincronização de Arquivos do Azure](./storage-sync-files-planning.md "Visão geral")
 * [Guia de implantação do Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chave de criptografia de dados do serviço StorSimple
@@ -137,7 +137,7 @@ Provavelmente, você precisará implantar várias contas de armazenamento do Azu
 
 Você pode usar a mesma assinatura usada para sua implantação do StorSimple ou outra. A única limitação é que sua assinatura deve estar no mesmo locatário Azure Active Directory que a assinatura do StorSimple. Considere mover a assinatura do StorSimple para o locatário correto antes de iniciar uma migração. Você só pode mover a assinatura inteira. Os recursos individuais do StorSimple não podem ser movidos para um locatário ou assinatura diferente.
 
-#### <a name="resource-group"></a>Resource group
+#### <a name="resource-group"></a>Grupo de recursos
 
 Os grupos de recursos estão ajudando com a organização de recursos e permissões de gerenciamento de administração. Saiba mais sobre [grupos de recursos no Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -385,7 +385,7 @@ Sua instância do Windows Server local registrada deve estar pronta e conectada 
 * [Como configurar uma VPN P2S do Windows](storage-files-configure-p2s-vpn-windows.md)
 * [Como configurar uma VPN P2S do Linux](storage-files-configure-p2s-vpn-linux.md)
 * [Como configurar o encaminhamento de DNS](storage-files-networking-dns.md)
-* [Configurar o DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configurar o DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Se você usar Sincronização de Arquivos do Azure, provavelmente precisará cri
 
 Se você tiver uma implantação DFS-N, poderá apontar o DFN-Namespaces para os locais da nova pasta do servidor. Se você não tiver uma implantação DFS-N e colocar o dispositivo 8100 ou 8600 em um local com uma instância do Windows Server, poderá retirar esse servidor do domínio. Em seguida, ingresse no domínio sua nova instância do Windows Server habilitada para Sincronização de Arquivos do Azure. Durante esse processo, dê ao servidor o mesmo nome de servidor e compartilhe nomes como o servidor antigo para que o recorte permaneça transparente para os usuários, a diretiva de grupo e os scripts.
 
-Saiba mais sobre o [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Saiba mais sobre o [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## <a name="deprovision"></a>Desprovisionar
 
@@ -561,7 +561,7 @@ A migração foi concluída.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Familiarize-se com o [sincronização de arquivos do Azure: aka.ms/AFS](https://aka.ms/AFS).
+* Familiarize-se com o [sincronização de arquivos do Azure: aka.ms/AFS](./storage-sync-files-planning.md).
 * Entenda a flexibilidade das políticas de [camadas de nuvem](storage-sync-cloud-tiering.md) .
 * [Habilite o backup do Azure](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) nos compartilhamentos de arquivos do Azure para agendar instantâneos e definir agendamentos de retenção de backup.
 * Se você vir na portal do Azure de que alguns arquivos estão permanentemente sem sincronização, examine o [Guia de solução de problemas](storage-sync-files-troubleshoot.md) para obter as etapas para resolver esses problemas.

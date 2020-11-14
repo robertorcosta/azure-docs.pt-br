@@ -7,21 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628976"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630355"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Criptografia IPSec em trânsito para o Azure HDInsight
 
 Este artigo aborda a implementação de criptografia em trânsito para a comunicação entre os nós de cluster do Azure HDInsight.
 
-> [!Note]
-> Atualmente, a criptografia em trânsito está habilitada para as seguintes regiões: leste dos EUA, Sul EUA Central, oeste dos EUA 2.
-
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 O Azure HDInsight oferece uma variedade de recursos de segurança para proteger seus dados corporativos. Essas soluções são agrupadas sob os pilares de segurança, autenticação, autorização, auditoria, criptografia e conformidade do perímetro. A criptografia pode ser aplicada a dados em repouso e em trânsito.
 
@@ -42,7 +39,7 @@ Para criar um novo cluster com criptografia em trânsito habilitada usando o por
 
 1. Na guia **segurança + rede** , marque a caixa de seleção **habilitar criptografia em trânsito** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Crie a guia Segurança do cluster e rede.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Criar cluster – habilite a criptografia em trânsito.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Crie um cluster com criptografia em trânsito habilitada por meio do CLI do Azure
 

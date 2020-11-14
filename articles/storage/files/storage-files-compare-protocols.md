@@ -8,16 +8,16 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568464"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629301"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de compartilhamento de arquivos do Azure
 
-Os arquivos do Azure oferecem dois protocolos para conectar e montar seus compartilhamentos de arquivos do Azure. [Protocolo SMB (Server Message](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Protocol) e [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Atualmente, os arquivos do Azure não dão suporte ao acesso de vários protocolos, portanto, um compartilhamento pode ser apenas um compartilhamento NFS ou um compartilhamento SMB. Devido a isso, é recomendável determinar qual protocolo melhor atende às suas necessidades antes de criar compartilhamentos de arquivos do Azure.
+Os arquivos do Azure oferecem dois protocolos para conectar e montar seus compartilhamentos de arquivos do Azure. [Protocolo SMB (Server Message](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) Protocol) e [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Atualmente, os arquivos do Azure não dão suporte ao acesso de vários protocolos, portanto, um compartilhamento pode ser apenas um compartilhamento NFS ou um compartilhamento SMB. Devido a isso, é recomendável determinar qual protocolo melhor atende às suas necessidades antes de criar compartilhamentos de arquivos do Azure.
 
 ## <a name="differences-at-a-glance"></a>Diferenças em um relance
 
@@ -64,7 +64,7 @@ Todos os dados de arquivos do Azure são criptografados em repouso. Para criptog
 - [Um ponto de extremidade privado](storage-files-networking-overview.md#private-endpoints)
 - [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [VPN ponto a site (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [Site a site](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Site a site](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Um ponto de extremidade público restrito](storage-files-networking-overview.md#storage-account-firewall-settings)
 

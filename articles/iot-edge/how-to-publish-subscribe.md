@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 941435e90f91a4c3a4e41c2869e35157da41d8b0
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592168"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629641"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e assinar com Azure IoT Edge
 
@@ -31,8 +31,10 @@ Você pode usar Azure IoT Edge agente MQTT para publicar e assinar mensagens. Es
 - Um **Hub IOT** do SKU, F1, S1, S2 ou S3.
 - Ter um **dispositivo IOT Edge com a versão 1,2 ou superior**. Como IoT Edge agente MQTT está atualmente em visualização pública, defina as seguintes variáveis de ambiente como true no contêiner edgeHub para habilitar o agente MQTT:
 
-    - experimentalFeatures__enabled
-    - mqttbroker__enabled
+   | Name | Valor |
+   | - | - |
+   | `experimentalFeatures__enabled` | `true` |
+   | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
 - **Clientes do mosquitto** instalados no dispositivo IOT Edge. Este artigo usa os clientes populares do mosquitto que incluem [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) e [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Outros clientes do MQTT podem ser usados em vez disso. Para instalar os clientes do mosquitto em um dispositivo Ubuntu, execute o seguinte comando:
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331780"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629471"
 ---
 # <a name="deploy-azure-file-sync"></a>Implantar a Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -48,7 +48,7 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
     > [!Important]  
     > Se você planeja usar a interface do usuário de registro do servidor, em vez de registrá-la diretamente do PowerShell, você deve usar o PowerShell 5,1.
 
-1. Se você tiver optado por usar o PowerShell 5,1, verifique se pelo menos o .NET 4.7.2 está instalado. Saiba mais sobre [as versões do .NET Framework e as dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
+1. Se você tiver optado por usar o PowerShell 5,1, verifique se pelo menos o .NET 4.7.2 está instalado. Saiba mais sobre [as versões do .NET Framework e as dependências](/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
 
     > [!Important]  
     > Se você estiver instalando o .NET 4.7.2 + no Windows Server Core, será necessário instalar o com os `quiet` `norestart` sinalizadores e ou a instalação falhará. Por exemplo, se estiver instalando o .NET 4,8, o comando seria semelhante ao seguinte:
@@ -56,7 +56,7 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. O módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. O módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > O módulo AZ. StorageSync agora é instalado automaticamente quando você instala o módulo AZ PowerShell.
@@ -70,13 +70,13 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
 
 1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 
-   Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste tutorial.  Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador.  Inicie Cloud Shell usando um destes métodos:
+   Se preferir, você também pode usar o Azure Cloud Shell para concluir as etapas deste tutorial.  O Azure Cloud Shell é um ambiente de shell interativo usado por meio do navegador.  Inicie o Cloud Shell usando um destes métodos:
 
    - Selecione **Experimente** no canto superior direito de um bloco de código. **Tente** abrir Azure cloud Shell, mas ele não copiará o código automaticamente para Cloud Shell.
 
-   - Abra Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
+   - Abra o Cloud Shell acessando [https://shell.azure.com](https://shell.azure.com)
 
-   - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
+   - Selecione o botão **Cloud Shell** na barra de menus, no canto superior direito do [portal do Azure](https://portal.azure.com)
 
 1. Entrar.
 
@@ -573,7 +573,7 @@ No entanto, se você alterar o agendamento de uma maneira que resultará em um i
 
 O número máximo padrão de instantâneos VSS por volume (64), bem como o agendamento padrão para levá-los, resulta em um máximo de 45 dias de versões anteriores que um operador de informações pode restaurar, dependendo de quantos instantâneos VSS você pode armazenar em seu volume.
 
-Se o máximo de 64 instantâneos do VSS por volume não for a configuração correta para você, você poderá [alterar esse valor por meio de uma chave do registro](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Se o máximo de 64 instantâneos do VSS por volume não for a configuração correta para você, você poderá [alterar esse valor por meio de uma chave do registro](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que o novo limite entre em vigor, você precisa executar novamente o cmdlet para habilitar a compatibilidade de versão anterior em cada volume que foi habilitado anteriormente, com o sinalizador-Force para obter o novo número máximo de instantâneos do VSS por volume em conta. Isso resultará em um número calculado recentemente de dias compatíveis. Observe que essa alteração só entrará em vigor em arquivos em camadas recentemente e substituirá as personalizações na agenda do VSS que você tenha feito.
 
 <a id="proactive-recall"></a>
@@ -599,7 +599,7 @@ Uma empresa distribuída globalmente tem filiais nos EUA e na Índia. Nos operad
 
 # <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
 
-Você pode modificar as propriedades de ponto de extremidade do servidor no PowerShell por meio do cmdlet [set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
+Você pode modificar as propriedades de ponto de extremidade do servidor no PowerShell por meio do cmdlet [set-AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

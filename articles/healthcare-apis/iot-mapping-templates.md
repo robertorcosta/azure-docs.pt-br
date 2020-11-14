@@ -8,15 +8,15 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394230"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630542"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Conector IoT do Azure para FHIR (versão prévia)
-Este artigo fornece detalhes sobre como configurar o conector do Azure IoT para FHIR * usando modelos de mapeamento.
+Este artigo fornece detalhes sobre como configurar o conector IoT do Azure para recursos de interoperabilidade do Fast Healthcare (FHIR&#174;) * usando modelos de mapeamento.
 
 O conector do Azure IoT para FHIR requer dois tipos de modelos de mapeamento baseados em JSON. O primeiro tipo, **mapeamento de dispositivo** , é responsável por mapear as cargas de dispositivo enviadas para o `devicedata` ponto de extremidade do hub de eventos do Azure. Ele extrai tipos, identificadores de dispositivo, data e hora de medição e o (s) valor (es) de medida. O segundo tipo, **mapeamento FHIR** , controla o mapeamento para o recurso FHIR. Ele permite a configuração do comprimento do período de observação, o tipo de dados FHIR usado para armazenar os valores e os códigos de terminologia. 
 
@@ -567,6 +567,4 @@ Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR (versão
 >[!div class="nextstepaction"]
 >[Azure IoT Connector para FHIR FAQs](fhir-faq.md)
 
-*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
-
-FHIR é uma marca registrada da HL7, usada com permissão da HL7.
+* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia). FHIR é uma marca registrada de HL7 e é usada com a permissão de HL7.

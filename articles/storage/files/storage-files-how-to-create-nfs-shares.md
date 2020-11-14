@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738839"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629454"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar um compartilhamento NFS
 
@@ -38,7 +38,7 @@ Os compartilhamentos de arquivos do Azure são compartilhamentos de arquivos tot
     - [Configure uma VPN ponto a site (P2S) no Linux para uso com os arquivos do Azure](storage-files-configure-p2s-vpn-linux.md).
     - [Configure uma VPN site a site para uso com os arquivos do Azure](storage-files-configure-s2s-vpn.md).
     - Configure o [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registrar o protocolo NFS 4,1
 
@@ -86,17 +86,17 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Agora que você criou uma conta de armazenamento de arquivo e configurou a rede, é possível criar um compartilhamento de arquivos NFS. O processo é semelhante à criação de um compartilhamento SMB, você seleciona **NFS** em vez de **SMB** ao criar o compartilhamento.
 
-1. Navegue até sua conta de armazenamento e selecione **Compartilhamentos de arquivo** .
+1. Navegue até sua conta de armazenamento e selecione **Compartilhamentos de arquivo**.
 1. Selecione **+ compartilhamento de arquivos** para criar um novo compartilhamento de arquivos.
 1. Nomeie o compartilhamento de arquivos, selecione uma capacidade provisionada.
-1. Para **protocolo** , selecione **NFS (versão prévia)** .
+1. Para **protocolo** , selecione **NFS (versão prévia)**.
 1. Para o **comprimir raiz** , faça uma seleção.
 
     - Comprimir raiz (padrão)-o acesso para o superusuário remoto (raiz) é mapeado para UID (65534) e GID (65534).
     - Nenhum superusuário remoto de comprimir (raiz) recebe o acesso como raiz.
     - Todos os acessos ao usuário de comprimido são mapeados para UID (65534) e GID (65534).
     
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Captura de tela da folha de criação de compartilhamento de arquivos":::
 
@@ -110,7 +110,7 @@ Agora que você criou uma conta de armazenamento de arquivo e configurou a rede,
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para atualizar sua versão do PowerShell, consulte [atualizando o Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Para atualizar sua versão do PowerShell, consulte [atualizando o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
 1. Instale a versão mais recente do módulo PowershellGet.
 
@@ -120,13 +120,13 @@ Agora que você criou uma conta de armazenamento de arquivo e configurou a rede,
 
 1. Feche e reabra o console do PowerShell.
 
-1. Instale o módulo de visualização **AZ. Storage** versão **2.5.2-Preview** .
+1. Instale o módulo de visualização **AZ. Storage** versão **2.5.2-Preview**.
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Para obter mais informações sobre como instalar módulos do PowerShell, consulte [instalar o Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Para obter mais informações sobre como instalar módulos do PowerShell, consulte [instalar o Azure PowerShell Module](/powershell/azure/install-az-ps?view=azps-3.0.0)
    
 1. Para criar um compartilhamento de arquivos Premium com o módulo Azure PowerShell, use o cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) .
 

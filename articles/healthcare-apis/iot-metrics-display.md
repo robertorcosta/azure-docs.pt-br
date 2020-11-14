@@ -1,21 +1,21 @@
 ---
-title: Exibir e configurar o conector do Azure IoT para métricas de FHIR (versão prévia)
+title: Exibir e configurar métricas do Conector IoT do Azure para FHIR (versão prévia)
 description: Este artigo explica como exibir e configurar as métricas do conector IoT do Azure para FHIR (versão prévia).
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 79a7b18986f4bed503cd5493a7d74325a13fe535
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381211"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630508"
 ---
-# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Exibir e configurar o conector do Azure IoT para métricas de FHIR (versão prévia) 
+# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Exibir e configurar métricas do Conector IoT do Azure para FHIR (versão prévia) 
 
 Neste artigo, você aprenderá a exibir e configurar o conector IoT do Azure para recursos de interoperabilidade do Fast Healthcare (FHIR&#174;) * métricas.
 
@@ -41,6 +41,9 @@ Neste artigo, você aprenderá a exibir e configurar o conector IoT do Azure par
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Captura de tela do painel ' conector IoT ', exibindo um gráfico de linha de período de tempo de ' 1 hora ' para ' conector 1 '." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>Tipos de métrica para o conector do Azure IoT para FHIR (versão prévia) 
+
+> [!TIP]
+> Para saber mais sobre o fluxo de dados no conector IoT do Azure para FHIR, veja o [fluxo de dados do Azure IOT Connector para FHIR (versão prévia)](./iot-data-flow.md) e o [conector de IOT do Azure para FHIR (visualização) guia de solução de problemas](./iot-troubleshoot-guide.md) para saber mais sobre mensagens de erro e correções.
 
 As métricas do conector IoT que você pode exibir estão listadas na tabela a seguir:
 

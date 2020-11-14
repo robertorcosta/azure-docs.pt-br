@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675786"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629437"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -111,9 +111,9 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 
 | Nuvem  | Região | URL do ponto de extremidade primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https: \/ /australiaeast01.AFS.Azure.net<br>https: \/ /Kailani-Aue.One.Microsoft.com | Sudeste da Austrália | https: \/ /TM-australiaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
-| Público |Sudeste da Austrália | https: \/ /australiasoutheast01.AFS.Azure.net<br>https: \/ /Kailani-aus.One.Microsoft.com | Leste da Austrália | https: \/ /TM-australiasoutheast01.AFS.Azure.net<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
-| Público | Sul do Brasil | https: \/ /brazilsouth01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-brazilsouth01.AFS.Azure.net |
+| Público |Leste da Austrália | https: \/ /australiaeast01.AFS.Azure.net<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australia Southeast | https: \/ /TM-australiaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
+| Público |Australia Southeast | https: \/ /australiasoutheast01.AFS.Azure.net<br>https: \/ /Kailani-aus.One.Microsoft.com | Leste da Austrália | https: \/ /TM-australiasoutheast01.AFS.Azure.net<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
+| Público | Brazil South | https: \/ /brazilsouth01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-brazilsouth01.AFS.Azure.net |
 | Público | Canadá Central | https: \/ /canadacentral01.AFS.Azure.net<br>https: \/ /Kailani-CAC.One.Microsoft.com | Leste do Canadá | https: \/ /TM-canadacentral01.AFS.Azure.net<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
 | Público | Leste do Canadá | https: \/ /canadaeast01.AFS.Azure.net<br>https: \/ /Kailani-CAE.One.Microsoft.com | Canadá Central | https: \/ /TM-canadaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
 | Público | Índia Central | https: \/ /centralindia01.AFS.Azure.net<br>https: \/ /Kailani-CIN.One.Microsoft.com | Sul da Índia | https: \/ /TM-centralindia01.AFS.Azure.net<br>https: \/ /TM-Kailani-CIN.One.Microsoft.com |
@@ -123,8 +123,8 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Leste dos EUA 2 | https: \/ /eastus201.AFS.Azure.net<br>https: \/ /Kailani-ESS.One.Microsoft.com | Centro dos EUA | https: \/ /TM-eastus201.AFS.Azure.net<br>https: \/ /TM-Kailani-ESS.One.Microsoft.com |
 | Público | Norte da Alemanha | https: \/ /germanynorth01.AFS.Azure.net | Centro-Oeste da Alemanha | https: \/ /TM-germanywestcentral01.AFS.Azure.net |
 | Público | Centro-Oeste da Alemanha | https: \/ /germanywestcentral01.AFS.Azure.net | Norte da Alemanha | https: \/ /TM-germanynorth01.AFS.Azure.net |
-| Público | Leste do Japão | https: \/ /japaneast01.AFS.Azure.net | Oeste do Japão | https: \/ /TM-japaneast01.AFS.Azure.net |
-| Público | Oeste do Japão | https: \/ /japanwest01.AFS.Azure.net | Leste do Japão | https: \/ /TM-japanwest01.AFS.Azure.net |
+| Público | Japan East | https: \/ /japaneast01.AFS.Azure.net | Oeste do Japão | https: \/ /TM-japaneast01.AFS.Azure.net |
+| Público | Oeste do Japão | https: \/ /japanwest01.AFS.Azure.net | Japan East | https: \/ /TM-japanwest01.AFS.Azure.net |
 | Público | Coreia Central | https: \/ /koreacentral01.AFS.Azure.net/ | Sul da Coreia | https: \/ /TM-koreacentral01.AFS.Azure.net/ |
 | Público | Sul da Coreia | https: \/ /koreasouth01.AFS.Azure.net/ | Coreia Central | https: \/ /TM-koreasouth01.AFS.Azure.net/ |
 | Público | Centro-Norte dos EUA | https: \/ /northcentralus01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-northcentralus01.AFS.Azure.net |
@@ -154,7 +154,7 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista de permissões para endereços IP de Sincronização de Arquivos do Azure
 Sincronização de Arquivos do Azure dá suporte ao uso de [marcas de serviço](../../virtual-network/service-tags-overview.md), que representam um grupo de prefixos de endereço IP para um determinado serviço do Azure. Você pode usar marcas de serviço para criar regras de firewall que permitem a comunicação com o serviço de Sincronização de Arquivos do Azure. A marca de serviço para Sincronização de Arquivos do Azure é `StorageSyncService` .
 
-Se você estiver usando Sincronização de Arquivos do Azure no Azure, poderá usar o nome da marca de serviço diretamente em seu grupo de segurança de rede para permitir o tráfego. Para saber mais sobre como fazer isso, confira [Grupos de segurança de rede](../../virtual-network/security-overview.md).
+Se você estiver usando Sincronização de Arquivos do Azure no Azure, poderá usar o nome da marca de serviço diretamente em seu grupo de segurança de rede para permitir o tráfego. Para saber mais sobre como fazer isso, confira [Grupos de segurança de rede](../../virtual-network/network-security-groups-overview.md).
 
 Se você estiver usando a Sincronização de Arquivos do Azure local, poderá usar a API de marca de serviço para obter intervalos de endereços IP específicos para a lista de permissões do firewall. Há dois métodos para obter essas informações:
 
@@ -164,9 +164,9 @@ Se você estiver usando a Sincronização de Arquivos do Azure local, poderá us
     - [Azure China:](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
 - A API de descoberta de marca de serviço (versão prévia) permite a recuperação programática da lista atual de marcas de serviço. Na versão prévia, a API de descoberta de marca de serviço pode retornar informações menos atualizadas do que as retornadas pelos documentos JSON publicados no centro de download da Microsoft. Você pode usar a superfície da API conforme sua preferência de automação:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [PowerShell do Azure](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI do Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 Como a API de descoberta de marca de serviço não é atualizada com a frequência dos documentos JSON publicados no centro de download da Microsoft, é recomendável usar o documento JSON para atualizar a lista de permissões do firewall local. Isso pode ser feito da seguinte maneira:
 

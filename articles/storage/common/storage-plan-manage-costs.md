@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a30fe70943c5329b36cbe10b75d47cc0ee3827fc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781831"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630406"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planejar e gerenciar custos para o armazenamento de BLOBs do Azure
 
@@ -39,6 +39,9 @@ Use a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calc
    Conforme você altera o valor da lista suspensa **tipo** , outras opções que aparecem nessa planilha também são alteradas. Use os links na seção **mais informações** para saber mais sobre o que cada opção significa e como essas opções afetam o preço das operações relacionadas ao armazenamento. 
 
 4. Modifique as opções restantes para ver seus efeitos em sua estimativa.
+
+   > [!NOTE]
+   > Você pode pagar pelos encargos do armazenamento de BLOBs do Azure com seu crédito de compromisso monetário do Azure Enterprise Agreement. No entanto, você não pode usar o crédito de compromisso monetário para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Otimizar custos
 
@@ -85,13 +88,13 @@ Ao usar a análise de custo, você pode exibir os custos de armazenamento do Azu
 
 Para exibir os custos de armazenamento do Azure na análise de custo:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
-2. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo** . Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
+2. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo**. Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
 
    ![Captura de tela mostrando escopo](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Para exibir apenas os custos do armazenamento do Azure, selecione **Adicionar filtro** e, em seguida, selecione **nome do serviço** . Em seguida, escolha **armazenamento** na lista. 
+4. Para exibir apenas os custos do armazenamento do Azure, selecione **Adicionar filtro** e, em seguida, selecione **nome do serviço**. Em seguida, escolha **armazenamento** na lista. 
 
    Veja um exemplo que mostra os custos apenas para o armazenamento do Azure:
 
@@ -99,11 +102,15 @@ Para exibir os custos de armazenamento do Azure na análise de custo:
 
 No exemplo anterior, você verá o custo atual do serviço. Os custos pelas regiões do Azure (locais) e por grupo de recursos também são exibidos. Você também pode adicionar outros filtros (por exemplo: um filtro para ver os custos de contas de armazenamento específicas).
 
+## <a name="export-cost-data"></a>Exportar dados de custo
+
+Você também pode [exportar seus dados de custo](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para uma conta de armazenamento. Isso é útil quando você precisa ou de outras pessoas para realizar análise de dados adicional para custos. Por exemplo, uma equipe de Finanças pode analisar os dados usando o Excel ou Power BI. Você pode exportar seus custos em uma agenda diária, semanal ou mensal e definir um intervalo de datas personalizado. A exportação de dados de custo é a maneira recomendada para recuperar conjuntos de dado de custo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como gerenciar custos com [análise de custo](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
-
-Consulte os artigos a seguir para saber mais sobre como os preços funcionam com o armazenamento do Azure:
-
-- [Preço da visão geral do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
-- [Otimizar custos para o armazenamento de blobs com capacidade reservada](../blobs/storage-blob-reserved-capacity.md)
+- Saiba mais sobre como os preços funcionam com o armazenamento do Azure. Consulte [visão geral do armazenamento do Azure preços](https://azure.microsoft.com/pricing/details/storage/).
+- [Otimize os custos para o armazenamento de BLOBs com capacidade reservada](../blobs/storage-blob-reserved-capacity.md).
+- Saiba [como otimizar seu investimento em nuvem com o gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Saiba mais sobre como gerenciar custos com [análise de custo](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Saiba mais sobre como [evitar custos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Faça o curso de aprendizado guiado de [Gerenciamento de custos](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) .

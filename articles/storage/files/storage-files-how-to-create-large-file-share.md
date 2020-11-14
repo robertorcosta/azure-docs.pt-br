@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330301"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629216"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
@@ -22,8 +22,8 @@ Quando você habilita grandes compartilhamentos de arquivos em sua conta de arma
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Se você pretende usar o módulo Azure PowerShell, [Instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se você pretende usar o módulo Azure PowerShell, [Instale a versão mais recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -65,7 +65,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Primeiro, [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para que você possa habilitar grandes compartilhamentos de arquivos.
+Primeiro, [Instale a versão mais recente do CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para que você possa habilitar grandes compartilhamentos de arquivos.
 
 Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Primeiro, [Instale a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) para que você possa habilitar compartilhamentos de arquivos grandes.
+Primeiro, [Instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) para que você possa habilitar compartilhamentos de arquivos grandes.
 
 Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 

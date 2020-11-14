@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340270"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630049"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Solução de problemas do SQL do Synapse no Azure Synapse Analytics
 
@@ -39,6 +39,12 @@ Este artigo lista os problemas comuns encontrados no SQL do Synapse.
 | O Pesquisador de objetos do Visual Studio não tem usuários do Azure AD           | Esse é um problema conhecido.  Como alternativa, exiba os usuários em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Consulte [autenticação no Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre como usar Azure Active Directory com o pool SQL dedicado. |
 | A escrita de script manual usando o assistente de script ou a conexão via SSMS está lenta, travando ou produzindo erros | Certifique-se de que os usuários foram criados no banco de dados mestre. Em opções de script, verifique também se a edição do mecanismo está definida como "Microsoft Azure Synapse Analytics Edition" e o tipo de mecanismo é "Banco de Dados SQL do Microsoft Azure". |
 | Gerar falhas de script no SSMS                               | A geração de um script para o pool dedicado do SQL falhará se a opção "gerar script para objetos dependentes" estiver definida como "true". Como alternativa, os usuários devem abrir manualmente **Ferramentas -> Opções -> SQL Pesquisador de Objetos do SQL Server -> Gerar script para opções dependentes e definidas como false** |
+
+## <a name="data-ingestion-and-preparation"></a>Preparação e ingestão de dados
+
+| Problema                                                        | Resolução                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| A exportação de cadeias de caracteres vazias usando CETAS resultará em valores nulos nos arquivos parquet e ORC. Observação Se você estiver exportando cadeias de caracteres vazias de colunas com restrições NOT NULL, CETAS resultará em registros rejeitados e a exportação poderá potencialmente falhar. | Remova cadeias de caracteres vazias ou a coluna incorreta na instrução SELECT de seu CETAS. |
 
 ## <a name="performance"></a>Desempenho
 

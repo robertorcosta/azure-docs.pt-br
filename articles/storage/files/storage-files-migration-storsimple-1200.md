@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510337"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630474"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Sincronização de Arquivos do Azure
 
@@ -32,7 +32,7 @@ Sincronização de Arquivos do Azure é um serviço de nuvem da Microsoft, com b
 
 Este artigo se concentra nas etapas de migração. Se antes de migrar você gostaria de saber mais sobre Sincronização de Arquivos do Azure, recomendamos os seguintes artigos:
 
-* [Sincronização de Arquivos do Azure-visão geral](https://aka.ms/AFS "Visão geral")
+* [Sincronização de Arquivos do Azure-visão geral](./storage-sync-files-planning.md "Visão geral")
 * [Sincronização de Arquivos do Azure-guia de implantação](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Metas de migração
@@ -155,7 +155,7 @@ Plano de fundo:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Permite executar esse comando RoboCopy várias vezes, sequencialmente no mesmo destino/destino. Ele identifica o que foi copiado antes e o omite. Somente as alterações, adições e "*exclusões*" serão processadas, ocorridas desde a última execução. Se o comando não for executado antes, nada será omitido. Essa é uma opção excelente para os locais de origem que ainda são usados e alterados ativamente.
+      Permite executar esse comando RoboCopy várias vezes, sequencialmente no mesmo destino/destino. Ele identifica o que foi copiado antes e o omite. Somente as alterações, adições e " *exclusões* " serão processadas, ocorridas desde a última execução. Se o comando não for executado antes, nada será omitido. Essa é uma opção excelente para os locais de origem que ainda são usados e alterados ativamente.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,13 +210,13 @@ Você concluiu a migração de um compartilhamento/grupo de compartilhamentos em
 Você pode tentar executar algumas dessas cópias em paralelo. É recomendável processar o escopo de um compartilhamento de arquivos do Azure por vez.
 
 > [!WARNING]
-> Depois de mover todos os dados do seu StorSimple para o Windows Server e sua migração estiver concluída: retorne a ***todos os***  grupos de sincronização na portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, digamos 20%. 
+> Depois de mover todos os dados do seu StorSimple para o Windows Server e sua migração for concluída: retorne para * **todos os** grupos de sincronização no portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, por exemplo, 20%. 
 
 A política de espaço livre do volume de camadas de nuvem age em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, tornando o cache local não funcionando como você poderia esperar. A menos que seja o objetivo de ter apenas o namespace para um volume que contenha apenas dados de arquivamento raramente acessados.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
-O problema mais provável que você pode encontrar é que o comando RoboCopy falha com *"volume cheio"* no lado do Windows Server. Se esse for o caso, a velocidade de download provavelmente será melhor do que a velocidade de carregamento. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
+O problema mais provável que você pode encontrar é que o comando RoboCopy falha com _ "volume cheio" * no lado do Windows Server. Se esse for o caso, a velocidade de download provavelmente será melhor do que a velocidade de carregamento. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
 
 Deixe o progresso da sincronização e a camada da nuvem liberar espaço em disco. Você pode observar isso no explorador de arquivos no seu Windows Server.
 
@@ -233,6 +233,6 @@ Conteúdo de migração:
 
 Sincronização de Arquivos do Azure conteúdo:
 
-* [Visão geral de AFS](https://aka.ms/AFS)
+* [Visão geral de AFS](./storage-sync-files-planning.md)
 * [Guia de implantação AFS](storage-files-deployment-guide.md)
 * [Solução de problemas AFS](storage-sync-files-troubleshoot.md)
