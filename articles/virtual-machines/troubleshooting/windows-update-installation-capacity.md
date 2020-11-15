@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999098"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635698"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Solucionar problemas de inicialização do sistema operacional – capacidade de instalação do Windows Update
 
@@ -62,8 +62,6 @@ Como resolver o problema:
 
 1. Verifique se o disco está cheio. Se o tamanho do disco estiver abaixo de 1 TB, expanda-o para um máximo de 1 TB [usando o PowerShell](../windows/expand-os-disk.md).
 1. Se o disco já for de 1 TB, será necessário executar uma limpeza de disco.
-   1. Desanexe o disco de dados da [VM defeituosa](../windows/detach-disk.md).
-   1. Acople o disco de dados [a uma VM em funcionamento](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Use a [ferramenta de limpeza de disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espaço.
 1. Quando o redimensionamento e a limpeza forem concluídos, desfragmente a unidade usando o seguinte comando:
 
@@ -75,12 +73,12 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Habilitar o console serial e a coleção de despejo de memória
 
-**Recomendado**: Antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados ao executar o seguinte script:
+**Recomendado** : Antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados ao executar o seguinte script:
 
 1. Abra uma sessão de prompt de comandos com privilégios elevados como um Administrador.
 1. Execute os seguintes comandos:
 
-   **Habilite o console serial**:
+   **Habilite o console serial** :
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -99,7 +97,7 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Habilitar em ControlSet001**:
+   **Habilitar em ControlSet001** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -107,7 +105,7 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Habilitar em ControlSet002**:
+   **Habilitar em ControlSet002** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -115,7 +113,7 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Descarregar disco do sistema operacional danificado**:
+   **Descarregar disco do sistema operacional danificado** :
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM
@@ -123,4 +121,4 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para recompilar a VM.

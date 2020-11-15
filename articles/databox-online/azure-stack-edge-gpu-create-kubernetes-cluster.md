@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903213"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635901"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Conectar e gerenciar um cluster kubernetes por meio do kubectl em seu dispositivo Azure Stack Edge pro GPU
 
@@ -44,7 +44,7 @@ Depois que o cluster kubernetes é criado, você pode acessar esse cluster para 
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Configurar o acesso ao cluster via RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Configurar o acesso ao cluster via RBAC kubernetes
 
 Depois que o cluster kubernetes for criado, você poderá usar o *kubectl* via cmdline para acessar o cluster. 
 
@@ -125,7 +125,7 @@ Nessa abordagem, você cria um namespace e um usuário. Em seguida, associe o us
     Por exemplo, se o nó mestre kubernetes estivesse executando o v 1.15.2, instale o v 1.15.2 no cliente.
 
     > [!IMPORTANT]
-    > Baixe um cliente sem distorção de mais de uma versão secundária do mestre. A versão do cliente, mas pode levar o mestre até uma versão secundária. Por exemplo, um Mestre v 1.3 deve funcionar com nós v 1.1, v 1.2 e v 1.3 e deve funcionar com clientes v 1.2, v 1.3 e v 1.4. Para obter mais informações sobre a versão do cliente do kubernetes, consulte [versão do kubernetes e política de suporte à distorção de versão](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Para obter mais informações sobre a versão do kubernetes Server no Azure Stack Edge pro, acesse obter versão do servidor kubernetes.<!-- insert link-->
+    > Baixe um cliente que não tenha mais do que uma versão secundária do mestre. A versão do cliente, mas pode levar o mestre até uma versão secundária. Por exemplo, um Mestre v 1.3 deve funcionar com nós v 1.1, v 1.2 e v 1.3 e deve funcionar com clientes v 1.2, v 1.3 e v 1.4. Para obter mais informações sobre a versão do cliente do kubernetes, consulte [versão do kubernetes e política de suporte à distorção de versão](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Para obter mais informações sobre a versão do kubernetes Server no Azure Stack Edge pro, acesse obter versão do servidor kubernetes.<!-- insert link-->
     > Às vezes, `kubectl` o é pré-instalado no seu sistema se você estiver executando o Docker for Windows ou outras ferramentas. É importante baixar a versão específica do `kubectl` conforme indicado nesta seção para trabalhar com esse cluster kubernetes. 
 
     A instalação leva vários minutos.
@@ -160,7 +160,7 @@ Nessa abordagem, você cria um namespace e um usuário. Em seguida, associe o us
 Agora você pode implantar seus aplicativos no namespace e, em seguida, exibir esses aplicativos e seus logs.
 
 > [!IMPORTANT]   
-> Há muitos comandos que você não poderá executar, por exemplo, os comandos que exigem que você tenha acesso de administrador. Você só pode executar operações que são permitidas no namespace.
+> Há muitos comandos que você não poderá executar, por exemplo, os comandos que exigem que você tenha acesso de administrador. Você só pode executar as operações permitidas no namespace.
 
 
 ## <a name="remove-kubernetes-cluster"></a>Remover cluster kubernetes

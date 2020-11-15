@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7af824d7cdf0c668e4513cd450a1815b88568b3e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540885"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635238"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerenciar o Banco de Dados do Azure para MariaDB para pontos de extremidade de serviço do MariaDB VNet usando a CLI do Azure
 
@@ -32,9 +32,9 @@ Pontos de extremidade e regras de serviços da Rede Virtual (VNet) estendem o es
 
 ## <a name="configure-vnet-service-endpoints"></a>Configurar pontos de extremidade de serviço de rede virtual
 
-Os comandos [az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) são usados para configurar redes virtuais.
+Os comandos [az network vnet](/cli/azure/network/vnet) são usados para configurar redes virtuais.
 
-Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Substitua a propriedade **id** da saída **logon az** para a sua assinatura no espaço reservado da ID da assinatura.
+Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set). Substitua a propriedade **id** da saída **logon az** para a sua assinatura no espaço reservado da ID da assinatura.
 
 - A conta deve ter as permissões necessárias para criar uma rede virtual e um ponto de extremidade de serviço.
 

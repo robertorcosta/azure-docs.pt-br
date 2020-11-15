@@ -1,5 +1,5 @@
 ---
-title: Dv2 e série Dsv2-máquinas virtuais do Azure
+title: Dv2 e série DSv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Dv2 e Dsv2.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 785e72a47d68bf368e160b1f3bf2a6d762d1f100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1bd2e0360b064a71dd91241d40513d8c37447bb
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649687"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635629"
 ---
 # <a name="dv2-and-dsv2-series"></a>Séries Dv2 e DSv2
 
-A Dv2 e a série Dsv2, um acompanhamento da série D original, apresentam uma CPU mais potente e configuração ideal de CPU para memória, tornando-as adequadas para a maioria das cargas de trabalho de produção. A série Dv2 é aproximadamente 35% mais rápida do que a série D. Dv2-série de execução no Intel® Xeon® Platinum 8272CL (Cascadey Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) com a tecnologia Intel Turbo Boost 2,0. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+A Dv2 e a série DSv2, um acompanhamento da série D original, apresentam uma CPU mais potente e configuração ideal de CPU para memória, tornando-as adequadas para a maioria das cargas de trabalho de produção. A série Dv2 é aproximadamente 35% mais rápida do que a série D. Dv2-série de execução no Intel® Xeon® Platinum 8272CL (Cascadey Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) com a tecnologia Intel Turbo Boost 2,0. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 ## <a name="dv2-series"></a>Série Dv2
 

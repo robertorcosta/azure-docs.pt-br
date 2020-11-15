@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e69cf8d90f004d397778c2eeb6b5f774196574
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 99cad2a4218995ad10488d97ce19eeef36b642ae
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098732"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636972"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de base de segurança do Azure para Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -138,7 +138,7 @@ Para obter mais informações sobre como usar as marcas de serviço: https://doc
 
 - O Cosmos DB deve usar um ponto de extremidade de serviço de rede virtual Microsoft Azure Cosmos DB
 
-Você também pode usar o Azure Blueprints para simplificar implantações do Azure de grande escala por meio do empacotamento de artefatos de ambiente importantes, como modelos do Azure Resource Manager, RBAC (controle de acesso baseado em função) e políticas em uma definição de blueprint. É fácil aplicar o blueprint a novas assinaturas e novos ambientes e ajustar o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas em uma única definição de Blueprint. É fácil aplicar o blueprint a novas assinaturas e novos ambientes e ajustar o controle e o gerenciamento por meio do controle de versão.
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -285,15 +285,15 @@ Crie, exiba e gerencie alertas de log usando Azure Monitor: https://docs.microso
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Orientação** : você pode usar o painel iam (controle de acesso e identidade) no portal do Azure para configurar o RBAC (controle de acesso baseado em função) e manter o inventário em recursos de Azure Cosmos DB. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
+**Orientação** : você pode usar o painel iam (controle de acesso e identidade) no portal do Azure para configurar o controle de acesso baseado em função do Azure (RBAC do Azure) e manter o inventário em recursos de Azure Cosmos DB. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
 
-O Azure Cosmos DB fornece RBAC interno para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory (AD) pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos.
+O Azure Cosmos DB fornece o RBAC do Azure interno para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory (AD) pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos.
 
 Você também pode usar o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos. 
 
 Além disso, algumas ações no Azure Cosmos DB podem ser controladas com Azure Active Directory e chaves primárias específicas da conta.  Use a configuração de conta ' disableKeyBasedMetadataWriteAccess ' para controlar o acesso à chave.
 
-Compreenda o controle de acesso baseado em função no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Entenda o controle de acesso baseado em função do Azure no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 Crie suas próprias funções personalizadas usando ações de Azure Cosmos DB (Microsoft.Docnamespace umentDB): https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
@@ -529,9 +529,9 @@ Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/a
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Diretrizes** : o Azure Cosmos DB fornece RBAC (controle de acesso baseado em função) interno para cenários de gerenciamento comuns no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
+**Diretrizes** : o Azure Cosmos DB fornece o Azure RBAC (controle de acesso baseado em função) interno do Azure para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
 
-Como implementar o RBAC no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Como implementar o RBAC do Azure no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 **Monitoramento da Central de Segurança do Azure** : Não aplicável
 

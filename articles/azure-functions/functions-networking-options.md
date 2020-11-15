@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578801"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636462"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -97,8 +97,8 @@ Quando você cria um aplicativo de funções, é necessário criar ou vincular u
 1. Crie ou configure uma conta de armazenamento diferente.  Essa será a conta de armazenamento que protegemos com os pontos de extremidade de serviço e conectamos nossa função.
 1. [Crie um compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento protegida.
 1. Habilite os pontos de extremidade de serviço ou o Endpoint particular para a conta de armazenamento.  
-    * Certifique-se de habilitar a sub-rede dedicada para seus aplicativos de funções se estiver usando um ponto de extremidade de serviço.
-    * Certifique-se de criar um registro DNS e configurar seu aplicativo para [trabalhar com pontos de extremidade de ponto de extremidades privados](#azure-dns-private-zones) , se estiver usando um ponto de extremidade privado.  A conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions, você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
+    * Se você estiver usando conexões de ponto de extremidade privado, a conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions, você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
+    * Se estiver usando pontos de extremidade de serviço, habilite a sub-rede dedicada para seus aplicativos de funções para contas de armazenamento.
 1. Adicional Copie o conteúdo do arquivo e do blob da conta de armazenamento do aplicativo de funções para a conta de armazenamento protegida e o compartilhamento de arquivos.
 1. Copie a cadeia de conexão para esta conta de armazenamento.
 1. Atualize as **configurações do aplicativo** em **configuração** para o aplicativo de funções para o seguinte:
@@ -106,6 +106,9 @@ Quando você cria um aplicativo de funções, é necessário criar ou vincular u
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` para a cadeia de conexão da conta de armazenamento protegida.
     - `WEBSITE_CONTENTSHARE` para o nome do compartilhamento de arquivos criado na conta de armazenamento protegido.
     - Crie uma nova configuração com o nome `WEBSITE_CONTENTOVERVNET` e o valor de `1` .
+    - Se a conta de armazenamento estiver usando conexões de ponto de extremidade privadas, verifique ou adicione as seguintes configurações
+        - `WEBSITE_VNET_ROUTE_ALL` com um valor de `1` .
+        - `WEBSITE_DNS_SERVER` com um valor de `168.63.129.16` 
 1. Salve as configurações do aplicativo.  
 
 O aplicativo de funções será reiniciado e agora será conectado a uma conta de armazenamento protegida.

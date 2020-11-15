@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acbb0d5b643919d7fa1bf3966532ebd83129fc2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 151b72eb11600713b115d45e5927d8170a519ad1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795098"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635765"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL servidor flexível usando o CLI do Azure
 
@@ -29,7 +29,7 @@ Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli)
 - Um [banco de dados do Azure para MySQL servidor flexível](quickstart-create-server-cli.md) que será usado como o servidor de origem.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
@@ -68,7 +68,7 @@ az mysql flexible-server replica stop-replication --replica-name mydemoreplicase
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
-A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[az mysql server delete](/cli/azure/mysql/server)** .
+A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoreplicaserver

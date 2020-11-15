@@ -1,22 +1,22 @@
 ---
-title: Controle de acesso baseado em função no Azure Cosmos DB
-description: Saiba como Azure Cosmos DB fornece proteção de banco de dados com RBAC (integração do Active Directory).
+title: Controle de acesso baseado em função do Azure no Azure Cosmos DB
+description: Saiba como Azure Cosmos DB fornece proteção de banco de dados com a integração do Active Directory (RBAC do Azure).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f0d42e2e3dfb7e11d3c74ad1280bb867a85e2f8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085455"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636632"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função no Azure Cosmos DB
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função do Azure no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O Azure Cosmos DB fornece RBAC (controle de acesso baseado em função) interno para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
+O Azure Cosmos DB fornece o Azure RBAC (controle de acesso baseado em função) interno do Azure para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
 
 ## <a name="built-in-roles"></a>Funções internas
 
@@ -30,11 +30,11 @@ A seguir estão as funções internas com suporte pelo Azure Cosmos DB:
 |[Operador de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode provisionar contas, bancos de dados e contêineres do Azure Cosmos. Não é possível acessar nenhum dado ou usar Data Explorer.|
 
 > [!IMPORTANT]
-> O suporte a RBAC no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas usando chaves primárias ou tokens de recurso. Para saber mais, confira [proteger o acesso aos dados no Azure Cosmos DB](secure-access-to-data.md)
+> O suporte do RBAC do Azure no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas usando chaves primárias ou tokens de recurso. Para saber mais, confira [proteger o acesso aos dados no Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>IAM (gerenciamento de identidade e acesso)
 
-O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra o RBAC (integração de Active Directory) usando IAM (controle de acesso) no portal do Azure:
+O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função do Azure nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra a integração de Active Directory (RBAC do Azure) usando o controle de acesso (IAM) no portal do Azure:
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Controle de acesso (IAM) no portal do Azure – demonstrando a segurança de banco de dados":::
 

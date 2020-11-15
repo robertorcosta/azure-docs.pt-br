@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242459"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636258"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
@@ -41,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup* , depois selecione **OK**. |
-    | Localização | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mysubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -118,7 +118,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure em que você deseja que o servidor PostgreSQL resida. |
     |Versão  | Selecione a versão do banco de dados do servidor PostgreSQL necessária.|
-    | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
+    | Computação + Armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
  
 7. Selecione **OK**. 
@@ -222,7 +222,7 @@ Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira:
     Address:  10.1.3.4
     ```
 
-3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar a operação.
 
 4. Em **nova conexão** , insira ou selecione estas informações:
 

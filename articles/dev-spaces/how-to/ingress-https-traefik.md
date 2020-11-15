@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado e configurar o HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2dcb549078f1f0f5f7168960864d564fd0c169fc
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746118"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636819"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do traefik personalizado e configurar o HTTPS
 
@@ -53,7 +53,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 Crie um namespace kubernetes para o controlador de entrada traefik e instale-o usando `helm` .
 
 > [!NOTE]
-> Se o cluster AKS não tiver o RBAC habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
+> Se o cluster AKS não tiver o RBAC do kubernetes habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
 
 ```console
 kubectl create ns traefik
@@ -102,8 +102,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 Abra [Values. YAML][values-yaml] e faça as seguintes atualizações:
-* Substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* com *traefik. MY_CUSTOM_DOMAIN* usando seu domínio para *MY_CUSTOM_DOMAIN* . 
-* Substitua *kubernetes.Io/ingress.class: traefik-azds # dev Spaces – specific* com *kubernetes.Io/ingress.class: Traefik # entrada personalizada* . 
+* Substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* com *traefik. MY_CUSTOM_DOMAIN* usando seu domínio para *MY_CUSTOM_DOMAIN*. 
+* Substitua *kubernetes.Io/ingress.class: traefik-azds # dev Spaces – specific* com *kubernetes.Io/ingress.class: Traefik # entrada personalizada*. 
 
 Abaixo está um exemplo de um `values.yaml` arquivo atualizado:
 
@@ -212,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> Para teste, também há um [servidor de preparo][letsencrypt-staging-issuer] que você pode usar para seu *ClusterIssuer* .
+> Para teste, também há um [servidor de preparo][letsencrypt-staging-issuer] que você pode usar para seu *ClusterIssuer*.
 
 Use `kubectl` para aplicar `letsencrypt-clusterissuer.yaml` .
 
@@ -223,7 +223,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 Remova os *traefik* *ClusterRole* e *ClusterRoleBinding* anteriores e, em seguida, atualize traefik para usar HTTPS usando `helm` .
 
 > [!NOTE]
-> Se o cluster AKS não tiver o RBAC habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
+> Se o cluster AKS não tiver o RBAC do kubernetes habilitado, remova o parâmetro *--set RBAC. Enabled = true* .
 
 ```console
 kubectl delete ClusterRole traefik
@@ -262,7 +262,7 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-O exemplo acima *atualiza o registro a na* zona DNS *MY_CUSTOM_DOMAIN* para usar *PREVIOUS_EXTERNAL_IP* .
+O exemplo acima *atualiza o registro a na* zona DNS *MY_CUSTOM_DOMAIN* para usar *PREVIOUS_EXTERNAL_IP*.
 
 Atualize [Values. YAML][values-yaml] para incluir os detalhes de uso de *CERT-Manager* e HTTPS. Abaixo está um exemplo de um `values.yaml` arquivo atualizado:
 
@@ -312,7 +312,7 @@ Observe também que a página é carregada, mas o navegador mostra alguns erros.
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Para corrigir esse erro, atualize [BikeSharingWeb/azds. YAML][azds-yaml] para usar *traefik* para *kubernetes.Io/ingress.Class* e seu domínio personalizado para *$ (hostSuffix)* . Por exemplo:
+Para corrigir esse erro, atualize [BikeSharingWeb/azds. YAML][azds-yaml] para usar *traefik* para *kubernetes.Io/ingress.Class* e seu domínio personalizado para *$ (hostSuffix)*. Por exemplo:
 
 ```yaml
 ...

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096794"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637108"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com os dados usando o Azure Cosmos Explorer 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,21 +26,21 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Acessar o gerenciador do Azure Cosmos DB
 
-1. Entre no [portal do Azure](https://portal.azure.com/). 
+1. Entre no [Portal do Azure](https://portal.azure.com/). 
 
-2. Em **Todos os recursos** , localize e navegue até a conta do Azure Cosmos DB, selecione Chaves e copie a **Cadeia de Conexão Primária** .  
+2. Em **Todos os recursos** , localize e navegue até a conta do Azure Cosmos DB, selecione Chaves e copie a **Cadeia de Conexão Primária**.  
 
-3. Vá para https://cosmos.azure.com/, cole a cadeia de conexão e selecione **Conectar** . Usando a cadeia de conexão, é possível acessar o gerenciador do Azure Cosmos DB sem quaisquer limites de tempo.  
+3. Vá para https://cosmos.azure.com/, cole a cadeia de conexão e selecione **Conectar**. Usando a cadeia de conexão, é possível acessar o gerenciador do Azure Cosmos DB sem quaisquer limites de tempo.  
 
    Se quiser fornecer a outros usuários o acesso temporário à sua conta do Azure Cosmos DB, você poderá fazer isso usando as URLs de acesso de leitura e leitura/gravação. 
 
-4. Abra a folha **Data Explorer** , selecione **Abrir Modo de Exibição de Tela Inteira** . Na caixa de diálogo pop-up, é possível exibir duas URLs de acesso – **Leitura/Gravação** e **Leitura** . Essas URLs permitem que você compartilhe a conta do Azure Cosmos DB temporariamente com outros usuários. O acesso à conta expira em 24 horas, após esse período será possível conectar novamente usando uma nova URL de acesso ou a cadeia de conexão. 
+4. Abra a folha **Data Explorer** , selecione **Abrir Modo de Exibição de Tela Inteira**. Na caixa de diálogo pop-up, é possível exibir duas URLs de acesso – **Leitura/Gravação** e **Leitura**. Essas URLs permitem que você compartilhe a conta do Azure Cosmos DB temporariamente com outros usuários. O acesso à conta expira em 24 horas, após esse período será possível conectar novamente usando uma nova URL de acesso ou a cadeia de conexão. 
 
    **Leitura/Gravação** – Ao compartilhar a URL de leitura/gravação com outros usuários, eles poderão exibir e modificar os bancos de dados, as coleções, consultas e outros recursos associados a essa conta específica.
 
    **Leitura** - Ao compartilhar a URL somente leitura com outros usuários, eles poderão exibir os bancos de dados, as coleções, consultas e outros recursos associados a essa conta específica. Por exemplo, se quiser compartilhar os resultados de uma consulta com os colegas de equipe que não tenham acesso ao portal do Azure ou à conta do Azure Cosmos DB, forneça essa URL aos colegas.
 
-   Escolha o tipo de acesso com o qual gostaria de abrir a conta e clique em **Abrir** . Após abrir o gerenciador, a experiência é a mesma que você tinha com a guia Data Explorer no portal do Azure.
+   Escolha o tipo de acesso com o qual gostaria de abrir a conta e clique em **Abrir**. Após abrir o gerenciador, a experiência é a mesma que você tinha com a guia Data Explorer no portal do Azure.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Abrir Azure Cosmos DB Explorer":::
 
@@ -50,7 +50,7 @@ Atualmente, a experiência de **Abrir Modo de Exibição de Tela Inteira** que p
 
 No momento, não há suporte para a exibição de documentos que contenham um UUID no Data Explorer. Isso não afeta o carregamento de coleções, apenas a exibição de documentos individuais ou consultas que incluam esses documentos. Para exibir e gerenciar esses documentos, os usuários devem continuar a usar a ferramenta que foi usada originalmente para criar esses documentos.
 
-Os clientes que recebem erros HTTP-401 podem ser devido a permissões RBAC insuficientes para a conta do Azure do cliente, especialmente se a conta tiver uma função RBAC personalizada. Qualquer função personalizada deve ter `Microsoft.DocumentDB/databaseAccounts/listKeys/*` a ação de usar data Explorer se estiver entrando usando suas credenciais de Azure Active Directory.
+Os clientes que recebem erros HTTP-401 podem ser devido a permissões do RBAC do Azure insuficientes para a conta do Azure do cliente, especialmente se a conta tiver uma função personalizada. Qualquer função personalizada deve ter `Microsoft.DocumentDB/databaseAccounts/listKeys/*` a ação de usar data Explorer se estiver entrando usando suas credenciais de Azure Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555627"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636734"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -46,6 +46,16 @@ O Gerenciamento de Desempenho dos Aplicativos (APM) do AppDynamics permite que o
 Você pode criar tíquetes JIRA em alertas do Azure Monitor.
 
 [Documentação do Atlassian para Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![Logotipo do BMC Helix](./media/partners/BMCHelix.png)
+
+O BMC Helix é um serviço corporativo autônomo e uma plataforma SaaS de operações. Integrado à inteligência de 360 graus, ele capacita as empresas de forma proativa e preditivamente a descobrir, monitorar, realizar serviços, corrigir, otimizar e fornecer experiências de canal de Omni para ti e linhas de negócios.
+Além disso, ao integrar diretamente o ITSM e o ITOM (gerenciamento de operações de ti), o BMC Helix permite que os usuários de ti e negócios eliminem os silos de ti, tomem decisões de negócios controladas por dados e forneçam experiências de clientes líderes no setor.
+Os clientes podem implantar a plataforma Helix do BMC com a implantação em nuvem de sua escolha – pública, privada ou híbrida. Além disso, os clientes têm uma opção de soluções de ia/ML para aproveitar os provedores líderes do setor.
+
+[Saiba mais sobre o BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -301,15 +311,6 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 
 [Introdução ao o turbonomic](https://turbonomic.com/)
 
-## <a name="bmc-helix"></a>BMC Helix
-
-![Logotipo do BMC Helix](./media/partners/BMCHelix.png)
-
-O BMC Helix é um serviço corporativo autônomo e uma plataforma SaaS de operações. Integrado à inteligência de 360 graus, ele capacita as empresas de forma proativa e preditivamente a descobrir, monitorar, realizar serviços, corrigir, otimizar e fornecer experiências de canal de Omni para ti e linhas de negócios.
-Além disso, ao integrar diretamente o ITSM e o ITOM (gerenciamento de operações de ti), o BMC Helix permite que os usuários de ti e negócios eliminem os silos de ti, tomem decisões de negócios controladas por dados e forneçam experiências de clientes líderes no setor.
-Os clientes podem implantar a plataforma Helix do BMC com a implantação em nuvem de sua escolha – pública, privada ou híbrida. Além disso, os clientes têm uma opção de soluções de ia/ML para aproveitar os provedores líderes do setor.
-
-[Saiba mais sobre o BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>Próximas etapas
 

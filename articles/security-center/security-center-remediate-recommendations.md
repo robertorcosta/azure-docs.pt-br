@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569128"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637074"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de correção na Central de Segurança do Azure
 
@@ -38,9 +38,16 @@ Depois de examinar todas as recomendações, decida qual delas corrigir primeiro
 
 ## <a name="quick-fix-remediation"></a>Correção de correção rápida<a name="one-click"></a>
 
-A correção rápida permite que você corrija rapidamente uma recomendação em vários recursos. Ele só está disponível para recomendações específicas. A correção rápida simplifica a correção e permite que você aumente rapidamente sua pontuação segura, melhorando a segurança do seu ambiente.
+A correção rápida simplifica a correção e permite que você aumente rapidamente sua pontuação segura, melhorando a segurança do seu ambiente.
 
-Para implementar a correção rápida de correção:
+A correção rápida permite que você corrija rapidamente uma recomendação em vários recursos. 
+
+> [!TIP]
+> A correção rápida só está disponível para recomendações específicas. Para localizar as recomendações que têm a opção correção rápida, use o filtro dedicado na parte superior da lista de recomendações:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use os filtros acima da lista de recomendações para encontrar recomendações que tenham a opção correção rápida":::
+
+Para implementar uma correção rápida de correção:
 
 1. Na lista de recomendações que têm a **correção rápida!** , clique na recomendação.
 

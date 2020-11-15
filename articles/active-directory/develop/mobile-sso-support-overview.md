@@ -1,7 +1,7 @@
 ---
 title: Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve | Azure
 titleSuffix: Microsoft identity platform
-description: Explicação e visão geral da criação de aplicativos móveis que dão suporte a políticas de logon único e de proteção de aplicativo
+description: Explicação e visão geral da criação de aplicativos móveis que dão suporte a políticas de logon único e de proteção de aplicativo usando a plataforma de identidade da Microsoft e a integração com o Azure Active Directory.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331599"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634847"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve
 
-O SSO (logon único) fornece logons fáceis e seguros para usuários do seu aplicativo. As políticas de proteção de aplicativo (aplicativo) permitem o suporte das principais políticas de segurança que mantêm os dados do usuário seguros. Juntos, esses recursos permitem proteger logons de usuário e gerenciamento dos dados do seu aplicativo.
+O SSO (logon único) é uma importante oferta da plataforma de identidade da Microsoft e Azure Active Directory, fornecendo logons fáceis e seguros para usuários do seu aplicativo. Além disso, as políticas de proteção de aplicativo (aplicativo) permitem o suporte das principais políticas de segurança que mantêm os dados do usuário seguros. Juntos, esses recursos permitem proteger logons de usuário e gerenciamento dos dados do seu aplicativo.
 
 Este artigo explica por que o SSO e o aplicativo são importantes e fornece as diretrizes de alto nível para a criação de aplicativos móveis que dão suporte a esses recursos. Isso se aplica a aplicativos de telefone e Tablet. Se você for um administrador de ti que deseja implantar o SSO no locatário de Azure Active Directory da sua organização, confira nossas [diretrizes para planejar uma implantação de logon único](../manage-apps/plan-sso-deployment.md)
 

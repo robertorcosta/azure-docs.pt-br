@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 0d954123b0d48a4b78c0dcda98898b7ab539d502
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504496"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634881"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -193,6 +193,10 @@ A automatização da criação da conta é um processo de duas etapas:
 
     Consulte um exemplo do [modelo de criação de conta dos serviços de mídia](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Chame [Create-Account com os serviços de mídia e o aplicativo do Azure ad](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Depois de concluir este tutorial, exclua os recursos que você não está planejando usar.
 
 ## <a name="next-steps"></a>Próximas etapas
 
