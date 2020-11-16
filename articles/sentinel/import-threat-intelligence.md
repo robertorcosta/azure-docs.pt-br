@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: e04d7fa1f319ca3969d8acdc0235e2838bb3a88d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19ad45eec78d53261bf1781808339152c69a0136
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994322"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638828"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar inteligência contra ameaças para o Azure Sentinel
 
@@ -36,7 +36,7 @@ Você pode integrar a TI (inteligência contra ameaças) ao Azure Sentinel por m
 - Use os modelos de regra de **análise** interna para gerar alertas de segurança e incidentes usando a inteligência de ameaças importada.
 - Visualize as principais informações sobre sua inteligência contra ameaças no Azure Sentinel com a **pasta de trabalho de inteligência contra ameaças**.
 
-A inteligência contra ameaças também fornece um contexto útil em outras experiências do Azure Sentinel, como **buscas** e **notebooks**, e, embora não seja abordada neste artigo, essas experiências são abordadas nesta [excelente postagem no blog, de Ian Hellen nos notebooks Jupyter no sentinela](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que abrange o uso de CTI dentro de notebooks.
+A inteligência contra ameaças também fornece um contexto útil em outras experiências do Azure Sentinel, como **buscas** e **notebooks** , e, embora não seja abordada neste artigo, essas experiências são abordadas nesta [excelente postagem no blog, de Ian Hellen nos notebooks Jupyter no sentinela](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que abrange o uso de CTI dentro de notebooks.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Conectores de dados do Azure Sentinel para inteligência contra ameaças
 
@@ -44,7 +44,7 @@ Assim como todos os outros dados de evento no Azure Sentinel, os indicadores de 
 
 ### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Adicionando indicadores de ameaça ao Azure Sentinel com o conector de dados das plataformas de inteligência contra ameaças
 
-Muitas organizações utilizam soluções de gorjeta (plataforma de inteligência contra ameaças) para agregar feeds de indicadores de ameaça de uma variedade de fontes, para organizar os dados na plataforma e escolher quais indicadores de ameaça aplicar a várias soluções de segurança, como dispositivos de rede, soluções avançadas de proteção contra ameaças ou SIEMs como o Azure Sentinel. Se sua organização utiliza uma solução TIP integrada, como MISP, Anomaliai ThreatStream, ThreatConnect ou Palo Alto Networks, o conector de dados das **plataformas de inteligência contra ameaças** permite que você use sua dica para importar indicadores de ameaça para o Azure Sentinel. Como o conector funciona com a [API do Microsoft Graph Security tiIndicators](https://docs.microsoft.com/graph/api/resources/tiindicator) para fazer isso, o conector também pode ser usado por qualquer plataforma de inteligência contra ameaças personalizada para aproveitar a API do tiIndicators para enviar indicadores para o Azure Sentinel (e outras soluções de segurança da Microsoft, como o defender ATP).
+Muitas organizações utilizam soluções de gorjeta (plataforma de inteligência contra ameaças) para agregar feeds de indicadores de ameaça de uma variedade de fontes, para organizar os dados na plataforma e escolher quais indicadores de ameaça aplicar a várias soluções de segurança, como dispositivos de rede, soluções avançadas de proteção contra ameaças ou SIEMs como o Azure Sentinel. Se sua organização utiliza uma solução de TIP integrada, como MISP, Anomaliai ThreatStream, ThreatConnect, plataforma EclecticIQ, plataforma de inteligência contra ameaças ThreatQ ou Palo Alto Networks, o **conector de dados das plataformas de inteligência contra ameaças** permite que você use sua dica para importar indicadores de ameaça para o Azure Sentinel. Como o conector funciona com a [API do Microsoft Graph Security tiIndicators](https://docs.microsoft.com/graph/api/resources/tiindicator) para fazer isso, o conector também pode ser usado por qualquer plataforma de inteligência contra ameaças personalizada para aproveitar a API do tiIndicators para enviar indicadores para o Azure Sentinel (e outras soluções de segurança da Microsoft, como o defender ATP).
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-import-path.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
@@ -78,7 +78,7 @@ Essas informações sempre vêm do Azure Active Directory por meio de um process
 
 1. Escolha um nome para o registro do aplicativo, selecione o botão de opção de **locatário único** e selecione **registrar**.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Registrar um aplicativo":::
 
 1. Na tela resultante, copie os valores de ID do **aplicativo (cliente)** e de **ID do diretório (locatário)** . Essas são as duas primeiras informações que você precisará mais tarde para configurar sua dica ou solução personalizada para enviar indicadores de ameaça para o Azure Sentinel.
 
@@ -96,13 +96,13 @@ Essas informações sempre vêm do Azure Active Directory por meio de um process
 
 1. Selecione **ThreatIndicators. ReadWrite. OwnedBy** e selecione **adicionar permissões** para adicionar essa permissão à lista de permissões do seu aplicativo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Especificar permissões":::
 
 **Obter consentimento da sua organização para conceder essas permissões**
 
 1. Para conceder consentimento, você precisa de um administrador global Azure Active Directory para selecionar o botão **conceder consentimento de administrador para seu locatário** na página permissões de API do aplicativo. Se você não tiver a função de administrador global em sua conta, esse botão não estará disponível e você precisará solicitar a um administrador global da sua organização para executar essa etapa.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Conceder consentimento":::
 
 1. Depois que o consentimento tiver sido concedido ao seu aplicativo, você deverá ver uma marca de seleção verde em **status**.
  
@@ -114,9 +114,9 @@ Agora que seu aplicativo foi registrado e as permissões foram concedidas, você
 
 1. Selecione **certificados & segredos** no menu e clique no botão **novo segredo do cliente** para obter um segredo (chave de API) para seu aplicativo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Obter segredo do cliente":::
 
-1. Clique no botão **Adicionar** e **certifique-se de copiar o segredo do cliente**, pois você não poderá recuperar esse segredo novamente se sair dessa página. Você precisará desse valor ao configurar sua dica ou solução personalizada.
+1. Clique no botão **Adicionar** e **certifique-se de copiar o segredo do cliente** , pois você não poderá recuperar esse segredo novamente se sair dessa página. Você precisará desse valor ao configurar sua dica ou solução personalizada.
 
 #### <a name="input-this-information-into-your-tip-solution-or-custom-application"></a>Inserir essas informações em sua solução TIP ou aplicativo personalizado
 
@@ -145,7 +145,7 @@ Em alguns minutos, os indicadores de ameaça devem começar a fluir para este es
 
 O padrão do setor mais amplamente adotado para a transmissão de inteligência contra ameaças é uma [combinação do formato de dados Stix e do protocolo táxii](https://oasis-open.github.io/cti-documentation/). Se sua organização obtiver indicadores de ameaça de soluções que dão suporte à versão atual do STIX/táxi (2,0 ou 2,1), você poderá usar o conector de dados de **inteligência contra ameaças-táxii** para trazer seus indicadores de ameaça para o Azure Sentinel. O conector de dados de inteligência contra ameaças – TÁXIi permite que um cliente de TÁXIs interno no Azure Sentinel importe a inteligência contra ameaças de servidores TÁXIi 2. x.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Caminho de importação de TÁXIi":::
  
 Siga estas etapas para importar os indicadores de ameaça formatados STIX para o Azure Sentinel de um servidor táxi:
 
@@ -285,9 +285,9 @@ Para importar indicadores de ameaça para o Azure Sentinel de um servidor de tá
 
 1. Selecione **conectores de dados** no menu, selecione **inteligência contra ameaças-táxii** na Galeria de conectores e clique no botão **abrir página do conector** .
 
-1. Digite um **nome** para essa coleção de servidores de táxii, **URL raiz da API**, **ID da coleção**, **nome de usuário** (se necessário) e **senha** (se necessário) e clique no botão **Adicionar** .
+1. Digite um **nome** para essa coleção de servidores de táxii, **URL raiz da API** , **ID da coleção** , **nome de usuário** (se necessário) e **senha** (se necessário) e clique no botão **Adicionar** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Configurar servidores de TÁXIi":::
  
 Você deve receber a confirmação de que uma conexão com o servidor de TÁXIs foi estabelecida com êxito e pode repetir a etapa (4) acima quantas vezes desejar para se conectar a várias coleções do mesmo servidor ou de servidores de TÁXIs diferentes.
 
@@ -307,7 +307,7 @@ Agora que você importou com êxito os indicadores de ameaça para o Azure Senti
 
 Os resultados devem ser semelhantes ao indicador de ameaça de exemplo mostrado abaixo:
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Dados de consulta de exemplo":::
  
 ## <a name="manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel"></a>Gerencie seus indicadores de ameaça na nova área de inteligência contra ameaças do Azure Sentinel
 
@@ -322,7 +322,7 @@ Vamos examinar duas das tarefas mais comuns, criar novos indicadores de ameaça 
 
 1. Selecione o botão **Adicionar novo** no menu superior da página.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Caminho de importação de inteligência contra ameaças" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Adicionar um novo indicador de ameaça" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. Escolha o tipo de indicador e preencha os campos obrigatórios marcados com um asterisco vermelho (*) no **novo painel indicador** .
 
@@ -330,13 +330,13 @@ Vamos examinar duas das tarefas mais comuns, criar novos indicadores de ameaça 
 
 A marcação de indicadores de ameaça é uma maneira fácil de agrupá-los para facilitar sua localização. Normalmente, você pode aplicar uma marca a indicadores relacionados a um incidente específico ou a indicadores que representam ameaças de um ator conhecido específico ou uma campanha de ataque bem conhecida. Você pode marcar os indicadores de ameaça individualmente ou indicadores de seleção múltipla e marcá-los todos de uma vez. Mostrado abaixo está um exemplo de marcação de vários indicadores com uma ID de incidente. Como a marcação é de forma livre, uma prática recomendada é criar convenções de nomenclatura padrão para as marcas de indicador de ameaça. Você pode aplicar várias marcas a cada indicador.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Caminho de importação de inteligência contra ameaças" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Aplicar marcas a indicadores de ameaça" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
 
 ## <a name="analytics-puts-your-threat-indicators-to-work-detecting-potential-threats"></a>A análise coloca seus indicadores de ameaça para trabalhar na detecção de possíveis ameaças
 
-Você tem seus indicadores de ameaça inseridos no Azure Sentinel; Você viu como exibi-los e gerenciá-los; Agora, veja o que eles podem fazer por você. O caso de uso mais importante para indicadores de ameaça em soluções SIEM como o Azure Sentinel é a regras do Power Analytics.  Essas regras baseadas em indicador comparam eventos brutos de suas fontes de dados em relação aos indicadores de ameaça para detectar ameaças à segurança em sua organização. No Azure Sentinel **Analytics**, você cria regras de análise que são executadas de forma programada e gera alertas de segurança. As regras são controladas por consultas, juntamente com as configurações que determinam a frequência com que a regra deve ser executada, que tipo de resultados de consulta devem gerar alertas de segurança e quaisquer respostas automatizadas para disparar quando os alertas são gerados.
+Você tem seus indicadores de ameaça inseridos no Azure Sentinel; Você viu como exibi-los e gerenciá-los; Agora, veja o que eles podem fazer por você. O caso de uso mais importante para indicadores de ameaça em soluções SIEM como o Azure Sentinel é a regras do Power Analytics.  Essas regras baseadas em indicador comparam eventos brutos de suas fontes de dados em relação aos indicadores de ameaça para detectar ameaças à segurança em sua organização. No Azure Sentinel **Analytics** , você cria regras de análise que são executadas de forma programada e gera alertas de segurança. As regras são controladas por consultas, juntamente com as configurações que determinam a frequência com que a regra deve ser executada, que tipo de resultados de consulta devem gerar alertas de segurança e quaisquer respostas automatizadas para disparar quando os alertas são gerados.
 
-Embora você sempre possa criar novas regras de análise do zero, o Azure Sentinel fornece um conjunto de modelos de regras internos, criados por engenheiros de segurança da Microsoft, que você pode usar no estado em que se encontram ou modificar para atender às suas necessidades. Você pode identificar prontamente os modelos de regra que usam indicadores de ameaça, já que eles são todos intitulados começando com "**mapa de ti**...". Todos esses modelos de regra operam da mesma forma, com a única diferença de qual tipo de indicadores de ameaça são usados (domínio, email, hash de arquivo, endereço IP ou URL) e a qual tipo de evento corresponder. Cada modelo lista as fontes de dados necessárias para que a regra funcione, para que você possa ver rapidamente se os eventos necessários já foram importados no Azure Sentinel.
+Embora você sempre possa criar novas regras de análise do zero, o Azure Sentinel fornece um conjunto de modelos de regras internos, criados por engenheiros de segurança da Microsoft, que você pode usar no estado em que se encontram ou modificar para atender às suas necessidades. Você pode identificar prontamente os modelos de regra que usam indicadores de ameaça, já que eles são todos intitulados começando com " **mapa de ti**...". Todos esses modelos de regra operam da mesma forma, com a única diferença de qual tipo de indicadores de ameaça são usados (domínio, email, hash de arquivo, endereço IP ou URL) e a qual tipo de evento corresponder. Cada modelo lista as fontes de dados necessárias para que a regra funcione, para que você possa ver rapidamente se os eventos necessários já foram importados no Azure Sentinel.
 
 Vamos dar uma olhada em um desses modelos de regra e explicar como habilitar e configurar a regra para gerar alertas de segurança usando os indicadores de ameaça que você importou para o Azure Sentinel. Neste exemplo, usaremos o modelo de regra chamado **entidade de IP do mapa de ti como AzureActivity**. Essa regra corresponderá a qualquer indicador de ameaça de tipo de endereço IP com todos os seus eventos de atividade do Azure. Quando uma correspondência for encontrada, um **alerta** será gerado, bem como um **incidente** correspondente para investigação por sua equipe de operações de segurança. Esta regra de análise funcionará com êxito somente se você tiver habilitado um ou ambos os conectores de dados de **inteligência contra ameaças** (para importar indicadores de ameaça) e o conector de dados de **atividade do Azure** (para importar os eventos de nível de assinatura do Azure).
 
@@ -350,11 +350,11 @@ Vamos dar uma olhada em um desses modelos de regra e explicar como habilitar e c
 
 1. Navegue até a regra denominada **entidade de IP do mapa de ti para AzureActivity** e verifique se você conectou todas as fontes de dados necessárias, conforme mostrado abaixo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Fontes de dados necessárias":::
 
 1. Selecione essa regra e selecione o botão **criar regra** . Isso abre um assistente para configurar a regra. Conclua as configurações aqui e selecione o botão **Avançar: definir a lógica de regra >** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Criar regra de análise":::
 
 1. A parte lógica da regra do assistente contém:
     - A consulta que será usada na regra.
@@ -374,7 +374,7 @@ Vamos dar uma olhada em um desses modelos de regra e explicar como habilitar e c
 
 Você pode deixar as configurações padrão ou alterar qualquer uma delas para atender às suas necessidades. Quando tiver terminado, selecione o botão **Avançar: resposta automatizada >**
 
-1. Esta etapa do assistente permite que você configure qualquer automação que você gostaria de disparar quando um alerta de segurança é gerado por meio desta regra de análise. A automação no Azure Sentinel é feita usando **Guias estratégicos**, da plataforma de aplicativos lógicos do Azure. Para saber mais, confira este [tutorial: configurar respostas de ameaças automatizadas no Azure Sentinel](./tutorial-respond-threats-playbook.md). Para este exemplo, selecionaremos o botão **Avançar: Revisar >** para continuar.
+1. Esta etapa do assistente permite que você configure qualquer automação que você gostaria de disparar quando um alerta de segurança é gerado por meio desta regra de análise. A automação no Azure Sentinel é feita usando **Guias estratégicos** , da plataforma de aplicativos lógicos do Azure. Para saber mais, confira este [tutorial: configurar respostas de ameaças automatizadas no Azure Sentinel](./tutorial-respond-threats-playbook.md). Para este exemplo, selecionaremos o botão **Avançar: Revisar >** para continuar.
 
 1. Essa última etapa valida as configurações em sua regra. Quando você estiver pronto para habilitar a regra, selecione o botão **criar** e você terminou.
 
@@ -397,7 +397,7 @@ Vamos examinar como encontrar a pasta de trabalho de inteligência contra ameaç
 
 1. Navegue até a pasta de trabalho intitulada **inteligência contra ameaças** e verifique se você tem dados na tabela **ThreatIntelligenceIndicator** , conforme mostrado abaixo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Verificar os dados":::
  
 1. Selecione o botão **salvar** e escolha um local do Azure para armazenar a pasta de trabalho. Essa etapa será necessária se você for modificar a pasta de trabalho de qualquer forma e salvar suas alterações.
 
@@ -417,7 +417,7 @@ Vamos examinar como encontrar a pasta de trabalho de inteligência contra ameaç
 
 1. Selecione o botão **edição concluído** . Você criou um novo gráfico para a pasta de trabalho.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Caminho de importação de inteligência contra ameaças":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Gráfico de barras":::
 
 As pastas de trabalho fornecem painéis interativos avançados que fornecem informações sobre todos os aspectos do Azure Sentinel. Há muito que você pode fazer com pastas de trabalho e, embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente desejará se aprofundar e personalizar esses modelos ou criar novos painéis combinando várias fontes de dados diferentes, para que você possa visualizar seus dados de maneiras exclusivas. Como as pastas de trabalho do Azure Sentinel são baseadas em pastas de trabalho Azure Monitor, já existe uma ampla documentação disponível e muitos outros modelos. Um ótimo lugar para começar é o artigo sobre como [criar relatórios interativos com Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md). 
 

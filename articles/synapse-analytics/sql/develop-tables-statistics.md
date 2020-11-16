@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cf85b0ea658ae6459644dd710630a30f78ad99aa
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339386"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638845"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas no SQL do Synapse
 
@@ -812,6 +812,74 @@ E crie estatísticas:
 CREATE STATISTICS sState
     on census_external_table (STATENAME)
     WITH FULLSCAN, NORECOMPUTE
+```
+
+### <a name="statistics-metadata"></a>Metadados de estatísticas
+
+Há várias exibições e funções do sistema que podem ser utilizadas para localizar informações sobre estatísticas. Por exemplo, você pode ver se um objeto de estatísticas está desatualizado usando a função STATS_DATE(). STATS_DATE() permite que você veja quando as estatísticas foram criadas ou atualizadas pela última vez.
+
+> [!NOTE]
+> Os metadados de estatísticas estão disponíveis somente para colunas de tabelas externas. Os metadados de estatísticas não estão disponíveis para colunas OPENROWSET.
+
+#### <a name="catalog-views-for-statistics"></a>Exibições de catálogo para as estatísticas
+
+Essas exibições do sistema fornecem informações sobre estatísticas:
+
+| Exibição de catálogo                                                 | Descrição                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada coluna.                                     |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada objeto no banco de dados.                     |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada esquema no banco de dados.                     |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada objeto de estatísticas.                          |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada tabela (inclui tabelas externas).           |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada tipo de dados.                                  |
+
+#### <a name="system-functions-for-statistics"></a>Funções de sistema para estatísticas
+
+Essas funções de sistema são úteis para trabalhar com estatísticas:
+
+| Função do sistema                                              | Descrição                                  |
+| :----------------------------------------------------------- | :------------------------------------------- |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Data da última atualização do objeto de estatísticas. |
+
+#### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinar colunas de estatísticas e funções em uma exibição
+
+Essa exibição une as colunas relacionadas às estatísticas e os resultados da função STATS_DATE() em conjunto.
+
+```sql
+CREATE VIEW dbo.vstats_columns
+AS
+SELECT
+        sm.[name]                           AS [schema_name]
+,       tb.[name]                           AS [table_name]
+,       st.[name]                           AS [stats_name]
+,       st.[filter_definition]              AS [stats_filter_definition]
+,       st.[has_filter]                     AS [stats_is_filtered]
+,       STATS_DATE(st.[object_id],st.[stats_id])
+                                            AS [stats_last_updated_date]
+,       co.[name]                           AS [stats_column_name]
+,       ty.[name]                           AS [column_type]
+,       co.[max_length]                     AS [column_max_length]
+,       co.[precision]                      AS [column_precision]
+,       co.[scale]                          AS [column_scale]
+,       co.[is_nullable]                    AS [column_is_nullable]
+,       co.[collation_name]                 AS [column_collation_name]
+,       QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])
+                                            AS two_part_name
+,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])
+                                            AS three_part_name
+FROM    sys.objects                         AS ob
+JOIN    sys.stats           AS st ON    ob.[object_id]      = st.[object_id]
+JOIN    sys.stats_columns   AS sc ON    st.[stats_id]       = sc.[stats_id]
+                            AND         st.[object_id]      = sc.[object_id]
+JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
+                            AND         sc.[object_id]      = co.[object_id]
+JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
+JOIN    sys.tables          AS tb ON    co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm ON    tb.[schema_id]      = sm.[schema_id]
+WHERE   st.[user_created] = 1
+;
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

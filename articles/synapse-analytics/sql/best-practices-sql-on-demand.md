@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317435"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638862"
 ---
 # <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Práticas recomendadas para o pool SQL sem servidor (visualização) no Azure Synapse Analytics
 
@@ -127,13 +127,17 @@ Se os dados armazenados não estiverem particionados, considere particioná-los.
 
 Você pode usar um analisador otimizado para desempenho ao consultar arquivos CSV. Para obter detalhes, consulte [PARSER_VERSION](develop-openrowset.md).
 
+## <a name="manually-create-statistics-for-csv-files"></a>Criar manualmente estatísticas para arquivos CSV
+
+O pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. As estatísticas serão criadas automaticamente para colunas em arquivos parquet quando necessário. Neste momento, as estatísticas não são criadas automaticamente para colunas em arquivos CSV e você deve criar estatísticas manualmente para as colunas que você usa em consultas, particularmente as usadas em DISTINCT, junção, WHERE, ORDENAr por e agrupar por. Verifique as [estatísticas no pool SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) para obter detalhes.
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para aprimorar o desempenho e as junções de consulta
 
 O [CETAS](develop-tables-cetas.md) é um dos recursos mais importantes disponíveis no pool SQL sem servidor. CETAS é uma operação paralela que cria metadados de tabela externa e exporta os resultados da consulta SELECT para um conjunto de arquivos em sua conta de armazenamento.
 
 Você pode usar a operação CETAS para armazenar partes usadas com frequência de consultas, como tabelas de referência unidas, em um novo conjunto de arquivos. Você pode unir a essa única tabela externa em vez de repetir junções comuns em várias consultas.
 
-Como a operação CETAS gera arquivos Parquet, as estatísticas serão criadas automaticamente quando a primeira consulta for direcionada a essa tabela externa, resultando em um desempenho aprimorado.
+Como CETAS gera arquivos parquet, as estatísticas serão criadas automaticamente quando a primeira consulta for direcionada a essa tabela externa, resultando em desempenho aprimorado para consultas subsequentes direcionadas à tabela gerada com CETAS.
 
 ## <a name="azure-ad-pass-through-performance"></a>Desempenho de passagem do Azure AD
 
