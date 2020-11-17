@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83b69ea7c2a4459d30c4ceb90f62ab6a1a10cc2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648167"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Exibindo aplicativos usando seu locatário do Azure AD para o gerenciamento de identidades
 A [série de guias de início rápido sobre o gerenciamento de aplicativos](view-applications-portal.md) orienta os conceitos básicos. Nele, você aprende a exibir todos os aplicativos usando seu locatário do Azure AD para o gerenciamento de identidades. Este artigo mergulha um pouco mais sobre os tipos de aplicativos que você encontrará.
@@ -28,15 +28,15 @@ Quando filtrada para **Todos os Aplicativos**, a **Lista** **Todos os Aplicativo
    - **Aplicativos do Proxy de Aplicativo** – um aplicativo em execução em seu ambiente local para o qual você deseja fornecer logon único seguro externamente
 - Ao se inscrever ou entrar no, um aplicativo de terceiros integrado ao Azure Active Directory. Um exemplo é o [Smartsheet](https://app.smartsheet.com/b/home) ou o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 - Aplicativos da Microsoft, como o Microsoft 365.
-- Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Registro de Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
-- Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Portal de Registro de Aplicativos V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
+- Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Registro de Aplicativo](../develop/quickstart-register-app.md)
+- Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Portal de Registro de Aplicativos V2.0](../develop/quickstart-register-app.md)
 - Ao adicionar um aplicativo, você está desenvolvendo usando os [métodos de autenticação ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou os [Serviços conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) do Visual Studio
 - Quando você cria um objeto de entidade de serviço usando o [Módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
-- Quando você [dá consentimento a um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) como administrador para usar dados em seu locatário
-- Quando um [usuário dá consentimento para um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) usar dados no seu locatário
+- Quando você [dá consentimento a um aplicativo](../develop/howto-convert-app-to-be-multi-tenant.md) como administrador para usar dados em seu locatário
+- Quando um [usuário dá consentimento para um aplicativo](../develop/howto-convert-app-to-be-multi-tenant.md) usar dados no seu locatário
 - Quando você habilita determinados serviços que armazenam dados em seu locatário. Um exemplo é a Redefinição de Senha, que é modelada como uma entidade de serviço para armazenar sua senha de redefinição de senha com segurança.
 
-Saiba mais sobre como e por que os aplicativos são adicionados ao diretório, consulte [como os aplicativos são adicionados ao Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
+Saiba mais sobre como e por que os aplicativos são adicionados ao diretório, consulte [como os aplicativos são adicionados ao Azure ad](../develop/active-directory-how-applications-are-added.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciamento de aplicativos com o Active Directory do Azure](what-is-application-management.md)

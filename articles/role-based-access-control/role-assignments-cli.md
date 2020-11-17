@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597657"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648354"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Adicionar ou remover atribuições de função do Azure usando a CLI do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "91597657"
 Para adicionar ou remover atribuições de função, você deve ter:
 
 - as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
+- [Bash em Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure)
 
 ## <a name="steps-to-add-a-role-assignment"></a>Etapas para adicionar uma atribuição de função
 
@@ -362,4 +362,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Listar atribuições de função do Azure usando CLI do Azure](role-assignments-list-cli.md)
-- [Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/management/manage-resources-cli.md)

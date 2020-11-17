@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309373"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649136"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -40,7 +40,7 @@ Clique no nome do provedor de recursos na tabela a seguir para ver a lista de op
 | [Microsoft.Cdn](#microsoftcdn) |
 | [Microsoft.ClassicNetwork](#microsoftclassicnetwork) |
 | [Microsoft.Network](#microsoftnetwork) |
-| **Armazenamento** |
+| **Storage** |
 | [Microsoft.ClassicStorage](#microsoftclassicstorage) |
 | [Microsoft.DataBox](#microsoftdatabox) |
 | [Microsoft.ImportExport](#microsoftimportexport) |
@@ -792,7 +792,7 @@ Serviço do Azure: rede virtual do modelo de implantação clássico
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [bastiões do Azure](../bastion/index.yml), [proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md), [DNS do Azure](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Firewall do Azure](../firewall/index.yml), [serviço de porta frontal do Azure](../frontdoor/index.yml), [link privado do Azure](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [observador de rede](../network-watcher/index.yml), Gerenciador de [tráfego](../traffic-manager/index.yml), [rede virtual](../virtual-network/index.yml), [Wan virtual](../virtual-wan/index.yml), [Gateway de VPN](../vpn-gateway/index.yml)
+Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [bastiões do Azure](../bastion/index.yml), [proteção contra DDoS do Azure](../ddos-protection/ddos-protection-overview.md), [DNS do Azure](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Firewall do Azure](../firewall/index.yml), [serviço de porta frontal do Azure](../frontdoor/index.yml), [link privado do Azure](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [observador de rede](../network-watcher/index.yml), Gerenciador de [tráfego](../traffic-manager/index.yml), [rede virtual](../virtual-network/index.yml), [Wan virtual](../virtual-wan/index.yml), [Gateway de VPN](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -3850,7 +3850,7 @@ Serviço do Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Serviço do Azure: [banco de dados SQL do](../azure-sql/database/index.yml)Azure, [Azure SQL instância gerenciada](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (anteriormente SQL data warehouse)](../sql-data-warehouse/index.yml)
+Serviço do Azure: [banco de dados SQL do](../azure-sql/database/index.yml)Azure, [Azure SQL instância gerenciada](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (anteriormente SQL data warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -4331,7 +4331,7 @@ Serviço do Azure: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
-Serviço do Azure: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Serviço do Azure: [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -4619,7 +4619,7 @@ Serviço do Azure: [Data Explorer do Azure](/azure/data-explorer/)
 
 ### <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-Serviço do Azure: [Power bi Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Serviço do Azure: [Power bi Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -4712,7 +4712,7 @@ Serviço do Azure: [serviço Blockchain do Azure](../blockchain/workbench/index.
 
 ### <a name="microsoftbotservice"></a>Microsoft.BotService
 
-Serviço do Azure: [serviço de bot do Azure](https://docs.microsoft.com/azure/bot-service/)
+Serviço do Azure: [serviço de bot do Azure](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -6187,7 +6187,7 @@ Serviço do Azure: [aplicativos lógicos](../logic-apps/index.yml)
 
 ### <a name="microsoftrelay"></a>Microsoft.Relay
 
-Serviço do Azure: [retransmissão do Azure](../service-bus-relay/relay-what-is-it.md)
+Serviço do Azure: [retransmissão do Azure](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -6257,7 +6257,7 @@ Serviço do Azure: [retransmissão do Azure](../service-bus-relay/relay-what-is-
 
 ### <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-Serviço do Azure: [barramento de serviço](../service-bus/index.md)
+Serviço do Azure: [barramento de serviço](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -6957,7 +6957,7 @@ Serviço do Azure: [Azure Lab Services](../lab-services/index.yml)
 
 ### <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
-Serviço do Azure: [DevOps do Azure](https://docs.microsoft.com/azure/devops/)
+Serviço do Azure: [DevOps do Azure](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -7436,7 +7436,7 @@ Serviço do Azure: [migrações para Azure](../migrate/migrate-services-overview
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Obtém as propriedades de um vCenter VMware |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Cria ou atualiza o vCenter VMware |
 
-## <a name="monitor"></a>Monitoramento
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -8924,7 +8924,7 @@ Serviço do Azure: [arco do Azure](../azure-arc/index.yml)
 
 ### <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
-Serviço do Azure: [kubernetes habilitado para Arc do Azure](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Serviço do Azure: [kubernetes habilitado para Arc do Azure](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -9677,7 +9677,7 @@ Serviço do Azure: insights de monitoramento da Microsoft
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
-Serviço do Azure: [mapas do Bing](https://docs.microsoft.com/BingMaps/)
+Serviço do Azure: [mapas do Bing](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |

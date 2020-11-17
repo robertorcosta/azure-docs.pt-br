@@ -3,12 +3,12 @@ title: Alterar configurações de cluster do Azure Service Fabric
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055113"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648218"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -243,7 +243,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático|Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, o padrão é 600|Estático|Esse parâmetro é usado quando a API de perda de dados é chamada. Após remove replica ser invocado internamente nele, controla por quanto tempo o sistema aguardará que uma réplica seja descartada. |
 |ReplicaRestartWaitDuration |Tempo em segundos, o padrão é 60 minutos|Estático|Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para FaultAnalysisService. |
-|StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60*24*7) minutos |Estático|Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para FaultAnalysisService. |
+|StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60 *24* 7) minutos |Estático|Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, o padrão é 3600 |Estático|Essa é a frequência com que o repositório será limpo. Somente ações em um estado terminal; e a concluída há pelo menos CompletedActionKeepDurationInSeconds será removida. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, o padrão é 3600 |Estático|Essa é a frequência com que o repositório será auditado para limpeza; se o número de eventos for maior do que 30000, a limpeza começará. |
 |TargetReplicaSetSize |Int, o padrão é 0 |Estático|NOT_PLATFORM_UNIX_START O TargetReplicaSetSize para FaultAnalysisService. |
@@ -423,14 +423,14 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |AzureStorageMaxConnections | Int, o padrão é 5000 |Dinâmico|O número máximo de conexões simultâneas para o armazenamento do Azure. |
 |AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmico|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, o padrão é 6000 |Dinâmico|Especifique o intervalo de tempo em segundos. Tempo limite para a operação xstore ser concluída. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSE |Dinâmico|Habilita ou desabilita a limpeza automática de pacote de aplicativo em provisão com êxito.
-
-*A prática recomendada é usar o `true` .* | | CleanupUnusedApplicationTypes | Bool, o padrão é FALSE | Dinâmico | Essa configuração, se habilitada, permite cancelar automaticamente o registro de versões de tipo de aplicativo não utilizadas, ignorando as três versões não utilizadas mais recentes, reduzindo assim o espaço em disco ocupado pelo repositório de imagens. A limpeza automática será disparada no final do provisionamento bem-sucedido para esse tipo de aplicativo específico e também será executada periodicamente uma vez por dia para todos os tipos de aplicativos. O número de versões não utilizadas a serem ignoradas pode ser configurado com o parâmetro "MaxUnusedAppTypeVersionsToKeep". 
-
-*A prática recomendada é usar o `true` .*
-| | DisableChecksumValidation | Bool, o padrão é false | Estático | Essa configuração nos permite habilitar ou desabilitar a validação da soma de verificação durante o provisionamento do aplicativo. | | DisableServerSideCopy | Bool, o padrão é false | Estático | Essa configuração habilita ou desabilita a cópia do pacote de aplicativos no lado do servidor no ImageStore durante o provisionamento do aplicativo. | | ImageCachingEnabled | Bool, o padrão é true | Estático | Essa configuração nos permite habilitar ou desabilitar o Caching. | | ImageStoreConnectionString | SecureString | Estático | Cadeia de conexão para a raiz de ImageStore. | | ImageStoreMinimumTransferBPS | Int, o padrão é 1024 | Dinâmico | A taxa de transferência mínima entre o cluster e o ImageStore. Esse valor é usado para determinar o tempo limite ao acessar o ImageStore externo. Altere este valor somente se a latência entre o cluster e o ImageStore for alta para dar mais tempo para o cluster baixar do ImageStore externo. | | MaxUnusedAppTypeVersionsToKeep | Int, o padrão é 3 | Dinâmico | Essa configuração define o número de versões de tipo de aplicativo não usadas a serem ignoradas para limpeza. Esse parâmetro será aplicável somente se o parâmetro CleanupUnusedApplicationTypes estiver habilitado.
-
-*A prática recomendada geral é usar o padrão ( `3` ).*|
+|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSE |Dinâmico|Habilita ou desabilita a limpeza automática de pacote de aplicativo em provisão com êxito.<br/> *A prática recomendada é usar o `true` .*
+|CleanupUnusedApplicationTypes|Bool, o padrão é FALSE |Dinâmico|Essa configuração, se habilitada, permite cancelar automaticamente o registro de versões de tipo de aplicativo não utilizadas, ignorando as três versões não utilizadas mais recentes e reduzindo o espaço em disco ocupado pelo repositório de imagens. A limpeza automática será disparada no final do provisionamento bem-sucedido para esse tipo de aplicativo específico e também será executada periodicamente uma vez por dia para todos os tipos de aplicativos. O número de versões não utilizadas a serem ignoradas pode ser configurado com o parâmetro "MaxUnusedAppTypeVersionsToKeep". <br/> *A prática recomendada é usar o `true` .*
+|DisableChecksumValidation | Bool, o padrão é false |Estático| Essa configuração permite habilitar ou desabilitar a validação de soma de verificação durante o provisionamento de aplicativo. |
+|DisableServerSideCopy | Bool, o padrão é false |Estático|Essa configuração habilita ou desabilita a cópia do lado do servidor do pacote de aplicativos no ImageStore durante o provisionamento de aplicativo. |
+|ImageCachingEnabled | Bool, o padrão é true |Estático|Essa configuração permite habilitar ou desabilitar o cache. |
+|ImageStoreConnectionString |SecureString |Estático|Cadeia de conexão para a raiz do ImageStore. |
+|ImageStoreMinimumTransferBPS | Int, o padrão é 1024 |Dinâmico|A taxa de transferência mínima entre o cluster e o ImageStore. Esse valor é usado para determinar o tempo limite ao acessar o ImageStore externo. Altere este valor somente se a latência entre o cluster e o ImageStore for alta para dar mais tempo para o cluster baixar do ImageStore externo. |
+|MaxUnusedAppTypeVersionsToKeep | Int, o padrão é 3 |Dinâmico|Essa configuração define o número de versões de tipo de aplicativo não usadas a serem ignoradas na limpeza. Esse parâmetro será aplicável somente se o parâmetro CleanupUnusedApplicationTypes estiver habilitado. <br/>*A prática recomendada geral é usar o padrão ( `3` ). Valores menores que 1 não são válidos.*|
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -890,7 +890,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |PlacementConstraints | cadeia de caracteres, o padrão é "" |Estático| O PlacementConstraints para UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático| Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60 minutos|Estático| Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
-|StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60*24*7 minutos |Estático| Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para UpgradeOrchestrationService. |
+|StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60 *24* 7 minutos |Estático| Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para UpgradeOrchestrationService. |
 |TargetReplicaSetSize |Int, o padrão é 0 |Estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, o padrão é false | Estático|Configuração para fazer a atualização de código exigir aprovação do administrador antes de continuar. |
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545337"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648235"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -87,7 +87,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 
 Para concluir essas etapas, será necessário:
 
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
+- [Bash em Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure)
 - Administrador da conta da assinatura que você deseja transferir no diretório de origem
 - Função de [proprietário](built-in-roles.md#owner) no diretório de destino
 
@@ -111,7 +111,7 @@ Para concluir essas etapas, será necessário:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Instalar a extensão do grafo de recursos do Azure
 
- A extensão de CLI do Azure para o [grafo de recursos do Azure](../governance/resource-graph/index.yml), o *grafo de recursos* , permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
+ A extensão de CLI do Azure para o [grafo de recursos do Azure](../governance/resource-graph/index.yml), o *grafo de recursos*, permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
 
 1. Use a [lista de extensões AZ](/cli/azure/extension#az_extension_list) para ver se você tem a extensão *Resource-Graph* instalada.
 

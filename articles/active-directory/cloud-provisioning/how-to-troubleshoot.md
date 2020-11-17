@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650080"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Solução de problemas de provisionamento de nuvem
 
@@ -22,7 +22,7 @@ O provisionamento de nuvem atinge muitas coisas diferentes e tem várias depend�
 
 ## <a name="common-troubleshooting-areas"></a>Áreas de solução de problemas comuns
 
-|Nome|Descrição|
+|Name|Descrição|
 |-----|-----|
 |[Problemas do agente](#agent-problems)|Verifique se o agente foi instalado corretamente e se ele se comunica com o Azure Active Directory (Azure AD).|
 |[Problemas de sincronização de objeto](#object-synchronization-problems)|Use os logs de provisionamento para solucionar problemas de sincronização de objetos.|
@@ -47,11 +47,11 @@ Para verificar se o agente é visto pelo Azure e está íntegro, siga estas etap
 1. À esquerda, selecione **Azure Active Directory** > **Azure AD Connect**. No centro, selecione **Gerenciar aprovisionamento (versão prévia)** .
 1. Na tela **Provisionamento do Azure AD (versão prévia)** , selecione **Examinar todos os agentes**.
 
-   ![Examinar todos os agentes](media/how-to-install/install7.png)</br>
+   ![Examinar todos os agentes](media/how-to-install/install-7.png)</br>
  
 1. Na tela **agentes de provisionamento locais** , você vê os agentes que você instalou. Verifique se o agente em questão está lá e está marcado como *íntegro*.
 
-   ![Tela Agentes de provisionamento local](media/how-to-install/install8.png)</br>
+   ![Tela Agentes de provisionamento local](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Verificar a porta
 
@@ -59,7 +59,7 @@ Verifique se o Azure está escutando na porta 443 e se o agente pode se comunica
 
 Esse teste verifica se os agentes podem se comunicar com o Azure pela porta 443. Abra um navegador e vá para a URL anterior do servidor em que o agente está instalado.
 
-![Verificação de acessibilidade de porta](media/how-to-install/verify2.png)
+![Verificação de acessibilidade de porta](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>No servidor local
 
@@ -129,7 +129,7 @@ Por padrão, o agente emite mensagens de erro mínimas e informações de rastre
 Para coletar detalhes adicionais para solucionar problemas relacionados ao agente, siga estas etapas.
 
 1. Pare o serviço **Microsoft Azure ad conectar o agente de provisionamento**.
-1. Crie uma cópia do arquivo de configuração original: *c:\Arquivos de programas\microsoft Azure AD Connect Agent\AADConnectProvisioningAgent.exe.configde provisionamento *.
+1. Crie uma cópia do arquivo de configuração original: *c:\Arquivos de programas\microsoft Azure AD Connect Agent\AADConnectProvisioningAgent.exe.configde provisionamento*.
 1. Substitua a `<system.diagnostics>` seção existente pelo seguinte e todas as mensagens de rastreamento vão para o arquivo *ProvAgentTrace. log*.
 
    ```xml

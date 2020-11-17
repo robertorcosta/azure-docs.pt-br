@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172990"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649425"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -169,7 +169,12 @@ Especifique as configurações de política da seguinte maneira:
     ![Política de backup diferencial](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Atualmente, backups incrementais não são compatíveis.
+    > Os backups incrementais agora têm suporte na visualização pública. Você pode escolher uma diferencial ou uma incremental como um backup diário, mas não ambos.
+7. Em **política de backup incremental**, selecione **habilitar** para abrir os controles de frequência e retenção.
+    * No máximo, você pode disparar um backup incremental por dia.
+    * Os backups incrementais podem ser retidos por um máximo de 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
+
+    ![Política de backup incremental](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
 7. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
 8. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.

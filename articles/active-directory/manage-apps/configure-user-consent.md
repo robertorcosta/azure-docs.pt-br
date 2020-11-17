@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427630"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649493"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar como os usuários finais consentem nos aplicativos
 
@@ -57,7 +57,7 @@ Para definir as configurações de consentimento do usuário por meio do portal 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Você pode usar o último módulo de visualização do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), para escolher qual política de consentimento do aplicativo governa o consentimento do usuário para aplicativos.
+Você pode usar o último módulo de visualização do PowerShell do Azure AD, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), para escolher qual política de consentimento do aplicativo governa o consentimento do usuário para aplicativos.
 
 #### <a name="disable-user-consent"></a>Desabilitar consentimento do usuário
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Consentimento em etapas com base em risco
 
-O consentimento de step-up baseado em risco ajuda a reduzir a exposição do usuário a aplicativos mal-intencionados que fazem [solicitações de consentimento ilícitas](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Se a Microsoft detectar uma solicitação arriscada de consentimento ao usuário final, a solicitação exigirá um "step-up" para o consentimento do administrador. Esse recurso é habilitado por padrão, mas só resultará em uma alteração de comportamento quando o consentimento do usuário final estiver habilitado.
+O consentimento de step-up baseado em risco ajuda a reduzir a exposição do usuário a aplicativos mal-intencionados que fazem [solicitações de consentimento ilícitas](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Se a Microsoft detectar uma solicitação arriscada de consentimento ao usuário final, a solicitação exigirá um "step-up" para o consentimento do administrador. Esse recurso é habilitado por padrão, mas só resultará em uma alteração de comportamento quando o consentimento do usuário final estiver habilitado.
 
 Quando uma solicitação de consentimento arriscado for detectada, a solicitação de consentimento exibirá uma mensagem indicando que a aprovação do administrador é necessária. Se o [fluxo de trabalho de solicitação de consentimento do administrador](configure-admin-consent-workflow.md) estiver habilitado, o usuário poderá enviar a solicitação a um administrador para análise diretamente do prompt de consentimento. Se não estiver habilitado, a seguinte mensagem será exibida:
 
@@ -114,9 +114,9 @@ Nesse caso, um evento de auditoria também será registrado com a categoria "App
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Desabilitar ou reabilitar o consentimento de step-up baseado em risco usando o PowerShell
 
-Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para desabilitar o step-up até o consentimento do administrador necessário quando a Microsoft detecta um risco ou reabilitá-lo se tiver sido desabilitado anteriormente.
+Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), para desabilitar o step-up até o consentimento do administrador necessário quando a Microsoft detecta um risco ou reabilitá-lo se tiver sido desabilitado anteriormente.
 
-1. Verifique se você está usando o módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Esta etapa será importante se você tiver instalado os módulos [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) e [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Verifique se você está usando o módulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Esta etapa será importante se você tiver instalado os módulos [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) e [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD
@@ -145,7 +145,7 @@ Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureAD
 
 1. Entenda o valor das configurações:
 
-    | Configuração       | Digite         | Descrição  |
+    | Configuração       | Type         | Descrição  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolean |  Sinalizador que indica se o consentimento do usuário será bloqueado quando uma solicitação arriscada for detectada. |
 
@@ -182,7 +182,7 @@ Para saber mais:
 * [Configurar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md)
 * [Saiba como gerenciar o consentimento em aplicativos e avaliar solicitações de consentimento](manage-consent-requests.md)
 * [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
-* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
 * [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

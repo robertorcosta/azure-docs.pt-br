@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e44437bb926e8d2d1ffcd3134bbc63538a112ff0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147004"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648303"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Listar atribuições de função do Azure usando CLI do Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "93147004"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
+- [Bash em Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
 
