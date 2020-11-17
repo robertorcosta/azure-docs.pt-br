@@ -67,9 +67,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: Vários front-ends
       href: load-balancer-multivip-overview.md
-    - name: Proxy de saída
+    - name: SNAT para conexões de saída com a Internet
       href: load-balancer-outbound-connections.md
-    - name: Regras de saída
+    - name: Configuração de regras de saída
       href: outbound-rules.md
     - name: Reiniciar TCP após tempo limite de ociosidade
       href: load-balancer-tcp-reset.md

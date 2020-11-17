@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Habilitar em VMs por meio do Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Reparar uma conta de Gerenciamento Automatizado corrompida
+      href: repair-automanage-account.md
 - name: Recursos
   expanded: true
   items:

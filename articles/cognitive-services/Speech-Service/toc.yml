@@ -28,8 +28,6 @@
       items:
         - name: Alterar o idioma de origem do reconhecimento de fala
           href: how-to-specify-source-language.md
-        - name: Melhorar a precisão com a Fala Personalizada
-          href: how-to-custom-speech.md
         - name: Usar formatos de entrada de áudio compactados
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Personalização
       items:
+        - name: O que é a Fala Personalizada?
+          href: custom-speech-overview.md
         - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
           href: quickstarts/speech-studio-test-model.md
         - name: Preparar dados para Fala Personalizada
           href: how-to-custom-speech-test-and-train.md
         - name: Inspecionar dados da Fala Personalizada
           href: how-to-custom-speech-inspect-data.md
-        - name: Avaliar a precisão da Fala Personalizada
+        - name: Avaliar e aprimorar a precisão da Fala Personalizada
           href: how-to-custom-speech-evaluate-data.md
-        - name: Aprimorar a precisão da Fala Personalizada
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Treinar um modelo para Fala Personalizada
+        - name: Treinar e implantar um modelo de Fala Personalizada
           href: how-to-custom-speech-train-model.md
-        - name: Implantar um modelo personalizado
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD para Fala Personalizada
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Criar transcrições rotuladas por humanos
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Exportar seu aplicativo de Comandos Personalizados como uma habilidade
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Atualizar um comando do aplicativo cliente
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Atualizar um comando de um ponto de extremidade da Web
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Implantar
                   items:
                     - name: Implantação contínua com o Azure DevOps
