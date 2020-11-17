@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0bbd11577f903d70ecace2cb5859a8c2121f483b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489600"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647385"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar o tipo de associação de grupo estático para dinâmico no Microsoft Azure Active Directory
 
@@ -34,7 +34,7 @@ Você pode alterar a associação do grupo de estático para dinâmico (ou vice-
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global, administrador de usuário ou administrador de grupos na sua organização do Azure AD.
 2. Selecione **Grupos**.
-3. Na lista **Todos os grupos** , abra o grupo que você deseja alterar.
+3. Na lista **Todos os grupos**, abra o grupo que você deseja alterar.
 4. Selecione **Propriedades**.
 5. Na página **Propriedades** do grupo, selecione um **Tipo de Associação** entre Atribuído (estático), Usuário Dinâmico ou Dispositivo Dinâmico, dependendo do tipo de associação desejado. Para associação dinâmica, é possível usar o construtor de regras para selecionar opções para uma regra simples ou gravar uma regra avançada de associação. 
 

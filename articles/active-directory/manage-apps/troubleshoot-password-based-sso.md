@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460347"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646229"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure AD
 
@@ -36,7 +36,7 @@ Este problema geralmente acontece se o fornecedor do aplicativo alterou a págin
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma dessas integrações não funcionar corretamente, abra um caso de suporte para que seja corrigido o mais rapidamente possível.
 
-**Se você estiver em contato com o fornecedor desse aplicativo,** coloque-o em contato conosco de modo que a Microsoft possa trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
+**Se você estiver em contato com o fornecedor desse aplicativo,** coloque-o em contato conosco de modo que a Microsoft possa trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais estão preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
 
@@ -62,7 +62,7 @@ Caso as sugestões anteriores não funcionem, pode ser que tenha ocorrido uma al
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para arrumar o problema o mais rápido possível. 
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de logon do aplicativo foi alterada recentemente ou exige um campo adicional
 
@@ -70,7 +70,7 @@ Se a página de logon do aplicativo foi drasticamente alterada, às vezes isso c
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para arrumar o problema o mais rápido possível. 
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Capturar campos de entrada para um aplicativo
 
@@ -103,7 +103,7 @@ Para configurar o SSO baseado em senha usando a captura automática de campo de 
 
 ### <a name="manually-capture-sign-in-fields-for-an-app"></a>Capturar manualmente os campos de entrada para um aplicativo
 
-Para capturar manualmente os campos de entrada, você deve ter a extensão de navegador meus aplicativos instalada. Além disso, seu navegador não pode ser executado no modo *InPrivate*, *Incognito*ou *Private* .
+Para capturar manualmente os campos de entrada, você deve ter a extensão de navegador meus aplicativos instalada. Além disso, seu navegador não pode ser executado no modo *InPrivate*, *Incognito* ou *Private* .
 
 Para configurar o SSO baseado em senha para um aplicativo usando a captura de campo de entrada manual, siga estas etapas:
 1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
@@ -117,7 +117,7 @@ Para configurar o SSO baseado em senha para um aplicativo usando a captura de ca
 7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação no lado esquerdo.
 8. Selecione o modo de **logon baseado em senha** .
 9. Insira a **URL de logon**, que é a página em que os usuários inserem seu nome de usuário e senha para entrar. *Certifique-se de que os campos de entrada estejam visíveis na página para a URL que você fornecer*.
-10. Selecione **definir as configurações de logon único de senha do * &lt; AppName &gt; * **.
+10. Selecione **definir as configurações de logon único de senha do *&lt; AppName &gt;***.
 11. Selecione **detectar manualmente os campos de entrada**.
 14. Selecione **OK**.
 15. Clique em **Salvar**.
@@ -146,10 +146,10 @@ Você pode observar os seguintes comportamentos quando a detecção manual não 
 
 Se você tiver qualquer um desses problemas, faça o seguinte:
 - Verifique se você tem a versão mais recente da extensão de navegador meus aplicativos *instalada e habilitada*.
-- Verifique se o navegador não está no modo *Incognito*, *InPrivate*ou *Private* durante o processo de captura. A extensão meus aplicativos não tem suporte nesses modos.
-- Certifique-se de que os usuários não estão tentando entrar no aplicativo de meus aplicativos enquanto estiverem no modo *Incognito*, *InPrivate*ou *Private*.
+- Verifique se o navegador não está no modo *Incognito*, *InPrivate* ou *Private* durante o processo de captura. A extensão meus aplicativos não tem suporte nesses modos.
+- Certifique-se de que os usuários não estão tentando entrar no aplicativo de meus aplicativos enquanto estiverem no modo *Incognito*, *InPrivate* ou *Private*.
 - Tente o processo de captura manual novamente. Verifique se os marcadores vermelhos estão sobre os campos corretos.
-- Se o processo de captura manual parecer parar de responder ou a página de entrada não responder, tente o processo de captura manual novamente. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione a guia **console** . digite **Window. Location = "* &lt; a URL de entrada que você especificou ao configurar o aplicativo &gt; *"** e pressione Enter. Isso força um redirecionamento de página que encerra o processo de captura e armazena os campos que foram capturados.
+- Se o processo de captura manual parecer parar de responder ou a página de entrada não responder, tente o processo de captura manual novamente. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione a guia **console** . digite **Window. Location = "*&lt; a URL de entrada que você especificou ao configurar o aplicativo &gt;*"** e pressione Enter. Isso força um redirecionamento de página que encerra o processo de captura e armazena os campos que foram capturados.
 
 ## <a name="request-support"></a>Solicitar suporte 
 Se você receber uma mensagem de erro ao configurar o SSO e atribuir usuários, abra um tíquete de suporte. Inclua o máximo possível das seguintes informações:

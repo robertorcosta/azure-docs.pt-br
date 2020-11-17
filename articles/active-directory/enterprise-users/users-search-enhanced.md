@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517168"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646603"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Aprimoramentos de gerenciamento de usuário (versão prévia) no Azure Active Directory
 
@@ -88,7 +88,7 @@ Algumas colunas são exibidas por padrão. Para adicionar outras colunas, seleci
 Selecione uma entrada na coluna **emissor de identidade** para qualquer usuário exibir detalhes adicionais sobre o emissor, incluindo o tipo de entrada e a ID atribuída do emissor. As entradas na coluna **emissor da identidade** podem ter valores múltiplos. Se houver vários emissores da identidade do usuário, você verá a palavra vários na coluna emissor de **identidade** em **todas as páginas usuários** e **usuários excluídos** e o painel detalhes listará todos os emissores.
 
 > [!NOTE]
-> A coluna de **origem** é substituída por várias colunas, incluindo o **tipo de criação**, o **diretório sincronizado**e o **emissor de identidade** para filtragem mais granular.
+> A coluna de **origem** é substituída por várias colunas, incluindo o **tipo de criação**, o **diretório sincronizado** e o **emissor de identidade** para filtragem mais granular.
 
 ## <a name="user-list-search"></a>Pesquisa de lista de usuários
 

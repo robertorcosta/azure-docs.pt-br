@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374267"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646586"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir as permissões de acesso de convidado (versão prévia) no Azure Active Directory
 
@@ -47,7 +47,7 @@ Fizemos alterações nos controles de portal do Azure existentes para permissõe
 
     ![Página de configurações de colaboração externa do Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 
-1. Clique em **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
+1. Selecione **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Atualizar com a API de Microsoft Graph
 
@@ -150,7 +150,7 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 - Projeto
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 Pergunta | Resposta
 -------- | ------

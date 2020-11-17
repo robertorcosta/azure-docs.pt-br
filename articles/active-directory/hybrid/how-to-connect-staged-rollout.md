@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628893"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646569"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -73,7 +73,7 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 
 - Os administradores podem distribuir a autenticação na nuvem usando grupos de segurança. Para evitar a latência de sincronização quando estiver usando grupos de segurança locais do Active Directory, recomendamos que você use grupos de segurança de nuvem. As seguintes condições se aplicam:
 
-    - Você pode usar um máximo de 10 grupos por recurso. Ou seja, você pode usar 10 grupos cada para *sincronização de hash de senha* , *autenticação de passagem* e *SSO contínuo*.
+    - Você pode usar um máximo de 10 grupos por recurso. Ou seja, você pode usar 10 grupos cada para *sincronização de hash de senha*, *autenticação de passagem* e *SSO contínuo*.
     - *Não há suporte* para grupos aninhados. Esse escopo se aplica também à visualização pública.
     - *Não há suporte* para grupos dinâmicos na distribuição em etapas.
     - Os objetos de contato dentro do grupo não permitirão que o grupo seja adicionado.
@@ -89,7 +89,7 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 
 ## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas
 
-Para testar a *sincronização de hash de senha* , entre usando a distribuição em etapas e siga as instruções de preparação da próxima seção.
+Para testar a *sincronização de hash de senha*, entre usando a distribuição em etapas e siga as instruções de preparação da próxima seção.
 
 Para obter informações sobre quais cmdlets do PowerShell devem ser usados, consulte [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
@@ -99,11 +99,11 @@ Para obter informações sobre quais cmdlets do PowerShell devem ser usados, con
 
    ![Captura de tela da página “Recursos opcionais” no Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Verifique se um ciclo de *sincronização de hash de senha* completo foi executado para que todos os hashes de senha dos usuários tenham sido sincronizados com o Azure AD. Para verificar o status da *sincronização de hash de senha* , você pode usar o diagnóstico do PowerShell em [Solucionar problemas de sincronização de hash de senha com a sincronização do Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
+1. Verifique se um ciclo de *sincronização de hash de senha* completo foi executado para que todos os hashes de senha dos usuários tenham sido sincronizados com o Azure AD. Para verificar o status da *sincronização de hash de senha*, você pode usar o diagnóstico do PowerShell em [Solucionar problemas de sincronização de hash de senha com a sincronização do Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
    ![Captura de tela do log de Solução de problemas do AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
 
-Caso queira testar a *autenticação de passagem* , entre usando a distribuição em etapas e habilite-a seguindo as instruções de preparação da próxima seção.
+Caso queira testar a *autenticação de passagem*, entre usando a distribuição em etapas e habilite-a seguindo as instruções de preparação da próxima seção.
 
 ## <a name="pre-work-for-pass-through-authentication"></a>Preparação para autenticação de passagem
 
@@ -117,13 +117,13 @@ Caso queira testar a *autenticação de passagem* , entre usando a distribuiçã
 
 1. Verifique se você definiu suas [Configurações do Smart Lock](../authentication/howto-password-smart-lockout.md) adequadamente. Isso ajuda a garantir que as contas locais do Active Directory dos seus usuários não serão bloqueadas por atores inadequados.
 
-É recomendável habilitar o *SSO contínuo* independentemente do método de entrada ( *sincronização de hash de senha* ou *autenticação de passagem* ) selecionado para a distribuição em etapas. Para habilitar o *SSO contínuo* , siga as instruções de preparação na próxima seção.
+É recomendável habilitar o *SSO contínuo* independentemente do método de entrada (*sincronização de hash de senha* ou *autenticação de passagem*) selecionado para a distribuição em etapas. Para habilitar o *SSO contínuo*, siga as instruções de preparação na próxima seção.
 
 ## <a name="pre-work-for-seamless-sso"></a>Preparação para SSO contínuo
 
 Habilite o *SSO contínuo* nas florestas de Active Directory usando o PowerShell. Se você tiver mais de uma floresta Active Directory, habilite-a para cada floresta individualmente. O *SSO contínuo* é disparado somente para usuários selecionados para distribuição em etapas. Ele não afeta sua configuração de federação existente.
 
-Para habilitar o *SSO contínuo* , faça o seguinte:
+Para habilitar o *SSO contínuo*, faça o seguinte:
 
 1. Entre no servidor do Azure AD Connect.
 
@@ -149,7 +149,7 @@ Para habilitar o *SSO contínuo* , faça o seguinte:
 
 ## <a name="enable-staged-rollout"></a>Habilitar a distribuição em etapas
 
-Para distribuir um recurso específico ( *autenticação de passagem* , *sincronização de hash de senha* ou *SSO contínuo* ) para um conjunto selecionado de usuários em um grupo, siga as instruções das próximas seções.
+Para distribuir um recurso específico (*autenticação de passagem*, *sincronização de hash de senha* ou *SSO contínuo*) para um conjunto selecionado de usuários em um grupo, siga as instruções das próximas seções.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Habilitar uma distribuição em etapas de um recurso específico no seu locatário
 
@@ -165,7 +165,7 @@ Faça o seguinte:
 
 2. Selecione o link **Habilitar a distribuição em etapas para a entrada de usuário gerenciado (versão prévia)** .
 
-   Por exemplo, caso queira habilitar a *Opção a* , deslize os controles de **Sincronização de hash de senha** e **Logon único contínuo** para **Ativado** , conforme mostrado nas imagens a seguir.
+   Por exemplo, caso queira habilitar a *Opção a*, deslize os controles de **Sincronização de hash de senha** e **Logon único contínuo** para **Ativado**, conforme mostrado nas imagens a seguir.
 
    ![A página do Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -178,12 +178,13 @@ Faça o seguinte:
    >[!NOTE]
    >Os membros de um grupo são habilitados automaticamente para a distribuição em etapas. Não há suporte para grupos aninhados e dinâmicos na distribuição em etapas.
    >Ao adicionar um novo grupo, os usuários no grupo (até 200 usuários para um novo grupo) serão atualizados para usar o immidiatly de autenticação gerenciada. Editar um grupo (adicionar ou remover usuários) pode levar até 24 horas para que as alterações entrem em vigor.
+   >O SSO contínuo será aplicado somente se os usuários estiverem no grupo de SSO contínuo e também em um grupo PTA ou PHS.
 
 ## <a name="auditing"></a>Auditoria
 
 Habilitamos eventos de auditoria para as várias ações que executamos para fazer a distribuição em etapas:
 
-- Evento de auditoria ao habilitar uma distribuição em etapas para a *sincronização de hash de senha* , a *autenticação de passagem* ou o *SSO contínuo*.
+- Evento de auditoria ao habilitar uma distribuição em etapas para a *sincronização de hash de senha*, a *autenticação de passagem* ou o *SSO contínuo*.
 
   >[!NOTE]
   >Um evento de auditoria é registrado quando o *SSO contínuo* for ativado usando a distribuição em etapas.
@@ -192,7 +193,7 @@ Habilitamos eventos de auditoria para as várias ações que executamos para faz
 
   ![O painel “Criar política de distribuição para recurso” – guia Propriedades Modificadas](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Evento de auditoria quando um grupo for adicionado à *sincronização de hash de senha* , à *autenticação de passagem* ou ao *SSO contínuo*.
+- Evento de auditoria quando um grupo for adicionado à *sincronização de hash de senha*, à *autenticação de passagem* ou ao *SSO contínuo*.
 
   >[!NOTE]
   >Um evento de auditoria é registrado quando um grupo for adicionado à *sincronização de hash de senha* para a distribuição em etapas.
@@ -217,7 +218,7 @@ Para testar a entrada com a *sincronização de hash de senha* ou a *autenticaç
 
 1. Verifique se a entrada é exibida com êxito no [Relatório de atividade de entrada do Azure AD](../reports-monitoring/concept-sign-ins.md); para isso, filtre usando o UPN.
 
-Para testar a entrada com o *SSO contínuo* :
+Para testar a entrada com o *SSO contínuo*:
 
 1. Na intranet, vá para a [página Aplicativos](https://myapps.microsoft.com) em uma sessão privada do navegador e, em seguida, insira o UPN da conta de usuário que foi selecionada para a distribuição em etapas.
 
@@ -239,7 +240,7 @@ A: Sim, você pode usar esse recurso em seu locatário de produção, mas recome
 
 **P: Esse recurso pode ser usado para manter uma “coexistência” permanente, na qual alguns usuários usam a autenticação federada e outros usam a autenticação de nuvem?**
 
-A: Não, esse recurso foi projetado para fazer a migração da autenticação federada para a nuvem em estágios e, em seguida, finalmente, para a autenticação na nuvem. Não recomendamos usar um estado misto permanente, pois essa abordagem pode levar a fluxos de autenticação inesperados.
+R: não, esse recurso foi projetado para testar a autenticação na nuvem. Após o teste bem-sucedido de alguns grupos de usuários, você deve passar para a autenticação na nuvem. Não recomendamos usar um estado misto permanente, pois essa abordagem pode levar a fluxos de autenticação inesperados.
 
 **P: Posso usar o PowerShell para executar a distribuição em etapas?**
 
