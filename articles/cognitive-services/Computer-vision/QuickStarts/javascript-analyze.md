@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 446a172f4515aaa9e03ad403a0f20c9ff15e0e78
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 573937638ac0ba1c9db6f1410b9a09f4d79e0056
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968949"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542789"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST e JavaScript na Pesquisa Visual Computacional
 
-Neste início rápido, você analisará uma imagem armazenada remotamente para extrair características visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
+Neste início rápido, você analisará uma imagem armazenada remotamente para extrair características visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b), é possível extrair recursos visuais com base no conteúdo de imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,8 +52,8 @@ Para criar e executar o exemplo, siga estas etapas:
 <script type="text/javascript">
     function processImage() {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
@@ -208,7 +208,7 @@ Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analis
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript da API de Pesquisa Visual Computacional](../Tutorials/javascript-tutorial.md)

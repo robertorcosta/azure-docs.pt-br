@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
 ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
-ms.openlocfilehash: ca089ab973ceef876691a487bcb43c8582360d6a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f81ec647eefd8b3bd59a60855c0383a32caf8acb
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91545364"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574075"
 ---
 Use as bibliotecas de clientes do LUIS (Reconhecimento vocal) para Node.js para:
 
@@ -29,7 +29,7 @@ Use as bibliotecas de clientes do LUIS (Reconhecimento vocal) para Node.js para:
 * [Node.js](https://nodejs.org)
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Quando você tiver sua assinatura do Azure, [crie um recurso de criação do Reconhecimento vocal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) no portal do Azure para obter a chave e o ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
-    * Você precisará da chave e do ponto de extremidade do recurso que você [criar](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) para conectar seu aplicativo à criação do Reconhecimento vocal. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido. Você pode usar o tipo de preço gratuito (`F0`) para experimentar o serviço.
+    * Você precisará da chave e do ponto de extremidade do recurso que você [criar](../luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) para conectar seu aplicativo à criação do Reconhecimento vocal. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido. Você pode usar o tipo de preço gratuito (`F0`) para experimentar o serviço.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -200,7 +200,7 @@ A fim de determinar a intenção de um enunciado e extrair entidades, o aplicati
 
 Adicione exemplos de enunciado ao criar uma lista de objetos [ExampleLabelObject](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest), um objeto para cada exemplo de enunciado. Cada exemplo deve marcar todas as entidades com um dicionário de pares de nome/valor do nome da entidade e do valor da entidade. O valor da entidade deve exatamente o mesmo que aparece no texto do exemplo de enunciado.
 
-:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="Captura de tela parcial do portal mostrando a entidade criada, uma entidade de machine learning com as subentidades e os recursos aplicados às subentidades `Quantity`.":::
+:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="Captura de tela parcial mostrando o exemplo de enunciado rotulado no portal. ":::
 
 Chame [examples.add](https://docs.microsoft.com//javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-) com a ID do aplicativo, a ID da versão e o exemplo.
 

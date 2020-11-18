@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 35e21ff38ff518afb25923dd2ceea6a8ead4a699
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 79d9c0e4a1e820ca30e8434e87fd0e40622291d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504170"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542772"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional e o JavaScript
 
@@ -27,7 +27,7 @@ O método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Crie um recurso da Pesquisa Visual Computacional"  target="_blank">crie um recurso da Pesquisa Visual Computacional <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso** .
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Crie um recurso da Pesquisa Visual Computacional"  target="_blank">crie um recurso da Pesquisa Visual Computacional <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo ao serviço de Pesquisa Visual Computacional. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
@@ -40,7 +40,7 @@ Para criar e executar o exemplo, siga estas etapas:
 1. Outra opção é substituir o valor do atributo `value` para o controle `inputImage` pela URL de uma imagem diferente da qual você deseja extrair o texto.
 1. Salve o código como um arquivo com uma extensão `.html`. Por exemplo, `get-text.html`.
 1. Abra uma janela do navegador.
-1. Quando a página da Web for exibida no navegador, preencha os parâmetros obrigatórios e escolha o botão **Ler imagem** .
+1. Quando a página da Web for exibida no navegador, preencha os parâmetros obrigatórios e escolha o botão **Ler imagem**.
 
 ```html
 <!DOCTYPE html>
@@ -391,4 +391,4 @@ Explore um aplicativo JavaScript que usa a Pesquisa Visual Computacional para ex
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript da API de Pesquisa Visual Computacional](../Tutorials/javascript-tutorial.md)
 
-* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

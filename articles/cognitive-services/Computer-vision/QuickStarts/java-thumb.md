@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 14cd7822b90e3d70f19dde4c89e9e6e6482d7cf6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 017ca60048273d45e6f52857a52a0a1dab614aaa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968966"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542806"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Início Rápido: Gerar uma miniatura usando a API REST da Pesquisa Visual Computacional e o Java
 
@@ -175,4 +175,4 @@ Explore um aplicativo Swing Java que usa a Pesquisa Visual Computacional para ex
 > [!div class="nextstepaction"]
 > [Tutorial de Java da API de Pesquisa Visual Computacional](../Tutorials/java-tutorial.md)
 
-* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
