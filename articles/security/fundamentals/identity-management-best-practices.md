@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698744"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832595"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -157,7 +157,7 @@ Se você tiver vários locatários ou deseja permitir que os usuários [redefina
 
 É recomendável que você exija a verificação em duas etapas para todos os seus usuários. Isso inclui os administradores e outros em sua organização que pode ter um impacto significativo se sua conta for comprometida (por exemplo, gerentes financeiros).
 
-Há várias opções para exigir a verificação em duas etapas. A melhor opção para você depende de suas metas, a edição do Microsoft Azure Active Directory que você está executando e o programa de licenciamento. Consulte [Como exigir verificação em duas etapas para um usuário](../../active-directory/authentication/howto-mfa-userstates.md) para determinar a melhor opção para você. Consulte a[Microsoft Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) e [Autenticação Multifator do Microsoft Azure](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) páginas de preço para obter mais informações sobre as licenças de preço e preços.
+Há várias opções para exigir a verificação em duas etapas. A melhor opção para você depende de suas metas, a edição do Microsoft Azure Active Directory que você está executando e o programa de licenciamento. Consulte [Como exigir verificação em duas etapas para um usuário](../../active-directory/authentication/howto-mfa-userstates.md) para determinar a melhor opção para você. Consulte as páginas de preços da [autenticação multifator](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) do Azure [ad](https://azure.microsoft.com/pricing/details/active-directory/) e do Azure ad para obter mais informações sobre licenças e preços.
 
 Estas são as opções e benefícios para habilitar a verificação em duas etapas:
 
@@ -170,14 +170,14 @@ Estas são as opções e benefícios para habilitar a verificação em duas etap
 Esse método está disponível a todos os níveis de licenciamento, mas não pode ser misturado com políticas de acesso condicional existentes. Você pode encontrar mais informações nos [padrões de segurança do Azure ad](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 **Opção 2**: [Habilitar a Autenticação Multifator alterando o estado do usuário](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefício**: Esse é o método tradicional para exigir a verificação em duas etapas. Funciona com ambos [Autenticação Multifator do Azure na nuvem e o Servidor de Autenticação Multifator do Microsoft Azure](../../active-directory/authentication/concept-mfa-howitworks.md). O uso desse método exigirá que os usuários realizem a verificação em duas etapas sempre que entrarem e substituírem as políticas de acesso condicional.
+**Benefício**: Esse é o método tradicional para exigir a verificação em duas etapas. Ele funciona com [a autenticação multifator do Azure ad na nuvem e servidor de autenticação multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md). O uso desse método exigirá que os usuários realizem a verificação em duas etapas sempre que entrarem e substituírem as políticas de acesso condicional.
 
-Para determinar onde a Autenticação Multifator precisa ser habilitada, consulte [Qual versão do Azure MFA é adequada para minha organização?](../../active-directory/authentication/concept-mfa-howitworks.md).
+Para determinar onde a autenticação multifator precisa ser habilitada, consulte [qual versão do Azure ad MFA é adequada para minha organização?](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 **Opção 3**: [Habilitar a Autenticação Multifator com a política de acesso condicional](../../active-directory/authentication/howto-mfa-getstarted.md).
 **Benefício**: Essa opção permite que você solicite a verificação em duas etapas sob condições específicas usando o [acesso condicional](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). As condições específicas podem ser entrada do usuário de locais diferentes, não confiável de dispositivos ou aplicativos que você considere arriscadas. Definir condições específicas em que você exige verificação em duas etapas permite que você evite solicitação constante para seus usuários, que podem ser uma experiência de usuário desagradáveis.
 
-Essa é a maneira mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitar uma política de acesso condicional funciona apenas para autenticação multifator do Azure na nuvem e é um recurso premium do Microsoft Azure Active Directory. Você pode encontrar mais informações sobre esse método em [implantar autenticação de multifator do Azure baseado em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
+Essa é a maneira mais flexível para habilitar a verificação em duas etapas para seus usuários. A habilitação de uma política de acesso condicional funciona apenas para a autenticação multifator do Azure AD na nuvem e é um recurso Premium do Azure AD. Você pode encontrar mais informações sobre esse método em [implantar a autenticação multifator do Azure ad baseada em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 **Opção 4**: Habilite a Autenticação Multifator com políticas de acesso condicional avaliando [políticas de acesso condicional com base em risco](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Benefício**: Essa opção permite que você:
@@ -269,7 +269,7 @@ Avalie as contas que são atribuídas ou qualificadas para a função de adminis
 **Melhor prática**: Exigir que todas as contas de administrador críticas sejam sem senha (preferencial) ou exijam a Autenticação Multifator.
 **Detalhe**: Use o [aplicativo Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) para entrar em qualquer conta do Azure Active Directory sem usar uma senha. Como o [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário que esteja associada a um dispositivo e use autenticação biométrica ou um PIN.
 
-Exigir Autenticação Multifator do Microsoft Azure na entrada para todos os usuários individuais atribuídos permanentemente a uma ou mais das funções de administrador do Azure Active Directory: Administrador global, administrador de função com privilégios, administrador do Exchange online e administrador SharePoint online. Habilite a [ Autenticação Multifator do Microsoft Azure para suas contas de administrador](../../active-directory/authentication/howto-mfa-userstates.md) e verifique se os usuários de conta de administrador se registraram.
+Exigir autenticação multifator do Azure AD na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: administrador global, administrador de função com privilégios, administrador do Exchange Online e administrador do SharePoint Online. Habilite a [ Autenticação Multifator do Microsoft Azure para suas contas de administrador](../../active-directory/authentication/howto-mfa-userstates.md) e verifique se os usuários de conta de administrador se registraram.
 
 **Melhor prática**: Para contas de administrador críticas, tenha uma estação de trabalho de administração em que as tarefas de produção não são permitidas (ex.: navegação e email). Isso protegerá as contas de administrador contra vetores de ataque que usam navegação e email e reduzirá significativamente o risco de um incidente grave.
 **Detalhe**: Use uma estação de trabalho de administração. Escolha um nível de segurança de estação de trabalho:

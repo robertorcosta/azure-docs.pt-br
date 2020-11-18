@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377795"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832867"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -36,7 +36,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
 ## <a name="enable-agent-based-monitoring"></a>Habilitar o monitoramento baseado em agente
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > Não há suporte para a combinação de APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression. Para obter mais informações, consulte a explicação na [seção solução de problemas](#troubleshooting).
@@ -49,7 +49,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
    * Opte por criar um novo recurso, a menos que você já tenha configurado um recurso do Application Insights para este aplicativo. 
 
      > [!NOTE]
-     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar** , vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
+     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar**, vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
@@ -59,13 +59,13 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
  
  Veja abaixo um resumo dos dados coletados para cada rota:
         
-| Dados | Coleção do .NET Basic | Coleção recomendada do .NET |
+| Dados | Coleção ASP.NET básica | Coleção recomendada por ASP.NET |
 | --- | --- | --- |
 | Adiciona as tendências de uso de CPU, memória e E/S |Sim |Sim |
 | Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações | Sim |Sim |
 | Coleta as exceções não tratadas pelo processo de host | Sim |Sim |
 | Aumenta a precisão de métricas de APM com carga quando a amostragem é usada | Sim |Sim |
-| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Yes |
+| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Sim |
 
 3. Para definir configurações como amostragem, que você poderia controlar anteriormente por meio do arquivo de applicationinsights.config, agora você pode interagir com essas mesmas configurações por meio de configurações de aplicativo com um prefixo correspondente. 
 
@@ -73,11 +73,11 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
     * Para obter a lista de configurações de processador de telemetria de amostragem adaptável com suporte, você pode consultar o [código](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) e a [documentação associada](./sampling.md).
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Há suporte para as seguintes versões do .NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0 ASP.NET Core 3,1
+Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
 
-No momento, **não há suporte para** a estrutura completa do .NET Core, implantação independente e aplicativos baseados em Linux com monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
+O direcionamento para a estrutura completa de ASP.NET Core, implantação independente e aplicativos baseados em Linux **não têm suporte** no momento com o monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
 
 1. **Selecione Application insights** no painel de controle do Azure para seu serviço de aplicativo.
 
@@ -86,17 +86,17 @@ No momento, **não há suporte para** a estrutura completa do .NET Core, implant
    * Opte por criar um novo recurso, a menos que você já tenha configurado um recurso do Application Insights para este aplicativo. 
 
      > [!NOTE]
-     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar** , vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
+     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar**, vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. O .NET Core oferece uma **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
+2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. ASP.NET Core oferece uma **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
 
     ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Em seu aplicativo Web do serviço de aplicativo em **configurações** ,  >  **selecione Application insights**  >  **habilitar**. O monitoramento baseado em agente Node.js está atualmente em versão prévia.
+Em seu aplicativo Web do serviço de aplicativo em **configurações**,  >  **selecione Application insights**  >  **habilitar**. O monitoramento baseado em agente Node.js está atualmente em versão prévia.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -111,12 +111,12 @@ Os aplicativos Web baseados no serviço de aplicativo Python atualmente não dã
 
 ## <a name="enable-client-side-monitoring"></a>Habilitar monitoramento do lado do cliente
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 O monitoramento no lado do cliente é opcional para ASP.NET. Para habilitar o monitoramento do lado do cliente:
 
 * **Configurações** **>** do **Configuração** do
-   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo** :
+   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo**:
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -126,14 +126,14 @@ O monitoramento no lado do cliente é opcional para ASP.NET. Para habilitar o mo
 
 Para desabilitar o monitoramento do lado do cliente, remova o par de valor de chave associado das configurações do aplicativo ou defina o valor como false.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-O monitoramento no lado do cliente é **habilitado por padrão** para aplicativos .NET Core com a **coleção recomendada** , independentemente de a configuração do aplicativo ' APPINSIGHTS_JAVASCRIPT_ENABLED ' estar presente.
+O monitoramento no lado do cliente é **habilitado por padrão** para aplicativos ASP.NET Core com a **coleção recomendada**, independentemente de a configuração do aplicativo ' APPINSIGHTS_JAVASCRIPT_ENABLED ' estar presente.
 
 Se por algum motivo você quiser desabilitar o monitoramento no lado do cliente:
 
 * **Configurações** **>** do **Configuração** do
-   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo** :
+   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo**:
 
      nomes `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -348,7 +348,7 @@ Se a atualização for feita a partir de uma versão anterior à 2.5.1, verifiqu
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Abaixo está nosso guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente para aplicativos .NET e .NET Core em execução em serviços de Azure App.
+Abaixo está nosso guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente para aplicativos baseados em ASP.NET e ASP.NET Core em execução em serviços Azure App.
 
 > [!NOTE]
 > A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
@@ -372,16 +372,31 @@ Abaixo está nosso guia de solução de problemas passo a passo para o monitoram
 
     * Confirme se não há entradas para `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` e `AppContainsAspNetTelemetryCorrelationAssembly` .
         * Se qualquer uma dessas entradas existir, remova os seguintes pacotes do seu aplicativo: `Microsoft.ApplicationInsights` , `System.Diagnostics.DiagnosticSource` e `Microsoft.AspNet.TelemetryCorrelation` .
+        * Somente para aplicativos ASP.NET Core: caso seu aplicativo se refira a qualquer pacote de Application Insights, por exemplo, se você já tiver instrumentado (ou tentado instrumentar) seu aplicativo com o [SDK do ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), a habilitação da integração do serviço de aplicativo pode não ter efeito e os dados podem não aparecer no Application insights. Para corrigir o problema, no portal, ative "interoperabilidade com o SDK do Application Insights" e você começará a ver os dados em Application Insights 
+        > [!IMPORTANT]
+        > Esta funcionalidade está em versão prévia 
+
+        ![Habilitar a configuração do aplicativo existente](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        Os dados agora serão enviados usando a abordagem de código, mesmo se Application Insights SDK tiver sido originalmente usado ou tentar ser usado.
+
+        > [!IMPORTANT]
+        > Se o aplicativo usou Application Insights SDK para enviar qualquer telemetria, essa telemetria será desabilitada – em outras palavras, telemetria personalizada-se houver, como por exemplo qualquer método Track * () e quaisquer configurações personalizadas, como amostragem, serão desabilitadas. 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>Não há suporte para PHP e WordPress
+
+Não há suporte para sites PHP e WordPress. Atualmente, não há um SDK/agente com suporte oficialmente para o monitoramento do lado do servidor dessas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente em um site do PHP ou do WordPress adicionando o JavaScript do lado do cliente às suas páginas da Web pode ser feito usando o [SDK do JavaScript](./javascript.md).
 
 A tabela a seguir fornece uma explicação mais detalhada do que esses valores significam, suas causas subjacentes e correções recomendadas:
 
 |Valor do problema|Explicação|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada. Pode ser devido a uma referência a `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` ou `Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas por padrão de determinados modelos do Visual Studio, e as versões mais antigas do Visual Studio podem adicionar referências ao `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando o .NET Core 2,1 ou 2,2 e se referir a [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage, ele levará em Application insights e a extensão será retirada. | Os clientes no .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-Package Microsoft. AspNetCore. app em vez disso.|
+|`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando ASP.NET Core 2,1 ou 2,2, esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada | Os clientes no .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-Package Microsoft. AspNetCore. app em vez disso. Além disso, ative "interoperabilidade com o SDK do Application Insights" no portal (consulte as instruções acima).|
 |`AppAlreadyInstrumented:true` | Esse valor também pode ser causado pela presença das DLLs acima na pasta do aplicativo de uma implantação anterior. | Limpe a pasta do aplicativo para garantir que essas DLLs sejam removidas. Verifique o diretório bin do seu aplicativo local e o diretório wwwroot no serviço de aplicativo. (Para verificar o diretório wwwroot do seu aplicativo Web do serviço de aplicativo: ferramentas avançadas (kudu) > console de depuração > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Esse valor indica que a extensão detectou referências a `Microsoft.AspNet.TelemetryCorrelation` no aplicativo e será retirada. | Remova a referência.
-|`AppContainsDiagnosticSourceAssembly**:true`|Esse valor indica que a extensão detectou referências a `System.Diagnostics.DiagnosticSource` no aplicativo e será retirada.| Remova a referência.
+|`AppContainsDiagnosticSourceAssembly**:true`|Esse valor indica que a extensão detectou referências a `System.Diagnostics.DiagnosticSource` no aplicativo e será retirada.| Para ASP.NET, remova a referência. 
 |`IKeyExists:false`|Esse valor indica que a chave de instrumentação não está presente em AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY` . Possíveis causas: os valores podem ter sido acidentalmente removidos, esquecidos para definir os valores no script de automação, etc. | Verifique se a configuração está presente nas configurações do aplicativo do serviço de aplicativo.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>Não há suporte para APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression
@@ -397,13 +412,9 @@ Para obter as informações mais recentes sobre a extensão/agente de Applicatio
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>O site padrão implantado com aplicativos Web não dá suporte ao monitoramento automático do lado do cliente
 
-Quando você cria um aplicativo Web com os `ASP.NET` tempos de execução do ou `.NET Core` no Azure app Services, ele implanta uma única página HTML estática como um site inicial. A página da Web estática também carrega um site gerenciado do .NET no IIS. Isso permite o teste do monitoramento do lado do servidor sem código, mas não dá suporte ao monitoramento automático do lado do cliente.
+Quando você cria um aplicativo Web com os `ASP.NET` tempos de execução do ou `ASP.NET Core` no Azure app Services, ele implanta uma única página HTML estática como um site inicial. A página da Web estática também carrega um site ASP.NET gerenciado no IIS. Isso permite o teste do monitoramento do lado do servidor sem código, mas não dá suporte ao monitoramento automático do lado do cliente.
 
 Se você quiser testar o monitoramento do lado do cliente e do servidor sem código para ASP.NET ou ASP.NET Core em um aplicativo Web do Azure App Services, recomendamos seguir os guias oficiais para [criar um aplicativo Web do ASP.NET Core](../../app-service/quickstart-dotnetcore.md) e [criar um aplicativo Web do ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) e, em seguida, usar as instruções no artigo atual para habilitar o monitoramento.
-
-### <a name="php-and-wordpress-are-not-supported"></a>Não há suporte para PHP e WordPress
-
-Não há suporte para sites PHP e WordPress. Atualmente, não há um SDK/agente com suporte oficialmente para o monitoramento do lado do servidor dessas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente em um site do PHP ou do WordPress adicionando o JavaScript do lado do cliente às suas páginas da Web pode ser feito usando o [SDK do JavaScript](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Cadeia de conexão e chave de instrumentação
 

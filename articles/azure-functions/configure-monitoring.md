@@ -3,13 +3,13 @@ title: Configurar o monitoramento para Azure Functions
 description: Saiba como conectar seu aplicativo de funções a Application Insights para monitoramento e como configurar a coleta de dados.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217177"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833071"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -245,7 +245,7 @@ Quando você escolhe **Criar**, um recurso de Application Insights é criado com
 
 Se um Application Insights recursos não foi criado com seu aplicativo de funções, use as etapas a seguir para criar o recurso. Em seguida, você pode adicionar a chave de instrumentação a partir desse recurso como uma [configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) no seu aplicativo de funções.
 
-1. Na [portal do Azure](https://portal.azure.com), procure e selecione aplicativo de **funções**e, em seguida, escolha seu aplicativo de funções. 
+1. Na [portal do Azure](https://portal.azure.com), procure e selecione aplicativo de **funções** e, em seguida, escolha seu aplicativo de funções. 
 
 1. Selecione a faixa **O Application Insights não está configurado** na parte superior da janela. Caso não veja essa faixa, pode ser que o Application Insights já esteja habilitado no aplicativo.
 
@@ -258,7 +258,7 @@ Se um Application Insights recursos não foi criado com seu aplicativo de funç�
     | **Nome de recurso novo** | Nome de aplicativo exclusivo | É mais fácil usar o mesmo nome que seu aplicativo de funções, que deve ser exclusivo em sua assinatura. | 
     | **Localidade** | Europa Ocidental | Se possível, use a mesma [região](https://azure.microsoft.com/regions/) que seu aplicativo de funções ou uma região próxima dela. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Habilitar o Application Insights no portal":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Criar um recurso do Application Insights":::
 
 1. Escolha **Aplicar**. 
 

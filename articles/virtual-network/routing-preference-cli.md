@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 39514f8a34e85525e2a8900a8e6e3cc8656fb84a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e7a8c5552165324ef154767d1605e12b0c9ad22
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329288"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747835"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurar a preferência de roteamento para um endereço IP público usando a CLI do Azure
 
@@ -38,10 +38,11 @@ Por padrão, a preferência de roteamento para o endereço IP público é defini
 > A preferência de roteamento está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a versão 2.0.49 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Este artigo requer a versão 2.0.49 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="register-the-feature-for-your-subscription"></a>Registrar recurso para sua assinatura
 O recurso Preferência de Roteamento está atualmente na versão prévia. Registrar recurso para sua assinatura como a seguir:

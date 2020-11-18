@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517709"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832523"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações
 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicativo Web**    | <ul><li>[Considere usar um mecanismo de autenticação padrão para autenticar o aplicativo Web](#standard-authn-web-app)</li><li>[Os aplicativos devem lidar com cenários de autenticação com falha com segurança](#handle-failed-authn)</li><li>[Habilitar o Step up ou a autenticação adaptável](#step-up-adaptive-authn)</li><li>[Verifique se as interfaces administrativas estão adequadamente bloqueadas](#admin-interface-lockdown)</li><li>[Implemente funcionalidades de senha esquecida com segurança](#forgot-pword-fxn)</li><li>[Garantir que a política de conta e senha seja implementada](#pword-account-policy)</li><li>[Implementar controles para evitar a enumeração de nome de usuário](#controls-username-enum)</li></ul> |
-| **Backup de banco de dados** | <ul><li>[Quando possível, use a autenticação do Windows para se conectar ao SQL Server](#win-authn-sql)</li><li>[Quando possível, use Azure Active Directory autenticação para se conectar ao banco de dados SQL](#aad-authn-sql)</li><li>[Quando o modo de autenticação do SQL for usado, verifique se as políticas de conta e senha são impostas no SQL server](#authn-account-pword)</li><li>[Não use a autenticação do SQL em bancos de dados independentes](#autn-contained-db)</li></ul> |
+| **Banco de dados** | <ul><li>[Quando possível, use a autenticação do Windows para se conectar ao SQL Server](#win-authn-sql)</li><li>[Quando possível, use Azure Active Directory autenticação para se conectar ao banco de dados SQL](#aad-authn-sql)</li><li>[Quando o modo de autenticação do SQL for usado, verifique se as políticas de conta e senha são impostas no SQL server](#authn-account-pword)</li><li>[Não use a autenticação do SQL em bancos de dados independentes](#autn-contained-db)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Use credenciais de autenticação por dispositivo usando tokens SaS](#authn-sas-tokens)</li></ul> |
-| **Limite de Confiança do Azure** | <ul><li>[Habilitar Autenticação Multifator do Azure para administradores do Azure](#multi-factor-azure-admin)</li></ul> |
+| **Limite de Confiança do Azure** | <ul><li>[Habilitar a autenticação multifator do Azure AD para administradores do Azure](#multi-factor-azure-admin)</li></ul> |
 | **Limite de confiança do Service Fabric** | <ul><li>[Restringir o acesso anônimo ao Cluster Service Fabric](#anon-access-cluster)</li><li>[Verifique se Service Fabric certificado de cliente para nó é diferente do certificado de nó para nó](#fabric-cn-nn)</li><li>[Usar o AAD para autenticar clientes em clusters do Service Fabric](#aad-client-fabric)</li><li>[Verifique se os certificados de service fabric são obtidos de uma CA (autoridade de certificação) aprovada](#fabric-cert-ca)</li></ul> |
 | **Servidor de identidade** | <ul><li>[Usar cenários de autenticação padrão com suporte do servidor de identidade](#standard-authn-id)</li><li>[Substituir o cache de token do servidor de identidade padrão por uma alternativa escalonável](#override-token)</li></ul> |
 | **Limite de confiança de computador** | <ul><li>[Verifique se os binários do aplicativo implantado são assinados digitalmente](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517709"
 | **Referências**              | [Visão geral do modelo de autenticação e segurança dos Hubs de Eventos](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Etapas** | <p>O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens SAS (Assinatura de Acesso Compartilhado) e de editores de eventos. O nome do publicador representa o DeviceID que recebe o token. Isso ajudaria a associar os tokens gerados aos respectivos dispositivos.</p><p>Todas as mensagens são marcadas com o originador no lado do serviço, o que permite a detecção de tentativas de falsificação de origem na carga. Na autenticação de dispositivos, gere um token SaS por dispositivo com escopo para um publicador exclusivo.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Habilitar Autenticação Multifator do Azure para administradores do Azure
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Habilitar a autenticação multifator do Azure AD para administradores do Azure
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517709"
 | **Fase do SDL**               | Implantação |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [O que é a Autenticação Multifator do Azure?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Referências**              | [O que é a autenticação multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Etapas** | <p>A autenticação multifator (MFA) é um método de autenticação que exige mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos logons e às transações dos usuários. Ela funciona, exigindo dois ou mais dos métodos de verificação a seguir:</p><ul><li>Algo que você sabe (geralmente uma senha)</li><li>Algo que você tem (um dispositivo confiável que não é duplicado facilmente, como um telefone)</li><li>Algo seu (biometria)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Restrinja o acesso anônimo ao Cluster de Service Fabric

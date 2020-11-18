@@ -2,13 +2,13 @@
 title: Criar uma especificação de modelo com modelos vinculados
 description: Saiba como criar uma especificação de modelo com modelos vinculados.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321586"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747427"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: criar uma especificação de modelo com modelos vinculados (visualização)
 
@@ -19,7 +19,7 @@ Saiba como criar uma [especificação de modelo](template-specs.md) com um model
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você deve instalar a versão mais recente do PowerShell ou CLI do Azure. Para Azure PowerShell, use a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Criar modelos vinculados
 

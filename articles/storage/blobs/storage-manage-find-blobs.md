@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370246"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832425"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)
 
@@ -225,7 +225,7 @@ Você pode autorizar o acesso a marcas de índice de BLOB usando uma das seguint
 
 As marcas de índice de blob são um subrecurso para os dados de BLOB. Um usuário com permissões ou um token SAS para ler ou gravar BLOBs pode não ter acesso às marcas de índice de BLOB.
 
-### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+### <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 Os chamadores usando uma [identidade do Azure ad](../common/storage-auth-aad.md) podem receber as seguintes permissões para operar em marcas de índice de BLOB.
 
@@ -269,7 +269,7 @@ A tabela a seguir resume as diferenças entre as marcas de índice de BLOB e met
 |--------------|--------------|--------------------|
 | **Limites**      | Nenhum limite numérico, total de 8 KB, não diferencia maiúsculas de minúsculas | 10 marcas por blob máx, 768 bytes por marca, diferencia maiúsculas de minúsculas |
 | **Atualizações**    | Não permitido na camada de arquivo, `Set Blob Metadata` substitui todos os metadados existentes, `Set Blob Metadata` altera a hora da última modificação do blob | Permitido para todas as camadas de acesso, `Set Blob Tags` substitui todas as marcas existentes, `Set Blob Tags` não altera a hora da última modificação do blob |
-| **Armazenamento**     | Armazenados com os dados do blob | Subrecurso dos dados do blob |
+| **Storage**     | Armazenados com os dados do blob | Subrecurso dos dados do blob |
 | **Indexação & consulta** | Deve usar um serviço separado, como Azure Search | Recursos de indexação e consulta incorporados ao armazenamento de BLOBs |
 | **Criptografia** | Criptografado em repouso com a mesma chave de criptografia usada para dados de BLOB | Criptografado em repouso com uma chave de criptografia gerenciada pela Microsoft |
 | **Preços** | O tamanho dos metadados está incluído nos custos de armazenamento de um blob | Custo fixo por marca de índice |
@@ -327,6 +327,7 @@ Esta seção descreve os problemas e condições conhecidos na visualização p�
 - Quando a filtragem estiver no escopo de um único contêiner, o `@container` só poderá ser passado se todas as marcas de índice na expressão de filtro forem verificações de igualdade (chave = valor).
 - Ao usar o operador Range com a `AND` condição, você só pode especificar o mesmo nome de chave de marca de índice ( `"Age" > '013' AND "Age" < '100'` ).
 - Não há suporte para controle de versão e índice de BLOB. As marcas de índice de blob são preservadas para versões, mas não são passadas para o mecanismo de índice de BLOB.
+- Não há API para determinar se as marcas de índice estão indexadas.
 - Não há suporte para o failover de conta. O índice de blob pode não ser atualizado corretamente após o failover.
 - O gerenciamento do ciclo de vida oferece suporte a verificações de igualdade com correspondência de índice de BLOB.
 - `Copy Blob` não copia marcas de índice de blob do blob de origem para o novo BLOB de destino. Você pode especificar as marcas que deseja aplicar ao blob de destino durante a operação de cópia.

@@ -10,18 +10,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, devx-track-python, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fa1b19ef4ece3011c97c3158d54edd1d39efc09d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441980"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832629"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
 
 
-Implantar um modelo de Azure Machine Learning como um serviço Web cria um ponto de extremidade de API REST. Você pode enviar dados para esse ponto de extremidade e receber a previsão retornada pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
+A implantação de um modelo do Azure Machine Learning como um serviço Web cria um ponto de extremidade da API REST. Você pode enviar dados para esse ponto de extremidade e receber a previsão retornada pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
 
 Você cria um serviço Web ao implantar um modelo em seu ambiente local, instâncias de contêiner do Azure, serviço kubernetes do Azure ou FPGA (matrizes de portão programável por campo). Você recupera o URI usado para acessar o serviço Web usando o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Se a autenticação estiver habilitada, você também poderá usar o SDK para obter as chaves de autenticação ou os tokens.
 
@@ -119,7 +119,7 @@ O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviç
 
 Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token devem ser formatados como `Bearer <key-or-token>` , em que `<key-or-token>` é o valor da chave ou do token.
 
-A principal diferença entre chaves e tokens é que **as chaves são estáticas e podem ser regeneradas manualmente** , e os **tokens precisam ser atualizados após a expiração**. Há suporte para a autenticação baseada em chave para a instância de contêiner do Azure e os serviços Web implantados pelo serviço kubernetes do Azure, e a autenticação baseada em token **só** está disponível para implantações do serviço kubernetes do Azure. Para obter mais informações sobre como configurar a autenticação, consulte [Configurar a autenticação para modelos implantados como serviços Web](how-to-authenticate-web-service.md).
+A principal diferença entre chaves e tokens é que **as chaves são estáticas e podem ser regeneradas manualmente**, e os **tokens precisam ser atualizados após a expiração**. Há suporte para a autenticação baseada em chave para a instância de contêiner do Azure e os serviços Web implantados pelo serviço kubernetes do Azure, e a autenticação baseada em token **só** está disponível para implantações do serviço kubernetes do Azure. Para obter mais informações sobre como configurar a autenticação, consulte [Configurar a autenticação para modelos implantados como serviços Web](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves

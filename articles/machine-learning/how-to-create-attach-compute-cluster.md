@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318216"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832680"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de computação do Azure Machine Learning
 
@@ -60,7 +60,7 @@ Os clusters de computação podem executar trabalhos com segurança em um [ambie
 
 ## <a name="create"></a>Criar
 
-**Tempo estimado** : aproximadamente 5 minutos.
+**Tempo estimado**: aproximadamente 5 minutos.
 
 Uma Computação do Azure Machine Learning pode ser reutilizada entre execuções. A computação pode ser compartilhada com outros usuários no espaço de trabalho e é mantida entre as execuções, escalando ou reduzindo vertical e automaticamente os nós com base no número de execuções enviadas e o max_nodes definido no cluster. A configuração min_nodes controla os nós mínimos disponíveis.
 
@@ -74,8 +74,8 @@ A computação é reduzida automaticamente até zero nó quando não é usada.  
 
 Para criar um recurso persistente de Computação do Azure Machine Learning em Python, especifique as propriedades **vm_size** e **max_nodes**. O Azure Machine Learning usará padrões inteligentes para o restante das propriedades. 
     
-* **vm_size** : A família de VMs dos nós criados pela Computação do Machine Learning do Azure.
-* **max_nodes** : O número máximo de nós a serem dimensionados automaticamente durante a execução de um trabalho na Computação do Azure Machine Learning.
+* **vm_size**: A família de VMs dos nós criados pela Computação do Machine Learning do Azure.
+* **max_nodes**: O número máximo de nós a serem dimensionados automaticamente durante a execução de um trabalho na Computação do Azure Machine Learning.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]

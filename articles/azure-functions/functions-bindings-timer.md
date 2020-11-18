@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025894"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833003"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. Um [objeto de timer](#usage) é passado para a função.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -163,9 +163,9 @@ Uma instância do [objeto de timer](#usage) é passada como o primeiro argumento
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo *__init__ . py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente.
+O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo *__init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -300,7 +300,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
-|Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
+|Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|às 5: mm: 00 todos os dias, em que mm é cada minuto da hora (60 vezes dentro da hora especificada)|
 |Um intervalo (`-` operador)|<nobr>"5-7 * * * * *"</nobr>|em hh:mm:05, hh:mm:06 e hh:mm:07, em que hh é cada minuto de cada hora (3 vezes por minuto)|
 |Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10, em que hh é cada minuto de cada hora (3 vezes por minuto)|
 |Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|em hh: 00:00, hh: 05:00, hh: 10:00 e assim por diante por meio de hh: 55:00, em que HH é a cada hora (12 vezes por hora)|
