@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410327"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698743"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
 Este artigo fornece uma visão geral dos recursos de segurança e serviços que o Azure fornece para auxiliar no gerenciamento e no monitoramento de serviços de nuvem e máquinas virtuais do Azure.
 
-## <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-O RBAC (Controle de Acesso Baseado em Função) fornece o gerenciamento de acesso detalhado para os recursos do Azure. Usando o RBAC, é possível conceder às pessoas apenas a quantidade de acesso de que precisam para realizar seus trabalhos. O RBAC também pode ajudar a garantir que as pessoas perderão o acesso aos recursos na nuvem quando saírem da organização.
+O Azure RBAC (controle de acesso baseado em função) do Azure fornece gerenciamento de acesso detalhado para recursos do Azure. Usando o Azure RBAC, você pode conceder às pessoas apenas a quantidade de acesso de que eles precisam para executar seus trabalhos. O RBAC do Azure também pode ajudá-lo a garantir que quando as pessoas deixam a organização, elas perdem o acesso aos recursos na nuvem.
 
 Saiba mais:
 
-* [Blog da equipe do Active Directory sobre o RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Blog da equipe Active Directory no RBAC do Azure](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware

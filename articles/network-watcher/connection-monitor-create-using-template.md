@@ -1,7 +1,7 @@
 ---
-title: Criar monitor de conexão Preview-ARMClient
+title: Criar monitor de conexão-ARMClient
 titleSuffix: Azure Network Watcher
-description: Saiba como criar um monitor de conexão (versão prévia) usando o ARMClient.
+description: Saiba como criar um monitor de conexão usando o ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447527"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699093"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Criar um monitor de conexão (versão prévia) usando o ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Criar um monitor de conexão usando o ARMClient
 
-Saiba como criar um monitor de conexão (versão prévia) para monitorar a comunicação entre os recursos usando o ARMClient. Ele dá suporte a implantações de nuvem híbridas e do Azure.
+Saiba como criar um monitor de conexão para monitorar a comunicação entre seus recursos usando o ARMClient. Ele dá suporte a implantações de nuvem híbridas e do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar 
 
-Nos monitores de conexão criados no monitor de conexão (versão prévia), você pode adicionar máquinas locais e VMs do Azure como fontes. Esses monitores de conexão também podem monitorar a conectividade com pontos de extremidade. Os pontos de extremidade podem estar no Azure ou qualquer outra URL ou IP.
+Nos monitores de conexão criados no monitor de conexão, você pode adicionar máquinas locais e VMs do Azure como fontes. Esses monitores de conexão também podem monitorar a conectividade com pontos de extremidade. Os pontos de extremidade podem estar no Azure ou qualquer outra URL ou IP.
 
-O monitor de conexão (versão prévia) inclui as seguintes entidades:
+O monitor de conexão inclui as seguintes entidades:
 
 * **Recurso de monitor de conexão** – um recurso do Azure específico da região. Todas as entidades a seguir são propriedades de um recurso de monitor de conexão.
 * **Ponto de extremidade** – uma origem ou um destino que participa das verificações de conectividade. Os exemplos de pontos de extremidade incluem VMs do Azure, agentes locais, URLs e IPs.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Pontos de extremidade
     * nome – nome exclusivo para cada ponto de extremidade
-    * ResourceId – para pontos de extremidade do Azure, a ID de recurso refere-se à ID de recurso do Azure Resource Manager para máquinas virtuais. Para pontos de extremidade não Azure, a ID de recurso refere-se à ID de recurso do Azure Resource Manager para o espaço de trabalho Log Analytics vinculado a agentes não Azure.
+    * ResourceId – para pontos de extremidade do Azure, a ID de recurso refere-se à ID de recurso Azure Resource Manager para máquinas virtuais. Para pontos de extremidade não Azure, a ID de recurso refere-se à ID de recurso Azure Resource Manager para o espaço de trabalho Log Analytics vinculado a agentes não Azure.
     * Endereço – aplicável somente quando a ID do recurso não é especificada ou se a ID do recurso é Log Analytics espaço de trabalho. Se usado com Log Analytics ID de recurso, isso se refere ao FQDN do agente que pode ser usado para monitoramento. Se usado sem a ID do recurso, pode ser a URL ou o IP de qualquer ponto de extremidade público.
     * filtro – para pontos de extremidade não Azure, use filtrar para selecionar agentes de Log Analytics espaço de trabalho que será usado para monitoramento no recurso de monitor de conexão. Se os filtros não estiverem definidos, todos os agentes pertencentes ao espaço de trabalho Log Analytics poderão ser usados para monitoramento
         * tipo – defina o tipo como "endereço do agente"

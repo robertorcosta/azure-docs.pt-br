@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700752"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
@@ -67,7 +67,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 ## <a name="identity-and-access-management"></a>Gerenciamento de identidades e acesso
 |Serviço|Descrição|
 |------|--------|
-| [Controle de Acesso &nbsp;com base em &nbsp;função do &nbsp;Azure](../../role-based-access-control/role-assignments-portal.md)|Um recurso de controle de acesso projetado para permitir que os usuários acessem apenas os recursos necessários para acesso com base em suas funções dentro da empresa.  |
+| [&nbsp;Controle de acesso baseado em função do Azure &nbsp;](../../role-based-access-control/role-assignments-portal.md)|Um recurso de controle de acesso projetado para permitir que os usuários acessem apenas os recursos necessários para acesso com base em suas funções dentro da empresa.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Um repositório de autenticação baseado em nuvem que oferece suporte a um diretório de multilocatário, baseados em nuvem e vários serviços de gerenciamento de identidade no Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Um serviço de gerenciamento de identidade que permite controlar como os clientes se inscrevem, entram e gerenciam seus perfis ao usar aplicativos baseados no Azure.   |
 | [Serviços de Domínio do Active Directory do Azure](../../active-directory-domain-services/overview.md)| Uma versão com base em nuvem e gerenciada do Active Directory Domain Services. |

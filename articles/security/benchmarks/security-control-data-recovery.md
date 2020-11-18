@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ee28cbffd6f047b4991d29781e0b131a44c7dfae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409171"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698811"
 ---
 # <a name="security-control-data-recovery"></a>Controle de segurança: recuperação de dados
 
@@ -58,7 +58,7 @@ Garanta a capacidade de executar periodicamente a restauração de dados de cont
 |--|--|--|
 | 9.4 | 10.4 | Cliente |
 
-Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure. Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento). Use o controle de acesso baseado em função para proteger backups e chaves gerenciadas pelo cliente.  
+Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure. Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento). Use o controle de acesso baseado em função do Azure para proteger backups e chaves gerenciadas pelo cliente.  
 
 Habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  Se o armazenamento do Azure for usado para armazenar backups, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos. 
 
