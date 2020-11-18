@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre os cenários e limitações com supo
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 641bba6b947731e0f55bc79828101f84d5b780fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 181d006d0d1f0e5c2f099507be493ced2ce9280b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515773"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659736"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte para backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -30,7 +30,7 @@ O Backup do Azure oferece suporte ao backup de bancos de dados SAP HANA no Azure
 | **Instâncias do HANA**         | Uma única instância do SAP HANA em uma única VM do Azure - Apenas escalar verticalmente | Várias instâncias do SAP HANA em uma única VM                  |
 | **Tipos de banco de dados do HANA**    | Contêiner do Banco de Dados Individual (SDC) em 1.x, contêiner de vários bancos de dados (MDC) em 2.x | MDC no HANA 1.x                                              |
 | **Tamanho do banco de dados do HANA**     | Bancos de dados do HANA com tamanho <= 2 TB (esse não é o tamanho da memória do sistema HANA)               |                                                              |
-| **Tipos de backup**           | Backups completos, diferenciais e de log                          | Incremental, instantâneos                                       |
+| **Tipos de backup**           | Backups completos, diferenciais, incrementais (visualização) e de log                          |  Instantâneos                                       |
 | **Restaurar tipos**          | Consulte a observação [1642148](https://launchpad.support.sap.com/#/notes/1642148) do SAP HANA para saber mais sobre os tipos de restauração compatíveis |                                                              |
 | **Limites do backup**          | Até 2 TB de tamanho de backup completo por instância de SAP HANA (limite flexível)         |                                                              |
 | **Configurações especiais** |                                                              | SAP HANA + Camadas dinâmicas <br>  Clonagem por meio do LaMa        |

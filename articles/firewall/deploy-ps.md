@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628332"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660229"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure usando o Azure PowerShell
 
@@ -25,10 +25,10 @@ Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é 
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
 
-Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall é, por si só, a VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
+Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall é, por si só, a VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
-* **AzureFirewallSubnet** : o firewall está nesta sub-rede.
-* **Workload-SN** : o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
+* **AzureFirewallSubnet**: o firewall está nesta sub-rede.
+* **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
 * **AzureBastionSubnet** -a sub-rede usada para a bastiões do Azure, que é usada para se conectar ao servidor de carga de trabalho. Para obter mais informações sobre a bastiões do Azure, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md)
 
 ![Infraestrutura de rede do tutorial](media/deploy-ps/tutorial-network.png)
@@ -49,7 +49,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este procedimento requer que você execute o PowerShell localmente. Você deve ter os módulos do Azure PowerShell instalados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Este procedimento requer que você execute o PowerShell localmente. Você deve ter os módulos do Azure PowerShell instalados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 
@@ -217,7 +217,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    :::image type="content" source="media/deploy-ps/bastion.png" alt-text="Conecte-se usando a bastiões.":::
 
-3. Em **SRV-trabalho** , abra uma janela do PowerShell e execute os seguintes comandos:
+3. Em **SRV-trabalho**, abra uma janela do PowerShell e execute os seguintes comandos:
 
    ```
    nslookup www.google.com
@@ -253,4 +253,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)
+* [Tutorial: Monitorar os logs do Firewall do Azure](./firewall-diagnostics.md)

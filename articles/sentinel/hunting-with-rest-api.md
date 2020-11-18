@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377668"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660841"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gerenciar consultas de busca e transmissão ao vivo no Azure Sentinel usando a API REST
 
 O Azure Sentinel, sendo criado parcialmente na Azure Monitor Log Analytics, permite que você use Log Analytics API REST para gerenciar consultas de busca e transmissão ao vivo. Este documento mostra como criar e gerenciar consultas de busca usando a API REST.  As consultas criadas dessa forma serão exibidas na interface do usuário do Azure Sentinel.
 
-Consulte a referência da API REST definitiva para obter mais detalhes sobre a [API de pesquisas salvas](https://docs.microsoft.com/rest/api/loganalytics/savedsearches).
+Consulte a referência da API REST definitiva para obter mais detalhes sobre a [API de pesquisas salvas](/rest/api/loganalytics/savedsearches).
 
 ## <a name="api-examples"></a>Exemplos de API
 
@@ -46,7 +46,7 @@ Nos exemplos a seguir, substitua esses espaços reservados pela substituição p
 
 ### <a name="example-1"></a>Exemplo 1
 
-Este exemplo mostra como criar ou atualizar uma consulta de busca de um determinado espaço de trabalho do Azure Sentinel.  Para uma consulta transmissão ao vivo, substitua *"category": "procurando consultas"* por *"category": "transmissão ao vivo queries"* no **corpo da solicitação** : 
+Este exemplo mostra como criar ou atualizar uma consulta de busca de um determinado espaço de trabalho do Azure Sentinel.  Para uma consulta transmissão ao vivo, substitua *"category": "procurando consultas"* por *"category": "transmissão ao vivo queries"* no **corpo da solicitação**: 
 
 #### <a name="request-header"></a>Cabeçalho da solicitação
 

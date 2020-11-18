@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579378"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661011"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 
@@ -25,7 +25,7 @@ Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql
 Neste artigo, você aprenderá a escrever uma consulta com o pool SQL sem servidor que consultará dados de contêineres de Azure Cosmos DB que estão com o link Synapse habilitado. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI [neste tutorial.](./tutorial-data-analyst.md) 
 
 > [!IMPORTANT]
-> Este tutorial usa um contêiner com [Azure Cosmos DB esquema bem definido](../../cosmos-db/analytical-store-introduction.md#schema-representation). A experiência de consulta que o pool SQL sem servidor fornece para [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema do conjunto de resultados da `OPENROWSET` função sem `WITH` a cláusula que lê dados de um contêiner com o esquema de fidelidade total, pois a experiência de consulta pode ser alterada e alinhada com um esquema bem definido. Poste seus comentários no [Fórum de comentários do Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) ou entre em contato com a [equipe do produto Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer comentários.
+> Este tutorial usa um contêiner com um [Azure Cosmos DB esquema bem definido](../../cosmos-db/analytical-store-introduction.md#schema-representation). A experiência de consulta que o pool SQL sem servidor fornece para um [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema do conjunto de resultados da `OPENROWSET` função sem a `WITH` cláusula que lê dados de um contêiner com um esquema de fidelidade total, pois a experiência de consulta pode ser alinhada e alterada com base no esquema bem definido. Poste seus comentários no [Fórum de comentários do Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) ou entre em contato com a [equipe de produto do Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer comentários.
 
 ## <a name="overview"></a>Visão geral
 
@@ -259,7 +259,7 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Booliano | bit |
 | Integer | BIGINT |
 | Decimal | FLOAT |
-| Cadeia de caracteres | varchar (agrupamento de banco de dados UTF8) |
+| String | varchar (agrupamento de banco de dados UTF8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
 | Data e hora (carimbo de hora do UNIX) | BIGINT |
 | Nulo | `any SQL type` 
@@ -345,7 +345,7 @@ Neste exemplo, o número de casos é armazenado como `int32` , `int64` ou `float
 
 Possíveis erros e ações de solução de problemas estão listados na tabela a seguir:
 
-| Erro | Causa raiz |
+| Erro do | Causa raiz |
 | --- | --- |
 | Erros de sintaxe:<br/> -Sintaxe incorreta próxima a ' OPENROWSET '<br/> - `...` Não é uma opção de provedor de OPENROWSET em massa reconhecida.<br/> -Sintaxe incorreta próxima a `...` | Possíveis causas raiz<br/> -Não está usando ' CosmosDB ' como primeiro parâmetro,<br/> -Usando literal de cadeia de caracteres em vez de identificador no terceiro parâmetro,<br/> -Não especificando o terceiro parâmetro (nome do contêiner) |
 | Ocorreu um erro na cadeia de conexão CosmosDB | -A conta, o banco de dados e a chave não foram especificados <br/> -Há alguma opção na cadeia de conexão que não é reconhecida.<br/> -Ponto e vírgula `;` é colocado no final da cadeia de conexão |

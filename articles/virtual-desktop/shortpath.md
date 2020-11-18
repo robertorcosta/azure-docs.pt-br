@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639135"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660943"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Shortpath RDP do Windows Virtual Desktop (versão prévia)
 
@@ -113,8 +113,8 @@ Para permitir o tráfego de rede de entrada para Shortpath RDP, use o nó Window
 3. Selecione **ação** e, em seguida, selecione **nova regra**.
 4. Na página **tipo de regra** do assistente de nova regra de entrada, selecione **personalizado** e, em seguida, selecione **Avançar**.
 5. Na página **programa** , selecione **o caminho do programa** e digite "% SystemRoot% \system32\svchost.exe" e, em seguida, selecione **Avançar**.
-6. Na página **protocolo e portas** , selecione o tipo de protocolo UDP. Na **porta local** , selecione "portas específicas" e digite 3390.
-7. Na página **Escopo** , você pode especificar se a regra deverá ser aplicada somente ao tráfego de rede enviado ou recebido pelos endereços IP indicados nesta página. Configure conforme apropriado para seu design e, em seguida, selecione **Avançar**.
+6. Na página **protocolo e portas** , selecione o tipo de protocolo UDP. Na **porta local**, selecione "portas específicas" e digite 3390.
+7. Na página **Escopo**, você pode especificar se a regra deverá ser aplicada somente ao tráfego de rede enviado ou recebido pelos endereços IP indicados nesta página. Configure conforme apropriado para seu design e, em seguida, selecione **Avançar**.
 8. Na página **ação** , selecione **permitir a conexão** e, em seguida, selecione **Avançar**.
 9. Na página **perfil** , selecione os tipos de local de rede aos quais essa regra se aplica e, em seguida, selecione **Avançar**.
 10. Na página **nome** , digite um nome e uma descrição para a regra e, em seguida, selecione **concluir**.
@@ -151,6 +151,7 @@ Siga a [documentação do grupo de segurança de rede](../virtual-machines/windo
 
 * **Origem**  -  do **Qualquer um** ou o intervalo de IP no qual os clientes estão residentes
 * **Intervalos de portas de origem** -* *\** _ _ **destino**  -  **qualquer**
+* Intervalos de portas de **destino**  -  **3390**
 * **Protocolo**  -  do **UDP**
 * **Ação**  -  do **Permitir**
 * Opcionalmente, altere a **prioridade**. A prioridade afeta a ordem na qual as regras são aplicadas: quanto menor for o valor numérico, mais cedo a regra será aplicada.
@@ -245,6 +246,11 @@ Para desabilitar o Shortpath RDP para um host de sessão específico, você pode
 1. No host da sessão, execute **gpedit. msc**.
 2. Navegue até **configuração do computador > modelos de administração > componentes do Windows > Serviços de Área de Trabalho Remota > conexão de área de trabalho remota Host > conexões**.
 3. Defina a configuração **"selecionar protocolos de transporte RDP"** como **somente TCP**
+
+## <a name="feedback"></a>Comentários
+
+Gostaríamos de conhecer suas experiências com esta visualização pública!
+* Para perguntas, solicitações, comentários e outros comentários, [Use este formulário de comentários](https://aka.ms/RDPShortpathFeedback).
 
 ## <a name="next-steps"></a>Próximas etapas
 

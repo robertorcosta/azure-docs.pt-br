@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster habilitado para Azure Arc (versão prévia)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371249"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659787"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps em um cluster kubernetes habilitado para Arc (visualização)
 
@@ -99,7 +99,7 @@ Confira a seguir os cenários que dão suporte para o valor do parâmetro reposi
 | Cenário | Formatar | Descrição |
 | ------------- | ------------- | ------------- |
 | Repositório Git público | http [s]://Server/repo.git ou git://server/repo.git   | Repositório Git público  |
-| Repositório git privado – SSH – chaves criadas por fluxo | SSH://[user@] servidor/repositório. git ou [user@] servidor: repositório. git | A chave pública gerada pelo fluxo precisa ser adicionada à conta de usuário ou ao repositório em seu provedor de serviços do git. Encontre mais detalhes [aqui](#apply-configuration-from-a-private-git-repository) |
+| Repositório git privado – SSH – chaves criadas por fluxo | SSH://[user@] servidor/repositório. git ou [user@] servidor: repositório. git | A chave pública gerada pelo fluxo precisa ser adicionada à conta de usuário em seu provedor de serviços git. Se a chave de implantação for adicionada ao repositório em vez da conta de usuário, use `git@` no lugar de `user@` . Encontre mais detalhes [aqui](#apply-configuration-from-a-private-git-repository) |
 
 Esses cenários têm suporte pelo fluxo, mas ainda não pelo sourceControlConfiguration.
 
@@ -222,16 +222,26 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 3. Selecione a configuração que usa o repositório git privado.
 4. Na janela de contexto exibida, na parte inferior da janela, copie a **Chave pública do repositório**.
 
-**Adicionar a chave pública como uma chave de implantação ao repositório git**
+Se você estiver usando o GitHub, use uma das duas opções a seguir:
 
-1. Abra o GitHub, navegue até seu repositório, para **configurações**e, em seguida, para **implantar chaves**
-2. Clique em **Adicionar chave de implantação**
+**Opção 1: adicionar a chave pública à sua conta de usuário**
+
+1. Abra o GitHub, clique no ícone do seu perfil no canto superior direito da página.
+2. Clique em **configurações**
+3. Clique nas **chaves SSH e GPG**
+4. Clique em **nova chave SSH**
+5. Forneça um título
+6. Cole a chave pública (sem as aspas)
+7. Clique em **Adicionar chave SSH**
+
+**Opção 2: adicionar a chave pública como uma chave de implantação ao repositório git**
+
+1. Abra o GitHub, navegue até seu repositório, para **configurações** e, em seguida, para **implantar chaves**
+2. Clique em **Adicionar implantar chave**
 3. Forneça um título
 4. Marque **permitir acesso de gravação**
 5. Cole a chave pública (sem as aspas)
 6. Clique em **Adicionar chave**
-
-Consulte os documentos do GitHub para obter mais informações sobre como gerenciar essas chaves.
 
 **Se você está usando um repositório DevOps do Azure, adicione a chave às chaves SSH**
 

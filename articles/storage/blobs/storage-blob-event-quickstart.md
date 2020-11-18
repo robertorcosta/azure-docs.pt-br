@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 37dc6d234d243c79fe9bac206caaaa28bb29aa2d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676255"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659940"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure
 
@@ -28,11 +28,9 @@ Quando você concluir as etapas descritas neste artigo, verá que os dados do ev
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando a versão mais recente do CLI do Azure (2.0.70 ou posterior). Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Caso não esteja usando o Cloud Shell, primeiro você deve entrar usando `az login`.
+- Este artigo requer a versão 2.0.70 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -40,7 +38,7 @@ Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em 
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na localização *westcentralus* .  Substitua `<resource_group_name>` por um nome exclusivo para o grupo de recursos.
+O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na localização *westcentralus*.  Substitua `<resource_group_name>` por um nome exclusivo para o grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus
