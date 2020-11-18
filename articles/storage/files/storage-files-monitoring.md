@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8dc99cda4128635e619afec5ed725da16bbd81ed
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629879"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843818"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
@@ -470,7 +470,7 @@ As entradas de log são criadas somente se há solicitações feitas no ponto de
 - Solicitações bem-sucedidas
 - Solicitações com falha, incluindo tempo limite, limitação, rede, autorização e outros erros
 - Solicitações que usam uma SAS (Assinatura de Acesso Compartilhado) ou OAuth, incluindo solicitações bem-sucedidas e com falha
-- Solicitações para dados de análise (dados de log clássicos no contêiner **$logs** e dados de métrica clássicos nas tabelas **$metric** )
+- Solicitações para dados de análise (dados de log clássicos no contêiner **$logs** e dados de métrica clássicos nas tabelas **$metric**)
 
 As solicitações feitas pelo próprio serviço de arquivos do Azure, como criação ou exclusão de log, não são registradas. Para obter uma lista completa das solicitações SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
 
@@ -575,7 +575,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** e, em seguida, clique em **concluído**. 
+3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** e, em seguida, clique em **concluído**. 
 
 4. Clique em **Selecionar condição** e forneça as seguintes informações para o alerta: 
 
@@ -585,7 +585,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 5. Clique em **selecionar grupo de ações** e adicione um grupo de ações (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
 
-6. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , **Descrição** e **severidade**.
+6. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 
 7. Clique em **criar regra de alerta** para criar o alerta.
 
@@ -596,14 +596,14 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 1. Vá para sua **conta de armazenamento** no **portal do Azure**.
 2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
+3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
 4. Clique em **Selecionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica **Transações** .
 6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **tipo de resposta**.
 7. Clique na lista suspensa **valores de dimensão** e selecione **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
 
    > [!NOTE]
-   > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado. Para adicionar o valor de dimensão, clique em **adicionar valor personalizado** ao lado da lista suspensa **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError** , clique em **OK** e repita a etapa #7.
+   > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado. Para adicionar o valor de dimensão, clique em **adicionar valor personalizado** ao lado da lista suspensa **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #7.
 
 8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
@@ -617,14 +617,14 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
     > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um valor de limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
 11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade**.
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, * * descrição e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Como criar um alerta se o tamanho do compartilhamento de arquivos do Azure for de 80% da capacidade
 
 1. Vá para sua **conta de armazenamento** no **portal do Azure**.
 2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
+3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
 4. Clique em **Selecionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **capacidade de arquivo** .
 6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
@@ -636,14 +636,14 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 8. Insira o **valor do limite** em bytes. Por exemplo, se o tamanho do compartilhamento de arquivos for 100 TiB e você quiser receber um alerta quando o tamanho do compartilhamento de arquivos for 80% da capacidade, o valor do limite em bytes será 87960930222080.
 9. Defina o restante dos **parâmetros de alerta** (granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 10. Clique em selecionar grupo de ações para adicionar um grupo de ações (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-11. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade**.
+11. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, * * descrição e **severidade**.
 12. Clique em **criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Como criar um alerta se a saída do compartilhamento de arquivos do Azure excedeu 500 GiB em um dia
 
 1. Vá para sua **conta de armazenamento** no **portal do Azure**.
 2. Na seção monitoramento, clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
+3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
 4. Clique em **Selecionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **saída** .
 6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
@@ -656,7 +656,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 9. Clique na lista suspensa **agregação de granularidade** e selecione **24 horas**.
 10. Selecione a **frequência de avaliação** e **clique em concluído**.
 11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade**.
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, * * descrição e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
 
 ## <a name="next-steps"></a>Próximas etapas

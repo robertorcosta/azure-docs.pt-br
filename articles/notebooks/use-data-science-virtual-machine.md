@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830292"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843155"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usar máquinas virtuais de ciência de dados do Azure
 
@@ -24,7 +24,7 @@ Por padrão, os projetos são executados na camada de **computação gratuita** 
 
 ## <a name="create-a-dsvm-instance"></a>Criar uma instância do DSVM
 
-Para criar uma nova instância de DSVM, siga as instruções para [Criar uma VM de Ciência de Dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Para obter mais informações, incluindo detalhes de preços, consulte [máquinas virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Para criar uma nova instância de DSVM, siga as instruções para [Criar uma VM de Ciência de Dados do Ubuntu](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). Para obter mais informações, incluindo detalhes de preços, consulte [máquinas virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Conectar-se ao DSVM
 
@@ -68,4 +68,4 @@ Se vários usuários compartilharem um DSVM, você poderá evitar o bloqueio uns
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o DSVMs na [introdução às máquinas virtuais de ciência de dados do Azure](/azure/machine-learning/data-science-virtual-machine/overview).
+Saiba mais sobre o DSVMs na [introdução às máquinas virtuais de ciência de dados do Azure](../machine-learning/data-science-virtual-machine/overview.md).

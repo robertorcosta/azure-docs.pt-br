@@ -3,13 +3,13 @@ title: Implantar instância de contêiner por ação do GitHub
 description: Configurar uma ação do GitHub que automatiza etapas para compilar, enviar por push e implantar uma imagem de contêiner em instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019181"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843648"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contêiner
 
@@ -220,7 +220,7 @@ az extension add \
 
 Para obter informações sobre como localizar, instalar e gerenciar extensões, consulte [usar extensões com CLI do Azure](/cli/azure/azure-cli-extensions-overview).
 
-### <a name="run-az-container-app-up"></a>Executar `az container app up`
+### <a name="run-az-container-app-up"></a>Execute `az container app up`
 
 Para executar o comando [AZ container app up][az-container-app-up] , forneça no mínimo:
 

@@ -3,12 +3,12 @@ title: Criar e clonar notebooks Jupyter-visualização de Azure Notebooks
 description: Azure Notebooks projetos de visualização gerenciam uma coleção de blocos de anotações e arquivos relacionados, que você pode criar novos ou clonar de outra fonte.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5930178b7951ff5f701228cee4ea7cb5f0e6da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181482"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844379"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos no Azure Notebooks Preview
 
@@ -31,7 +31,7 @@ O que você pode fazer no painel depende se você estiver conectado com a conta 
 | **Executar** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
 | **Download** | Qualquer pessoa | Baixa uma cópia do projeto selecionado como um arquivo ZIP. |
 | **Compartilhe** | Qualquer pessoa | Exibe o pop-up de compartilhamento por meio do qual você pode obter uma URL para um projeto selecionado, compartilhar em mídias sociais, envie um email com a URL e obter código HTML ou Markdown para um crachá "notebook de inicialização" (consulte [obter uma notificação de lançamento](#obtain-a-launch-badge)) com a URL. |
-| **Excluir** | Proprietário | Salva o projeto selecionado. Essa operação não pode ser desfeita. |
+| **Delete (excluir)** | Proprietário | Salva o projeto selecionado. Essa operação não pode ser desfeita. |
 | **Terminal** | Proprietário | Inicia o servidor de projeto e, em seguida, abre uma nova janela com o terminal bash para esse servidor. |
 | **+ Novo Projeto** | Proprietário | Cria um novo projeto. Consulte [Criar um novo projeto](#create-a-new-project). |
 | **Carregar o Repositório do GitHub** | Proprietário | Importa o projeto do GitHub. [Importe um projeto do GitHub](#import-a-project-from-github). |
@@ -138,4 +138,4 @@ Pra clonar um projeto:
 - [Como: apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
 - [Como trabalhar com arquivos de dados](work-with-project-data-files.md)
 - [Como acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: usar Azure Machine Learning](../machine-learning/samples-notebooks.md)

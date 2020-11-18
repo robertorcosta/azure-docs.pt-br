@@ -4,12 +4,12 @@ description: Saiba como acessar arquivos, APIs REST, bancos de dados e diferente
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a833ff914c1ee53f024147371977ac1caa3800dc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846608"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842865"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Acessar dados de nuvem em um notebook
 
@@ -46,7 +46,7 @@ if response.status_code == 200:
 
 Você pode acessar bancos de dados no banco de dados SQL ou SQL Instância Gerenciada com a assistência das bibliotecas pyodbc ou pymssql.
 
-[Usar o Python para consultar um banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) fornece instruções sobre como criar um banco de dado no banco de dados SQL que contém data AdventureWorks e mostra como consultar esses dados. O mesmo código é mostrado no notebook para esse artigo.
+[Usar o Python para consultar um banco de dados SQL do Azure](../azure-sql/database/connect-query-python.md) fornece instruções sobre como criar um banco de dado no banco de dados SQL que contém data AdventureWorks e mostra como consultar esses dados. O mesmo código é mostrado no notebook para esse artigo.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
@@ -61,11 +61,11 @@ O notebook de exemplo demonstra o trabalho com tabelas e blobs, incluindo como u
 
 O Azure Cosmos DB fornece um repositório NoSQL totalmente indexado para documentos JSON). Os artigos a seguir fornecem uma série de maneiras diferentes de trabalhar com o Cosmos DB do Python:
 
-- [Criar um aplicativo da API SQL com o Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Criar um aplicativo Flask com a API do Azure Cosmos DB para MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Criar um banco de dados de grafo usando o Python e o Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Compilar um aplicativo Cassandra com o Python e o Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Compilar um aplicativo de API de Tabela com Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Criar um aplicativo da API SQL com o Python](../cosmos-db/create-sql-api-python.md)
+- [Criar um aplicativo Flask com a API do Azure Cosmos DB para MongoDB](../cosmos-db/create-mongodb-flask.md)
+- [Criar um banco de dados de grafo usando o Python e o Gremlin API](../cosmos-db/create-graph-python.md)
+- [Compilar um aplicativo Cassandra com o Python e o Azure Cosmos DB](../cosmos-db/create-cassandra-python.md)
+- [Compilar um aplicativo de API de Tabela com Python e Azure Cosmos DB](../cosmos-db/table-storage-how-to-use-python.md)
 
 Ao trabalhar com o Cosmos DB, você pode usar a biblioteca [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/).
 
@@ -73,9 +73,9 @@ Ao trabalhar com o Cosmos DB, você pode usar a biblioteca [azure-cosmosdb-table
 
 O Azure fornece um número de outros tipos de banco de dados que você puder usar. Os artigos a seguir fornecem diretrizes para acessar esses bancos de dados do Python:
 
-- [Banco de dados do Azure para PostgreSQL: usar Python para se conectar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Início Rápido: Como usar o Cache Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Banco de Dados do Azure para MySQL: usar Python para se conectar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Banco de dados do Azure para PostgreSQL: usar Python para se conectar e consultar dados](../postgresql/connect-python.md)
+- [Início Rápido: Como usar o Cache Redis do Azure com Python](../azure-cache-for-redis/cache-python-get-started.md)
+- [Banco de Dados do Azure para MySQL: usar Python para se conectar e consultar dados](../mysql/connect-python.md)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Assistente de Cópia do Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9476b7278cbe64bf90911c3b85a09922a1afbf1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970003"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843937"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager
 
@@ -48,7 +48,7 @@ Antes de iniciar a migração:
 * Planeje a migração fora do horário comercial para acomodar falhas inesperadas que possam ocorrer durante a migração.
 * Baixe a configuração atual das VMs usando o PowerShell, os comandos da CLI (interface de linha de comando) ou as APIs REST para facilitar a validação após a conclusão da etapa de preparação.
 * Atualize os scripts de automação e operacionalização para lidar com o modelo de implantação do Gerenciador de Recursos antes de iniciar a migração. Se preferir, você poderá realizar operações GET quando os recursos estiverem no estado preparado.
-* Avalie as políticas de RBAC (controle de acesso baseado em função) que são configuradas nos recursos de IaaS no modelo de implantação clássico e planeje a conclusão da migração.
+* Avalie as políticas do Azure RBAC (controle de acesso baseado em função) que são configuradas nos recursos de IaaS no modelo de implantação clássico e planeje após a conclusão da migração.
 
 O fluxo de trabalho de migração está descrito abaixo:
 

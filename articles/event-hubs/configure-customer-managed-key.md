@@ -3,12 +3,12 @@ title: Configure sua própria chave para criptografar dados de hubs de eventos d
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST dos hubs de eventos do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537251"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843206"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -23,7 +23,7 @@ Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 
 Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
+Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: criar um Azure Key Vault usando o portal do Azure](../key-vault/general/quick-create-portal.md).
 
 > [!IMPORTANT]
 > O uso de chaves gerenciadas pelo cliente com os hubs de eventos do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são:  **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
@@ -102,10 +102,10 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 | resourceId | ID de recurso do Azure Resource Manager |
 | keyVault | Nome completo do cofre de chaves. |
 | chave | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
-| version | A versão da chave que está sendo usada. |
+| Versão | A versão da chave que está sendo usada. |
 | operation | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
 | code | O código associado à operação. Exemplo: código de erro 404 significa que a chave não foi encontrada. |
-| mensagem | Qualquer mensagem de erro associada à operação |
+| message | Qualquer mensagem de erro associada à operação |
 
 Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
 

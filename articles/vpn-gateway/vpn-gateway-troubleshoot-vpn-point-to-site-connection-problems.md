@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660977"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845026"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -39,7 +39,7 @@ Para resolver esse problema, siga estas etapas:
 
 2. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | AzureRoot. cer    | Local Computer\Trusted Root Certification Authorities|
@@ -115,7 +115,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 1. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
@@ -317,7 +317,7 @@ Esse erro ocorre se o servidor RADIUS usado para autenticar o cliente VPN tiver 
 
 ### <a name="solution"></a>Solução
 
-Verifique se o servidor RADIUS está configurado corretamente. Para obter mais informações, consulte [Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Verifique se o servidor RADIUS está configurado corretamente. Para obter mais informações, consulte [integrar a autenticação RADIUS com o Azure AD servidor de autenticação multifator](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Erro 405" ao baixar o certificado raiz do Gateway de VPN
 

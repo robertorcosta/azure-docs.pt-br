@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: cdd5a8b518a374340af35d5f866d51d016e5ac79
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: cb6680482466018f86779d9c0318bbfe4e749be1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745187"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843138"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorando o armazenamento de BLOBs do Azure
 
@@ -80,14 +80,14 @@ Para obter diretrizes gerais, consulte [criar configuração de diagnóstico par
 
 2. Navegue para sua conta de armazenamento.
 
-3. Na seção **monitoramento** , clique em **configurações de diagnóstico (versão prévia)** .
+3. Na seção **monitoramento** , clique em **configurações de diagnóstico (versão prévia)**.
 
    > [!div class="mx-imgBorder"]
    > ![portal – Logs de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
 
 4. Escolha **blob** como o tipo de armazenamento para o qual você deseja habilitar os logs.
 
-5. Clique em **Adicionar configuração de diagnóstico** .
+5. Clique em **Adicionar configuração de diagnóstico**.
 
    > [!div class="mx-imgBorder"]
    > ![Portal-logs de recursos – adicionar configuração de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
@@ -155,7 +155,7 @@ Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pela
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
@@ -169,7 +169,7 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](https://do
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
@@ -183,7 +183,7 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](https://do
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
@@ -213,7 +213,7 @@ Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pelo
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
@@ -227,7 +227,7 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](https://
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
@@ -241,7 +241,7 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](https://
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
@@ -255,13 +255,13 @@ Para exibir um modelo de Azure Resource Manager que cria uma configuração de d
 
 ## <a name="analyzing-metrics"></a>Analisando métricas
 
-Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor** . Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor**. Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
 Este exemplo mostra como exibir **Transações** no nível da conta.
 
 ![Captura de tela de acesso às métricas no portal do Azure](./media/monitor-blob-storage/access-metrics-portal.png)
 
-Para métricas com suporte para dimensões, você pode filtrar a métrica com valor da dimensão desejado. Este exemplo mostra como exibir **transações** no nível de conta em uma operação específica, selecionando valores para a dimensão **Nome da API** .
+Para métricas com suporte para dimensões, você pode filtrar a métrica com valor da dimensão desejado. Este exemplo mostra como exibir **transações** no nível de conta em uma operação específica, selecionando valores para a dimensão **Nome da API**.
 
 ![Captura de tela de acesso às métricas com dimensão no portal do Azure](./media/monitor-blob-storage/access-metrics-portal-with-dimension.png)
 
@@ -485,7 +485,7 @@ As entradas de log são criadas somente se há solicitações feitas no ponto de
 - Solicitações bem-sucedidas
 - Solicitações com falha, incluindo tempo limite, limitação, rede, autorização e outros erros
 - Solicitações que usam uma SAS (Assinatura de Acesso Compartilhado) ou OAuth, incluindo solicitações bem-sucedidas e com falha
-- Solicitações para dados de análise (dados de log clássicos no contêiner **$logs** e dados de métrica clássicos nas tabelas **$metric** )
+- Solicitações para dados de análise (dados de log clássicos no contêiner **$logs** e dados de métrica clássicos nas tabelas **$metric**)
 
 As solicitações feitas pelo serviço de armazenamento de BLOBs, como criação ou exclusão de log, não são registradas. Para uma lista completa de dados registrados, consulte [Mensagens de operações e status registradas em logs](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato de log de armazenamento](monitor-blob-storage-reference.md).
 

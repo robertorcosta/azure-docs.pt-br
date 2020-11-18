@@ -3,12 +3,12 @@ title: Visão geral da versão prévia do Azure Notebooks
 description: Execute Jupyter notebooks na nuvem usando o serviço gratuito de versão prévia do Azure Notebooks, em que não é necessária nenhuma instalação ou configuração.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85831396"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845128"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Visão geral da versão prévia do Azure Notebooks
 
@@ -111,4 +111,4 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
   - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
   - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
   - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Usar o Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Usar o Azure Machine Learning](../machine-learning/samples-notebooks.md)

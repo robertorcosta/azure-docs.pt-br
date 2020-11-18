@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629403"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844669"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos de extremidade de rede da Sincronização de Arquivos do Azure
 Os Arquivos do Azure e a Sincronização de Arquivos do Azure fornecem dois tipos principais de pontos de extremidade para acessar compartilhamentos de arquivo do Azure: 
@@ -39,9 +39,9 @@ Adicionalmente:
 ## <a name="create-the-private-endpoints"></a>Criar os pontos de extremidade privados
 Quando você cria um ponto de extremidade privado para um recurso do Azure, os seguintes recursos são implantados:
 
-- **Um ponto de extremidade privado** : Um recurso do Azure que representa o ponto de extremidade privado para a conta de armazenamento ou o Serviço de Sincronização de Armazenamento. Você pode considerar isso como um recurso que conecta seu recurso do Azure e um adaptador de rede.
+- **Um ponto de extremidade privado**: Um recurso do Azure que representa o ponto de extremidade privado para a conta de armazenamento ou o Serviço de Sincronização de Armazenamento. Você pode considerar isso como um recurso que conecta seu recurso do Azure e um adaptador de rede.
 - **Uma NIC (adaptador de rede)** : o adaptador de rede que mantém um endereço IP privado dentro da rede virtual/sub-rede especificada. É exatamente o mesmo recurso que é implantado quando você implanta uma máquina virtual. No entanto, em vez de ser atribuído a uma VM, ele pertence ao ponto de extremidade privado.
-- **Uma zona DNS privada** : se você nunca tiver implantado um ponto de extremidade privado para essa rede virtual, uma nova zona DNS privada será implantada em sua rede virtual. Um registro DNS A também será criado para o recurso do Azure nesta zona DNS. Se você já tiver implantado um ponto de extremidade privado nessa rede virtual, um novo registro A para o recurso do Azure será adicionado à zona DNS existente. A implantação de uma zona DNS é opcional, porém altamente recomendável para simplificar o gerenciamento de DNS necessário.
+- **Uma zona DNS privada**: se você nunca tiver implantado um ponto de extremidade privado para essa rede virtual, uma nova zona DNS privada será implantada em sua rede virtual. Um registro DNS A também será criado para o recurso do Azure nesta zona DNS. Se você já tiver implantado um ponto de extremidade privado nessa rede virtual, um novo registro A para o recurso do Azure será adicionado à zona DNS existente. A implantação de uma zona DNS é opcional, porém altamente recomendável para simplificar o gerenciamento de DNS necessário.
 
 > [!Note]  
 > Este artigo usa os sufixos DNS para as regiões públicas do Azure, `core.windows.net` para contas de armazenamento e `afs.azure.net` para Serviços de Sincronização de Armazenamento. Esse comentário também se aplica a nuvens soberanas do Azure, como a nuvem do Governo dos EUA para Azure – só substitua os sufixos apropriados para seu ambiente.
@@ -136,11 +136,11 @@ Navegue até o **Centro de Link Privado** digitando *Link Privado* na barra de p
 
 O assistente resultante tem várias páginas a serem preenchidas.
 
-Na folha **Básico** , selecione o grupo de recursos, o nome e a região desejados para o ponto de extremidade privado. Essas configurações podem ter o valor que você quiser, elas não precisam corresponder ao Serviço de Sincronização de Armazenamento, embora seja necessário criar o ponto de extremidade privado na mesma região que a rede virtual na qual você deseja criá-lo.
+Na folha **Básico**, selecione o grupo de recursos, o nome e a região desejados para o ponto de extremidade privado. Essas configurações podem ter o valor que você quiser, elas não precisam corresponder ao Serviço de Sincronização de Armazenamento, embora seja necessário criar o ponto de extremidade privado na mesma região que a rede virtual na qual você deseja criá-lo.
 
 ![Uma captura de tela da seção Noções Básicas da seção Criar ponto de extremidade privado](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-1.png)
 
-Na folha **Recurso** , selecione o botão de opção para **Conectar-se a um recurso do Azure em meu diretório**. Em **Tipo de recurso** , selecione **Microsoft.StorageSync/storageSyncServices** para o tipo de recurso. 
+Na folha **Recurso**, selecione o botão de opção para **Conectar-se a um recurso do Azure em meu diretório**. Em **Tipo de recurso**, selecione **Microsoft.StorageSync/storageSyncServices** para o tipo de recurso. 
 
 A folha **Configuração** permite que você selecione a rede virtual específica e a sub-rede à qual deseja adicionar o ponto de extremidade privado. Selecione a mesma rede virtual que você usou para a conta de armazenamento acima. A folha Configuração também contém as informações para criar/atualizar a zona DNS privado.
 

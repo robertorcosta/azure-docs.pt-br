@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632202"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844175"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solucionar problemas de execução de pacote no Integration Runtime do SSIS
 
@@ -121,14 +121,14 @@ Esse erro ocorre quando o Integration Runtime do SSIS não pode acessar o armaze
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensagem de erro: "provedor de OLE DB da Microsoft para Analysis Services. ' HRESULT: a descrição de 0x80004005: ' COM erro: erro COM: mscorlib; A exceção foi gerada pelo destino de uma invocação "
 
-Uma causa potencial é que o nome de usuário ou a senha com a autenticação multifator do Azure habilitada está configurado para Azure Analysis Services autenticação. Essa autenticação não tem suporte no Integration Runtime do SSIS. Tente usar uma entidade de serviço para Azure Analysis Services autenticação:
+Uma causa potencial é que o nome de usuário ou a senha com a autenticação multifator do Azure AD habilitada está configurado para Azure Analysis Services autenticação. Essa autenticação não tem suporte no Integration Runtime do SSIS. Tente usar uma entidade de serviço para Azure Analysis Services autenticação:
 
 1. Prepare uma entidade de serviço conforme descrito em [automação com entidades de serviço](../analysis-services/analysis-services-service-principal.md).
-2. No Gerenciador de conexões, configure **usar um nome de usuário e senha específicos** : defina **AppID** como o username e **clientSecret** como a senha.
+2. No Gerenciador de conexões, configure **usar um nome de usuário e senha específicos**: defina **AppID** como o username e **clientSecret** como a senha.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Mensagem de erro: "a origem do ADONET falhou ao adquirir a conexão {GUID} com a seguinte mensagem de erro: falha de logon para o usuário" NT AUTHORITY\ANONYMOUS LOGON "" ao usar uma identidade gerenciada
 
-Certifique-se de não configurar o método de autenticação do Gerenciador de conexões como **Active Directory autenticação de senha** quando o parâmetro *ConnectUsingManagedIdentity* for **true** . Você pode configurá-lo como **autenticação SQL** , o que será ignorado se *ConnectUsingManagedIdentity* estiver definido.
+Certifique-se de não configurar o método de autenticação do Gerenciador de conexões como **Active Directory autenticação de senha** quando o parâmetro *ConnectUsingManagedIdentity* for **true**. Você pode configurá-lo como **autenticação SQL** , o que será ignorado se *ConnectUsingManagedIdentity* estiver definido.
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Mensagem de erro: "0xC020801F em..., fonte OData [...]: não é possível adquirir uma conexão gerenciada do Gerenciador de conexões de tempo de execução"
 

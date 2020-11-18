@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410361"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843682"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -79,13 +79,13 @@ Saiba mais:
 
 ## <a name="multi-factor-authentication"></a>Autenticação Multifator
 
-A Autenticação Multifator do Azure é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada de segurança crítica às entradas e transações dos usuários. A Autenticação Multifator ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação: chamada telefônica, mensagem de texto, notificações de aplicativo móvel ou códigos de verificação e tokens OAuth de terceiros.
+A autenticação multifator do Azure AD é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. A Autenticação Multifator ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação: chamada telefônica, mensagem de texto, notificações de aplicativo móvel ou códigos de verificação e tokens OAuth de terceiros.
 
 Saiba mais:
 
 * [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a Autenticação Multifator do Azure?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Como funciona a Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a autenticação multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como funciona a autenticação multifator do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>RBAC do Azure
 
@@ -107,11 +107,11 @@ Monitoramento de segurança, alertas e relatórios baseados no aprendizado de m�
 
 No portal do Azure, os relatórios se enquadram nas categorias a seguir:
 
-* **Relatórios de anomalias** : contêm eventos de entrada que nós identificamos como anômalos. Nossa meta é que você fique ciente dessas atividades e possa determinar se um evento é suspeito ou não.
-* **Relatórios de aplicativos integrados** : fornecem um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Azure AD oferece integração com milhares de aplicativos em nuvem.
-* **Relatórios de erros** : indicam erros que podem ocorrer ao provisionar contas para aplicativos externos.
-* **Relatórios específicos do usuário** : exibem dados de atividade de entrada/dispositivo de um usuário específico.
-* **Logs de atividades** : contêm um registro de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias ou 30 dias, bem como alterações de atividades do grupo e atividades de registro e redefinição de senha.
+* **Relatórios de anomalias**: contêm eventos de entrada que nós identificamos como anômalos. Nossa meta é que você fique ciente dessas atividades e possa determinar se um evento é suspeito ou não.
+* **Relatórios de aplicativos integrados**: fornecem um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Azure AD oferece integração com milhares de aplicativos em nuvem.
+* **Relatórios de erros**: indicam erros que podem ocorrer ao provisionar contas para aplicativos externos.
+* **Relatórios específicos do usuário**: exibem dados de atividade de entrada/dispositivo de um usuário específico.
+* **Logs de atividades**: contêm um registro de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias ou 30 dias, bem como alterações de atividades do grupo e atividades de registro e redefinição de senha.
 
 Saiba mais:
 

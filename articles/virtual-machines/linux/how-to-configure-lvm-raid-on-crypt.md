@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911810"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843512"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurar o LVM e o RAID em dispositivos criptografados
 
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verificação de que um volume físico foi criado](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Os nomes de/dev/mapper/Device aqui precisam ser substituídos para seus valores reais com base na saída de **lsblk** .
+>Os nomes de/dev/mapper/Device aqui precisam ser substituídos para seus valores reais com base na saída de **lsblk**.
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verificar as informações de volumes físicos
 ```bash
@@ -370,7 +370,7 @@ df -h
 ```
 ![Captura de tela mostra uma janela de console com sistemas de arquivos montados como data0 e Data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-Nessa variação de **lsblk** , estamos listando os dispositivos que mostram as dependências na ordem inversa. Essa opção ajuda a identificar os dispositivos agrupados pelo volume lógico em vez dos nomes de dispositivo/dev/sd [disco] originais.
+Nessa variação de **lsblk**, estamos listando os dispositivos que mostram as dependências na ordem inversa. Essa opção ajuda a identificar os dispositivos agrupados pelo volume lógico em vez dos nomes de dispositivo/dev/sd [disco] originais.
 
 É importante garantir que a opção **nofail** seja adicionada às opções de ponto de montagem dos volumes LVM criados na parte superior de um dispositivo criptografado por meio de Azure Disk Encryption. Isso impede que o sistema operacional fique preso durante o processo de inicialização (ou no modo de manutenção).
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informações para o RAID configurado por meio do comando mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Os nomes de/dev/mapper/Device aqui precisam ser substituídos pelos valores reais, com base na saída de **lsblk** .
+>Os nomes de/dev/mapper/Device aqui precisam ser substituídos pelos valores reais, com base na saída de **lsblk**.
 
 ### <a name="checkmonitor-raid-creation"></a>Verificar/monitorar a criação de RAID
 ```bash

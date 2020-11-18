@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412758"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844856"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -112,7 +112,7 @@ Um Gateway de Área de Trabalho Remota é um serviço de proxy RDP com base em p
 * Una o Gateway de Área de Trabalho Remota ao mesmo [domínio de gerenciamento](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) que as estações de trabalho do administrador. Isso é necessário quando você usa uma VPN IPsec de site a site ou o ExpressRoute em um domínio que tem uma relação de confiança unidirecional para com o Azure AD ou se está associando credenciais entre a instância local do AD DS e o Azure AD.
 * Configure uma [política de autorização de conexão de cliente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) para permitir que o Gateway de Área de Trabalho Remota verifique se o nome do computador cliente é válido (ingressado no domínio) e tem permissão para acessar o portal do Azure.
 * Use IPsec para a [VPN do Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) para proteger ainda mais o tráfego de gerenciamento contra interceptação e roubo de tokens ou considere um link da Internet isolado por meio do [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Habilite a autenticação multifator (via [Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)) ou a autenticação de cartão inteligente para administradores que fazem logon por meio do Gateway de Área de Trabalho Remota.
+* Habilite a autenticação multifator (por meio da [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md)) ou autenticação de cartão inteligente para administradores que fazem logon por meio do gateway de área de trabalho remota.
 * Configure [restrições de endereço IP](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origem ou [Grupos de Segurança de Rede](../../virtual-network/network-security-groups-overview.md) no Azure para minimizar o número de pontos de extremidade de gerenciamento permitidos.
 
 ## <a name="security-guidelines"></a>Diretrizes de segurança

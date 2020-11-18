@@ -3,13 +3,13 @@ title: Usar pool dedicado para executar tarefas tarefa
 description: Configure um pool de computação dedicado (pool de agentes) no registro para executar uma tarefa de registro de contêiner do Azure.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997192"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844907"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Executar uma tarefa ACR em um pool de agentes dedicado
 
@@ -93,7 +93,7 @@ az acr agentpool update \
 
 Os pools de agente de tarefa exigem acesso aos seguintes serviços do Azure. As regras de firewall a seguir devem ser adicionadas a quaisquer grupos de segurança de rede ou rotas definidas pelo usuário existentes.
 
-| Direction | Protocolo | Fonte         | Porta de origem | Destino          | Porta de destino | Usado    |
+| Direção | Protocolo | Fonte         | Porta de origem | Destino          | Porta de destino | Usado    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | Saída  | TCP      | VirtualNetwork | Qualquer         | AzureKeyVault        | 443       | Padrão |
 | Saída  | TCP      | VirtualNetwork | Qualquer         | Armazenamento              | 443       | Padrão |

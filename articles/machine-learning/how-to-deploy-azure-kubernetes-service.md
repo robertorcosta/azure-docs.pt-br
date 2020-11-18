@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325185"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843801"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 
@@ -87,7 +87,7 @@ No Azure Machine Learning, a "implantação" é usada no sentido mais geral de d
 O componente de front-end (azureml-FE) que roteia as solicitações de inferência de entrada para os serviços implantados dimensiona automaticamente conforme necessário. O dimensionamento do azureml-Fe é baseado na finalidade e no tamanho do cluster AKS (número de nós). A finalidade do cluster e os nós são configurados quando você [cria ou anexa um cluster AKs](how-to-create-attach-kubernetes.md). Há um serviço azureml-FE por cluster, que pode estar em execução em vários pods.
 
 > [!IMPORTANT]
-> Ao usar um cluster configurado como __desenvolvimento/teste__ , o autodimensionador é **desabilitado**.
+> Ao usar um cluster configurado como __desenvolvimento/teste__, o autodimensionador é **desabilitado**.
 
 O Azureml-Fe é dimensionado verticalmente para usar mais núcleos e out (horizontalmente) para usar mais pods. Ao tomar a decisão de escalar verticalmente, o tempo necessário para rotear solicitações de inferência de entrada é usado. Se esse tempo exceder o limite, ocorrerá uma escala vertical. Se o tempo para rotear solicitações de entrada continuar a exceder o limite, ocorrerá uma escala horizontal.
 
@@ -95,7 +95,7 @@ Ao escalar verticalmente e horizontalmente, o uso da CPU é usado. Se o limite d
 
 ## <a name="deploy-to-aks"></a>Implantar no AKS
 
-Para implantar um modelo no serviço kubernetes do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__ , que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+Para implantar um modelo no serviço kubernetes do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > O número de modelos a serem implantados é limitado a modelos de 1.000 por implantação (por contêiner).
@@ -154,7 +154,7 @@ O componente que lida com o dimensionamento automático para implantações de m
 > [!IMPORTANT]
 > * **Não habilite o kubernetes horizontal Pod AutoScaler (hPa) para implantações de modelo**. Fazer isso faria com que os dois componentes de dimensionamento automático concorram uns com os outros. O Azureml-FE foi projetado para dimensionar automaticamente os modelos implantados pelo Azure ML, em que HPA teria de adivinhar ou de utilização de modelo aproximada de uma métrica genérica, como o uso da CPU ou uma configuração de métrica personalizada.
 > 
-> * **O Azureml-FE não dimensiona o número de nós em um cluster AKs** , pois isso pode levar a aumentos de custos inesperados. Em vez disso, **ele dimensiona o número de réplicas para o modelo** dentro dos limites do cluster físico. Se você precisar dimensionar o número de nós dentro do cluster, poderá dimensionar manualmente o cluster ou [Configurar o dimensionamento automática do cluster AKs](../aks/cluster-autoscaler.md).
+> * **O Azureml-FE não dimensiona o número de nós em um cluster AKs**, pois isso pode levar a aumentos de custos inesperados. Em vez disso, **ele dimensiona o número de réplicas para o modelo** dentro dos limites do cluster físico. Se você precisar dimensionar o número de nós dentro do cluster, poderá dimensionar manualmente o cluster ou [Configurar o dimensionamento automática do cluster AKs](../aks/cluster-autoscaler.md).
 
 O dimensionamento automático pode ser controlado por configuração `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` para o serviço Web AKs. O exemplo a seguir demonstra como habilitar o dimensionamento automático:
 

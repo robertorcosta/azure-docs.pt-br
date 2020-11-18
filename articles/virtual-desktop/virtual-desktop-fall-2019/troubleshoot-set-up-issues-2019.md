@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009249"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843631"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de locatários e pool de hosts na área de trabalho virtual do Windows (clássico)
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução**ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução** ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 > [!div class="mx-imgBorder"]
 > ![Uma captura de tela de seleção do Windows 10 Enterprise para áreas de trabalho virtuais, versão 1809.](../media/AzureMarketPlace.png)
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O usuário precisa ter a MFA (Autenticação Multifator) do Azure
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Erro: o usuário requer a MFA (autenticação multifator) do Azure AD
 
 > [!div class="mx-imgBorder"]
 > ![Falha na captura de tela de sua implantação devido à falta de autenticação multifator (MFA)](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Exemplo de erro bruto:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Causa:** O administrador de locatários da área de trabalho virtual do Windows especificado requer a autenticação multifator do Azure (MFA) para entrar.
+**Causa:** O administrador de locatários da área de trabalho virtual do Windows especificado requer a autenticação multifator (MFA) do Azure AD para entrar.
 
 **Correção:** Crie uma entidade de serviço e atribua a ela uma função para seu locatário da área de trabalho virtual do Windows seguindo as etapas em [tutorial: criar entidades de serviço e atribuições de função com o PowerShell](create-service-principal-role-powershell.md). Depois de verificar se você pode entrar na área de trabalho virtual do Windows com a entidade de serviço, execute novamente a oferta do Azure Marketplace ou o modelo de Azure Resource Manager do GitHub, dependendo do método que você está usando. Siga as instruções abaixo para inserir os parâmetros corretos para seu método.
 

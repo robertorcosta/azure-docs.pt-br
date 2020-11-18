@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844026"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -34,7 +34,7 @@ Para atividades com falha em execução no ir de IR/compartilhado auto-hospedado
 
     ![Enviar logs](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Você pode escolher os logs que deseja enviar. Para *ir via hospedagem interna* , você pode carregar logs relacionados à atividade com falha ou a todos os logs no nó ir de hospedagem interna. Para *ir compartilhado* , você só pode carregar logs relacionados à atividade com falha.
+1. Você pode escolher os logs que deseja enviar. Para *ir via hospedagem interna*, você pode carregar logs relacionados à atividade com falha ou a todos os logs no nó ir de hospedagem interna. Para *ir compartilhado*, você só pode carregar logs relacionados à atividade com falha.
 
     ![Escolher logs](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -48,11 +48,26 @@ Para atividades com falha em execução no ir de IR/compartilhado auto-hospedado
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Erro ou falha geral de IR auto-hospedado
 
+### <a name="out-of-memory-issue"></a>Problema de memória insuficiente
+
+#### <a name="symptoms"></a>Sintomas
+
+O problema de "OutOfMemoryexception" ocorre ao tentar executar a atividade de pesquisa com IR vinculado ou IR auto-hospedado.
+
+#### <a name="cause"></a>Causa
+
+A nova atividade pode atender com o problema de OOM (OutOfMemory) se a máquina IR tiver um alto uso de memória no momento. O problema pode ser causado por uma grande escala de execução simultânea da atividade e o erro é por design.
+
+#### <a name="resolution"></a>Resolução
+
+Verifique o uso de recursos e a execução de atividade simultânea no nó IR. Ajuste o tempo interno e de gatilho das execuções de atividade para evitar muita execução no mesmo nó IR ao mesmo tempo.
+
+
 ### <a name="tlsssl-certificate-issue"></a>Problema de certificado TLS/SSL
 
 #### <a name="symptoms"></a>Sintomas
 
-Ao tentar habilitar o certificado TLS/SSL (avançado) do **Gerenciador de configuração de IR auto-hospedado** -> **Acesso remoto da intranet** , depois de selecionar o certificado TLS/SSL, o erro abaixo será exibido:
+Ao tentar habilitar o certificado TLS/SSL (avançado) do **Gerenciador de configuração de IR auto-hospedado** -> **Acesso remoto da intranet**, depois de selecionar o certificado TLS/SSL, o erro abaixo será exibido:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +80,7 @@ Esse é um problema conhecido no WFC: A validação do WCF TLS/SSL verifica some
 #### <a name="resolution"></a>Resolução
 
 O certificado curinga é compatível no IR auto-hospedado do Azure Data Factory v2. Esse problema normalmente ocorre porque o certificado SSL não está correto. O último DNSName em SAN deve ser válido. Siga as etapas abaixo para verificá-lo. 
-1.  Abra o console de gerenciamento, verifique duas vezes o *assunto* e o *nome alternativo da entidade* nos detalhes do certificado. No caso acima, por exemplo, o último item no *nome alternativo da entidade* , que é "nome DNS = Microsoft.com.com", não é legítimo.
+1.  Abra o console de gerenciamento, verifique duas vezes o *assunto* e o *nome alternativo da entidade* nos detalhes do certificado. No caso acima, por exemplo, o último item no *nome alternativo da entidade*, que é "nome DNS = Microsoft.com.com", não é legítimo.
 2.  Contate a empresa de problemas de certificado para remover o nome DNS errado.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problema de limite de trabalhos concorrentes
@@ -102,7 +117,7 @@ Quando lidamos com casos relacionados ao handshake SSL/TLS, podemos encontrar al
 
 - Aqui está uma maneira rápida e intuitiva de solucionar problemas de falha de compilação da cadeia de certificados X. 509.
  
-    1. Exporte o certificado que precisa ser verificado. Vá para Gerenciar certificado de computador, localize o certificado que você deseja verificar e clique com o botão direito do mouse em **Todas as tarefas** -> **Exportar** .
+    1. Exporte o certificado que precisa ser verificado. Vá para Gerenciar certificado de computador, localize o certificado que você deseja verificar e clique com o botão direito do mouse em **Todas as tarefas** -> **Exportar**.
     
         ![Exportar tarefas](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +153,7 @@ Quando lidamos com casos relacionados ao handshake SSL/TLS, podemos encontrar al
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Em seguida, a **ferramenta de recuperação de URL** será aberta. Você pode verificar os certificados de AIA, CDP e OCSP clicando no botão **Recuperar** .
+    1. Em seguida, a **ferramenta de recuperação de URL** será aberta. Você pode verificar os certificados de AIA, CDP e OCSP clicando no botão **Recuperar**.
 
         ![Botão de recuperação](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -165,7 +180,7 @@ Se você usar o Process Monitor, poderá ver o seguinte resultado:
 > [!TIP] 
 > Você pode definir o filtro conforme mostrado na captura de tela abaixo.
 > Ele nos informa que o dll **System. ValueTuple** não está localizado na pasta relacionada ao GAC, ou em *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* ou em *c:\Program Files\Microsoft Integration Runtime\4.0\Shared* pasta.
-> Basicamente, ele carregará a DLL da pasta *GAC* primeiro e, em seguida, de *Compartilhados* e finalmente da pasta *Gateway* . Portanto, você pode colocar a dll em qualquer caminho que possa ser útil.
+> Basicamente, ele carregará a DLL da pasta *GAC* primeiro e, em seguida, de *Compartilhados* e finalmente da pasta *Gateway*. Portanto, você pode colocar a dll em qualquer caminho que possa ser útil.
 
 ![Configurar filtros](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +194,7 @@ Você pode usar o mesmo método para resolver problemas ausentes de outro arquiv
 
 O motivo pelo qual você vê o System.ValueTuple.dll em *%windir%\Microsoft.NET\assembly* e *%windir%\assembly* é que ele é um comportamento do .net. 
 
-A partir do erro abaixo, você pode ver claramente o assembly *System. ValueTuple* não está lá. Assim, esse problema ocorre quando o aplicativo tenta verificar o assembly *System.ValueTuple.dll* .
+A partir do erro abaixo, você pode ver claramente o assembly *System. ValueTuple* não está lá. Assim, esse problema ocorre quando o aplicativo tenta verificar o assembly *System.ValueTuple.dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -210,7 +225,7 @@ Se nenhuma das causas acima for aplicável, você poderá ir para a pasta: *%Pro
 
 #### <a name="symptoms"></a>Sintomas
 
-Depois de criar o IRs auto-hospedados para os armazenamentos de dados de origem e destino, você deseja conectar os dois IRs para concluir uma cópia. Se os armazenamentos de dados estiverem configurados em diferentes VNETs ou não conseguirem entender o mecanismo de gateway, você encontrará erros como: *o driver de origem não pode ser encontrado no ir de destino* ; *a origem não pode ser acessada pelo ir de destino* .
+Depois de criar o IRs auto-hospedados para os armazenamentos de dados de origem e destino, você deseja conectar os dois IRs para concluir uma cópia. Se os armazenamentos de dados estiverem configurados em diferentes VNETs ou não conseguirem entender o mecanismo de gateway, você encontrará erros como: *o driver de origem não pode ser encontrado no ir de destino*; *a origem não pode ser acessada pelo ir de destino*.
  
 #### <a name="cause"></a>Causa
 
@@ -288,14 +303,14 @@ Vá para o log de eventos Integration Runtime para verificar o erro.
 
 ![Log de eventos IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Se o erro aparecer como acima de *UnauthorizedAccessException* , siga as instruções abaixo:
+Se o erro aparecer como acima de *UnauthorizedAccessException*, siga as instruções abaixo:
 
 
 1. Verifique a conta de serviço de logon do *DIAHostService* no painel de serviço do Windows.
 
     ![Conta de serviço de logon](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Verifique se a conta de serviço de logon tem a permissão R/W na pasta: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Verifique se a conta de serviço de logon tem a permissão R/W na pasta: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - Por padrão, se a conta de logon do serviço não tiver sido alterada, ela deverá ter a permissão de R/W.
 
@@ -305,7 +320,7 @@ Se o erro aparecer como acima de *UnauthorizedAccessException* , siga as instru�
         1. Limpar desinstalar o IR auto-hospedado atual.
         1. Instale os bits de IR hospedados internamente.
         1. Siga as instruções abaixo para alterar a conta de serviço: 
-            1. Acesse a pasta de instalação do selfhosted IR, alterne para a pasta: *Microsoft Integration Runtime\4.0\Shared* .
+            1. Acesse a pasta de instalação do selfhosted IR, alterne para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
             1. Inicie uma linha de comando usando privilégios elevados. Substitua *\<user>* e *\<password>* por seu próprio nome de usuário e senha e, em seguida, execute o comando abaixo:
                        
                 ```
@@ -325,7 +340,7 @@ Se o erro aparecer como acima de *UnauthorizedAccessException* , siga as instru�
             1. Você pode usar o usuário local/domínio para a conta de logon do serviço IR.            
         1. Registre o Integration Runtime.
 
-Se o erro aparecer como: o *serviço ' Integration Runtime Service ' (DIAHostService) falhou ao iniciar. Verifique se você tem privilégios suficientes para iniciar os serviços do sistema* , siga as instruções abaixo:
+Se o erro aparecer como: o *serviço ' Integration Runtime Service ' (DIAHostService) falhou ao iniciar. Verifique se você tem privilégios suficientes para iniciar os serviços do sistema*, siga as instruções abaixo:
 
 1. Verifique a conta de serviço de logon do *DIAHostService* no painel de serviço do Windows.
    
@@ -351,7 +366,7 @@ Não foi possível encontrar o botão **registrar** na interface do usuário do 
 
 #### <a name="cause"></a>Causa
 
-Desde o lançamento do *Integration Runtime 3,0* , o botão **registrar** em um nó Integration Runtime existente foi removido para habilitar um ambiente mais limpo e seguro. Se um nó foi registrado em algum Integration Runtime (online ou não), para registrá-lo novamente em outro Integration Runtime, desinstale o nó anterior e, em seguida, instale e registre o nó.
+Desde o lançamento do *Integration Runtime 3,0*, o botão **registrar** em um nó Integration Runtime existente foi removido para habilitar um ambiente mais limpo e seguro. Se um nó foi registrado em algum Integration Runtime (online ou não), para registrá-lo novamente em outro Integration Runtime, desinstale o nó anterior e, em seguida, instale e registre o nó.
 
 #### <a name="resolution"></a>Resolução
 
@@ -404,6 +419,47 @@ A instalação depende do serviço de Windows Installer. Há motivos de variante
 - Alguns arquivos do sistema ou registros foram tocadas sem intenção
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>A conta do serviço IR falhou ao buscar o acesso ao certificado
+
+#### <a name="symptoms"></a>Sintomas
+
+Ao instalar o IR auto-hospedado por meio do Microsoft Integration Runtime Configuration Manager, um certificado com uma autoridade de certificação confiável é gerado. Não foi possível aplicar o certificado para criptografar a comunicação entre dois nós. 
+
+As informações de erro são mostradas abaixo: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Falha ao conceder acesso ao certificado da conta de serviço IR](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Causa
+
+O certificado está usando KSP (provedor de armazenamento de chaves), que ainda não tem suporte. O SHIR só dá suporte ao certificado CSP (provedor de serviços de criptografia) até o momento.
+
+#### <a name="resolution"></a>Resolução
+
+O certificado CSP é recomendado para esse caso.
+
+**Solução 1:** Use o comando abaixo para importar o certificado:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Usar o Certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Solução 2:** Conversão de certificados:
+
+OpenSSL PKCS12-in .\xxxx.pfx-out. \ xxxx_new. pem-senha Pass:*\<EnterPassword>*
+
+OpenSSL PKCS12-Export-in. \ xxxx_new. pem-out xxxx_new. pfx
+
+Conversão antes e depois:
+
+![Antes da alteração do certificado](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Após a alteração do certificado](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemas de conectividade de IR via hospedagem interna
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>O tempo de execução de integração auto-hospedado não pode se conectar ao serviço de nuvem
@@ -431,7 +487,7 @@ O runtime de integração auto-hospedada não se conecta ao serviço do Data Fac
     ```
         
    > [!NOTE]     
-   > A URL do serviço pode variar, dependendo da localização do Data Factory. Você pode encontrar a URL do serviço em **Interface do usuário do ADF** > **Conexões** > **Runtimes de integração** > **Editar runtime de integração auto-hospedada** > **Nós** > **Exibir URLs de serviço** .
+   > A URL do serviço pode variar, dependendo da localização do Data Factory. Você pode encontrar a URL do serviço em **Interface do usuário do ADF** > **Conexões** > **Runtimes de integração** > **Editar runtime de integração auto-hospedada** > **Nós** > **Exibir URLs de serviço**.
             
     A resposta esperada é a seguinte:
             
@@ -476,7 +532,7 @@ A resposta esperada é a seguinte:
 
 #### <a name="cause"></a>Causa 
 
-O nó do runtime de integração auto-hospedada pode ter um status **Inativo** , conforme mostrado na seguinte captura de tela:
+O nó do runtime de integração auto-hospedada pode ter um status **Inativo**, conforme mostrado na seguinte captura de tela:
 
 ![Nó de runtime de integração auto-hospedada inativa](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
@@ -484,7 +540,7 @@ Esse comportamento ocorre quando os nós não conseguem se comunicar entre si.
 
 #### <a name="resolution"></a>Resolução
 
-1. Faça logon na VM hospedada no nó. Em **Logs de Aplicativos e Serviços** > **Runtime de Integração** , abra o Visualizador de Eventos e filtre todos os logs de erros.
+1. Faça logon na VM hospedada no nó. Em **Logs de Aplicativos e Serviços** > **Runtime de Integração**, abra o Visualizador de Eventos e filtre todos os logs de erros.
 
 1. Verifique se há um dos logs de erros contém o seguinte erro: 
     
@@ -569,7 +625,7 @@ Faça o rastreamento do Netmon e analise mais detalhadamente.
  
     *Pacote de rede do sistema Linux A com TTL 64-> B TTL 64 menos 1 = 63-> C TTL 63 menos 1 = 62-> TTL 62 menos 1 = 61 IR auto-hospedado*
 
-- Na situação ideal, o TTL será 128, o que significa que o sistema Windows está executando nossa Data Factory. Conforme mostrado no exemplo abaixo, *128 – 107 = 21 saltos* , o que significa que 21 saltos para o pacote foram enviados de data Factory para ir por hospedagem própria durante o handshake TCP 3.
+- Na situação ideal, o TTL será 128, o que significa que o sistema Windows está executando nossa Data Factory. Conforme mostrado no exemplo abaixo, *128 – 107 = 21 saltos*, o que significa que 21 saltos para o pacote foram enviados de data Factory para ir por hospedagem própria durante o handshake TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +643,11 @@ Ao tentar fazer o Telnet **8.8.8.8 888** com o Netmon Trace coletado, você deve
 ![rastreamento do Netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Isso significa que não foi possível fazer a conexão TCP com o lado do servidor **8.8.8.8** com base na porta **888** , para que você veja dois pacotes adicionais do **SynReTransmit** lá. Como a **HOST2** de origem não pôde estabelecer a conexão com o **8.8.8.8** no primeiro pacote, ele continuará fazendo a conexão.
+Isso significa que não foi possível fazer a conexão TCP com o lado do servidor **8.8.8.8** com base na porta **888**, para que você veja dois pacotes adicionais do **SynReTransmit** lá. Como a **HOST2** de origem não pôde estabelecer a conexão com o **8.8.8.8** no primeiro pacote, ele continuará fazendo a conexão.
 
 > [!TIP]
-> - Você pode clicar em filtro de **carregamento**  ->  **padrão filtrar**  ->  **endereços**  ->  **IPv4** .
-> - Insira **IPv4. Address = = 8.8.8.8** como filtro e clique em **aplicar** . Depois disso, você verá apenas a comunicação do computador local com o **8.8.8.8** de destino.
+> - Você pode clicar em filtro de **carregamento**  ->  **padrão filtrar**  ->  **endereços**  ->  **IPv4**.
+> - Insira **IPv4. Address = = 8.8.8.8** como filtro e clique em **aplicar**. Depois disso, você verá apenas a comunicação do computador local com o **8.8.8.8** de destino.
 
 ![filtrar endereços 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         

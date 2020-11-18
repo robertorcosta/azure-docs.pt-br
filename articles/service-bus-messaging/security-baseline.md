@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3604a2efb4d6f8c08a19d832c8523e44df352444
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a6d4e7f4ca7288b36f6801b9ddb362b7e936862d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518765"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843614"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança do Azure para o barramento de serviço
 
@@ -653,7 +653,7 @@ Use Azure Policy aliases no namespace "Microsoft. ServiceBus" para criar políti
 
 - [Configurar chaves gerenciadas pelo cliente para o barramento de serviço](configure-customer-managed-key.md)
 
-- [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Como criar um Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -833,7 +833,7 @@ Use o recurso de automação de fluxo de trabalho central de segurança do Azure
 
 **Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft. 
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

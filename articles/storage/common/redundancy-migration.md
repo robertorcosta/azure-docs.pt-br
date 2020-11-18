@@ -10,13 +10,13 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330284"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844005"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
@@ -125,16 +125,16 @@ Você pode solicitar a migração ao vivo por meio do [Portal de Suporte do Azur
 
 1. Selecione **nova solicitação de suporte**.
 2. Conclua os **conceitos básicos** com base nas informações da sua conta: 
-    - **Tipo de problema** : selecione **técnico**.
-    - **Serviço** : selecione **meus serviços** e **Gerenciamento de conta de armazenamento**.
-    - **Recurso** : selecione o recurso que você deseja converter em ZRS.
+    - **Tipo de problema**: selecione **técnico**.
+    - **Serviço**: selecione **meus serviços** e **Gerenciamento de conta de armazenamento**.
+    - **Recurso**: selecione o recurso que você deseja converter em ZRS.
 3. Selecione **Avançar**.
-4. Especifique os seguintes valores na seção **Problema** :
-    - **Severidade** : deixe o valor padrão como-está.
-    - **Tipo de problema** : selecione **migração de dados**.
-    - **Categoria** : selecione **migrar para ZRS**.
-    - **Título** : Tipo de titúlo descritivo, por exemplo, **migração de conta do ZRS**.
-    - **Detalhes** : digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na \_ \_ região.
+4. Especifique os seguintes valores na seção **Problema**:
+    - **Severidade**: deixe o valor padrão como-está.
+    - **Tipo de problema**: selecione **migração de dados**.
+    - **Categoria**: selecione **migrar para ZRS**.
+    - **Título**: Tipo de titúlo descritivo, por exemplo, **migração de conta do ZRS**.
+    - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na \_ \_ região.
 5. Selecione **Avançar**.
 6. Verifique se as informações de contato estão corretas na **informações de contato** folha.
 7. Selecione **Criar**.
@@ -165,7 +165,7 @@ Você também pode atualizar sua conta de armazenamento ZRS clássico para ZRS u
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para atualizar para o ZRS no portal do Azure, navegue até as definições de **configuração** da conta e escolha **Atualizar** :
+Para atualizar para o ZRS no portal do Azure, navegue até as definições de **configuração** da conta e escolha **Atualizar**:
 
 ![Atualizar do ZRS Clássico para o ZRS no Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
