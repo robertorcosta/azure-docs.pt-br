@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763118"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658699"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuração de aplicativos de logon único com um clique
 
@@ -40,7 +40,7 @@ O recurso SSO com um clique foi projetado para configurar o logon único para ap
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura ativa do aplicativo a ser configurado com o SSO. Você também precisa ter credenciais de administrador.
-- A **extensão Entrada Segura dos Meus Aplicativos** da Microsoft instalada no navegador. Para obter mais informações, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- A **extensão Entrada Segura dos Meus Aplicativos** da Microsoft instalada no navegador. Para obter mais informações, confira [Acessar e usar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Etapas da configuração de SSO com um clique
 
@@ -84,6 +84,5 @@ O recurso SSO com um clique foi projetado para configurar o logon único para ap
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [O que é a extensão do navegador Entrada Segura dos Meus Aplicativos?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](../saas-apps/tutorial-list.md)
+* [O que é a extensão do navegador Entrada Segura dos Meus Aplicativos?](../user-help/my-apps-portal-end-user-access.md)

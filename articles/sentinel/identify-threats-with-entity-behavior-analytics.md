@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425925"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658784"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com UEBA (análise de comportamentos de usuário e entidade) no Azure Sentinel
 
@@ -92,7 +92,7 @@ Os seguintes tipos de entidades estão atualmente identificados no Azure sentine
 - Endereço IP (IP)
 - Malware
 - Arquivo
-- Processo
+- Processar
 - Aplicativo de nuvem (CloudApplication)
 - Nome de domínio (DNS)
 - Recursos do Azure
@@ -109,7 +109,7 @@ Os seguintes tipos de entidades estão atualmente identificados no Azure sentine
 
 ### <a name="entity-pages"></a>Páginas de entidade
 
-Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade** , uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações que você encontrará nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
+Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade**, uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações que você encontrará nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
  
 As páginas de entidade consistem em três partes:
 - O painel do lado esquerdo contém as informações de identificação da entidade, coletadas de fontes de dados como Azure Active Directory, Azure Monitor, central de segurança do Azure e Microsoft defender.
@@ -124,7 +124,7 @@ As páginas de entidade consistem em três partes:
 
 A linha do tempo é uma parte importante da contribuição da página de entidade para análise de comportamento no Azure Sentinel. Ele apresenta uma história sobre eventos relacionados a entidades, ajudando você a entender a atividade da entidade em um período de tempo específico.
 
-Você pode escolher o **intervalo de tempo** entre várias opções predefinidas (como *últimas 24 horas* ) ou defini-las para qualquer período de tempo definido personalizado. Além disso, você pode definir filtros que limitam as informações na linha do tempo a tipos específicos de eventos ou alertas.
+Você pode escolher o **intervalo de tempo** entre várias opções predefinidas (como *últimas 24 horas*) ou defini-las para qualquer período de tempo definido personalizado. Além disso, você pode definir filtros que limitam as informações na linha do tempo a tipos específicos de eventos ou alertas.
 
 Os seguintes tipos de itens estão incluídos na linha do tempo:
 
@@ -155,7 +155,7 @@ As páginas de entidade são projetadas para fazer parte de vários cenários de
 
 ### <a name="behavior-analytics-table"></a>Tabela de análise de comportamento
 
-| Campo                     | DESCRIÇÃO                                                         |
+| Campo                     | Descrição                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | número de ID exclusivo do locatário                                      |
 | SourceRecordId            | número de ID exclusivo do evento do EBA                                   |
@@ -180,7 +180,7 @@ As páginas de entidade são projetadas para fazer parte de vários cenários de
 
 ### <a name="querying-behavior-analytics-data"></a>Consultando dados de análise de comportamento
 
-Usando o [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), é possível consultar a tabela de análise comportamental.
+Usando o [KQL](/azure/data-explorer/kusto/query/), é possível consultar a tabela de análise comportamental.
 
 Por exemplo, se quisermos localizar todos os casos de um usuário que não conseguiu entrar em um recurso do Azure, em que era a primeira tentativa do usuário de se conectar de um determinado país, e as conexões desse país não são comuns mesmo para os pares do usuário, podemos usar a seguinte consulta:
 

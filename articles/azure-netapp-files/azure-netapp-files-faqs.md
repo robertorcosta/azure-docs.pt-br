@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591539"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659141"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -150,7 +150,7 @@ Sim, você deve criar uma conexão de Active Directory antes de implantar um vol
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Há suporte para quantas conexões Active Directory?
 
-Azure NetApp Files não oferece suporte a várias conexões de Active Directory (AD) em uma única *região* , mesmo que as conexões do AD estejam em contas diferentes do NetApp. No entanto, você pode ter várias conexões do AD em uma única *assinatura* , desde que as conexões do AD estejam em regiões diferentes. Se você precisar de várias conexões do AD em uma única região, poderá usar assinaturas separadas para fazer isso. 
+Azure NetApp Files não oferece suporte a várias conexões de Active Directory (AD) em uma única *região*, mesmo que as conexões do AD estejam em contas diferentes do NetApp. No entanto, você pode ter várias conexões do AD em uma única *assinatura*, desde que as conexões do AD estejam em regiões diferentes. Se você precisar de várias conexões do AD em uma única região, poderá usar assinaturas separadas para fazer isso. 
 
 Uma conexão do AD é configurada por conta da NetApp; a conexão do AD é visível somente por meio da conta do NetApp na qual ela é criada.
 
@@ -167,6 +167,10 @@ O Azure NetApp Files oferece suporte a versões do Windows Server 2008r2SP1-2019
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Por que o espaço disponível no meu cliente SMB não mostra o tamanho provisionado?
 
 O tamanho do volume relatado pelo cliente SMB é o tamanho máximo para o qual o volume Azure NetApp Files pode crescer. O tamanho do volume de Azure NetApp Files, conforme mostrado no cliente SMB, não está refletindo a cota ou o tamanho do volume. Você pode obter a Azure NetApp Files o tamanho ou a cota do volume por meio do portal do Azure ou da API.
+
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Estou tendo problemas para se conectar ao meu compartilhamento SMB. O que devo fazer?
+
+Como prática recomendada, defina a tolerância máxima para a sincronização do relógio do computador como cinco minutos. Para obter mais informações, consulte [tolerância máxima para sincronização de relógio do computador](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

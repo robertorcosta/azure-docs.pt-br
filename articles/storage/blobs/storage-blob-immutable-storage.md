@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448328"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658546"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob comercialmente críticos com armazenamento imutável
 
@@ -102,17 +102,21 @@ Os seguintes limites se aplicam a isenções legais:
 - Para um contêiner, um máximo de 10 logs de auditoria de política de retenção legal são mantidos durante a política.
 
 ## <a name="scenarios"></a>Cenários
+
 A tabela a seguir mostra os tipos de operações de armazenamento de BLOBs que estão desabilitadas para os diferentes cenários imutáveis. Para obter mais informações, consulte a documentação da [API REST do serviço blob do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
 
-|Cenário  |Estado do blob  |Operações de blob negadas  |Proteção de contêiner e conta
-|---------|---------|---------|---------|
-|O intervalo efetivo de retenção no blob ainda não expirou e/ou a retenção legal está definida     |Imutável: protegido contra exclusão e gravação         | Colocar blob<sup>1</sup>, colocar bloco<sup>1</sup>, colocar lista de blocos<sup>1</sup>, excluir contêiner, excluir BLOB, definir metadados de BLOB, colocar página, definir propriedades de BLOB, BLOB de instantâneo, BLOB de cópia incremental, bloco de acréscimo<sup>2</sup>         |Exclusão de contêiner negada; Exclusão da conta de armazenamento negada         |
-|O intervalo de retenção efetivo no blob expirou e nenhuma retenção legal está definida    |Protegido apenas contra gravação  (operações de exclusão são permitidas)         |Colocar blob<sup>1</sup>, colocar bloco<sup>1</sup>, colocar lista de blocos<sup>1</sup>, definir metadados de BLOB, colocar página, definir propriedades de BLOB, BLOB de instantâneo, BLOB de cópia incremental, bloco de acréscimo<sup>2</sup>         |Exclusão de contêiner negada se pelo menos 1 blob existir no contêiner protegido; Exclusão de conta de armazenamento negada somente para políticas baseadas em tempo *bloqueadas*         |
-|Nenhuma política de WORM aplicada (sem retenção baseada em tempo e sem marca de suspensão legal)     |Mutável         |Nenhum         |Nenhum         |
+| Cenário | Estado do blob | Operações de blob negadas | Proteção de contêiner e conta |
+|--|--|--|--|
+| O intervalo efetivo de retenção no blob ainda não expirou e/ou a retenção legal está definida | Imutável: protegido contra exclusão e gravação | Colocar blob<sup>1</sup>, colocar bloco<sup>1</sup>, colocar lista de blocos<sup>1</sup>, excluir contêiner, excluir BLOB, definir metadados de BLOB, colocar página, definir propriedades de BLOB, BLOB de instantâneo, BLOB de cópia incremental, bloco de acréscimo<sup>2</sup> | Exclusão de contêiner negada; Exclusão da conta de armazenamento negada |
+| O intervalo de retenção efetivo no blob expirou e nenhuma retenção legal está definida | Protegido apenas contra gravação  (operações de exclusão são permitidas) | Colocar blob<sup>1</sup>, colocar bloco<sup>1</sup>, colocar lista de blocos<sup>1</sup>, definir metadados de BLOB, colocar página, definir propriedades de BLOB, BLOB de instantâneo, BLOB de cópia incremental, bloco de acréscimo<sup>2</sup> | Exclusão de contêiner negada se pelo menos 1 blob existir no contêiner protegido; Exclusão de conta de armazenamento negada somente para políticas baseadas em tempo *bloqueadas* |
+| Nenhuma política de WORM aplicada (sem retenção baseada em tempo e sem marca de suspensão legal) | Mutável | Nenhum | Nenhum |
 
 <sup>1</sup> o serviço blob permite que essas operações criem um novo BLOB uma vez. Todas as operações de substituição subsequentes em um caminho de blob existente em um contêiner imutável não são permitidas.
 
 <sup>2</sup> o bloco Append só é permitido para políticas de retenção baseadas em tempo com a `allowProtectedAppendWrites` Propriedade habilitada. Para obter mais informações, consulte a seção [permitir gravações de blobs de anexação protegidas](#allow-protected-append-blobs-writes) .
+
+> [!IMPORTANT]
+> Algumas cargas de trabalho, como o [backup do SQL para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), criam um blob e, em seguida, adicionam a ele. Se o contêiner tiver uma política de retenção baseada em tempo ativa ou uma suspensão legal em vigor, esse padrão não terá sucesso.
 
 ## <a name="pricing"></a>Preços
 

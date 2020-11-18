@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 744fe22b6b2c9fbeb9b149760145267ccb6fa6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7256f94b8e8376cf98a279d085a131a4ce84826f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435205"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658615"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuração de regras de aplicativo do Firewall do Azure com FQDNs do SQL
 
@@ -24,13 +24,13 @@ Com os FQDNs do SQL, é possível filtrar o tráfego:
 - Do ambiente local para Instâncias Gerenciadas do SQL do Azure ou do IaaS do SQL em execução nas suas redes virtuais.
 - De spoke-to-spoke para Instâncias Gerenciadas do SQL do Azure ou do IaaS do SQL em execução nas suas redes virtuais.
 
-A filtragem de FQDN do SQL tem suporte apenas no [modo de proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (porta 1433). Se usar o SQL no modo de redirecionamento padrão, você pode filtrar o acesso usando a marca de serviço do SQL como parte das [regras de rede](features.md#network-traffic-filtering-rules).
+A filtragem de FQDN do SQL tem suporte apenas no [modo de proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (porta 1433). Se usar o SQL no modo de redirecionamento padrão, você pode filtrar o acesso usando a marca de serviço do SQL como parte das [regras de rede](features.md#network-traffic-filtering-rules).
 Se usar portas não padrão para o tráfego de IaaS do SQL, você pode configurar essas portas nas regras de aplicativo do firewall.
 
 ## <a name="configure-using-azure-cli"></a>Configuração usando a CLI do Azure
 
 1. Implantar um [Firewall do Azure usando a CLI do Azure](deploy-cli.md).
-2. Se você filtrar o tráfego para o banco de dados SQL do Azure, o Azure Synapse Analytics ou o SQL Instância Gerenciada, verifique se o modo de conectividade SQL está definido como **proxy**. Para saber como alternar o modo de conectividade do SQL, veja [Configurações de Conectividade do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).
+2. Se você filtrar o tráfego para o banco de dados SQL do Azure, o Azure Synapse Analytics ou o SQL Instância Gerenciada, verifique se o modo de conectividade SQL está definido como **proxy**. Para saber como alternar o modo de conectividade do SQL, veja [Configurações de Conectividade do SQL do Azure](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli).
 
    > [!NOTE]
    > O modo *Proxy* do SQL pode resultar em mais latência em comparação com o *redirecionamento*. Se quiser continuar a usar o modo de redirecionamento, que é o padrão para clientes que se conectam com o Azure, filtre o acesso usando a [marca de serviço](service-tags.md) do SQL nas [regras de rede](tutorial-firewall-deploy-portal.md#configure-a-network-rule) do firewall.
@@ -52,7 +52,7 @@ Se usar portas não padrão para o tráfego de IaaS do SQL, você pode configura
 
 ## <a name="configure-using-the-azure-portal"></a>Configuração usando o portal do Azure
 1. Implantar um [Firewall do Azure usando a CLI do Azure](deploy-cli.md).
-2. Se você filtrar o tráfego para o banco de dados SQL do Azure, o Azure Synapse Analytics ou o SQL Instância Gerenciada, verifique se o modo de conectividade SQL está definido como **proxy**. Para saber como alternar o modo de conectividade do SQL, veja [Configurações de Conectividade do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).  
+2. Se você filtrar o tráfego para o banco de dados SQL do Azure, o Azure Synapse Analytics ou o SQL Instância Gerenciada, verifique se o modo de conectividade SQL está definido como **proxy**. Para saber como alternar o modo de conectividade do SQL, veja [Configurações de Conectividade do SQL do Azure](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli).  
 
    > [!NOTE]
    > O modo *Proxy* do SQL pode resultar em mais latência em comparação com o *redirecionamento*. Se quiser continuar a usar o modo de redirecionamento, que é o padrão para clientes que se conectam com o Azure, filtre o acesso usando a [marca de serviço](service-tags.md) do SQL nas [regras de rede](tutorial-firewall-deploy-portal.md#configure-a-network-rule) do firewall.

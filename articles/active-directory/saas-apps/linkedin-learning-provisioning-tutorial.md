@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar LinkedIn Learning para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LinkedIn Learning.
+description: Saiba como provisionar e descontinuar automaticamente as contas de usuário do Azure AD para o LinkedIn Learning.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,28 +12,28 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: f9f8694395be493aa0a58f482eb93ef82c5febc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 1a0ec8393e3c5ea40cb53fc101040441a5ca15bb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458516"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359027"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Learning para provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto no LinkedIn Learning quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o [LinkedIn Learning](https://learning.linkedin.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar no LinkedIn Learning e no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o [LinkedIn Learning](https://learning.linkedin.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
 > * Criar usuários no LinkedIn Learning
-> * Remover usuários do LinkedIn Learning quando eles não exigem mais acesso
+> * Remover usuários no LinkedIn Learning quando eles não precisarem mais de acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o LinkedIn Learning
-> * Provisionar grupos e associações de grupo no LinkedIn Learning
-> * [Logon único](linkedinlearning-tutorial.md) no LinkedIn Learning (recomendado)
+> * Provisionar grupos e associações a um grupo no LinkedIn Learning
+> * [Logon único](linkedinlearning-tutorial.md) para o LinkedIn Learning (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,37 +46,37 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
 2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine quais dados [mapear entre o Azure AD e o LinkedIn Learning](../app-provisioning/customize-application-attributes.md). 
+3. Determine quais dados serão [mapeados entre o Azure AD e o LinkedIn Learning](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-linkedin-learning-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o LinkedIn Learning para dar suporte ao provisionamento com o Azure AD
-1. Entre nas [configurações de aprendizado do LinkedIn](https://www.linkedin.com/learning-admin/settings/global). Selecione **configuração do scim** e selecione **Adicionar nova configuração do scim**.
+1. Entre em [Configurações do LinkedIn Learning](https://www.linkedin.com/learning-admin/settings/global). Selecione **Configuração do SCIM** e selecione **Adicionar nova configuração de SCIM**.
 
-   ![Configuração da instalação do SCIM](./media/linkedin-learning-provisioning-tutorial/learning-scim-settings.png)
+   ![Configuração da Instalação do SCIM](./media/linkedin-learning-provisioning-tutorial/learning-scim-settings.png)
 
-2. Insira um nome para a configuração e defina **licenças de atribuição automática** como ativado. Em seguida, clique em **gerar token**.
+2. Insira um nome para a configuração e defina **Atribuição automática de licenças** como Ativado. Em seguida, clique em **Gerar token**.
 
    ![Nome da configuração do SCIM](./media/linkedin-learning-provisioning-tutorial/learning-scim-configuration.png)
 
-3. Depois que a configuração é criada, um **token de acesso** deve ser gerado. Mantenha isso copiado para mais tarde.
+3. Após a configuração ser criada, um **Token de acesso** deve ser gerado. Copie-o para uso posterior.
 
    ![Token de acesso do SCIM](./media/linkedin-learning-provisioning-tutorial/learning-scim-token.png)
 
-4. Você pode emitir novamente qualquer configuração existente (que gerará um novo token) ou removê-las.
+4. Você pode emitir novamente qualquer configuração existente (o que gerará um novo token) ou removê-las.
 
-## <a name="step-3-add-linkedin-learning-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o LinkedIn Learning da Galeria de aplicativos do Azure AD
+## <a name="step-3-add-linkedin-learning-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o LinkedIn Learning por meio da galeria de aplicativos do Azure AD
 
-Adicione o LinkedIn Learning da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no LinkedIn Learning. Se você tiver configurado anteriormente o LinkedIn Learning para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione o LinkedIn Learning por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento nele. Se você já tiver configurado o LinkedIn Learning para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
 No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos ao LinkedIn Learning, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao LinkedIn Learning, é preciso selecionar uma função diferente do **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-linkedin-learning"></a>Etapa 5. Configurar o provisionamento automático de usuário para o LinkedIn Learning 
+## <a name="step-5-configure-automatic-user-provisioning-to-linkedin-learning"></a>Etapa 5. Configurar o provisionamento automático de usuários no LinkedIn Learning 
 
 Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
 
@@ -92,15 +92,15 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://api.linkedin.com/scim` a **URL de locatário**. Insira o valor do token de acesso recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao LinkedIn Learning. Se a conexão falhar, verifique se sua conta do LinkedIn Learning tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira `https://api.linkedin.com/scim` em **URL do Locatário**. Insira o valor do token de acesso recuperado anteriormente no **Token Secreto**. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao LinkedIn Learning. Se a conexão falhar, verifique se a sua conta LinkedIn Learning tem permissões de administrador e tente novamente.
 
-    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/linkedin-learning-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostrando a caixa de diálogo Credenciais de Administrador, em que você pode inserir a URL do Locatário e o Token Secreto.](./media/linkedin-learning-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
@@ -110,7 +110,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 8. Na seção **Mapeamentos**, selecione **Provisionar usuários do Azure Active Directory**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o LinkedIn Learning na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no LinkedIn Learning para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), será necessário garantir que a API de aprendizado do LinkedIn dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que serão sincronizados do Azure AD com o LinkedIn Learning na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência das contas de usuário no LinkedIn Learning para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), precisará garantir que a API do LinkedIn Learning seja compatível com a filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|Com suporte para filtragem|
    |---|---|---|
@@ -125,9 +125,9 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-10. Na seção **mapeamentos** , selecione **provisionar grupos de Azure Active Directory**.
+10. Na seção **Mapeamentos**, selecione **Provisionar Grupos do Azure Active Directory**.
 
-11. Examine os atributos de grupo que são sincronizados do Azure AD para o LinkedIn Learning na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no LinkedIn Learning para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo que serão sincronizados do Azure AD com o LinkedIn Learning na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência dos grupos no LinkedIn Learning para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
     |Atributo|Type|Com suporte para filtragem|
     |---|---|---|
@@ -137,11 +137,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento do Azure AD para o LinkedIn Learning, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+13. Para habilitar o serviço de provisionamento do Azure AD para o LinkedIn Learning, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você deseja provisionar para o LinkedIn Learning escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os usuários e/ou os grupos que deseja provisionar no LinkedIn Learning escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 

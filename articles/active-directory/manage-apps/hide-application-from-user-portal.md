@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601132"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659056"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicativos empresariais de usuários finais no Azure Active Directory
 
@@ -40,14 +40,14 @@ Use as etapas a seguir para ocultar um aplicativo do painel myapps e Microsoft 3
 5.  Procure o aplicativo que você quer ocultar e clique no aplicativo.  A visão geral do aplicativo é aberta.
 6.  Clique em **Propriedades**. 
 7.  Para a pergunta **Visível para os usuários?**, clique em **Não**.
-8.  Clique em **Salvar**.
+8.  Clique em **Save** (Salvar).
 
 > [!NOTE]
 > Essas instruções se aplicam somente a aplicativos empresariais.
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Usar o PowerShell do Azure AD para ocultar um aplicativo
 
-Para ocultar um aplicativo do painel myapps, você pode adicionar manualmente a marca HideApp à entidade de serviço para o aplicativo. Execute os comandos do [PowerShell do AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) a seguir para definir a propriedade visível do aplicativo **para usuários?** como **não**. 
+Para ocultar um aplicativo do painel myapps, você pode adicionar manualmente a marca HideApp à entidade de serviço para o aplicativo. Execute os comandos do [PowerShell do AzureAD](/powershell/module/azuread/?view=azureadps-2.0#service_principals) a seguir para definir a propriedade visível do aplicativo **para usuários?** como **não**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -74,6 +74,5 @@ Use as etapas a seguir para ocultar todos os aplicativos Microsoft 365 do painel
 ## <a name="next-steps"></a>Próximas etapas
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](assign-user-or-group-access-portal.md)
-* [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
-* [Alterar o nome ou logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)
-
+* [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](./assign-user-or-group-access-portal.md)
+* [Alterar o nome ou logotipo de um aplicativo empresarial](./add-application-portal-configure.md)

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282139"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658257"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -45,7 +45,7 @@ O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Reinicie o servidor
+1. Reiniciar o servidor
 
 Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-add-on-premises-application.md).
 
@@ -104,7 +104,7 @@ Em geral, quanto mais usuários você tiver, maior será o computador necessári
 > [!NOTE]
 > Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.
 >
-> Esta tabela também se concentra no desempenho esperado de um conector com base no tipo de computador em que ele está instalado. Isso é separado dos limites de limitação do serviço proxy de aplicativo, consulte [limites e restrições de serviço](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Esta tabela também se concentra no desempenho esperado de um conector com base no tipo de computador em que ele está instalado. Isso é separado dos limites de limitação do serviço proxy de aplicativo, consulte [limites e restrições de serviço](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Rede e segurança
 
@@ -155,7 +155,7 @@ Os certificados usados são específicos ao serviço de Proxy de Aplicativo. Ele
 
 Após a primeira renovação de certificado bem-sucedida, o serviço do conector de Proxy de Aplicativo do AD do Azure (serviço de rede) não tem permissão para remover o certificado antigo do repositório do computador local. Se o certificado tiver expirado ou não for mais usado pelo serviço, você poderá excluí-lo com segurança.
 
-Para evitar problemas com a renovação do certificado, verifique se a comunicação de rede do conector em direção aos [destinos documentados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) está habilitada.
+Para evitar problemas com a renovação do certificado, verifique se a comunicação de rede do conector em direção aos [destinos documentados](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) está habilitada.
 
 Se um conector não estiver conectado ao serviço por vários meses, seus certificados poderão estar desatualizados. Nesse caso, desinstale e reinstale o conector para disparar o registro. É possível executar os seguintes comandos do PowerShell:
 

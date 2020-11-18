@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874536"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658478"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
-Este artigo discute os erros que podem ocorrer durante o processo de consentimento para um aplicativo. Se você estiver solucionando problemas de prompts de consentimento inesperado que não contenham mensagens de erro, consulte [ Cenários de autenticação do Azure AD ](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Este artigo discute os erros que podem ocorrer durante o processo de consentimento para um aplicativo. Se você estiver solucionando problemas de prompts de consentimento inesperado que não contenham mensagens de erro, consulte [ Cenários de autenticação do Azure AD ](../develop/authentication-vs-authorization.md).
 
 Muitos aplicativos que se integram com o Azure Active Directory exigem permissões para acessar outros recursos para serem executados. Quando esses recursos também são integrados com o Azure Active Directory, as permissões para acessá-los são solicitadas usando a estrutura de consentimento comum. Um prompt de consentimento é exibido, o que geralmente ocorre na primeira vez que um aplicativo é usado, mas também pode ocorrer em um uso subseqüente do aplicativo.
 
@@ -47,7 +47,7 @@ Outro cenário no qual esse erro pode ocorrer é quando a atribuição de usuár
 Esse erro ocorre quando um administrador da empresa desativa a capacidade de consentimento dos usuários para aplicativos e, em seguida, um usuário não administrador tenta usar um aplicativo que exige consentimento. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 ## <a name="intermittent-problem-error"></a>Erro de problema intermitente
-* ** AADSTS90090: ** Parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt; clientAppDisplayName &gt;. tente novamente mais tarde.
+* **AADSTS90090:** Parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt; clientAppDisplayName &gt;. tente novamente mais tarde.
 
 Esse erro indica que ocorreu um erro de serviço intermitente. Ele pode ser resolvido tentando consentir ao aplicativo novamente.
 
@@ -90,8 +90,6 @@ Os usuários finais não poderão conceder consentimento a aplicativos que foram
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-[Aplicativos, permissões e consentimento no Azure Active Directory (ponto de extremidade v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Aplicativos, permissões e consentimento no Azure Active Directory (ponto de extremidade v1)](../develop/quickstart-register-app.md)<br>
 
-[Escopos, permissões e consentimento no Azure Active Directory (ponto de extremidade v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Escopos, permissões e consentimento no Azure Active Directory (ponto de extremidade v 2.0)](../develop/v2-permissions-and-consent.md)

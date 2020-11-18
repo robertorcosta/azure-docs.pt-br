@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635891"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658682"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -72,50 +72,50 @@ A seguir há um guia para configurar uma versão do Azure Pipelines que automati
 
 1.  Em [Azure DevOps](https://dev.azure.com/), abra o projeto configurado com seu data factory.
 
-1.  No lado esquerdo da página, selecione **Pipelines** e, em seguida, selecione **Versões** .
+1.  No lado esquerdo da página, selecione **Pipelines** e, em seguida, selecione **Versões**.
 
     ![Selecionar Pipelines, Versões](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Selecione **Novo pipeline** ou, se tiver pipelines existentes, selecione **Novo** e, em seguida, **Novo pipeline de lançamento** .
+1.  Selecione **Novo pipeline** ou, se tiver pipelines existentes, selecione **Novo** e, em seguida, **Novo pipeline de lançamento**.
 
-1.  Selecione o modelo **Trabalho vazio** .
+1.  Selecione o modelo **Trabalho vazio**.
 
     ![Selecionar Trabalho vazio](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  Na caixa **Nome da fase** , insira o nome do seu ambiente.
+1.  Na caixa **Nome da fase**, insira o nome do seu ambiente.
 
-1.  Selecione **Adicionar artefato** e, em seguida, selecione o repositório do git configurado com seu data factory de desenvolvimento. Selecione o [branch de publicação](source-control.md#configure-publishing-settings) do repositório para o **Branch padrão** . Por padrão, esse branch de publicação é `adf_publish`. Para a **Versão padrão** , selecione **Mais recente do branch padrão** .
+1.  Selecione **Adicionar artefato** e, em seguida, selecione o repositório do git configurado com seu data factory de desenvolvimento. Selecione o [branch de publicação](source-control.md#configure-publishing-settings) do repositório para o **Branch padrão**. Por padrão, esse branch de publicação é `adf_publish`. Para a **Versão padrão**, selecione **Mais recente do branch padrão**.
 
     ![Adicionar um artefato](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 
-    a.  No modo de exibição de fase, selecione **Exibir tarefas da fase** .
+    a.  No modo de exibição de fase, selecione **Exibir tarefas da fase**.
 
     ![Exibição de fase](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Crie uma tarefa. Pesquise **implantação de modelo ARM** e, em seguida, selecione **Adicionar** .
+    b.  Crie uma tarefa. Pesquise **implantação de modelo ARM** e, em seguida, selecione **Adicionar**.
 
     c.  Na Tarefa de implantação, selecione a assinatura, o grupo de recursos e a localização do data factory de destino. Forneça as credenciais, se necessário.
 
-    d.  Na lista **Ação** , selecione **Criar ou atualizar grupo de recursos** .
+    d.  Na lista **Ação**, selecione **Criar ou atualizar grupo de recursos**.
 
-    e.  Selecione o botão de reticências ( **…** ) ao lado da caixa **Modelo** . Procure o modelo do Azure Resource Manager gerado no branch de publicação do repositório do git configurado. Procure o arquivo `ARMTemplateForFactory.json` na pasta <FactoryName> do branch adf_publish.
+    e.  Selecione o botão de reticências ( **…** ) ao lado da caixa **Modelo**. Procure o modelo do Azure Resource Manager gerado no branch de publicação do repositório do git configurado. Procure o arquivo `ARMTemplateForFactory.json` na pasta <FactoryName> do branch adf_publish.
 
     f.  Selecione **...** ao lado da caixa **Parâmetros do modelo** para escolher o arquivo de parâmetros. Procure o arquivo `ARMTemplateParametersForFactory.json` na pasta <FactoryName> do branch adf_publish.
 
     g.  Selecione **...** ao lado da caixa **Substituir parâmetros de modelo** e insira os valores de parâmetro desejados para o data factory de destino. Para as credenciais provenientes do Azure Key Vault, insira o nome do segredo entre aspas duplas. Por exemplo, se o nome do segredo for cred1, insira **"$(cred1)"** para esse valor.
 
-    h. Selecione **Incremental** para o **Modo de implantação** .
+    h. Selecione **Incremental** para o **Modo de implantação**.
 
     > [!WARNING]
-    > No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos** . Para obter mais informações, consulte [Azure Resource Manager modos de implantação](../azure-resource-manager/templates/deployment-modes.md)
+    > No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos**. Para obter mais informações, consulte [Azure Resource Manager modos de implantação](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Implantação de Produção do Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Salve o pipeline de lançamento.
 
-1. Para disparar uma versão, selecione **Criar versão** . Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Para disparar uma versão, selecione **Criar versão**. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Selecionar Criar versão](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -153,7 +153,7 @@ Há duas maneiras de lidar cos segredos:
 
 1. Adicione uma [tarefa do Azure Key Vault](/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes da tarefa de Implantação do Azure Resource Manager descrita na seção anterior:
 
-    1.  Na guia **Tarefas** , crie uma tarefa. Procure **Azure Key Vault** e adicione-o.
+    1.  Na guia **Tarefas**, crie uma tarefa. Procure **Azure Key Vault** e adicione-o.
 
     1.  Na tarefa do Key Vault, selecione a assinatura na qual você criou o cofre de chaves. Forneça as credenciais, se necessário, e selecione o cofre de chaves.
 
@@ -167,7 +167,7 @@ A tarefa do Azure Key Vault poderá falhar com um erro de Acesso Negado se as pe
 
 A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para atualizar os gatilhos ativos, você precisa interrompê-los manualmente e iniciá-los após a implantação. Faça isso usando uma tarefa do Azure PowerShell:
 
-1.  Na guia **Tarefas** da versão, adicione uma tarefa do **Azure PowerShell** . Escolha a versão da tarefa 4.*. 
+1.  Na guia **Tarefas** da versão, adicione uma tarefa do **Azure PowerShell**. Escolha a versão da tarefa 4.*. 
 
 1.  Selecione a assinatura em que seu factory está.
 
@@ -185,11 +185,11 @@ A equipe do data factory forneceu um [script pré e pós-implantação de exempl
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Promover manualmente um modelo do Resource Manager para cada ambiente
 
-1. Na lista do **Modelo do ARM** , selecione **Exportar Modelo do ARM** para exportar o modelo do Resource Manager para seu data factory no ambiente de desenvolvimento.
+1. Na lista do **Modelo do ARM**, selecione **Exportar Modelo do ARM** para exportar o modelo do Resource Manager para seu data factory no ambiente de desenvolvimento.
 
    ![Exportar um modelo do Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. Em suas data factories de teste e produção, selecione **Importar Modelo do ARM** . Essa ação leva você até o Portal do Azure, onde você pode importar o modelo exportado. Selecione **Criar seu modelo no editor** para abrir o editor de modelo do Resource Manager.
+1. Em suas data factories de teste e produção, selecione **Importar Modelo do ARM**. Essa ação leva você até o Portal do Azure, onde você pode importar o modelo exportado. Selecione **Criar seu modelo no editor** para abrir o editor de modelo do Resource Manager.
 
    ![Criar seu modelo](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
@@ -225,7 +225,7 @@ Ao exportar um modelo do Resource Manager, o Data Factory lê esse arquivo de qu
 
 ### <a name="custom-parameter-syntax"></a>Sintaxe do parâmetro personalizado
 
-Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmetros personalizados, **arm-template-parameters-definition.json** . O arquivo é composto por uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de dados, runtime de integração e fluxo de dados.
+Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmetros personalizados, **arm-template-parameters-definition.json**. O arquivo é composto por uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de dados, runtime de integração e fluxo de dados.
 
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
 * Definir um nome de propriedade para `*` indicar que você deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
@@ -607,7 +607,7 @@ Para usar modelos vinculados em vez do modelo completo do Resource Manager, atua
 
 Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e depois a tarefa de implantação.
 
-Se o Git não tiver sido configurado, você poderá acessar os modelos vinculados por meio de **Exportar modelo do ARM** na lista de **Modelo do ARM** .
+Se o Git não tiver sido configurado, você poderá acessar os modelos vinculados por meio de **Exportar modelo do ARM** na lista de **Modelo do ARM**.
 
 ## <a name="hotfix-production-environment"></a>Ambiente de produção de hotfix
 
@@ -633,19 +633,23 @@ Se você implantar um alocador na produção e perceber que há um bug que preci
 
 10.   Adicione as alterações do hotfix ao branch de desenvolvimento para que as versões posteriores não incluam o mesmo bug.
 
+Consulte o vídeo abaixo um tutorial em vídeo detalhado sobre como corrigir seus ambientes. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
 ## <a name="best-practices-for-cicd"></a>Práticas recomendadas para CI/CD
 
 Se você está usando a integração do Git ao seu data factory e tem um pipeline de CI/CD que migra suas alterações do desenvolvimento para o teste e para a produção, recomendamos estas melhores práticas:
 
--   **Integração do Git** . Configure somente seu data factory de desenvolvimento com a integração do Git. Alterações no teste e na produção são implantadas por CI/CD e não precisam da integração do Git.
+-   **Integração do Git**. Configure somente seu data factory de desenvolvimento com a integração do Git. Alterações no teste e na produção são implantadas por CI/CD e não precisam da integração do Git.
 
--   **Script pré e pós-implantação** . Antes da etapa de implantação do Resource Manager na CI/CD, você precisa concluir determinadas tarefas, como parar e reiniciar gatilhos e executar a limpeza. Recomendamos que você use scripts do PowerShell antes e depois da tarefa de implantação. Para obter mais informações, confira [Atualizar gatilhos ativos](#updating-active-triggers). A equipe de data factory [forneceu um script](#script) para uso localizado na parte inferior desta página.
+-   **Script pré e pós-implantação**. Antes da etapa de implantação do Resource Manager na CI/CD, você precisa concluir determinadas tarefas, como parar e reiniciar gatilhos e executar a limpeza. Recomendamos que você use scripts do PowerShell antes e depois da tarefa de implantação. Para obter mais informações, confira [Atualizar gatilhos ativos](#updating-active-triggers). A equipe de data factory [forneceu um script](#script) para uso localizado na parte inferior desta página.
 
--   **Runtimes de integração e compartilhamento** . Os runtimes de integração não são alterados com frequência e são semelhantes em todas as fases em sua CI/CD. Portanto, o Data Factory espera que você tenha o mesmo nome e tipo de runtime de integração em todas as fases da CI/CD. Se desejar compartilhar runtimes de integração em todas as fases, considere usar um alocador ternário apenas para conter os runtimes de integração compartilhados. Você pode usar esse alocador compartilhado em todos os seus ambientes como um tipo de runtime de integração vinculado.
+-   **Runtimes de integração e compartilhamento**. Os runtimes de integração não são alterados com frequência e são semelhantes em todas as fases em sua CI/CD. Portanto, o Data Factory espera que você tenha o mesmo nome e tipo de runtime de integração em todas as fases da CI/CD. Se desejar compartilhar runtimes de integração em todas as fases, considere usar um alocador ternário apenas para conter os runtimes de integração compartilhados. Você pode usar esse alocador compartilhado em todos os seus ambientes como um tipo de runtime de integração vinculado.
 
--   **Implantação de ponto de extremidade privada gerenciado** . Se um ponto de extremidade privado já existir em uma fábrica e você tentar implantar um modelo de ARM que contenha um ponto de extremidade privado com o mesmo nome, mas com propriedades modificadas, a implantação falhará. Em outras palavras, você pode implantar com êxito um ponto de extremidade privado, contanto que ele tenha as mesmas propriedades que o que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, você poderá substituí-la parametrizando essa propriedade e fornecendo o respectivo valor durante a implantação.
+-   **Implantação de ponto de extremidade privada gerenciado**. Se um ponto de extremidade privado já existir em uma fábrica e você tentar implantar um modelo de ARM que contenha um ponto de extremidade privado com o mesmo nome, mas com propriedades modificadas, a implantação falhará. Em outras palavras, você pode implantar com êxito um ponto de extremidade privado, contanto que ele tenha as mesmas propriedades que o que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, você poderá substituí-la parametrizando essa propriedade e fornecendo o respectivo valor durante a implantação.
 
--   **Key Vault** . Quando você usa serviços vinculados cujas informações de conexão são armazenadas no Azure Key Vault, é recomendável manter cofres de chaves separados para ambientes diferentes. Você também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, talvez você não queira que os membros da sua equipe tenham permissões para os segredos de produção. Se você seguir essa abordagem, recomendamos que você mantenha os mesmos nomes de segredo em todas as fases. Se você mantiver os mesmos nomes de segredo, não precisará parametrizar cada cadeia de conexão em ambientes de CI/CD porque a única coisa que é alterada é o nome do cofre de chaves, que é um parâmetro separado.
+-   **Key Vault**. Quando você usa serviços vinculados cujas informações de conexão são armazenadas no Azure Key Vault, é recomendável manter cofres de chaves separados para ambientes diferentes. Você também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, talvez você não queira que os membros da sua equipe tenham permissões para os segredos de produção. Se você seguir essa abordagem, recomendamos que você mantenha os mesmos nomes de segredo em todas as fases. Se você mantiver os mesmos nomes de segredo, não precisará parametrizar cada cadeia de conexão em ambientes de CI/CD porque a única coisa que é alterada é o nome do cofre de chaves, que é um parâmetro separado.
 
 -  **Nomeação de recursos** Devido a restrições de modelo do ARM, podem surgir problemas na implantação se os recursos contiverem espaços no nome. A equipe de Azure Data Factory recomenda usar caracteres ' _ ' ou '-' em vez de espaços para recursos. Por exemplo, ' Pipeline_1 ' seria um nome preferível sobre ' pipeline 1 '.
 
@@ -666,12 +670,12 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 
 O script de exemplo a seguir pode ser usado para parar os gatilhos antes da implantação e reiniciá-los depois. O script também inclui código para excluir recursos que foram removidos. Salve o script em um repositório do git do Azure DevOps e referencie-o por meio de uma tarefa do Azure PowerShell versão 4.*.
 
-Ao executar um script pré-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script** .
+Ao executar um script pré-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-Ao executar um script pós-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script** .
+Ao executar um script pós-implantação, você precisará especificar uma variação dos parâmetros a seguir no campo **Argumentos de Script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 

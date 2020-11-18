@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510871"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658971"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Tome medidas sobre aplicativos com privilégios elevados ou suspeitos no Azure Active Directory
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre o consentimento de aplicativos, consulte a [
 
 Para executar as ações a seguir, você deve entrar como um administrador global, um administrador de aplicativos ou um administrador de aplicativos de nuvem.
 
-Para restringir o acesso aos aplicativos, você precisará exigir a atribuição do usuário e, em seguida, atribuir usuários ou grupos ao aplicativo.  Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
+Para restringir o acesso aos aplicativos, você precisará exigir a atribuição do usuário e, em seguida, atribuir usuários ou grupos ao aplicativo.  Para obter mais informações, confira [Métodos para atribuir usuários e grupos](./assign-user-or-group-access-portal.md).
 
 Você pode acessar o portal do AD do Azure para obter scripts do PowerShell contextuais para executar as ações.
  
@@ -48,8 +48,8 @@ Recomendamos que você restrinja o acesso ao aplicativo ativando a configuraçã
 1. Faça login no [Portal do Azure](https://portal.azure.com) como administrador global, administrador do aplicativo ou administrador do aplicativo em nuvem.
 2. Selecione **Azure Active Directory**  >  **aplicativos empresariais**.
 3. Selecione o aplicativo ao qual você deseja restringir o acesso.
-4. Selecione **Propriedades**e defina requisito de **usuário necessário** para **Sim**.
-5. Selecione **usuário e grupos**e, em seguida, remova os usuários indesejados atribuídos ao aplicativo.
+4. Selecione **Propriedades** e defina requisito de **usuário necessário** para **Sim**.
+5. Selecione **usuário e grupos** e, em seguida, remova os usuários indesejados atribuídos ao aplicativo.
 6. Atribua usuários ou grupos ao aplicativo.
 
 Opcionalmente, você pode remover todos os usuários atribuídos ao aplicativo usando o PowerShell.
@@ -66,7 +66,7 @@ Opcionalmente, você pode desabilitar o aplicativo para impedir que os usuários
 1. Faça login no [Portal do Azure](https://portal.azure.com) como administrador global, administrador do aplicativo ou administrador do aplicativo em nuvem.
 2. Selecione **Azure Active Directory**  >  **aplicativos empresariais**.
 3. Selecione o aplicativo ao qual você deseja restringir o acesso.
-4. Selecione **Propriedades**e, em seguida, defina **habilitado para que os usuários entrem?** para **não**.
+4. Selecione **Propriedades** e, em seguida, defina **habilitado para que os usuários entrem?** para **não**.
 
 ## <a name="investigate-a-suspicious-application"></a>Investigar um aplicativo suspeito
 
@@ -75,8 +75,8 @@ Recomendamos que você restrinja o acesso ao aplicativo ativando a configuraçã
 1. Faça login no [Portal do Azure](https://portal.azure.com) como administrador global, administrador do aplicativo ou administrador do aplicativo em nuvem.
 3. Selecione **Azure Active Directory**  >  **aplicativos empresariais**.
 5. Selecione o aplicativo ao qual você deseja restringir o acesso.
-6. Selecione **Propriedades**e defina requisito de **usuário necessário** para **Sim**.
-7. Selecione **permissões**e examine as permissões de administrador e de usuário consentidas.
+6. Selecione **Propriedades** e defina requisito de **usuário necessário** para **Sim**.
+7. Selecione **permissões** e examine as permissões de administrador e de usuário consentidas.
 
 Opcionalmente, usando o PowerShell, você pode:
 
@@ -94,7 +94,7 @@ Recomendamos que você desabilite o aplicativo para bloquear o acesso dos usuár
 1. Faça login no [Portal do Azure](https://portal.azure.com) como administrador global, administrador do aplicativo ou administrador do aplicativo em nuvem.
 2. Selecione **Azure Active Directory**  >  **aplicativos empresariais**.
 3. Selecione o aplicativo ao qual você deseja restringir o acesso.
-4. Selecione **Propriedades**e, em seguida, copie a ID do objeto.
+4. Selecione **Propriedades** e, em seguida, copie a ID do objeto.
 
 ### <a name="powershell-commands"></a>Comandos do PowerShell
 
@@ -104,7 +104,7 @@ Recupere a ID de objeto da entidade de serviço.
 1. Faça login no [Portal do Azure](https://portal.azure.com) como administrador global, administrador do aplicativo ou administrador do aplicativo em nuvem.
 2. Selecione **Azure Active Directory**  >  **aplicativos empresariais**.
 3. Selecione o aplicativo ao qual você deseja restringir o acesso.
-4. Selecione **Propriedades**e, em seguida, copie a ID do objeto.
+4. Selecione **Propriedades** e, em seguida, copie a ID do objeto.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"

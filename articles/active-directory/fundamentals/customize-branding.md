@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "89565847"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650216"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). Suas páginas de entrada são exibidas quando os usuários entram nos aplicativos baseados na Web da sua organização, como Microsoft 365, que usa o Azure AD como seu provedor de identidade.
 
 >[!NOTE]
->A adição de identidade visual personalizada exige que você use as edições Azure Active Directory Premium 1, Premium 2 ou Basic ou para ter uma licença de Microsoft 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md).<br><br>As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não têm suporte no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>A adição de identidade visual personalizada exige que você tenha licenças Azure Active Directory Premium 1 ou Premium 2. Para obter mais informações sobre licenciamento e edições, consulte [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium edições estão disponíveis para clientes na China usando a instância Mundial do Azure Active Directory. Atualmente, não há suporte para as edições Azure AD Premium no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de entrada do Azure AD
 É possível personalizar as páginas de entrada do Azure AD que aparecem quando os usuários entram nos aplicativos específicos de locatário da organização, como `https://outlook.com/contoso.com`, ou ao passar uma variável de domínio como `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
@@ -37,11 +37,11 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 ### <a name="to-customize-your-branding"></a>Para personalizar a identidade visual
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
+2. Selecione **Azure Active Directory**, selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
 
     ![Contoso - Página de identidade visual da empresa, opção Configurar realçada](media/customize-branding/company-branding-configure-button.png)
 
-3. Na página **Configurar a identidade visual da empresa** , forneça qualquer uma ou todas as informações a seguir.
+3. Na página **Configurar a identidade visual da empresa**, forneça qualquer uma ou todas as informações a seguir.
 
     >[!IMPORTANT]
     >Todas as imagens personalizadas adicionadas a essa página têm restrições de tamanho de imagem (pixels) e de tamanho de arquivo (KB). Devido a essas restrições, você provavelmente precisará usar um editor de fotos para criar as imagens do tamanho certo.
@@ -86,12 +86,12 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
     
         - **Imagem do logotipo quadrado, tema escuro.** O mesmo que a imagem do logotipo quadrado acima. Essa imagem do logotipo substitui a imagem do logotipo quadrado quando usada com um plano de fundo escuro como, por exemplo, com telas ingressadas do Azure AD do Windows 10 durante a configuração inicial pelo usuário (OOBE).  Se o seu logotipo ficar bom em branco, azul escuro e planos de fundo pretos, você não precisará adicionar essa imagem. 
         
-        - **Mostrar opção para permanecer conectado.** Você pode optar por permitir que seus usuários permaneçam conectados ao Azure AD até que explicitamente se desconectem. Se você escolher **não** , essa opção será ocultada e os usuários deverão entrar toda vez que o navegador for fechado e reaberto.
+        - **Mostrar opção para permanecer conectado.** Você pode optar por permitir que seus usuários permaneçam conectados ao Azure AD até que explicitamente se desconectem. Se você escolher **não**, essa opção será ocultada e os usuários deverão entrar toda vez que o navegador for fechado e reaberto.
 
             Esse recurso só está disponível no objeto de identidade visual padrão e não em nenhum objeto específico de idioma. Para saber mais sobre como configurar e solucionar problemas de opção para permanecer conectado, consulte [Configurar o prompt ' permanecer conectado? ' para contas do Azure ad](keep-me-signed-in.md)
         
             >[!NOTE]
-            >Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários de poderem permanecer conectados. Se você definir essa opção como **Não** , os usuários poderão receber prompts adicionais e inesperados de entrada.
+            >Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários de poderem permanecer conectados. Se você definir essa opção como **Não**, os usuários poderão receber prompts adicionais e inesperados de entrada.
    
 
 3. Após adicionar sua identidade visual, selecione **Salvar**.
@@ -99,7 +99,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
     Se esse processo criar a primeira configuração de identidade visual personalizada, ele se tornará o padrão para o locatário. Se você tiver configurações adicionais, poderá escolher a configuração padrão.
     
     >[!IMPORTANT]
-    >Para adicionar mais configurações de identidade visual corporativa ao locatário, você deverá escolher **Novo idioma** na página **Contoso - Identidade visual da empresa**. Isso abrirá a página **Identidade visual da empresa** , na qual você poderá seguir as mesmas etapas acima.
+    >Para adicionar mais configurações de identidade visual corporativa ao locatário, você deverá escolher **Novo idioma** na página **Contoso - Identidade visual da empresa**. Isso abrirá a página **Identidade visual da empresa**, na qual você poderá seguir as mesmas etapas acima.
 
 ## <a name="update-your-custom-branding"></a>Atualizar a identidade visual personalizada
 Após criar a identidade visual personalizada, você poderá retornar e fazer todas as alterações que desejar.
@@ -107,11 +107,11 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 ### <a name="to-edit-your-custom-branding"></a>Para editar a identidade visual personalizada
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
+2. Selecione **Azure Active Directory**, selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
 
     ![Contoso - Página de identidade visual da empresa, com a configuração padrão mostrada](media/customize-branding/company-branding-default-config.png)
 
-3. Na página **Configurar a identidade visual da empresa** , adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
+3. Na página **Configurar a identidade visual da empresa**, adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
 4. Selecione **Salvar**.
 
@@ -124,11 +124,11 @@ Não é possível alterar o idioma da configuração original do idioma padrão.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-2. Selecione **Azure Active Directory** , selecione **Identidade visual da empresa** e, em seguida, selecione **Novo idioma**.
+2. Selecione **Azure Active Directory**, selecione **Identidade visual da empresa** e, em seguida, selecione **Novo idioma**.
 
     ![Contoso - Página de identidade visual da empresa, com a opção Novo idioma realçada](media/customize-branding/company-branding-new-language.png)
 
-3. Na página **Configurar a identidade visual da empresa** , selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
+3. Na página **Configurar a identidade visual da empresa**, selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
 4. Selecione **Salvar**.
 
