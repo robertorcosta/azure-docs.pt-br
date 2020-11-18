@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695094"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874705"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -253,12 +253,12 @@ O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware n
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como fazer solicitar um aumento de cota de host para a solução do Azure VMware?
 
-Para assinaturas gerenciadas pelo CSP, o cliente deve executar a solicitação para o parceiro e a equipe de parceiros entrará na Microsoft para obter a cota aumentada para a assinatura. Para obter mais informações, consulte o [artigo sobre como habilitar o recurso da solução Azure VMware](enable-azure-vmware-solution.md) para obter detalhes. 
+Para assinaturas gerenciadas pelo CSP, o cliente deve enviar a solicitação ao parceiro. Em seguida, a equipe de parceiros se comunica com a Microsoft para obter a cota aumentada para a assinatura. Consulte o [artigo sobre como habilitar o recurso da solução Azure VMware](enable-azure-vmware-solution.md) para obter detalhes. 
 
-Para assinaturas EA, o cliente deve seguir este procedimento.
+Para assinaturas EA, use o procedimento a seguir. Primeiro, você precisará de:
 
-* Você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
-* Você precisará de uma conta do Azure em uma assinatura do Azure.
+* Um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+* Uma conta do Azure em uma assinatura do Azure.
 
 Antes de criar o recurso da solução Azure VMware, você deve enviar um tíquete de suporte para alocar seus nós. Leva até cinco dias úteis para confirmar sua solicitação e alocar seus nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
 
@@ -298,11 +298,15 @@ Antes de criar o recurso da solução Azure VMware, você deve enviar um tíquet
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
 
 #### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
 
-No. Currently Azure VMware Solution does not offer multi-tenancy.
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication

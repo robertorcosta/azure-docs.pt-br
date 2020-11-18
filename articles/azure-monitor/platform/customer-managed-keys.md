@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443374"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873515"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -21,11 +21,13 @@ Recomendamos revisar [Limitações e restrições](#limitationsandconstraints) a
 
 ## <a name="customer-managed-key-overview"></a>Visão geral da chave gerenciada pelo cliente
 
-[A criptografia em repouso](../../security/fundamentals/encryption-atrest.md) é um requisito comum de privacidade e segurança nas organizações. Você pode permitir que o Azure gerencie completamente a criptografia em repouso, enquanto você tem várias opções para gerenciar de forma rigorosa as chaves de criptografia ou criptografia.
+[A criptografia em repouso](../../security/fundamentals/encryption-atrest.md) é um requisito comum de privacidade e segurança nas organizações. Você pode permitir que o Azure gerencie completamente a criptografia em repouso, enquanto você tem várias opções para gerenciar de forma rigorosa as chaves de criptografia e criptografia.
 
-Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](../../key-vault/general/overview.md) e usada pelo armazenamento para criptografia de dados. A chave pode ser um [software ou hardware-HSM protegido](../../key-vault/general/overview.md). Azure Monitor uso da criptografia é idêntico ao modo como a [criptografia de armazenamento do Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) Opera.
+Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](../../key-vault/general/overview.md) e lhe dá o controle para revogar o acesso aos seus dados a qualquer momento. Azure Monitor uso da criptografia é idêntico ao modo como a [criptografia de armazenamento do Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) Opera.
 
-A capacidade de chave gerenciada pelo cliente é fornecida em clusters de Log Analytics dedicados. Ele permite que você proteja seus dados com o controle de [Lockbox](#customer-lockbox-preview) e fornece o controle para revogar o acesso aos seus dados a qualquer momento. Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft independentemente da configuração de chave gerenciada pelo cliente, mas seu controle sobre os dados SSD adere à [revogação de chave](#key-revocation). Estamos trabalhando para ter dados SSD criptografados com Customer-Managed chave no primeiro semestre de 2021.
+Customer-Managed chave é entregue em clusters de Log Analytics dedicados, fornecendo maior nível de proteção e controle. Os dados ingeridos em clusters dedicados estão sendo criptografados duas vezes — uma vez no nível de serviço usando chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente e uma vez no nível de infraestrutura usando dois algoritmos de criptografia diferentes e duas chaves diferentes. A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protege contra um cenário em que um dos algoritmos ou chaves de criptografia pode ser comprometido. Nesse caso, a camada adicional de criptografia continua a proteger seus dados. O cluster dedicado também permite que você proteja seus dados com o controle de [Lockbox](#customer-lockbox-preview) .
+
+Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft independentemente da configuração de chave gerenciada pelo cliente, mas seu controle sobre os dados SSD adere à [revogação de chave](#key-revocation). Estamos trabalhando para ter dados SSD criptografados com Customer-Managed chave no primeiro semestre de 2021.
 
 O [modelo de preços de clusters log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) usa reservas de capacidade a partir de um nível de 1000 GB/dia.
 
@@ -74,77 +76,18 @@ Não há suporte para a configuração de chave Customer-Managed no portal do Az
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operações assíncronas e verificação de status
 
-Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. Ao usar solicitações REST na configuração, a resposta inicialmente retorna um código de status HTTP 200 (OK) e o cabeçalho com a propriedade *Azure-AsyncOperation* quando aceita:
+Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. Ao usar REST, a resposta inicialmente retorna um código de status HTTP 200 (OK) e o cabeçalho com a propriedade *Azure-AsyncOperation* quando aceita:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-Em seguida, você pode verificar o status da operação assíncrona enviando uma solicitação GET para o valor do cabeçalho *Azure-AsyncOperation* :
+Você pode verificar o status da operação assíncrona enviando uma solicitação GET ao valor do cabeçalho *Azure-AsyncOperation*:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-A resposta contém informações sobre a operação e seu *status*. Pode ser um dos seguintes:
-
-A operação está em andamento
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-A operação de atualização do identificador de chave está em andamento
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-A exclusão do cluster está em andamento – quando você exclui um cluster que tem espaços de trabalho vinculados, a operação de desvinculação é executada para cada um dos espaços de trabalho de forma assíncrona e a operação pode demorar um pouco.
-Isso não é relevante quando você exclui um cluster sem nenhum espaço de trabalho vinculado – nesse caso, o cluster é excluído imediatamente.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operação concluída
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Falha na operação
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+O `status` em resposta contém pode ser um dos seguintes: ' InProgress ', ' atualizando ', ' excluindo ', ' Succeeded ' ou ' Failed ', incluindo o código de erro.
 
 ### <a name="allowing-subscription"></a>Permitindo assinatura
 
@@ -476,7 +419,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
   - *cluster* (padrão) -- A cobrança é atribuída à assinatura que hospeda seu recurso de cluster
   - *workspaces* -- A cobrança é atribuída às assinaturas que hospedam seus workspaces proporcionalmente
   
-  Siga o [cluster de atualização](#update-cluster-with-key-identifier-details) e forneça o novo valor de billtype. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o *billingType* :
+  Siga o [cluster de atualização](#update-cluster-with-key-identifier-details) e forneça o novo valor de billtype. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o *billingType*:
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -595,7 +538,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
   1. ao usar o REST, copie o Azure-AsyncOperation valor da URL da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
   2. Enviar solicitação GET para cluster ou espaço de trabalho e observar a resposta. Por exemplo, espaço de trabalho desvinculado não terá o *clusterResourceId* em *recursos*.
 
-- Para obter suporte e ajuda relacionados à chave gerenciada pelo cliente, use seus contatos na Microsoft.
+- A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 quando a criptografia dupla estava na região. Se você criar um cluster e receber um erro "<Region-Name> não dá suporte à criptografia dupla para clusters.", você ainda poderá criar o cluster, mas com a criptografia dupla desabilitada. Ele não pode ser habilitado ou desabilitado após a criação do cluster. Para criar um cluster quando não há suporte para a criptografia dupla na região, adicione o `"properties": {"isDoubleEncryptionEnabled": false}` corpo da solicitação REST.
 
 - Mensagens de erro
   

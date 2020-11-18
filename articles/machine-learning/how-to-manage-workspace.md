@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540120"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873379"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
 
@@ -121,7 +121,7 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
 
 1. Selecione **Machine Learning**.
 
-1. No painel **Machine Learning** , selecione **Criar** para começar.
+1. No painel **Machine Learning**, selecione **Criar** para começar.
 
 1. Forneça as informações a seguir para configurar o novo workspace:
 
@@ -131,8 +131,12 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
    Assinatura |Selecione a assinatura do Azure que você deseja usar.
    Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
    Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
+   | Conta de armazenamento | A conta de armazenamento padrão para o espaço de trabalho. Por padrão, um novo é criado. |
+   | Key Vault | O Azure Key Vault usado pelo espaço de trabalho. Por padrão, um novo é criado. |
+   | Application Insights | A instância do Application insights para o espaço de trabalho. Por padrão, um novo é criado. |
+   | Registro de Contêiner | O registro de contêiner do Azure para o espaço de trabalho. Por padrão, um novo _não_ é criado inicialmente para o espaço de trabalho. Em vez disso, ele é criado quando você precisar dele ao criar uma imagem do Docker durante o treinamento ou a implantação. |
 
-    ![Configurar seu novo workspace](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure seu espaço de trabalho.":::
 
 1. Quando tiver terminado de configurar o espaço de trabalho, selecione **examinar + criar**. Opcionalmente, use as seções [rede](#networking) e [avançado](#advanced) para definir mais configurações para o espaço de trabalho.
 
@@ -159,7 +163,7 @@ O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. A configuração de rede padrão é usar um __ponto de extremidade público__ , que pode ser acessado na Internet pública. Para limitar o acesso ao seu espaço de trabalho a uma rede virtual do Azure que você criou, você pode selecionar __ponto de extremidade privado__ (versão prévia) como o __método de conectividade__ e, em seguida, usar __+ Adicionar__ para configurar o ponto de extremidade.   
+1. A configuração de rede padrão é usar um __ponto de extremidade público__, que pode ser acessado na Internet pública. Para limitar o acesso ao seu espaço de trabalho a uma rede virtual do Azure que você criou, você pode selecionar __ponto de extremidade privado__ (versão prévia) como o __método de conectividade__ e, em seguida, usar __+ Adicionar__ para configurar o ponto de extremidade.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Seleção de ponto de extremidade particular":::  
 
@@ -180,7 +184,7 @@ O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](
 Quando você cria um ponto de extremidade privado, uma nova zona de DNS privado chamada __privatelink.API.azureml.ms__ é criada. Ele contém um link para a rede virtual. Se você criar vários espaços de trabalho com pontos de extremidade privados no mesmo grupo de recursos, somente a rede virtual para o primeiro ponto final privado poderá ser adicionada à zona DNS. Para adicionar entradas para as redes virtuais usadas pelos pontos de extremidade de espaços de trabalho/particulares adicionais, use as seguintes etapas:
 
 1. No [portal do Azure](https://portal.azure.com), selecione o grupo de recursos que contém o espaço de trabalho. Em seguida, selecione o DNS privado recurso de zona chamado __privatelink.API.azureml.ms__
-2. Nas __configurações__ , selecione __links de rede virtual__.
+2. Nas __configurações__, selecione __links de rede virtual__.
 3. Selecione __Adicionar__. Na página __Adicionar link de rede virtual__ , forneça um __nome de link__ exclusivo e selecione a __rede virtual__ a ser adicionada. Selecione __OK__ para adicionar o link de rede.
 
 Para obter mais informações, consulte [configuração de DNS do ponto de extremidade privado do Azure](../private-link/private-endpoint-dns.md).
@@ -355,7 +359,7 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

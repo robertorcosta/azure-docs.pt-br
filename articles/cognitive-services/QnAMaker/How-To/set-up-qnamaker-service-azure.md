@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ccd070d2d7a6fcccab6d243567dfbe02960cc870
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376376"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873532"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -33,7 +33,7 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
 
     ![Criar um novo serviço do QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-1. Em **QnA Maker** , selecione as camadas e regiões apropriadas:
+1. Em **QnA Maker**, selecione as camadas e regiões apropriadas:
 
     ![Criar um serviço do QnA Maker – tipo de preço e regiões](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
@@ -133,6 +133,7 @@ O Ambiente do Serviço de Aplicativo pode ser usado para hospedar QnA Maker serv
 2. Expor o serviço de aplicativo e permitir a disponibilidade de QnA Maker como:
     * Publicamente disponível-padrão
     * Marca de serviço DNS: `CognitiveServicesManagement`
+3. Crie um QnA Maker instância de serviço cognitiva (Microsoft. Cognitivaservices/accounts) usando Azure Resource Manager, em que QnA Maker ponto de extremidade deve ser definido como Ambiente do Serviço de Aplicativo.
 
 ### <a name="network-isolation-for-app-service"></a>Isolamento de rede para o serviço de aplicativo
 
@@ -143,8 +144,6 @@ QnA Maker serviço cognitiva usa a marca de serviço: `CognitiveServicesManageme
 * Navegue até a seção rede do recurso do serviço de aplicativo e clique na opção "configurar restrição de acesso" para adicionar os IPs a uma permissão.
 
 Também temos um script automatizado para fazer o mesmo para seu serviço de aplicativo. Você pode encontrar o [script do PowerShell para configurar umalist de permissão](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) no github. Você precisa inserir a ID da assinatura, o grupo de recursos e o nome real do serviço de aplicativo como parâmetros de script. A execução do script adicionará automaticamente os IPs àlist de permissão do serviço de aplicativo.
-    
-1. Crie um QnA Maker instância de serviço cognitiva (Microsoft. Cognitivaservices/accounts) usando Azure Resource Manager, em que QnA Maker ponto de extremidade deve ser definido como Ambiente do Serviço de Aplicativo.
 
 ### <a name="business-continuity-with-traffic-manager"></a>Continuidade dos negócios com o Gerenciador de tráfego
 
@@ -169,7 +168,7 @@ A ideia de alto nível como representada acima é a seguinte:
 
 1. Por fim, use o ponto de extremidade do gerenciador de tráfego em seu bot ou aplicativo.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Este procedimento cria os recursos do Azure necessários para gerenciar o conteúdo da base de dados de conhecimento. Depois de concluir essas etapas, você encontrará as chaves de *assinatura* na página **chaves** do recurso no portal do Azure.
 
@@ -179,7 +178,7 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
 
     ![Criar um novo serviço do QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-1. Em **QnA Maker** , marque a caixa de seleção gerenciado (visualização) e selecione as camadas e regiões apropriadas:
+1. Em **QnA Maker**, marque a caixa de seleção gerenciado (visualização) e selecione as camadas e regiões apropriadas:
 
     ![Criar um novo serviço gerenciado QnA Maker-tipo de preço e regiões](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
 
@@ -211,7 +210,7 @@ Você pode exibir e redefinir as chaves de criação do portal do Azure, em que 
 
     ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Vá para **as chaves** :
+2. Vá para **as chaves**:
 
     ![Chave de assinatura](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
@@ -221,7 +220,7 @@ O ponto de extremidade está na mesma região que o recurso porque as chaves de 
 
 As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do QnA Maker](https://qnamaker.ai).
 
-1. Entre no portal de [QnA Maker](https://qnamaker.ai), acesse seu perfil e, em seguida, selecione **configurações de serviço** :
+1. Entre no portal de [QnA Maker](https://qnamaker.ai), acesse seu perfil e, em seguida, selecione **configurações de serviço**:
 
     ![Chave do ponto de extremidade](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -233,7 +232,7 @@ As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do Q
     >[!NOTE]
     >Atualize suas chaves se você acreditar que elas foram comprometidas. Isso pode exigir que sejam feitas as alterações correspondentes no seu aplicativo cliente ou código bot.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Você pode exibir e redefinir as chaves de criação do portal do Azure, em que você criou o recurso QnA Maker gerenciado (versão prévia). Essas chaves podem ser chamadas de chaves de assinatura.
 
@@ -241,7 +240,7 @@ Você pode exibir e redefinir as chaves de criação do portal do Azure, em que 
 
     ![Lista de recursos gerenciados QnA Maker (visualização)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
 
-2. Vá para **chaves e ponto de extremidade** :
+2. Vá para **chaves e ponto de extremidade**:
 
     ![Chave de assinatura gerenciada QnA Maker (versão prévia)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
@@ -265,7 +264,7 @@ No momento, não é possível realizar uma atualização in-loco da SKU do Azure
 
 1. Restaure os índices de seu recurso original da pesquisa do Azure para o novo. Consulte o [código de exemplo de restauração de backup](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Depois que os dados forem restaurados, vá para o novo recurso do Azure Search, selecione **chaves** e anote o **nome** e a **chave de administração** :
+1. Depois que os dados forem restaurados, vá para o novo recurso do Azure Search, selecione **chaves** e anote o **nome** e a **chave de administração**:
 
     ![Chaves de pesquisa do QnA Maker Azure](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 
@@ -342,7 +341,7 @@ Se você não estiver usando um recurso do QnA Maker, deverá remover todos os r
 
 Os recursos de pesquisa gratuitos são excluídos após 90 dias sem receber uma chamada à API.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
 
@@ -366,7 +365,7 @@ Se você criar um serviço QnA gerenciado (versão prévia) e suas dependências
 
     ![Captura de tela de QnA Maker página de configuração gerenciada (versão prévia)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > Se você alterar o serviço de Azure Search associado ao QnA Maker, você perderá o acesso a todas as bases de dados de conhecimento já presentes nela. Certifique-se de exportar as bases de dados de conhecimento existentes antes de alterar o serviço Azure Search.

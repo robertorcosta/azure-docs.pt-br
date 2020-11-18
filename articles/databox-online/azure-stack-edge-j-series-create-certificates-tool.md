@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891086"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874467"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Criar certificados para seu Azure Stack Edge pro usando a ferramenta Verificador de prontidão do Hub Azure Stack 
 
@@ -42,7 +42,7 @@ Você pode usar a AzsReadinessChecker (ferramenta Verificador de preparação do
 Para criar representantes do SAC para Azure Stack a implantação de dispositivo do Edge pro, verifique se: 
 
 - Você tem um cliente que executa o Windows 10 ou o Windows Server 2016 ou posterior. 
-- Você baixou a ferramenta Verificador de preparação do Hub Microsoft Azure Stack 1.2002.1133.85 [do Galeria do PowerShell](https://aka.ms/AzsReadinessChecker) neste sistema. Talvez seja necessário pesquisar este pacote. Somente esta versão da ferramenta pode criar certificados para dispositivos Azure Stack Edge pro.
+- Você baixou a ferramenta Verificador de preparação do Hub Microsoft Azure Stack [do Galeria do PowerShell](https://aka.ms/AzsReadinessChecker) neste sistema.
 - Você tem as seguintes informações para os certificados:
   - Nome do dispositivo
   - Número de série do nó
@@ -56,7 +56,7 @@ Use estas etapas para preparar os certificados de dispositivo do Azure Stack Edg
 2. Instale a ferramenta Verificador de preparação do Hub Azure Stack. No prompt do PowerShell, digite: 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     Para verificar a versão instalada, digite:  

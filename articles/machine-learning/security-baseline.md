@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2468bde9dd969ad604f96835a3dc0bfad06c1cd2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f2498dbb3a555db262c591c9badacbe0e4e2548
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844652"
+ms.locfileid: "94874654"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de base de segurança do Azure para Azure Machine Learning
 
@@ -529,6 +529,7 @@ Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trat
 **Diretrizes**: o Azure Machine Learning dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações para Machine Learning recursos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) do Azure para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo.
 
 - [Gerenciar acesso a um workspace do Azure Machine Learning](how-to-assign-roles.md)
+- [Usar o RBAC do Azure para autorização kubernetes](../aks/manage-azure-rbac.md)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -911,6 +912,8 @@ Azure Machine Learning dá suporte total a repositórios git para acompanhamento
 - [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Visão geral da galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md)
+
+- [Usar o RBAC do Azure para autorização kubernetes](../aks/manage-azure-rbac.md)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

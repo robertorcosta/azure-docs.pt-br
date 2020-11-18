@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diariamente/semanalmente/men
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827733"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873703"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -31,7 +31,7 @@ Cada empresa tem suas próprias necessidades de relatório, tais como:
 
 Você pode [programaticamente consultar os dados do Application Insights](https://dev.applicationinsights.io/) para gerar relatórios personalizados de forma agendada. As seguintes opções podem ajudá-lo a começar rapidamente:
 
-* [Automatize relatórios com o Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatizar relatórios com a automatização de energia](../platform/logicapp-flow-connector.md)
 * [Automatize relatórios com Aplicativos Lógicos](automate-with-logic-apps.md)
 * Use o modelo da [função do Azure](../../azure-functions/functions-create-first-azure-function.md) “resumo de mensagem agendado do Application Insights” no cenário de Monitoramento. Esta função usa SendGrid para enviar o e-mail. 
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Screenshot de Configurações de Função](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Selecione sua **Function App**  >  configuração de**recursos da plataforma**aplicativo de funções  >  **Configuration**.
+6. Selecione sua **Function App**  >  configuração de **recursos da plataforma** aplicativo de funções  >  **Configuration**.
 
     ![Configurações de aplicativo do Azure](./media/automate-custom-reports/config.png)
 

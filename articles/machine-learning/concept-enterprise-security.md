@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561311"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873889"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governança corporativas para Azure Machine Learning
 
@@ -30,8 +30,8 @@ Ao usar um serviço de nuvem, um tipo de melhor prática é restringir o acesso 
 
 A maior parte da autenticação para Azure Machine Learning recursos usa o Azure Active Directory (AD do Azure) para autenticação e o RBAC do Azure (controle de acesso baseado em função) para autorização. As exceções a isso são:
 
-* __SSH__ : você pode habilitar o acesso SSH a alguns recursos de computação, como Azure Machine Learning instância de computação. O acesso SSH usa a autenticação baseada em chave. Para obter mais informações sobre como criar chaves SSH, consulte [criar e gerenciar chaves SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Para obter informações sobre como habilitar o acesso SSH, consulte [criar e gerenciar Azure Machine Learning instância de computação](how-to-create-manage-compute-instance.md).
-* __Modelos implantados como serviços Web__ : as implantações de serviço Web podem usar o controle de acesso baseado em __token__ ou __chave__ . As chaves são cadeias de caracteres estáticas. Os tokens são recuperados usando uma conta do Azure AD. Para obter mais informações, consulte [Configurar a autenticação para modelos implantados como um serviço Web](how-to-authenticate-web-service.md).
+* __SSH__: você pode habilitar o acesso SSH a alguns recursos de computação, como Azure Machine Learning instância de computação. O acesso SSH usa a autenticação baseada em chave. Para obter mais informações sobre como criar chaves SSH, consulte [criar e gerenciar chaves SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Para obter informações sobre como habilitar o acesso SSH, consulte [criar e gerenciar Azure Machine Learning instância de computação](how-to-create-manage-compute-instance.md).
+* __Modelos implantados como serviços Web__: as implantações de serviço Web podem usar o controle de acesso baseado em __token__ ou __chave__ . As chaves são cadeias de caracteres estáticas. Os tokens são recuperados usando uma conta do Azure AD. Para obter mais informações, consulte [Configurar a autenticação para modelos implantados como um serviço Web](how-to-authenticate-web-service.md).
 
 Serviços específicos dos quais Azure Machine Learning depende, como os serviços de armazenamento de dados do Azure, têm seus próprios métodos de autenticação e autorização. Para obter mais informações sobre a autenticação dos serviços de armazenamento, consulte [conectar-se aos serviços de armazenamento](how-to-access-data.md).
 
@@ -75,6 +75,8 @@ A tabela a seguir lista algumas das principais operações do Azure Machine Lear
 | Chamar serviço Web | ✓ | ✓ | ✓ |
 
 Caso as funções internas não atendam às suas necessidades, você poderá criar funções personalizadas. As funções personalizadas controlam todas as operações dentro de um espaço de trabalho, como a criação de uma computação, o envio de uma execução, o registro de um repositório de armazenamento ou a implantação de um modelo. As funções personalizadas podem ter permissões de leitura, gravação ou exclusão nos vários recursos de um espaço de trabalho, como clusters, repositórios de armazenamento, modelos e pontos de extremidade. Você pode tornar a função disponível em níveis específicos do workspace, do grupo de recursos ou da assinatura. Para obter mais informações, consulte [Gerenciar usuários e funções em um workspace de Azure Machine Learning](how-to-assign-roles.md).
+
+Para obter mais informações sobre como usar o RBAC com kubernetes, consulte [controle de acesso do Azure Role-Based para autorização do kubernetes](../aks/manage-azure-rbac.md).
 
 > [!IMPORTANT]
 > Azure Machine Learning depende de outros serviços do Azure, como o armazenamento de BLOBs do Azure e os serviços Kubernetess do Azure. Cada serviço do Azure tem suas próprias configurações de RBAC do Azure. Para obter o nível desejado de controle de acesso, talvez seja necessário aplicar as configurações do RBAC do Azure para Azure Machine Learning e os serviços usados com Azure Machine Learning.
@@ -146,7 +148,7 @@ Você pode monitorar execuções de teste em Azure Machine Learning, incluindo i
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Você pode usar as métricas do Azure Monitor para exibir e monitorar as métricas do seu workspace do Azure Machine Learning. No [portal do Azure](https://portal.azure.com), selecione seu workspace e depois **Métricas** :
+Você pode usar as métricas do Azure Monitor para exibir e monitorar as métricas do seu workspace do Azure Machine Learning. No [portal do Azure](https://portal.azure.com), selecione seu workspace e depois **Métricas**:
 
 [![Captura de tela mostrando métricas de exemplo de um workspace](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -185,8 +187,8 @@ A Central de Segurança do Azure fornece um gerenciamento de segurança unificad
 
 [Azure Policy](../governance/policy/index.yml) é uma ferramenta de governança que permite garantir que os recursos do Azure estejam em conformidade com suas políticas. Com Azure Machine Learning, você pode atribuir as seguintes políticas:
 
-* **Chave gerenciada pelo cliente** : auditar ou impor se os espaços de trabalho devem usar uma chave gerenciada pelo cliente.
-* **Link privado** : auditar se os espaços de trabalho usam um ponto de extremidade privado para se comunicar com uma rede virtual.
+* **Chave gerenciada pelo cliente**: auditar ou impor se os espaços de trabalho devem usar uma chave gerenciada pelo cliente.
+* **Link privado**: auditar se os espaços de trabalho usam um ponto de extremidade privado para se comunicar com uma rede virtual.
 
 Para obter mais informações sobre Azure Policy, consulte a [documentação do Azure Policy](../governance/policy/overview.md).
 

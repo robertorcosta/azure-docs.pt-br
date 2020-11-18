@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840654"
+ms.locfileid: "94873362"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de caracteres de localização
 
@@ -64,7 +64,7 @@ As IDs a seguir são usadas para uma definição de conteúdo com uma ID `api.si
 
 O exemplo a seguir mostra o uso de alguns dos elementos de interface do usuário na página de inscrição ou entrada:
 
-![Elementos das páginas de inscrição ou entrada da experiência do usuário](./media/localization-string-ids/localization-susi-2.png)
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Captura de tela que mostra os elementos da página de inscrição ou entrada U X.":::
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Provedores de identidade de inscrição ou entrada
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ed4e47cf946827e2e4b9aaeb14d9668e96aeaa5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311630"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873770"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -58,9 +58,9 @@ Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos s�
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Necessária |
-| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en` ) ou o código de idioma e o país/região em maiúsculas (por exemplo, `en-US` ). | Necessária |
-| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis . | Necessária |
+| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Obrigatório |
+| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en` ) ou o código de idioma e o país/região em maiúsculas (por exemplo, `en-US` ). | Obrigatório |
+| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis . | Obrigatório |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para conversão de texto em fala
 
@@ -101,7 +101,7 @@ Dentro do `speak` elemento, você pode especificar várias vozes para a saída d
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Necessária |
+| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Obrigatório |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com o recurso de limite de palavra. O recurso de limite de palavra precisa ser desabilitado para usar várias vozes.
@@ -200,25 +200,46 @@ Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunxiNeural` Apresentação
+* `zh-CN-XiaohanNeural` Apresentação
+* `zh-CN-XiaomoNeural` Apresentação
+* `zh-CN-XiaoxuanNeural` Apresentação
+* `zh-CN-XiaoruiNeural` Apresentação
 
-As alterações são aplicadas no nível da frase e os estilos variam de acordo com a voz. Se não houver suporte para um estilo, o serviço retornará a voz no estilo de fala neutro padrão. Você pode consultar os estilos com suporte para cada voz por meio da [API de lista de voz](rest-text-to-speech.md#get-a-list-of-voices).
+A intensidade do estilo de fala pode ser alterada para melhor se ajustar ao seu caso de uso. Você pode especificar um estilo mais forte ou mais flexível com `styledegree` o para tornar a fala mais expressiva ou subdued. 
 
-Para o XiaoxiaoNeural de voz chinês, a intensidade do estilo de fala pode ser alterada para melhor se ajustar ao seu caso de uso. Você pode especificar um estilo mais forte ou mais flexível com `styledegree` o para tornar a fala mais expressiva ou subdued.
+Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
+* `zh-CN-XiaoxiaoNeural`
+
+Além de ajustar os estilos de fala e o grau de estilo, você também pode ajustar o `role` parâmetro para que a voz imitasse uma idade e um sexo diferentes. Por exemplo, uma voz masculina pode aumentar a inclinação e alterar o intonation para imitar uma voz fêmea.
+
+Atualmente, os ajustes de função são suportados para essas vozes neurais:
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+As alterações acima são aplicadas no nível da frase, e os estilos e as reproduções de função variam de acordo com a voz. Se não houver suporte para um estilo ou uma execução de função, o serviço retornará a fala na forma de fala neutra padrão. Você pode ver quais estilos e execução de função têm suporte para cada voz por meio da [API de lista de voz](rest-text-to-speech.md#get-a-list-of-voices) ou por meio da plataforma de criação de conteúdo de [áudio](https://aka.ms/audiocontentcreation) sem código.
 
 **Sintaxe**
 
 ```xml
+<mstts:express-as style="string"></mstts:express-as>
+```
+```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
 > [!NOTE]
-> No momento, o `styledegree` só dá suporte a XiaoxiaoNeural. 
+> No momento, `styledegree` só há suporte para zh-CN-XiaoxiaoNeural. `role` Só dá suporte a zh-CN-XiaomoNeural e zh-CN-XiaoxuanNeural.
 
 **Atributos**
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `style` | Especifica o estilo de fala. Atualmente, os estilos de fala são específicos de voz. | Obrigatório se estiver ajustando o estilo de fala para uma voz neural. Se estiver usando `mstts:express-as` , o estilo deverá ser fornecido. Se um valor inválido for fornecido, esse elemento será ignorado. |
-| `styledegree` | Especifica a intensidade do estilo de fala. **Valores aceitos** : 0, 1 a 2 inclusive. O valor padrão é 1, o que significa a intensidade do estilo predefinido. A unidade mínima é 0, 1, o que resulta em um pouco de tendência para o estilo de destino. Um valor 2 resulta no dobro da intensidade do estilo padrão.  | Opcional (no momento, `styledegree` só dá suporte a XiaoxiaoNeural.)|
+| `styledegree` | Especifica a intensidade do estilo de fala. **Valores aceitos**: 0, 1 a 2 inclusive. O valor padrão é 1, o que significa a intensidade do estilo predefinido. A unidade mínima é 0, 1, o que resulta em um pouco de tendência para o estilo de destino. Um valor 2 resulta no dobro da intensidade do estilo padrão.  | Opcional (no momento, `styledegree` só dá suporte a zh-CN-XiaoxiaoNeural.)|
+| `role` | Especifica a função de papel-reprodução. A voz funcionará como uma idade e um sexo diferentes.  | Opcional (no momento, `role` só dá suporte a zh-CN-XiaomoNeural e zh-CN-XiaoxuanNeural.)|
 
 Use esta tabela para determinar quais estilos de fala têm suporte para cada voz neural.
 
@@ -250,6 +271,52 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
 |                         | `style="lyrical"`         | Expressa emoções de uma maneira Melodic e tem valor sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  | 
+| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+|                         | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+|                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
+|                         | `style="depressed"`       | Expressa um tom de melancholic e despondent com densidade mais baixa e energia    |
+|                         | `style="embarrassed"`     | Expressa um tom incerto e hesitar quando o orador está se sentindo desconfortável   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+|                         | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+|                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
+|                         | `style="embarrassed"`     | Expressa um tom incerto e hesitar quando o orador está se sentindo desconfortável   |
+|                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |     
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+|                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
+|                         | `style="depressed"`       | Expressa um tom de melancholic e despondent com densidade mais baixa e energia    |
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+|                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
+|                         | `style="depressed"`       | Expressa um tom de melancholic e despondent com densidade mais baixa e energia    |
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+
+Use esta tabela para determinar quais funções têm suporte para cada voz neural.
+
+| Voz                   | Função                       | Descrição                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | A voz é imitada para uma jovem adulto, fêmea.                 |
+|                         | `role="OlderAdultMale"`    | A voz é imitada por um macho adulto mais antigo.                   |
+|                         | `role="Girl"`              | A voz é imitada a uma menina.                               |
+|                         | `role="Boy"`               | A voz é imitada a uma menino.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | A voz é imitada para uma jovem adulto, fêmea.                 |
+|                         | `role="OlderAdultFemale"`  | A voz é imitada para um adulto mais antigo fêmea.                 |
+|                         | `role="OlderAdultMale"`    | A voz é imitada por um macho adulto mais antigo.                   |
 
 **Exemplo**
 
@@ -278,6 +345,23 @@ Este trecho de SSML ilustra como o `styledegree` atributo é usado para alterar 
 </speak>
 ```
 
+Este trecho de SSML ilustra como o `role` atributo é usado para alterar a execução de função para XiaomoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
 ## <a name="add-or-remove-a-breakpause"></a>Adicionar ou remover uma quebra/pausa
 
 Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou evitar pausas adicionadas automaticamente pelo serviço de conversão de texto em fala.
@@ -297,7 +381,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
-| `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
+| `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
 | Segurança                      | Descrição |
 |-------------------------------|-------------|
@@ -316,6 +400,37 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## <a name="add-silence"></a>Adicionar silêncio
+
+Use o `mstts:silence` elemento para inserir pausas antes ou depois do texto ou entre as duas sentenças adjacentes. 
+
+> [!NOTE]
+>A diferença entre `mstts:silence` e `break` é que `break` pode ser adicionada a qualquer lugar no texto, mas o silêncio funciona apenas no início ou no final do texto de entrada ou no limite de 2 sentenças adjacentes.  
+
+
+**Sintaxe**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**Atributos**
+
+| Atributo | Descrição | Obrigatório/Opcional |
+|-----------|-------------|---------------------|
+| `type` | Especifica o local de silêncio a ser adicionado: <ul><li>À esquerda – no início do texto </li><li>Cauda – no final do texto </li><li>Sentenceboundary – entre frases adjacentes </li></ul> | Obrigatório |
+| `Value` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Obrigatório |
+
+**Exemplo** Neste exemplo, `mtts:silence` é usado para adicionar 200 MS de silêncio entre duas frases.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>Especificar parágrafos e frases
@@ -355,6 +470,9 @@ O `s` elemento pode conter texto e os seguintes elementos: `audio` ,,,,, `break`
 O `ph` elemento é usado para a pronúncia fonética em documentos SSML. O `ph` elemento só pode conter texto, nenhum outro elemento. Sempre forneça uma fala legível por humanos como um fallback.
 
 Os alfabetos fonéticos são compostos por telefones, que são compostos por letras, números ou caracteres, às vezes em combinação. Cada telefone descreve um som exclusivo de fala. Isso é diferente do alfabeto latino, em que qualquer letra pode representar vários sons falados. Considere as diferentes pronúncias da letra "c" nas palavras "colírio" e "cessação" ou as diferentes pronúncias da combinação de letras "th" nas palavras "coisas" e "essas".
+
+> [!NOTE]
+> A marca fonemas não tem suporte para essas 5 vozes (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural e MT-MT-GarceNeural) no momento.
 
 **Sintaxe**
 
@@ -401,6 +519,10 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 > [!NOTE]
 > O léxico personalizado atualmente dá suporte à codificação UTF-8. 
+
+> [!NOTE]
+> Não há suporte para o léxico personalizado para essas 5 vozes (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural e MT-MT-GarceNeural) no momento.
+
 
 **Sintaxe**
 
@@ -618,7 +740,7 @@ As alterações de timbre podem ser aplicadas a vozes padrão na palavra ou no n
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessária |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
 | `format` | Fornece informações adicionais sobre a formatação exata do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. O SSML define formatos para tipos de conteúdo que os usam (consulte a tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, esse atributo pode solicitar que o mecanismo de síntese de fala pronuncia as marcas de pontuação. Não há valores padrão definidos para `detail` . | Opcional |
 
@@ -631,7 +753,7 @@ A seguir estão os tipos de conteúdo com suporte para os `interpret-as` `format
 | `address` | | O texto é falado como um endereço. O mecanismo de síntese de fala pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Como "Estou em 150th tribunal norte leste de Redmond, Washington." |
 | `cardinal`, `number` | | O texto é falado como um número cardinal. O mecanismo de síntese de fala pronuncia:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Como "há três alternativas". |
 | `characters`, `spell-out` | | O texto é falado como letras individuais (escritas). O mecanismo de síntese de fala pronuncia:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Como "T E S T". |
-| `date` | dmy, MDY, ymd, ydm, YM, My, MD, DM, d, m, y | O texto é falado como uma data. O `format` atributo especifica o formato da data ( *d = dia, m = mês e y = ano* ). O mecanismo de síntese de fala pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Como "hoje é de outubro de nineteenth 2016." |
+| `date` | dmy, MDY, ymd, ydm, YM, My, MD, DM, d, m, y | O texto é falado como uma data. O `format` atributo especifica o formato da data (*d = dia, m = mês e y = ano*). O mecanismo de síntese de fala pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Como "hoje é de outubro de nineteenth 2016." |
 | `digits`, `number_digit` | | O texto é falado como uma sequência de dígitos individuais. O mecanismo de síntese de fala pronuncia:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Como "1 2 3 4 5 6 7 8 9". |
 | `fraction` | | O texto é falado como um número fracionário. O mecanismo de síntese de fala pronuncia:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Como "três oitavos de uma polegada". |
 | `ordinal` | | O texto é falado como um número ordinal. O mecanismo de síntese de fala pronuncia:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Como "Selecione a terceira opção". |
@@ -717,9 +839,9 @@ Somente um arquivo de áudio de segundo plano é permitido por documento SSML. N
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `src` | Especifica o local/URL do arquivo de áudio de segundo plano. | Necessário se estiver usando áudio de fundo em seu documento SSML. |
-| `volume` | Especifica o volume do arquivo de áudio de segundo plano. **Valores aceitos** : `0` para `100` inclusivo. O valor padrão é `1`. | Opcional |
-| `fadein` | Especifica a duração do áudio de fundo "Fade in" como milissegundos. O valor padrão é `0` , que é o equivalente a sem fade in. **Valores aceitos** : `0` para `10000` inclusivo.  | Opcional |
-| `fadeout` | Especifica a duração do esmaecimento de áudio em segundo plano em milissegundos. O valor padrão é `0` , que é o equivalente a sem desaparecer. **Valores aceitos** : `0` para `10000` inclusivo.  | Opcional |
+| `volume` | Especifica o volume do arquivo de áudio de segundo plano. **Valores aceitos**: `0` para `100` inclusivo. O valor padrão é `1`. | Opcional |
+| `fadein` | Especifica a duração do áudio de fundo "Fade in" como milissegundos. O valor padrão é `0` , que é o equivalente a sem fade in. **Valores aceitos**: `0` para `10000` inclusivo.  | Opcional |
+| `fadeout` | Especifica a duração do esmaecimento de áudio em segundo plano em milissegundos. O valor padrão é `0` , que é o equivalente a sem desaparecer. **Valores aceitos**: `0` para `10000` inclusivo.  | Opcional |
 
 **Exemplo**
 

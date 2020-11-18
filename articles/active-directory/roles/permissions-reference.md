@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396508"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874671"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -69,7 +69,7 @@ Os usuários nessa função podem criar registros dos aplicativos quando a confi
 
 ### <a name="authentication-administrator"></a>[Administrador de autenticação](#authentication-administrator-permissions)
 
-Os usuários com essa função podem definir ou redefinir credenciais que não exijam senha de alguns usuários, além de poderem atualizar as senhas de todos os usuários. Os Administradores de autenticação podem exigir que os usuários que não sejam administradores ou que estejam atribuídos a algumas funções refaçam o registro de credenciais existentes que não usam senhas (por exemplo, MFA ou FIDO) e também possam revogar a **lembrança da MFA no dispositivo** , o qual solicitará a MFA na próxima entrada. Essas ações se aplicam apenas a usuários que não sejam administradores ou àqueles que tenham uma ou mais das seguintes funções atribuídas:
+Os usuários com essa função podem definir ou redefinir credenciais que não exijam senha de alguns usuários, além de poderem atualizar as senhas de todos os usuários. Os Administradores de autenticação podem exigir que os usuários que não sejam administradores ou que estejam atribuídos a algumas funções refaçam o registro de credenciais existentes que não usam senhas (por exemplo, MFA ou FIDO) e também possam revogar a **lembrança da MFA no dispositivo**, o qual solicitará a MFA na próxima entrada. Essas ações se aplicam apenas a usuários que não sejam administradores ou àqueles que tenham uma ou mais das seguintes funções atribuídas:
 
 * Administrador de Autenticação
 * Leitores de Diretório
@@ -233,7 +233,7 @@ Os usuários com essa função podem ler configurações e informações adminis
 >- [Centro de administração do onedrive](https://admin.onedrive.com/) – o centro de administração do onedrive não dá suporte à função de leitor global
 >- [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) – o Leitor global não pode ler solicitações do Sistema de Proteção de Dados do Cliente. Você não encontrará a guia **Solicitações do Sistema de Proteção de Dados do Cliente** em **Suporte** no painel esquerdo do Centro de administração do M365.
 >- [Centro de Conformidade e Segurança do Office](https://sip.protection.office.com/homepage) – o Leitor global não pode ler logs de auditoria SCC, fazer pesquisa de conteúdo ou ver a classificação de segurança.
->- [Centro de administração do Teams](https://admin.teams.microsoft.com) – o Leitor global não pode ler o **ciclo de vida do Teams** , **Análises e relatórios** , **Gerenciamento de dispositivo de telefone IP** e **Catálogo de aplicativos**.
+>- [Centro de administração do Teams](https://admin.teams.microsoft.com) – o Leitor global não pode ler o **ciclo de vida do Teams**, **Análises e relatórios**, **Gerenciamento de dispositivo de telefone IP** e **Catálogo de aplicativos**.
 >- O [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) não tem suporte à função de Leitor global.
 >- [Proteção de Informações do Azure](/azure/information-protection/what-is-information-protection) – o Leitor global só tem suporte para [relatórios centrais](/azure/information-protection/reports-aip) e quando sua organização do Azure AD não está na [plataforma de rotulagem unificada](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -311,7 +311,7 @@ Os usuários nessa função podem monitorar notificações e atualizações de i
 
 Não use. Essa função é automaticamente atribuída a partir do Comércio e não tem a finalidade ou o suporte para outros usos. Veja detalhes abaixo.
 
-A função de usuário moderna do Comércio concede a certos usuários permissão para acessar Microsoft 365 centro de administração e ver as entradas de navegação à esquerda para **início** , **cobrança** e **suporte**. O conteúdo disponível nessas áreas é controlado por [funções específicas de comércio](../../cost-management-billing/manage/understand-mca-roles.md) atribuídas aos usuários para gerenciar os produtos que eles compraram para si mesmos ou para a sua organização. Isso pode incluir tarefas como pagar faturas ou acessar contas de cobrança e perfis de cobrança. 
+A função de usuário moderna do Comércio concede a certos usuários permissão para acessar Microsoft 365 centro de administração e ver as entradas de navegação à esquerda para **início**, **cobrança** e **suporte**. O conteúdo disponível nessas áreas é controlado por [funções específicas de comércio](../../cost-management-billing/manage/understand-mca-roles.md) atribuídas aos usuários para gerenciar os produtos que eles compraram para si mesmos ou para a sua organização. Isso pode incluir tarefas como pagar faturas ou acessar contas de cobrança e perfis de cobrança. 
 
 Os usuários com a função de usuário de comércio moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de administrador global ou de administrador de cobrança usadas para acessar o centro de administração. 
 
@@ -1513,7 +1513,7 @@ Pode gerenciar todos os aspectos do produto Power BI.
 
 ### <a name="power-platform-administrator-permissions"></a>Permissões do Administrador de serviços do Power Platform
 
-Pode criar e gerenciar todos os aspectos do Microsoft Dynamics 365, do PowerApps e do Microsoft Flow. 
+Pode criar e gerenciar todos os aspectos do Microsoft Dynamics 365, do PowerApps e da automação de energia.
 
 > [!NOTE]
 > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -1524,7 +1524,7 @@ Pode criar e gerenciar todos os aspectos do Microsoft Dynamics 365, do PowerApps
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
 | microsoft.dynamics365/allEntities/allTasks | Gerencie todos os aspectos do Dynamics 365. |
-| microsoft.flow/allEntities/allTasks | Gerenciar todos os aspectos do Microsoft Flow. |
+| microsoft.flow/allEntities/allTasks | Gerencie todos os aspectos da automatização de energia. |
 | microsoft.powerApps/allEntities/allTasks | Gerenciar todos os aspectos do PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
