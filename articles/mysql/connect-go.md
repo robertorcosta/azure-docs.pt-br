@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se usando Go – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece vários exemplos de código Go que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 08f9e9b7c720b19941f2889047a56f55bba05473
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 0da32fb404972556a1c4c964eec692bad20a4db1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332178"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535751"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar a linguagem Go para se conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -83,7 +83,7 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver** ).
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
  :::image type="content" source="./media/connect-go/1_server-overview-name-login.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::

@@ -4,12 +4,12 @@ description: Saiba como criar uma função TypeScript da linha de comando e publ
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11a1094ff389463045da567fe129d7eccff5ea9e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 981c96bb8775a3fdd3f951d079cd7ad285d09680
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424579"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637023"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função TypeScript no Azure da linha de comando
 
@@ -155,10 +155,12 @@ Cada associação exige uma direção, um tipo e um nome exclusivo. O gatilho HT
     # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location 'West Europe'
     ```
     
     O cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cria o aplicativo de funções no Azure. Se você estiver usando o Node.js 10, altere `-RuntimeVersion` para `10`.
+
+    ---
         
     No exemplo anterior, substitua `<STORAGE_NAME>` pelo nome da conta usada na etapa anterior e substitua `<APP_NAME>` por um nome globalmente exclusivo que seja apropriado para você. O `<APP_NAME>` também é o domínio do DNS padrão para o aplicativo de funções. 
     

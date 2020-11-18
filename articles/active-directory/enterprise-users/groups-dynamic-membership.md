@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a448b510662eb2c3c4c8ae5a68c2ebc2ed448dc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378543"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647351"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -100,7 +100,7 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 | companyName | Qualquer valor de cadeia de caracteres ou *null* | (user.companyName -eq "value") |
 | department |Qualquer valor de cadeia de caracteres ou *null* |(user.department -eq "value") A propriedade |
 | displayName |Qualquer valor de cadeia de caracteres |(user. DisplayName -eq "valor") |
-| employeeId |Qualquer valor de cadeia de caracteres |(user.employeeId -eq "valor")<br>(user.employeeId -ne *null* ) |
+| employeeId |Qualquer valor de cadeia de caracteres |(user.employeeId -eq "valor")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |user.facsimileTelephoneNumber -eq ("valor") |
 | givenName |Qualquer valor de cadeia de caracteres ou *null* |user.givenName -eq ("valor") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou *null* |(user.jobTitle - eq "valor") |
@@ -190,7 +190,7 @@ Ao especificar um valor dentro de uma expressão é importante usar a sintaxe co
 
 ### <a name="use-of-null-values"></a>Uso de valores nulos
 
-Para especificar um valor nulo em uma regra, você pode usar o valor *null* . 
+Para especificar um valor nulo em uma regra, você pode usar o valor *null*. 
 
 * Use -eq ou -ne quando comparado o valor de *null* em uma expressão.
 * Usa cotações em torno da palavra *null* apenas se você quiser que seja interpretado como valor de cadeia de caracteres literal.
@@ -309,7 +309,7 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 As dicas a seguir podem ajudá-lo a usar a regra corretamente.
 
-- O **Manager ID** é a ID de objeto do Gerenciador. Ele pode ser encontrado no Gerenciador de **Perfil** .
+- O **Manager ID** é a ID de objeto do Gerenciador. Ele pode ser encontrado no Gerenciador de **Perfil**.
 - Para que a regra funcione, verifique se a propriedade **ID do Gerenciador** está definida corretamente nos usuários em sua organização. Você pode verificar o valor atual no **Perfil** do usuário.
 - Essa regra dá suporte a apenas os relatórios de diretos do gerente. Em outras palavras, é possível criar um grupo com subordinados diretos do gerente *e* seus relatórios.
 - Esta regra não pode ser combinada com nenhuma outra regra avançada.

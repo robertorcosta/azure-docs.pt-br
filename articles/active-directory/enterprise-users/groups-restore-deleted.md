@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092288d320874488cee4d2f097d7406c0757e8a0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e5cec8802fba3852f4600b9fb426ee4c175314b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378532"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647113"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Restaurar um grupo do Microsoft 365 excluído no Azure Active Directory
 
@@ -43,10 +43,10 @@ Usuário | Pode restaurar qualquer grupo do Microsoft 365 excluído que seja de 
 
     ![exibir grupos que estão disponíveis para restauração](./media/groups-restore-deleted/deleted-groups3.png)
 
-3. Na folha **Grupos excluídos** , você pode:
+3. Na folha **Grupos excluídos**, você pode:
 
-   - Restaurar o grupo excluído e seu conteúdo, selecionando **Restaurar grupo** .
-   - Remover permanentemente o grupo excluído, selecionando **Excluir permanentemente** . Para remover permanentemente um grupo, você deve ser um administrador.
+   - Restaurar o grupo excluído e seu conteúdo, selecionando **Restaurar grupo**.
+   - Remover permanentemente o grupo excluído, selecionando **Excluir permanentemente**. Para remover permanentemente um grupo, você deve ser um administrador.
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Exibir os grupos do Microsoft 365 excluídos que estão disponíveis para restauração usando o PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar um pool de SQL dedicado usando o Synapse Studio'
+title: 'Início Rápido: Criar um pool de SQL dedicado usando o Synapse Studio'
 description: Crie um pool de SQL dedicado usando o Synapse Studio seguindo as etapas deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506338"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541837"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Início Rápido: Criar um pool de SQL dedicado usando o Synapse Studio
 
@@ -110,6 +110,7 @@ Caso deseje excluir o pool de SQL dedicado, faça o seguinte:
 1. Confirme a exclusão e selecione o botão **Delete**.
 1. Quando o processo for concluído com sucesso, o pool de SQL dedicado não será mais listado nos recursos do workspace.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximas etapas
+ 
 - Confira [Início Rápido: Criar um notebook do Apache Spark](quickstart-apache-spark-notebook.md).
 - Confira [Início Rápido: criar um pool de SQL dedicado usando o portal do Azure](quickstart-create-sql-pool-portal.md).

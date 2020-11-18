@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se usando o Node.js – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece vários exemplos de código Node.js que podem ser usados para conectar e consultar dados do banco de dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332161"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535649"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar o Node.js para conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -68,7 +68,7 @@ Dependendo de sua plataforma, siga as instruções na seção apropriada para in
 
 ### <a name="macos"></a>macOS
 
-1. Insira os seguintes comandos para instalar o **brew** , um gerenciador de pacotes fácil de usar para macOS e **Node.js**.
+1. Insira os seguintes comandos para instalar o **brew**, um gerenciador de pacotes fácil de usar para macOS e **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -90,7 +90,7 @@ Dependendo de sua plataforma, siga as instruções na seção apropriada para in
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver** ).
+2. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
 3. Selecione o nome do servidor.
 4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89300112"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649391"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Azure Active Directory)
 
@@ -45,7 +45,7 @@ Para excluir um aplicativo do seu locatário do Azure AD:
 1. Selecione **Excluir** e **Sim** para confirmar que deseja excluir o aplicativo do seu locatário do Azure AD.
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

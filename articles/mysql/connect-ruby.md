@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se usando Ruby – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece vários exemplos de código Ruby que podem ser usados para conectar e consultar dados do banco de dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 20e51100eba595f9261be24e0e3675aa565479cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337292"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535547"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar Ruby para conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -58,7 +58,7 @@ Instale o Ruby, o Gem e a biblioteca MySQL2 no seu computador.
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver** ).
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
  :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::
@@ -70,7 +70,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 4. No sistema operacional Windows, se o aplicativo Ruby não estiver no seu caminho de variável de ambiente, você precisará usar o caminho completo para iniciar o aplicativo de nó, como `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Conectar-se e criar uma tabela
-Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE** , seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
+Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE**, seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código usa uma classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) para se conectar ao servidor MySQL. Em seguida, ele chama o método ```query()``` para executar os comandos DROP, CREATE TABLE e INSERT INTO. Por fim, chame o ```close()``` para fechar a conexão antes de encerrar.
 

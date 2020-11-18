@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar um BD do Azure para MySQL – modelo do ARM'
 description: Neste Início Rápido, saiba como criar um servidor do Banco de Dados do Azure para MySQL com integração de rede virtual usando um modelo do Azure Resource Manager.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041211"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542262"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Início Rápido: Usar um modelo do ARM para criar um servidor de Banco de Dados do Azure para MySQL
 
@@ -68,32 +68,32 @@ Selecione o seguinte link para implantar o modelo de servidor do Banco de Dados 
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
-Na página **Implantar Banco de Dados do Azure para MySQL com VNet** :
+Na página **Implantar Banco de Dados do Azure para MySQL com VNet**:
 
-1. Para **Grupo de recursos** , selecione **Criar** , insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
+1. Para **Grupo de recursos**, selecione **Criar**, insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
 
 2. Caso tenha criado um grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
-3. Insira um **Nome do Servidor** , um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
+3. Insira um **Nome do Servidor**, um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
 
     :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Implantar o Banco de Dados do Azure para MySQL com a janela VNet, modelo de início rápido do Azure, portal do Azure":::
 
 4. Se desejar, altere as outras configurações padrão:
 
-    * **Assinatura** : a assinatura do Azure que você deseja usar para o servidor.
-    * **Capacidade de SKU** : a capacidade vCore, que pode ser *2* (o padrão), *4* , *8* , *16* , *32* ou *64*.
-    * **Nome do SKU** : o prefixo do nível de SKU, a família de SKU e a capacidade de SKU, unidos por sublinhados, como *B_Gen5_1* , *GP_Gen5_2* (o padrão) ou *MO_Gen5_32*.
-    * **Tamanho do SKU em MB** : o tamanho do armazenamento, em megabytes, do servidor do Banco de Dados do Azure para MySQL (padrão *5120* ).
-    * **Nível do SKU** : o nível de implantação, como *Basic* , *GeneralPurpose* (o padrão) ou *MemoryOptimized*.
-    * **Família do SKU** : *Gen4* ou *Gen5* (o padrão), que indica a geração de hardware para a implantação do servidor.
-    * **Versão do MySQL** : a versão do servidor MySQL a ser implantada, como *5.6* ou *5.7* (o padrão).
-    * **Dias de retenção de backup** : o período desejado para retenção de backup com redundância geográfica, em dias (padrão *7* ).
-    * **Backup de redundância geográfica** : *Habilitado* ou *Desabilitado* (o padrão), dependendo dos requisitos de Geo-DR (recuperação de desastre geográfico).
-    * **Nome da Rede Virtual** : o nome da rede virtual (padrão *azure_mysql_vnet* ).
-    * **Nome da Sub-Rede** : o nome da sub-rede (padrão *azure_mysql_subnet* ).
-    * **Nome da Regra da Rede Virtual** : o nome da regra da rede virtual que permite a sub-rede (padrão *AllowSubnet* ).
-    * **Prefixo de Endereço da VNET** : o prefixo de endereço para a rede virtual (padrão *10.0.0.0/16* ).
-    * **Prefixo da Sub-Rede** : o prefixo de endereço da sub-rede (padrão *10.0.0.0/16* ).
+    * **Assinatura**: a assinatura do Azure que você deseja usar para o servidor.
+    * **Capacidade de SKU**: a capacidade vCore, que pode ser *2* (o padrão), *4*, *8*, *16*, *32* ou *64*.
+    * **Nome do SKU**: o prefixo do nível de SKU, a família de SKU e a capacidade de SKU, unidos por sublinhados, como *B_Gen5_1*, *GP_Gen5_2* (o padrão) ou *MO_Gen5_32*.
+    * **Tamanho do SKU em MB**: o tamanho do armazenamento, em megabytes, do servidor do Banco de Dados do Azure para MySQL (padrão *5120*).
+    * **Nível do SKU**: o nível de implantação, como *Basic*, *GeneralPurpose* (o padrão) ou *MemoryOptimized*.
+    * **Família do SKU**: *Gen4* ou *Gen5* (o padrão), que indica a geração de hardware para a implantação do servidor.
+    * **Versão do MySQL**: a versão do servidor MySQL a ser implantada, como *5.6* ou *5.7* (o padrão).
+    * **Dias de retenção de backup**: o período desejado para retenção de backup com redundância geográfica, em dias (padrão *7*).
+    * **Backup de redundância geográfica**: *Habilitado* ou *Desabilitado* (o padrão), dependendo dos requisitos de Geo-DR (recuperação de desastre geográfico).
+    * **Nome da Rede Virtual**: o nome da rede virtual (padrão *azure_mysql_vnet*).
+    * **Nome da Sub-Rede**: o nome da sub-rede (padrão *azure_mysql_subnet*).
+    * **Nome da Regra da Rede Virtual**: o nome da regra da rede virtual que permite a sub-rede (padrão *AllowSubnet*).
+    * **Prefixo de Endereço da VNET**: o prefixo de endereço para a rede virtual (padrão *10.0.0.0/16*).
+    * **Prefixo da Sub-Rede**: o prefixo de endereço da sub-rede (padrão *10.0.0.0/16*).
 
 5. Leia os termos e condições e depois selecione **Eu concordo com os termos e condições declarados acima**.
 

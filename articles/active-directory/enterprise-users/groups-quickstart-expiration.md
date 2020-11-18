@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 842cd92e451b8d959dcf04135da504d7cf85a16e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378536"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647198"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Configurar os grupos do Microsoft 365 a serem expirados no Azure Active Directory
 
@@ -45,11 +45,11 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta Administrador de usuários.
 
-2. Selecione **Grupos** e, em seguida, selecione **Geral** .
+2. Selecione **Grupos** e, em seguida, selecione **Geral**.
   
    ![Página de configurações de grupos de autoatendimento](./media/groups-quickstart-expiration/self-service-settings.png)
 
-3. Defina **Usuários podem criar grupos do Microsoft 365** para **Sim** .
+3. Defina **Usuários podem criar grupos do Microsoft 365** para **Sim**.
 
 4. Selecione **Salvar** para salvar as configurações de grupos quando você terminar.
 
@@ -63,7 +63,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 3. Forneça um endereço de email para o qual as notificações de expiração e renovação devem ser enviadas quando um grupo não tem nenhum proprietário.
 
-4. Para este guia de início rápido, defina **Habilitar expiração para estes grupos do Microsoft 365** para **Todos** .
+4. Para este guia de início rápido, defina **Habilitar expiração para estes grupos do Microsoft 365** para **Todos**.
 
 5. Selecione **Salvar** para salvar as configurações de expiração quando você terminar.
 
@@ -74,13 +74,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 ### <a name="to-remove-the-expiration-policy"></a>Para remover a política de expiração
 
 1. Certifique-se de que você está conectado no [portal do Azure](https://portal.azure.com) com uma conta que seja de Administrador Global para a sua organização do Azure AD.
-2. Selecione **Azure Active Directory** > **Grupos** > **Expiração** .
-3. Defina **Habilitar expiração para estes grupos do Microsoft 365** para **Nenhum** .
+2. Selecione **Azure Active Directory** > **Grupos** > **Expiração**.
+3. Defina **Habilitar expiração para estes grupos do Microsoft 365** para **Nenhum**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Para desativar a criação de usuários para grupos
 
-1. Selecione **Azure Active Directory** > **Grupos** > **Geral** . 
-2. Defina **Os usuários podem criar grupos do Microsoft 365 nos portais do Azure** para **Não** .
+1. Selecione **Azure Active Directory** > **Grupos** > **Geral**. 
+2. Defina **Os usuários podem criar grupos do Microsoft 365 nos portais do Azure** para **Não**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

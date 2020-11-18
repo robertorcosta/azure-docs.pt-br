@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95626836afb09ada286cf7e171f97db450167999
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341899"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564337"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial usando a CLI do Azure (versão prévia)
 
@@ -19,7 +19,7 @@ Este guia de início rápido é destinado a desenvolvedores ou operadores de clu
 
 ## <a name="overview"></a>Visão geral
 
-Neste guia de início rápido, você aprenderá a implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial usando a CLI do Azure e a executar um aplicativo Olá, Mundo em um enclave. O AKS é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Leia mais sobre o AKS [aqui](https://docs.microsoft.com/azure/aks/intro-kubernetes).
+Neste guia de início rápido, você aprenderá a implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial usando a CLI do Azure e a executar um aplicativo Olá, Mundo em um enclave. O AKS é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Leia mais sobre o AKS [aqui](../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > As VMs DCsv2 com computação confidencial usam hardware especializado sujeito a maiores preços e disponibilidade da região. Para obter mais informações, confira na página das máquinas virtuais os [SKUs disponíveis e as regiões com suporte](virtual-machine-solutions.md).
@@ -27,17 +27,17 @@ Neste guia de início rápido, você aprenderá a implantar um cluster do AKS (S
 ### <a name="deployment-pre-requisites"></a>Pré-requisitos de implantação
 
 1. Ter uma assinatura ativa do Azure. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar
-1. Ter a CLI do Azure versão 2.0.64 ou posterior instalada e configurada no computador de implantação (execute `az --version` para localizar a versão). Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Ter a CLI do Azure versão 2.0.64 ou posterior instalada e configurada no computador de implantação (execute `az --version` para localizar a versão). Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md)
 1. [Extensão aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) com a versão mínima 0.4.62 
-1. Ter no mínimo seis núcleos **DC<x>s-v2** disponíveis em sua assinatura para uso. Por padrão, a cota de núcleos de VM para computação confidencial por assinatura do Azure é de 8 núcleos. Se você planeja provisionar um cluster que requer mais de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instruções para gerar um tíquete de aumento de cota
+1. Ter no mínimo seis núcleos **DC<x>s-v2** disponíveis em sua assinatura para uso. Por padrão, a cota de núcleos de VM para computação confidencial por assinatura do Azure é de 8 núcleos. Se você planeja provisionar um cluster que requer mais de 8 núcleos, siga [estas](../azure-portal/supportability/per-vm-quota-requests.md) instruções para gerar um tíquete de aumento de cota
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>Recursos do nó de computação confidencial (DC<x>s-v2)
 
 1. Nós de trabalho Linux com suporte apenas para contêineres Linux
 1. Máquinas virtuais Ubuntu geração 2 18.04
-1. CPU baseada em Intel SGX com EPC (Memória de cache de página criptografada). Leia mais [aqui](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. CPU baseada em Intel SGX com EPC (Memória de cache de página criptografada). Leia mais [aqui](./faq.md)
 1. Kubernetes versão 1.16+
-1. Driver Intel SGX DCAP pré-instalado. Leia mais [aqui](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. Driver Intel SGX DCAP pré-instalado. Leia mais [aqui](./faq.md)
 1. Implantação baseada na CLI durante a versão prévia
 
 
@@ -75,13 +75,13 @@ az provider register --namespace Microsoft.ContainerService
 
 Se você já tem um cluster do AKS que atende aos requisitos acima, [vá diretamente para a seção sobre o cluster existente](#existing-cluster) para adicionar um novo pool de nós de computação confidencial.
 
-Primeiro, crie um grupo de recursos para o cluster usando o comando az group create. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *westus2* :
+Primeiro, crie um grupo de recursos para o cluster usando o comando az group create. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *westus2*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Agora, crie um cluster do AKS usando o comando az aks create. O exemplo a seguir cria um cluster com apenas um nó de tamanho `Standard_DC2s_v2`. Você pode escolher outra lista de SKUs do DCsv2 com suporte [aqui](https://docs.microsoft.com/azure/virtual-machines/dcv2-series):
+Agora, crie um cluster do AKS usando o comando az aks create. O exemplo a seguir cria um cluster com apenas um nó de tamanho `Standard_DC2s_v2`. Você pode escolher outra lista de SKUs do DCsv2 com suporte [aqui](../virtual-machines/dcv2-series.md):
 
 ```azurecli-interactive
 az aks create \
@@ -244,6 +244,3 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 Execute aplicativos Python, Node etc. de maneira confidencial por meio de contêineres confidenciais visitando os [exemplos de contêiner confidencial](https://github.com/Azure-Samples/confidential-container-samples).
 
 Execute aplicativos com reconhecimento de enclave visitando os [Exemplos de contêineres do Azure com reconhecimento de enclave](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
-
-
-

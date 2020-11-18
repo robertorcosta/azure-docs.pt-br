@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Conectar – MySQL Workbench – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece as etapas para usar o MySQL Workbench para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332033"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535530"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar o MySQL Workbench para se conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -35,7 +35,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver** ).
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
 
 3. Clique no nome do servidor.
 
@@ -47,7 +47,7 @@ Para se conectar ao Servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
 
 1.    Inicie o aplicativo MySQL Workbench em seu computador. 
 
-2.    Na caixa de diálogo **Configurar Nova Conexão** , insira as seguintes informações na guia **Parâmetros** :
+2.    Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
 :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurar nova conexão":::
 
@@ -64,7 +64,7 @@ Para se conectar ao Servidor MySQL do Azure usando a ferramenta de GUI MySQL Wor
 
 4.   Clique em **OK** para salvar a conexão. 
 
-5.   Na lista de **Conexões MySQL** , clique no bloco correspondente ao seu servidor e aguarde até que a conexão seja estabelecida.
+5.   Na lista de **Conexões MySQL**, clique no bloco correspondente ao seu servidor e aguarde até que a conexão seja estabelecida.
 
         Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
     

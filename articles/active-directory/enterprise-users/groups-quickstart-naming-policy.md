@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dcf05f829cfcdc79fcd7be903b96fb601c095a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7a594d42485510a525ce4e3c7f03b432554100f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378535"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650590"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início Rápido: política de nomenclatura para grupos no Azure Active Directory
 
@@ -34,24 +34,24 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configurar a política de nomenclatura de grupo no portal do Azure
 
 1. Entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com uma conta de administrador.
-1. Para abrir a página da política de nomenclatura, escolha **Grupos** e **Política de nomenclatura** .
+1. Para abrir a página da política de nomenclatura, escolha **Grupos** e **Política de nomenclatura**.
 
     ![Abrir a página da política de nomenclatura no centro de administração](./media/groups-quickstart-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Exibir ou editar a política de nomenclatura de prefixo/sufixo
 
-1. Na página **Política de nomenclatura** , escolha **Política de nomenclatura de grupos** .
+1. Na página **Política de nomenclatura**, escolha **Política de nomenclatura de grupos**.
 1. Para exibir ou editar individualmente as políticas de nomenclatura de prefixo ou sufixo atuais, escolha os atributos ou cadeias de caracteres que você deseja aplicar como parte da política de nomenclatura.
-1. Para remover um prefixo ou sufixo da lista, escolha o prefixo ou sufixo e, em seguida, escolha **Excluir** . É possível excluir vários itens ao mesmo tempo.
+1. Para remover um prefixo ou sufixo da lista, escolha o prefixo ou sufixo e, em seguida, escolha **Excluir**. É possível excluir vários itens ao mesmo tempo.
 1. Escolha **Salvar** para que as alterações da política entrem em vigor.
 
 ### <a name="view-or-edit-the-custom-blocked-words"></a>Exibir ou editar palavras bloqueadas personalizadas
 
-1. Na página **Política de nomenclatura** , escolha **Palavras bloqueadas** .
+1. Na página **Política de nomenclatura**, escolha **Palavras bloqueadas**.
 
     ![Editar e carregar uma lista de palavras bloqueadas da política de nomenclatura](./media/groups-quickstart-naming-policy/blockedwords.png)
 
-1. Para exibir ou editar a lista atual de palavras bloqueadas personalizadas, escolha **Baixar** .
+1. Para exibir ou editar a lista atual de palavras bloqueadas personalizadas, escolha **Baixar**.
 1. Carregue a nova lista de palavras bloqueadas personalizadas escolhendo o ícone de arquivo.
 1. Escolha **Salvar** para que as alterações da política entrem em vigor.
 
@@ -61,7 +61,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Remover a política de nomenclatura usando o portal do Azure
 
-1. Na página **Política de nomenclatura** , escolha **Excluir Política** .
+1. Na página **Política de nomenclatura**, escolha **Excluir Política**.
 1. Depois de confirmar a exclusão, a política de nomenclatura será removida, incluindo toda a política de nomenclatura de prefixo-sufixo e palavras bloqueadas personalizadas.
 
 ## <a name="next-steps"></a>Próximas etapas

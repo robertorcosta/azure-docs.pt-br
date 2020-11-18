@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412912"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635578"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -576,7 +576,7 @@ O Cosmos DB é compatível com uma TTL (vida útil) com base no carimbo de data/
 
 ## <a name="user-and-role-management"></a>Gerenciamento de usuários e funções
 
-O Cosmos DB ainda não dá suporte a usuários e funções. No entanto, o Cosmos DB dá suporte ao RBAC (controle de acesso baseado em função) e a senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com) (página Cadeia de conexão).
+O Cosmos DB ainda não dá suporte a usuários e funções. No entanto, o Cosmos DB dá suporte ao Azure RBAC (controle de acesso baseado em função do Azure) e as senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com) (página Cadeia de conexão).
 
 ## <a name="replication"></a>Replicação
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314895"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553668"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usar tabelas externas com Synapse SQL
 
@@ -323,7 +323,7 @@ column_name <data_type>
 
 O nome de uma a três partes da tabela a ser criada. Para uma tabela externa, o pool de SQL sem servidor armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado no pool de SQL sem servidor.
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, tipo de dados, nulidade e ordenação. Não é possível usar a DEFAULT CONSTRAINT em tabelas externas.
 
@@ -332,7 +332,7 @@ O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, t
 
 Ao ler em arquivos Parquet, você pode especificar apenas as colunas que deseja ler e ignorar o restante.
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 Especifica a pasta ou o caminho do arquivo e o nome de arquivo para os dados reais no Armazenamento de Blobs do Azure. O local inicia da pasta raiz. A pasta raiz é o local de dados especificado na fonte de dados externa.
 
@@ -388,8 +388,6 @@ Usando as funcionalidades de exploração do Data Lake, agora você pode criar e
 - Você deve ter acesso ao workspace com, pelo menos, a função de acesso de Colaborador de Dados do Blob de Armazenamento do ARM na conta do ADLS Gen2
 
 - Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar tabelas externas no pool de SQL ou no SQL OD (SQL sob demanda)
-
-- O serviço vinculado associado à conta do ADLS Gen2 **deve ter acesso ao arquivo**. Por exemplo, se o mecanismo de autenticação do serviço vinculado for uma Identidade Gerenciada, a Identidade Gerenciada do workspace deverá ter, pelo menos, a permissão Leitor de blob de armazenamento na conta de armazenamento
 
 No painel Dados, selecione o arquivo do qual você gostaria de criar a tabela externa:
 > [!div class="mx-imgBorder"]
