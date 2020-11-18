@@ -1,20 +1,20 @@
 ---
 title: Integração do git para Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Saiba como o Azure Machine Learning se integra a um repositório git local. Ao enviar uma execução de treinamento de um diretório local que é um repositório git, as informações sobre o repositório, a ramificação e a confirmação atual são controladas como parte da execução.
+description: Saiba como o Azure Machine Learning se integra a um repositório git local para acompanhar o repositório, a ramificação e as informações de confirmação atuais como parte de uma execução de treinamento.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324770"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701629"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -123,7 +123,7 @@ O SSH exibe essa impressão digital quando se conecta a um host desconhecido par
 
 Quando você envia uma execução de treinamento do SDK do Python ou da CLI do Machine Learning, os arquivos necessários para treinar o modelo são carregados no espaço de trabalho. Se o `git` comando estiver disponível no ambiente de desenvolvimento, o processo de carregamento o usará para verificar se os arquivos estão armazenados em um repositório git. Nesse caso, as informações do repositório git também são carregadas como parte da execução do treinamento. Essas informações são armazenadas nas seguintes propriedades para a execução de treinamento:
 
-| Propriedade | Comando git usado para obter o valor | Descrição |
+| Propriedade | Comando git usado para obter o valor | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |

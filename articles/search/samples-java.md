@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: babd40e0e3a3b7a254a8410313c5d4e3bb2832f0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686612"
+ms.locfileid: "94701850"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Exemplos de código Java para o Azure Pesquisa Cognitiva
 
 Saiba mais sobre os exemplos de código Java que demonstram os recursos e a funcionalidade do Azure Pesquisa Cognitiva. Os repositórios primários são os seguintes:
 
-| Repositório | Descrição |
+| Repositório | Description |
 |------------|-------------|
 | [Azure-SDK-para-Java/árvore/mestre/SDK/pesquisa/Azure-Search-Documents/src/Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) | Exemplos produzidos pela equipe do SDK do Azure que acompanha a biblioteca de cliente do Azure.Search.Documents no SDK. Você também pode examinar os [testes de unidade](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/test) da biblioteca de cliente para ver como várias APIs são chamadas. |
 | [Azure-Samples/Azure-Search-java-Samples](https://github.com/Azure-Samples/azure-search-java-samples) | Exemplos de código que acompanham artigos de instruções. Os **exemplos neste repositório ainda não foram atualizados para usar o SDK do Azure para Java**. Atualmente, esses exemplos chamam APIs REST no código Java.|
@@ -47,5 +47,5 @@ Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cog
 
 | Exemplos | Descrição | 
 |---------|-------------|
-| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart) | Código-fonte para [início rápido: criar um índice de pesquisa](search-get-started-javascript.md). Este exemplo chama as APIs REST. |
+| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | Código-fonte para [início rápido: criar um índice de pesquisa em Java](search-get-started-java.md). Este exemplo chama as APIs REST. |
 | [pesquisa-Java-indexer-demonstração](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Demonstra um Azure Cosmos DB indexador em Java. Este exemplo chama as APIs REST. |

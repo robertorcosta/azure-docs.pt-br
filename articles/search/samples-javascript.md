@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6cd696bf0853b1e6bafc06f2e99b2808970fed25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686595"
+ms.locfileid: "94701816"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Exemplos de código JavaScript para o Azure Pesquisa Cognitiva
 
 Saiba mais sobre os exemplos de código do JavaScript que demonstram os recursos e a funcionalidade do Azure Pesquisa Cognitiva. Os repositórios primários são os seguintes:
 
-| Repositório | Descrição |
+| Repositório | Description |
 |------------|-------------|
 | [Azure-SDK-for-js/árvore/mestre/SDK/pesquisa/pesquisa-documentos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Exemplos produzidos pela equipe do SDK do Azure que acompanha a biblioteca de cliente do Azure.Search.Documents no SDK. Você também pode examinar os [testes de unidade](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) da biblioteca de cliente para ver como várias APIs são chamadas. |
 | [Azure-Samples/Azure-Search-JavaScript-Samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Exemplos de código que acompanham artigos de instruções, incluindo o [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).|
@@ -38,7 +38,7 @@ O SDK do Azure para Java inclui vários exemplos e uma [página de introdução]
 | [indexadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Demonstra como criar, atualizar, obter, listar, redefinir e excluir [indexadores](search-indexer-overview.md).|
 | [Qualificações](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Demonstra como criar, atualizar, obter, listar e excluir [habilidades](cognitive-search-working-with-skillsets.md) que são indexadores anexados e que executam o enriquecimento baseado em ia durante a indexação. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e excluir [mapas de sinônimos](search-synonyms.md).  |
-| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | As consultas são somente leitura. Esta consulta de exemplo é executada em um índice público hospedado pela Microsoft.  |
+| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Demonstra a execução da consulta em um índice público somente leitura hospedado pela Microsoft.  |
 
 ## <a name="typescript-samples"></a>Exemplos de TypeScript
 
@@ -51,7 +51,7 @@ O SDK também fornece exemplos do TypeScript, listados aqui para sua conveniênc
 | [indexadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Demonstra como criar, atualizar, obter, listar, redefinir e excluir [indexadores](search-indexer-overview.md).|
 | [Qualificações](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Demonstra como criar, atualizar, obter, listar e excluir [habilidades](cognitive-search-working-with-skillsets.md) que são indexadores anexados e que executam o enriquecimento baseado em ia durante a indexação. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e excluir [mapas de sinônimos](search-synonyms.md).  |
-| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Demonstra a execução da consulta em um índice público somente leitura hospedado pela Microsoft.  |
+| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Demonstra a execução da consulta em um índice público somente leitura hospedado pela Microsoft.  |
 
 ## <a name="documentation-samples"></a>Amostras de documentação
 
@@ -59,7 +59,7 @@ Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cog
 
 | Exemplos | Descrição | 
 |---------|-------------|
-| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/Quickstart) | Código-fonte para [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).  |
+| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código-fonte para [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>Amostras autônomas
 

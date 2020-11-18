@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932875"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701126"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice de pesquisa básica no Azure Pesquisa Cognitiva
 
 No Azure Pesquisa Cognitiva, um *índice de pesquisa* armazena o conteúdo pesquisável usado para texto completo e consultas filtradas. Um índice é definido por um esquema e salvo no serviço, com a importação de dados a seguir como uma segunda etapa. 
 
-Os índices contêm *documentos*. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Um varejista pode ter um documento para cada produto, uma organização de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice de pesquisa* é igual a uma *tabela*e os *documentos* são aproximadamente equivalentes a *linhas* em uma tabela.
+Os índices contêm *documentos*. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Um varejista pode ter um documento para cada produto, uma organização de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice de pesquisa* é igual a uma *tabela* e os *documentos* são aproximadamente equivalentes a *linhas* em uma tabela.
 
 A estrutura física de um índice é determinada pelo esquema, com campos marcados como "pesquisáveis", resultando em um índice invertido criado para esse campo. 
 
@@ -59,7 +59,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 
    ![Adicionar página de índice mostrando atributos por tipo de dados](media/search-what-is-an-index//field-definitions.png "Adicionar página de índice mostrando atributos por tipo de dados")
 
-1. Baixe o esquema de índice usando [obter índice (API REST)](/rest/api/searchservice/get-index) e uma ferramenta de teste na Web como o [postmaster](search-get-started-postman.md). Agora você tem uma representação JSON do índice que você pode adaptar para o código.
+1. Baixe o esquema de índice usando [obter índice (API REST)](/rest/api/searchservice/get-index) e uma ferramenta de teste na Web como o [postmaster](search-get-started-rest.md). Agora você tem uma representação JSON do índice que você pode adaptar para o código.
 
 1. [Carregue seu índice com os dados](search-what-is-data-import.md). O Azure Pesquisa Cognitiva aceita documentos JSON. Para carregar seus dados de maneira programática, é possível usar o Postman com documentos JSON no conteúdo da solicitação. Se os dados não estiverem expressados facilmente como JSON, essa etapa será a mais trabalhosa. 
 
@@ -70,7 +70,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 Durante o desenvolvimento, planeje recompilações frequentes. Como as estruturas físicas são criadas no serviço, é necessário [descartar e recriar índices](search-howto-reindex.md) para a maioria das modificações em uma definição de campo existente. Considere trabalhar com um subconjunto de seus dados para acelerar as recompilações. 
 
 > [!Tip]
-> O código, em vez de uma abordagem de portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como [o Postman e a API REST](search-get-started-postman.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fases iniciais. É possível fazer alterações incrementais em uma definição de índice em um corpo da solicitação e, em seguida, enviar a solicitação para seu serviço a fim de recriar um índice usando um esquema atualizado.
+> O código, em vez de uma abordagem de portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como o [postmaster e o Visual Studio Code](search-get-started-rest.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão nas primeiras fases. É possível fazer alterações incrementais em uma definição de índice em um corpo da solicitação e, em seguida, enviar a solicitação para seu serviço a fim de recriar um índice usando um esquema atualizado.
 
 ## <a name="index-schema"></a>Esquema de índice
 

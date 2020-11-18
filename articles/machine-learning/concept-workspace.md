@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 65cdf444386d1b10cf225010c55170e5b47b3eb4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541344"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701646"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um workspace do Azure Machine Learning?
 
@@ -89,7 +89,7 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 Há várias maneiras de criar um espaço de trabalho:  
 
 * Use o [portal do Azure](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) para uma interface de apontar e clicar para orientá-lo em cada etapa.
-* Use o [SDK do Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) para criar um espaço de trabalho instantaneamente de scripts Python ou notebooks Júpiter
+* Use o [SDK do Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) para criar um espaço de trabalho instantaneamente de scripts Python ou notebooks Jupyter
 * Use um [modelo de Azure Resource Manager](how-to-create-workspace-template.md) ou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) quando precisar automatizar ou personalizar a criação com os padrões de segurança corporativa.
 * Se você trabalhar em Visual Studio Code, use a [extensão vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 

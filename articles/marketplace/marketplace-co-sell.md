@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
-ms.openlocfilehash: ac56aab233c9d07ea7e82a4eefc4918746e3bdbe
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592508"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738519"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -30,7 +30,7 @@ O programa de venda conjunta está disponível para **software criado com sua pr
 
 Ofertas que atingem o status de **incentivados de venda de IP do Azure para** obter esses benefícios adicionais do Marketplace:
 
-- A taxa de serviço do Marketplace é reduzida de 20% a 10%. Esse desconto se aplica à oferta de IaaS ou SaaS vendida por meio do Marketplace comercial. Para obter mais informações, consulte [taxa de serviço reduzida](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) para obter mais detalhes.
+- A taxa de serviço do Marketplace é reduzida de 20% a 10%. Esse desconto se aplica à oferta de IaaS ou SaaS vendida por meio do Marketplace comercial. Para obter mais informações, consulte [tarifas de serviço do Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) para obter mais detalhes.
 - Os parceiros do CSP (provedor de soluções na nuvem) recebem um incentivo de 10% para vender sua oferta de IaaS ou SaaS. Saiba mais sobre o programa CSP no [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
 - As vendas de sua oferta por meio do Marketplace comercial irão contribuir para os compromissos de consumo do Azure dos clientes. Os clientes qualificados verão a oferta marcada como **"benefício do Azure qualificado"** em portal do Azure. Para obter mais detalhes, consulte [benefício de compromisso de consumo do Azure](azure-consumption-commitment-benefit.md).
 - As ofertas que atingem o **IP do Azure covendem incentivados** ou Business Applications o status de **incentivados de covenda** receberão uma notificação de **"soluções preferenciais"** nas vitrines. A notificação promove a qualidade, o desempenho e a capacidade da oferta de atender às necessidades do cliente em uma determinada área vertical ou de solução do setor. Saiba mais em [soluções preferenciais no Microsoft AppSource e no Azure Marketplace](preferred-solutions.md).
@@ -63,15 +63,15 @@ Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as e
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Esta imagem mostra o local da televenda com a guia Microsoft.":::
 
-1. Forneça detalhes de listagem básica para ajudar os vendedores da Microsoft a classificar e descobrir rapidamente sua oferta na seção de **listagem** . ( *Obrigatório: todos os campos.* )
+1. Forneça detalhes de listagem básica para ajudar os vendedores da Microsoft a classificar e descobrir rapidamente sua oferta na seção de **listagem** . (*Obrigatório: todos os campos.*)
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Esta imagem mostra a seção de listagem da guia de venda conjunta.":::  
 
-1. Forneça detalhes sobre sua oferta e o material de upload na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta. ( *Obrigatório: cliente One-pager e apresentação do cliente.* )
+1. Forneça detalhes sobre sua oferta e o material de upload na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta. (*Obrigatório: cliente One-pager e apresentação do cliente.*)
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a seção de documentos na guia de venda conjunta.":::
 
-1. Carregar informações de contato de vendas na seção **contatos** . Os vendedores da Microsoft podem entrar em contato com esses contatos para solicitar informações adicionais sobre sua oferta. ( *Obrigatório: um contato para cada geografia no qual sua oferta é* disponibilizada.)
+1. Carregar informações de contato de vendas na seção **contatos** . Os vendedores da Microsoft podem entrar em contato com esses contatos para solicitar informações adicionais sobre sua oferta. (*Obrigatório: um contato para cada geografia no qual sua oferta é* disponibilizada.)
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a seção de contatos na guia de venda conjunta.":::
 

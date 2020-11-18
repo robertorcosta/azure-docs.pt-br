@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 8919ae8f43cd699b0ff79afc7ac39cbb39d2798e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626749"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737822"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
@@ -78,34 +78,31 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 
 ## <a name="october-2020-guest-os"></a>SO convidado de outubro de 2020
->[!NOTE] 
-
->O sistema operacional convidado de outubro está sendo implantado nas VMs do Cloud Service que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional outubro Guest. Esta lista está sujeita a alterações. 
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Atualização cumulativa do IE | 2,103, 3,90, 4,83 | 8 de setembro de 2020 |
-|  Rel 20-10 |  [4580325]  |  Atualização do flash | 3,90, 4,83, 5,48, 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4577668]  |  Atualização cumulativa mais recente | 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4580346]  |  Atualização cumulativa mais recente | 5,48 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4580970]  |  Atualização da pilha de manutenção | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4580345]  |  Rollup mensal | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578952]  |  ROLLUP de segurança e qualidade do .NET Framework 3.5.1 | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 2,103 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4566426]  |  Atualização da pilha de manutenção | 3,90 | 14 de julho de 2020 |
-|  Rel 20-10 |  [4580382]  |  Rollup mensal | 3,90 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 3,90 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 3,90 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4566425]  |  Atualização da pilha de manutenção | 4,83 | 14 de julho de 2020 |
-|  Rel 20-10 |  [4580347]  |  Rollup mensal | 4,83 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 4,83 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 4,83 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578013]  |  Atualização de segurança autônoma | 4,83 | 19 de agosto de 2020 |
-|  Rel 20-10 |  [4576750]  |  Atualização da pilha de manutenção | 5,48 | 8 de setembro de 2020 |
-|  Rel 20-10 |  [4494175]  |  Microcódigo | 5,48 | 1 de setembro de 2020 |
-|  Rel 20-10 |  [4577667]  |  Atualização da Pilha de Manutenção | 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | 6,24 | 13 de outubro de 2020 |
-|  Rel 20-10 |  [4494174]  |  Microcódigo | 6,24 | 3 de setembro de 2020 |
+|  Rel 20-10 |  [4577010]  |  Atualização cumulativa do IE | [2,103], [3,90], [4,83] | 8 de setembro de 2020 |
+|  Rel 20-10 |  [4580325]  |  Atualização do flash | [3,90], [4,83], [5,48], [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4577668]  |  Atualização cumulativa mais recente | [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4580346]  |  Atualização cumulativa mais recente | [5,48] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4580970]  |  Atualização da pilha de manutenção | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4580345]  |  Rollup mensal | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578952]  |  ROLLUP de segurança e qualidade do .NET Framework 3.5.1 | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,103] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4566426]  |  Atualização da pilha de manutenção | [3,90] | 14 de julho de 2020 |
+|  Rel 20-10 |  [4580382]  |  Rollup mensal | [3,90] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,90] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [3,90] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4566425]  |  Atualização da pilha de manutenção | [4,83] | 14 de julho de 2020 |
+|  Rel 20-10 |  [4580347]  |  Rollup mensal | [4,83] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,83] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [4,83] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578013]  |  Atualização de segurança autônoma | [4,83] | 19 de agosto de 2020 |
+|  Rel 20-10 |  [4576750]  |  Atualização da pilha de manutenção | [5,48] | 8 de setembro de 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcódigo | [5,48] | 1 de setembro de 2020 |
+|  Rel 20-10 |  [4577667]  |  Atualização da Pilha de Manutenção | [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4578966]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,24] | 13 de outubro de 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcódigo | [6,24] | 3 de setembro de 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -130,6 +127,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,103]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,48]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,24]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>SO convidado de setembro de 2020
@@ -1885,7 +1887,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | MS15-014 |[3004361] |Vulnerabilidade no SMB poderia permitir a não utilização de recurso de segurança |4.17, 3.24, 2.36 |N/D |
 | MS15-015 |[3031432] |Vulnerabilidade no Microsoft Windows poderia permitir elevação de privilégio |4.17, 3.24, 2.36 |N/D |
 | MS15-016 |[3029944] |Vulnerabilidade no componente gráfico da Microsoft poderia permitir a divulgação de informações |4.17, 3.24, 2.36 |N/D |
-| N/D |[3004375] |Atualização para Melhorar a Auditoria da Linha de Comando do Windows<p/>**Observação** : A atualização é instalada, mas a chave do Registro para habilitá-la está desativada |4.17, 3.24, 2.36 |N/D |
+| N/D |[3004375] |Atualização para Melhorar a Auditoria da Linha de Comando do Windows<p/>**Observação**: A atualização é instalada, mas a chave do Registro para habilitá-la está desativada |4.17, 3.24, 2.36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>SO convidado de janeiro de 2015
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |

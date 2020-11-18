@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738094"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
 Este artigo descreve como usar o Azure Monitor para coletar e analisar dados de monitoramento de máquinas virtuais do Azure para manter sua integridade. As máquinas virtuais podem ser monitoradas quanto à disponibilidade e ao desempenho com Azure Monitor como qualquer [outro recurso do Azure](monitor-azure-resource.md), mas são exclusivas de outros recursos, já que você também precisa monitorar o sistema operacional e as cargas de trabalho convidadas que são executadas nelas. 
@@ -170,7 +170,7 @@ O Azure Monitor para VMs habilita a coleta de um conjunto predeterminado de cont
 
 
 > [!NOTE]
-> Os dados de desempenho coletados pelo agente de Log Analytics gravam na tabela *Perf* enquanto o Azure Monitor para VMs os coletarão para a tabela *InsightsMetrics*. São os mesmos dados, mas as tabelas têm uma estrutura diferente. Se você tiver consultas existentes com base em *Perf* , será necessário reescrever para usar *InsightsMetrics*.
+> Os dados de desempenho coletados pelo agente de Log Analytics gravam na tabela *Perf* enquanto o Azure Monitor para VMs os coletarão para a tabela *InsightsMetrics*. São os mesmos dados, mas as tabelas têm uma estrutura diferente. Se você tiver consultas existentes com base em *Perf*, será necessário reescrever para usar *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alertas
@@ -207,7 +207,7 @@ Por exemplo, para criar um alerta que verifica se alguma máquina virtual em um 
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Para criar um alerta se um número excessivo de logons com falha tiver ocorrido 
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

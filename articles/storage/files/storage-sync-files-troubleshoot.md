@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626394"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737006"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -21,7 +21,7 @@ Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver probl
 
 1. [Página de P e R da Microsoft para Armazenamento do Azure](/answers/products/azure?product=storage).
 2. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda** , selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
+3. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Estou tendo um problema com o Azure File Sync no meu servidor (sincronização, nível de nuvem, etc.). Deve remover e recriar o ponto de extremidade do meu servidor?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -93,7 +93,7 @@ Reset-StorageSyncServer
 > Se o servidor for parte de um cluster, você pode usar opcional *StorageSyncServer Reset - CleanClusterRegistration* parâmetro também para remover o registro de cluster.
 
 <a id="web-site-not-trusted"></a>**Ao registrar um servidor, obtenho várias respostas de "sites não confiáveis". Por quê?**  
-Esse erro ocorre porque a política **Segurança reforçada do Internet Explorer** está habilitada durante o registro do servidor. Para obter mais informações sobre como desabilitar corretamente a política **Segurança aprimorada do Internet Explorer** , consulte [Preparar o Windows Server para usar com o Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Como implantar o Azure File Sync](storage-sync-files-deployment-guide.md).
+Esse erro ocorre porque a política **Segurança reforçada do Internet Explorer** está habilitada durante o registro do servidor. Para obter mais informações sobre como desabilitar corretamente a política **Segurança aprimorada do Internet Explorer**, consulte [Preparar o Windows Server para usar com o Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Como implantar o Azure File Sync](storage-sync-files-deployment-guide.md).
 
 <a id="server-registration-missing"></a>**O servidor não está listado em servidores registrados no portal do Azure**  
 Se algum servidor não estiver listado em **Servidores registrados** de um Serviço de Sincronização de Armazenamento:
@@ -135,7 +135,7 @@ Para determinar se sua função de conta de usuário tem as permissões necessá
 2. Selecione o grupo de recursos em que a conta de armazenamento está localizada e clique em **Controle de acesso (IAM)** .
 3. Selecione a guia **Atribuições de função**.
 4. Selecione a **Função** (por exemplo, o proprietário ou colaborador) para sua conta de usuário.
-5. Na lista **Provedor de Recursos** , selecione **Autorização da Microsoft**. 
+5. Na lista **Provedor de Recursos**, selecione **Autorização da Microsoft**. 
     * **Atribuição de função** deve ter **Permissões de Leitura** e de **Gravação**.
     * **Definição de função** deve ter **Permissões de Leitura** e de **Gravação**.
 
@@ -1004,7 +1004,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Certifique-se de que a sincronização de arquivos do Azure tem acesso à conta de armazenamento.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Clique em **Controle de acesso (IAM)** no sumário à esquerda.
-1. Clique na guia **Atribuições de função** para a lista de usuários e aplicativos ( *entidades de serviço* ) que têm acesso à sua conta de armazenamento.
+1. Clique na guia **Atribuições de função** para a lista de usuários e aplicativos (*entidades de serviço*) que têm acesso à sua conta de armazenamento.
 1. Verifique se **Microsoft.StorageSync** ou **Serviço Híbrido Sincronização de Arquivos** (nome do aplicativo antigo) aparece na lista com a função de **Leitor e Acesso a Dados**. 
 
     ![Uma captura de tela da entidade de serviço do Serviço Híbrido de Sincronização de Arquivos na guia de controle de acesso da conta de armazenamento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
@@ -1012,8 +1012,8 @@ if ($fileShare -eq $null) {
     Se o **Microsoft.StorageSync** ou o **Serviço Híbrido de Sincronização de Arquivos do Azure** não aparecer na lista, execute as seguintes etapas:
 
     - Clique em **Adicionar**.
-    - No campo **Função** , selecione **Leitor e Acesso a Dados**.
-    - No campo **Selecionar** , digite **Microsoft.StorageSync** , selecione a função e clique em **Salvar**.
+    - No campo **Função**, selecione **Leitor e Acesso a Dados**.
+    - No campo **Selecionar**, digite **Microsoft.StorageSync**, selecione a função e clique em **Salvar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1266,7 +1266,24 @@ Se você encontrar problemas com a Sincronização de arquivos do Azure em um se
 
 Se o problema não for resolvido, execute a ferramenta AFSDiag e envie o arquivo zip de saída gerado por ela para o engenheiro de suporte atribuído ao seu caso para diagnóstico adicional.
 
-Para executar o AFSDiag, execute as seguintes etapas:
+Para executar o AFSDiag, execute as etapas abaixo.
+
+Para a versão do agente v11 e posterior:
+1. Abra uma janela do PowerShell com privilégios elevados e execute os seguintes comandos (pressione Enter depois de cada comando):
+
+    > [!NOTE]
+    >O AFSDiag criará o diretório de saída e uma pasta temporária dentro dele antes de coletar logs e excluirá a pasta temporária após a execução. Especifique um local de saída que não contenha dados.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduza o problema. Quando tiver terminado, clique em **D**.
+3. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou. 
+
+Para a versão do agente V10 e anterior:
 1. Crie um diretório que será usado para salvar a saída da AFSDiag (por exemplo, C:\Output).
     > [!NOTE]
     >O AFSDiag excluirá todo o conteúdo do diretório de saída antes de coletar logs. Especifique um local de saída que não contenha dados.
@@ -1282,6 +1299,7 @@ Para executar o AFSDiag, execute as seguintes etapas:
 4. Para o nível de rastreamento do modo de usuário da Sincronização de arquivos do Azure, insira **1** (a menos que especificado para criar rastreamentos mais detalhados) e pressione Enter.
 5. Reproduza o problema. Quando tiver terminado, clique em **D**.
 6. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou.
+
 
 ## <a name="see-also"></a>Confira também
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

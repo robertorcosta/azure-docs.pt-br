@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458044"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737091"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -53,7 +53,7 @@ A seção a seguir descreve detalhadamente como a sincronização de hash de sen
 
 1. A cada dois minutos, o agente de sincronização de hash de senha no servidor do AD Connect solicita hashes de senha armazenados (o atributo unicodePwd) de um DC.  Essa solicitação é feita através do protocolo de replicação padrão [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) usado para sincronizar dados entre DCs. A conta do serviço deve ter as permissões do AD Replicar Alterações de Diretório e Replicar Todas as Alterações de Diretório (concedidas por padrão na instalação) para obter os hashes de senha.
 2. Antes de enviar, o controlador de domínio criptografa o hash de senha MD4 usando uma chave que é um hash [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) da chave de sessão RPC e um valor de sal. Em seguida, ele envia o resultado para o agente de sincronização de hash de senha por RPC. O controlador de domínio também passa o sal para o agente de sincronização usando o protocolo de replicação do controlador de domínio, para que o agente possa descriptografar o envelope.
-3. Depois que o agente de sincronização de hash de senha tiver o envelope criptografado, ele usará [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) e o sal para gerar uma chave para descriptografar os dados recebidos de volta para seu formato original de MD4. O agente de sincronização de hash de senha nunca tem acesso à senha de texto não criptografado. Uso que o agente de sincronização de hash de senha faz do MD5 é estritamente para compatibilidade de protocolo de replicação com o controlador de domínio, e é usado somente no local entre o controlador de domínio e o agente de sincronização de hash de senha.
+3. Depois que o agente de sincronização de hash de senha tiver o envelope criptografado, ele usará [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) e o sal para gerar uma chave para descriptografar os dados recebidos de volta para seu formato original de MD4. O agente de sincronização de hash de senha nunca tem acesso à senha de texto não criptografado. O uso do MD5 do agente de sincronização de hash de senha é estritamente para a compatibilidade do protocolo de replicação com o controlador de domínio e é usado somente localmente entre o controlador de domínio e o agente de sincronização de hash de senha.
 4. O agente de sincronização de hash de senha expande o hash de senha binária de 16 bits para 64 bytes convertendo primeiro o hash em uma cadeia hexadecimal de 32 bytes, depois convertendo essa cadeia de caracteres de volta para o binário com a codificação UTF-16.
 5. O agente de sincronização de hash de senha adiciona um sal por usuário – que é composto por um sal de 10 bytes – ao binário de 64 bytes a fim de proteger ainda mais o hash original.
 6. Em seguida, o agente de sincronização de hash de senha combina o hash MD4 e o sal por usuário e usa o resultado como entrada na função [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). São usadas 1000 iterações do algoritmo de hash com chave [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1). 

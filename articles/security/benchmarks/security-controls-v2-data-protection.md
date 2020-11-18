@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408915"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701041"
 ---
 # <a name="security-control-v2-data-protection"></a>Controle de segurança v2: proteção de dados
 
@@ -34,9 +34,9 @@ Você pode usar a proteção de informações do SQL do Azure para auxiliar na c
 
 - [Como implementar a descoberta de dados SQL do Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -56,13 +56,13 @@ Para garantir o controle de acesso consistente, todos os tipos de controle de ac
 
 Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e protege contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou alguns recursos e controles de proteção de dados padrão.
 
-- [RBAC (Controle de Acesso Baseado em Função) do Azure](../../role-based-access-control/overview.md)
+- [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md)
 
 - [Entender a proteção de dados do cliente no Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,9 +88,9 @@ Se necessário para a conformidade da DLP (prevenção de perda de dados), você
 
 - [Habilitar o Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Por padrão, o Azure fornece criptografia para dados em trânsito entre os data 
 
 - [Criptografia dupla para dados do Azure em trânsito](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -146,9 +146,9 @@ Por padrão, o Azure fornece criptografia para dados em repouso. Para dados alta
 
 - [Criptografia dupla de dados em repouso no Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente** ( [saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

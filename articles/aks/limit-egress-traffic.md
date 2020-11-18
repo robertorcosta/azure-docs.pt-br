@@ -6,18 +6,18 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380204"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701595"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
 Este artigo fornece os detalhes necessários que permitem proteger o tráfego de saída do seu AKS (serviço kubernetes do Azure). Ele contém os requisitos de cluster para uma implantação de AKS de base e requisitos adicionais para Complementos e recursos opcionais. [Um exemplo será fornecido no final de como configurar esses requisitos com o Firewall do Azure](#restrict-egress-traffic-using-azure-firewall). No entanto, você pode aplicar essas informações a qualquer método ou dispositivo de restrição de saída.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 Os clusters AKS são implantados em uma rede virtual. Essa rede pode ser gerenciada (criada por AKS) ou personalizada (previamente configurada pelo usuário com antecedência). Em ambos os casos, o cluster tem dependências de **saída** em serviços fora dessa rede virtual (o serviço não tem dependências de entrada).
 
@@ -209,8 +209,10 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 
 | FQDN                                          | Porta      | Use      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esse endereço é usado para que o Azure Policy funcione corretamente. (atualmente em versão prévia no AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir que o Azure Policy funcione corretamente. (atualmente em versão prévia no AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas kubernetes e relatar o status de conformidade do cluster ao serviço de política. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Esse endereço é usado para extrair os artefatos do gatekeeper de políticas internas. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esse endereço é usado para que o Azure Policy funcione corretamente.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir que o Azure Policy funcione corretamente. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento do Azure Policy que envia dados telemétricos para pontos de extremidade de insights de aplicativo. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restringir o tráfego de saída usando o Firewall do Azure

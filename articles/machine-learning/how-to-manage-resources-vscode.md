@@ -1,7 +1,7 @@
 ---
 title: Criar e gerenciar recursos VS Code extensão (versão prévia)
 titleSuffix: Azure Machine Learning
-description: Criar e gerenciar recursos com a extensão VS Code
+description: Saiba como criar e gerenciar Azure Machine Learning recursos usando a extensão de Visual Studio Code de Azure Machine Learning.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319342"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701408"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerenciar Azure Machine Learning recursos com a extensão de VS Code (versão prévia)
 
@@ -56,8 +56,8 @@ Os métodos alternativos para criar um espaço de trabalho incluem:
 1. Expanda o nó de assinatura que contém seu espaço de trabalho.
 1. Clique com o botão direito do mouse no espaço de trabalho que você deseja remover.
 1. Selecione se deseja remover:
-    - *Somente o espaço de trabalho* : esta opção exclui **somente** o recurso do Azure do espaço de trabalho. O grupo de recursos, as contas de armazenamento e quaisquer outros recursos aos quais o espaço de trabalho foi anexado ainda estão no Azure.
-    - *Com recursos associados* : essa opção exclui o espaço de trabalho **e** todos os recursos associados a ele.
+    - *Somente o espaço de trabalho*: esta opção exclui **somente** o recurso do Azure do espaço de trabalho. O grupo de recursos, as contas de armazenamento e quaisquer outros recursos aos quais o espaço de trabalho foi anexado ainda estão no Azure.
+    - *Com recursos associados*: essa opção exclui o espaço de trabalho **e** todos os recursos associados a ele.
 
 ## <a name="datastores"></a>Armazenamentos de dados
 
@@ -80,7 +80,7 @@ Para obter mais informações, consulte [armazenamentos](concept-data.md#datasto
     1. Escolha o tipo de repositório de armazenamento.
     1. Selecione o recurso de armazenamento. Você pode escolher um recurso de armazenamento associado ao seu espaço de trabalho ou selecionar um recurso de armazenamento válido em suas assinaturas do Azure.
     1. Escolha o contêiner em que os dados estão dentro do recurso de armazenamento selecionado anteriormente.
-1. Um arquivo de configuração aparece em VS Code. Se estiver satisfeito com o arquivo de configuração, selecione **salvar e continuar** ou abra a vs Code paleta de comandos ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+1. Um arquivo de configuração aparece em VS Code. Se estiver satisfeito com o arquivo de configuração, selecione **salvar e continuar** ou abra a vs Code paleta de comandos (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ### <a name="manage-a-datastore"></a>Gerenciar um repositório de armazenamento
 
@@ -96,8 +96,8 @@ Para obter mais informações, consulte [armazenamentos](concept-data.md#datasto
 
 Atualmente, a extensão dá suporte aos seguintes tipos de conjunto de conjuntos:
 
-- *Tabular* : permite que você materializa dados em um dataframe (pandas ou PySpark).
-- *Arquivo* : um arquivo ou uma coleção de arquivos. Permite que você baixe ou monte arquivos em sua computação.
+- *Tabular*: permite que você materializa dados em um dataframe (pandas ou PySpark).
+- *Arquivo*: um arquivo ou uma coleção de arquivos. Permite que você baixe ou monte arquivos em sua computação.
 
 Para obter mais informações, consulte [conjuntos](concept-data.md#datasets) de dados
 
@@ -159,12 +159,12 @@ Para obter mais informações, consulte [ambientes](concept-environments.md).
 1. No prompt:
     1. Forneça um nome para o seu ambiente
     1. Defina a configuração do seu ambiente:
-        - *Ambientes organizados* : ambientes pré-configurados no Azure Machine Learning. Você pode personalizar ainda mais o ambiente modificando a `dependencies` propriedade no arquivo JSON. Saiba mais sobre os [ambientes organizados](resource-curated-environments.md).
-        - *Arquivo de dependências Conda* : para ambientes Anaconda, o arquivo que contém a definição de ambiente pode ser fornecido.
-        - *Arquivo de requisitos Pip* : para ambientes Pip, o arquivo que contém a definição de ambiente pode ser fornecido.
-        - *Ambiente Conda existente* : essa opção procura os ambientes Conda no seu computador local e tenta criar um ambiente a partir do ambiente selecionado.
-        - *Personalizado* : definir seus próprios canais e dependências
-    1. Um arquivo de configuração é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+        - *Ambientes organizados*: ambientes pré-configurados no Azure Machine Learning. Você pode personalizar ainda mais o ambiente modificando a `dependencies` propriedade no arquivo JSON. Saiba mais sobre os [ambientes organizados](resource-curated-environments.md).
+        - *Arquivo de dependências Conda*: para ambientes Anaconda, o arquivo que contém a definição de ambiente pode ser fornecido.
+        - *Arquivo de requisitos Pip*: para ambientes Pip, o arquivo que contém a definição de ambiente pode ser fornecido.
+        - *Ambiente Conda existente*: essa opção procura os ambientes Conda no seu computador local e tenta criar um ambiente a partir do ambiente selecionado.
+        - *Personalizado*: definir seus próprios canais e dependências
+    1. Um arquivo de configuração é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ### <a name="view-environment-configurations"></a>Exibir configurações de ambiente
 
@@ -182,7 +182,7 @@ Para editar as dependências e configurações de um ambiente específico na ext
 1. Expanda o nó de assinatura que contém seu espaço de trabalho.
 1. Expanda o nó **ambientes** dentro de seu espaço de trabalho.
 1. Clique com o botão direito do mouse no ambiente que você deseja exibir e selecione **Editar ambiente**.
-1. Depois de fazer as modificações, se você estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+1. Depois de fazer as modificações, se você estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ## <a name="experiments"></a>Testes
 
@@ -307,7 +307,7 @@ Para obter mais informações, consulte [destinos de computação](concept-compu
 1. Expanda o nó de assinatura que contém seu espaço de trabalho.
 1. Expanda o nó **clusters de computação** dentro de seu espaço de trabalho.
 1. Clique com o botão direito do mouse na computação que você deseja editar e selecione **Editar computação**.
-1. Um arquivo de configuração para a computação é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+1. Um arquivo de configuração para a computação é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ### <a name="delete-compute"></a>Excluir computação
 
@@ -327,15 +327,15 @@ Para criar uma configuração de execução na extensão:
     1. Escolha ou crie um novo ambiente.
     1. Digite o nome do script que você deseja executar ou pressione **Enter** para o navegador para o script no computador local.
     1. Adicional Escolha se deseja criar uma referência de dados para sua execução de treinamento. Isso solicitará que você defina um conjunto de um DataSet na sua configuração de execução.
-        1. Selecione um dos seus conjuntos de arquivos registrados para vincular à configuração de execução um arquivo de configuração para o conjunto de seus DataSets é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
-    1. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+        1. Selecione um dos seus conjuntos de arquivos registrados para vincular à configuração de execução um arquivo de configuração para o conjunto de seus DataSets é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
+    1. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ### <a name="edit-run-configuration"></a>Editar configuração de execução
 
 1. Expanda o nó de assinatura que contém seu espaço de trabalho.
 1. Expanda o nó do cluster de computação no nó **clusters de computação** do seu espaço de trabalho.
 1. Clique com o botão direito do mouse na configuração de execução que você deseja editar e selecione **Editar configuração de execução**.
-1. Um arquivo de configuração para sua configuração de execução é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+1. Um arquivo de configuração para sua configuração de execução é aberto no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ### <a name="delete-run-configuration"></a>Excluir configuração de execução
 
@@ -357,7 +357,7 @@ Para obter mais informações, consulte [modelos](concept-azure-machine-learning
     1. Forneça um nome para seu modelo
     1. Escolha se o modelo é um arquivo ou uma pasta.
     1. Localize o modelo em seu PC local.
-    1. Um arquivo de configuração para seu modelo no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+    1. Um arquivo de configuração para seu modelo no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 ### <a name="view-model-properties"></a>Exibir Propriedades do modelo
 
@@ -401,7 +401,7 @@ Para obter mais informações, consulte [pontos de extremidade de serviço Web](
     1. Forneça um nome para seu modelo.
     1. Forneça o script a ser executado ao pontuar o modelo.
     1. Forneça um arquivo de dependências Conda.
-    1. Um arquivo de configuração para sua implantação é exibido no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+    1. Um arquivo de configuração para sua implantação é exibido no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
 
 > [!NOTE]
 > Como alternativa, você pode clicar com o botão direito do mouse em um modelo registrado no nó *modelos* e selecionar **implantar serviço do modelo registrado**.
@@ -421,7 +421,7 @@ Além de criar e excluir implantações, você pode exibir e editar as configura
 1. Expanda o nó **pontos de extremidade** dentro de seu espaço de trabalho.
 1. Clique com o botão direito do mouse na implantação que você deseja gerenciar:
     - Para editar as configurações, selecione **Editar serviço**.
-        - Um arquivo de configuração para sua implantação é exibido no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code ( **Exibir > paleta de comandos** ) e digite **Azure ml: salvar e continuar**.
+        - Um arquivo de configuração para sua implantação é exibido no editor. Se estiver satisfeito com sua configuração, selecione **salvar e continuar** ou abra a paleta de comandos vs Code (**Exibir > paleta de comandos**) e digite **Azure ml: salvar e continuar**.
     - Para exibir as definições de configuração de implantação, selecione **Exibir Propriedades do serviço**.
 
 ## <a name="next-steps"></a>Próximas etapas

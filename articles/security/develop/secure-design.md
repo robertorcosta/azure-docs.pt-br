@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517148"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701561"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades e os controles de segurança a serem considerados quando você cria aplicativos para a nuvem. Os recursos de treinamento, juntamente com as perguntas de segurança e os conceitos a serem considerados durante as fases de design e de requisitos do Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) , são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para criar um aplicativo mais seguro.
@@ -217,7 +217,7 @@ Use os mecanismos de autenticação e autorização fornecidos pela plataforma e
 
 O conceito de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa fornecer aos usuários o nível preciso de acesso e controle de que eles precisam para realizar seus trabalhos e nada mais.
 
-Um desenvolvedor de software precisa de direitos de administrador de domínio? Um assistente administrativo precisaria de acesso a controles administrativos em seu computador pessoal? A avaliação do acesso ao software não é diferente. Se você usar o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para fornecer aos usuários diferentes habilidades e autoridade em seu aplicativo, não dará a todos acesso a tudo. Limitando o acesso ao que é necessário para cada função, você limita o risco de ocorrer um problema de segurança.
+Um desenvolvedor de software precisa de direitos de administrador de domínio? Um assistente administrativo precisaria de acesso a controles administrativos em seu computador pessoal? A avaliação do acesso ao software não é diferente. Se você usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) para fornecer aos usuários diferentes habilidades e autoridade em seu aplicativo, não dará a todos acesso a tudo. Limitando o acesso ao que é necessário para cada função, você limita o risco de ocorrer um problema de segurança.
 
 Certifique-se de que seu aplicativo impõe [privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) em seus padrões de acesso.
 
@@ -233,7 +233,7 @@ Implemente o acesso JIT ( *just-in-time* ) para reduzir ainda mais o tempo de ex
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigir nova autenticação para transações importantes
 
-A [solicitação entre sites forjada](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF* ) é um ataque contra aplicativos hospedados na Web em que um aplicativo Web mal-intencionado influencia a interação entre um navegador cliente e um aplicativo Web que confia nesse navegador. Os ataques de solicitação entre sites forjado são possíveis porque os navegadores da Web enviam alguns tipos de tokens de autenticação automaticamente com cada solicitação para um site.
+A [solicitação entre sites forjada](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF*) é um ataque contra aplicativos hospedados na Web em que um aplicativo Web mal-intencionado influencia a interação entre um navegador cliente e um aplicativo Web que confia nesse navegador. Os ataques de solicitação entre sites forjado são possíveis porque os navegadores da Web enviam alguns tipos de tokens de autenticação automaticamente com cada solicitação para um site.
 Essa forma de exploração também é conhecida como um ataque ou *sessão* de *um clique* , pois o ataque aproveita a sessão autenticada anteriormente do usuário.
 
 A melhor maneira de se defender contra esse tipo de ataque é pedir ao usuário algo que apenas o usuário possa fornecer antes de cada transação importante, como uma compra, desativação de conta ou uma alteração de senha. Você pode pedir ao usuário para digitar novamente sua senha, concluir um captcha ou enviar um token secreto que apenas o usuário teria. A abordagem mais comum é o token secreto.
@@ -244,7 +244,7 @@ Perder chaves e credenciais é um problema comum. A única coisa pior do que per
 
 Sempre coloque suas chaves, certificados, segredos e cadeias de conexão em uma solução de gerenciamento de chaves. Você pode usar uma solução centralizada na qual chaves e segredos são armazenados em HSMs (módulos de segurança de hardware). O Azure fornece um HSM na nuvem com [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault é um *repositório secreto* : é um serviço de nuvem centralizado para armazenar os segredos do aplicativo. Key Vault mantém seus dados confidenciais protegidos, mantendo os segredos do aplicativo em um único local central e fornecendo acesso seguro, controle de permissões e registro em log de acesso.
+Key Vault é um *repositório secreto*: é um serviço de nuvem centralizado para armazenar os segredos do aplicativo. Key Vault mantém seus dados confidenciais protegidos, mantendo os segredos do aplicativo em um único local central e fornecendo acesso seguro, controle de permissões e registro em log de acesso.
 
 Os segredos são armazenados em *cofres* individuais. Cada cofre tem suas próprias políticas de configuração e segurança para controlar o acesso. Você obtém seus dados por meio de uma API REST ou por meio de um SDK de cliente que está disponível para a maioria das linguagens de programação.
 

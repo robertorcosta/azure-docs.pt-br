@@ -1,26 +1,24 @@
 ---
 title: Avaliar a imparcialidade dos modelos de ML no Python (visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba como avaliar a imparcialidade de seus modelos no Azure Machine Learning
+description: Saiba como avaliar e mitigar a imparcialidade de seus modelos de aprendizado de máquina usando o Fairlearn e o SDK Azure Machine Learning Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337875"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701177"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usar Azure Machine Learning com o pacote Fairlearn Open-Source para avaliar a imparcialidade dos modelos de ML (versão prévia)
-
-
 
 Neste guia de instruções, você aprenderá a usar o pacote Python de software livre [Fairlearn](https://fairlearn.github.io/) com Azure Machine Learning para executar as seguintes tarefas:
 
@@ -306,7 +304,7 @@ Se você estiver interessado em comparar vários modelos e ver como suas avalia�
     ```
 
 
-    Semelhante à seção anterior, você pode seguir um dos caminhos descritos acima (por meio de **experimentos** ou **modelos** ) no Azure Machine Learning Studio para acessar o painel de visualização e comparar os dois modelos em termos de imparcialidade e desempenho.
+    Semelhante à seção anterior, você pode seguir um dos caminhos descritos acima (por meio de **experimentos** ou **modelos**) no Azure Machine Learning Studio para acessar o painel de visualização e comparar os dois modelos em termos de imparcialidade e desempenho.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Carregar insights de inintegridades não mitigados e mitigados
