@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 319d7d1b96bd71a83592cf560cd5e30b011cf247
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb090c0e40a8376aafb7b7eca479d16d73ce131d
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678254"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625515"
 ---
 Introdução à biblioteca de clientes da Visão Personalizada para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para criar um modelo de detecção de objetos. Você criará um projeto, adicionará marcas, treinará o projeto em imagens de exemplo e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
@@ -24,7 +24,7 @@ Use a biblioteca de clientes da Visão Personalizada para .NET para:
 * Publicar a iteração atual
 * Testar o ponto de extremidade de previsão
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet) | Código-fonte da biblioteca [(treinamento)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(previsão)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Pacote (NuGet) [(treinamento)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(previsão)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Exemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision)
+[Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet) | Código-fonte da biblioteca [(treinamento)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(previsão)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Pacote (NuGet) [(treinamento)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(previsão)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Exemplos](/samples/browse/?products=azure&term=vision&terms=vision)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Usando o Visual Studio, crie um aplicativo .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes 
 
-Depois de criar um projeto, instale a biblioteca de clientes clicando com o botão direito do mouse na solução do projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar** , marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` e `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`. Selecione a versão mais recente e escolha **Instalar**. 
+Depois de criar um projeto, instale a biblioteca de clientes clicando com o botão direito do mouse na solução do projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar**, marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` e `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`. Selecione a versão mais recente e escolha **Instalar**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -95,7 +95,7 @@ No método **Main** do aplicativo, crie variáveis para a chave e o ponto de ext
 > [!IMPORTANT]
 > Acesse o portal do Azure. Se os recursos da Visão Personalizada que você criou na seção **Pré-requisitos** tiverem sido implantados com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre as chaves e o ponto de extremidade nas páginas de **chave e ponto de extremidade** dos recursos, em **gerenciamento de recursos**. Você precisará obter as chaves de treinamento e de previsão.
 >
-> Lembre-se de remover as chaves do código quando terminar e nunca poste-as publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Serviços Cognitivos para obter mais informações.
+> Lembre-se de remover as chaves do código quando terminar e nunca poste-as publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
 No método **Main** do aplicativo, adicione chamadas para os métodos usados neste guia de início rápido. Você os implementará mais tarde.
 
@@ -105,9 +105,9 @@ No método **Main** do aplicativo, adicione chamadas para os métodos usados nes
 
 |Nome|Descrição|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-dotnet) | Essa classe lida com a criação, o treinamento e a publicação de seus modelos. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)| Essa classe lida com a consulta de seus modelos para obter previsões de detecção de objetos.|
-|[PredictionModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet-preview)| Essa classe define uma previsão de objeto em uma imagem. Ela inclui propriedades para a ID e o nome do objeto, a localização da caixa delimitadora do objeto e uma pontuação de confiança.|
+|[CustomVisionTrainingClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-dotnet) | Essa classe lida com a criação, o treinamento e a publicação de seus modelos. |
+|[CustomVisionPredictionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)| Essa classe lida com a consulta de seus modelos para obter previsões de detecção de objetos.|
+|[PredictionModel](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet-preview)| Essa classe define uma previsão de objeto em uma imagem. Ela inclui propriedades para a ID e o nome do objeto, a localização da caixa delimitadora do objeto e uma pontuação de confiança.|
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -129,7 +129,7 @@ Em um novo método, crie uma instância de clientes de treinamento e previsão u
 
 ## <a name="create-a-new-custom-vision-project"></a>Criar um novo projeto de Visão Personalizada
 
-O próximo método cria um projeto de detecção de objeto. O projeto criado será exibido no [site da Visão Personalizada](https://customvision.ai/). Confira o método [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](../../get-started-build-detector.md)).  
+O próximo método cria um projeto de detecção de objeto. O projeto criado será exibido no [site da Visão Personalizada](https://customvision.ai/). Confira o método [CreateProject](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](../../get-started-build-detector.md)).  
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_create)]
 
@@ -154,7 +154,7 @@ Em seguida, esse mapa de associações é usado para carregar cada imagem de exe
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
-Neste ponto, você carregou todas as imagens de amostras e marcou cada uma ( **bifurcação** ou **tesoura** ) com um retângulo de pixel associado.
+Neste ponto, você carregou todas as imagens de amostras e marcou cada uma (**bifurcação** ou **tesoura**) com um retângulo de pixel associado.
 
 ## <a name="train-the-project"></a>Treinar o projeto
 
@@ -165,7 +165,7 @@ Esse método cria a primeira iteração de treinamento no projeto. Ele consulta 
 > [!TIP]
 > Fazer o treinamento com marcas selecionadas
 >
-> Opcionalmente, você pode treinar apenas um subconjunto de suas marcas aplicadas. Talvez seja interessante fazer isso se você ainda não tiver aplicado um número suficiente de determinadas marcas, mas tiver outras delas. Na chamada [TrainProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.trainproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_TrainProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_Guid_System_String_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_Models_TrainingParameters_&preserve-view=true), use o parâmetro *trainingParameters*. Construa um [TrainingParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.models.trainingparameters?view=azure-dotnet&preserve-view=true) e defina a propriedade **SelectedTags** dele como uma lista de IDs das marcas que você deseja usar. O modelo será treinado para reconhecer apenas as marcas nessa lista.
+> Opcionalmente, você pode treinar apenas um subconjunto de suas marcas aplicadas. Talvez seja interessante fazer isso se você ainda não tiver aplicado um número suficiente de determinadas marcas, mas tiver outras delas. Na chamada [TrainProject](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.trainproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_TrainProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_Guid_System_String_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_Models_TrainingParameters_&preserve-view=true), use o parâmetro *trainingParameters*. Construa um [TrainingParameters](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.models.trainingparameters?preserve-view=true&view=azure-dotnet) e defina a propriedade **SelectedTags** dele como uma lista de IDs das marcas que você deseja usar. O modelo será treinado para reconhecer apenas as marcas nessa lista.
 
 ## <a name="publish-the-current-iteration"></a>Publicar a iteração atual
 
@@ -208,7 +208,7 @@ Making a prediction:
         scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
 
-Em seguida, você pode verificar se a imagem de teste (encontrada em **Images/Test/** ) foi marcada corretamente e se a região da detecção está correta. Aqui você pode pressionar qualquer tecla para sair do aplicativo.
+Em seguida, você pode verificar se a imagem de teste (encontrada em **Images/Test/**) foi marcada corretamente e se a região da detecção está correta. Aqui você pode pressionar qualquer tecla para sair do aplicativo.
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
@@ -221,4 +221,4 @@ Agora, você concluiu cada etapa do processo de detecção de objetos no código
 
 * O que é Visão Personalizada?
 * O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs)
-* [Documentação de referência do SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
+* [Documentação de referência do SDK](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

@@ -11,23 +11,23 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: e5c82587eca9ac85820bda9690b54ab1879d5328
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0c7494f62f181e34e4879f1e64bf2c4ee1cf52ec
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087869"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593426"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Início Rápido: pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Python
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
 > Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Use este guia de início rápido para aprender a enviar solicitações de pesquisa para a API da Pesquisa de Imagem do Bing. Esse aplicativo Python envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Para executar este exemplo como um notebook Jupyter em [MyBinder](https://mybinder.org), selecione a notificação **iniciar associador** :
+Para executar este exemplo como um notebook Jupyter em [MyBinder](https://mybinder.org), selecione a notificação **iniciar associador**:
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
@@ -157,5 +157,5 @@ As respostas da API de Pesquisa de Imagem do Bing são retornadas como JSON. Est
 
 * [O que é a API de Pesquisa de Imagem do Bing?](../overview.md)  
 * [Detalhes de preço para as APIs de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Documentação dos Serviços Cognitivos do Azure](../../index.yml)
+* [Referência da API de Pesquisa de Imagem do Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
