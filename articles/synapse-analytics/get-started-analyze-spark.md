@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Introdução à análise com o Spark'
+title: 'Início rápido: introdução à análise com o Spark'
 description: Neste tutorial, você aprenderá a analisar dados com o Apache Spark
 services: synapse-analytics
 author: saveenr
@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ec6af7c23f781d25114794066a228adbfe7528d0
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 89bc2723a0d7c99160c651fb433db6f8892ee676
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093609"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321082"
 ---
 # <a name="analyze-with-apache-spark"></a>Análise com o Apache Spark
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>Analisar os dados de Táxi de Nova York no armazenamento de blobs usando o Spark
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analisar os dados de Táxi de Nova York no armazenamento de blobs usando o Spark
 
 Neste tutorial, você conhecerá as etapas básicas usadas para carregar e analisar dados com o Apache Spark para o Azure Synapse.
 
@@ -32,8 +32,8 @@ Neste tutorial, você conhecerá as etapas básicas usadas para carregar e anali
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. No notebook, escolha um pool do Spark no menu **Anexar a**
-1. Clique em **Executar** na célula
+1. No notebook, escolha um pool do Spark sem servidor no menu **Anexar a**
+1. Selecione **Executar** na célula
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carregar os dados de táxi de Nova York no banco de dados nyctaxi do Spark
 
@@ -53,8 +53,8 @@ Temos dados disponíveis em uma tabela em **SQLDB1**. Carregue-os em um banco de
 
 1. Acesse o hub **Dados**, clique com o botão direito do mouse em **Bancos de dados** e selecione **Atualizar**. Agora você deve ver estes bancos de dados:
 
-    - **SQLDB1** (pool de SQL)
-    - **nyctaxi** (Spark)
+    - **SQLDB1** (pool de SQL dedicado)
+    - **nyctaxi** (Pool do Apache Spark sem servidor)
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analisar os dados de táxi de NYC usando Spark e notebooks
 
@@ -67,7 +67,7 @@ Temos dados disponíveis em uma tabela em **SQLDB1**. Carregue-os em um banco de
    display(df)
    ```
 
-1. Execute o código a seguir para realizar a mesma análise que fizemos anteriormente com o pool de SQL **SQLDB1**. Esse código salva os resultados da análise em uma tabela chamada **nyctaxi.passengercountstats** e exibe os resultados.
+1. Execute o código a seguir para realizar a mesma análise que fizemos anteriormente com o pool de SQL dedicado **SQLDB1**. Esse código salva os resultados da análise em uma tabela chamada **nyctaxi.passengercountstats** e exibe os resultados.
 
    ```py
    %%pyspark
@@ -105,11 +105,11 @@ matplotlib.pyplot.show()
 
 
 
-## <a name="load-data-from-a-spark-table-into-a-sql-pool-table"></a>Carregar dados de uma tabela do Spark em uma tabela do pool de SQL
+## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Carregar dados de uma tabela do Spark em uma tabela do pool de SQL dedicado
 
-Anteriormente, copiamos dados da tabela do pool de SQL **SQLDB1.dbo.Trip** na tabela do Spark **nyctaxi.trip**. Em seguida, usando o Spark, agregamos os dados na tabela do Spark **nyctaxi.passengercountstats**. Agora, copiaremos os dados de **nyctaxi.passengercountstats** em uma tabela de pools de SQL chamada **SQLDB1.dbo.PassengerCountStats**.
+Anteriormente, copiamos dados da tabela do pool de SQL dedicado **SQLDB1.dbo.Trip** na tabela do Spark **nyctaxi.trip**. Em seguida, usando o Spark, agregamos os dados na tabela do Spark **nyctaxi.passengercountstats**. Agora, copiaremos os dados de **nyctaxi.passengercountstats** em uma tabela de pools de SQL dedicado chamada **SQLDB1.dbo.PassengerCountStats**.
 
-Execute a célula a seguir no seu notebook. Ela copia a tabela do Spark agregada de volta na tabela do pool de SQL.
+Execute a célula a seguir no seu notebook. Ela copia a tabela do Spark agregada de volta na tabela do pool de SQL dedicado.
 
 ```scala
 %%spark
@@ -120,6 +120,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Analisar dados com o SQL sob demanda](get-started-analyze-sql-on-demand.md)
+> [Analisar dados com o pool de SQL sem servidor](get-started-analyze-sql-on-demand.md)
 
 

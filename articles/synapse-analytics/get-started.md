@@ -10,29 +10,23 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b6123ae0298dbfd334b5563dff80422e8552b61b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 41ad0d47ad503b736a54910f5c5e93b690ec6ff5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173309"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304796"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Introdução ao Azure Synapse Analytics
 
-Este tutorial é um guia passo a passo das principais áreas de recursos do Azure Synapse Analytics. O tutorial é o ponto de partida ideal para alguém que queira um tour guiado pelos principais cenários do Azure Synapse Analytics. Depois de seguir as etapas no tutorial, você terá um workspace do Synapse totalmente funcional em que poderá começar a analisar dados usando o SQL, SQL sob demanda e Apache Spark.
-
-
-
-
-
-
+Este tutorial é um guia passo a passo das principais áreas de recursos do Azure Synapse Analytics. O tutorial é o ponto de partida ideal para alguém que queira um tour guiado pelos principais cenários do Azure Synapse Analytics. Depois de seguir as etapas no tutorial, você terá um workspace do Azure Synapse totalmente funcional em que poderá começar a analisar dados usando o pool de SQL dedicado, o pool de SQL sem servidor e o Apache Spark.
 
 Siga as etapas *na ordem* mostrada abaixo e você fará um tour por muitas funcionalidades e aprenderá a exercitar os principais recursos.
 
 * [ETAPA 1 – Criar e configurar um workspace do Synapse](get-started-create-workspace.md)
-* [ETAPA 2 – Analisar usando um Pool de SQL](get-started-analyze-sql-pool.md)
-* [ETAPA 3 – Analisar usando Spark](get-started-analyze-spark.md)
-* [ETAPA 4 – Analisar usando SQL sob demanda](get-started-analyze-sql-on-demand.md)
+* [ETAPA 2 – Analisar usando um pool de SQL dedicado](get-started-analyze-sql-pool.md)
+* [ETAPA 3 – Analisar usando o Apache Spark](get-started-analyze-spark.md)
+* [ETAPA 4 – Analisar usando um pool de SQL sem servidor](get-started-analyze-sql-on-demand.md)
 * [ETAPA 5 – Analisar dados em uma conta de armazenamento](get-started-analyze-storage.md)
 * [ETAPA 6 – Orquestrar com pipelines](get-started-pipelines.md)
 * [ETAPA 7 – Visualizar dados com o Power BI](get-started-visualize-power-bi.md)

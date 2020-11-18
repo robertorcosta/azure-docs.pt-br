@@ -3,12 +3,12 @@ title: Tutorial de gravação contínua de vídeo na nuvem e reprodução com or
 description: Neste tutorial, você aprenderá a usar a Análise Dinâmica de Vídeo do Azure no Azure IoT Edge para gravar vídeo continuamente na nuvem e para transmitir qualquer parte desse vídeo usando os Serviços de Mídia do Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91774004"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346359"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo baseada na nuvem e reprodução com origem na nuvem
 
@@ -93,7 +93,7 @@ Você precisará dos arquivos para estas etapas:
     A cadeia de conexão do Hub IoT permite que você use o Visual Studio Code para enviar comandos para os módulos de borda por meio do Hub IoT do Azure.
     
 1. Em seguida, navegue até a pasta src/edge e crie um arquivo chamado **.env**.
-1. Copie o conteúdo do arquivo ~/clouddrive/lva-sample/.env. O texto deve ter esta aparência:
+1. Copie o conteúdo do arquivo ~/clouddrive/lva-sample/edge-deployment/.env. O texto deve ter esta aparência:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -164,11 +164,63 @@ Quando você usa o módulo da Análise Dinâmica de Vídeo no IoT Edge para grav
 1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Grafo de mídia":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Grafo de mídia"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
+1. <!--In Visual Studio Code, go-->Vá para src/cloud-to-device-console-app/operations.json.
+1. No nó **GraphTopologySet**, edite o seguinte:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+1. Em seguida, sob os nós **GraphInstanceSet** e **GraphTopologyDelete**, verifique se o valor de **topologyName** corresponde ao valor da propriedade **name** na topologia do grafo acima:
+
+    `"topologyName" : "CVRToAMSAsset"`  
+1. Abra a [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) em um navegador e examine assetNamePattern. Para verificar se você tem um ativo com um nome exclusivo, convém alterar o nome da instância do grafo no arquivo operations.json (do valor padrão de Sample-Graph-1).
+
+    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
+1. Inicie uma sessão de depuração pressionando F5. Você verá algumas mensagens impressas na janela **TERMINAL**.
+1. O arquivo operations.json começa com chamadas para GraphTopologyList e GraphInstanceList. Se você tiver limpado recursos após guias de início rápido ou tutoriais anteriores, essa ação retornará listas vazias e, em seguida, pausará para que você pressione **Enter**, conforme mostrado abaixo:
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+
+1. Quando você pressiona a tecla **Enter** na janela **TERMINAL**, o próximo conjunto de chamadas de método direto é feito:
+   * Uma chamada para GraphTopologySet usando a topologyUrl anterior
+   * Uma chamada para GraphInstanceSet usando o corpo a seguir
+     
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph-1",
+       "properties": {
+         "topologyName": "CVRToAMSAsset",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
            }
          ]
        }

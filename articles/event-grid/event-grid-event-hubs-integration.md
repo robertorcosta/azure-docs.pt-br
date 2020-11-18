@@ -4,12 +4,12 @@ description: 'Tutorial: Descreve como usar a Grade de Eventos do Azure e os Hubs
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270540"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305269"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
 A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar os Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do armazenamento de blobs para um Azure Synapse Analytics (anteriormente conhecido como SQL Data Warehouse).
@@ -165,7 +165,7 @@ Feche o Cloud Shell selecionando o botão **Cloud Shell** no portal (ou) o botã
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Criar uma tabela no Azure Synapse Analytics
 Crie uma tabela no data warehouse executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Para executar o script, você pode usar o Visual Studio ou o Editor de Consultas no portal. As etapas a seguir mostram como usar o Editor de Consultas: 
 
-1. Na lista de recursos no grupo de recursos, selecione o seu **pool de SQL do Synapse (data warehouse)** . 
+1. Na lista de recursos no grupo de recursos, selecione seu **pool de SQL dedicado**. 
 2. Na página do Azure Synapse Analytics, selecione **Editor de consultas (versão prévia)** no menu à esquerda. 
 
     ![Página do Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)

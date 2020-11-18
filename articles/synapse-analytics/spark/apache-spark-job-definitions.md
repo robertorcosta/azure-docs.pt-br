@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738137"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307183"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar uma definição de trabalho do Apache Spark no Synapse Studio
 
-Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de trabalho do Apache Spark e depois enviá-las a um pool do Apache Spark.
+Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de trabalho do Apache Spark e depois enviá-las a um pool do Apache Spark sem servidor.
 
 Este tutorial cobre as seguintes tarefas:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Este tutorial cobre as seguintes tarefas:
 Antes de iniciar este tutorial, verifique se você atende aos seguintes requisitos:
 
 * Um workspace do Azure Synapse Analytics. Para obter instruções, confira [Criar um workspace do Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* Um pool do Apache Spark.
+* Um Pool do Apache Spark sem servidor.
 * Uma conta de armazenamento do ADLS Gen2. Você precisa ser o **Proprietário de Dados do Blob de Armazenamento** do sistema de arquivos ADLS Gen2 com o qual deseja trabalhar. Se não for, você precisará adicionar a permissão manualmente.
 * Se você não quiser usar o armazenamento padrão do workspace, vincule a conta de armazenamento do ADLS Gen2 necessária no Synapse Studio. 
 
@@ -43,7 +43,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para PySpa
 
 1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Você pode acessar [Arquivos de exemplo para criar definições de trabalho do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) a fim de baixar **arquivos de exemplo para python.zip** , descompactar o pacote compactado e extrair os arquivos **wordcount.py** e **shakespeare.txt**. 
+2. Você pode acessar [Arquivos de exemplo para criar definições de trabalho do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) a fim de baixar **arquivos de exemplo para python.zip**, descompactar o pacote compactado e extrair os arquivos **wordcount.py** e **shakespeare.txt**. 
 
      ![arquivos de exemplo](./media/apache-spark-job-definitions/sample-files.png)
 
@@ -51,7 +51,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para PySpa
 
      ![carregar arquivo do Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
-4. Selecione o hub **Desenvolver** , escolha o ícone " +" e selecione **Definição de trabalho do Spark** para criar essa definição de trabalho. 
+4. Selecione o hub **Desenvolver**, escolha o ícone " +" e selecione **Definição de trabalho do Spark** para criar essa definição de trabalho. 
 
      ![criar uma definição para Python](./media/apache-spark-job-definitions/create-new-definition.png)
 
@@ -85,7 +85,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para o Apa
 
  1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Você pode acessar [Arquivos de exemplo para criar definições de trabalho do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) a fim de baixar **arquivos de exemplo para scala.zip** , descompactar o pacote compactado e extrair os arquivos **wordcount.jar** e **shakespeare.txt**. 
+ 2. Você pode acessar [Arquivos de exemplo para criar definições de trabalho do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) a fim de baixar **arquivos de exemplo para scala.zip**, descompactar o pacote compactado e extrair os arquivos **wordcount.jar** e **shakespeare.txt**. 
  
      ![arquivos de exemplo para Scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
@@ -93,7 +93,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para o Apa
  
      ![preparar estrutura do Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Selecione o hub **Desenvolver** , escolha o ícone " +" e selecione **Definição de trabalho do Spark** para criar essa definição de trabalho. (A imagem de exemplo é a mesma da etapa 4 de **Criar uma definição de trabalho do Apache Spark (Python) para PySpark**.)
+ 4. Selecione o hub **Desenvolver**, escolha o ícone " +" e selecione **Definição de trabalho do Spark** para criar essa definição de trabalho. (A imagem de exemplo é a mesma da etapa 4 de **Criar uma definição de trabalho do Apache Spark (Python) para PySpark**.)
 
  5. Selecione **Spark (Scala)** na lista suspensa Linguagem na janela principal de definição de trabalho do Apache Spark.
 
@@ -125,7 +125,7 @@ Nesta seção, você cria uma definição de trabalho do Apache Spark para o Apa
 Nesta seção, você criará uma definição de trabalho do Apache Spark para .NET Spark (C#/F#).
  1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Você pode acessar [Arquivos de exemplo para criar definições de trabalho do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) a fim de baixar **arquivos de exemplo para dotnet.zip** , descompactar o pacote compactado e extrair os arquivos **wordcount.jar** e **shakespeare.txt**. 
+ 2. Você pode acessar [Arquivos de exemplo para criar definições de trabalho do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) a fim de baixar **arquivos de exemplo para dotnet.zip**, descompactar o pacote compactado e extrair os arquivos **wordcount.jar** e **shakespeare.txt**. 
 
      ![exemplo para dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
@@ -133,7 +133,7 @@ Nesta seção, você criará uma definição de trabalho do Apache Spark para .N
  
      ![preparar estrutura dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Selecione o hub **Desenvolver** , escolha o ícone " +" e selecione **Definição de trabalho do Spark** para criar essa definição de trabalho. (A imagem de exemplo é a mesma da etapa 4 de **Criar uma definição de trabalho do Apache Spark (Python) para PySpark**.)
+ 4. Selecione o hub **Desenvolver**, escolha o ícone " +" e selecione **Definição de trabalho do Spark** para criar essa definição de trabalho. (A imagem de exemplo é a mesma da etapa 4 de **Criar uma definição de trabalho do Apache Spark (Python) para PySpark**.)
 
  5. Selecione **.NET Spark(C#/F#)** na lista suspensa Linguagem na janela principal de definição de trabalho do Apache Spark.
 

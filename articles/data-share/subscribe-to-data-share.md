@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216565"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491912"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando o Azure Data Share  
 
@@ -130,7 +130,14 @@ Essas etapas se aplicam somente ao compartilhamento baseado em instantâneo.
    ![Conjuntos de dados do consumidor](./media/consumer-datasets.png "Mapeamento de conjunto de dados do consumidor") 
 
 ## <a name="view-history"></a>Exibir histórico
-Esta etapa só se aplica ao compartilhamento baseado em instantâneo. Para ver o histórico dos seus instantâneos, selecione a guia **Histórico**. Aqui, você encontrará o histórico de todos os instantâneos gerados nos últimos 30 dias. 
+Esta etapa só se aplica ao compartilhamento baseado em instantâneo. Para ver o histórico dos seus instantâneos, selecione a guia **Histórico**. Aqui, você encontrará o histórico de todos os instantâneos gerados nos últimos 30 dias.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando o recurso não for mais necessário, acesse a página **Visão Geral do Data Share** e selecione **Excluir** para removê-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a aceitar e receber um Azure Data Share. Para saber mais sobre conceitos do Azure Data Share, prossiga para [Conceitos: terminologia do Azure Data Share](terminology.md).
+Neste tutorial, você aprendeu a aceitar e receber um Azure Data Share. Para saber mais sobre os conceitos do Azure Data Share, prossiga para a Terminologia do Azure Data Share.
+
+> [!div class="nextstepaction"]
+> [Conceitos do Azure Data Share](terminology.md)

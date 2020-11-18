@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: e03598ab53a9061a59e18041b2f3f4dc04e1b110
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424536"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651611"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos
 
@@ -100,8 +100,8 @@ Para redefinir a senha de um usuário, siga estas etapas:
 
 ### <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 Para habilitar a redefinição de senha por autoatendimento, siga estas etapas de implantação:
--   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](../authentication/tutorial-enable-sspr.md)
+-   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o status da Autenticação Multifator de um usuário
 Para verificar o status da Autenticação Multifator de um usuário, siga estas etapas:

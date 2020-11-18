@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: conectar o SQL sob demanda ao Power BI Desktop e criar um relatório'
-description: Neste tutorial, saiba como conectar o SQL sob demanda no Azure Synapse Analytics ao Power BI Desktop e criar um relatório de demonstração com base em uma exibição.
+title: 'Tutorial: conectar o pool de SQL sem servidor ao Power BI Desktop e criar um relatório'
+description: Neste tutorial, saiba como conectar o pool de SQL sem servidor no Azure Synapse Analytics ao Power BI Desktop e criar um relatório de demonstração com base em uma exibição.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539547"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317185"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: usar o SQL sob demanda com o Power BI Desktop e criar um relatório
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: usar o pool de SQL sem servidor com o Power BI Desktop e criar um relatório
 
 Neste tutorial, você aprenderá como:
 
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá como:
 >
 > - Criar um banco de dados de demonstração
 > - Criar uma exibição usada para relatório
-> - Conectar o Power BI Desktop ao SQL sob demanda
+> - Conectar o Power BI Desktop ao pool SQL sem servidor
 > - Criar um relatório com base na exibição
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,8 +42,8 @@ Valores para os seguintes parâmetros:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço do ponto de extremidade de serviço do SQL sob demanda    | Usado como o nome do servidor                                   |
-| Região do ponto de extremidade de serviço do SQL sob demanda     | Usada para determinar o armazenamento usado nos exemplos |
+| Endereço do ponto de extremidade de serviço do pool de SQL sem servidor    | Usado como o nome do servidor                                   |
+| Região do ponto de extremidade de serviço do pool de SQL sem servidor     | Usada para determinar o armazenamento usado nos exemplos |
 | Nome de usuário e senha para acesso de ponto de extremidade | Usado para acessar o ponto de extremidade                               |
 | Banco de dados que você usará para criar exibições     | O banco de dados usado como ponto de partida nas amostras       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 – Criar fonte de dados
 
-Uma fonte de dados é necessária para que o serviço de SQL sob demanda acesse arquivos no armazenamento. Crie a fonte de dados para uma conta de armazenamento que está localizada na mesma região que o seu ponto de extremidade. Embora o SQL sob demanda possa acessar contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto de extremidade na mesma região proporcionará um melhor desempenho.
+Uma fonte de dados é necessária para que o serviço de pool de SQL sem servidor acesse arquivos no armazenamento. Crie a fonte de dados para uma conta de armazenamento que está localizada na mesma região que o seu ponto de extremidade. Embora o pool de SQL sem servidor possa acessar contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto de extremidade na mesma região proporcionará um melhor desempenho.
 
 Crie a fonte de dados executando o seguinte script T-SQL (Transact-SQL):
 

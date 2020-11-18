@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792813"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240912"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -116,7 +116,7 @@ Permita o acesso às seguintes URLs:
 | login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |O conector usa essas URLs durante o processo de registro. |
 | ctldl.windowsupdate.com | 80/HTTP |O conector usa essa URL durante o processo de registro. |
 
-Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões ao &ast;.msappproxy.net e &ast;.servicebus.windows.net. Caso contrário, você precisa permitir o acesso aos [Intervalos de IP e Marcas de Serviço – Nuvem Pública do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões a &ast;.msappproxy.net, &ast;.servicebus.windows.net e outras URLs acima. Caso contrário, você precisa permitir o acesso aos [Intervalos de IP e Marcas de Serviço – Nuvem Pública do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registrar um conector
 
@@ -128,7 +128,7 @@ Para instalar o conector:
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de aplicativos do diretório que usa o Proxy de Aplicativo. Por exemplo, se o domínio de locatário for contoso.com, o administrador deverá ser admin@contoso.com ou qualquer outro alias de administrador nesse domínio.
 1. Escolha o nome de usuário no canto superior direito. Verifique se você está conectado a um diretório que usa o Proxy de Aplicativo. Se for necessário alterar diretórios, escolha **Mudar diretório** e escolha um diretório que usa o Proxy de Aplicativo.
 1. No painel de navegação à esquerda, escolha **Azure Active Directory**.
-1. Em **Gerenciar** , escolha **Proxy de Aplicativo**.
+1. Em **Gerenciar**, escolha **Proxy de Aplicativo**.
 1. Escolha **Baixar o serviço do conector**.
 
     ![Baixe o serviço do conector para ver os Termos de serviço](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
@@ -136,7 +136,7 @@ Para instalar o conector:
 1. Leia os Termos de serviço. Quando estiver pronto, escolha **Aceitar termos e baixar**.
 1. Na parte inferior da janela, escolha **Executar** para instalar o conector. Um assistente de instalação é aberto.
 1. Siga as instruções do assistente para instalar o serviço. Quando for solicitado que você registre o conector com o Proxy de Aplicativo para seu locatário do Azure AD, forneça suas credenciais de administrador do aplicativo.
-    - Para IE (Internet Explorer), se a **Configuração de Segurança Aprimorada do IE** estiver **Ativada** , você poderá não ver a tela de registro. Siga as instruções na mensagem de erro para obter o acesso. Verifique se a **Configuração da Segurança Aprimorada do Internet Explorer** está definida como **Desativada**.
+    - Para IE (Internet Explorer), se a **Configuração de Segurança Aprimorada do IE** estiver **Ativada**, você poderá não ver a tela de registro. Siga as instruções na mensagem de erro para obter o acesso. Verifique se a **Configuração da Segurança Aprimorada do Internet Explorer** está definida como **Desativada**.
 
 ### <a name="general-remarks"></a>Comentários gerais
 
@@ -175,7 +175,7 @@ Para confirmar se o conector foi instalado e registrado corretamente:
 
      ![Serviços do Conector de Proxy de Aplicativo - captura de tela](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
-1. Se o status dos serviços não for **Em execução** , clique com o botão direito do mouse em cada serviço e escolha **Iniciar**.
+1. Se o status dos serviços não for **Em execução**, clique com o botão direito do mouse em cada serviço e escolha **Iniciar**.
 
 ## <a name="add-an-on-premises-app-to-azure-ad"></a>Adicionar um aplicativo local ao Azure AD
 
@@ -184,8 +184,8 @@ Agora que você preparou seu ambiente e instalou um conector, está pronto para 
 1. Entre como administrador no [Portal do Azure](https://portal.azure.com/).
 2. No painel de navegação à esquerda, escolha **Azure Active Directory**.
 3. Escolha **Aplicativos empresariais** e, em seguida, **Novos aplicativos**.
-4. Na seção **Aplicativos locais** , selecione **Adicionar um aplicativo local**.
-5. Na seção **Adicionar seu próprio aplicativo local** , forneça as seguintes informações sobre o aplicativo:
+4. Na seção **Aplicativos locais**, selecione **Adicionar um aplicativo local**.
+5. Na seção **Adicionar seu próprio aplicativo local**, forneça as seguintes informações sobre o aplicativo:
 
     | Campo | Descrição |
     | :---- | :---------- |
@@ -220,8 +220,8 @@ Para adicionar um usuário de teste:
 
 1. Escolha **Aplicativos empresariais** e, em seguida, escolha o aplicativo que você deseja testar.
 2. Escolha **Introdução** e, em seguida, **Atribuir um usuário para teste**.
-3. Em **Usuários e grupos** , escolha **Adicionar usuário**.
-4. Em **Adicionar atribuição** , escolha **Usuários e grupos**. A seção **Usuário e grupos** será exibida.
+3. Em **Usuários e grupos**, escolha **Adicionar usuário**.
+4. Em **Adicionar atribuição**, escolha **Usuários e grupos**. A seção **Usuário e grupos** será exibida.
 5. Escolha a conta que você deseja adicionar.
 6. Escolha **Selecionar** e, em seguida, **Atribuir**.
 

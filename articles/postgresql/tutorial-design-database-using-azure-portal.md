@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7af3386a618fdcc58facb1d67c26692312d30a89
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535766"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337125"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure
 
@@ -58,7 +58,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
     Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, % etc.).
     Location|A região mais próxima dos usuários| A localização mais próxima dos usuários.
     Versão|A última versão principal| A última versão principal do PostgreSQL, a menos que você tenha requisitos específicos.
-    Computação + armazenamento | **Uso Geral** , **Gen 5** , **2 vCores** , **5 GB** , **7 dias** , **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Configurar servidor**. Em seguida, selecione a guia **Uso Geral**. *Gen 5* , *4 vCores* , *100 GB* e *7 dias* são os valores padrão de **Geração da Computação** , **vCore** , **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão ou ajustá-los. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
+    Computação + armazenamento | **Uso Geral**, **Gen 5**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Configurar servidor**. Em seguida, selecione a guia **Uso Geral**. *Gen 5*, *4 vCores*, *100 GB* e *7 dias* são os valores padrão de **Geração da Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão ou ajustá-los. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
 
    > [!NOTE]
    > Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
@@ -71,7 +71,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 5. Selecione **Revisar + criar** para revisar suas seleções. Selecione **Criar** para provisionar o servidor. Esta operação pode levar alguns minutos.
 
-6. Na barra de ferramentas, selecione o ícone (sino) **Notificações** para monitorar o processo de implantação. Depois que a implantação é feita, você pode selecionar **Fixar no painel** , que cria um bloco para esse servidor no seu painel do portal do Azure como um atalho para a página **Visão geral** do servidor. A opção **Ir para recurso** abre a página **Visão geral** do servidor.
+6. Na barra de ferramentas, selecione o ícone (sino) **Notificações** para monitorar o processo de implantação. Depois que a implantação é feita, você pode selecionar **Fixar no painel**, que cria um bloco para esse servidor no seu painel do portal do Azure como um atalho para a página **Visão geral** do servidor. A opção **Ir para recurso** abre a página **Visão geral** do servidor.
 
     :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="O painel Notificações":::
    
@@ -82,7 +82,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 O serviço do Banco de Dados do Azure para PostgreSQL cria um firewall no nível do servidor. Por padrão, esse firewall impede que todos os aplicativos e ferramentas externos se conectem ao servidor e a todos os bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para um intervalo de endereços IP específico. 
 
-1. Após a implantação ser concluída, clique em **Todos os Recursos** no menu esquerdo e digite o nome **mydemoserver** , para pesquisar o servidor recém-criado. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
+1. Após a implantação ser concluída, clique em **Todos os Recursos** no menu esquerdo e digite o nome **mydemoserver**, para pesquisar o servidor recém-criado. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Banco de Dados do Azure para PostgreSQL – Pesquisar o servidor":::
 
@@ -196,21 +196,26 @@ Imagine que você excluiu acidentalmente essa tabela. Essa situação é algo do
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Portal do Azure - Opções do formulário de restauração":::
 
-   - **Ponto de restauração** : Selecione um ponto no tempo anterior à alteração do servidor
-   - **Servidor de destino** : Forneça o novo nome do servidor para o qual deseja fazer a restauração
-   - **Localização** : Não é possível selecionar a região; por padrão, ela é a mesma do servidor de origem
-   - **Tipo de preço** : Não é possível alterar esse valor ao restaurar um servidor. Ele é igual ao servidor de origem. 
+   - **Ponto de restauração**: Selecione um ponto no tempo anterior à alteração do servidor
+   - **Servidor de destino**: Forneça o novo nome do servidor para o qual deseja fazer a restauração
+   - **Localização**: Não é possível selecionar a região; por padrão, ela é a mesma do servidor de origem
+   - **Tipo de preço**: Não é possível alterar esse valor ao restaurar um servidor. Ele é igual ao servidor de origem. 
 3. Clique em **OK** para [restaurar o servidor para um ponto](./howto-restore-server-portal.md) anterior à exclusão da tabela. A restauração de um servidor para um ponto diferente no tempo cria um novo servidor duplicado como o servidor original a partir do ponto no tempo especificado por você, desde que esteja dentro do período de retenção do seu [tipo de preço](./concepts-pricing-tiers.md).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Caso esses recursos não sejam mais necessários no futuro, exclua o grupo de servidores. Pressione o botão *Excluir* na página *Visão geral* do grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão *Excluir* final.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a usar o portal do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar um Banco de Dados do Azure para o servidor PostgreSQL
 > * Configurar o firewall do servidor
-> * Useo utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar um banco de dados
+> * Use o utilitário **psql** para criar um banco de dados
 > * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
 
-Em seguida, para saber como usar a CLI do Azure para executar tarefas semelhantes, examine este tutorial: [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+>[Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](tutorial-design-database-using-azure-cli.md)

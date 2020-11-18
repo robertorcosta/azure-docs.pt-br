@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357905"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651542"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao entrar em aplicativos configurados para logon único baseado em SAML
 Para solucionar os problemas de entrada abaixo, recomendamos o seguinte para diagnosticar melhor e automatizar as etapas de resolução:
 
-- Instale a [extensão do navegador seguro meus aplicativos](access-panel-extension-problem-installing.md) para ajudar a Azure Active Directory (Azure AD) a fornecer melhor diagnóstico e resoluções ao usar a experiência de teste no portal do Azure.
-- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Instale a [extensão do navegador seguro meus aplicativos](./access-panel-deployment-plan.md) para ajudar a Azure Active Directory (Azure AD) a fornecer melhor diagnóstico e resoluções ao usar a experiência de teste no portal do Azure.
+- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](./debug-saml-sso-issues.md)
 
-Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir as etapas abaixo para abrir a página de configuração de logon único baseada em SAML.
+Se você usar a [experiência de teste](./debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir as etapas abaixo para abrir a página de configuração de logon único baseada em SAML.
 
 Para abrir a página de configuração de logon único baseado em SAML:
 1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador**.
@@ -88,7 +88,7 @@ O Azure Active Directory não oferece suporte para a solicitação SAML enviada 
 
 **Resolução**
 
-1. Capture a solicitação SAML. Siga o tutorial [como depurar o logon único baseado em SAML para aplicativos no Azure ad](../azuread-dev/howto-v1-debug-saml-sso-issues.md) para saber como capturar a solicitação SAML.
+1. Capture a solicitação SAML. Siga o tutorial [como depurar o logon único baseado em SAML para aplicativos no Azure ad](./debug-saml-sso-issues.md) para saber como capturar a solicitação SAML.
 1. Entre em contato com o fornecedor do aplicativo e compartilhe as seguintes informações:
     - Solicitação SAML
     - [Requisitos de protocolo SAML de logon único do Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -121,7 +121,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 1. Na tela de configuração do SSO baseado em SAML, selecione **criar novo certificado** na seção **certificado de autenticação SAML** .
 1. Selecione data de validade e clique em **salvar**.
 1. Marque **Tornar o novo certificado ativo** para substituir o certificado ative. Em seguida, clique em **Salvar** na parte superior do painel e aceite para ativar o certificado de substituição.
-1. Na seção **Certificado de Autenticação SAML** , clique em **remover** para remover o certificado **Não Usado**.
+1. Na seção **Certificado de Autenticação SAML**, clique em **remover** para remover o certificado **Não Usado**.
 
 ## <a name="saml-request-not-present-in-the-request"></a>A solicitação SAML não está presente na solicitação
 `Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.`
@@ -174,5 +174,5 @@ Compare o recurso que você está solicitando acesso no código com as permissõ
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Série de Início Rápido no Gerenciamento de Aplicativos](add-application-portal-assign-users.md)
-- [Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Requisitos de protocolo SAML de logon único do Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](./debug-saml-sso-issues.md)
+- [Requisitos de protocolo SAML de logon único do Azure AD](../develop/single-sign-on-saml-protocol.md)

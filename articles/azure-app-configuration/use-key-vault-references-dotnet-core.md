@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213258"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124791"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Usar referências do Key Vault em um aplicativo ASP.NET Core
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.micr
 
 1. Selecione a opção **Criar um recurso** no canto superior esquerdo do portal do Azure:
 
-    ![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/search-services.png)
+    ![A captura de tela mostra a opção Criar um recurso no portal do Azure.](./media/quickstarts/search-services.png)
 1. Digite **Key Vault** na caixa de pesquisa.
 1. Na lista de resultados, selecione **Cofres de chaves** à esquerda.
 1. Em **Cofres de chaves**, selecione **Adicionar**.
@@ -65,7 +65,7 @@ Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.micr
 
 Nesse ponto, sua conta do Azure é a única autorizada a acessar esse novo cofre.
 
-![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/vault-properties.png)
+![A captura de tela mostra o cofre de chaves.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 

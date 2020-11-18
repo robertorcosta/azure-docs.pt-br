@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b754886d88e97134b30e4a2bee7bdf5ac5a9d3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c30dea57310fb040d8fa5f52e1d8576c2dd08504
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374352"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650828"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir rótulos de sensibilidade a grupos de Microsoft 365 no Azure Active Directory
 
@@ -73,8 +73,8 @@ Você também precisará sincronizar seus rótulos de sensibilidade com o Azure 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribuir um rótulo a um novo grupo no portal do Azure
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com).
-1. Selecione **grupos**e, em seguida, selecione **novo grupo**.
-1. Na página **novo grupo** , selecione **Office 365**e preencha as informações necessárias para o novo grupo e selecione um rótulo de sensibilidade na lista.
+1. Selecione **grupos** e, em seguida, selecione **novo grupo**.
+1. Na página **novo grupo** , selecione **Office 365** e preencha as informações necessárias para o novo grupo e selecione um rótulo de sensibilidade na lista.
 
    ![Atribuir um rótulo de sensibilidade na página novos grupos](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
@@ -136,7 +136,7 @@ Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que at
 1. Selecione **Grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
 

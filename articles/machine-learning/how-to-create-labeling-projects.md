@@ -1,19 +1,19 @@
 ---
 title: Criar um projeto de rotulagem de dados
 titleSuffix: Azure Machine Learning
-description: Saiba como criar e executar projetos de rotulagem para marcar dados para o aprendizado de máquina.  As ferramentas incluem rotulagem assistida por ML ou rotulagem de humanos no loop para ajudar com a tarefa.
+description: Saiba como criar e executar projetos de rotulagem para marcar dados para o aprendizado de máquina.  Use a rotulagem assistida por ML ou a rotulagem de humanos no loop para ajudar com a tarefa.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776112"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543214"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -189,7 +189,7 @@ Para pausar ou reiniciar o projeto, alterne o status **Em execução** no canto 
 
 A guia **Painel** mostra o progresso da tarefa de rotulagem.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Assistente de criação de projeto de rotulagem":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Painel de rotulagem de dados":::
 
 O gráfico de progresso mostra quantos itens foram rotulados e quantos ainda não foram feitos.  Os itens pendentes podem estar:
 
@@ -260,4 +260,4 @@ O arquivo COCO é criado no armazenamento de blobs padrão do Workspace do Azure
 
 * [Tutorial: Criar seu primeiro projeto de rotulagem de classificação de imagens](tutorial-labeling.md).
 * Rotular imagens para [classificação de imagens ou detecção de objetos](how-to-label-images.md)
-* Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](compare-azure-ml-to-studio-classic.md)
+* Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

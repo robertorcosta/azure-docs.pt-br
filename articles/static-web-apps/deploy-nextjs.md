@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar sites do Nuxt.js renderizados no servidor no serviço Aplicativos Web Estáticos do Azure'
+title: 'Tutorial: Implantar sites Next.js estáticos renderizados nos Aplicativos Web Estáticos do Azure'
 description: Gere e implante sites dinâmicos do Next.js com o serviço Aplicativos Web Estáticos do Azure.
 services: static-web-apps
 author: christiannwamba
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 835ee926de776b7a25295485d18ce25f883a2c5f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951155"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441606"
 ---
-# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites do Next.js renderizados no servidor na versão prévia do serviço Aplicativos Web Estáticos do Azure
+# <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites Next.js estáticos renderizados na versão prévia dos Aplicativos Web Estáticos do Azure
 
 Neste tutorial, você aprenderá a implantar um site estático gerado por [Next.js](https://nextjs.org) no serviço [Aplicativos Web Estáticos do Azure](overview.md). Para começar, você aprenderá a configurar e implantar um aplicativo Next.js. Durante esse processo, você também aprenderá a lidar com desafios comuns frequentemente enfrentados ao gerar páginas estáticas com o Next.js
 
@@ -63,7 +63,7 @@ Navegue até `http://localhost:3000` para abrir o aplicativo, onde você deverá
 
 Ao clicar em uma estrutura/biblioteca, você verá uma página de detalhes sobre o item selecionado:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Inicie o aplicativo Next.js":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Página de detalhes":::
 
 ## <a name="generate-a-static-website-from-nextjs-build"></a>Gerar um site estático utilizando o build do Next.js
 
@@ -146,7 +146,7 @@ As etapas a seguir mostram como vincular o aplicativo que você acabou de enviar
 1. Na lista suspensa *Região*, escolha a região mais próxima de você.
 1. Selecione **Gratuito** na lista suspensa SKU.
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Inicie o aplicativo Next.js":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Criar Aplicativo Web Estático":::
 
 ### <a name="add-a-github-repository"></a>Adicionar um repositório GitHub
 
@@ -157,7 +157,7 @@ A nova conta do serviço Aplicativos Web Estáticos precisa acessar o repositór
 1. Encontre e selecione o nome do repositório que você criou anteriormente.
 1. Escolha **mestre** como branch, na lista suspensa *Branch*.
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Inicie o aplicativo Next.js":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Conectar o GitHub":::
 
 ### <a name="configure-the-build-process"></a>Configurar o processo de compilação
 
@@ -165,7 +165,7 @@ O serviço Aplicativos Web Estáticos do Azure é criado para executar automatic
 
 1. Clique na guia **Build** para configurar a pasta de saída estática.
 
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Inicie o aplicativo Next.js":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Guia Build":::
 
 2. Digite **out** na caixa de texto *Local do artefato do aplicativo*.
 
@@ -195,7 +195,7 @@ Retorne ao terminal e execute o comando `git pull origin master`.
 
 Navegue até o novo site implantado e clique em um dos logotipos de estrutura ou de biblioteca. Em vez de obter uma página de detalhes, você recebe uma página de erro 404.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="Inicie o aplicativo Next.js":::
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 em rotas dinâmicas":::
 
 O motivo para esse erro é porque o Next.js gerou apenas a home page com base na configuração do aplicativo.
 
@@ -231,7 +231,7 @@ O motivo para esse erro é porque o Next.js gerou apenas a home page com base na
 
 2. Envie por push as novas alterações para seu repositório GitHub e aguarde alguns minutos enquanto o GitHub Actions compila o site novamente. Após a conclusão da compilação, o erro 404 desaparece.
 
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="Inicie o aplicativo Next.js":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 em rotas dinâmicas corrigido":::
 
 > [!div class="nextstepaction"]
 > [Configurar um domínio personalizado](custom-domain.md)

@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Comparar recursos do produto
       href: cdn-features.md
-- name: Início rápido
+- name: Inícios rápidos
   items:
     - name: Integrar uma conta de armazenamento
       href: cdn-create-a-storage-account-with-cdn.md
@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Conceitos
   items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Como funciona o cache
       href: cdn-how-caching-works.md
     - name: Entrega de conteúdo na China

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171866"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331950"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento do Azure Synapse
 
@@ -37,9 +37,9 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 * **Amostra de navegador disponível**. Essa opção permite vincular conjuntos de dados de exemplo e adicionar código de exemplo na forma de scripts SQL, notebooks e pipelines.
 * **Fazer um tour no Synapse studio**. Essa opção o levará em um breve tour pelas partes básicas do Synapse Studio. Isso será útil se você nunca tiver usado o Synapse Studio.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Como explorar o armazenamento de blobs com o SQL sob demanda
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Como explorar o armazenamento de blobs com o pool de SQL sem servidor
 
-1. No **Centro de Conhecimento**, clique em **Usar amostras imediatamente**
+1. Acesse o **Centro de Conhecimento** e clique em **Usar exemplos imediatamente**
 1. Selecione **Consultar dados com SQL** 
 1. Clique em **Usar amostras imediatamente**
 1. Isso criará um novo script SQL.
@@ -47,7 +47,7 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 1. Clique em Executar. Isso executará o texto selecionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Como carregar mais dados de táxi de NYC
-1. No **Centro de Conhecimento**, clique em **Procurar amostras disponíveis** 
+1. Acesse o **Centro de Conhecimento** e clique em **Procurar exemplos disponíveis** 
 1. Selecione a guia **Scripts SQL** na parte superior
 1. Selecione **Carregar o conjunto de dados de táxis de Nova York**
 1. Em **Entradas**, escolha **Selecionar um pool existente** e selecione **SQLDB1**
@@ -60,4 +60,4 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 
 * [Introdução ao Azure Synapse Analytics](get-started.md)
 * [Criar um workspace](quickstart-create-workspace.md)
-* [Usar o SQL sob demanda](quickstart-sql-on-demand.md)
+* [Usar o pool de SQL sem servidor](quickstart-sql-on-demand.md)

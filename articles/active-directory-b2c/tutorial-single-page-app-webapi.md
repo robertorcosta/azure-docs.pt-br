@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9fe1363ffc714754c1de333a77d36595ce4223e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442330"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421083"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Proteger e permitir acesso a uma API Web do Node.js em um aplicativo de página única com o Azure AD B2C
 
@@ -56,11 +56,11 @@ Registre o valor em **Escopos** do escopo `demo.read` a ser usado em uma etapa p
 
 Para chamar uma API Web protegida de outro aplicativo, é necessário conceder a esse aplicativo permissões para a API Web.
 
-No tutorial de pré-requisito, você criou um aplicativo Web chamado *webapp1*. Neste tutorial, você configura esse aplicativo para chamar a API Web criada em uma seção anterior, *webapi1*.
+No tutorial de pré-requisitos, você criou um aplicativo de página única chamado *spaapp1*. Neste tutorial, você vai configurar o aplicativo *spaapp1* para a chamada à API Web criada na seção anterior.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Seu aplicativo Web de página única agora recebeu permissões para a API Web protegida para os escopos especificados. Um usuário autentica-se com o Azure AD B2C para usar o aplicativo de página única. O aplicativo de página única usa o fluxo de concessão de autorização para acessar a API Web protegida com um token de acesso retornado pelo Azure AD B2C.
+Seu aplicativo Web de página única agora recebeu permissões para a API Web protegida para os escopos especificados. Um usuário autentica-se com o Azure AD B2C para usar o aplicativo de página única. O aplicativo de página única obtém um token de acesso do Azure AD B2C para acessar a API Web protegida.
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
@@ -161,7 +161,7 @@ Embora os dois aplicativos estejam sendo executados localmente quando você segu
 1. Abra outra janela do console e vá para o diretório que contém o SPA do JavaScript de exemplo. Por exemplo:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. Execute os seguintes comandos:

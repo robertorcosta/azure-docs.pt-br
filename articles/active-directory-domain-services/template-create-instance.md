@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: f257a186f05dc94923d1d39829b5ed68b518f20c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 30fc6b0b7eae6b3dd3477944a5d9ddacf83c677a
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967623"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041682"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Criar um domínio gerenciado do Azure Active Directory Domain Services usando um modelo do Azure Resource Manager
 
@@ -71,10 +71,10 @@ Primeiro, registre o provedor de recursos do Azure AD Domain Services usando o c
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] para o Azure AD DS se comunicar e autenticar-se. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Não altere essa ID de aplicativo.
+Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] para o Azure AD DS se comunicar e autenticar-se. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não altere essa ID de aplicativo.
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 Agora crie um grupo do Azure AD chamado *Administradores do AAD DC* usando o cmdlet [New-AzureADGroup][New-AzureADGroup]. Os usuários adicionados a esse grupo recebem permissões para executar tarefas de administração no domínio gerenciado.

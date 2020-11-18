@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b6c879d126b0c16f2dc6ceb41a1dfcc3ecf6a2d5
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886446"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94639616"
 ---
 <a name="HOLTop"></a>
 
@@ -56,7 +56,7 @@ npm install @azure/cognitiveservices-computervision
 
 O arquivo `package.json` do seu aplicativo será atualizado com as dependências.
 
-Crie um novo arquivo, *index.js* , e abra-o em um editor de texto. Adicione as seguintes instruções de importação ao arquivo.
+Crie um novo arquivo, *index.js*, e abra-o em um editor de texto. Adicione as seguintes instruções de importação ao arquivo.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
@@ -215,7 +215,7 @@ Defina a função auxiliar `describeType`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## <a name="extract-text-ocr-with-read"></a>Extrair um texto (OCR) com a Leitura
+## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
 A Pesquisa Visual Computacional pode extrair o texto visível de uma imagem e convertê-lo em um fluxo de caracteres. Este exemplo usa as operações de Leitura.
 

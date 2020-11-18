@@ -9,59 +9,80 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517760"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651236"
 ---
 # <a name="identity-model"></a>Modelo de identidade
 
-Os serviços de comunicação do Azure são serviços independentes de identidade. Esse design tem vários benefícios:
-- Reutilizar identidades existentes do seu sistema de gerenciamento de identidade
-- Flexibilidade para cenários de integração
-- Mantém suas identidades privadas para os serviços de comunicação do Azure
+Os serviços de comunicação do Azure são um serviço independente de identidade. Esse design oferece vários benefícios:
 
-Em vez de duplicar as informações existentes no seu sistema, você manterá a relação de mapeamento específica ao seu caso comercial. Por exemplo, mapeamento de identidades 1:1, 1: N, N:1, N:M. Identificadores externos (como números de telefone, usuários, dispositivos, aplicativos, GUID) não podem ser usados como identidade de comunicação do Azure. Os tokens de acesso gerados para a identidade do serviço de comunicação do Azure são usados para acessar primitivos como chat ou chamada. 
+- Reutiliza as identidades existentes do seu sistema de gerenciamento de identidade
+- Fornece flexibilidade para cenários de integração
+- Mantém suas identidades privadas nos serviços de comunicação do Azure
+
+Em vez de duplicar as informações em seu sistema, você manterá a relação de mapeamento que seu caso comercial exige. Por exemplo, você pode mapear identidades 1:1, 1: N, N:1, N:M. Identificadores externos, como números de telefone, usuários, dispositivos, aplicativos e GUIDs, não podem ser usados para identidade nos serviços de comunicação do Azure. Os tokens de acesso gerados para uma identidade dos serviços de comunicação do Azure são usados para acessar primitivos como chat ou chamada.
 
 ## <a name="identity"></a>Identidade
 
-As identidades são criadas com a biblioteca de administração do serviço de comunicação do Azure. A identidade serve como identificador nas conversas e é usada para a criação de tokens de acesso. A mesma identidade pode participar de várias sessões simultâneas em vários dispositivos. A identidade pode ter vários tokens de acesso ativos ao mesmo tempo. A exclusão de identidade, recurso ou assinatura causa invalidação de todos os seus tokens de acesso e a exclusão de todos os dados que são armazenados para essa identidade. A identidade excluída não pode emitir novos tokens de acesso, nem acessar dados armazenados anteriormente (por exemplo, mensagens de chat). 
+Você pode criar identidades usando a biblioteca de administração dos serviços de comunicação do Azure. Uma identidade serve como um identificador em conversas. Ele é usado para criar tokens de acesso. A mesma identidade pode participar de várias sessões simultâneas em vários dispositivos. Uma identidade pode ter vários tokens de acesso ativos ao mesmo tempo. 
 
-Você não é cobrado pelo número de identidades que tem, mas pelo uso de primitivos. O número de identidades não precisa ser restringido, como mapear as identidades de seu aplicativo para as identidades dos serviços de comunicação do Azure. Com a liberdade de mapeamento vem a responsabilidade nos termos de privacidade. Quando o usuário do seu aplicativo quiser ser excluído do seu sistema, você precisará excluir todas as identidades que foram associadas a esse usuário.
+A exclusão de uma identidade, recurso ou assinatura invalida todos os seus tokens de acesso. Essa ação também exclui todos os dados que são armazenados para a identidade. Uma identidade excluída não pode criar novos tokens de acesso ou acessar dados armazenados anteriormente (por exemplo, mensagens de chat). 
 
-Os serviços de comunicação do Azure não fornecem identidades especiais para usuários anônimos. Ele não mantém o mapeamento entre os usuários e as identidades, mas não sabe se a identidade é anônima. Você pode criar o conceito para atender às suas necessidades. Nossa recomendação é criar uma nova identidade para o usuário anônimo de cada aplicativo. Com a posse do token de acesso válido, qualquer pessoa pode obter acesso ao conteúdo de identidade não excluída. Por exemplo, mensagens de chat enviadas pelo usuário. O acesso é restrito apenas a escopos, que fazem parte do token de acesso. Mais detalhes sobre escopos estão na seção *token de acesso*.
+Você não é cobrado pelo número de identidades que tem. Em vez disso, você será cobrado pelo uso de primitivos. O número de suas identidades não precisa restringir como você mapeia as identidades de seu aplicativo para as identidades dos serviços de comunicação do Azure. 
 
-### <a name="mapping-of-identities"></a>Mapeamento de identidades
+Com a liberdade de mapeamento vem a responsabilidade da privacidade. Se um usuário quiser ser excluído do seu sistema, você precisará excluir todas as identidades associadas a esse usuário.
 
-Os serviços de comunicação do Azure não estão replicando a funcionalidade do IMS. Ele não fornece uma maneira para os clientes usarem identidades específicas do cliente. Por exemplo, número de telefone ou endereço de email. Em vez disso, ele fornece identificadores exclusivos que você pode atribuir às identidades do seu aplicativo. Os serviços de comunicação do Azure não armazenam qualquer tipo de informação, que pode revelar a identidade real dos usuários.
+Os serviços de comunicação do Azure não fornecem identidades especiais para usuários anônimos. Ele não mantém o mapeamento entre os usuários e as identidades e não pode determinar se uma identidade é anônima. Você pode criar o conceito de identidade para atender às suas necessidades. Nossa recomendação é criar uma nova identidade para cada usuário anônimo em cada aplicativo. 
 
-Em vez de duplicar, você é incentivado a projetar, como os usuários do seu domínio de identidade serão mapeados para identidades do serviço de comunicação do Azure. Você pode seguir qualquer tipo de padrão 1:1, 1: N, N:1 ou M:N. Você pode decidir se um único usuário está mapeado para identidade única ou para várias identidades. Quando uma nova identidade é criada, você é incentivado a armazenar o mapeamento dessa identidade para o usuário ou os usuários do seu aplicativo. Como as identidades exigem os tokens de acesso para uso dos primitivos, a identidade precisa ser conhecida para o usuário ou os usuários do seu aplicativo.
+Qualquer pessoa que tenha um token de acesso válido pode acessar o conteúdo de identidade atual. Por exemplo, os usuários podem acessar mensagens de bate-papo que enviaram. O acesso é restrito apenas a escopos que fazem parte do token de acesso. Para obter mais informações, consulte a seção [tokens de acesso](#access-tokens) neste artigo.
 
-Se você estiver usando um banco de dados relacional para armazenamento de usuários, a implementação poderá ser diferente com base no seu cenário de mapeamento. Para cenários com mapeamento 1:1 ou N:1, você pode adicionar uma coluna *CommunicationServicesId* à tabela para armazenar sua identidade dos serviços de comunicação do Azure. Em cenários com a relação 1: N ou N:M, você pode considerar a criação de uma tabela separada no banco de dados relacional.
+### <a name="identity-mapping"></a>Mapeamento de identidade
 
-## <a name="access-token"></a>Token de acesso
+Os serviços de comunicação do Azure não replicam a funcionalidade do sistema de gerenciamento de identidade do Azure. Ele não fornece uma maneira para os clientes usarem identidades específicas do cliente. Por exemplo, os clientes não podem usar um número de telefone ou endereço de email. Em vez disso, os serviços de comunicação do Azure fornecem identificadores exclusivos. Você pode atribuir esses identificadores exclusivos às identidades do seu aplicativo. Os serviços de comunicação do Azure não armazenam qualquer tipo de informação que possa revelar a identidade real dos usuários.
 
-O token de acesso é um token JWT que pode ser usado para obter acesso aos primitivos do serviço de comunicação do Azure. O token de acesso emitido tem proteção de integridade, suas declarações não podem ser alteradas após a emissão. Ou seja, a alteração manual de propriedades, como identidade, expiração ou escopos, tornará o token de acesso inválido. O uso de primitivos com Tokens invalidados levará à negação do acesso ao primitivo. 
+Para evitar a duplicação de informações em seu sistema, planeje como mapear usuários de seu domínio de identidade para identidades dos serviços de comunicação do Azure. Você pode seguir qualquer tipo de padrão. Por exemplo, você pode usar 1:1, 1: N, N:1 ou M:N. Decida se um único usuário está mapeado para uma única identidade ou para várias identidades. 
 
-As propriedades do token de acesso são: *identidade, expiração* e *escopos*. O token de acesso é sempre válido por 24 horas. Após esse tempo, o token de acesso é invalidado e não pode ser usado para acessar nenhum primitivo. A identidade deve ter uma forma, como solicitar novo token de acesso do serviço do servidor. O *escopo* do parâmetro define um conjunto não vazio de primitivos, que pode ser usado. Os serviços de comunicação do Azure dão suporte aos seguintes escopos para tokens de acesso:
+Quando uma nova identidade é criada, armazene seu mapeamento para o usuário ou usuários do seu aplicativo. Como as identidades exigem tokens de acesso para usar primitivos, a identidade precisa ser conhecida pelo usuário ou usuários do seu aplicativo.
 
-|Nome|DESCRIÇÃO|
+Se você usar um banco de dados relacional para armazenar informações do usuário, poderá ajustar seu design com base no seu cenário de mapeamento. Para cenários que mapeiam 1:1 ou N:1, talvez você queira adicionar uma `CommunicationServicesId` coluna à tabela para armazenar sua identidade dos serviços de comunicação do Azure. Em cenários que usam a relação 1: N ou N:M, você pode considerar a criação de uma tabela separada no banco de dados relacional.
+
+## <a name="access-tokens"></a>Tokens de acesso
+
+Um token de acesso é um JWT (token Web JSON) que pode ser usado para obter acesso aos primitivos do serviço de comunicação do Azure. Um token de acesso emitido tem proteção de integridade. Ou seja, suas declarações não podem ser alteradas após serem emitidas. Portanto, uma alteração manual de propriedades, como identidade, expiração ou escopos, invalidará o token de acesso. Se os primitivos forem usados com Tokens invalidados, o acesso será negado aos primitivos. 
+
+As propriedades de um token de acesso são:
+* Identidade.
+* Expiration.
+* Escopos.
+
+Um token de acesso é sempre válido por 24 horas. Depois de expirar, o token de acesso é invalidado e não pode ser usado para acessar nenhum primitivo. 
+
+Uma identidade precisa de uma maneira de solicitar um novo token de acesso de um serviço do lado do servidor. O parâmetro *Scope* define um conjunto não vazio de primitivos que podem ser usados. Os serviços de comunicação do Azure dão suporte aos seguintes escopos para tokens de acesso.
+
+|Name|Descrição|
 |---|---|
 |Chat|  Concede a capacidade de participar de um chat|
 |VoIP|  Concede a capacidade de chamar identidades e números de telefone|
 
 
-Se você quiser revogar o token de acesso antes de sua expiração, poderá usar a biblioteca de administração do serviço de comunicação do Azure para fazer isso. A revogação do token não é imediata e leva até 15 minutos para ser propagada. A remoção da identidade, do recurso ou da assinatura causará a revogação de todos os tokens de acesso. Se você quiser remover a capacidade do usuário de acessar a funcionalidade específica, revogue todos os tokens de acesso. Em seguida, emita um novo token de acesso com um conjunto mais limitado de escopos.
-A rotação de chaves de acesso do serviço de comunicação do Azure causará a revogação de todos os tokens de acesso ativos que foram criados com a chave de acesso anterior. Todas as identidades perderão o acesso ao serviço de comunicação do Azure e serão necessárias para emitir novos tokens de acesso. 
+Para revogar um token de acesso antes do tempo de expiração, use a biblioteca de administração dos serviços de comunicação do Azure. A revogação de token não é imediata. Leva até 15 minutos para se propagar. A remoção de uma identidade, um recurso ou uma assinatura revoga todos os tokens de acesso. 
 
-É recomendável emitir tokens de acesso em seu serviço do lado do servidor e não no aplicativo do cliente. O raciocínio é que a emissão exige a chave de acesso ou a identidade gerenciada. Não é recomendável por motivos de segurança para compartilhar as chaves de acesso com o aplicativo do cliente. O aplicativo cliente deve usar um ponto de extremidade de serviço confiável que possa autenticar seus clientes e emitir o token de acesso em seu nome. Mais detalhes sobre a arquitetura podem ser encontrados [aqui](./client-and-server-architecture.md).
+Se você quiser remover a capacidade do usuário de acessar a funcionalidade específica, revogue todos os tokens de acesso. Em seguida, emita um novo token de acesso que tenha um conjunto mais limitado de escopos.
 
-Se você armazenar em cache tokens de acesso a um repositório de backup, recomendamos o uso da criptografia. O token de acesso é de dados confidenciais e pode ser usado para atividades mal-intencionadas se não estiver protegido. Com a posse do token de acesso, você pode inicializar o SDK e obter acesso à API. A API acessível é restrita somente com base em escopos, que o token de acesso tem. É recomendável emitir tokens de acesso somente com escopos, que são necessários.
+Nos serviços de comunicação do Azure, uma rotação de chaves de acesso revoga todos os tokens de acesso ativos que foram criados usando uma tecla de acesso anterior. Todas as identidades perdem o acesso aos serviços de comunicação do Azure e devem emitir novos tokens de acesso. 
+
+É recomendável emitir tokens de acesso em seu serviço do lado do servidor e não no aplicativo do cliente. O raciocínio é que a emissão exige uma chave de acesso ou uma identidade gerenciada. Por motivos de segurança, o compartilhamento de chaves de acesso com o aplicativo do cliente não é recomendado. 
+
+O aplicativo cliente deve usar um ponto de extremidade de serviço confiável que possa autenticar seus clientes. O ponto de extremidade deve emitir tokens de acesso em seu nome. Para obter mais informações, consulte [arquitetura de cliente e servidor](./client-and-server-architecture.md).
+
+Se você armazenar em cache tokens de acesso a um repositório de backup, recomendamos o uso da criptografia. Um token de acesso são dados confidenciais. Ele poderá ser usado para atividades mal-intencionadas se não estiver protegido. Alguém que tem um token de acesso pode iniciar o SDK e acessar a API. A API acessível é restrita apenas com base nos escopos que o token de acesso tem. É recomendável emitir tokens de acesso que tenham apenas os escopos necessários.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução ao gerenciamento de tokens de acesso, consulte [criar e gerenciar tokens de acesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-* Para obter uma introdução à autenticação, consulte [autenticar para os serviços de comunicação do Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
-* Para obter uma introdução à privacidade e à residência de dados, consulte [disponibilidade de região e residência de dados](https://docs.microsoft.com/azure/communication-services/concepts/privacy)
+* Para obter uma introdução ao gerenciamento de tokens de acesso, consulte [criar e gerenciar tokens de acesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+* Para obter uma introdução à autenticação, consulte [autenticar para os serviços de comunicação do Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
+* Para obter uma introdução à privacidade e à residência de dados, consulte [disponibilidade de região e residência de dados](https://docs.microsoft.com/azure/communication-services/concepts/privacy).

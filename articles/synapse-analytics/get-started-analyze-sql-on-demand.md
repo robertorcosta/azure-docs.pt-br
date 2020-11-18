@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: introdução à análise de dados com o SQL sem servidor'
-description: Neste tutorial, você aprenderá a analisar dados com o SQL sob demanda usando dados localizados em bancos de dados do Spark.
+title: 'Tutorial: introdução à análise de dados com o pool de SQL sem servidor'
+description: Neste tutorial, você aprenderá a analisar dados com um pool de SQL sem servidor usando dados localizados em bancos de dados do Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: fa87ee06e0ed01828148a58b2d2f754a40d8803a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4ca9ababbeb7843f1a014a4bd51a5e24a74acbae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322934"
 ---
-# <a name="analyze-data-with-sql-on-demand"></a>Analisar dados com o SQL sob demanda
+# <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Analisar dados com o pool de SQL sem servidor no Azure Synapse Analytics
 
-Neste tutorial, você aprenderá a analisar dados com o SQL sem servidor por meio de um pool de SQL sob demanda usando dados localizados em bancos de dados do Spark. 
+Neste tutorial, você aprenderá a analisar dados com o pool de SQL sem servidor usando dados localizados em bancos de dados do Spark. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-sql-on-demand-pool"></a>Analisar dados de táxis de Nova York no armazenamento de blobs usando o pool de SQL sob demanda
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analisar dados de táxis de Nova York no armazenamento de blobs usando o pool de SQL sem servidor
 
 1. No hub **Dados** em **Vinculado**, clique com o botão direito do mouse em **Armazenamento de Blobs do Azure > Conjuntos de Dados de Exemplo > nyc_tlc_yellow** e selecione **SELECIONAR AS 100 PRIMEIRAS LINHAS**
 1. Isso criará um script SQL com o seguinte código:
@@ -37,12 +37,12 @@ Neste tutorial, você aprenderá a analisar dados com o SQL sem servidor por mei
     ```
 1. Clique em **Executar**
 
-## <a name="analyze-nyc-taxi-data-in-spark-databases-using-sql-on-demand"></a>Analisar dados de táxi de NYC em bancos de dados do Spark usando SQL sob demanda
+## <a name="analyze-nyc-taxi-data-in-spark-databases-using-serverless-sql-pool"></a>Analisar dados de táxi de NYC em bancos de dados do Spark usando o pool de SQL sem servidor
 
-As tabelas em bancos de dados do Spark são automaticamente visíveis e podem ser consultadas pelo SQL sob demanda.
+As tabelas em bancos de dados do Spark são automaticamente visíveis e podem ser consultadas pelo pool de SQL sem servidor.
 
 1. No Synapse Studio, acesse o hub **Desenvolver** e crie um script de SQL.
-1. Defina **Conectar-se a** como **SQL sob demanda**.
+1. Defina **Conectar-se ao** como **pool de SQL sem servidor**.
 1. Cole o texto a seguir no script e execute-o.
 
     ```sql
@@ -51,7 +51,7 @@ As tabelas em bancos de dados do Spark são automaticamente visíveis e podem se
     ```
 
     > [!NOTE]
-    > Na primeira vez que você executar uma consulta que usa SQL sob demanda, levará cerca de dez segundos para que o SQL sob demanda reúna os recursos de SQL necessários para executar suas consultas. As consultas subsequentes serão muito mais rápidas.
+    > Na primeira vez que você executar uma consulta que usa o pool de SQL sem servidor, levará cerca de dez segundos para que o pool de SQL sem servidor reúna os recursos de SQL necessários para executar suas consultas. As consultas subsequentes serão muito mais rápidas.
   
 
 

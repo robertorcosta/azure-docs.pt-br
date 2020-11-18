@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850584"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652137"
 ---
 # <a name="azure-firewall-features"></a>Recursos do Firewall do Azure
 
@@ -103,7 +103,7 @@ Isso permite os seguintes cenários:
 
 Todos os eventos são integrados ao Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos ao Hub de Eventos ou envie-os aos logs do Azure Monitor. Para obter Azure Monitor exemplos de log, consulte [Azure monitor logs do firewall do Azure](log-analytics-samples.md).
 
-Para saber mais, confira [Tutorial: Monitorar os logs e as métricas do Firewall do Azure](tutorial-diagnostics.md). 
+Para saber mais, confira [Tutorial: Monitorar os logs e as métricas do Firewall do Azure](./firewall-diagnostics.md). 
 
 A pasta de trabalho do firewall do Azure fornece uma tela flexível para análise de dados do firewall do Azure. Você pode usá-lo para criar relatórios visuais avançados dentro do portal do Azure. Para obter mais informações, consulte [monitorar logs usando a pasta de trabalho do firewall do Azure](firewall-workbook.md).
 

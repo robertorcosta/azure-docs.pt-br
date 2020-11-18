@@ -3,13 +3,13 @@ title: Implantar e configurar a Solução VMware no Azure
 description: Saiba como usar as informações coletadas na fase de planejamento para implantar a nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152028"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336328"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implantar e configurar a Solução VMware no Azure
 
@@ -35,7 +35,7 @@ Use as informações coletadas no artigo [Planejando a implantação da Soluçã
 ## <a name="create-the-jump-box"></a>Criar o jumpbox
 
 >[!IMPORTANT]
->Se você tiver deixado a opção **Rede Virtual** em branco durante a etapa de provisionamento inicial na tela **Criar uma Nuvem Privada** , conclua o tutorial [Configurar a rede da nuvem privada do VMware](tutorial-configure-networking.md) **antes** de continuar com esta seção.  
+>Se você tiver deixado a opção **Rede Virtual** em branco durante a etapa de provisionamento inicial na tela **Criar uma Nuvem Privada**, conclua o tutorial [Configurar a rede da nuvem privada do VMware](tutorial-configure-networking.md) **antes** de continuar com esta seção.  
 
 Depois de implantar a Solução VMware no Azure, você criará o jumpbox da rede virtual que se conecta com o vCenter e com o NSX. Após a configuração dos circuitos do ExpressRoute e do Alcance Global do ExpressRoute, o jumpbox não será necessário.  Mas é útil acessar o vCenter e o NSX na Solução VMware no Azure.  
 
@@ -59,7 +59,7 @@ O jumpbox está na rede virtual na qual a Solução VMware no Azure se conecta p
 
 Na lista de rotas em vigor, serão exibidas as redes criadas como parte da implantação da Solução VMware no Azure. Você verá várias redes que foram derivadas da rede [`/22` que você definiu](production-ready-deployment-steps.md#ip-address-segment) durante a [etapa de implantação](#deploy-azure-vmware-solution) anteriormente neste artigo.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Criar o jumpbox da Solução VMware no Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verificar as rotas de rede anunciadas da Solução VMware no Azure para a Rede Virtual do Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 Neste exemplo, a rede 10.74.72.0/22 foi inserida durante a implantação, derivando as redes /24.  Se aparecer algo semelhante, você poderá se conectar com o vCenter na Solução VMware no Azure.
 
@@ -67,7 +67,7 @@ Neste exemplo, a rede 10.74.72.0/22 foi inserida durante a implantação, deriva
 
 Faça logon no jumpbox que você criou na etapa anterior. Depois de fazer logon, abra um navegador da Web, navegue para o console de administração do vCenter e do NSX-T e entre nele.  
 
-Você pode identificar os endereços IP e as credenciais do console de administração do vCenter-T e do NSX-T no portal do Azure.  Selecione sua nuvem privada e, na exibição **Visão geral** , selecione **Identidade > Padrão** . 
+Você pode identificar os endereços IP e as credenciais do console de administração do vCenter-T e do NSX-T no portal do Azure.  Selecione sua nuvem privada e, na exibição **Visão geral**, selecione **Identidade > Padrão**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Criar um segmento de rede na Solução VMware no Azure
 
@@ -97,10 +97,10 @@ Como o DNS é necessário, identifique qual servidor DNS você deseja usar.
 
 Se planejar usar o DHCP nos segmentos do NSX-T, continue nesta seção. Caso contrário, pule para a seção [Adicionar uma VM no segmento de rede do NSX-T](#add-a-vm-on-the-nsx-t-network-segment).  
 
-Agora que você criou o segmento de rede do NSX-T, execute uma das seguintes opções:
+Como você criou um segmento de rede do NSX-T, será possível criar e gerenciar o DHCP na Solução VMware no Azure de dois modos:
 
-* Usar o NSX-T como o servidor DHCP para os segmentos criados. Para essa opção, você [cria um servidor DHCP no NSX-T](manage-dhcp.md#create-dhcp-server) e [realiza a retransmissão para esse servidor](manage-dhcp.md#create-dhcp-relay-service).
-* Retransmitir as solicitações do DHCP dos segmentos do NSX-T para um servidor DHCP em outro lugar no ambiente. Para essa opção, [você faz apenas a configuração da retransmissão](manage-dhcp.md#create-dhcp-relay-service).
+* Caso esteja usando o NSX-T para hospedar o servidor DHCP, será necessário [criar um servidor DHCP](manage-dhcp.md#create-a-dhcp-server) e executar a [retransmissão para esse servidor](manage-dhcp.md#create-dhcp-relay-service). 
+* Caso esteja usando um servidor DHCP externo de terceiros em sua rede, será necessário [criar um serviço de retransmissão DHCP](manage-dhcp.md#create-dhcp-relay-service).  Para essa opção, [você faz apenas a configuração da retransmissão](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Adicionar uma VM ao segmento de rede do NSX-T

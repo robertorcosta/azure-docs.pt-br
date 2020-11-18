@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848785"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313920"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Criar uma conta do Azure Data Lake Storage Gen2.
 
-  Consulte [Criar uma conta do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+  Confira [Criar uma conta de armazenamento para usar com o Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Verifique se a sua conta de usuário tem a [função Colaborador de Dados do Storage Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atribuída a ela.
 

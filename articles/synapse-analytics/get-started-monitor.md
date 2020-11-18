@@ -10,29 +10,28 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744963"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427404"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorar o workspace do Synapse
 
-Neste tutorial, você aprenderá a monitorar atividades no workspace do Synapse. Você pode monitorar as atividades atuais e históricas do SQL, Apache Spark. e de Pipelines. 
+Neste tutorial, você aprenderá a monitorar atividades no workspace do Synapse. É possível monitorar as atividades atuais e históricas do SQL, Apache Spark e Pipelines. 
 
 ## <a name="introduction-to-the-monitor-hub"></a>Introdução ao Hub de monitoramento
 
 Abra o Synapse Studio e navegue até o hub de **Monitoramento**. Aqui você poderá ver um histórico de todas as atividades que estão ocorrendo no workspace e quais estão ativas no momento. 
 
-* Em **Integração** , você pode monitorar pipelines, gatilhos e runtimes de integração
-* Em **Atividades** , você pode monitorar atividades do Spark e do SQL. 
+* Em **Integração**, você pode monitorar pipelines, gatilhos e runtimes de integração
+* Em **Atividades**, você pode monitorar atividades do Spark e do SQL. 
 
 ## <a name="integration"></a>Integração
 
 1. Navegue até **Integração > Pipeline**. Nessa exibição, você pode ver toda vez que um pipeline é executado em seu workspace. 
-1. Localize o pipeline que você executou na etapa anterior e clique no respectivo **Nome de pipeline**.
-1. Agora você pode ver como as atividades individuais dentro desse pipeline são executadas.
+1. Localize o pipeline que você executou na etapa anterior e clique no respectivo **Nome de pipeline** para exibir os detalhes.
 1. Clique em **Barra de trilha** perto da parte superior do Synapse Studio, clique em **Todas as execuções de pipeline** para retornar à exibição anterior.
 
 ## <a name="apache-spark-activities"></a>Atividades do Apache Spark

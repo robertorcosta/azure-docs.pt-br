@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 8066f42a5ab34f5cab0afcdc42cc6ccacfff2855
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876597"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428050"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Tutorial: Criar um aplicativo de detecção de objetos e movimentos e análise de vídeo no Azure IoT Central (YOLO v3)
 
@@ -111,7 +111,7 @@ Este tutorial configura sua solução para usar o módulo YOLO v3 para detecçã
 
 ### <a name="replace-the-manifest"></a>Substituir o manifesto
 
-Na página **Gateway de Borda de LVA**, selecione **+ Substituir manifesto**.
+Na página **Gateway de Borda de LVA v2**, selecione **+ Substituir manifesto**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-yolo-v3/replace-manifest.png" alt-text="Substituir manifesto":::
 

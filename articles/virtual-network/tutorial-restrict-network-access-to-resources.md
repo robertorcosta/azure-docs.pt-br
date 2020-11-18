@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74186362"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042565"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: restringir o acesso à rede de recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o Portal do Azure
 
@@ -148,7 +148,7 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
 12. Em **CONFIGURAÇÕES**, selecione **Sub-redes**.
 13. Selecione **+ Associar**
 14. Em **Associar sub-rede**, selecione **Rede virtual** e **myVirtualNetwork** em **Escolher rede virtual**.
-15. Em **Escolher sub-rede**, selecione **Privada**e selecione **OK**.
+15. Em **Escolher sub-rede**, selecione **Privada** e selecione **OK**.
 
 ## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso à rede para um recurso
 
@@ -195,13 +195,13 @@ Por padrão, as contas de armazenamento aceitam conexões de clientes em qualque
     |Redes virtuais|Selecione **myVirtualNetwork**, em **Redes virtuais**|
     |Sub-redes| Selecione **Privada**, em **Sub-redes**|
 
-    ![Firewalls e redes virtuais](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![A captura de tela mostra o painel Adicionar redes em que você pode inserir os valores especificados.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Clique em **Salvar**.
 6. Feche a caixa **Firewalls e redes virtuais**.
 7. Em **CONFIGURAÇÕES** para a conta de armazenamento, selecione **Chaves de acesso**, conforme mostrado na seguinte figura:
 
-      ![Firewalls e redes virtuais](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
+      ![Captura de tela mostra as Chaves de acesso selecionadas nas configurações em que você pode obter uma chave.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
 8. Anote o valor de **Chave**, pois você precisará inseri-lo manualmente em uma etapa posterior ao mapear o compartilhamento de arquivos para uma letra de unidade em uma VM.
 

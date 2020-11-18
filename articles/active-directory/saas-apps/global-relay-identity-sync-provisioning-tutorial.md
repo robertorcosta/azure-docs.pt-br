@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar a sincronização de identidade de retransmissão global para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a sincronização de identidade de retransmissão global.
+title: 'Tutorial: Configurar o Global Relay Identity Sync para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Global Relay Identity Sync.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,31 +12,31 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
-ms.translationtype: MT
+ms.openlocfilehash: bdbda77c45e3b1f1533326483ee19aa8ff4af515
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927984"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358330"
 ---
-# <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: configurar a sincronização de identidade de retransmissão global para provisionamento automático de usuário
+# <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Global Relay Identity Sync para provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto na sincronização de identidades de retransmissão global quanto no Azure Active Directory (AD do Azure) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para sincronização de identidade de retransmissão global usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar no Global Relay Identity Sync e no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o Global Relay Identity Sync usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
-> * Criar usuários na sincronização de identidade de retransmissão global
-> * Remover usuários na sincronização de identidade de retransmissão global quando eles não exigem mais acesso
-> * Manter os atributos de usuário sincronizados entre o Azure AD e a sincronização de identidade de retransmissão global
-> * Provisionar grupos e associações de grupo na sincronização de identidade de retransmissão global
+> * Criar usuários no Global Relay Identity Sync
+> * Remover usuários no Global Relay Identity Sync quando eles não precisarem mais de acesso
+> * Manter os atributos de usuário sincronizados entre o Azure AD e o Global Relay Identity Sync
+> * Provisionar grupos e associações a um grupo no Global Relay Identity Sync
 
 
 > [!NOTE]
-> O conector de provisionamento de sincronização de identidade de retransmissão global utiliza um método de autorização SCIM que não é mais suportado devido a questões de segurança. Os esforços estão em andamento com a retransmissão global para mudar para um método de autorização mais seguro.
+> O conector de provisionamento do Global Relay Identity Sync utiliza um método de autorização do SCIM que não tem mais suporte devido a preocupações de segurança. Os esforços estão em andamento com a Global Relay para fazer a transição para um método de autorização mais seguro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,15 +48,15 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determine quem estará no [escopo de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais dados [mapeados entre o Azure AD e a sincronização de identidade de retransmissão global](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+3. Determine quais dados [mapear entre o Azure AD e o Global Relay Identity Sync](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-global-relay-identity-sync-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar a sincronização de identidade de retransmissão global para dar suporte ao provisionamento com o Azure AD
+## <a name="step-2-configure-global-relay-identity-sync-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o Global Relay Identity Sync para dar suporte ao provisionamento com o Azure AD
 
-Contate o representante de sincronização de identidade de retransmissão global para receber a URL do locatário. Esse valor será inserido no campo **URL do locatário** na guia provisionamento do aplicativo de sincronização de identidade de retransmissão Global no portal do Azure.
+Entre em contato com seu representante do Global Relay Identity Sync para receber a URL do locatário. Esse valor será inserido no campo **URL do Locatário** na guia Provisionamento do aplicativo Global Relay Identity Sync no portal do Azure.
 
-## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar sincronização de identidade de retransmissão global da Galeria de aplicativos do Azure AD
+## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Global Relay Identity Sync da galeria de aplicativos do Azure AD
 
-Adicione a sincronização de identidade de retransmissão global da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para sincronização de identidade de retransmissão global. Saiba mais sobre como adicionar um aplicativo da Galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione o Global Relay Identity Sync da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para ele. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -65,41 +65,41 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Etapa 5. Configurar o provisionamento automático de usuário para sincronização de identidade de retransmissão global 
+## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Etapa 5. Configurar o provisionamento automático de usuário para o Global Relay Identity Sync 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no aplicativo de sincronização de identidades de retransmissão global com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você pelas etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no aplicativo Global Relay Identity Sync com base em atribuições de usuário e/ou grupo no Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para sincronização de identidade de retransmissão global no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Global Relay Identity Sync no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos** .
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **sincronização de identidade de retransmissão global** .
+2. Na lista de aplicativos, selecione **Global Relay Identity Sync**.
 
-    ![O link de sincronização de identidade de retransmissão global na lista de aplicativos](common/all-applications.png)
+    ![O link do Global Relay Identity Sync na lista de aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento** .
+3. Selecione a guia **Provisionamento**.
 
     ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático** .
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia de provisionamento automático](common/provisioning-automatic.png)
+    ![Guia Provisionamento automático](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira sua **URL de locatário** de sincronização de identidade de retransmissão global. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à sincronização de identidade de retransmissão global. Se a conexão falhar, verifique se sua conta de sincronização de identidade de retransmissão global tem permissões de administrador e entre em contato com seu representante de retransmissão global para resolver o problema.
+5. Na seção **Credenciais de Administrador**, insira sua **URL de locatário** do Global Relay Identity Sync. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao Global Relay Identity Sync. Se a conexão falhar, verifique se a sua conta do Global Relay Identity Sync tem permissões de Administrator e entre em contato com seu representante da Global Relay para resolver o problema.
 
-    ![Botão de autorização](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
+    ![Botão Autorização](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar** .
+7. Clique em **Salvar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para sincronização de identidade de retransmissão global** .
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Global Relay Identity Sync**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para a sincronização de identidade de retransmissão global na seção **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário na sincronização de identidade de retransmissão global para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API de sincronização de identidade de retransmissão global ofereça suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário sincronizados do Azure AD com o Global Relay Identity Sync na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Global Relay Identity Sync para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), precisará verificar se a API do Global Relay Identity Sync é compatível com a filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
@@ -118,35 +118,35 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |addresses[type eq "work"].region|String|
    |addresses[type eq "work"].postalCode|String|
    |addresses[type eq "work"].country|String|
-   |endereços [tipo EQ "other"]. formatado|String|
+   |addresses[type eq "other"].formatted|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |name.honorificPrefix|String|
-   |nome. honorificSuffix|String|
+   |name.honorificSuffix|String|
    |nickName|String|
    |userType|String|
    |localidade|String|
    |timezone|String|
-   |emails [tipo EQ "início"]. valor|String|
-   |emails [tipo EQ "other"]. valor|String|
-   |phoneNumbers [type EQ "Home"]. valor|String|
-   |phoneNumbers [tipo EQ "other"]. valor|String|
-   |phoneNumbers [type EQ "pager"]. valor|String|
-   |endereços [type EQ "Home"]. streetAddress|String|
-   |endereços [tipo EQ "início"]. localidade|String|
-   |endereços [tipo EQ "início"]. região|String|
-   |endereços [type EQ "Home"]. postalCode|String|
-   |endereços [tipo EQ "início"]. país|String|
-   |endereços [type EQ "Home"]. formatado|String|
-   |endereços [tipo EQ "other"]. streetAddress|String|
-   |endereços [tipo EQ "other"]. localidade|String|
-   |endereços [tipo EQ "other"]. região|String|
-   |endereços [tipo EQ "other"]. postalCode|String|
-   |endereços [tipo EQ "other"]. país|String|
-   |funções [EQ principal "true"]. display|String|
-   |funções [EQ principal "true"]. Type|String|
+   |emails[type eq "home"].value|String|
+   |emails[type eq "other"].value|String|
+   |phoneNumbers[type eq "home"].value|String|
+   |phoneNumbers[type eq "other"].value|String|
+   |phoneNumbers[type eq "pager"].value|String|
+   |addresses[type eq "home"].streetAddress|String|
+   |addresses[type eq "home"].locality|String|
+   |addresses[type eq "home"].region|String|
+   |addresses[type eq "home"].postalCode|String|
+   |addresses[type eq "home"].country|String|
+   |addresses[type eq "home"].formatted|String|
+   |addresses[type eq "other"].streetAddress|String|
+   |addresses[type eq "other"].locality|String|
+   |addresses[type eq "other"].region|String|
+   |addresses[type eq "other"].postalCode|String|
+   |addresses[type eq "other"].country|String|
+   |roles[primary eq "True"].display|String|
+   |roles[primary eq "True"].type|String|
    |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
@@ -154,28 +154,28 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: proxyAddresses|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute1|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute2|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute3|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute4|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute5|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute6|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute7|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute8|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute9|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute10|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute11|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute12|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute13|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute14|String|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute15|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:proxyAddresses|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute1|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute2|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute3|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute4|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute5|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute6|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute7|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute8|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute9|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute10|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute11|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute12|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute13|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute14|String|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute15|String|
 
 
 
-10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para sincronização de identidade de retransmissão global** .
+10. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Global Relay Identity Sync**.
 
-11. Examine os atributos de grupo que são sincronizados do Azure AD para a sincronização de identidade de retransmissão global na seção **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos na sincronização de identidade de retransmissão global para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo sincronizados do Azure AD com o Global Relay Identity Sync na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência dos grupos no Global Relay Identity Sync para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
       |Atributo|Type|
       |---|---|
@@ -184,19 +184,19 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento do Azure AD para sincronização de identidade de retransmissão global, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+13. Para habilitar o serviço de provisionamento do Azure AD no Global Relay Identity Sync, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você deseja provisionar para a sincronização de identidade de retransmissão global escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os usuários e/ou grupos que você gostaria de provisionar para o Global Relay Identity Sync escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **Salvar** .
+15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações** . O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de regressão: ML automatizado'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você aprenderá a gerar um modelo de machine learning usando machine learning automatizado. O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmo e a seleção de hiperparâmetro de maneira automatizada para você.
+description: Crie um experimento de machine learning automatizado que gere um modelo de regressão com base nos dados de treinamento e nas definições de configuração que você fornecer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896782"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358602"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar o workspace
 
-Crie um objeto de workspace a partir do workspace existente. Um [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo. `Workspace.from_config()` lê o arquivo **config. json** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é usado em todo o restante do código neste tutorial.
+Crie um objeto de workspace a partir do workspace existente. Um [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo. `Workspace.from_config()` lê o arquivo **config. json** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é usado em todo o restante do código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Explorar os resultados
 
-Explore os resultados do treinamento automático com um [widget do Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, em conjunto com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
+Explore os resultados do treinamento automático com um [widget do Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, em conjunto com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
 
 ```python
 from azureml.widgets import RunDetails

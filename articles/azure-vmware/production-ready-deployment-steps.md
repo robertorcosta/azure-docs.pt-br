@@ -3,12 +3,12 @@ title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517354"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287056"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
@@ -17,7 +17,7 @@ Este artigo oferece o processo de planejamento para identificar e coletar os dad
 Os processos deste início rápido resultam em um ambiente pronto para produção para a criação e migração de VMs (máquinas virtuais). 
 
 >[!IMPORTANT]
->Antes de criar o recurso da Solução VMware no Azure, siga o artigo [Como habilitar o recurso da Solução VMware no Azure](enable-azure-vmware-solution.md) para enviar um tíquete de suporte para alocar seus nós. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo. 
+>Antes de criar o recurso da Solução VMware no Azure, siga o artigo [Como habilitar o recurso da Solução VMware no Azure](enable-azure-vmware-solution.md) para enviar um tíquete de suporte para alocar seus hosts. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os hosts. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais hosts alocados, deverá passar pelo mesmo processo. 
 
 
 ## <a name="subscription"></a>Subscription
@@ -39,9 +39,9 @@ Identifique a região que você deseja que a Solução VMware no Azure seja impl
 
 Defina o nome do recurso que você usará durante a implantação.  O nome do recurso é um nome amigável e descritivo que você dará à nuvem privada da Solução VMware no Azure.
 
-## <a name="size-nodes"></a>Nós de tamanho
+## <a name="size-hosts"></a>Dimensionar hosts
 
-Identifique os nós de tamanho que você deseja usar ao implantar a Solução VMware no Azure.  Para obter uma lista completa, confira a documentação [Nuvens privadas e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#hosts).
+Identifique o tamanho dos hosts que você deseja usar ao implantar a Solução VMware no Azure.  Para obter uma lista completa, confira a documentação [Nuvens privadas e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#hosts).
 
 ## <a name="number-of-hosts"></a>Número de hosts
 

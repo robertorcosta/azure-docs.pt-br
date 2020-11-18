@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426251"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334662"
 ---
 ::: zone target="docs"
 
@@ -78,7 +78,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     
     ![Obter nome de usuário e senha para um compartilhamento](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Para acessar os compartilhamentos associados à sua conta de armazenamento ( *utsac1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
+3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*utsac1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -95,7 +95,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     The command completed successfully.
     ```
 
-4. Pressione Windows + R. Na janela **Executar** , especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
+4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
     ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -229,11 +229,11 @@ Durante o processo de cópia, se houver algum erro, você verá uma notificaçã
 
 Selecione **Baixar lista de problemas**.
 
-![Baixar e exibir erros em Conectar e copiar 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Conectar e copiar – Baixar lista de problemas](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra a lista para ver os detalhes do erro e selecione a URL de resolução para ver a resolução recomendada.
 
-![Baixar e exibir erros em Conectar e copiar 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Conectar e copiar – Baixar e exibir erros](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para obter mais informações, veja [Exibir logs de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja [Solucionar problemas do Data Box](data-box-troubleshoot.md).
 

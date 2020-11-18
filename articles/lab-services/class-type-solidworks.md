@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290726"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651797"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurar um laboratório para classes de engenharia usando o SOLIDWORKS
 
@@ -24,18 +24,18 @@ Neste artigo, mostraremos como configurar uma classe que usa o SOLIDWORKS 2019 e
 
 O licenciamento de rede do SOLIDWORKS requer que você tenha o Gerenciador de licenças do SolidNetWork instalado e ativado no servidor de licença.  Esse servidor de licença normalmente está localizado na sua rede local ou em uma rede privada no Azure.  Para obter mais informações sobre como configurar o Gerenciador de licenças do SolidNetWork em seu servidor, consulte [Instalando e ativando um Gerenciador de licenças](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) no guia de instalação do SolidWorks.  Ao configurá-lo, lembre-se do **número da porta** e do [**número de série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) que são usados, pois eles serão necessários em etapas posteriores.
 
-Depois que o servidor de licença estiver configurado, você precisará emparelhar a [rede virtual (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) para sua [conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  O emparelhamento de rede deve ser feito antes da criação do laboratório para que as máquinas virtuais do laboratório possam acessar o servidor de licença e o contrário.
+Depois que o servidor de licença estiver configurado, você precisará emparelhar a [rede virtual (VNet)](./how-to-connect-peer-virtual-network.md) para sua [conta de laboratório](./tutorial-setup-lab-account.md).  O emparelhamento de rede deve ser feito antes da criação do laboratório para que as máquinas virtuais do laboratório possam acessar o servidor de licença e o contrário.
 
 > [!NOTE]
-> Você deve verificar se as portas apropriadas estão abertas nos firewalls para permitir a comunicação entre as máquinas virtuais do laboratório e o servidor de licença.  Por exemplo, consulte as instruções sobre como [modificar as portas de computador do Gerenciador de licenças para o Firewall do Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) que mostram como adicionar regras de entrada e saída ao firewall do servidor de licenças.  Talvez você também precise abrir portas para as máquinas virtuais do laboratório.  Siga as etapas no artigo sobre [configurações de firewall para laboratórios](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) para obter mais informações sobre isso, incluindo como obter o endereço IP público do laboratório.
+> Você deve verificar se as portas apropriadas estão abertas nos firewalls para permitir a comunicação entre as máquinas virtuais do laboratório e o servidor de licença.  Por exemplo, consulte as instruções sobre como [modificar as portas de computador do Gerenciador de licenças para o Firewall do Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) que mostram como adicionar regras de entrada e saída ao firewall do servidor de licenças.  Talvez você também precise abrir portas para as máquinas virtuais do laboratório.  Siga as etapas no artigo sobre [configurações de firewall para laboratórios](./how-to-configure-firewall-settings.md) para obter mais informações sobre isso, incluindo como obter o endereço IP público do laboratório.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte o tutorial sobre [como configurar uma conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Você também pode usar uma conta de laboratório existente.
+Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte o tutorial sobre [como configurar uma conta de laboratório](./tutorial-setup-lab-account.md). Você também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
-Habilite as configurações descritas na tabela a seguir para a conta do laboratório. Para obter mais informações sobre como habilitar imagens do Marketplace, consulte o artigo sobre [como especificar imagens do Marketplace disponíveis para criadores de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Habilite as configurações descritas na tabela a seguir para a conta do laboratório. Para obter mais informações sobre como habilitar imagens do Marketplace, consulte o artigo sobre [como especificar imagens do Marketplace disponíveis para criadores de laboratório](./specify-marketplace-images.md).
 
 | Configuração da conta de laboratório | Instruções |
 | ------------------- | ------------ |

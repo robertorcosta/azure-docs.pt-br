@@ -7,31 +7,27 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74754c973dbe11d954a1714e9a98d99de639acd4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651134"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento em nuvem do Azure AD Connect
 Este artigo oferece diretrizes sobre como escolher e usar o provisionamento de nuvem do Azure AD Connect como solução de identidade.
-
-
 
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos do agente de provisionamento de nuvem
 Você precisa dos itens a seguir para usar o provisionamento de nuvem do Azure AD Connect:
     
 - Uma conta de administrador de identidade híbrida para seu locatário do Azure AD que não é um usuário convidado.
 - Um servidor local para o agente de provisionamento com Windows 2012 R2 ou posterior.  Esse servidor deve ser um servidor de camada 0 com base no [modelo de camada administrativa Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Credenciais de administrador de domínio ou de administrador corporativo para criar o Azure AD Connect gMSA de sincronização de nuvem (conta de serviço gerenciado de grupo) para executar o serviço do Agent.
 - Configurações de firewall local.
-
->[!NOTE]
->Atualmente, o agente de provisionamento só pode ser instalado em servidores de idioma inglês. Não será possível instalar um pacote de idiomas em inglês em um servidor que não seja em inglês, pois essa não é uma solução alternativa válida. 
 
 O restante do documento mostra instruções passo a passo para esses pré-requisitos.
 
@@ -57,7 +53,9 @@ Execute a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes-
         | --- | --- |
         | **80** | Baixa as listas de CRLs (certificados revogados) enquanto valida o certificado TLS/SSL.  |
         | **443** | Lida com toda a comunicação de saída com o serviço. |
+        |**8082**|Necessário para a instalação e se você quiser configurar sua API de administração.  Essa porta pode ser removida após a instalação do agente e se você não estiver planejando usar a API.   |
         | **8080** (opcional) | Agentes relatarão seu status a cada 10 minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. |
+   
      
    - Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o firewall ou proxy permitir especificar sufixos seguros, adicione conexões a \*.msappproxy.net e \*.servicebus.windows.net. servicebus.windows.net. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
@@ -66,6 +64,17 @@ Execute a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes-
 
 >[!NOTE]
 > Não há suporte para a instalação do agente de provisionamento de nuvem no Windows Server Core.
+
+## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
+Uma conta de serviço gerenciado de grupo é uma conta de domínio gerenciado que fornece gerenciamento automático de senhas, gerenciamento de SPN (nome da entidade de serviço) simplificado, a capacidade de delegar o gerenciamento a outros administradores e também estende essa funcionalidade em vários servidores.  Azure AD Connect a sincronização de nuvem dá suporte e usa um gMSA para executar o agente.  Você será solicitado a fornecer credenciais administrativas durante a instalação, a fim de criar essa conta.  A conta será exibida como (domain\provAgentgMSA $).  Para obter mais informações sobre um gMSA, consulte [contas de serviço gerenciado de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+### <a name="prerequisites-for-gmsa"></a>Pré-requisitos para gMSA:
+1.  O esquema de Active Directory na floresta do domínio gMSA precisa ser atualizado para o Windows Server 2012
+2.  [Módulos do RSAT do PowerShell](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) em um controlador de domínio
+3.  Pelo menos um controlador de domínio no domínio deve estar executando o Windows Server 2012.
+4.  Um servidor ingressado no domínio em que o agente está sendo instalado precisa ser o Windows Server 2012 ou posterior.
+
+Para obter as etapas sobre como atualizar um agente existente para usar uma conta do gMSA, consulte [contas de serviço gerenciado de grupo](how-to-install.md#group-managed-service-accounts).
 
 
 ### <a name="additional-requirements"></a>Requisitos adicionais
@@ -90,6 +99,8 @@ Para habilitar o TLS 1.2, siga estas etapas.
     ```
 
 1. Reinicie o servidor.
+
+
 
 
 ## <a name="next-steps"></a>Próximas etapas 

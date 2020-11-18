@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127021"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426538"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância do IoT Edge para análise de vídeo (VM do Linux)
 
@@ -55,7 +55,7 @@ Use as informações da seguinte tabela para completar o formulário de **Implan
 | Nome de Usuário do Administrador | *AzureUser* |
 | Senha do Administrador | Digite uma senha. Anote a senha do arquivo *scratchpad.txt*, pois você a usará mais tarde. |
 | ID de escopo | A **ID de Escopo** que você anotou no arquivo *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo de gateway. |
-| ID do Dispositivo | *lva-gateway-001*: o dispositivo de gateway que você criou no tutorial anterior. |
+| ID do Dispositivo | *gateway-001*: o dispositivo de gateway que você criou no tutorial anterior. |
 | Chave do Dispositivo | A chave primária do dispositivo que você anotou no arquivo *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo de gateway. |
 | Host de aplicativo do IoT Central | A **URL do Aplicativo** que você anotou no arquivo *scratchpad.txt* no tutorial anterior. Por exemplo, *traders.azureiotcentral.com*. |
 | Token da API do aplicativo do IoT Central | O token da API do operador que você anotou no tutorial anterior. |

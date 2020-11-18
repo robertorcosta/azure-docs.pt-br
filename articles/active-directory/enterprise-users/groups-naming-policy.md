@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e404b3eeadd8eef45e413eea2bd753d08cc505ca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650624"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos de Microsoft 365 no Azure Active Directory
 
@@ -91,14 +91,14 @@ Administradores selecionados podem ser isentos dessas políticas, em todas as ca
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Exibir ou editar a política de nomenclatura de sufixo de prefixo
 
-1. Na página **Política de nomenclatura** , escolha **Política de nomenclatura de grupos**.
+1. Na página **Política de nomenclatura**, escolha **Política de nomenclatura de grupos**.
 1. Para exibir ou editar individualmente as políticas de nomenclatura de prefixo ou sufixo atuais, escolha os atributos ou cadeias de caracteres que você deseja aplicar como parte da política de nomenclatura.
 1. Para remover um prefixo ou sufixo da lista, escolha o prefixo ou sufixo e, em seguida, escolha **Excluir**. É possível excluir vários itens ao mesmo tempo.
 1. Salve as alterações da nova política para entrar em vigor selecionando **salvar**.
 
 ### <a name="edit-custom-blocked-words"></a>Editar palavras bloqueadas personalizadas
 
-1. Na página **Política de nomenclatura** , escolha **Palavras bloqueadas**.
+1. Na página **Política de nomenclatura**, escolha **Palavras bloqueadas**.
 
     ![Editar e carregar uma lista de palavras bloqueadas da política de nomenclatura](./media/groups-naming-policy/blockedwords.png)
 
@@ -206,7 +206,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Remover a política de nomenclatura usando o portal do Azure
 
-1. Na página **Política de nomenclatura** , escolha **Excluir Política**.
+1. Na página **Política de nomenclatura**, escolha **Excluir Política**.
 1. Depois de confirmar a exclusão, a política de nomenclatura será removida, incluindo toda a política de nomenclatura de prefixo-sufixo e palavras bloqueadas personalizadas.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Remover a política de nomenclatura usando o PowerShell do Azure AD

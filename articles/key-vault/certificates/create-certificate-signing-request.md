@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569366"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289615"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criando e mesclando CSR no Key Vault
 
 O Azure Key Vault dá suporte ao armazenamento de certificado digital emitido por qualquer autoridade de certificação de sua escolha no cofre de chaves. Ele é compatível com a criação da solicitação de assinatura de certificado com um par de chaves pública/privada. Esse certificado pode ser assinado por qualquer Autoridade de Certificação de sua escolha. Pode ser AC corporativa interna ou AC pública externa. Uma solicitação de assinatura de certificado (também CSR ou solicitação de certificação) é uma mensagem que é enviada pelo usuário para uma AC (autoridade de certificação) a fim de solicitar a emissão de um certificado digital.
 
-Para obter mais informações gerais sobre certificados, confira [Certificados do Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Para obter mais informações gerais sobre certificados, confira [Certificados do Azure Key Vault](./about-certificates.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -74,7 +74,7 @@ As etapas a seguir ajudarão você a criar um certificado de autoridades de cert
     ![Propriedades do certificado](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Você verá que o certificado já foi adicionado na lista de Certificados. Selecione esse certificado que você acabou de criar. O estado atual do certificado será "desabilitado", pois ele ainda não foi emitido pela autoridade de certificação.
 7. Clique na guia **Operação de Certificado** e selecione **Baixar CSR**.
- ![Propriedades do certificado](../media/certificates/create-csr-merge-csr/download-csr.png)
+ ![Captura de tela que realça o botão Baixar CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Pegue o arquivo .csr na AC para que a solicitação seja assinada.
 9.  Depois que a solicitação for assinada pela autoridade de certificação, retorne o arquivo de certificado para **mesclar a solicitação assinada** na mesma tela de Operação de Certificado.
