@@ -2,13 +2,13 @@
 title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/17/2020
+ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949115"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697723"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -18,13 +18,13 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 
 | Namespace do provedor de recursos | Serviço do Azure |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Serviços de Domínio do Active Directory do Azure](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
 | Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Assistente do Azure](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
-| Microsoft.ApiManagement | [Gerenciamento de API](../../api-management/index.yml) |
+| Microsoft.ApiManagement | [Gerenciamento da API](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Configuração de Aplicativos do Azure](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Serviço de atestado do Azure |
@@ -56,12 +56,12 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Máquinas virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Escala de Máquina Virtual](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo<sup>1</sup> | [Gerenciamento de custos](/azure/cost-management/) |
+| Microsoft. consumo<sup>1</sup> | [Gerenciamento de Custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de Contêiner](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro de Contêiner](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml) |
-| Microsoft. CostManagement<sup>1</sup> | [Gerenciamento de custos](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gerenciamento de custos](/azure/cost-management/) |
+| Microsoft. CostManagement<sup>1</sup> | [Gerenciamento de Custos](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gerenciamento de Custos](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Sistema de Proteção de Dados do Cliente para Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provedores Personalizados do Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
@@ -85,7 +85,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Gêmeos Digitais do Azure](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
-| Microsoft.DomainRegistration | [Serviço de aplicativo](../../app-service/index.yml) |
+| Microsoft.DomainRegistration | [Serviço de Aplicativo](../../app-service/index.yml) |
 | Microsoft.DynamicsLcs | [Serviços de ciclo de vida](https://lcs.dynamics.com/Logon/Index ) |
 | Microsoft.EnterpriseKnowledgeGraph | Grafo de conhecimento corporativo |
 | Microsoft.EventGrid | [Grade de Eventos](../../event-grid/index.yml) |
@@ -96,7 +96,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.HardwareSecurityModules | [HSM Dedicado do Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
-| Microsoft.HybridCompute | [Arco do Azure](../../azure-arc/index.yml) |
+| Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zonas de borda privada](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Importação/Exportação do Azure](../../storage/common/storage-import-export-service.md) |
@@ -150,8 +150,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Agendador](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
-| Microsoft.Security | [Central de Segurança](../../security-center/index.yml) |
-| Microsoft.SecurityGraph | [Central de Segurança](../../security-center/index.yml) |
+| Microsoft.Security | [Central de segurança](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft. SerialConsole<sup>1</sup> | [Console serial do Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Barramento de Serviço](/azure/service-bus/) |
@@ -160,9 +159,9 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Services | core |
 | Microsoft.SignalRService | [Serviço Azure SignalR](../../azure-signalr/index.yml) |
 | Microsoft.SoftwarePlan | Licença |
-| Microsoft.Solutions | [Aplicativos gerenciados do Azure](../managed-applications/index.yml) |
+| Microsoft.Solutions | [Aplicativos Gerenciados do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Banco de Dados SQL do Azure](../../azure-sql/database/index.yml)<br /> [Instância Gerenciada do SQL do Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server em máquinas virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.SqlVirtualMachine | [SQL Server nas Máquinas Virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
@@ -174,10 +173,10 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Construtor de Imagens do Azure](../../virtual-machines/linux/image-builder-overview.md) |
-| microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Solução VMware no Azure](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Solução VMware no Azure pela CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft.Web | [Serviço de Aplicativo](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Proteção Avançada contra Ameaças do Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Atualizações de segurança estendidas |

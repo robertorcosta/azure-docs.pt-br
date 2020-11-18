@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f0627b809f56b813052cc763e6ff961f31aa02
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362766"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697128"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -36,6 +36,8 @@ Este artigo descreve como criar uma ou mais revisões de acesso para membros do 
 
 - Azure AD Premium P2
 - Administrador global ou administrador de usuário
+- Apresentação Os proprietários de recursos de grupos de Microsoft 365 podem criar análises sobre os grupos de Microsoft 365 que eles possuem
+- Apresentação Os proprietários de recursos dos grupos de segurança do Azure AD podem criar revisões nos grupos de segurança do Azure AD que eles possuem
 
 Para obter mais informações, veja [Requisitos de licença](access-reviews-overview.md#license-requirements).
 
@@ -57,7 +59,7 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
     ![Criar uma revisão de acesso - Data inicial e final](./media/create-access-review/start-end-dates.png)
 
-1. Para fazer com que a revisão de acesso seja recorrente, altere a configuração de **frequência** de **uma vez** para **semanal**, **mensal**, **trimestral**, **semianual**ou **anualmente**. Use o controle deslizante **Duração** ou caixa de texto para definir por quantos dias cada revisão da série recorrente será aberta para entrada de revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas.
+1. Para fazer com que a revisão de acesso seja recorrente, altere a configuração de **frequência** de **uma vez** para **semanal**, **mensal**, **trimestral**, **semianual** ou **anualmente**. Use o controle deslizante **Duração** ou caixa de texto para definir por quantos dias cada revisão da série recorrente será aberta para entrada de revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas.
 
 1. Use a configuração **Final** para especificar como terminar a série de revisão de acesso recorrente. A série pode terminar de três maneiras: 
     1. Ele é executado continuamente para iniciar revisões indefinidamente
@@ -164,7 +166,7 @@ Se você tiver atribuído convidados como revisores e eles não tiverem aceitado
 |Revisado automaticamente | As decisões foram registradas pelo sistema para todos os usuários que não foram revisados. A revisão está pronta para continuar a **aplicação** se a aplicação automática estiver habilitada. |
 |Solicita | Não haverá nenhuma alteração no acesso para usuários que foram aprovados. |
 |Aplicado | Os usuários negados, se houver algum, foram removidos do recurso ou diretório. |
-|Failed (Falha) | A revisão não pôde ser executada. Esse erro pode estar relacionado à exclusão do locatário, uma alteração nas licenças ou outras alterações internas do locatário. |
+|Com falha | A revisão não pôde ser executada. Esse erro pode estar relacionado à exclusão do locatário, uma alteração nas licenças ou outras alterações internas do locatário. |
 
 ## <a name="create-reviews-via-apis"></a>Criar revisões via APIs
 

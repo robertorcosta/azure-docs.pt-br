@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 22922972049ec78cc26f4d060fa1981d1f23a3ce
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a1a8df6d503ec5f5bf9c1e739e5ecf6486a85776
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912439"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697413"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -35,7 +35,7 @@ Quando os clientes externos para as VMs de back-end passarem pelo balanceador de
 
 **Validação e resolução**
 
-Os ILBs padrão são **seguros por padrão** . O ILBs básico permitia conectar-se à Internet por meio de um endereço IP público *oculto* . Isso não é recomendados para cargas de trabalho de produção, pois o endereço IP não é estático nem bloqueado por meio de NSGs que você possui. Se você passou recentemente de um ILB básico para um ILB padrão, deve criar um IP público explicitamente por meio da configuração de [saída](egress-only.md) que bloqueia o IP por meio de NSGs. Você também pode usar um [gateway NAT](../virtual-network/nat-overview.md) em sua sub-rede.
+Os ILBs padrão são **seguros por padrão**. O ILBs básico permitia conectar-se à Internet por meio de um endereço IP público *oculto* . Isso não é recomendados para cargas de trabalho de produção, pois o endereço IP não é estático nem bloqueado por meio de NSGs que você possui. Se você passou recentemente de um ILB básico para um ILB padrão, deve criar um IP público explicitamente por meio da configuração de [saída](egress-only.md) que bloqueia o IP por meio de NSGs. Você também pode usar um [gateway NAT](../virtual-network/nat-overview.md) em sua sub-rede.
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: VMs por trás do Load Balancer não estão respondendo às investigações de integridade
 Para que os servidores back-end participem do conjunto de balanceadores de carga, eles devem passar na verificação de investigação. Para saber mais sobre investigações de integridade, confira [Noções básicas sobre investigações do Load Balancer](load-balancer-custom-probe-overview.md). 
@@ -60,8 +60,8 @@ Se a VM estiver em estado íntegro, mas não estiver respondendo à investigaç�
 1. Faça logon na VM de back-end. 
 2. Abra um prompt de comando e execute o seguinte comando para verificar se existe um aplicativo escutando na porta de investigação:   
             netstat -an
-3. Se o estado da porta não estiver listado como **LISTENING** , configure a porta correta. 
-4. Como alternativa, selecione outra porta, que esteja listada como **LISTENING** , e atualize adequadamente a configuração do Load Balancer.              
+3. Se o estado da porta não estiver listado como **LISTENING**, configure a porta correta. 
+4. Como alternativa, selecione outra porta, que esteja listada como **LISTENING**, e atualize adequadamente a configuração do Load Balancer.              
 
 ### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: O firewall, ou um grupo de segurança de rede, está bloqueando a porta nas VMs do pool de back-end do balanceador de carga  
 Se o firewall na VM estiver bloqueando a porta de investigação, ou um ou mais grupos de segurança de rede configurados na sub-rede ou na VM, não estiverem permitindo que a investigação alcance a porta, a VM não poderá responder à investigação de integridade.          
@@ -87,7 +87,7 @@ Se todas as causas anteriores, aparentemente, tiverem sido validadas e resolvida
         - Se não forem observados pacotes de entrada na VM do pool de back-end, possivelmente, há uma configuração incorreta de UDR ou grupos de segurança de rede bloqueando o tráfego. 
         - Se não forem observados pacotes de saída na VM do pool de back-end, será preciso verificar se há problemas não relacionados na VM (por exemplo, um aplicativo bloqueando a porta de investigação). 
     - Verifique se os pacotes de investigação estão sendo forçados para outro destino (possivelmente por meio de configurações UDR) antes de chegarem ao Load Balancer. Isso pode fazer com que o tráfego nunca chegue à VM de back-end. 
-* Altere o tipo de investigação (por exemplo, HTTP para TCP) e configure a porta correspondente nas ACLs dos grupos de segurança de rede e no firewall a fim de verificar se o problema é com a configuração da resposta de investigação. Para saber mais sobre a configuração da investigação de integridade, confira [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/) (Configuração da investigação de integridade no balanceamento de carga do ponto de extremidade).
+* Altere o tipo de investigação (por exemplo, HTTP para TCP) e configure a porta correspondente nas ACLs dos grupos de segurança de rede e no firewall a fim de verificar se o problema é com a configuração da resposta de investigação. Para saber mais sobre a configuração da investigação de integridade, confira [Endpoint Load Balancing health probe configuration](/archive/blogs/mast/endpoint-load-balancing-heath-probe-configuration-details) (Configuração da investigação de integridade no balanceamento de carga do ponto de extremidade).
 
 ## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Sintoma: As VMs por trás do Load Balancer não estão respondendo ao tráfego na porta de dados configurada
 
@@ -133,7 +133,7 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 
 Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtual e uma das VMs de backend do participante estiver tentando acessar o frontend interno do Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário.
 
-**Resolução** há várias maneiras para desbloquear este cenário, incluindo o uso de um proxy. Avalie o Gateway de aplicativo ou outros proxies 3ª de terceiros (por exemplo, nginx ou haproxy). Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
+**Resolução** há várias maneiras para desbloquear este cenário, incluindo o uso de um proxy. Avalie o Gateway de aplicativo ou outros proxies 3ª de terceiros (por exemplo, nginx ou haproxy). Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/overview.md)
 
 **Detalhes** Os Load Balancers internos não movem conexões originadas pela saída para o front-end de um Load Balancer interno porque ambos estão no espaço de endereços IP privado. Os Load Balancers fornecem [conexões de saída](load-balancer-outbound-connections.md) de endereços IP privados dentro da rede virtual para os endereços IP públicos. Para Load Balancers internos, essa abordagem evita possível esgotamento da porta SNAT em um espaço de endereços IP interno único, onde a movimentação não é obrigatória.
 
@@ -143,7 +143,7 @@ Quando o fluxo é mapeado de volta para si mesmo, o fluxo de saída parece ser o
 
 O sintoma desse cenário é que a conexão intermitente se esgota quando o fluxo retorna para o mesmo back-end que originou o fluxo. Soluções alternativas comuns incluem a inserção de uma camada proxy por trás do Load Balancer interno e o uso de regras de estilo DSR (Retorno de Servidor Direto). Para obter mais informações, consulte [Vários front-ends para o Azure Load Balancer](load-balancer-multivip-overview.md).
 
-É possível combinar um Load Balancer interno com qualquer proxy de terceiros ou usar o [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md) interno para cenários de proxy com HTTP/HTTPS. Embora você possa usar um Load Balancer público para atenuar esse problema, o cenário resultante estará propenso ao [esgotamento de SNAT](load-balancer-outbound-connections.md). Evite essa segunda abordagem, a menos que seja cuidadosamente gerenciada.
+É possível combinar um Load Balancer interno com qualquer proxy de terceiros ou usar o [Gateway de Aplicativo](../application-gateway/overview.md) interno para cenários de proxy com HTTP/HTTPS. Embora você possa usar um Load Balancer público para atenuar esse problema, o cenário resultante estará propenso ao [esgotamento de SNAT](load-balancer-outbound-connections.md). Evite essa segunda abordagem, a menos que seja cuidadosamente gerenciada.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintoma: Não é possível alterar a porta de back-end para a regra de LB existente de um balanceador de carga que tem um conjunto de dimensionamento de VM implantado no pool de back-end. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa: a porta de back-end não pode ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade para o balanceador de carga referenciado pelo conjunto de dimensionamento de VM.
@@ -172,4 +172,3 @@ Se você optar por abrir um caso de suporte, colete as informações a seguir pa
 ## <a name="next-steps"></a>Próximas etapas
 
 Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
-

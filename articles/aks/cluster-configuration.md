@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698063"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 Se você quiser criar pools de nós com a imagem do AKS Ubuntu 16, 4, poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada.
 
+## <a name="container-runtime-configuration"></a>Configuração de tempo de execução de contêiner
 
-## <a name="container-runtime-configuration-preview"></a>Configuração de tempo de execução de contêiner (versão prévia)
+Um tempo de execução de contêiner é um software que executa contêineres e gerencia imagens de contêiner em um nó. O tempo de execução ajuda a abstrair as chamadas sys ou a funcionalidade específica do sistema operacional (SO) para executar contêineres no Linux ou no Windows. Clusters AKS usando pools de nós do kubernetes versão 1,19 e maior uso `containerd` como seu tempo de execução de contêiner. Os clusters AKS usando kubernetes antes do v 1.19 para pools de nós usam [Moby](https://mobyproject.org/) (upstream Docker) como seu tempo de execução de contêiner.
 
-Um tempo de execução de contêiner é um software que executa contêineres e gerencia imagens de contêiner em um nó. O tempo de execução ajuda a abstrair as chamadas sys ou a funcionalidade específica do sistema operacional (SO) para executar contêineres no Linux ou no Windows. Hoje, o AKS está usando [Moby](https://mobyproject.org/) (upstream enencaixer) como seu tempo de execução de contêiner. 
-    
 ![CRI do Docker 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) é um tempo de execução de contêiner de núcleo em conformidade com o protocolo [OCI](https://opencontainers.org/) (Open container Initiative) que fornece o conjunto mínimo de funcionalidades necessárias para executar contêineres e gerenciar imagens em um nó. Ele foi [donate](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) para a nuvem (CNCF) de computação nativa em março de 2017. A versão atual do Moby que o AKS usa hoje já utiliza e é criada com base em `containerd` , conforme mostrado acima. 
+[`Containerd`](https://containerd.io/) é um tempo de execução de contêiner de núcleo em conformidade com o protocolo [OCI](https://opencontainers.org/) (Open container Initiative) que fornece o conjunto mínimo de funcionalidades necessárias para executar contêineres e gerenciar imagens em um nó. Ele foi [donate](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) para a nuvem (CNCF) de computação nativa em março de 2017. A versão atual do Moby que o AKS usa já utiliza e é criada com base em `containerd` , conforme mostrado acima.
 
-Com um nó baseado em contêineres e pools de nós, em vez de conversar com o `dockershim` , o kubelet se comunicará diretamente com `containerd` o plug-in do CRI (contêiner de tempo de execução da interface), removendo saltos extras no fluxo quando comparado à implementação do CRI do Docker. Dessa forma, você verá uma melhor latência de inicialização de Pod e o uso de menos recursos (CPU e memória).
+Com os `containerd` pools de nó e nó baseados em um, em vez de conversar com o `dockershim` , o kubelet se comunicará diretamente com `containerd` o plug-in do CRI (contêiner de tempo de execução da interface), removendo saltos extras no fluxo quando comparado à implementação do CRI do Docker. Dessa forma, você verá uma melhor latência de inicialização de Pod e o uso de menos recursos (CPU e memória).
 
 Usando `containerd` o para nós AKs, a latência de inicialização de Pod melhora e o consumo de recursos de nó pelo tempo de execução do contêiner diminui. Esses aprimoramentos são habilitados por essa nova arquitetura, na qual o kubelet conversa diretamente com `containerd` o por meio do plug-in do CRI, enquanto na arquitetura Moby/Docker kubelet se comunicaria com o `dockershim` mecanismo do Docker antes de atingir `containerd` , portanto, com saltos extras no fluxo.
 
 ![CRI do Docker 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` funciona em todas as versões de GA do kubernetes no AKS e em todas as versões de kubernetes upstream acima da versão v 1.10 e dá suporte a todos os recursos kubernetes e AKS.
+`Containerd` funciona em todas as versões de GA do kubernetes no AKS e em cada versão de kubernetes de upstream acima de v 1.19 e dá suporte a todos os recursos kubernetes e AKS.
 
 > [!IMPORTANT]
-> Depois `containerd` que o estiver disponível em AKs, ele será o padrão e apenas a opção disponível para o tempo de execução do contêiner em novos clusters. Você ainda pode usar o Moby nodepools e os clusters em versões mais antigas com suporte até que eles fiquem com suporte. 
+> Clusters com pools de nós criados no kubernetes v 1.19 ou superior padrão para `containerd` para seu tempo de execução de contêiner. Clusters com pools de nós em uma versão de kubernetes com suporte inferior a 1,19 recebem `Moby` para seu tempo de execução de contêiner, mas serão atualizados para `ContainerD` quando a versão do pool de nós kubernetes for atualizada para v 1.19 ou superior. Você ainda pode usar `Moby` pools de nós e clusters em versões mais antigas com suporte até o desligamento do suporte.
 > 
-> Recomendamos que você teste suas cargas de trabalho em `containerd` pools de nós antes de atualizar ou criar novos clusters com esse tempo de execução de contêiner.
+> É altamente recomendável testar suas cargas de trabalho em pools de nós AKS com `containerD` antes de usar clusters em 1,19 ou superior.
+
+A seção a seguir explicará como você pode usar e testar o AKS com `containerD` clusters que ainda não estão usando uma versão 1,19 ou superior do kubernetes, ou foram criados antes que esse recurso fique disponível para o público em geral, usando a visualização de configuração de tempo de execução do contêiner.
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>Usar `containerd` como seu tempo de execução de contêiner (versão prévia)
 

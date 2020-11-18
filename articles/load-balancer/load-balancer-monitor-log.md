@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935595"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698318"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs do Azure Monitor para o Basic Load Balancer
 
 Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas básicos de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal. Os logs podem ser transmitidos para um hub de eventos ou um espaço de trabalho Log Analytics. Todos os logs podem ser extraídos do armazenamento de BLOBs do Azure e exibidos em diferentes ferramentas, como Excel e Power BI.  Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
-* **Logs de atividade:** Você pode usar [Exibir logs de atividades para monitorar ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) para exibir todas as atividades que estão sendo enviadas para suas assinaturas do Azure e seu status. Os logs de atividade são habilitados por padrão e podem ser exibidos no portal do Azure.
+* **Logs de atividade:** Você pode usar [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) para exibir todas as atividades que estão sendo enviadas para suas assinaturas do Azure e seu status. Os logs de atividade são habilitados por padrão e podem ser exibidos no portal do Azure.
 * **Logs de eventos de alerta:** você pode usar esse log para ver quais alertas foram gerados para o balanceador de carga. O status do balanceador de carga é coletado a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.
 * **Logs de investigação de integridade:** Você pode usar esse log para exibir os problemas detectados pelo seu teste de integridade, como o número de instâncias no pool de back-end que não estão recebendo solicitações do balanceador de carga devido a falhas de investigação de integridade. Esse log é gravado quando há uma alteração no status de investigação de integridade.
 
@@ -35,7 +35,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 
 O log de atividade é habilitado automaticamente para todos os recursos do Resource Manager. Habilite o log de investigação de integridade e de evento para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
 
-Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
+Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](./quickstart-load-balancer-standard-public-portal.md) antes de continuar.
 
 1. No portal, clique em **grupos de recursos**.
 2. Selecione **\<resource-group-name>** onde está o balanceador de carga.
@@ -49,7 +49,7 @@ Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver 
    * **Enviar para o Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Arquivar em uma conta de armazenamento
-    Você precisará de uma conta de armazenamento já criada para esse processo.  Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    Você precisará de uma conta de armazenamento já criada para esse processo.  Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal)
 
     1. Marque a caixa de seleção ao lado de **arquivar em uma conta de armazenamento**.
     2. Selecione **Configurar** para abrir o painel **selecionar uma conta de armazenamento** .
@@ -58,7 +58,7 @@ Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver 
     5. Selecione OK.
 
     ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
-    Você precisará de um hub de eventos já criado para esse processo.  Para criar um hub de eventos, consulte [início rápido: criar um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+    Você precisará de um hub de eventos já criado para esse processo.  Para criar um hub de eventos, consulte [início rápido: criar um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)
 
     1. Marque a caixa de seleção ao lado de **transmitir para um hub de eventos**
     2. Selecione **Configurar** para abrir o painel **selecionar Hub de eventos** .
@@ -68,7 +68,7 @@ Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver 
     6. Selecione OK.
 
     ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-    Você precisará já ter um espaço de trabalho do log Analytics criado e configurado para esse processo.  Para criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    Você precisará já ter um espaço de trabalho do log Analytics criado e configurado para esse processo.  Para criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md)
 
     1. Marque a caixa de seleção ao lado de **Enviar para log Analytics**.
     2. Selecione a **assinatura** na qual seu espaço de trabalho do log Analytics está na caixa de pull.
@@ -86,9 +86,9 @@ Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver 
 
 ## <a name="activity-log"></a>Log de atividades
 
-O log de atividades é gerado por padrão. Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) .
+O log de atividades é gerado por padrão. Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
 
-## <a name="archive-to-storage-account-logs"></a>Arquivar em logs de conta de armazenamento
+## <a name="archive-to-storage-account-logs"></a>Arquivar logs da conta de armazenamento
 
 ### <a name="alert-event-log"></a>Log de eventos de alerta
 
@@ -171,7 +171,7 @@ Conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para
 Quando as informações de diagnóstico são transmitidas para um hub de eventos, elas podem ser usadas para análise de log centralizada em uma ferramenta SIEM de terceiros com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-Os recursos no Azure podem ter suas informações de diagnóstico enviadas diretamente para um espaço de trabalho Log Analytics onde consultas complexas podem ser executadas em relação às informações para solução de problemas e análise.  Para obter mais informações, consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Os recursos no Azure podem ter suas informações de diagnóstico enviadas diretamente para um espaço de trabalho Log Analytics onde consultas complexas podem ser executadas em relação às informações para solução de problemas e análise.  Para obter mais informações, consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 ## <a name="next-steps"></a>Próximas etapas
 

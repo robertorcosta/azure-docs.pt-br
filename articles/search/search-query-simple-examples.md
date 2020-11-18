@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740676"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697247"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Criar uma consulta simples no Azure Pesquisa Cognitiva
 
@@ -27,13 +27,13 @@ Uma sintaxe de consulta alternativa é o [Lucene completo](query-lucene-syntax.m
 
 Os exemplos a seguir utilizam um índice de pesquisa de Trabalhos de Nova Iorque que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pelo [OpenData da cidade de Nova Iorque](https://nycopendata.socrata.com/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que você não precisa de uma assinatura do Azure ou Pesquisa Cognitiva do Azure para tentar essas consultas.
 
-O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [início rápido: explorar a API REST do Azure pesquisa cognitiva usando o postmaster](search-get-started-postman.md).
+O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [início rápido: explorar a API REST do Azure pesquisa cognitiva](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Definir o cabeçalho de solicitação
 
 1. No cabeçalho de solicitação, defina **Content-Type** para `application/json`.
 
-2. Adicione uma**api-key** e defina-a para essa cadeia de caracteres: `252044BE3886FE4A8E3BAA4F595114BB`. Essa é uma chave de consulta para o serviço de pesquisa de área restrita que hospeda o índice Trabalhos de Nova Iorque.
+2. Adicione uma **api-key** e defina-a para essa cadeia de caracteres: `252044BE3886FE4A8E3BAA4F595114BB`. Essa é uma chave de consulta para o serviço de pesquisa de área restrita que hospeda o índice Trabalhos de Nova Iorque.
 
 Após especificar o cabeçalho de solicitação, você poderá reutilizá-lo para todas as consultas neste artigo, trocando apenas a cadeia de caracteres **search=**. 
 
@@ -43,7 +43,7 @@ Após especificar o cabeçalho de solicitação, você poderá reutilizá-lo par
 
 A solicitação é um comando GET emparelhado com uma URL que contém o ponto de extremidade Pesquisa Cognitiva do Azure e a cadeia de caracteres de pesquisa.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="GET de cabeçalho de solicitação do postmaster" border="false":::
 
 A composição de URL possui os elementos a seguir:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 A resposta para essa consulta deve ser semelhante à captura de tela a seguir.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Resposta de exemplo do Postman" border="false":::
 
 Você deve ter notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, seja porque a pesquisa não foi pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Quando você incluir critérios reais, verá as pontuações da pesquisa evoluir para valores significativos.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Usado em conjunto, o filtro é aplicado primeiro ao índice inteiro e, em seguida, a pesquisa é executada nos resultados do filtro. Os filtros, portanto, podem ser uma técnica útil para melhorar o desempenho da consulta, uma vez que reduzem o conjunto de documentos que a consulta de pesquisa precisa processar.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filtrar resposta da consulta" border="false":::
 
 Se quiser experimentar isso no Postman usando GET, você pode colar nesta cadeia de caracteres:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtro de intervalo para intervalos numéricos" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtro de intervalo para intervalos de texto" border="false":::
 
 Também é possível experimentá-los no Postman usando GET:
 
@@ -251,14 +251,14 @@ Usando o searchMode padrão (qualquer), 2800 documentos são retornados: aqueles
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="modo de pesquisa qualquer" border="false":::
 
 Alterar searchMode para `all` impõe um efeito cumulativo aos critérios e retorna um conjunto de resultados menor - 21 documentos - que consiste em documentos contendo toda a frase "corpo de bombeiros", menos esses trabalhos no endereço do Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="modo de pesquisa todos" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exemplo 8: resultados de estruturação
 

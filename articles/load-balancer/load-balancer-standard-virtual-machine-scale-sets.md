@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
-ms.openlocfilehash: 41f1d6c18eab35bd1a41d4cfa98d0cbda69b35ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdca40d5113f06d185255be2e237cb52b47e9793
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650325"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697434"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure Load Balancer com conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -54,6 +54,6 @@ Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e balanceado
 
 Os métodos a seguir podem ser usados para implantar um conjunto de dimensionamento de máquinas virtuais com um balanceador de carga do Azure existente.
 
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure](./configure-vm-scale-set-portal.md).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell](./configure-vm-scale-set-powershell.md).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure](./configure-vm-scale-set-cli.md).
