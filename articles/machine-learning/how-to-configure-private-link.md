@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312737"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842695"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning
 
@@ -39,7 +39,7 @@ O uso de um espaço de trabalho Azure Machine Learning com o link privado não e
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Criar um espaço de trabalho que usa um ponto de extremidade privado
 
-Use um dos métodos a seguir para criar um espaço de trabalho com um ponto de extremidade privado. Cada um desses métodos __requer uma rede virtual existente__ :
+Use um dos métodos a seguir para criar um espaço de trabalho com um ponto de extremidade privado. Cada um desses métodos __requer uma rede virtual existente__:
 
 > [!TIP]
 > Se você quiser criar um espaço de trabalho, um ponto de extremidade privado e uma rede virtual ao mesmo tempo, consulte [usar um modelo de Azure Resource Manager para criar um espaço de trabalho para Azure Machine Learning](how-to-create-workspace-template.md).
@@ -115,8 +115,8 @@ az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint
 
 No espaço de trabalho Azure Machine Learning no portal, selecione __conexões de ponto de extremidade privadas__ e, em seguida, selecione __+ ponto de extremidade privado__. Use os campos para criar um novo ponto de extremidade privado.
 
-* Ao selecionar a __região__ , selecione a mesma região que sua rede virtual. 
-* Ao selecionar __tipo de recurso__ , use __Microsoft. MachineLearningServices/Workspaces__. 
+* Ao selecionar a __região__, selecione a mesma região que sua rede virtual. 
+* Ao selecionar __tipo de recurso__, use __Microsoft. MachineLearningServices/Workspaces__. 
 * Defina o __recurso__ para o nome do espaço de trabalho.
 
 Por fim, selecione __criar__ para criar o ponto de extremidade privado.

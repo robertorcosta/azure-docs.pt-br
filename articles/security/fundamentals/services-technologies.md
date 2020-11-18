@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700752"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842729"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
@@ -71,7 +71,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Um repositório de autenticação baseado em nuvem que oferece suporte a um diretório de multilocatário, baseados em nuvem e vários serviços de gerenciamento de identidade no Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Um serviço de gerenciamento de identidade que permite controlar como os clientes se inscrevem, entram e gerenciam seus perfis ao usar aplicativos baseados no Azure.   |
 | [Serviços de Domínio do Active Directory do Azure](../../active-directory-domain-services/overview.md)| Uma versão com base em nuvem e gerenciada do Active Directory Domain Services. |
-| [Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)| Uma provisão de segurança que emprega várias formas diferentes de autenticação e verificação antes de permitir acesso a informações protegidas. |
+| [Autenticação multifator do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)| Uma provisão de segurança que emprega várias formas diferentes de autenticação e verificação antes de permitir acesso a informações protegidas. |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
 |Serviço|Descrição|

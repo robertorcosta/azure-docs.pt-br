@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002296"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842627"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -70,7 +70,7 @@ A Área de Trabalho Virtual do Windows tem muitos controles de segurança intern
 
 ### <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-Exigir a autenticação multifator para todos os usuários e administradores na Área de Trabalho Virtual do Windows melhora a segurança de toda a implantação. Para saber mais, consulte [Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows](set-up-mfa.md).
+Exigir a autenticação multifator para todos os usuários e administradores na Área de Trabalho Virtual do Windows melhora a segurança de toda a implantação. Para saber mais, confira [habilitar a autenticação multifator do Azure ad para área de trabalho virtual do Windows](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Habilitar o Acesso Condicional
 
