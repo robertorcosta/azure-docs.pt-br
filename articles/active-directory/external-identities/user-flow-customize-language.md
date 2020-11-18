@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576505"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837083"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalização de idioma no Azure Active Directory (versão prévia)
 
@@ -37,14 +37,14 @@ Por padrão, a personalização de idioma é habilitada para os usuários que se
 A personalização de idioma permite personalizar qualquer cadeia de caracteres no fluxo de usuário.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador do Microsoft Azure AD.
-2. Em **Serviços do Azure** , selecione **Azure Active Directory**.
+2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
 4. Selecione **fluxos dos usuários (Versão Prévia)** .
 3. Selecione o fluxo do usuário que deseja habilitar para traduções.
 4. Selecione os **Idiomas**.
 5. Na página **Idiomas** do fluxo de usuário, selecione o idioma que você quer personalizar.
 6. Expanda a **página Coleção de Atributos**.
-7. Selecione **Baixar Padrões** (ou **Baixar substituições** , se esse idioma já foi editado anteriormente).
+7. Selecione **Baixar Padrões** (ou **Baixar substituições**, se esse idioma já foi editado anteriormente).
 
 Essas etapas fornecem um arquivo JSON que você pode usar para começar a editar suas cadeias de caracteres.
 
@@ -146,7 +146,7 @@ Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com supor
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
-O Azure AD inclui suporte para os idiomas a seguir. Os idiomas do fluxo do usuário são fornecidos pelo Azure AD. Os idiomas de notificação da MFA (autenticação multifator) são fornecidos pelo [MFA do Azure](../authentication/concept-mfa-howitworks.md).
+O Azure AD inclui suporte para os idiomas a seguir. Os idiomas do fluxo do usuário são fornecidos pelo Azure AD. As linguagens de notificação da MFA (autenticação multifator) são fornecidas pelo [Azure ad MFA](../authentication/concept-mfa-howitworks.md).
 
 | Linguagem              | Código de idioma | Fluxos de usuário         | Notificações da MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

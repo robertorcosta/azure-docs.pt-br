@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cb1e021049b7c36c4c23f2e9a6a7512fba1110
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 71726724e7c018f34b1175f323d0c8e55b604931
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146120"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836471"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -457,7 +457,7 @@ Com essa nova função, você se beneficia dos privilégios mínimos necessário
 **Categoria de serviço:** Privileged Identity Management  
 **Funcionalidade do produto:** Privileged Identity Management
  
-Anteriormente, a integração ao Privileged Identity Management (PIM) exigia o consentimento do usuário e um fluxo de integração na folha do PIM que incluía o registro no Azure MFA. Com a recente integração da experiência do PIM na folha de funções e administradores do Azure AD, estamos removendo essa experiência. Qualquer locatário com licença P2 válida será integrado automaticamente ao PIM.
+Anteriormente, a integração ao Privileged Identity Management (PIM) exigia o consentimento do usuário e um fluxo de integração na folha do PIM que incluía o registro no Azure AD MFA. Com a recente integração da experiência do PIM na folha de funções e administradores do Azure AD, estamos removendo essa experiência. Qualquer locatário com licença P2 válida será integrado automaticamente ao PIM.
 
 A integração ao PIM não tem nenhum efeito adverso direto no seu locatário. Você pode esperar as seguintes alterações:
 - Opções de atribuição adicionais, como ativas versus qualificadas com hora de início e de término, quando você faz uma atribuição na folha de funções e administradores do PIM ou do Azure AD. 

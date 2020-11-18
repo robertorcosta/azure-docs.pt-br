@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266775"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837100"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -82,14 +82,14 @@ Veja abaixo como essas ações podem ser corrigidas.
       Para registrar novamente os dispositivos Windows 10 e Windows Server 2016/2019 ingressados no Azure AD, execute as seguintes etapas:
 
       1. Abra o prompt de comando como administrador.
-      1. Insira `dsregcmd.exe /debug /leave`.
+      1. Digite `dsregcmd.exe /debug /leave`.
       1. Saia e entre para disparar a tarefa agendada que registra o dispositivo com o Azure AD novamente. 
 
       Para versões de sistema operacional Windows de nível inferior associadas ao Azure AD híbrido, execute as seguintes etapas:
 
       1. Abra o prompt de comando como administrador.
-      1. Insira `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-      1. Insira `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+      1. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+      1. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
       Para dispositivos ingressados no Azure AD dispositivos Windows 10, execute as seguintes etapas:
 
@@ -198,7 +198,7 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: por que alguns dos meus usuários obtêm prompts da autenticação multifator do Azure em dispositivos ingressados no Azure AD?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: por que alguns dos meus usuários obtêm prompts da autenticação multifator do Azure AD em dispositivos ingressados no Azure AD?
 
 **R:** Um usuário pode ingressar ou registrar um dispositivo com o Azure AD usando a autenticação multifator. Em seguida, o próprio dispositivo torna-se um segundo fator confiável para esse usuário. Sempre que o mesmo usuário faz logon no dispositivo e acessa um aplicativo, o Azure AD considera o dispositivo como um segundo fator. Ele permite que o usuário acesse diretamente os aplicativos sem prompts de autenticação multifator adicionais. 
 
@@ -291,7 +291,7 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 
 **Um** 
 - Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
-- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações**de aplicativo  >  **Device Registration** e selecionar **Cancelar registro de dispositivo**.
+- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações** de aplicativo  >  **Device Registration** e selecionar **Cancelar registro de dispositivo**.
 - Para o macOS, você pode usar o aplicativo Microsoft Intune Portal da Empresa para cancelar o registro do dispositivo do gerenciamento e remover qualquer registro. 
 
 ---

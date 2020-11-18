@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371878"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836811"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD)? Os planos de implantação do Azure AD orientam você pelo valor de negócios, considerações de planejamento e procedimentos operacionais necessários para implantar com êxito recursos comuns do Azure AD.
@@ -40,13 +40,13 @@ As funções podem incluir o seguinte
 
 **Os níveis de envolvimento podem incluir:**
 
-- **R**esponsible para implementar o plano e o resultado do projeto 
+- **R** esponsible para implementar o plano e o resultado do projeto 
 
-- **Um**pproval do plano e do resultado do projeto 
+- **Um** pproval do plano e do resultado do projeto 
 
-- **C**para o plano e o resultado do projeto 
+- **C** para o plano e o resultado do projeto 
 
-- **Eu**nformed o plano e o resultado do projeto
+- **Eu** nformed o plano e o resultado do projeto
 
 
 ## <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto
@@ -61,7 +61,7 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 
 | Funcionalidade | Descrição|
 | -| -|
-| [Autenticação Multifator](../authentication/howto-mfa-getstarted.md)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a proteger o acesso a seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de logon simples. |
+| [Autenticação Multifator](../authentication/howto-mfa-getstarted.md)| A MFA (autenticação multifator) do Azure AD é a solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure AD MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de entrada simples. |
 | [Acesso Condicional](../conditional-access/plan-conditional-access.md)| Com o Acesso Condicional, você pode implementar decisões de controle de acesso automatizado sobre quem pode acessar os aplicativos de nuvem com base em condições. |
 | [Redefinição de senha de autoatendimento](../authentication/howto-sspr-deployment.md)| A redefinição de senha de autoatendimento ajuda os usuários a redefinir suas senhas sem a intervenção do administrador, quando e onde eles precisam. |
 | [Sem senha](../authentication/howto-authentication-passwordless-deployment.md) | Implementar a autenticação com senha usando o aplicativo Microsoft Authenticator ou as chaves de segurança FIDO2 em sua organização |
@@ -88,7 +88,7 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 
 | Funcionalidade | Descrição|
 | -| -|
-| [Provisionamento de usuário](../app-provisioning/plan-auto-user-provisioning.md)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
+| [Provisionamento do usuário](../app-provisioning/plan-auto-user-provisioning.md)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
 | [Provisionamento de usuário de RH na nuvem](../app-provisioning/plan-cloud-hr-provision.md)| O provisionamento de usuário de RH na nuvem para Active Directory cria uma base para governança de identidade contínua e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa. Usando esse recurso com seu produto de RH de nuvem, como workday ou Successfactors, você pode gerenciar o ciclo de vida de identidade de funcionários e trabalhos contingentes Configurando regras que mapeiam processos de movimentação de União-movimento (como novas contratações, término e transferência) para ações de provisionamento de ti (como criar, habilitar, desabilitar) |
 
 ## <a name="deploy-governance-and-reporting"></a>Implantar governança e relatórios

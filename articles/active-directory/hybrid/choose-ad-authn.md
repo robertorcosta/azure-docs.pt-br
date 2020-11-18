@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 15d62f40b50617fd1f6e543cb404a0d38361d3bd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410267"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836488"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory
 
@@ -92,7 +92,7 @@ Detalhes sobre questões de decisão:
 
 * **Cenários avançados**. Se for uma escolha das organizações, é possível usar insights de identidades com relatórios do Azure AD Identity Protection com o Azure AD Premium P2. Um exemplo é o relatório de credenciais vazadas. O Windows Hello para Empresas tem [requisitos específicos quando a sincronização de hash de senha é usada](/windows/access-protection/hello-for-business/hello-identity-verification). [O Azure AD Domain Services](../../active-directory-domain-services/tutorial-create-instance.md) requer a sincronização de hash de senha para provisionar aos usuários as credenciais corporativas no domínio gerenciado.
 
-    As organizações que exigem a autenticação multifator com a sincronização de hash de senha precisam usar a autenticação multifator do Azure ou os [controles personalizados do Acesso Condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar um método de autenticação multifator local ou de terceiros que dependa da federação.
+    As organizações que exigem a autenticação multifator com a sincronização de hash de senha devem usar a autenticação multifator do Azure AD ou [controles personalizados de acesso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar um método de autenticação multifator local ou de terceiros que dependa da federação.
 
 > [!NOTE]
 > O Acesso condicional do Azure AD requer licenças do [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -102,7 +102,7 @@ Detalhes sobre questões de decisão:
 * **Considerações**. No momento, a sincronização de hash de senha não impõe imediatamente as alterações nos estados da conta local. Nessa situação, um usuário tem acesso aos aplicativos de nuvem até que o estado da conta do usuário seja sincronizado com o Azure AD. As organizações podem desejar superar essa limitação executando um novo ciclo de sincronização depois que os administradores fizerem atualizações em massa nos estados da conta do usuário local. Um exemplo é a desabilitação de contas.
 
 > [!NOTE]
-> No momento, os estados de senha expirada e conta bloqueada não estão sincronizados com o Azure AD usando o Azure AD Connect. Quando você altera a senha de um usuário e define o sinalizador *o usuário deve alterar a senha no próximo logon* , o hash de senha não será sincronizado com o Azure AD usando o Azure AD Connect até que o usuário altere a senha.
+> No momento, os estados de senha expirada e conta bloqueada não estão sincronizados com o Azure AD usando o Azure AD Connect. Quando você altera a senha de um usuário e define o sinalizador *o usuário deve alterar a senha no próximo logon*, o hash de senha não será sincronizado com o Azure AD usando o Azure AD Connect até que o usuário altere a senha.
 
 Veja [como implementar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) para obter as etapas de implantação.
 
@@ -116,7 +116,7 @@ Veja [como implementar a sincronização de hash de senha](../../active-director
 
 * **Cenários avançados**. A Autenticação de Passagem impõe a política de conta local no momento da entrada. Por exemplo, o acesso é negado quando o estado da conta de um usuário local é desabilitado, bloqueado ou a [senha expira](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication), ou quando a tentativa de logon está fora do horário de entrada permitida do usuário.
 
-    As organizações que exigem a autenticação multifator com a autenticação de passagem precisam usar a autenticação multifator (MFA) do Azure ou os [controles personalizados do Acesso Condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar um método de autenticação multifator local ou de terceiros que dependa da federação. Os recursos avançados exigem a implantação da sincronização de hash de senha, independentemente de você escolher ou não a autenticação de passagem. Um exemplo é o relatório de credenciais vazadas do Identity Protection.
+    As organizações que exigem a autenticação multifator com autenticação de passagem devem usar a MFA (autenticação multifator) do Azure AD ou [controles personalizados de acesso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar um método de autenticação multifator local ou de terceiros que dependa da federação. Os recursos avançados exigem a implantação da sincronização de hash de senha, independentemente de você escolher ou não a autenticação de passagem. Um exemplo é o relatório de credenciais vazadas do Identity Protection.
 
 * **Continuidade dos negócios**. Recomendamos a implantação de dois agentes extras de autenticação de passagem. Esses extras complementam o primeiro agente no servidor do Azure AD Connect. Essa implantação adicional garante a alta disponibilidade das solicitações de autenticação. Quando você tiver três agentes implantados, um deles ainda poderá falhar quando outro agente estiver inoperante para manutenção.
 
@@ -182,7 +182,7 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 |Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim|
 |Há suporte para quais tipos de entrada?|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-install-custom.md)|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-pta-faq.md)|Nome Principal do Usuário + senha<br><br>sAMAccountName + senha<br><br>Autenticação integrada do Windows<br><br>[Autenticação de certificado e cartão inteligente](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Há suporte para o Windows Hello for Business?|[Modelo de confiança de chave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modelo de confiança de chave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requer nível funcional do domínio do Windows Server 2016*|[Modelo de confiança de chave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
-|Quais são as opções de autenticação multifator?|[MFA do Azure](/azure/multi-factor-authentication/)<br><br>[Controles personalizados com Acesso Condicional*](../../active-directory/conditional-access/controls.md)|[MFA do Azure](/azure/multi-factor-authentication/)<br><br>[Controles personalizados com Acesso Condicional*](../../active-directory/conditional-access/controls.md)|[MFA do Azure](/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de Terceiros](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados com Acesso Condicional*](../../active-directory/conditional-access/controls.md)|
+|Quais são as opções de autenticação multifator?|[MFA do Azure AD](/azure/multi-factor-authentication/)<br><br>[Controles personalizados com Acesso Condicional*](../../active-directory/conditional-access/controls.md)|[MFA do Azure AD](/azure/multi-factor-authentication/)<br><br>[Controles personalizados com Acesso Condicional*](../../active-directory/conditional-access/controls.md)|[MFA do Azure AD](/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de Terceiros](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados com Acesso Condicional*](../../active-directory/conditional-access/controls.md)|
 |Há suporte para quais estados de conta de usuário?|Contas desabilitadas<br>(até 30 minutos de atraso)|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horários de entrada|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horários de entrada|
 |Quais são as opções de Acesso Condicional?|[Acesso Condicional do Azure AD, com o Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Acesso Condicional do Azure AD, com o Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Acesso Condicional do Azure AD, com o Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[Regras de declaração do AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Há suporte para protocolos herdados de bloqueio?|[Sim](../../active-directory/conditional-access/overview.md)|[Sim](../../active-directory/conditional-access/overview.md)|[Sim](/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|

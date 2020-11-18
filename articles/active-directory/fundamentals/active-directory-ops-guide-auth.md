@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371045"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836981"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -95,7 +95,7 @@ As senhas por si só não são seguras o suficiente para evitar que atores ruins
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resiliência local de autenticação de falha
 
-Além dos benefícios da simplicidade e da habilitação da detecção de credenciais vazadas, a PHS (sincronização de hash de senha) do Azure AD e o Azure MFA permitem que os usuários acessem aplicativos SaaS e Microsoft 365 apesar de interrupções locais devido a ataques cibernéticos como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível habilitar o PHS enquanto estiver em conjunto com a Federação. Habilitar o PHS permite o fallback de autenticação quando os serviços de Federação não estão disponíveis.
+Além dos benefícios da simplicidade e da habilitação da detecção de credenciais vazadas, a sincronização de hash de senha do Azure AD (PHS) e a MFA do Azure AD permitem que os usuários acessem aplicativos SaaS e Microsoft 365 apesar de interrupções locais devido a ataques cibernéticos como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível habilitar o PHS enquanto estiver em conjunto com a Federação. Habilitar o PHS permite o fallback de autenticação quando os serviços de Federação não estão disponíveis.
 
 Se sua organização local não estiver em uma estratégia de resiliência de interrupção ou se tiver uma que não esteja integrada ao Azure AD, você deverá implantar o Azure AD PHS e definir um plano de recuperação de desastres que inclua o PHS. Habilitar o Azure AD PHS permitirá que os usuários se autentiquem no Azure AD se seu local Active Directory estiver indisponível.
 

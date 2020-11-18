@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413438"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836454"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como o Azure AD fornece gerenciamento regido na nuvem para cargas de trabalho locais
 
@@ -39,7 +39,7 @@ Este documento descreve a estratégia da Microsoft para o IDaaS híbrido, além 
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>A abordagem do Azure AD para o gerenciamento de identidades governada na nuvem
 
-À medida que as organizações fazem a transição para a nuvem, elas precisam de garantias de que têm controles sobre o seu ambiente completo-mais segurança e mais visibilidade em atividades, com suporte pela automação e por percepções proativas. " **Gerenciamento regido na nuvem** " descreve como as organizações gerenciam e regem seus usuários, aplicativos, grupos e dispositivos da nuvem.
+À medida que as organizações fazem a transição para a nuvem, elas precisam de garantias de que têm controles sobre o seu ambiente completo-mais segurança e mais visibilidade em atividades, com suporte pela automação e por percepções proativas. "**Gerenciamento regido na nuvem**" descreve como as organizações gerenciam e regem seus usuários, aplicativos, grupos e dispositivos da nuvem.
 
 Neste mundo moderno, as organizações precisam ser capazes de gerenciar efetivamente em escala, devido à proliferação de aplicativos SaaS e à crescente função de colaboração e identidades externas. O novo cenário de risco da nuvem significa que uma organização deve ser mais responsiva – um ator mal-intencionado que compromete um usuário de nuvem a afetar os aplicativos locais e de nuvem.
 
@@ -89,7 +89,7 @@ Quando uma organização está pronta para mover um aplicativo integrado ao AD p
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Gerenciamento regido pela nuvem para aplicativos baseados em Federação local
 
-Para uma organização que já usa um provedor de identidade local, a movimentação de aplicativos para o Azure AD permite um acesso mais seguro e uma experiência administrativa mais fácil para o gerenciamento de Federação. O Azure AD permite configurar controles de acesso por aplicativo granulares, incluindo a autenticação multifator do Azure, usando o acesso condicional do Azure AD. O Azure AD dá suporte a mais recursos, incluindo certificados de assinatura de token específicos do aplicativo e datas de expiração de certificado configurável. Esses recursos, ferramentas e diretrizes permitem que as organizações desativem seus provedores de identidade locais. A própria ti da Microsoft, por exemplo, moveu 17.987 aplicativos do Serviços de Federação do Active Directory (AD FS) interno da Microsoft (AD FS) para o Azure AD.
+Para uma organização que já usa um provedor de identidade local, a movimentação de aplicativos para o Azure AD permite um acesso mais seguro e uma experiência administrativa mais fácil para o gerenciamento de Federação. O Azure AD permite configurar controles de acesso por aplicativo granulares, incluindo a autenticação multifator do Azure AD, usando o acesso condicional do Azure AD. O Azure AD dá suporte a mais recursos, incluindo certificados de assinatura de token específicos do aplicativo e datas de expiração de certificado configurável. Esses recursos, ferramentas e diretrizes permitem que as organizações desativem seus provedores de identidade locais. A própria ti da Microsoft, por exemplo, moveu 17.987 aplicativos do Serviços de Federação do Active Directory (AD FS) interno da Microsoft (AD FS) para o Azure AD.
 
 ![Evolução do Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -111,7 +111,7 @@ As organizações podem automatizar o processo de ciclo de vida de acesso por me
 
 ## <a name="future-directions"></a>Direções futuras
 
-Em ambientes híbridos, a estratégia da Microsoft é habilitar implantações em que a **nuvem é o plano de controle para identidade** , e diretórios locais e outros sistemas de identidade, como Active Directory e outros aplicativos locais, são o destino para provisionar usuários com acesso. Essa estratégia continuará a garantir os direitos, identidades e acesso nesses aplicativos e cargas de trabalho que dependem deles. Nesse estado final, as organizações poderão impulsionar totalmente a produtividade do usuário final da nuvem.
+Em ambientes híbridos, a estratégia da Microsoft é habilitar implantações em que a **nuvem é o plano de controle para identidade**, e diretórios locais e outros sistemas de identidade, como Active Directory e outros aplicativos locais, são o destino para provisionar usuários com acesso. Essa estratégia continuará a garantir os direitos, identidades e acesso nesses aplicativos e cargas de trabalho que dependem deles. Nesse estado final, as organizações poderão impulsionar totalmente a produtividade do usuário final da nuvem.
 
 ![Arquitetura do Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

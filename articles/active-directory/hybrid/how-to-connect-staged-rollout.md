@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646569"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836386"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
-A distribuição em etapas permite que você teste seletivamente grupos de usuários com recursos de autenticação na nuvem, como a MFA (autenticação multifator) do Azure, acesso condicional, proteção de identidade para credenciais vazadas, governança de identidade e outros, antes de cortar seus domínios.  Este artigo discute como fazer essa mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações caso uma ou mais das seguintes condições sejam verdadeiras:
+A distribuição em etapas permite que você teste seletivamente grupos de usuários com recursos de autenticação na nuvem, como a MFA (autenticação multifator) do Azure AD, acesso condicional, proteção de identidade para credenciais vazadas, governança de identidade e outros, antes de cortar seus domínios.  Este artigo discute como fazer essa mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações caso uma ou mais das seguintes condições sejam verdadeiras:
     
 -  Atualmente, você está usando um servidor de Autenticação Multifator local. 
 -  Você está usando cartões inteligentes para a autenticação. 
@@ -45,7 +45,7 @@ Para obter uma visão geral do recurso, veja este vídeo chamado “Azure Active
 
 -   Você ter configurado todas as políticas apropriadas de identidade visual do locatário e de acesso condicional necessárias para os usuários que estão sendo migrados para a autenticação na nuvem.
 
--   Se você planeja usar a autenticação multifator do Azure, recomendamos o uso [de registro combinado para redefinição de senha de autoatendimento (SSPR) e autenticação multifator](../authentication/concept-registration-mfa-sspr-combined.md) para que os usuários registrem seus métodos de autenticação uma vez. Observação: ao usar SSPR para redefinir a senha ou alterar a senha usando a página MyProfile durante a distribuição em etapas, Azure AD Connect precisa sincronizar o novo hash de senha, que pode levar até 2 minutos após a redefinição.
+-   Se você planeja usar a autenticação multifator do Azure AD, recomendamos o uso [de registro combinado para redefinição de senha de autoatendimento (SSPR) e autenticação multifator](../authentication/concept-registration-mfa-sspr-combined.md) para que os usuários registrem seus métodos de autenticação uma vez. Observação: ao usar SSPR para redefinir a senha ou alterar a senha usando a página MyProfile durante a distribuição em etapas, Azure AD Connect precisa sincronizar o novo hash de senha, que pode levar até 2 minutos após a redefinição.
 
 -   Para usar o recurso de distribuição em etapas, você precisará ser um administrador global em seu locatário.
 

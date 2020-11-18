@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740182"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837117"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -81,12 +81,12 @@ Você pode habilitar o logon do Azure AD para o Windows Server 2019 Datacenter o
 
 Para criar uma VM do Windows Server 2019 datacenter no Azure com o logon do Azure AD: 
 
-1. Entre no [portal do Azure](https://portal.azure.com), com uma conta que tenha acesso para criar VMs e selecione **+ criar um recurso** .
+1. Entre no [portal do Azure](https://portal.azure.com), com uma conta que tenha acesso para criar VMs e selecione **+ criar um recurso**.
 1. Digite **Windows Server** em Pesquisar na barra de pesquisa do Marketplace.
    1. Clique em **Windows Server** e escolha **Windows Server 2019 datacenter** na lista suspensa Selecionar um plano de software.
-   1. Clique em **criar** .
-1. Na guia "gerenciamento", habilite a opção para **fazer logon com as credenciais do AAD (versão prévia)** na seção Azure Active Directory de desativado para **ativado** .
-1. Verifique se a **identidade gerenciada atribuída pelo sistema** na seção identidade está definida como **ativada** . Essa ação deve ocorrer automaticamente depois que você habilitar o logon com as credenciais do Azure AD.
+   1. Clique em **criar**.
+1. Na guia "gerenciamento", habilite a opção para **fazer logon com as credenciais do AAD (versão prévia)** na seção Azure Active Directory de desativado para **ativado**.
+1. Verifique se a **identidade gerenciada atribuída pelo sistema** na seção identidade está definida como **ativada**. Essa ação deve ocorrer automaticamente depois que você habilitar o logon com as credenciais do Azure AD.
 1. Percorra o restante da experiência de criação de uma máquina virtual. Durante essa visualização, você precisará criar um nome de usuário e senha de administrador para a VM.
 
 ![Logon com as credenciais do Azure AD criar uma VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ O `provisioningState` de `Succeeded` é mostrado, depois que a extensão é inst
 
 Agora que você criou a VM, precisará configurar a política RBAC do Azure para determinar quem pode fazer logon na VM. Duas funções do Azure são usadas para autorizar o logon da VM:
 
-- **Logon de administrador da máquina virtual** : os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de administrador.
-- **Logon de usuário da máquina virtual** : os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
+- **Logon de administrador da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de administrador.
+- **Logon de usuário da máquina virtual**: os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
 
 > [!NOTE]
 > Para permitir que um usuário faça logon na VM por RDP, você deve atribuir o logon de administrador da máquina virtual ou a função de logon de usuário da máquina virtual. Um usuário do Azure com as funções de proprietário ou colaborador atribuídas a uma VM não tem privilégios automaticamente para fazer logon na VM por RDP. Isso é para fornecer separação auditada entre o conjunto de pessoas que controlam máquinas virtuais em comparação com o conjunto de pessoas que podem acessar máquinas virtuais.
@@ -163,8 +163,8 @@ Para configurar atribuições de função para suas VMs do Windows Server 2019 d
 
 1. Navegue até a página de visão geral da máquina virtual específica
 1. Selecione o **controle de acesso (iam)** nas opções de menu
-1. Selecione **Adicionar** , **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
-1. Na lista suspensa **função** , selecione uma função, como logon de **administrador de máquina virtual** ou logon de usuário de **máquina virtual** .
+1. Selecione **Adicionar**, **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
+1. Na lista suspensa **função** , selecione uma função, como logon de **administrador de máquina virtual** ou logon de usuário de **máquina virtual**.
 1. No campo **selecionar** , selecione um usuário, grupo, entidade de serviço ou identidade gerenciada. Se você não vir a entidade de segurança na lista, digite na caixa **Selecionar** para pesquisar nomes de exibição, endereços de email e identificadores de objeto no diretório.
 1. Selecione **salvar** para atribuir a função.
 
@@ -203,7 +203,7 @@ Você pode impor políticas de acesso condicional, como a autenticação multifa
 > Se você usar "exigir autenticação multifator" como um controle de acesso de concessão para solicitar acesso ao aplicativo "entrada de VM do Azure Windows", deverá fornecer a declaração de autenticação multifator como parte do cliente que inicia a sessão RDP para a VM Windows de destino no Azure. A única maneira de conseguir isso em um cliente Windows 10 é usar o PIN do Windows Hello para empresas ou a autenticação biométrica com o cliente RDP. O suporte para autenticação biométrica foi adicionado ao cliente RDP no Windows 10 versão 1809. A área de trabalho remota usando a autenticação do Windows Hello para empresas está disponível somente para implantações que usam o modelo de confiança de certificado e não estão disponíveis no momento para o modelo de confiança de chave
 
 > [!WARNING]
-> A autenticação multifator habilitada/imposta por usuário não tem suporte para entrada de VM.
+> A autenticação multifator habilitada/imposta por usuário do Azure AD não tem suporte para entrada de VM.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Fazer logon usando as credenciais do Azure AD para uma VM do Windows
 
@@ -214,7 +214,7 @@ Para fazer logon em sua máquina virtual do Windows Server 2019 usando o Azure A
 
 1. Navegue até a página Visão geral da máquina virtual que foi habilitada com o logon do Azure AD.
 1. Selecione **conectar** para abrir a folha conectar-se à máquina virtual.
-1. Selecione **Baixar Arquivo RDP** .
+1. Selecione **Baixar Arquivo RDP**.
 1. Selecione **abrir** para iniciar o cliente de conexão de área de trabalho remota.
 1. Selecione **conectar** para iniciar a caixa de diálogo de logon do Windows.
 1. Faça logon usando suas credenciais do Azure AD.
