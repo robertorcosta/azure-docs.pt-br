@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 06d5196e612bcf20e11f17634b32db028cd5bc88
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378084"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655180"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
 
@@ -55,12 +55,12 @@ Ao usar um repositório público, suas propriedades configuráveis serão mais l
 Todas as propriedades configuráveis usadas para configurar o repositório público Git estão listadas na tabela a seguir:
 
 > [!NOTE]
-> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, você pode usar *default-label* , mas não *defaultLabel*.
+> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, você pode usar *default-label*, mas não *defaultLabel*.
 
 | Propriedade        | Obrigatório | Recurso                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Sim    | O URI do repositório Git que é usado como o back-end do Servidor de Configuração começa com *http://* , *https://* , *git@* ou *ssh://* . |
-| `default-label` | Não     | O rótulo padrão do repositório Git deve ser o *nome do branch* , o *nome da tag* ou a *ID de commit* do repositório. |
+| `default-label` | Não     | O rótulo padrão do repositório Git deve ser o *nome do branch*, o *nome da tag* ou a *ID de commit* do repositório. |
 | `search-paths`  | Não     | Uma matriz de cadeias de caracteres usada para pesquisar subdiretórios do repositório Git. |
 
 ------
@@ -70,16 +70,16 @@ Todas as propriedades configuráveis usadas para configurar o repositório públ
 Todas as propriedades configuráveis usadas para configurar o repositório Git privado com SSH estão listadas na tabela a seguir:
 
 > [!NOTE]
-> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, você pode usar *default-label* , mas não *defaultLabel*.
+> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, você pode usar *default-label*, mas não *defaultLabel*.
 
 | Propriedade                   | Obrigatório | Recurso                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Sim    | O URI do repositório Git usado como back-end do Servidor de Configuração. Deve começar com *http://* , *https://* , *git@* ou *ssh://* . |
-| `default-label`            | Não     | O rótulo padrão do repositório Git deve ser o *nome do branch* , o *nome da tag* ou a *ID de commit* do repositório. |
+| `default-label`            | Não     | O rótulo padrão do repositório Git deve ser o *nome do branch*, o *nome da tag* ou a *ID de commit* do repositório. |
 | `search-paths`             | Não     | Uma matriz de cadeias de caracteres usada para pesquisar subdiretórios do repositório Git. |
 | `private-key`              | Não     | A chave privada SSH para acessar o repositório Git, _necessária_ quando o URI começa com *git@* ou *ssh://* . |
 | `host-key`                 | Não     | A chave de host do servidor do repositório Git. Não deve incluir o prefixo de algoritmo, conforme abordado por `host-key-algorithm`. |
-| `host-key-algorithm`       | Não     | O algoritmo da chave de host, que deve ser *ssh-dss* , *ssh-rsa* , *ecdsa-sha2-nistp256* , *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Necessário* somente se `host-key` existir. |
+| `host-key-algorithm`       | Não     | O algoritmo da chave de host, que deve ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Necessário* somente se `host-key` existir. |
 | `strict-host-key-checking` | Não     | Indica se a inicialização da instância do Servidor de Configuração falhará ao fazer uso do `host-key` privado. Deve ser *true* (valor padrão) ou *false*. |
 
 > [!NOTE]
@@ -92,12 +92,12 @@ Todas as propriedades configuráveis usadas para configurar o repositório Git p
 Todas as propriedades configuráveis usadas para configurar o repositório Git privado com autenticação Básica estão listadas abaixo.
 
 > [!NOTE]
-> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, use *default-label* , não *defaultLabel*.
+> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, use *default-label*, não *defaultLabel*.
 
 | Propriedade        | Obrigatório | Recurso                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Sim    | O URI do repositório Git que é usado como o back-end do Servidor de Configuração deve ser iniciado com *http://* , *https://* , *git@* ou *ssh://* . |
-| `default-label` | Não     | O rótulo padrão do repositório Git deve ser o *nome do branch* , o *nome da tag* ou a *ID de commit* do repositório. |
+| `default-label` | Não     | O rótulo padrão do repositório Git deve ser o *nome do branch*, o *nome da tag* ou a *ID de commit* do repositório. |
 | `search-paths`  | Não     | Uma matriz de cadeias de caracteres usada para pesquisar subdiretórios do repositório Git. |
 | `username`      | Não     | O nome de usuário usado para acessar o servidor do repositório Git, _necessário_ quando o servidor do repositório Git é compatível com `Http Basic Authentication`. |
 | `password`      | Não     | A senha usada para acessar o servidor do repositório Git, _necessária_ quando o servidor do repositório Git é compatível com `Http Basic Authentication`. |
@@ -110,21 +110,21 @@ Todas as propriedades configuráveis usadas para configurar o repositório Git p
 Todas as propriedades configuráveis usadas para configurar os repositórios Git com padrão estão listadas abaixo.
 
 > [!NOTE]
-> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, use *default-label* , não *defaultLabel*.
+> Usar um hífen ("-") para separar palavras é a única convenção de nomenclatura compatível no momento. Por exemplo, use *default-label*, não *defaultLabel*.
 
 | Propriedade                           | Obrigatório         | Recurso                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Não             | Um mapa que consiste nas configurações de um repositório Git com um determinado nome. |
 | `repos."uri"`                      | Sim em `repos` | O URI do repositório Git que é usado como o back-end do Servidor de Configuração deve ser iniciado com *http://* , *https://* , *git@* ou *ssh://* . |
-| `repos."name"`                     | Sim em `repos` | Um nome para identificação de um repositório Git, _necessário_ somente se `repos` existir. Por exemplo, *team-A* , *team-B*. |
+| `repos."name"`                     | Sim em `repos` | Um nome para identificação de um repositório Git, _necessário_ somente se `repos` existir. Por exemplo, *team-A*, *team-B*. |
 | `repos."pattern"`                  | Não             | Uma matriz de cadeias de caracteres usada para corresponder a um nome de aplicativo. Para cada padrão, use o formato `{application}/{profile}` com caracteres curinga. |
-| `repos."default-label"`            | Não             | O rótulo padrão do repositório Git deve ser o *nome do branch* , o *nome da tag* ou a *ID de commit* do repositório. |
+| `repos."default-label"`            | Não             | O rótulo padrão do repositório Git deve ser o *nome do branch*, o *nome da tag* ou a *ID de commit* do repositório. |
 | `repos."search-paths`"             | Não             | Uma matriz de cadeias de caracteres usada para pesquisar subdiretórios do repositório Git. |
 | `repos."username"`                 | Não             | O nome de usuário usado para acessar o servidor do repositório Git, _necessário_ quando o servidor do repositório Git é compatível com `Http Basic Authentication`. |
 | `repos."password"`                 | Não             | A senha usada para acessar o servidor do repositório Git, _necessária_ quando o servidor do repositório Git é compatível com `Http Basic Authentication`. |
 | `repos."private-key"`              | Não             | A chave privada SSH para acessar o repositório Git, _necessária_ quando o URI começa com *git@* ou *ssh://* . |
 | `repos."host-key"`                 | Não             | A chave de host do servidor do repositório Git. Não deve incluir o prefixo de algoritmo, conforme abordado por `host-key-algorithm`. |
-| `repos."host-key-algorithm"`       | Não             | O algoritmo da chave de host, que deve ser *ssh-dss* , *ssh-rsa* , *ecdsa-sha2-nistp256* , *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Necessário* somente se `host-key` existir. |
+| `repos."host-key-algorithm"`       | Não             | O algoritmo da chave de host, que deve ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* ou *ecdsa-sha2-nistp521*. *Necessário* somente se `host-key` existir. |
 | `repos."strict-host-key-checking"` | Não             | Indica se a inicialização da instância do Servidor de Configuração falhará ao fazer uso do `host-key` privado. Deve ser *true* (valor padrão) ou *false*. |
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Anexar o repositório do Servidor de Configuração ao Azure Spring Cloud
@@ -133,30 +133,42 @@ Agora que você salvou seus arquivos de configuração em um repositório, é ne
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Vá até a página **Visão geral** do Azure Spring Cloud.
+2. Vá até a página **Visão geral** do Azure Spring Cloud.
 
-1. Escolha o serviço a ser configurado.
+3. Selecione **servidor de configuração** no painel de navegação esquerdo.
 
-1. No painel esquerdo da página Serviço, em **Configurações** , selecione a guia **Servidor de Configuração**.
+4. Na seção **Repositório padrão**, defina **URI** como "https://github.com/Azure-Samples/piggymetrics-config".
 
-![A janela Servidor de Configuração](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+5. Clique em **Validar**.
+
+    ![Navegar até o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+6. Quando a validação for concluída, clique em **aplicar** para salvar as alterações.
+
+    ![Validando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+7. A atualização da configuração pode levar alguns minutos.
+ 
+    ![Atualizando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+8. Você deve receber uma notificação quando a configuração for concluída.
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Insira as informações do repositório diretamente para o portal do Azure
 
 #### <a name="default-repository"></a>Repositório padrão
 
-* **Repositório público** : Na seção **Repositório padrão** , cole o URI do repositório na seção **URI**.  Defina o **Rótulo** como **config**. Verifique se a configuração **Autenticação** está marcada como **Pública** e, em seguida, selecione **Aplicar** para concluir. 
+* **Repositório público**: Na seção **Repositório padrão**, cole o URI do repositório na seção **URI**.  Defina o **Rótulo** como **config**. Verifique se a configuração **Autenticação** está marcada como **Pública** e, em seguida, selecione **Aplicar** para concluir. 
 
-* **Repositório privado** : O Azure Spring Cloud é compatível com SSH e autenticação básica baseada em token/senha.
+* **Repositório privado**: O Azure Spring Cloud é compatível com SSH e autenticação básica baseada em token/senha.
 
-    * **Autenticação Básica** : Na seção **Repositório padrão** , na caixa **URI** , cole o URI do repositório e, em seguida, selecione o botão **Autenticação** (ícone de lápis). No painel **Editar Autenticação** , na lista suspensa **Tipo de autenticação** , selecione **HTTP básico** e, em seguida, insira seu nome de usuário e senha/token para permitir acesso ao Azure Spring Cloud. Selecione **OK** e **Aplicar** para concluir a configuração de sua instância do Servidor de Configuração.
+    * **Autenticação Básica**: Na seção **Repositório padrão**, na caixa **URI**, cole o URI do repositório e, em seguida, selecione o botão **Autenticação** (ícone de lápis). No painel **Editar Autenticação**, na lista suspensa **Tipo de autenticação**, selecione **HTTP básico** e, em seguida, insira seu nome de usuário e senha/token para permitir acesso ao Azure Spring Cloud. Selecione **OK** e **Aplicar** para concluir a configuração de sua instância do Servidor de Configuração.
 
     ![A autenticação básica do painel Editar Autenticação](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
-    > Alguns servidores de repositório Git, como o GitHub, usam um *token pessoal* ou um *token de acesso* , como uma senha, para **Autenticação Básica**. Você pode usar esse tipo de token como uma senha no Azure Spring Cloud, pois ele nunca expirará. Mas para outros servidores de repositório Git, como o BitBucket e o Azure DevOps, o *token de acesso* expirará em uma ou duas horas. Isso significa que essa opção não é viável ao usar esses servidores de repositório com o Azure Spring Cloud.
+    > Alguns servidores de repositório Git, como o GitHub, usam um *token pessoal* ou um *token de acesso*, como uma senha, para **Autenticação Básica**. Você pode usar esse tipo de token como uma senha no Azure Spring Cloud, pois ele nunca expirará. Mas para outros servidores de repositório Git, como o BitBucket e o Azure DevOps, o *token de acesso* expirará em uma ou duas horas. Isso significa que essa opção não é viável ao usar esses servidores de repositório com o Azure Spring Cloud.
 
-    * **SSH** : Na seção **Repositório padrão** , na caixa **URI** , cole o URI do repositório e, em seguida, selecione o botão **Autenticação** (ícone de lápis). No painel **Editar Autenticação** , na lista suspensa **Tipo de autenticação** , selecione **SSH** e, em seguida, insira sua **Chave privada**. Opcionalmente, você pode especificar sua **Chave de host** e seu **Algoritmo de chave de host**. Não deixe de incluir sua chave pública no repositório do Servidor de Configuração. Selecione **OK** e **Aplicar** para concluir a configuração de sua instância do Servidor de Configuração.
+    * **SSH**: Na seção **Repositório padrão**, na caixa **URI**, cole o URI do repositório e, em seguida, selecione o botão **Autenticação** (ícone de lápis). No painel **Editar Autenticação**, na lista suspensa **Tipo de autenticação**, selecione **SSH** e, em seguida, insira sua **Chave privada**. Opcionalmente, você pode especificar sua **Chave de host** e seu **Algoritmo de chave de host**. Não deixe de incluir sua chave pública no repositório do Servidor de Configuração. Selecione **OK** e **Aplicar** para concluir a configuração de sua instância do Servidor de Configuração.
 
     ![O painel Editar Autenticação do ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
@@ -221,7 +233,7 @@ O Azure Spring Cloud pode acessar repositórios git públicos, protegidos por SS
 
 1. Escolha o serviço a ser configurado.
 
-1. No painel esquerdo da página serviço, em **configurações** , selecione a guia **servidor de configuração** . Configure o repositório que criamos anteriormente:
+1. No painel esquerdo da página serviço, em **configurações**, selecione a guia **servidor de configuração** . Configure o repositório que criamos anteriormente:
    - Adicione a URL do repositório que você salvou da seção anterior
    - Clique em ativar `Authentication` e selecione `HTTP Basic`
    - O __nome de usuário__ é o nome de usuário salvo na seção anterior

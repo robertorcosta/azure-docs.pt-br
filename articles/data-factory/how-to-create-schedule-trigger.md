@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f147a317b16a4a581fad18bd48dbd38059e9a8c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146019"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655452"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,35 +38,35 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
     ![Mude para a guia Editar](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Selecione **gatilho** no menu e, em seguida, selecione **novo/editar** . 
+1. Selecione **gatilho** no menu e, em seguida, selecione **novo/editar**. 
 
     ![Novo menu de gatilho](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
-1. Na página **Adicionar gatilhos** , selecione **escolher gatilho...** e, em seguida, selecione **+ novo** . 
+1. Na página **Adicionar gatilhos** , selecione **escolher gatilho...** e, em seguida, selecione **+ novo**. 
 
     ![Adicionar gatilhos – novo gatilho](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 
 1. Na página **novo gatilho** , execute as seguintes etapas: 
 
-    1. Confirme se **Agendamento** está selecionado para **Tipo** .
-    1. Especifique o DateTime inicial do gatilho para a **data de início** . Ele é definido como o DateTime atual em UTC (tempo Universal Coordenado) por padrão.
-    1. Especifique o fuso horário no qual o gatilho será criado. A configuração de fuso horário será aplicada a **data de início** , data de **término** e tempos de **execução de agendamento** nas opções de recorrência avançadas. Alterar a configuração de fuso horário não alterará automaticamente a data de início. Verificar se a data de início está correta no fuso horário especificado
+    1. Confirme se **Agendamento** está selecionado para **Tipo**.
+    1. Especifique o DateTime inicial do gatilho para a **data de início**. Ele é definido como o DateTime atual em UTC (tempo Universal Coordenado) por padrão.
+    1. Especifique o fuso horário no qual o gatilho será criado. A configuração de fuso horário será aplicada a **data de início**, data de **término** e tempos de **execução de agendamento** nas opções de recorrência avançadas. Alterar a configuração de fuso horário não alterará automaticamente a data de início. Certifique-se de que a data de início esteja correta no fuso horário especificado. Observe que o tempo de execução agendado do gatilho será considerado após a data de início (verifique se a data de início é pelo menos 1 minuto menor do que o tempo de execução. em seguida, ele disparará o pipeline na próxima recorrência). 
 
         > [!NOTE]
         > Para os fusos horários que observam o horário de verão, o tempo de disparo será ajustado automaticamente para a alteração de um ano duas vezes. Para recusar a alteração de salvamento de horário de verão, selecione um fuso horário que não observe o horário de verão, por exemplo, UTC
 
     1. Especifique **Recorrência** para o gatilho. Selecione um dos valores na lista suspensa (A Cada minuto, Por hora, Diariamente, Semanalmente e Mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você deseja que o gatilho seja executado uma vez a cada 15 minutos, selecione **A Cada Minuto** e insira **15** na caixa de texto. 
-    1. Para especificar uma data e hora de término, selecione **especificar uma data de término** e especifique _termina em_ e selecione **OK** . Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
+    1. Para especificar uma data e hora de término, selecione **especificar uma data de término** e especifique _termina em_ e selecione **OK**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
 
         ![Configurações do gatilho](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
         ![Configurações do gatilho para data de término](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
 
-1. Na janela **novo gatilho** , selecione **Sim** na opção **ativado** e, em seguida, selecione **OK** . Use essa caixa de seleção para desativar o gatilho mais tarde. 
+1. Na janela **novo gatilho** , selecione **Sim** na opção **ativado** e, em seguida, selecione **OK**. Use essa caixa de seleção para desativar o gatilho mais tarde. 
 
     ![Configurações de gatilho – botão Avançar](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 
-1. Na janela **novo gatilho** , examine a mensagem de aviso e selecione **OK** .
+1. Na janela **novo gatilho** , examine a mensagem de aviso e selecione **OK**.
 
     ![Configurações de gatilho – botão Concluir](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
@@ -125,16 +125,16 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     No snippet JSON:
     - O elemento **Type** do gatilho é definido como "ScheduleTrigger".
     - O elemento **frequency** é definido como “Minutes” e o elemento **interval** é definido como 15. Assim, o gatilho executa o pipeline a cada 15 minutos entre as horas de início e término.
-    - O elemento **timeZone** especifica o fuso horário em que o gatilho é criado. Essa configuração afeta tanto **StartTime** quanto **EndTime** .
-    - O elemento **endTime** é uma hora após o valor do elemento **startTime** . Assim, o gatilho executa o pipeline 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora UTC atual e a hora de término para uma hora após a hora de início. 
+    - O elemento **timeZone** especifica o fuso horário em que o gatilho é criado. Essa configuração afeta tanto **StartTime** quanto **EndTime**.
+    - O elemento **endTime** é uma hora após o valor do elemento **startTime**. Assim, o gatilho executa o pipeline 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora UTC atual e a hora de término para uma hora após a hora de início. 
 
         > [!IMPORTANT]
-        > Para o fuso horário UTC, StartTime e endTime precisam seguir o formato ' AAAA-MM-ddTHH: mm: SS **Z** ', enquanto para outras zonas de tempo, StartTime e EndTime seguem ' aaaa-mm-ddThh: mm: SS '. 
+        > Para o fuso horário UTC, StartTime e endTime precisam seguir o formato ' AAAA-MM-ddTHH: mm: SS **Z**', enquanto para outras zonas de tempo, StartTime e EndTime seguem ' aaaa-mm-ddThh: mm: SS '. 
         > 
         > Por padrão ISO 8601, o sufixo _Z_ para timestamp marca carimbo de data/hora como fuso horário UTC e renderizar o campo de fuso horário como inútil. Embora o sufixo _Z_ ausente para o fuso horário UTC resultará em um erro na _ativação_ do gatilho.
 
-    - O gatilho está associado ao pipeline **Adfv2QuickStartPipeline** . Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference** .
-    - O pipeline no Início Rápido usa dois valores de **parameters** : **inputPath** e **outputPath** . E você passa valores para esses parâmetros do gatilho.
+    - O gatilho está associado ao pipeline **Adfv2QuickStartPipeline**. Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference**.
+    - O pipeline no Início Rápido usa dois valores de **parameters**: **inputPath** e **outputPath**. E você passa valores para esses parâmetros do gatilho.
 
 1. Crie um gatilho usando o cmdlet **set-AzDataFactoryV2Trigger** :
 
@@ -287,7 +287,7 @@ Para monitorar as execuções de gatilho e de pipeline no portal do Azure, consu
 Você pode usar um modelo do Azure Resource Manager para criar um gatilho. Para obter instruções passo a passo, consulte [Criar um Azure Data Factory usando um modelo do Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passe a hora de início do gatilho para um pipeline
-O Azure Data Factory versão 1 é compatível com leitura ou gravação de dados particionados usando as variáveis do sistema **SliceStart** , **SliceEnd** , **WindowStart** e **WindowEnd** . Na versão atual do Azure Data Factory, é possível obter esse comportamento usando um parâmetro de pipeline. A hora de início e a hora agendada para o gatilho estão definidos com o valor para o parâmetro do pipeline. No seguinte exemplo, o horário agendado para o gatilho é passado como um valor para o parâmetro **scheduledRunTime** do pipeline:
+O Azure Data Factory versão 1 é compatível com leitura ou gravação de dados particionados usando as variáveis do sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Na versão atual do Azure Data Factory, é possível obter esse comportamento usando um parâmetro de pipeline. A hora de início e a hora agendada para o gatilho estão definidos com o valor para o parâmetro do pipeline. No seguinte exemplo, o horário agendado para o gatilho é passado como um valor para o parâmetro **scheduledRunTime** do pipeline:
 
 ```json
 "parameters": {
@@ -343,7 +343,7 @@ A seguinte definição de JSON mostra como criar um gatilho de agendamento com o
 ```
 
 > [!IMPORTANT]
->  A propriedade **parameters** é uma propriedade obrigatória do elemento **pipelines** . Se o pipeline não usar nenhum parâmetro, será necessário incluir uma definição de JSON vazia na propriedade **parameters** .
+>  A propriedade **parameters** é uma propriedade obrigatória do elemento **pipelines**. Se o pipeline não usar nenhum parâmetro, será necessário incluir uma definição de JSON vazia na propriedade **parameters**.
 
 
 ### <a name="schema-overview"></a>Visão geral do esquema
@@ -353,14 +353,14 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 |:--- |:--- |
 | **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
 | **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Esta propriedade é opcional.  <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
-| **Fuso horário** | O fuso horário em que o gatilho é criado. Essa configuração afeta **StartTime** , **EndTime** e **Schedule** . Ver a [lista de fuso horário com suporte](#time-zone-option) |
-| **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência** , **intervalo** , **EndTime** , **contagem** e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
+| **Fuso horário** | O fuso horário em que o gatilho é criado. Essa configuração afeta **StartTime**, **EndTime** e **Schedule**. Ver a [lista de fuso horário com suporte](#time-zone-option) |
+| **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência**, **intervalo**, **EndTime**, **contagem** e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
 | **frequência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
-| **intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência** , que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
+| **intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
 | **agendamento** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
 
 > [!IMPORTANT]
-> Para o fuso horário UTC, StartTime e endTime precisam seguir o formato ' AAAA-MM-ddTHH: mm: SS **Z** ', enquanto para outras zonas de tempo, StartTime e EndTime seguem ' aaaa-mm-ddThh: mm: SS '. 
+> Para o fuso horário UTC, StartTime e endTime precisam seguir o formato ' AAAA-MM-ddTHH: mm: SS **Z**', enquanto para outras zonas de tempo, StartTime e EndTime seguem ' aaaa-mm-ddThh: mm: SS '. 
 > 
 > Por padrão ISO 8601, o sufixo _Z_ para timestamp marca carimbo de data/hora como fuso horário UTC e renderizar o campo de fuso horário como inútil. Embora o sufixo _Z_ ausente para o fuso horário UTC resultará em um erro na _ativação_ do gatilho.
 
@@ -382,13 +382,13 @@ Aqui estão alguns dos fusos horários com suporte para gatilhos de agendamento:
 | Fuso horário | Diferença UTC (salvamento não-verão) | Valor do fuso horário | Observe o horário de verão | Formato de carimbo de data/hora |
 | :--- | :--- | :--- | :--- | :--- |
 | Tempo universal coordenado | 0 | `UTC` | Não | `'yyyy-MM-ddTHH:mm:ssZ'`|
-| Hora do Pacífico (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora central (CT) | -6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora do leste (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora do Pacífico (PT) | -8 | `Pacific Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora central (CT) | -6 | `Central Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora do leste (ET) | -5 | `Eastern Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
 | Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora oficial da Europa Central | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora padrão da Índia (IST) | + 5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora oficial da China | + 8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora oficial da Europa Central | +1 | `W. Europe Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora padrão da Índia (IST) | + 5:30 | `India Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora oficial da China | + 8 | `China Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
 
 Esta lista está incompleta. Para obter uma lista completa das opções de fuso horário, explore na [página de criação de gatilho](#data-factory-ui) do portal data Factory
 
@@ -430,7 +430,7 @@ A seguinte tabela descreve elementos **schedule** em detalhes:
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendamentos de recorrência de gatilho
 Esta seção fornece exemplos de agendamentos de recorrência e se concentra no objeto **schedule** e seus elementos.
 
-Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **frequency** esteja correto de acordo com a definição de agendamento. Por exemplo, não é possível ter um valor de **frequency** igual a "day" e também ter uma modificação de "monthDays" no objeto **schedule** . Restrições desse tipo são mencionadas na tabela na seção anterior.
+Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **frequency** esteja correto de acordo com a definição de agendamento. Por exemplo, não é possível ter um valor de **frequency** igual a "day" e também ter uma modificação de "monthDays" no objeto **schedule**. Restrições desse tipo são mencionadas na tabela na seção anterior.
 
 | Exemplo | Descrição |
 |:--- |:--- |
@@ -439,8 +439,8 @@ Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **fr
 | `{"minutes":[15], "hours":[5,17]}` | Executar às 5h15 e 17h15 todos os dias. |
 | `{"minutes":[15,45], "hours":[5,17]}` | Executar às 5h15, 5h45, 17h15 e 17h45 todos os dias. |
 | `{"minutes":[0,15,30,45]}` | Executar a cada 15 minutos. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora. Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime** , quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 24h25, 1h25, 2h25, … e 23h25.<br/><br/>Esse agendamento é equivalente a ter um gatilho com um valor de **Frequency** de "hora", um valor de **intervalo** de 1 e nenhum **agendamento** .  Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor de **Frequency** é "month", o agendamento é executado somente uma vez por mês, em vez de todos os dias, quando o valor de **Frequency** é "Day". |
-| `{"minutes":[0]}` | Executar a cada hora na hora. Esse gatilho é executado a cada hora na hora, começando às 24h, 1h, 2h e assim por diante.<br/><br/>Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos ou nenhum **schedule** , mas um valor de **frequency** igual a “day”. Se o valor de **frequency** é "week" ou "month", o agendamento é executado somente um dia da semana ou um dia do mês, respectivamente. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora. Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime**, quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 24h25, 1h25, 2h25, … e 23h25.<br/><br/>Esse agendamento é equivalente a ter um gatilho com um valor de **Frequency** de "hora", um valor de **intervalo** de 1 e nenhum **agendamento**.  Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor de **Frequency** é "month", o agendamento é executado somente uma vez por mês, em vez de todos os dias, quando o valor de **Frequency** é "Day". |
+| `{"minutes":[0]}` | Executar a cada hora na hora. Esse gatilho é executado a cada hora na hora, começando às 24h, 1h, 2h e assim por diante.<br/><br/>Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos ou nenhum **schedule**, mas um valor de **frequency** igual a “day”. Se o valor de **frequency** é "week" ou "month", o agendamento é executado somente um dia da semana ou um dia do mês, respectivamente. |
 | `{"minutes":[15]}` | Executa 15 minutos após cada hora. Esse gatilho é executado a cada hora em 15 minutos após a hora, começando às 24h15, 1h15, 2h15 e assim por diante, terminando em 23h15. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Executar às 17h aos sábados toda semana. |
 | `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Executar às 17h às segundas-feiras, quartas-feiras e sextas-feiras toda semana. |
@@ -457,7 +457,7 @@ Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **fr
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Executar na terceira sexta-feira do final do mês, todo mês, na hora de início especificada. |
 | `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Executar na primeira e última sexta-feira de cada mês às 5h15. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Executar na primeira e última sexta-feira de cada mês na hora de início especificada. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Executar na quinta sexta-feira de cada mês na hora de início especificada. Quando não houver nenhuma quinta sexta-feira em um mês, o pipeline não será executado, uma vez que ele está agendado para ser executado apenas nas quintas sextas-feiras. Para executar o gatilho na última sexta-feira do mês, considere o uso de -1, em vez de 5 para o valor de **occurrence** . |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Executar na quinta sexta-feira de cada mês na hora de início especificada. Quando não houver nenhuma quinta sexta-feira em um mês, o pipeline não será executado, uma vez que ele está agendado para ser executado apenas nas quintas sextas-feiras. Para executar o gatilho na última sexta-feira do mês, considere o uso de -1, em vez de 5 para o valor de **occurrence**. |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Executar a cada 15 minutos na última sexta-feira do mês. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Executar às 5h15, 5h45, 17h15 e 17h45 na terceira quarta-feira de cada mês. |
 
