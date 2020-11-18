@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578596"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358959"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutorial: Configurar o AlertMedia para o provisionamento automático de usuário
 
@@ -95,9 +95,9 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
     ![Guia Provisionamento automático](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais de Administrador**, insira sua **URL de Locatário** do AlertMedia como um dos seguintes:
-      * (sem domínio personalizado) `https://dashboard.alertmedia.com/api/scim/v3`
+      * (sem domínio personalizado) https://dashboard.alertmedia.com/api/scim/v3
 
-      * (domínio personalizado) `https://subdomain.alertmedia.com/api/scim/v3`
+      * (domínio personalizado) https://subdomain.alertmedia.com/api/scim/v3
 
       Insira o **Token Secreto** conforme recuperado anteriormente na Etapa 2. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao AlertMedia. Se a conexão falhar, verifique se a sua conta AlertMedia tem permissões de administrador e tente novamente.
 
@@ -117,31 +117,31 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |---|---|
    |userName|String|
    |ativo|Boolean|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:first_name|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:last_name|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email2|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email3|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:title|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address2|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:city|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:state|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:country|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:zipcode|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:notes|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|Cadeia de caracteres|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:first_name|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:last_name|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email3|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:title|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:city|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:state|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:country|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:zipcode|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:notes|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|String|
 
 10. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o AlertMedia**.
 
