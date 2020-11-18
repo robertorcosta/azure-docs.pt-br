@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356579"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839821"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
 
@@ -24,7 +24,7 @@ Muitas diretrizes de segurança recomendam que você não use a mesma senha em v
 
 Com a proteção de senha do Azure AD, as listas de senhas globais banidas padrão são automaticamente aplicadas a todos os usuários em um locatário do Azure AD. Para dar suporte às suas próprias necessidades de negócios e de segurança, você pode definir entradas em uma lista personalizada de senhas banidas. Quando os usuários alteram ou redefinem suas senhas, essas listas de senhas banidas são verificadas para impor o uso de senhas fortes.
 
-Você deve usar recursos adicionais como [a autenticação multifator do Azure](concept-mfa-howitworks.md), não apenas depende de senhas fortes impostas pela proteção de senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Você deve usar recursos adicionais como [a autenticação multifator do Azure ad](concept-mfa-howitworks.md), não apenas se basear em senhas fortes impostas pela proteção por senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Este artigo conceitual explica a um administrador como funciona a proteção de senha do Azure AD. Se você for um usuário final já registrado para redefinição de senha de autoatendimento e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr) .

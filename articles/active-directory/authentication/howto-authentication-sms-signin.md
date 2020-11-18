@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a1da460933269a21afaf8ec7d805ec6f43fce926
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166617"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839398"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configurar e habilitar usuários para autenticação baseada em SMS usando o Azure Active Directory (versão prévia)
 
@@ -45,7 +45,7 @@ Para concluir este artigo, você precisará dos seguintes recursos e privilégio
 
 Durante a versão prévia pública da autenticação baseada em SMS, as seguintes limitações se aplicam:
 
-* Atualmente, a autenticação baseada em SMS não é compatível com a Autenticação Multifator do Azure.
+* Atualmente, a autenticação baseada em SMS não é compatível com a autenticação multifator do Azure AD.
 * Com exceção do Teams, a autenticação baseada em SMS não é compatível atualmente com aplicativos nativos do Office.
 * A autenticação baseada em SMS não é recomendada para contas B2B.
 * Os usuários federados não serão autenticados no locatário inicial. Eles se autenticam apenas na nuvem.
@@ -91,16 +91,16 @@ Cada usuário habilitado na política de método de autenticação por mensagem 
 
 Agora, os usuários estão habilitados para autenticação baseada em SMS, mas o número de telefone deles deve ser associado ao perfil do usuário no Azure AD para que eles possam entrar. O usuário pode [definir esse número de telefone](../user-help/sms-sign-in-explainer.md) em *Meu Perfil* ou você pode atribuir o número de telefone usando o portal do Azure. Os números de telefone podem ser definidos por *administradores globais*, *administradores de autenticação* ou *administradores de autenticação privilegiada*.
 
-Quando um número de telefone é definido para entrada de SMS, ele também está disponível para uso com a [Autenticação Multifator do Azure][tutorial-azure-mfa] e a [redefinição de senha por autoatendimento][tutorial-sspr].
+Quando um número de telefone é definido para o SMS-Sign, ele também é disponibilizado para uso com a [autenticação multifator do Azure ad][tutorial-azure-mfa] e [a redefinição de senha de autoatendimento][tutorial-sspr].
 
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. No menu de navegação no lado esquerdo da janela Azure Active Directory, selecione **Usuários**.
 1. Selecione o usuário que você habilitou para a autenticação baseada em SMS na seção anterior, como *Usuário Contoso* e selecione **Métodos de autenticação**.
-1. Selecione **+ Adicionar método de autenticação**e, em seguida, no menu suspenso *escolher método* , escolha **número de telefone**.
+1. Selecione **+ Adicionar método de autenticação** e, em seguida, no menu suspenso *escolher método* , escolha **número de telefone**.
 
     Insira o número de telefone do usuário, incluindo o código do país, como *+ 1 xxxxxxxxx*. O portal do Azure valida o número de telefone no formato correto.
 
-    Em seguida, no menu suspenso *tipo de telefone* , selecione *móvel*, *celular alternativo*ou *outro* , conforme necessário.
+    Em seguida, no menu suspenso *tipo de telefone* , selecione *móvel*, *celular alternativo* ou *outro* , conforme necessário.
 
     :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Definir um número de telefone para um usuário na portal do Azure para usar com a autenticação baseada em SMS":::
 
@@ -132,9 +132,9 @@ Os cenários e as etapas de solução de problemas a seguir poderão ser usados 
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Número de telefone já definido para uma conta de usuário
 
-Se um usuário já estiver registrado para a Autenticação Multifator do Azure e/ou SSPR (redefinição de senha por autoatendimento), ele já terá um número de telefone associado à sua conta. Esse número de telefone não está disponível automaticamente para uso com a entrada baseada em SMS.
+Se um usuário já tiver se registrado na autenticação multifator do Azure AD e/ou SSPR (redefinição de senha de autoatendimento), eles já terão um número de telefone associado à sua conta. Esse número de telefone não está disponível automaticamente para uso com a entrada baseada em SMS.
 
-Um usuário com um número de telefone já definido para sua conta vê um botão para *Habilitar para entrada de SMS* na página **Meu Perfil**. Selecione esse botão e a conta será habilitada para uso com a entrada baseada em SMS e a Autenticação Multifator do Azure ou o registro SSPR anterior.
+Um usuário com um número de telefone já definido para sua conta vê um botão para *Habilitar para entrada de SMS* na página **Meu Perfil**. Selecione esse botão e a conta está habilitada para uso com o logon baseado em SMS e a autenticação multifator do Azure AD ou o registro SSPR anterior.
 
 Para obter mais informações sobre a experiência do usuário final, confira [SMS sign-in user experience for phone number (preview)](../user-help/sms-sign-in-explainer.md) (Experiência do usuário de entrada de SMS para número de telefone [versão prévia]).
 

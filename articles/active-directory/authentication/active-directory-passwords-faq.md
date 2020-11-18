@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965549"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840093"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
@@ -38,7 +38,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
   > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) ) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com) ). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
-  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure ao mesmo tempo.
+  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure AD ao mesmo tempo.
 * **P:  Se eu habilitar a redefinição de senha para um grupo e, em seguida, decidir habilitá-la para todos, os usuários deverão se registrar novamente?**
 
   > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.

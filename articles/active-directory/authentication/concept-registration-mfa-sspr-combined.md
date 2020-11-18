@@ -1,6 +1,6 @@
 ---
-title: Registro combinado para SSPR e autenticação multifator do Azure-Azure Active Directory
-description: Saiba mais sobre a experiência de registro combinada para Azure Active Directory para permitir que os usuários se registrem para a autenticação multifator do Azure e a redefinição de senha de autoatendimento
+title: Registro combinado para SSPR e autenticação multifator do Azure AD-Azure Active Directory
+description: Saiba mais sobre a experiência de registro combinada para Azure Active Directory para permitir que os usuários se registrem para a autenticação multifator do Azure AD e a redefinição de senha de autoatendimento
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377999"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839787"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
-Antes do registro combinado, os usuários registravam métodos de autenticação diferentes para a Autenticação Multifator do Microsoft Azure e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
+Antes do registro combinado, os usuários registraram métodos de autenticação para a autenticação multifator do Azure AD e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
 
 > [!NOTE]
 > A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado.
@@ -51,7 +51,7 @@ Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-| Método | Registrar | Alterar | Excluir |
+| Método | Registre-se | Alterar | Excluir |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
@@ -142,8 +142,8 @@ Um usuário que configurou anteriormente pelo menos um método que pode ser usad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, consulte os tutoriais para [habilitar a redefinição de senha de autoatendimento](tutorial-enable-sspr.md) e [habilitar a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+Para começar, consulte os tutoriais para [habilitar a redefinição de senha de autoatendimento](tutorial-enable-sspr.md) e [habilitar a autenticação multifator do Azure ad](tutorial-enable-azure-mfa.md).
 
 Saiba como [habilitar o registro combinado em seu locatário](howto-registration-mfa-sspr-combined.md) ou [forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Você também pode examinar os [métodos disponíveis para a Autenticação Multifator do Microsoft Azure e a SSPR](concept-authentication-methods.md).
+Você também pode examinar os [métodos disponíveis para a autenticação multifator do Azure AD e o SSPR](concept-authentication-methods.md).

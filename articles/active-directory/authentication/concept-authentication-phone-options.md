@@ -10,47 +10,47 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 39555c5b396e8a8fd3449331cd2fd68b96ad2087
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628111"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839991"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em opções de Azure Active Directory-telefone
 
 Para autenticação direta usando mensagem de texto, você pode [Configurar e habilitar usuários para a autenticação baseada em SMS (versão prévia)](howto-authentication-sms-signin.md). A entrada baseada em SMS é ótima para os trabalhadores de linha de frente. Com a entrada baseada em SMS, os usuários não precisam saber um nome de usuário e uma senha para acessar aplicativos e serviços. Em vez disso, o usuário insere seu número de telefone celular registrado, recebe uma mensagem de texto com um código de verificação e insere isso na interface de entrada.
 
-Os usuários também podem verificar usando um celular ou telefone comercial como forma secundária de autenticação usada durante a Autenticação Multifator do Azure ou a SSPR (redefinição de senha self-service).
+Os usuários também podem verificar usando um telefone celular ou telefone comercial como forma secundária de autenticação usada durante a autenticação multifator do Azure AD ou a SSPR (redefinição de senha de autoatendimento).
 
-Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber* , por exemplo: *+1 4251234567*.
+Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo: *+1 4251234567*.
 
 > [!NOTE]
 > Precisa haver um espaço entre o código do país/região e o número de telefone.
 >
-> A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato *+1 4251234567X12345* , as extensões são removidas antes que a chamada seja completada.
+> A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato *+1 4251234567X12345*, as extensões são removidas antes que a chamada seja completada.
 
 ## <a name="mobile-phone-verification"></a>Verificação por celular
 
-Para a autenticação multifator do Azure ou o SSPR, os usuários podem optar por receber uma mensagem de texto com um código de verificação para entrar na interface de entrada ou receber uma chamada telefônica.
+Para a autenticação multifator do Azure AD ou o SSPR, os usuários podem optar por receber uma mensagem de texto com um código de verificação para entrar na interface de entrada ou receber uma chamada telefônica.
 
 Se os usuários não quiserem que o número do telefone celular seja visível no diretório, mas ainda quiserem usá-lo para redefinição de senha, os administradores não deverão preencher o número de telefone no diretório. Em vez disso, os usuários devem preencher o atributo **Telefone de Autenticação** por meio do registro combinado das informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Captura de tela do portal do Azure que mostra os métodos de autenticação com um número de telefone preenchido":::
 
-A Microsoft não garante a entrega de prompt consistente da Autenticação Multifator do Azure com base em voz ou SMS pelo mesmo número. Pensando no melhor para nossos usuários, nós podemos adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não dá suporte a códigos curtos para países/regiões além dos Estados Unidos e do Canadá.
+A Microsoft não garante a entrega de prompt de autenticação multifator do Azure AD com base em voz ou SMS consistente pelo mesmo número. Pensando no melhor para nossos usuários, nós podemos adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não dá suporte a códigos curtos para países/regiões além dos Estados Unidos e do Canadá.
 
 ### <a name="text-message-verification"></a>Verificação por mensagem de texto
 
-Com a verificação por mensagem de texto durante a SSPR ou Autenticação Multifator do Azure, um SMS com um código de verificação é enviado para o número do telefone celular. Para concluir o processo de entrada, o código de verificação fornecido é inserido na interface de entrada.
+Com a verificação de mensagem de texto durante o SSPR ou a autenticação multifator do Azure AD, um SMS é enviado para o número de telefone celular que contém um código de verificação. Para concluir o processo de entrada, o código de verificação fornecido é inserido na interface de entrada.
 
 ### <a name="phone-call-verification"></a>Verificação por chamada telefônica
 
-Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário será solicitado a pressionar # no respectivo teclado.
+Com a verificação de chamada telefônica durante o SSPR ou a autenticação multifator do Azure AD, é feita uma chamada de voz automática para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário será solicitado a pressionar # no respectivo teclado.
 
 ## <a name="office-phone-verification"></a>Verificação por telefone comercial
 
-Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário será solicitado a pressionar # no respectivo teclado.
+Com a verificação de chamada telefônica durante o SSPR ou a autenticação multifator do Azure AD, é feita uma chamada de voz automática para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário será solicitado a pressionar # no respectivo teclado.
 
 ## <a name="troubleshooting-phone-options"></a>Solucionar problemas das opções por telefone
 
@@ -75,11 +75,11 @@ Se você tiver problemas com a autenticação por telefone do Azure AD, examine 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, confira o [tutorial da SSPR (redefinição de senha por autoatendimento)][tutorial-sspr] e a [Autenticação Multifator do Azure][tutorial-azure-mfa].
+Para começar, consulte o [tutorial para redefinição de senha de autoatendimento (SSPR)][tutorial-sspr] e [autenticação multifator do Azure ad][tutorial-azure-mfa].
 
 Para saber mais sobre os conceitos de SSPR, confira [Como funciona a redefinição de senha self-service do Azure AD][concept-sspr].
 
-Para saber mais sobre conceitos de MFA, confira [Como funciona como a Autenticação Multifator do Azure][concept-mfa].
+Para saber mais sobre os conceitos de MFA, confira [como funciona a autenticação multifator do Azure ad][concept-mfa].
 
 Saiba mais sobre como configurar métodos de autenticação usando a [API REST do Microsoft Graph versão beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
