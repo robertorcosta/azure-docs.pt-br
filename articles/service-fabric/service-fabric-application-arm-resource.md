@@ -3,12 +3,12 @@ title: Implantar e atualizar com Azure Resource Manager
 description: Saiba como implantar aplicativos e serviços em um cluster do Service Fabric usando um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256502"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681662"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
@@ -18,7 +18,7 @@ Essa é a maneira recomendada para implantar qualquer configuração, governanç
 
 Quando aplicável, gerencie seus aplicativos, como recursos do Resource Manager para melhorar:
 * A trilha de auditoria: o Resource Manager audita toda operação e mantém um *Log de atividades* que pode ajudar a rastrear alterações feitas nesses aplicativos e no seu cluster.
-* O RBAC (Controle de Acesso Baseado em Função): gerenciar acesso aos clusters assim como aplicativos implantados no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
+* Controle de acesso baseado em função do Azure (RBAC do Azure): gerenciar o acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
 * O Azure Resource Manager (por meio do Portal do Azure) se torna uma loja única para gerenciar o cluster e as implantações de aplicativos críticos.
 
 O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:

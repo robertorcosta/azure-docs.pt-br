@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: dd18d69009b9c150c4c12a755e9060cd5dfaccae
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681883"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Erro de parada do Windows-exceção de thread do sistema 0x0000007E não tratada
 
-Este artigo fornece etapas para resolver problemas em que o sistema operacional convidado encontra um problema e deseja reiniciar a VM do Azure. A mensagem irá declarar que "uma exceção de thread do sistema não foi tratada".
+Este artigo fornece etapas para resolver problemas em que o sistema operacional convidado (SO convidado) encontra um problema e tenta reiniciar sua VM (máquina virtual) do Azure. A mensagem de erro exibida diz "uma exceção de thread do sistema não foi tratada".
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe janelas que precisam ser reiniciadas com a exceção de thread do sistema de código Stop **não tratada** ou o código de erro **0x0000007e**.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir uma captura de tela da saída da VM, você verá que o Windows precisa ser reiniciado com o código de parada "exceção de thread do sistema não tratada" ou o código de erro "0x0000007E".
 
-![A captura de tela mostra o Windows preso durante a inicialização com a mensagem: "seu PC encontrou um problema e precisa ser reiniciado. Vamos reiniciar para você. " Código de parada: "exceção de THREAD do sistema não tratada"](media/windows-stop-error-system-thread-exception-not-handled/windows-stop-error-system-thread-exception-not-handled-1.png)
+![Captura de tela mostrando o Windows preso durante a inicialização com um "seu PC encontrou um problema e precisa ser reiniciado. Vamos reiniciar para você. " mensagem de erro e um código de parada "exceção de THREAD do sistema não tratada".](media/windows-stop-error-system-thread-exception-not-handled/windows-stop-error-system-thread-exception-not-handled-1.png)
 
 ## <a name="cause"></a>Causa
 
@@ -35,22 +35,20 @@ A causa não pode ser determinada até que um arquivo de despejo de memória sej
 
 ## <a name="solution"></a>Solução
 
-### <a name="collect-the-memory-dump-file"></a>Coletar o arquivo de despejo de memória
+Para resolver esse problema, primeiro você precisa coletar o arquivo de despejo de memória para a falha e, em seguida, enviar o arquivo para o suporte da Microsoft. Para coletar o arquivo de despejo, siga as instruções nas duas próximas seções.
 
-Para resolver esse problema, primeiro você precisa coletar o arquivo de despejo de memória para a falha e, em seguida, contatar o suporte com o arquivo de despejo de memória. Para coletar o arquivo de despejo, siga estas etapas:
+### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Anexar o disco do sistema operacional a uma nova VM de reparo
 
-#### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Anexar o disco do sistema operacional a uma nova VM de reparo
+1. Para preparar uma VM de reparo, siga as etapas 1-3 dos [comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
+1. Conecte-se à VM de reparo usando Conexão de Área de Trabalho Remota.
 
-1. Siga [as etapas 1-3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
-2. Conecte-se à VM de reparo usando Conexão de Área de Trabalho Remota.
+### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localizar o arquivo de despejo e enviar um tíquete de suporte
 
-#### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localizar o arquivo de despejo e enviar um tíquete de suporte
+1. Na VM de reparo, vá para a pasta do Windows no disco do sistema operacional anexado. Por exemplo, se a letra da unidade atribuída ao disco do sistema operacional anexado for rotulada como *F*, vá para `F:\Windows` .
+1. Procure o arquivo *Memory. dmp* e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo de memória anexado.
+1. Se você estiver tendo problemas para localizar o arquivo *Memory. dmp* , siga o guia para [gerar um arquivo de despejo de memória usando chamadas de NMI (interrupção não maskável)](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-1. Na VM de reparo, vá para a pasta do Windows no disco do sistema operacional anexado. Se a letra do driver atribuída ao disco do sistema operacional anexado for rotulada como *F* , você precisará ir para `F:\Windows` .
-2. Localize o arquivo **Memory. dmp** e [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo de memória.
-3. Se você estiver tendo problemas para localizar o arquivo **Memory. dmp** , siga o guia para [gerar um arquivo de despejo de memória usando chamadas de NMI (interrupção não mascaráveis)](/windows/client-management/generate-kernel-or-complete-crash-dump).
-
-Para obter mais informações sobre chamadas NMI, consulte as [chamadas de NMI (interrupção não mascarada) no guia do usuário do console serial](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) .
+Para obter mais informações sobre chamadas NMI, consulte as [chamadas NMI no guia do usuário do console serial do Azure](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

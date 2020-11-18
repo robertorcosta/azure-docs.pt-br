@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325963"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681815"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
 
@@ -37,9 +37,11 @@ Você pode especificar um nome de chave e uma versão de chave, ou apenas um nom
 > [!WARNING]
 > Os serviços de mídia monitoram o acesso à chave do cliente. Se a chave do cliente se tornar inacessível (por exemplo, a chave tiver sido excluída ou o Key Vault tiver sido excluído ou a concessão de acesso tiver sido removida), os serviços de mídia passarão a conta para o estado inacessível da chave do cliente (desabilitando efetivamente a conta). No entanto, a conta pode ser excluída nesse estado. As únicas operações com suporte são conta GET, lista e exclusão; todas as outras solicitações (codificação, streaming e assim por diante) falharão até que o acesso à chave de conta seja restaurado.
 
-## <a name="tutorial"></a>Tutorial
-Experimente o tutorial [usar chaves gerenciadas pelo cliente ou BYOK (traga sua própria chave) com os serviços de mídia](tutorial-byok.md) para saber mais sobre como configurar e usar chaves gerenciadas pelo cliente com o postmaster e a API REST do Azure.
+## <a name="tutorials"></a>Tutoriais
+
+- [Usar o portal do Azure para usar chaves gerenciadas pelo cliente ou BYOK com os serviços de mídia](tutorial-byok-portal.md)
+- [Use chaves gerenciadas pelo cliente ou BYOK com a API REST dos serviços de mídia](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: usar chaves gerenciadas pelo cliente ou BYOK (traga sua própria chave) com os serviços de mídia](tutorial-byok.md)
+[Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia](content-protection-overview.md)

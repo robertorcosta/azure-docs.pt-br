@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral do gerenciamento de um aplicat
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258735"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681679"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicativo Service Fabric
 
@@ -55,7 +55,7 @@ Depois que a conta de armazenamento é criada, você cria um contêiner de BLOBs
 Os recursos no cluster podem ser protegidos definindo o nível de acesso público como **privado**. Você pode conceder acesso de várias maneiras:
 
 * Autorize o acesso a BLOBs e filas usando [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Conceda acesso ao blob do Azure e aos dados [da fila usando o RBAC no portal do Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+* Conceda acesso ao blob do Azure e aos dados [da fila usando o Azure RBAC no portal do Azure](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delegar acesso usando uma [assinatura de acesso compartilhado](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 O exemplo na captura de tela a seguir usa acesso de leitura anônimo para BLOBs.
@@ -76,7 +76,7 @@ Neste tutorial, usamos o aplicativo de [exemplo de votação](https://github.com
    ![Aplicativo zip][ZipApplication]  
 1. Renomeie o arquivo para alterar a extensão de. zip para *. sfpkg*.
 
-1. No portal do Azure, no contêiner **aplicativos** para sua conta de armazenamento, selecione **carregar**e, em seguida, carregar **votação. sfpkg**. 
+1. No portal do Azure, no contêiner **aplicativos** para sua conta de armazenamento, selecione **carregar** e, em seguida, carregar **votação. sfpkg**. 
 
    ![Carregar pacote do aplicativo][UploadAppPkg]
 

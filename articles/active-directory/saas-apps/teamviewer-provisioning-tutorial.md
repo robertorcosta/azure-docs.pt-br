@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o TeamViewer para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o TeamViewer.
+title: 'Tutorial: Configurar o TeamViewer para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para o TeamViewer.
 services: active-directory
 author: Zhchia
 writer: Zhchia
@@ -8,25 +8,25 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: a2113130cdfb41152b03e87606b757a3fa61793f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 5f26746cbe88a01503c1d6c481a9a938a660c05a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521111"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359316"
 ---
-# <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: configurar o TeamViewer para provisionamento automático de usuário
+# <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configurar o TeamViewer para o provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto no TeamViewer quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o [TeamViewer](https://www.teamviewer.com/buy-now/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisará executar no TeamViewer e no Azure AD (Active Directory) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos no [TeamViewer](https://www.teamviewer.com/buy-now/) usando o serviço de Provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 > [!div class="checklist"]
 > * Criar usuários no TeamViewer
-> * Remover usuários no TeamViewer quando eles não precisam mais de acesso
+> * Remover usuários no TeamViewer quando eles não precisarem mais de acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o TeamViewer
 > * [Logon único](./teamviewer-tutorial.md) no TeamViewer (recomendado)
 
@@ -36,46 +36,46 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 * [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
-* Uma licença válida do [tensor](https://www.teamviewer.com/de/teamviewer-tensor/) para o TeamViewer.
-* Um identificador personalizado válido da configuração de [logon único](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) disponível.
+* Uma [licença válida do Tensor](https://www.teamviewer.com/de/teamviewer-tensor/) para o TeamViewer.
+* Um identificador personalizado válido da configuração de [Logon único](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) disponível.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
 2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine quais dados [mapeados entre o Azure AD e o TeamViewer](../app-provisioning/customize-application-attributes.md). 
+3. Determine quais dados serão [mapeados entre o Azure AD e o TeamViewer](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-teamviewer-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o TeamViewer para dar suporte ao provisionamento com o Azure AD
 
-1. Faça logon no [console de gerenciamento do TeamViewer](https://login.teamviewer.com). Navegue até **Editar perfil**.
+1. Faça logon no [Console de Gerenciamento do TeamViewer](https://login.teamviewer.com). Procure **Editar Perfil**.
 
-    ![Console de administração do TeamViewer](./media/teamviewer-provisioning-tutorial/admin.png)
+    ![Console de Administração do TeamViewer](./media/teamviewer-provisioning-tutorial/admin.png)
 
-2.  Navegue até **aplicativos**. Clique em **criar token de script**.
+2.  Procure **Aplicativos**. Clique em **Criar Token de Script**.
 
-    ![Criar token do TeamViewer](./media/teamviewer-provisioning-tutorial/createtoken.png)
+    ![Criar Token no TeamViewer](./media/teamviewer-provisioning-tutorial/createtoken.png)
 
-3.  Forneça um nome para o token de script. Clique no botão **salvar** .
+3.  Forneça um nome para o token de script. Clique no botão **Salvar**.
 
-    ![Nome do token do TeamViewer](./media/teamviewer-provisioning-tutorial/tokenname.png)
+    ![Nome do Token no TeamViewer](./media/teamviewer-provisioning-tutorial/tokenname.png)
 
-4. Copie o **token** e clique em **OK**. Esse valor será inserido no campo **token secreto** do aplicativo TeamViewer no portal do Azure.
+4. Copie o **Token** e clique em **OK**. Esse valor será inserido no campo **Token Secreto** do aplicativo TeamViewer no portal do Azure.
 
     ![Token do TeamViewer](./media/teamviewer-provisioning-tutorial/token.png)
 
-## <a name="step-3-add-teamviewer-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o TeamViewer da Galeria de aplicativos do Azure AD
+## <a name="step-3-add-teamviewer-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o TeamViewer por meio da galeria de aplicativos do Azure AD
 
-Adicione o TeamViewer da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para o TeamViewer. Se você tiver configurado anteriormente o TeamViewer para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione o TeamViewer por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no TeamViewer. Se você já configurou o TeamViewer para SSO, use o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
 No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos ao TeamViewer, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao TeamViewer, você precisará selecionar uma função diferente de **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-teamviewer"></a>Etapa 5. Configurar o provisionamento automático de usuário para o TeamViewer 
+## <a name="step-5-configure-automatic-user-provisioning-to-teamviewer"></a>Etapa 5. Configurar o provisionamento automático de usuário no TeamViewer 
 
 Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
 
@@ -87,19 +87,19 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 2. Na lista de aplicativos, selecione **TeamViewer**.
 
-    ![O link do TeamViewer na lista de aplicativos](common/all-applications.png)
+    ![O link do TeamViewer na lista Aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `ttps://webapi.teamviewer.com/scim/v2`  no campo **URL** de senha e insira o token de script criado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao TeamViewer. Se a conexão falhar, verifique se sua conta do TeamViewer tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, insira `ttps://webapi.teamviewer.com/scim/v2` no campo **URL do Locatário** e insira o token de script criado anteriormente no **Token Secreto**. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao TeamViewer. Se a conexão falhar, verifique se a sua conta do TeamViewer tem permissões de Administrador e tente novamente.
 
-    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostrando a caixa de diálogo Credenciais de Administrador, em que você pode inserir a URL do Locatário e o Token Secreto.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
@@ -107,9 +107,9 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 7. Clique em **Salvar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com o TeamViewer**.
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o TeamViewer**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o TeamViewer na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no TeamViewer para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), será necessário garantir que a API do TeamViewer dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que serão sincronizados do Azure AD para o TeamViewer na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no TeamViewer em operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), precisará verificar se a API do TeamViewer dá suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
@@ -119,11 +119,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o TeamViewer, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para habilitar o serviço de provisionamento do Azure AD no TeamViewer, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você gostaria de provisionar para o TeamViewer escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os usuários e/ou os grupos que deseja provisionar no TeamViewer escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
