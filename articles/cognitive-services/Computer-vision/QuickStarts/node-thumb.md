@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: a8855dd4dea3aef6597c7d611ade0c0aa7673929
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4ccf54d5aa95889a425dc4b51afb509cf003a71
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973556"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535904"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>Início Rápido: Gerar uma miniatura usando a API REST da Pesquisa Visual Computacional e o Node.js
 
-Neste início rápido, você vai gerar uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligente e gerar as coordenadas de corte com base nessa região.
+Neste início rápido, você vai gerar uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20c), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligente e gerar as coordenadas de corte com base nessa região.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -105,4 +105,4 @@ Uma resposta bem-sucedida é retornada como dados binários, que representam os 
 A seguir, explore a API da Pesquisa Visual Computacional usada para analisar uma imagem, detectar celebridades e pontos de referência, criar uma miniatura e extrair textos manuscritos e impressos.
 
 > [!div class="nextstepaction"]
-> [Explorar a API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API da Pesquisa Visual Computacional](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

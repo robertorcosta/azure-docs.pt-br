@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 4563fc915b76e36b4087e365e31a4e234edb55dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 64ec7bfa400edceb0f638b1862b9057d104c7904
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977075"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542738"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Início Rápido: Gerar uma miniatura usando a API REST da Pesquisa Visual Computacional e o JavaScript
 
@@ -51,8 +51,8 @@ Para criar e executar o exemplo, siga estas etapas:
 <script type="text/javascript">
     function processImage() {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
@@ -163,7 +163,7 @@ Uma resposta bem-sucedida é retornada como dados binários, que representam os 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript da API de Pesquisa Visual Computacional](../Tutorials/javascript-tutorial.md)

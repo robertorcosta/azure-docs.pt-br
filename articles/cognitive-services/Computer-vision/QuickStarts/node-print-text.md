@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 64ca75645d1a9e6d638af5128a6c690c47985cdd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 844252d5ae86ccdd853c4c65889f7233f69215ff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974525"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535972"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Início Rápido: Extrair um texto impresso (OCR) usando a API REST da Pesquisa Visual Computacional e o Node.js
 
 > [!NOTE]
 > Se você estiver extraindo texto no idioma inglês, considere o uso da nova [Operação de leitura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
 
-Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
+Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -217,4 +217,4 @@ Quando não for mais necessário, exclua o arquivo e, em seguida, desinstale o p
 Em seguida, explore as APIs de Pesquisa Visual Computacional usadas para analisar uma imagem, detectar celebridades e paisagens, criar uma miniatura e extrair textos manuscritos e impressos.
 
 > [!div class="nextstepaction"]
-> [Explorar a API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API da Pesquisa Visual Computacional](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

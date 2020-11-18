@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 53c358c3a74af7a4be51b3f44b9d942fdc167eed
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 77cf1635f035a4bb256a03d9f11aa0a408bd2fe4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972757"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538981"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Início Rápido: Analisar uma imagem remota usando a API REST da Pesquisa Visual Computacional com o Node.js
 
-Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST da Pesquisa Visual Computacional com Node.js. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
+Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST da Pesquisa Visual Computacional com Node.js. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b), é possível extrair recursos visuais com base no conteúdo de imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -183,4 +183,4 @@ Quando não for mais necessário, exclua o arquivo e, em seguida, desinstale o p
 Em seguida, explore as APIs de Pesquisa Visual Computacional usadas para analisar uma imagem, detectar celebridades e paisagens, criar uma miniatura e extrair textos manuscritos e impressos.
 
 > [!div class="nextstepaction"]
-> [Explorar a API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API da Pesquisa Visual Computacional](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

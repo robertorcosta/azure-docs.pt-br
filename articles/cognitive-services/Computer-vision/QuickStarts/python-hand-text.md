@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 82e0f31e28839fb3a87e0b2a539290b194b3ad77
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7ab61c788a6213b092e74d596b522ac4bb0412ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960415"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541888"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional e Python
 
@@ -342,4 +342,4 @@ Em seguida, explore um aplicativo Python que usa a Pesquisa Visual Computacional
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)
 
-* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

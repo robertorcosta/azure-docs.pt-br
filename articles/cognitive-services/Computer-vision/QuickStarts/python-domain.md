@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 27c117786ca7f0004ed3be6b28ed06cb1c7942de
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7b430f16e96c6d59fe85c711d07e323bf848b069
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960432"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541242"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
 
-Neste início rápido, você usará um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
+Neste início rápido, você usará um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f311), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
@@ -212,4 +212,4 @@ Em seguida, explore um aplicativo Python que usa a Pesquisa Visual Computacional
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)
 
-* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

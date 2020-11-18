@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 62ee8b27a67703d2ec4f861611f1d97062f1255b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 539f6fe35a2d6eb0566871dbab4e9758a300e999
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541871"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Início Rápido: Extrair um texto impresso (OCR) usando a API REST da Pesquisa Visual Computacional e o Python
 
 > [!NOTE]
 > Se você estiver extraindo texto no idioma inglês, considere o uso da nova [Operação de leitura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Há um [Início Rápido do Python](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) disponível. 
 
-Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
+Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
@@ -234,4 +234,4 @@ Em seguida, explore um aplicativo Python que usa a Pesquisa Visual Computacional
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)
 
-* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

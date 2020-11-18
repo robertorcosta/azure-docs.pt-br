@@ -7,24 +7,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: ec23ec58a020cc314f301e33b72b4787f4e32e14
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918653"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523693"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
 Use a biblioteca de clientes de Detecção Facial para Python para:
 
-* Detectar faces em uma imagem
-* Encontrar rostos semelhantes
-* Criar e treinar um grupo de pessoas
-* Identificar um rosto
-* Verificar rostos
+* [Detectar faces em uma imagem](#detect-faces-in-an-image)
+* [Encontrar rostos semelhantes](#find-similar-faces)
+* [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
+* [Identificar um rosto](#identify-a-face)
+* [Verificar rostos](#verify-faces)
 
 [Documentação de referência](/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Exemplos](/samples/browse/?products=azure&term=face)
 
@@ -48,7 +48,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 ### <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
-Crie um script do Python&mdash;*quickstart-file.py* , por exemplo. Em seguida, abra-o em seu editor ou IDE preferencial e importe as bibliotecas a seguir.
+Crie um script do Python&mdash;*quickstart-file.py*, por exemplo. Em seguida, abra-o em seu editor ou IDE preferencial e importe as bibliotecas a seguir.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
@@ -167,20 +167,20 @@ Depois de atribuir os rostos, você precisa treinar o **PersonGroup** para que e
 
 ## <a name="identify-a-face"></a>Identificar um rosto
 
-A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup** , um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
+A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup**, um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
 
 > [!IMPORTANT]
 > Para executar este exemplo, você deve primeiro executar o código em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group).
 
 ### <a name="get-a-test-image"></a>Obter uma imagem de teste
 
-O código a seguir procura na raiz do projeto uma imagem _test-image-person-group.jpg_ e detecta os rostos existentes nela. Você pode encontrar essa imagem junto com aquelas usadas para o gerenciamento do **PersonGroup** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+O código a seguir procura na raiz do projeto uma imagem _test-image-person-group.jpg_ e detecta os rostos existentes nela. Você pode encontrar essa imagem junto com aquelas usadas para o gerenciamento do **PersonGroup**: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
 ### <a name="identify-faces"></a>Identificar faces em imagem
 
-O método **Identify** usa uma matriz de rostos detectados e os compara a um **PersonGroup**. Se consegue fazer a correspondência entre um rosto detectado e um **Person** , ele salva o resultado. Esse código imprime os resultados de correspondência detalhados no console.
+O método **Identify** usa uma matriz de rostos detectados e os compara a um **PersonGroup**. Se consegue fazer a correspondência entre um rosto detectado e um **Person**, ele salva o resultado. Esse código imprime os resultados de correspondência detalhados no console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 

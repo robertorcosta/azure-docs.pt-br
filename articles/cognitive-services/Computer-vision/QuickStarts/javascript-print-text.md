@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 19207fd1b05d507980df299dc6ac2e9a39736318
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977109"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542755"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Início Rápido: Extrair um texto impresso (OCR) usando a API REST da Pesquisa Visual Computacional e o JavaScript
 
 > [!NOTE]
 > Se você estiver extraindo texto no idioma inglês, considere o uso da nova [Operação de leitura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Há um [Início Rápido do JavaScript](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) disponível.
 
-Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
+Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,8 +55,8 @@ Para criar e executar o exemplo, siga estas etapas:
 <script type="text/javascript">
     function processImage() {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
@@ -250,4 +250,4 @@ Em seguida, explore um aplicativo JavaScript que usa a Pesquisa Visual Computaci
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript da API de Pesquisa Visual Computacional](../Tutorials/javascript-tutorial.md)
 
-* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
