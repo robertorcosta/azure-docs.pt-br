@@ -5,27 +5,27 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789634"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841097"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Banco de dados SQL do Azure e regras de firewall de IP do Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando você cria um novo servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics chamado *MySqlServer* , por exemplo, um firewall de nível de servidor bloqueia todo o acesso ao ponto de extremidade público para o servidor (que pode ser acessado em *MySqlServer.Database.Windows.net* ). Para simplificar, o *banco de dados SQL* é usado para fazer referência ao banco de dados SQL e ao Azure Synapse Analytics (anteriormente SQL data warehouse).
+Quando você cria um novo servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics chamado *MySqlServer*, por exemplo, um firewall de nível de servidor bloqueia todo o acesso ao ponto de extremidade público para o servidor (que pode ser acessado em *MySqlServer.Database.Windows.net*). Para simplificar, o *banco de dados SQL* é usado para fazer referência ao banco de dados SQL e ao Azure Synapse Analytics (anteriormente SQL data warehouse).
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica à *Instância Gerenciada de SQL do Azure* . Para obter informações sobre a configuração de rede, consulte [conectar seu aplicativo ao Azure SQL instância gerenciada](../managed-instance/connect-application-instance.md).
+> Este artigo *não* se aplica à *Instância Gerenciada de SQL do Azure*. Para obter informações sobre a configuração de rede, consulte [conectar seu aplicativo ao Azure SQL instância gerenciada](../managed-instance/connect-application-instance.md).
 >
 > O Azure Synapse dá suporte apenas a regras de firewall de IP no nível de servidor. Ele não dá suporte a regras de firewall de IP no nível de banco de dados.
 
@@ -63,11 +63,11 @@ As regras de firewall de IP no nível de banco de dados permitem que os clientes
 
 *Os usuários de um banco de dados devem ser totalmente isolados de outro banco de dados?*
 
-Em caso *afirmativo* , use regras de firewall de IP no nível de banco de dados para conceder acesso. Esse método evita o uso de regras de firewall de IP no nível de servidor, que permitem o acesso por meio do firewall a todos os bancos de dados. Isso reduziria a profundidade de suas defesas.
+Em caso *afirmativo*, use regras de firewall de IP no nível de banco de dados para conceder acesso. Esse método evita o uso de regras de firewall de IP no nível de servidor, que permitem o acesso por meio do firewall a todos os bancos de dados. Isso reduziria a profundidade de suas defesas.
 
 *Os usuários nos endereços IP precisam de acesso a todos os bancos de dados?*
 
-Em caso *afirmativo* , use regras de firewall de IP no nível de servidor para reduzir o número de vezes que você precisa configurar regras de firewall IP.
+Em caso *afirmativo*, use regras de firewall de IP no nível de servidor para reduzir o número de vezes que você precisa configurar regras de firewall IP.
 
 *A pessoa ou equipe que configura as regras de firewall de IP só tem acesso por meio do portal do Azure, do PowerShell ou da API REST?*
 
@@ -138,17 +138,17 @@ Para definir uma regra de firewall de IP no nível de servidor no portal do Azur
 
     A página **Configurações do firewall** do servidor será aberta.
 
-2. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP do computador que você está usando e, em seguida, selecione **salvar** . Uma regra de firewall de IP no nível do servidor é criada para seu endereço IP atual.
+2. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP do computador que você está usando e, em seguida, selecione **salvar**. Uma regra de firewall de IP no nível do servidor é criada para seu endereço IP atual.
 
     ![Definir regra de firewall de IP de nível de servidor](./media/firewall-configure/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>Na página Visão geral do servidor
 
-A página Visão geral do servidor é aberta. Ele mostra o nome do servidor totalmente qualificado (como *mynewserver20170403.Database.Windows.net* ) e fornece opções para configuração adicional.
+A página Visão geral do servidor é aberta. Ele mostra o nome do servidor totalmente qualificado (como *mynewserver20170403.Database.Windows.net*) e fornece opções para configuração adicional.
 
 1. Para definir uma regra de nível de servidor nesta página, selecione **Firewall** no menu **configurações** no lado esquerdo.
 
-2. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP do computador que você está usando e, em seguida, selecione **salvar** . Uma regra de firewall de IP no nível do servidor é criada para seu endereço IP atual.
+2. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP do computador que você está usando e, em seguida, selecione **salvar**. Uma regra de firewall de IP no nível do servidor é criada para seu endereço IP atual.
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Usar o Transact-SQL para gerenciar regras de firewall de IP
 
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Para excluir uma regra de firewall de IP no nível de servidor, execute o procedimento armazenado *sp_delete_firewall_rule* . O exemplo a seguir exclui a regra *ContosoFirewallRule* :
+Para excluir uma regra de firewall de IP no nível de servidor, execute o procedimento armazenado *sp_delete_firewall_rule* . O exemplo a seguir exclui a regra *ContosoFirewallRule*:
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'

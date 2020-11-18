@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b66d0f20959d196fddeb8356d8171573f1243b58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660382"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842270"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -627,7 +627,7 @@ Ao receber um alerta, use as etapas nas seções acima sobre como solucionar pro
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Cobranças de transferência de dados usando o Log Analytics
 
-O envio de dados para o Log Analytics pode incorrer em encargos de largura de banda de dados. Conforme descrito na [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/), a transferência de dados entre os serviços do Azure localizados em duas regiões cobradas como transferência de dados de saída com base na taxa normal. As transferências de dados de entrada são gratuitas. No entanto, esse encargo é muito pequeno (baixa %) em comparação aos custos de ingestão de dados do Log Analytics. Consequentemente, controlar os custos para Log Analytics precisa se concentrar no [volume de dados ingerido](#understanding-ingested-data-volume). 
+O envio de dados para Log Analytics pode incorrer em encargos de largura de banda de dados, no entanto, que se limitam a máquinas virtuais em que um agente de Log Analytics está instalado e não se aplica ao usar configurações de diagnóstico ou com outros conectores internos do Azure Sentinel Conforme descrito na [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/), a transferência de dados entre os serviços do Azure localizados em duas regiões cobradas como transferência de dados de saída com base na taxa normal. As transferências de dados de entrada são gratuitas. No entanto, esse encargo é muito pequeno (baixa %) em comparação aos custos de ingestão de dados do Log Analytics. Consequentemente, controlar os custos para Log Analytics precisa se concentrar no [volume de dados ingerido](#understanding-ingested-data-volume). 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar problemas se o Log Analytics não está mais coletando dados

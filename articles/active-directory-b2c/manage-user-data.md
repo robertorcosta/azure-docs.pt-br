@@ -11,12 +11,12 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387636"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840535"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados dos usuários no Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Os dados de usuário do Azure AD B2C são limitados a:
 
 No exemplo a seguir de uma exportação de fluxo de dados, as etapas descritas como sendo executadas pelo aplicativo também podem ser executadas por um processo de back-end ou por um usuário com uma função de administrador no Diretório:
 
-1. O usuário entra no alicativo. O Azure AD B2C impõe a autenticação com autorização multifator do Azure se necessário.
+1. O usuário entra no alicativo. Azure AD B2C impõe a autenticação com a autenticação multifator do Azure AD, se necessário.
 2. O aplicativo usa as credenciais do usuário para chamar uma Microsoft Graph operação da API para recuperar os atributos do usuário. A API de Microsoft Graph fornece os dados de atributo no formato JSON. Dependendo do esquema, você pode configurar o conteúdo do token de identificação para incluir todos os dados pessoais de um usuário.
 3. O aplicativo recupera a atividade de auditoria do usuário. A API de Microsoft Graph fornece os dados de evento para o aplicativo.
 4. O aplicativo agrega os dados e os torna disponíveis para o usuário.

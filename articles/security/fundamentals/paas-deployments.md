@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695326"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841981"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -82,14 +82,14 @@ A seguir estão as práticas recomendadas para gerenciar o perímetro de identid
 **Prática recomendada**: proteger suas interfaces de gerenciamento de VM em serviços híbridos de PaaS e IaaS usando uma interface de gerenciamento que permite gerenciar remotamente essas VMs de modo direto.   
 **Detalhe**: os protocolos de gerenciamento remoto, como [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), e a [comunicação remota do PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) podem ser usados. Em geral, é recomendado que você não habilite o acesso remoto direto às VMs pela Internet.
 
-Se possível, use abordagens alternativas como redes virtuais privadas em uma rede virtual do Azure. Se não houver abordagens alternativas disponíveis, use senhas complexas e a autenticação de dois fatores (como a [Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)).
+Se possível, use abordagens alternativas como redes virtuais privadas em uma rede virtual do Azure. Se abordagens alternativas não estiverem disponíveis, certifique-se de usar frases secretas complexas e autenticação de dois fatores (como a [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md)).
 
 **Prática recomendada**: usar as plataformas fortes de autorização e autenticação.   
 **Detalhe**: use identidades federadas no Azure AD em vez de repositórios de usuário personalizados. Quando você usa identidades federadas, aproveita uma abordagem baseada em plataforma e delega o gerenciamento de identidades autorizadas para seus parceiros. Uma abordagem de identidade federada é importante principalmente quando ocorre a demissão de funcionários e essa informação precisa ser refletida em vários sistemas de autorização e identidade.
 
 Use os mecanismos de autenticação e autorização fornecidos pela plataforma em vez de código personalizado. O motivo é que o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. A maioria dos desenvolvedores não é especialista em segurança e provavelmente não está ciente das sutilezas e dos desenvolvimentos mais recentes em autenticação e autorização. O código comercial (por exemplo, da Microsoft) é amplamente revisado quanto à segurança, com frequência.
 
-Use a autenticação de dois fatores. A autenticação de dois fatores é o padrão atual para autenticação e autorização porque evita os pontos fracos de segurança inerentes nos tipos de autenticação de nome de usuário e senha. O acesso às interfaces de gerenciamento do Azure (portal/PowerShell remoto) e aos serviços voltados para o cliente deve ser projetado e configurado para usar a [Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md).
+Use a autenticação de dois fatores. A autenticação de dois fatores é o padrão atual para autenticação e autorização porque evita os pontos fracos de segurança inerentes nos tipos de autenticação de nome de usuário e senha. O acesso às interfaces de gerenciamento do Azure (Portal/PowerShell remoto) e serviços voltados para o cliente deve ser projetado e configurado para usar a [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Use protocolos de autenticação padrão, como OAuth2 e Kerberos. Esses protocolos foram extensivamente revisados em pares e provavelmente são implementados como parte das bibliotecas da plataforma para autenticação e autorização.
 

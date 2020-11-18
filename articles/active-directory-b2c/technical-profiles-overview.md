@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61471e07dda8fcf0c715dcffe85ad3e39ed8ac3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562869"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840365"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Um perfil técnico permite esses tipos de cenários:
 
 - [Application insights](application-insights-technical-profile.md) -enviando dados de evento para [Application insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) – oferece suporte ao gerenciamento de usuário do Azure Active Directory B2C.
-- [Autenticação multifator do Azure](multi-factor-auth-technical-profile.md) -fornece suporte para verificar um número de telefone usando a MFA (autenticação multifator do Azure). 
+- [Autenticação multifator do Azure ad](multi-factor-auth-technical-profile.md) – fornece suporte para verificar um número de telefone usando a MFA (autenticação multifator) do Azure AD. 
 - [Transformação de declarações](claims-transformation-technical-profile.md) – chama transformações de declarações de saída para manipular valores de declarações, validar declarações ou definir valores padrão para um conjunto de declarações de saída.
 - [Dica de token de ID](id-token-hint.md) -valida a `id_token_hint` assinatura de token JWT, o nome do emissor e o público do token e extrai a declaração do token de entrada.
 - [Emissor de token JWT](jwt-issuer-technical-profile.md) – emite um token JWT que é retornado para o aplicativo de terceira parte confiável.

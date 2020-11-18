@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259044"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840427"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TypingDNA com o Azure Active Directory B2C
 
 Neste tutorial, saiba como integrar um aplicativo de pagamento online de exemplo no Azure Active Directory B2C com o aplicativo TypingDNA. Usando o aplicativo TypingDNA, os clientes do Azure AD B2C podem cumprir os requisitos de transação de PSD2 ( [diretiva de serviços de pagamento 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) ) por meio do Dynamics de pressionamento de teclas e autenticação de cliente forte. Saiba mais sobre o TypingDNA [aqui](https://www.typingdna.com/).
 
- Azure AD B2C usa as tecnologias do TypingDNA para capturar as características de digitação dos usuários e fazer com que elas sejam registradas e analisadas quanto à familiaridade em cada autenticação. Isso adiciona uma camada de proteção relacionada ao risco de uma autenticação e avalia os níveis de risco. Azure AD B2C pode invocar outros mecanismos para fornecer maior confiança de que o usuário é quem alega ser invocando a MFA do Azure, forçando a verificação de email ou qualquer outra lógica personalizada para seu cenário.
+ Azure AD B2C usa as tecnologias do TypingDNA para capturar as características de digitação dos usuários e fazer com que elas sejam registradas e analisadas quanto à familiaridade em cada autenticação. Isso adiciona uma camada de proteção relacionada ao risco de uma autenticação e avalia os níveis de risco. Azure AD B2C pode invocar outros mecanismos para fornecer maior confiança de que o usuário é quem alega ser invocando a MFA do Azure AD, forçando a verificação de email ou qualquer outra lógica personalizada para seu cenário.
 
 >[!NOTE]
 > Esta política de exemplo se baseia no pacote de início do [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) .
@@ -113,7 +113,7 @@ Esses limites devem ser ajustados em seu caso de uso.
 
 - Depois que a API tiver avaliado o `net_score` , ele deverá retornar uma declaração booliana para B2C `promptMFA` .
 
-- A `promptMFA` declaração é usada em uma pré-condição para executar condicionalmente a MFA do Azure.
+- A `promptMFA` declaração é usada em uma pré-condição para executar a MFA do Azure ad condicionalmente.
 
 ```xml
 
@@ -170,7 +170,7 @@ Esses limites devem ser ajustados em seu caso de uso.
 ## <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
 1. Abra o locatário B2C e escolha Identity Experience Framework.
-2. Selecione o fluxo de **usuário**criado anteriormente.
+2. Selecione o fluxo de **usuário** criado anteriormente.
 3. Selecione **executar** fluxo de usuário
 
     a. **Aplicativo** – selecione o aplicativo registrado (exemplo é JWT)

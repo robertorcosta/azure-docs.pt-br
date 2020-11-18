@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410055"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842015"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -48,7 +48,7 @@ As recomendações neste documento estão alinhadas com a [Classificação de Se
 
 Antes de iniciar esta lista de verificação, certifique-se de que não seja comprometido enquanto lê essa lista. Você precisa primeiro proteger suas contas com privilégios.
 
-Os invasores que obtêm o controle de contas com privilégios podem causar danos tremendos, portanto, é essencial proteger essas contas primeiro. Habilite e exija a [MFA (Autenticação Multifator) do Azure](../../active-directory/authentication/concept-mfa-howitworks.md) para todos os administradores na organização usando os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou o [Acesso Condicional](../../active-directory/conditional-access/plan-conditional-access.md). Se você ainda não implementou a MFA, faça isso agora! Isso é realmente importante.
+Os invasores que obtêm o controle de contas com privilégios podem causar danos tremendos, portanto, é essencial proteger essas contas primeiro. Habilite e exija a MFA ( [autenticação multifator) do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md) para todos os administradores em sua organização usando os [padrões de segurança do Azure ad](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou o [acesso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Se você ainda não implementou a MFA, faça isso agora! Isso é realmente importante.
 
 Tudo pronto? Vamos começar a trabalhar na lista de verificação.
 
@@ -59,9 +59,9 @@ A maioria das violações de segurança empresariais são originadas com uma con
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Verifique se sua organização usa autenticação forte
 
-Considerando a frequência com que as senhas são adivinhadas, obtidas por phishing, roubadas com malware ou reutilizadas, é fundamental auxiliar a senha com alguma forma de credencial forte, saiba mais sobre a [Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md).
+Dada a frequência de adivinhação de senhas, phishinged, furtos com malware ou reutilizado, é essencial voltar à senha com alguma forma de credencial forte – saiba mais sobre a [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Para habilitar facilmente o nível básico de segurança de identidade, você pode usar a habilitação em um clique com os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Os padrões de segurança impõem o MFA do Azure para todos os usuários em um locatário e bloqueiam as entradas de protocolos herdados em todo o locatário.
+Para habilitar facilmente o nível básico de segurança de identidade, você pode usar a habilitação em um clique com os [Padrões de Segurança do Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Os padrões de segurança impõem o Azure AD MFA para todos os usuários em um locatário e bloqueia as entradas de protocolos herdados em todo o locatário.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Comece a proibir senhas comumente atacadas e desative a complexidade tradicional e as regras de expiração.
 

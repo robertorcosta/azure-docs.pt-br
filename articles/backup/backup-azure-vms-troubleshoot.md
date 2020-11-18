@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173832"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840909"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -124,8 +124,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Etapa 3: se as etapas 1 e 2 não resolverem o problema, a falha poderá ser devido ao tempo limite dos gravadores VSS expirarem devido a um IOPS limitado.<br>
 
-Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo*** e verifique a seguinte mensagem de erro:<br>
-*O tempo limite do provedor de cópia de sombra foi atingido ao reter gravações no volume sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
+Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo** _ e verifique a seguinte mensagem de erro:<br>
+O tempo limite do provedor de cópia de sombra do _The expirou enquanto retém gravações no volume que está sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida. *<br>
 
 Solução:
 
@@ -244,7 +244,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Isso garantirá que os instantâneos são executados por meio do host em vez do convidado. Tente a operação de backup novamente.
 
-**Etapa 2**: Tente alterar o agendamento de backup para uma hora em que a VM está sob menos carga (como menos CPU ou IOps)
+**Etapa 2**: Tente alterar o agendamento de backup para uma hora em que a VM está sob menos carga (como menos CPU ou IOPS)
 
 **Etapa 3**: Tente [aumentar o tamanho da VM](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) e repita a operação
 
@@ -283,7 +283,7 @@ Erro de código: VmNotInDesirableState <br/> Mensagem de erro:  A VM não está 
 * Se a VM estiver em um estado transitório entre **Execução** e **Desligada**, aguarde a alteração do estado para mudar. Em seguida, dispare o trabalho de backup.
 * Se a VM for uma VM do Linux e usar o módulo de kernel do Linux com Segurança Aprimorada, exclua o caminho do Agente para Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
-* O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent).
+* O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. | Leia mais sobre a [instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent).
 
 ### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-falha na operação de instantâneo devido à falha ao criar um canal de comunicação de rede segura
 
@@ -321,8 +321,8 @@ Se você tiver um Azure Policy que [governa as marcas em seu ambiente](../govern
 
 Se, após a restauração, você observar que os discos estão offline, então:
 
-* Verifique se o computador onde o script é executado atende aos requisitos do sistema operacional. [Saiba mais](./backup-azure-restore-files-from-vm.md#system-requirements).  
-* Verifique se você não está restaurando para a mesma fonte, [saiba mais](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
+* Verifique se o computador onde o script é executado atende aos requisitos do sistema operacional. [Saiba mais](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Verifique se você não está restaurando para a mesma fonte, [saiba mais](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound-Restore falhou porque o instantâneo da VM não foi encontrado
 

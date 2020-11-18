@@ -3,19 +3,19 @@ title: Iniciar manualmente um failover no SQL Instância Gerenciada
 description: Saiba como fazer failover manualmente de réplicas primárias e secundárias no Azure SQL Instância Gerenciada.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842219"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário no SQL Instância Gerenciada
 
@@ -46,7 +46,7 @@ O usuário que estiver iniciando um failover precisará ter uma das seguintes fu
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 A versão mínima do AZ. SQL precisa ser [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere o uso de [Azure cloud Shell](../../cloud-shell/overview.md) do portal do Azure que sempre tenha a versão mais recente do PowerShell disponível. 
 
@@ -140,7 +140,7 @@ Você não poderá ver a mesma saída com a camada de serviço GP como aquela ac
 
 > [!IMPORTANT]
 > As limitações funcionais do failover manual iniciado pelo usuário são:
-> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **30 minutos** .
+> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **30 minutos**.
 > - Para instâncias de BC, deve existir quorum de réplicas para que a solicitação de failover seja aceita.
 > - Para instâncias de BC, não é possível especificar em qual réplica secundária legível iniciar o failover.
 

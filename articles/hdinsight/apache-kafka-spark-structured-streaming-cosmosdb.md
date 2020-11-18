@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487323"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842457"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -69,7 +69,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
     |Subscription|Selecione sua assinatura do Azure.|
     |Resource group|Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.|
     |Nome da conta de Cosmos DB|este valor é usado como o nome da conta do Cosmos DB. O nome pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ela deve ter entre 3 e 31 caracteres.|
-    |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
+    |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado __spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
     |Versão do cluster|a versão do cluster do HDInsight. Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.|
     |Nome de usuário de logon do cluster|O nome do usuário administrador dos clusters Spark e Kafka.|
     |Senha de logon do cluster|A senha do usuário administrador dos clusters Spark e Kafka.|

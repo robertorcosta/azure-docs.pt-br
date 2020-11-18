@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961214"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840399"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 a ser usado como um protocolo de *autenticação*. Esse protocolo de autenticação permite que você execute o logon único. Ele apresenta o conceito de *token de ID*, que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário.
 
-Como ele estende o OAuth 2,0, ele também permite que os aplicativos adquiram *tokens de acesso*com segurança. Você pode usar tokens de acesso para acessar os recursos protegidos por um [servidor de autorização](protocols-overview.md). O OpenID Connect é recomendado se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador. Para obter mais informações sobre tokens, consulte a [visão geral dos tokens no Azure Active Directory B2C](tokens-overview.md)
+Como ele estende o OAuth 2,0, ele também permite que os aplicativos adquiram *tokens de acesso* com segurança. Você pode usar tokens de acesso para acessar os recursos protegidos por um [servidor de autorização](protocols-overview.md). O OpenID Connect é recomendado se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador. Para obter mais informações sobre tokens, consulte a [visão geral dos tokens no Azure Active Directory B2C](tokens-overview.md)
 
 O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [parâmetro de fluxo de usuário](user-flow-overview.md), que permite que você use o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como inscrição, entrada e gerenciamento de perfil.
 
@@ -52,7 +52,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | nonce | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | response_type | Sim | Deve incluir um token de ID para o OpenID Connect. Se o aplicativo Web também precisar de tokens para chamar uma API da Web, você poderá usar o `code+id_token` . |
-| escopo | Sim | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. O `offline_access` escopo é opcional para aplicativos Web. Isso indica que seu aplicativo precisará de um *token de atualização* para acesso estendido aos recursos. |
+| scope | Sim | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. O `offline_access` escopo é opcional para aplicativos Web. Isso indica que seu aplicativo precisará de um *token de atualização* para acesso estendido aos recursos. |
 | prompt | Não | O tipo de interação do usuário que é necessária. O único valor válido no momento é `login`, que força o usuário a inserir suas credenciais nessa solicitação. |
 | redirect_uri | Não | O `redirect_uri` parâmetro do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos `redirect_uri` parâmetros que você registrou na portal do Azure, exceto que ele deve ser codificado por URL. |
 | response_mode | Não | O método usado para enviar o código de autorização resultante de volta para seu aplicativo. Ele pode ser `query`, `form_post` ou `fragment`.  O modo de resposta `form_post` é recomendado para maior segurança. |
@@ -124,7 +124,7 @@ Também há várias outras validações que devem ser realizadas. As validaçõe
 
 - Garantir que o usuário/organização tenha se inscrito no aplicativo.
 - A garantia de que o usuário tenha a autorização/os privilégios adequados.
-- A garantia de que uma determinada intensidade de autenticação tenha ocorrido, como a Autenticação Multifator do Azure.
+- Garantindo que uma determinada força de autenticação tenha ocorrido, como a autenticação multifator do Azure AD.
 
 Depois de validar o token de ID, você pode iniciar uma sessão com o usuário. Você pode usar as declarações no token de ID para obter informações sobre o usuário em seu aplicativo. Os usos para essas informações incluem exibição, registros e autorização.
 
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | code | Sim | O código de autorização que você adquiriu no início do fluxo do usuário. |
 | grant_type | Sim | O tipo de concessão, que deve ser `authorization_code` para o fluxo do código de autorização. |
 | redirect_uri | Sim | O parâmetro `redirect_uri` do aplicativo em que você recebeu o código de autorização. |
-| escopo | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de parâmetros de id_token. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
+| scope | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de parâmetros de id_token. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
 
 Uma resposta de token bem-sucedida tem a seguinte aparência:
 
@@ -173,7 +173,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
 | not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type | O valor do tipo de token. `Bearer` é o único tipo com suporte. |
 | access_token | O token JWT assinado que você solicitou. |
-| escopo | Os escopos para os quais o token é válido. |
+| scope | Os escopos para os quais o token é válido. |
 | expires_in | O período de tempo pelo qual o token de acesso é válido (em segundos). |
 | refresh_token | Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens adicionais depois que o token atual expirar. Os tokens de atualização podem ser usados para manter o acesso aos recursos por longos períodos de tempo. O escopo `offline_access` deve ter sido usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
 
@@ -222,7 +222,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | grant_type | Sim | O tipo de concessão, que deve ser `refresh_token` para essa parte do fluxo do código de autorização. |
 | refresh_token | Sim | O token de atualização original que foi adquirido na segunda parte do fluxo. O `offline_access` escopo deve ser usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
 | redirect_uri | Não | O parâmetro `redirect_uri` do aplicativo em que você recebeu o código de autorização. |
-| escopo | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. Ele pode ser usado para enviar tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
+| scope | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para entrar no usuário e obter dados sobre ele na forma de tokens de ID. Ele pode ser usado para enviar tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
 
 Uma resposta de token bem-sucedida tem a seguinte aparência:
 
@@ -242,7 +242,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
 | not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type | O valor do tipo de token. `Bearer` é o único tipo com suporte. |
 | access_token | O token JWT assinado que foi solicitado. |
-| escopo | O escopo para o qual o token é válido. |
+| scope | O escopo para o qual o token é válido. |
 | expires_in | O período de tempo pelo qual o token de acesso é válido (em segundos). |
 | refresh_token | Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens adicionais depois que o token atual expirar. Os tokens de atualização podem ser usados para manter o acesso aos recursos por longos períodos de tempo. |
 

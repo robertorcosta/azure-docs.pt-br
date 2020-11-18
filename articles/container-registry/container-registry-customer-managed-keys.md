@@ -4,12 +4,12 @@ description: Saiba mais sobre a criptografia em repouso do registro de contêine
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ad81a94910cb1ed09634801f8706182e17947225
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940660"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842559"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 
@@ -210,7 +210,7 @@ Você usará o nome da identidade nas etapas posteriores.
 
 ### <a name="create-a-key-vault"></a>Criar um cofre de chave
 
-Para obter as etapas necessárias para criar um cofre de chaves, confira [Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
+Para obter as etapas para criar um cofre de chaves, consulte [início rápido: criar um Azure Key Vault com o portal do Azure](../key-vault/general/quick-create-portal.md).
 
 Ao criar um cofre de chaves para uma chave gerenciada pelo cliente, na guia **Informações Básicas**, habilite as seguintes configurações de proteção: **Exclusão temporária** e **Proteção contra limpeza**. Essas configurações ajudam a evitar a perda de dados causada por exclusões acidentais de chave ou de cofre de chaves.
 

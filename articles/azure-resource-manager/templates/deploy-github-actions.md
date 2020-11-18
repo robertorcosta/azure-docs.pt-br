@@ -3,13 +3,13 @@ title: Implantar modelos do Resource Manager usando GitHub Actions
 description: Descreve como implantar modelos do Azure Resource Manager usando GitHub Actions.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746092"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841675"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implantar modelos do Azure Resource Manager usando GitHub Actions
 
@@ -20,7 +20,7 @@ Use a [ação implantar modelo de Azure Resource Manager](https://github.com/mar
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Uma conta do GitHub. Se você não tiver uma, Inscreva-se [gratuitamente](https://github.com/join).  
+- Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).  
     - Um repositório GitHub para armazenar seus modelos do Resource Manager e seus arquivos de fluxo de trabalho. Para criá-lo, confira [Como criar um repositório](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
 
@@ -38,7 +38,7 @@ O arquivo tem duas seções:
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
 
-Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
+Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 Crie um grupo de recursos se você ainda não tiver um. 
 
@@ -75,7 +75,7 @@ Você precisa criar segredos para suas credenciais, grupo de recursos e assinatu
 
 1. Em [GitHub](https://github.com/), procure seu repositório.
 
-1. Selecione **Configurações > Segredos > Novo segredo** .
+1. Selecione **Configurações > Segredos > Novo segredo**.
 
 1. Cole toda a saída JSON do comando da CLI do Azure no campo valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS`.
 
@@ -95,12 +95,12 @@ Você pode colocar o arquivo em qualquer lugar do repositório. O exemplo de flu
 
 ## <a name="create-workflow"></a>Criar fluxo de trabalho
 
-O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de trabalho** na raiz do seu repositório. A extensão do arquivo do fluxo de trabalho pode ser **.yml** ou **.yaml** .
+O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de trabalho** na raiz do seu repositório. A extensão do arquivo do fluxo de trabalho pode ser **.yml** ou **.yaml**.
 
 1. No repositório GitHub, selecione **Actions** no menu superior.
-1. Selecione **Novo fluxo de trabalho** .
-1. Selecione **Configurar fluxo de trabalho por conta própria** .
-1. Renomeie o arquivo do fluxo de trabalho se preferir usar um nome diferente de **main.yml** . Por exemplo: **deployStorageAccount.yml** .
+1. Selecione **Novo fluxo de trabalho**.
+1. Selecione **Configurar fluxo de trabalho por conta própria**.
+1. Renomeie o arquivo do fluxo de trabalho se preferir usar um nome diferente de **main.yml**. Por exemplo: **deployStorageAccount.yml**.
 1. Substitua o conteúdo do arquivo yml pelo seguinte:
 
     ```yml
@@ -136,12 +136,12 @@ O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de
 
     A primeira seção do arquivo de fluxo de trabalho inclui:
 
-    - **nome** : Nome do fluxo de trabalho.
-    - **Ativado** : o nome dos eventos do GitHub que acionam o fluxo de trabalho. O fluxo de trabalho é acionado quando há um evento no qual efetua-se o push na ramificação mestre, que modifica pelo menos um dos dois arquivos especificados. Os dois arquivos correspondem ao arquivo de fluxo de trabalho e ao arquivo de modelo.
+    - **nome**: Nome do fluxo de trabalho.
+    - **Ativado**: o nome dos eventos do GitHub que acionam o fluxo de trabalho. O fluxo de trabalho é acionado quando há um evento no qual efetua-se o push na ramificação mestre, que modifica pelo menos um dos dois arquivos especificados. Os dois arquivos correspondem ao arquivo de fluxo de trabalho e ao arquivo de modelo.
 
-1. Selecione **Confirmar início** .
-1. Selecione **Confirmar diretamente na ramificação mestre** .
-1. Selecione **Confirmar novo arquivo** (ou **Confirmar alterações** ).
+1. Selecione **Confirmar início**.
+1. Selecione **Confirmar diretamente na ramificação mestre**.
+1. Selecione **Confirmar novo arquivo** (ou **Confirmar alterações**).
 
 Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de fluxo de trabalho ou pelo arquivo de modelo que está sendo atualizado, ele é iniciado logo após você confirmar as alterações.
 
@@ -151,7 +151,7 @@ Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de flu
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar o ARM implantar** no menu para verificar a implantação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando o grupo de recursos e o repositório não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos e seu repositório GitHub. 
 

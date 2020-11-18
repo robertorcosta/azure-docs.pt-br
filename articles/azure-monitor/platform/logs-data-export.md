@@ -3,16 +3,16 @@ title: Log Analytics exportar dados de espaço de trabalho no Azure Monitor (ver
 description: Log Analytics exportação de dados permite que você exporte continuamente os dados das tabelas selecionadas do seu espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure, conforme ele é coletado.
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427795"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841800"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -100,7 +100,7 @@ O provedor de recursos do Azure a seguir precisa ser registrado para sua assinat
 
 - Microsoft.insights
 
-Esse provedor de recursos provavelmente já estará registrado para a maioria dos Azure Monitor usuários. Para verificar, acesse **assinaturas** no portal do Azure. Selecione sua assinatura e clique em **provedores de recursos** na seção **configurações** do menu. Localize **Microsoft. insights**. Se seu status for **registrado** , ele já estará registrado. Caso contrário, clique em **registrar** para registrá-lo.
+Esse provedor de recursos provavelmente já estará registrado para a maioria dos Azure Monitor usuários. Para verificar, acesse **assinaturas** no portal do Azure. Selecione sua assinatura e clique em **provedores de recursos** na seção **configurações** do menu. Localize **Microsoft. insights**. Se seu status for **registrado**, ele já estará registrado. Caso contrário, clique em **registrar** para registrá-lo.
 
 Você também pode usar qualquer um dos métodos disponíveis para registrar um provedor de recursos, conforme descrito em [provedores de recursos e tipos do Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Veja a seguir um comando de exemplo usando o PowerShell:
 

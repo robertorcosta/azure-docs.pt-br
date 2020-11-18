@@ -4,15 +4,15 @@ description: Neste guia de Início Rápido, aprenda como criar um Serviço do Az
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289919"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841608"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Início Rápido: Usar um modelo do ARM para implantar o Serviço do Azure SignalR
 
@@ -62,20 +62,20 @@ Selecione o seguinte link para implantar o Serviço do Azure SignalR usando o mo
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botão para implantar o Serviço do Azure SignalR no Azure usando o modelo do ARM no portal do Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-Na página **Implantar um Serviço do Azure SignalR** :
+Na página **Implantar um Serviço do Azure SignalR**:
 
 1. Se desejar, altere a **Assinatura** do padrão.
 
-2. Para **Grupo de recursos** , selecione **Criar** , insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
+2. Para **Grupo de recursos**, selecione **Criar**, insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
 
 3. Se você criou um grupo de recursos, selecione uma **Região** para ele.
 
-4. Se desejar, insira um novo **Nome** e o **Local** (como **eastus2** ) do Serviço do Azure SignalR. Se você não especificar um nome, ele será gerado automaticamente. A localização do Serviço do Azure SignalR pode ser igual ou diferente da região do grupo de recursos. Se você não especificar um local, ele será definido como a mesma região que o grupo de recursos.
+4. Se desejar, insira um novo **Nome** e o **Local** (como **eastus2**) do Serviço do Azure SignalR. Se você não especificar um nome, ele será gerado automaticamente. A localização do Serviço do Azure SignalR pode ser igual ou diferente da região do grupo de recursos. Se você não especificar um local, ele será definido como a mesma região que o grupo de recursos.
 
-5. Escolha o **Tipo de Preço** ( **Free_F1** ou **Standard_S1** ), insira a **Capacidade** (número de unidades do SignalR) e escolha um **Modo de Serviço** de **Padrão** (requer o servidor de hub), **Sem servidor** (não permite nenhuma conexão com o servidor) ou **Clássico** (roteado para o servidor de hub somente se o hub tiver conexão com o servidor). Em seguida, escolha se deseja **Habilitar os Logs de Conectividade** ou **Habilitar os Logs de Mensagens**.
+5. Escolha o **Tipo de Preço** (**Free_F1** ou **Standard_S1**), insira a **Capacidade** (número de unidades do SignalR) e escolha um **Modo de Serviço** de **Padrão** (requer o servidor de hub), **Sem servidor** (não permite nenhuma conexão com o servidor) ou **Clássico** (roteado para o servidor de hub somente se o hub tiver conexão com o servidor). Em seguida, escolha se deseja **Habilitar os Logs de Conectividade** ou **Habilitar os Logs de Mensagens**.
 
     > [!NOTE]
-    > Para o tipo de preço **Free_F1** , a capacidade é limitada a uma unidade.
+    > Para o tipo de preço **Free_F1**, a capacidade é limitada a uma unidade.
 
     :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Captura de tela do modelo do ARM para criar um Serviço do Azure SignalR no portal do Azure.":::
 
@@ -92,12 +92,12 @@ Use o código a seguir para implantar o Serviço do Azure SignalR usando o model
 
 * O nome e a região do novo Serviço do Azure SignalR
 * O nome e a região de um novo grupo de recursos
-* O tipo de preço do Azure ( **Free_F1** ou **Standard_S1** )
+* O tipo de preço do Azure (**Free_F1** ou **Standard_S1**)
 * A capacidade da unidade do SignalR (1, 2, 5, 10, 20, 50 ou 100)
   > [!NOTE]
-  > Para o tipo de preço **Free_F1** , a capacidade é limitada a uma unidade.
+  > Para o tipo de preço **Free_F1**, a capacidade é limitada a uma unidade.
 * O modo de serviço: **Padrão** para exigir um servidor de hub, **Sem servidor** para proibir qualquer conexão de servidor ou **Clássico** para fazer o roteamento para um servidor de hub somente se o hub tiver uma conexão de servidor
-* Se é para habilitar logs para conectividade ou mensagens ( **true** ou **false** )
+* Se é para habilitar logs para conectividade ou mensagens (**true** ou **false**)
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
@@ -137,12 +137,12 @@ Use o código a seguir para implantar o Serviço do Azure SignalR usando o model
 
 * O nome e a região do novo Serviço do Azure SignalR
 * O nome e a região de um novo grupo de recursos
-* O tipo de preço do Azure ( **Free_F1** ou **Standard_S1** )
+* O tipo de preço do Azure (**Free_F1** ou **Standard_S1**)
 * A capacidade da unidade do SignalR (1, 2, 5, 10, 20, 50 ou 100)
     > [!NOTE]
-    > Para o tipo de preço **Free_F1** , a capacidade é limitada a uma unidade.
+    > Para o tipo de preço **Free_F1**, a capacidade é limitada a uma unidade.
 * O modo de serviço: **Padrão** para exigir um servidor de hub, **Sem servidor** para proibir qualquer conexão de servidor ou **Clássico** para fazer o roteamento para um servidor de hub somente se o hub tiver uma conexão de servidor
-* Se é para habilitar logs para conectividade ou mensagens ( **true** ou **false** )
+* Se é para habilitar logs para conectividade ou mensagens (**true** ou **false**)
 
 ```azurecli-interactive
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&

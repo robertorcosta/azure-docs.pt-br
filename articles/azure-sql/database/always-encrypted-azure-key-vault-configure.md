@@ -5,19 +5,19 @@ keywords: criptografia de dados, chave de criptografia, criptografia de nuvem
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
-ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841454"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurar Always Encrypted usando Azure Key Vault 
 
@@ -51,11 +51,11 @@ Siga as etapas neste artigo e saiba como configurar Always Encrypted para seu ba
 
 Você deve habilitar seu aplicativo cliente para acessar seu banco de dados no banco de dados SQL Configurando um aplicativo Azure Active Directory (Azure AD) e copiando a ID e a *chave* do *aplicativo* que você precisará para autenticar seu aplicativo.
 
-Para obter o *ID do Aplicativo* e *chave* , siga as etapas em [criar um aplicativo do Active Directory do Azure e entidade de serviço que podem acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
+Para obter o *ID do Aplicativo* e *chave*, siga as etapas em [criar um aplicativo do Active Directory do Azure e entidade de serviço que podem acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Criar um cofre de chaves para armazenar as chaves
 
-Agora que seu aplicativo cliente está configurado e você tem a ID do aplicativo, é hora de criar um cofre de chaves e configurar a política de acesso para que você e seu aplicativo possam acessar os segredos do cofre (as chaves Always Encrypted). As permissões *create* , *get* , *list* , *sign* , *verify* , *wrapKey* e *unwrapKey* são necessárias para criar uma nova chave mestra de coluna e configurar a criptografia com o SQL Server Management Studio.
+Agora que seu aplicativo cliente está configurado e você tem a ID do aplicativo, é hora de criar um cofre de chaves e configurar a política de acesso para que você e seu aplicativo possam acessar os segredos do cofre (as chaves Always Encrypted). As permissões *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* são necessárias para criar uma nova chave mestra de coluna e configurar a criptografia com o SQL Server Management Studio.
 
 Você pode criar rapidamente um cofre de chaves executando o script a seguir. Para obter uma explicação detalhada desses comandos e obter mais informações sobre como criar e configurar um cofre de chaves, consulte [o que é Azure Key Vault?](../../key-vault/general/overview.md).
 
@@ -151,7 +151,7 @@ O SSMS fornece um assistente que ajuda você a configurar facilmente o Always En
 
     ![Captura de tela que realça as colunas de criptografia... opção de menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
-O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna** , **Configuração da Chave Mestra** , **Validação** e **Resumo**.
+O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, **Configuração da Chave Mestra**, **Validação** e **Resumo**.
 
 ### <a name="column-selection"></a>Seleção de coluna
 
@@ -576,7 +576,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
    ![Captura de tela que mostra que as colunas criptografadas não contêm nenhum dado de texto sem formatação.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-Para usar o SSMS para acessar os dados de texto sem formatação, primeiro você precisa garantir que o usuário tenha as permissões adequadas para o Azure Key Vault: *get* , *unwrapKey* e *verify*. Para obter informações detalhadas, consulte [Criar e armazenar chaves mestras de coluna (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
+Para usar o SSMS para acessar os dados de texto sem formatação, primeiro você precisa garantir que o usuário tenha as permissões adequadas para o Azure Key Vault: *get*, *unwrapKey* e *verify*. Para obter informações detalhadas, consulte [Criar e armazenar chaves mestras de coluna (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Em seguida, adicione o parâmetro *Column Encryption Setting=enabled* durante a sua conexão.
 

@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789566"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841216"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gerenciando o banco de dados SQL do Azure após a migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,18 +38,18 @@ Este artigo discute algumas das principais características do Banco de Dados SQ
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorar bancos de dados usando o Portal do Azure
 
-No [portal do Azure](https://portal.azure.com/), você pode monitorar a utilização de um banco de dados individual selecionando seu banco de dados e clicando no gráfico de **monitoramento** . Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico** . Adicione as seguintes métricas:
+No [portal do Azure](https://portal.azure.com/), você pode monitorar a utilização de um banco de dados individual selecionando seu banco de dados e clicando no gráfico de **monitoramento** . Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
 
 - Percentual de CPU
 - Porcentagem de DTU
 - Porcentagem de E/S de dados
 - Percentual de tamanho do banco de dados
 
-Depois de adicionar essas métricas, você pode continuar a visualizá-las no gráfico **Monitoramento** com mais informações na janela **Métrica** . Todas as quatro métricas mostram o percentual médio de utilização relativo à **DTU** do seu banco de dados. Consulte os artigos [Modelo de compra baseado em DTU](service-tiers-dtu.md) e [Modelo de compra baseado em vCore](service-tiers-vcore.md) para obter mais informações sobre as camadas de serviço.  
+Depois de adicionar essas métricas, você pode continuar a visualizá-las no gráfico **Monitoramento** com mais informações na janela **Métrica**. Todas as quatro métricas mostram o percentual médio de utilização relativo à **DTU** do seu banco de dados. Consulte os artigos [Modelo de compra baseado em DTU](service-tiers-dtu.md) e [Modelo de compra baseado em vCore](service-tiers-vcore.md) para obter mais informações sobre as camadas de serviço.  
 
 ![Monitoramento da camada de serviço do desempenho do banco de dados.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-Você também pode configurar alertas nas métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métrica** . Siga o Assistente para configurar o alerta. Você tem a opção de alerta se a métrica exceder um limite determinado ou se ficar abaixo de um limite determinado.
+Você também pode configurar alertas nas métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métrica**. Siga o Assistente para configurar o alerta. Você tem a opção de alerta se a métrica exceder um limite determinado ou se ficar abaixo de um limite determinado.
 
 Por exemplo, se você espera que a carga de trabalho em seu banco de dados cresça, você poderá configurar um alerta por email sempre que seu banco de dados atinge 80% em qualquer uma das métricas de desempenho. Você pode usar isso como um aviso antecipado para decidir quando precisará alternar para o próximo tamanho da computação mais elevado.
 
@@ -106,7 +106,7 @@ Há dois métodos de autenticação oferecidos no Banco de Dados SQL:
 
 Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD do Azure) é um serviço de gerenciamento de identidade e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. 
 
-O Azure AD dá suporte à [autenticação multifator do Azure](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) que o Azure AD pode ser integrado com o Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece um nome de usuário/senha e pode autenticar usuários em qualquer banco de dados em um determinado servidor. Isso também permite que o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam a autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
+O Azure AD dá suporte à [autenticação multifator do Azure ad](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) que o Azure AD pode ser integrado com o Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece um nome de usuário/senha e pode autenticar usuários em qualquer banco de dados em um determinado servidor. Isso também permite que o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam a autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
 
 |**Se você...**|**Banco de dados SQL/análise de Synapse do Azure**|
 |---|---|
@@ -320,11 +320,11 @@ O Banco de Dados SQL usa algumas técnicas inteligentes que permitem manipular d
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>Como fazer exportar e importar dados como arquivos BACPAC do banco de dados SQL usando o portal do Azure
 
-- **Exportar** : você pode exportar seu banco de dados no banco de dados SQL do Azure como um arquivo BACPAC do portal do Azure
+- **Exportar**: você pode exportar seu banco de dados no banco de dados SQL do Azure como um arquivo BACPAC do portal do Azure
 
    ![exportação de banco de dados](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **Importar** : você também pode importar dados como um arquivo BACPAC para seu banco de dado no banco de dados SQL do Azure usando o portal do Azure.
+- **Importar**: você também pode importar dados como um arquivo BACPAC para seu banco de dado no banco de dados SQL do Azure usando o portal do Azure.
 
    ![importação de dados](./media/manage-data-after-migrating-to-database/import1.png)
 

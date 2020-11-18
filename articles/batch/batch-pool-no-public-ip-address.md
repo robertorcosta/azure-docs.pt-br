@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850924"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842128"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um pool do Lote do Azure sem endereços IP públicos
 
@@ -34,7 +34,7 @@ Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desse
 - **Uma rede virtual do Azure**. Se você estiver criando seu pool em uma [rede virtual](batch-virtual-network.md), siga estes requisitos e configurações. Para preparar uma rede virtual com uma ou mais sub-redes com antecedência, você pode usar o portal do Azure, o Azure PowerShell, a interface de linha de comando (CLI) do Azure ou outros métodos.
   - A VNet deve estar na mesma assinatura e região da conta do Lote que você usa para criar o pool.
   - A sub-rede especificada para o pool deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o pool, ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o pool alocará parcialmente os nós de computação e ocorrerá um erro de redimensionamento.
-  - Você deve desabilitar o serviço de vínculo privado e as políticas de rede de ponto de extremidade. Isso pode ser feito usando CLI do Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Você deve desabilitar o serviço de vínculo privado e as políticas de rede de ponto de extremidade. Isso pode ser feito usando CLI do Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Para cada nó de 100 ou de baixa prioridade dedicado, o lote aloca um serviço de link privado e um balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para grandes pools, talvez seja necessário [solicitar um aumento de cota](batch-quota-limit.md#increase-a-quota) para um ou mais desses recursos. Além disso, nenhum bloqueio de recurso deve ser aplicado a qualquer recurso criado pelo lote, pois isso impede a limpeza de recursos como resultado de ações iniciadas pelo usuário, como a exclusão de um pool ou o redimensionamento para zero.
@@ -52,7 +52,7 @@ Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desse
 1. Na janela **pools** , selecione **Adicionar**.
 1. Na janela **Adicionar pool**, selecione a opção que você deseja usar na lista suspensa **Tipo de imagem**.
 1. Selecione o **Publicador/oferta/SKU** correto da sua imagem.
-1. Especifique as configurações necessárias restantes, incluindo o **tamanho do nó**, os **nós dedicados de destino**e os **nós de baixa prioridade**, bem como as configurações opcionais desejadas.
+1. Especifique as configurações necessárias restantes, incluindo o **tamanho do nó**, os **nós dedicados de destino** e os **nós de baixa prioridade**, bem como as configurações opcionais desejadas.
 1. Opcionalmente, selecione uma rede virtual e uma sub-rede que você deseja usar. Essa rede virtual deve estar no mesmo grupo de recursos que o pool que você está criando.
 1. Em **tipo de provisionamento de endereço IP**, selecione **NoPublicIPAddresses**.
 

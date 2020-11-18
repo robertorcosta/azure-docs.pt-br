@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363384"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842100"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Início Rápido: Criar um recurso dos Serviços Cognitivos usando um modelo do ARM
 
@@ -60,7 +60,7 @@ Um recurso do Azure é definido no modelo:
     |Valor  |Descrição  |
     |---------|---------|
     | **Assinatura** | Selecione uma assinatura do Azure. |
-    | **Grupo de recursos** | Selecione **Criar** , insira um nome exclusivo para o grupo de recursos e clique em **OK**. |
+    | **Grupo de recursos** | Selecione **Criar**, insira um nome exclusivo para o grupo de recursos e clique em **OK**. |
     | **Região** | Selecione uma região.  Por exemplo, **Leste dos EUA** |
     | **Nome do Serviço Cognitivo** | Substitua por um nome exclusivo para seu recurso. Você precisará do nome na próxima seção ao validar a implantação. |
     | **Localidade** | Substitua pela região usada acima. |

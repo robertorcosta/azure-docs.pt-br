@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: ad7fb6098d3fb347f6bb31264fdc72dc7650c1a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1261f54739d4689878dcb8657361582164a1a23e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748571"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842083"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Python)
 
@@ -38,15 +38,7 @@ Neste início rápido, você envia telemetria de um aplicativo de dispositivo si
 
 * Porta 8883 aberta no firewall. A amostra de dispositivo deste início rápido usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Adicionar Extensão do Azure IoT
-
-Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -60,9 +52,9 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
-    **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
-    **MyPythonDevice** : esse é o nome do dispositivo que está sendo registrado. É recomendável usar o **MyPythonDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
+    **MyPythonDevice**: esse é o nome do dispositivo que está sendo registrado. É recomendável usar o **MyPythonDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
@@ -70,7 +62,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você registrou:
 
-    **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
@@ -82,9 +74,9 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
     Você usará esse valor posteriormente no início rápido.
 
-1. Você também precisa do _ponto de extremidade compatível com Hubs de Evento_ , do _caminho compatível dos Hubs de Eventos_ e da _chave primária de serviço_ de seu hub IoT para ativar o aplicativo back-end a fim de se conectar ao seu hub IoT e recuperar as mensagens. Os comandos a seguir recuperam esses valores para o seu hub IoT:
+1. Você também precisa do _ponto de extremidade compatível com Hubs de Evento_, do _caminho compatível dos Hubs de Eventos_ e da _chave primária de serviço_ de seu hub IoT para ativar o aplicativo back-end a fim de se conectar ao seu hub IoT e recuperar as mensagens. Os comandos a seguir recuperam esses valores para o seu hub IoT:
 
-   **YourIoTHubName** : substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -100,11 +92,11 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 O aplicativo de dispositivo simulado se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT e envia telemetria simulada de temperatura e umidade.
 
-1. Em uma janela de terminal local, navegue até a pasta raiz do projeto Python de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device** .
+1. Em uma janela de terminal local, navegue até a pasta raiz do projeto Python de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device**.
 
 1. Abra o arquivo **SimulatedDevice.py** em seu editor de texto preferido.
 
-    Substitua o valor da variável `CONNECTION_STRING` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve suas alterações em **SimulatedDevice.py** .
+    Substitua o valor da variável `CONNECTION_STRING` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve suas alterações em **SimulatedDevice.py**.
 
 1. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias para o aplicativo de dispositivo simulado:
 
@@ -127,9 +119,9 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 O aplicativo de back-end se conecta ao ponto de extremidade **Eventos** do lado do serviço em seu Hub IoT. O aplicativo recebe as mensagens do dispositivo para a nuvem, enviadas de seu dispositivo simulado. Um aplicativo de back-end do Hub IoT normalmente é executado na nuvem para receber e processar as mensagens do dispositivo para a nuvem.
 
 > [!NOTE]
-> As etapas a seguir usam o exemplo síncrono, **read_device_to_cloud_messages_sync.py** . Você pode executar as mesmas etapas com o exemplo assíncrono, **read_device_to_cloud_messages_async. py** .
+> As etapas a seguir usam o exemplo síncrono, **read_device_to_cloud_messages_sync.py**. Você pode executar as mesmas etapas com o exemplo assíncrono, **read_device_to_cloud_messages_async. py**.
 
-1. Em outra janela de terminal local, navegue até a pasta raiz do projeto Python de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\read-d2c-messages** .
+1. Em outra janela de terminal local, navegue até a pasta raiz do projeto Python de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\read-d2c-messages**.
 
 2. Abra o arquivo **read_device_to_cloud_messages_sync. py** em um editor de texto de sua escolha. Atualize as variáveis a seguir e salve suas alterações no arquivo.
 

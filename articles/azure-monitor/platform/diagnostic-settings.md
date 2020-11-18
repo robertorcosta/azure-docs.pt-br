@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489431"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842423"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
@@ -47,7 +47,7 @@ Os logs e as métricas da plataforma podem ser enviados para os destinos na tabe
 |:---|:---|
 | [Espaço de Trabalho do Log Analytics](design-logs-deployment.md) | O envio de logs e métricas para um espaço de trabalho Log Analytics permite analisá-los com outros dados de monitoramento coletados por Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. |
 | [Hubs de Eventos](../../event-hubs/index.yml) | O envio de logs e métricas para hubs de eventos permite transmitir dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.  |
-| [Conta de armazenamento do Azure](../../storage/blobs/index.yml) | O arquivamento de logs e métricas para uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. Em comparação com os logs de Azure Monitor e um espaço de trabalho Log Analytics, o armazenamento do Azure é menos dispendioso e os logs podem ser mantidos indefinidamente.  |
+| [Conta de Armazenamento do Azure](../../storage/blobs/index.yml) | O arquivamento de logs e métricas para uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. Em comparação com os logs de Azure Monitor e um espaço de trabalho Log Analytics, o armazenamento do Azure é menos dispendioso e os logs podem ser mantidos indefinidamente.  |
 
 
 ### <a name="destination-requirements"></a>Requisitos de destino
@@ -99,7 +99,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
 4. **Detalhes da categoria (o que rotear)** – marque a caixa para cada categoria de dados que você deseja enviar para os destinos especificados mais tarde. A lista de categorias varia para cada serviço do Azure.
 
-     - As **biometrias roteiam** as métricas de plataforma de um recurso para o repositório de logs do Azure, mas no formulário de log. Essas métricas geralmente são enviadas somente para o banco de dados de série temporal de Azure Monitor métricas. Enviá-los para o repositório de logs de Azure Monitor (que é pesquisável via Log Analytics) para integrá-los em consultas que pesquisam em outros logs. Essa opção pode não estar disponível para todos os tipos de recurso. Quando há suporte, [Azure monitor métricas com suporte](metrics-supported.md) lista as métricas coletadas para quais tipos de recursos.
+     - As **biometrias roteiam** as métricas de plataforma de um recurso para o repositório de logs do Azure, mas no formulário de log. Essas métricas geralmente são enviadas somente para o banco de dados de série temporal de Azure Monitor métricas. Enviá-los para o repositório de logs de Azure Monitor (que é pesquisável via Log Analytics) ajuda a integrá-los em consultas que pesquisam em outros logs. Essa opção pode não estar disponível para todos os tipos de recurso. Quando há suporte, [Azure monitor métricas com suporte](metrics-supported.md) lista as métricas coletadas para quais tipos de recursos.
 
        > [!NOTE]
        > Consulte limitação para métricas de roteamento para logs de Azure Monitor anteriormente neste artigo.  
@@ -130,7 +130,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
         >
         > Por exemplo, se você definir a política de retenção para *WorkflowRuntime* como 180 dias e, em seguida, 24 horas depois defini-la como 365 dias, os logs armazenados durante essas primeiras 24 horas serão excluídos automaticamente após 180 dias, enquanto todos os logs subsequentes desse tipo serão excluídos automaticamente após 365 dias. A alteração da política de retenção mais tarde não faz com que as primeiras 24 horas de logs permaneçam por cerca de 365 dias.
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Pode levar até 15 minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 
