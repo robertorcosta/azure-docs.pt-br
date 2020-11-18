@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660348"
+ms.locfileid: "94684195"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Este exemplo forneceria 4000 portas de saída alocadas para cada nó em meu cluster e com 7 IPs você teria *4000 portas por nó * 100 nós = 400 mil total de portas < = 448K total de portas = 7 IPS * 64K portas por IP*. Isso permitiria que você dimensionasse com segurança os nós 100 e tenha uma operação de atualização padrão. É essencial alocar portas suficientes para nós adicionais necessários para a atualização e outras operações. AKS usa como padrão um nó de buffer para atualização, neste exemplo, isso requer 4000 portas livres em qualquer momento determinado. Se estiver usando [valores de maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview), multiplique as portas de saída por nó pelo valor de maxSurge.
+Este exemplo forneceria 4000 portas de saída alocadas para cada nó em meu cluster e com 7 IPs você teria *4000 portas por nó * 100 nós = 400 mil total de portas < = 448K total de portas = 7 IPS * 64K portas por IP*. Isso permitiria que você dimensionasse com segurança os nós 100 e tenha uma operação de atualização padrão. É essencial alocar portas suficientes para nós adicionais necessários para a atualização e outras operações. AKS usa como padrão um nó de buffer para atualização, neste exemplo, isso requer 4000 portas livres em qualquer momento determinado. Se estiver usando [valores de maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique as portas de saída por nó pelo valor de maxSurge.
 
 Para ir acima de 100 nós, você precisaria adicionar mais IPs.
 

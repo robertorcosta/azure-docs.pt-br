@@ -4,12 +4,12 @@ description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kuberne
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286772"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684161"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -46,7 +46,7 @@ Os três (3) casos a seguir causam um erro de tamanho de sub-rede insuficiente:
    1. Se estiver usando Kubenet, isso ocorrerá quando o `number of free IPs in the subnet` for **menor** que o `number of buffer nodes needed to upgrade` .
    1. Se estiver usando o Azure CNI, isso ocorrerá quando o `number of free IPs in the subnet` for **menor que** o `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Por padrão, os clusters AKS definem um valor de surto máximo (buffer de atualização) de um (1), mas esse comportamento de atualização pode ser personalizado definindo o [valor máximo de surto de um pool de nós](upgrade-cluster.md#customize-node-surge-upgrade-preview) que aumentará o número de IPS disponíveis necessários para concluir uma atualização.
+   Por padrão, os clusters AKS definem um valor de surto máximo (buffer de atualização) de um (1), mas esse comportamento de atualização pode ser personalizado definindo o [valor máximo de surto de um pool de nós](upgrade-cluster.md#customize-node-surge-upgrade) que aumentará o número de IPS disponíveis necessários para concluir uma atualização.
 
 1. AKS Create ou AKS Nodepool Add
    1. Se estiver usando Kubenet, isso ocorrerá quando o `number of free IPs in the subnet` for **menor** que o `number of nodes requested for the node pool` .
@@ -86,13 +86,13 @@ AKS tem planos de controle de alta disponibilidade que são dimensionados vertic
 
 Esses tempos limite podem estar relacionados ao tráfego interno entre os nós que estão sendo bloqueados. Verifique se esse tráfego não está sendo bloqueado, como por [grupos de segurança de rede](concepts-security.md#azure-network-security-groups) na sub-rede para os nós do cluster.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou tentando habilitar o RBAC (controle de acesso baseado em função) em um cluster existente. Como posso fazer isso?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou tentando habilitar o controle de acesso baseado em função do kubernetes (kubernetes RBAC) em um cluster existente. Como posso fazer isso?
 
-No momento, não há suporte para habilitar o RBAC (controle de acesso baseado em função) em clusters existentes, ele deve ser definido no momento da criação dos clusters. O RBAC é habilitado por padrão ao usar a CLI, o portal ou uma versão de API posterior à `2020-03-01`.
+Não há suporte para a habilitação do controle de acesso baseado em função do kubernetes (kubernetes RBAC) em clusters existentes no momento, ele deve ser definido durante a criação de novos clusters. O RBAC kubernetes é habilitado por padrão ao usar a CLI, o portal ou uma versão de API posterior a `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um cluster com o RBAC habilitado e agora vejo muitos avisos no painel do Kubernetes. O painel costumava trabalhar sem nenhum aviso. O que devo fazer?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um cluster com o RBAC kubernetes habilitado e agora vejo muitos avisos no painel do kubernetes. O painel costumava trabalhar sem nenhum aviso. O que devo fazer?
 
-O motivo para os avisos é que o cluster tem o RBAC habilitado e o acesso ao painel agora está restrito por padrão. Em geral, essa abordagem é uma boa prática, já que a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser ativar o painel, siga os passos nesta [postagem de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+O motivo para os avisos é o cluster ter o RBAC kubernetes habilitado e o acesso ao painel agora é restrito por padrão. Em geral, essa abordagem é uma boa prática, já que a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser ativar o painel, siga os passos nesta [postagem de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter os logs, usando kubectl logs ou não é possível conectar-se ao servidor de API. Estou recebendo o "Erro do servidor: erro de discagem back-end: discar tcp...". O que devo fazer?
 
@@ -154,10 +154,10 @@ Siga as etapas *Antes de começar* indicadas no documento apropriado para criar 
 As restrições de nomenclatura são implementadas pela plataforma do Azure e pelo AKS. Se o nome de um recurso ou parâmetro não atender a alguma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
 * Os nomes de cluster devem ter entre 1 e 63 caracteres. Letras, números, traços e sublinhados são os únicos caracteres permitidos. O primeiro e o último caractere devem ser uma letra ou um número.
-* O nome do grupo de recursos Nó/ *MC_* do AKS combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não pode ter mais de 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do cluster do AKS. Você também pode [personalizar o nome do grupo de recursos do nó](cluster-configuration.md#custom-resource-group-name)
+* O nome do grupo de recursos Nó/*MC_* do AKS combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não pode ter mais de 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do cluster do AKS. Você também pode [personalizar o nome do grupo de recursos do nó](cluster-configuration.md#custom-resource-group-name)
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve ter entre 1 e 54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 * Os nomes do Pool de nós do AKS devem estar em letras minúsculas e ter de 1 a 11 caracteres para pools de nós do Linux e de 1 a 6 caracteres para pools de nós do Windows. O nome deve começar com uma letra e os únicos caracteres permitidos são letras e números.
-* O *admin-username* , que define o nome de usuário do administrador para nós do Linux, deve começar com uma letra, pode conter apenas letras, números, hifens e sublinhados e tem um comprimento máximo de 64 caracteres.
+* O *admin-username*, que define o nome de usuário do administrador para nós do Linux, deve começar com uma letra, pode conter apenas letras, números, hifens e sublinhados e tem um comprimento máximo de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster, indicando que a operação não é permitida porque outra operação está em andamento.
 
@@ -167,7 +167,7 @@ As operações do cluster ficam limitadas quando uma operação anterior ainda e
 
 Com base na saída do status do cluster:
 
-* Se o cluster estiver em um estado de provisionamento diferente de *Êxito* ou *Falha* ( *Atualizando/Criando/Dimensionando/Excluindo/Migrando* ), aguarde até que a operação seja concluída. Quando a operação anterior for concluída, repita a operação mais recente do cluster.
+* Se o cluster estiver em um estado de provisionamento diferente de *Êxito* ou *Falha* (*Atualizando/Criando/Dimensionando/Excluindo/Migrando*), aguarde até que a operação seja concluída. Quando a operação anterior for concluída, repita a operação mais recente do cluster.
 
 * Se ocorrer uma falha no upgrade do cluster, siga as etapas descritas em [Estou recebendo erros indicando que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que ele seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -365,7 +365,7 @@ Configurações recomendadas:
 | 1.12.0 – 1.12.1 | 0755 |
 | 1.12.2 e posterior | 0777 |
 
-As opções de montagem podem ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777* :
+As opções de montagem podem ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
 
 ```yaml
 kind: StorageClass
@@ -385,10 +385,10 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Algumas outras configurações úteis de *mountOptions* :
+Algumas outras configurações úteis de *mountOptions*:
 
 * *mfsymlinks* fará com que a montagem dos Arquivos do Azure (cifs) dê suporte a links simbólicos
-* *nobrl* impedirá o envio de solicitações de bloqueio de intervalo de bytes para o servidor. Essa configuração é necessária para determinados aplicativos que interrompem com bloqueios de intervalo de bytes obrigatórios de estilo cifs. A maioria dos servidores cifs ainda não dá suporte à solicitação de bloqueios de intervalo de bytes por consultoria. Se não estiver usando *nobrl* , os aplicativos interrompidos com bloqueios de intervalo de bytes obrigatórios de estilo cifs poderão causar mensagens de erro semelhantes a:
+* *nobrl* impedirá o envio de solicitações de bloqueio de intervalo de bytes para o servidor. Essa configuração é necessária para determinados aplicativos que interrompem com bloqueios de intervalo de bytes obrigatórios de estilo cifs. A maioria dos servidores cifs ainda não dá suporte à solicitação de bloqueios de intervalo de bytes por consultoria. Se não estiver usando *nobrl*, os aplicativos interrompidos com bloqueios de intervalo de bytes obrigatórios de estilo cifs poderão causar mensagens de erro semelhantes a:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -476,7 +476,7 @@ Esse erro ocorre devido a uma condição de corrida upstream no autodimensionado
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Anexação de disco lenta, GetAzureDiskLun leva de 10 a 15 minutos e você recebe um erro
 
-Nas versões do Kubernetes **mais antigas que a 1.15.0** , você pode receber um erro como **Erro WaitForAttach não é capaz de encontrar o Lun para o disco**.  A solução alternativa para esse problema é aguardar aproximadamente 15 minutos e tentar novamente.
+Nas versões do Kubernetes **mais antigas que a 1.15.0**, você pode receber um erro como **Erro WaitForAttach não é capaz de encontrar o Lun para o disco**.  A solução alternativa para esse problema é aguardar aproximadamente 15 minutos e tentar novamente.
 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para o kubernetes 1,16 falham ao usar rótulos de nó com um prefixo kubernetes.io

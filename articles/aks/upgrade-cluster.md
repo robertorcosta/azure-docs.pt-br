@@ -3,13 +3,13 @@ title: Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azure) para obter os recursos e as atualizações de segurança mais recentes.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683226"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -35,7 +35,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 > [!NOTE]
 > Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
 >
-> Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x*e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
+> Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x* e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
 >
 > Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 
@@ -51,7 +51,7 @@ Se nenhuma atualização estiver disponível, você receberá:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Personalizar a atualização do surto do nó (versão prévia)
+## <a name="customize-node-surge-upgrade"></a>Personalizar a atualização do surto do nó
 
 > [!Important]
 > As sobretensões de nó exigem a cota de assinatura para a contagem máxima de surtos solicitada para cada operação de atualização. Por exemplo, um cluster que tem cinco pools de nós, cada um com uma contagem de quatro nós, tem um total de 20 nós. Se cada pool de nós tiver um valor máximo de surto de 50%, a cota de computação e IP adicional de 10 nós (2 nós * 5 pools) será necessária para concluir a atualização.
@@ -66,21 +66,7 @@ AKS aceita ambos os valores inteiros e um valor percentual para pico máximo. Um
 
 Durante uma atualização, o valor máximo de surto pode ser um mínimo de 1 e um valor máximo igual ao número de nós no pool de nós. Você pode definir valores maiores, mas o número máximo de nós usados para picos máximos não será maior do que o número de nós no pool no momento da atualização.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Configurar o recurso de visualização para personalizar a atualização do surto do nó
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-Levará vários minutos para o registro. Use o comando abaixo para verificar se o recurso está registrado:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-Durante a visualização, você precisa da extensão da CLI de *AKs* para usar o pico máximo. Use o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
+Até a CLI versão 2.16.0 +, você precisará da extensão da CLI do *AKs-Preview* para usar o aumento máximo. Use o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster AKS
 
-Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade-preview)) ao cluster que executa a versão de kubernetes especificada. Em seguida, ele irá [Cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e drenado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. Esse processo se repete até que todos os nós no cluster tenham sido atualizados. No final do processo, o último nó esgotado será excluído, mantendo a contagem de nós do agente existente.
+Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade)) ao cluster que executa a versão de kubernetes especificada. Em seguida, ele irá [Cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e drenado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. Esse processo se repete até que todos os nós no cluster tenham sido atualizados. No final do processo, o último nó esgotado será excluído, mantendo a contagem de nós do agente existente.
 
 ```azurecli-interactive
 az aks upgrade \

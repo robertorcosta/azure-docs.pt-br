@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3dc49e3e2d8492882507918a59edb0b9da41fcf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f9bfcaa1299f4aacbc11110308ba14093b09f7d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167246"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684297"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clusterize uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure
 
@@ -122,7 +122,7 @@ _Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
 
 Há duas opções de disco compartilhado em um cluster de failover do Windows no Azure:
 
-- [Discos compartilhados do Azure](../../windows/disks-shared.md) – recurso, que permite anexar o disco gerenciado do Azure a várias VMs simultaneamente. 
+- [Discos compartilhados do Azure](../../disks-shared.md) – recurso, que permite anexar o disco gerenciado do Azure a várias VMs simultaneamente. 
 - Usando o software de terceiros [sios Datakeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) para criar um armazenamento espelhado que simula o armazenamento compartilhado do cluster. 
 
 Ao selecionar a tecnologia para o disco compartilhado, tenha em mente as seguintes considerações:
@@ -131,7 +131,7 @@ Ao selecionar a tecnologia para o disco compartilhado, tenha em mente as seguint
 - Permite anexar o disco gerenciado do Azure a várias VMs simultaneamente, sem a necessidade de software adicional para manter e operar 
 - Você estará operando com um único disco compartilhado do Azure em um cluster de armazenamento. Isso tem um impacto sobre a confiabilidade da solução SAP.
 - Atualmente, a única implantação com suporte é com o disco Premium compartilhado do Azure no conjunto de disponibilidade. Não há suporte para o disco compartilhado do Azure na implantação zonal.     
-- Certifique-se de provisionar o disco Premium do Azure com um tamanho de disco mínimo, conforme especificado em [intervalos de SSD Premium](../../windows/disks-shared.md#disk-sizes) para ser capaz de anexar ao número necessário de VMs simultaneamente (normalmente 2 para cluster de failover do Windows ASCS do SAP). 
+- Certifique-se de provisionar o disco Premium do Azure com um tamanho de disco mínimo, conforme especificado em [intervalos de SSD Premium](../../disks-shared.md#disk-sizes) para ser capaz de anexar ao número necessário de VMs simultaneamente (normalmente 2 para cluster de failover do Windows ASCS do SAP). 
 - O ultra Disk compartilhado do Azure não tem suporte para cargas de trabalho do SAP, pois não dá suporte à implantação no conjunto de disponibilidade ou na implantação zonal.  
  
 **SIOS**
@@ -142,19 +142,19 @@ Ao selecionar a tecnologia para o disco compartilhado, tenha em mente as seguint
 
 ### <a name="shared-disk-using-azure-shared-disk"></a>Disco compartilhado usando o disco compartilhado do Azure
 
-A Microsoft está oferecendo [discos compartilhados do Azure](../../windows/disks-shared.md), que podem ser usados para implementar alta disponibilidade do SAP ASCS/SCS com uma opção de disco compartilhado.
+A Microsoft está oferecendo [discos compartilhados do Azure](../../disks-shared.md), que podem ser usados para implementar alta disponibilidade do SAP ASCS/SCS com uma opção de disco compartilhado.
 
 #### <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 
 No momento, você pode usar os discos do Azure SSD Premium como um disco compartilhado do Azure para a instância do SAP ASCS/SCS. As seguintes limitações estão atualmente em vigor:
 
 -  O [ultra Disk do Azure](../../disks-types.md#ultra-disk) não tem suporte como disco compartilhado do Azure para cargas de trabalho do SAP. Atualmente, não é possível posicionar VMs do Azure, usando o ultra Disk do Azure no conjunto de disponibilidade
--  O [disco compartilhado do Azure](../../windows/disks-shared.md) com discos SSD Premium só tem suporte com VMs no conjunto de disponibilidade. Não há suporte na implantação Zonas de Disponibilidade. 
+-  O [disco compartilhado do Azure](../../disks-shared.md) com discos SSD Premium só tem suporte com VMs no conjunto de disponibilidade. Não há suporte na implantação Zonas de Disponibilidade. 
 -  O valor do disco compartilhado do Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina quantos nós de cluster podem usar o disco compartilhado. Normalmente, para a instância do SAP ASCS/SCS, você configurará dois nós no cluster de failover do Windows, portanto, o valor de `maxShares` deve ser definido como dois.
 -  Todas as VMs de cluster do SAP ASCS/SCS devem ser implantadas no mesmo [grupo de posicionamento de proximidade do Azure](../../windows/proximity-placement-groups.md).   
    Embora você possa implantar VMs de cluster do Windows no conjunto de disponibilidade com o disco compartilhado do Azure sem PPG, o PPG garantirá o fechamento da proximidade física dos discos compartilhados do Azure e das VMs do cluster, portanto, alcançando a latência mais baixa entre as VMs e a camada de armazenamento.    
 
-Para obter mais detalhes sobre as limitações do disco compartilhado do Azure, Examine cuidadosamente a seção [limitações](../../linux/disks-shared.md#limitations) da documentação do disco compartilhado do Azure.
+Para obter mais detalhes sobre as limitações do disco compartilhado do Azure, Examine cuidadosamente a seção [limitações](../../disks-shared.md#limitations) da documentação do disco compartilhado do Azure.
 
 > [!IMPORTANT]
 > Ao implantar o cluster de failover do Windows do SAP ASCS/SCS com o disco compartilhado do Azure, lembre-se de que sua implantação estará operando com um único disco compartilhado em um cluster de armazenamento. A instância do SAP ASCS/SCS seria afetada, em caso de problemas com o cluster de armazenamento, em que o disco compartilhado do Azure é implantado.    

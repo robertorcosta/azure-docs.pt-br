@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628988"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684825"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solucionando problemas de falhas de conexões de saída
 
@@ -63,7 +63,7 @@ Por exemplo, duas máquinas virtuais no pool de back-end teriam 1024 portas SNAT
 Se você escalar horizontalmente para a próxima camada de tamanho maior de pool de back-end, há potencial para que algumas das conexões de saída atinjam tempo limite se as portas alocadas precisarem ser realocadas.  Se você estiver usando apenas algumas das portas SNAT, escalar horizontalmente no próximo tamanho maior de pool de back-end é irrelevante.  Metade das portas existentes será realocada cada vez que você mover para a próxima camada de pool de back-end.  Se não desejar que isso ocorra, é necessário formatar sua implantação para o tamanho da camada.  Ou, verifique se seu aplicativo pode detectar e repita conforme necessário.  TCP keepalives podem ajudá-lo a detectar quando as portas SNAT não funcionam mais devido a terem sido realocadas.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Usar keepalives para redefinir o tempo limite ocioso de saída
-Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [Regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicação para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
+Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [Regras de saída](outbound-rules.md). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicação para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
 
 Ao usar TCP keepalives, é suficiente habilitá-los em um lado da conexão. Por exemplo, é suficiente habilitá-las no lado do servidor apenas para redefinir o timer de ociosidade do fluxo e não é necessário para os dois lados iniciados do TCP keepalives.  Conceitos semelhantes existem para a camada de aplicativo, incluindo as configurações de cliente-servidor de banco de dados.  Verifique o lado do servidor para saber quais opções existem para keepalives específicas do aplicativo.
 

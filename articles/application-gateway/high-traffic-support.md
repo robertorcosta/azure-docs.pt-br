@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 3854e7f3c19f1724a2df1508c9fa519809e07ba9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658665"
+ms.locfileid: "94683314"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Suporte a alto tráfego do Gateway de Aplicativo
 
@@ -30,6 +30,8 @@ Verifique a [documentação de métricas](./application-gateway-metrics.md) para
 ### <a name="set-your-instance-count-based-on-your-peak-cpu-usage"></a>Definir sua contagem de instâncias com base no pico de uso da CPU
 Se você estiver usando um gateway de SKU v1, terá a capacidade de definir seu gateway de aplicativo até 32 instâncias para dimensionamento. Verifique a utilização da CPU do gateway de aplicativo no passado um mês para obter os picos acima de 80%, ele está disponível como uma métrica para você monitorar. É recomendável que você defina a contagem de instâncias de acordo com seu uso de pico e com um buffer de 10% a 20% adicional para levar em conta os picos de tráfego.
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="Métricas de utilização de CPU v1" lightbox="./media/application-gateway-covid-guidelines/v1-cpu-utilization-exp.png":::
+
 ### <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Use o SKU v2 em vez da v1 para funcionalidades de dimensionamento automático e benefícios de desempenho
 O SKU v2 oferece dimensionamento automático para garantir que o Gateway de Aplicativo possa escalar verticalmente conforme o tráfego aumentar. Ela também oferece outros benefícios de desempenho significativos, como desempenho de descarregamento de TLS cinco vezes melhor, tempos de atualização e implantação mais rápidos, redundância de zona e muito mais em comparação com a v1. Para obter mais informações, consulte nossa [documentação de v2](./application-gateway-autoscaling-zone-redundant.md) e veja nossa documentação de [migração](./migrate-v1-v2.md) v1 para v2 para saber como migrar seus gateways de SKU v1 existentes para o SKU v2. 
 
@@ -41,6 +43,8 @@ Para o SKU do gateway de aplicativo v2, definir a contagem máxima de instância
 
 Certifique-se de verificar o tamanho da sub-rede e a contagem de endereços IP disponíveis em sua sub-rede e defina sua contagem máxima de instâncias com base nela. Se a sua sub-rede não tiver espaço suficiente para acomodar, você precisará recriar o gateway na mesma sub-rede ou em outra que tenha capacidade suficiente. 
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 configuração de dimensionamento automático" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
+
 ### <a name="set-your-minimum-instance-count-based-on-your-average-compute-unit-usage"></a>Definir a contagem mínima de instâncias com base no uso médio da unidade de computação
 
 Para o SKU do gateway de aplicativo v2, o dimensionamento automático leva de seis a sete minutos para escalar horizontalmente e provisionar um conjunto adicional de instâncias prontas para tomar o tráfego. Até lá, se houver picos curtos no tráfego, suas instâncias de gateway existentes poderão ficar sob estresse e isso poderá causar latência inesperada ou perda de tráfego. 
@@ -48,6 +52,8 @@ Para o SKU do gateway de aplicativo v2, o dimensionamento automático leva de se
 É recomendável que você defina a contagem mínima de instâncias para um nível ideal. Por exemplo, se você precisar de 50 instâncias para lidar com o tráfego no pico de carga, definir o mínimo de 25 a 30 é uma boa ideia em vez de <10 para que, mesmo quando houver picos de tráfego, o gateway de aplicativo seja capaz de tratá-lo e dar tempo suficiente para que o dimensionamento automático responda e entre em vigor.
 
 Verifique a métrica da unidade de computação para o último mês. A métrica da unidade de computação é uma representação da utilização da CPU do gateway e com base no seu uso máximo dividido por 10, você pode definir o número mínimo de instâncias necessárias. Observe que 1 instância do gateway de aplicativo pode manipular um mínimo de 10 unidades de computação
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics-inline.png" alt-text="Métricas da unidade de computação v2" lightbox="./media/application-gateway-covid-guidelines/compute-unit-metrics-exp.png":::
 
 ## <a name="manual-scaling-for-application-gateway-v2-sku-standard_v2waf_v2"></a>Dimensionamento manual para SKU do gateway de aplicativo v2 (Standard_v2/WAF_v2)
 
@@ -79,6 +85,17 @@ Criar alerta quando o status de resposta do gateway de aplicativo for 4xx ou 5xx
 
 Criar alerta quando a métrica de solicitações com falha cruzar o limite. Você deve observar o gateway em produção para determinar o limite estático ou usar o limite dinâmico para o alerta.
 
+### <a name="example-setting-up-an-alert-for-more-than-100-failed-requests-in-the-last-5-minutes"></a>Exemplo: Configurando um alerta para mais de 100 solicitações com falha nos últimos 5 minutos
+
+Este exemplo mostra como usar o portal do Azure para configurar um alerta quando a contagem de solicitações com falha nos últimos 5 minutos for maior que 100.
+1. Navegue até o **Gateway de Aplicativo**.
+2. No painel esquerdo, selecione **Métricas** na guia **Monitoramento**. 
+3. Adicione uma métrica para **solicitações com falha**.
+4. Clique em **nova regra de alerta** e defina sua condição e ações
+5. Clique em **criar regra de alerta** para criar e habilitar o alerta
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts-inline.png" alt-text="V2 criar alertas" lightbox="./media/application-gateway-covid-guidelines/create-alerts-exp.png":::
+
 ## <a name="alerts-for-application-gateway-v2-sku-standard_v2waf_v2"></a>Alertas para SKU do gateway de aplicativo v2 (Standard_v2/WAF_v2)
 
 ### <a name="alert-if-compute-unit-utilization-crosses-75-of-average-usage"></a>Alertar se a utilização da unidade de computação cruzar 75% do uso médio 
@@ -91,9 +108,9 @@ Este exemplo mostra como usar o portal do Azure para configurar um alerta quando
 1. Navegue até o **Gateway de Aplicativo**.
 2. No painel esquerdo, selecione **Métricas** na guia **Monitoramento**. 
 3. Adicione uma métrica para a **média de unidades de computação atuais**. 
-![Como definir a métrica do WAF](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
 4. Se você tiver definido a contagem mínima de instâncias como seu uso médio de CU, prossiga e defina um alerta quando 75% de suas instâncias mínimas estiverem em uso. Por exemplo, se o uso médio for 10 CUs, defina um alerta em 7,5 CUs. Isso alertará se o uso estiver aumentando e dará tempo para você responder. Você pode aumentar o mínimo se considerar que esse tráfego será mantido para alertar que o tráfego pode estar aumentando. 
-![Como definir o alerta do WAF](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert-inline.png" alt-text="V2 alertas de unidade de computação" lightbox="./media/application-gateway-covid-guidelines/compute-unit-alert-exp.png":::
 
 > [!NOTE]
 > Você pode definir que o alerta ocorra em um percentual de utilização de CU mais baixa ou mais alta, dependendo da sensibilidade que você deseja para os picos de tráfego potenciais.
@@ -122,8 +139,8 @@ Essa métrica indica o intervalo de tempo entre o início do estabelecimento de 
 
 Esse é o intervalo a partir do momento em que o gateway de aplicativo recebe o primeiro byte da solicitação HTTP até a hora em que o último byte de resposta foi enviado ao cliente. Deve criar um alerta se a latência de resposta de back-end for mais específica do que um limite normal. Por exemplo, eles podem definir isso para ser alertado quando a latência de tempo total aumenta em mais de 30% do valor usual.
 
-## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Configurar o WAF com proteção contra bots e geofiltragem para interromper ataques
-Se você quiser uma camada extra de segurança na frente do seu aplicativo, use o SKU do WAF_v2 do Gateway de Aplicativo para funcionalidades de WAF. Você pode configurar o SKU v2 para permitir somente o acesso aos seus aplicativos de um determinado país/região ou países/regiões. Você configura uma regra personalizada do WAF para permitir ou bloquear explicitamente o tráfego com base na localização geográfica. Para obter mais informações, confira as [regras personalizadas de filtragem](../web-application-firewall/ag/geomatch-custom-rules.md) e [como configurar regras personalizadas no SKU do WAF_v2 do Gateway de Aplicativo por meio do PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
+## <a name="set-up-waf-with-geo-filtering-and-bot-protection-to-stop-attacks"></a>Configurar o WAF com a filtragem geográfica e a proteção de bot para interromper os ataques
+Se você quiser uma camada extra de segurança na frente do seu aplicativo, use o SKU do WAF_v2 do Gateway de Aplicativo para funcionalidades de WAF. Você pode configurar o SKU v2 para permitir somente o acesso aos seus aplicativos de um determinado país/região ou países/regiões. Você configura uma regra personalizada WAF para permitir ou bloquear explicitamente o tráfego com base na localização geográfica. Para obter mais informações, consulte [regras personalizadas de filtragem geográfica](../web-application-firewall/ag/geomatch-custom-rules.md) e [como configurar regras personalizadas no Gateway de aplicativo WAF_v2 SKU por meio do PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 Habilite a proteção contra bots para bloquear bots defeituosos conhecidos. Isso deve reduzir a quantidade de tráfego que chegará ao seu aplicativo. Para obter mais informações, confira [Proteção contra bots com instruções de configuração](../web-application-firewall/ag/configure-waf-custom-rules.md).
 

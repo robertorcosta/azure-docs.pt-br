@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318459"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682767"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
 
@@ -39,7 +39,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Um cofre de chaves do Azure que tem as propriedades **exclusão reversível** e **não limpar** habilitadas
 
-  Para obter mais informações sobre como habilitar essas propriedades, consulte [visão geral Azure Key Vault exclusão reversível](../key-vault/general/soft-delete-overview.md) e [Configurar chaves gerenciadas pelo cliente com Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Se você for novo no Azure Key Vault, saiba [como criar um cofre de chaves](../key-vault/secrets/quick-create-portal.md#create-a-vault) usando o portal do Azure ou usando o comando Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Para obter mais informações sobre como habilitar essas propriedades, consulte [visão geral Azure Key Vault exclusão reversível](../key-vault/general/soft-delete-overview.md) e [Configurar chaves gerenciadas pelo cliente com Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Se você for novo no [Azure Key Vault](../key-vault/general/overview.md), saiba como criar um cofre de chaves usando [portal do Azure](../key-vault/general/quick-create-portal.md), [CLI do Azure](../key-vault/general/quick-create-cli.md)ou [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 * No cofre de chaves, uma chave criada com esses valores de propriedade:
 

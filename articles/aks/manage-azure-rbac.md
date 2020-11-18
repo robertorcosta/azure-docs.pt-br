@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o RBAC no kubernetes do Azure
+title: Gerenciar o RBAC do Azure no kubernetes do Azure
 titleSuffix: Azure Kubernetes Service
 description: Saiba como usar o Azure RBAC para autorização de kubernetes com o AKS (serviço kubernetes do Azure).
 services: container-service
@@ -7,23 +7,23 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346036"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684212"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
 Hoje, você já pode aproveitar a [autenticação integrada entre o Azure Active Directory (Azure AD) e o AKs](managed-aad.md). Quando habilitado, essa integração permite que os clientes usem usuários, grupos ou entidades de serviço do Azure AD como entidades no RBAC kubernetes, veja mais [aqui](azure-ad-rbac.md).
-Esse recurso libera você de ter que gerenciar identidades e credenciais de usuário separadamente para kubernetes. No entanto, você ainda precisa configurar e gerenciar RBAC do Azure e kubernetes RBAC separadamente. Para obter mais detalhes sobre autenticação, autorização e RBAC no AKS, consulte [aqui](concepts-identity.md).
+Esse recurso libera você de ter que gerenciar identidades e credenciais de usuário separadamente para kubernetes. No entanto, você ainda precisa configurar e gerenciar RBAC do Azure e kubernetes RBAC separadamente. Para obter mais detalhes sobre autenticação e autorização com RBAC em AKS, consulte [aqui](concepts-identity.md).
 
 Este documento aborda uma nova abordagem que permite o gerenciamento unificado e o controle de acesso em recursos do Azure, AKS e recursos do kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A capacidade de gerenciar o RBAC para recursos de kubernetes do Azure oferece a você a opção de gerenciar o RBAC para os recursos de cluster usando o Azure ou mecanismos kubernetes nativos. Quando habilitada, as entidades de segurança do Azure AD serão validadas exclusivamente pelo RBAC do Azure, enquanto os usuários e contas de serviço kubernetes regulares são validados exclusivamente pelo RBAC kubernetes. Para obter mais detalhes sobre autenticação, autorização e RBAC no AKS, consulte [aqui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+A capacidade de gerenciar o RBAC para recursos de kubernetes do Azure oferece a você a opção de gerenciar o RBAC para os recursos de cluster usando o Azure ou mecanismos kubernetes nativos. Quando habilitada, as entidades de segurança do Azure AD serão validadas exclusivamente pelo RBAC do Azure, enquanto os usuários e contas de serviço kubernetes regulares são validados exclusivamente pelo RBAC kubernetes. Para obter mais detalhes sobre autenticação e autorização com RBAC em AKS, consulte [aqui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -245,7 +245,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 ### <a name="clean-role-assignment"></a>Limpar atribuição de função
 
@@ -272,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia mais sobre autenticação, autorização e RBAC do AKS [aqui](concepts-identity.md).
+- Leia mais sobre autenticação AKS, autorização, RBAC kubernetes e RBAC do Azure [aqui](concepts-identity.md).
 - Leia mais sobre o RBAC do Azure [aqui](../role-based-access-control/overview.md).
 - Leia mais sobre todas as ações que você pode usar para definir de maneira granular funções personalizadas do Azure para autorização kubernetes [aqui](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 

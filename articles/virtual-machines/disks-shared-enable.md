@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747790"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683584"
 ---
 # <a name="enable-shared-disk"></a>Habilitar disco compartilhado
 
 Este artigo aborda como habilitar o recurso de discos compartilhados para o Azure Managed disks. Os discos compartilhados do Azure são um novo recurso para discos gerenciados do Azure que permite anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure. 
 
-Se você estiver procurando informações conceituais sobre discos gerenciados que têm discos compartilhados habilitados, consulte:
-
-* Para Linux: [discos compartilhados do Azure](linux/disks-shared.md)
-
-* Para Windows: [discos compartilhados do Azure](windows/disks-shared.md)
+Se você estiver procurando informações conceituais sobre discos gerenciados que têm discos compartilhados habilitados, consulte [Azure Shared disks](disks-shared.md).
 
 ## <a name="limitations"></a>Limitações
 

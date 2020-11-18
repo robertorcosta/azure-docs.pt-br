@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963628"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682631"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e em um disco compartilhado para uma instância do SAP ASCS/SCS no Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963628"
 
 Este artigo descreve como instalar e configurar um sistema SAP de alta disponibilidade no Azure usando um cluster de failover do Windows Server e o disco compartilhado de cluster para clustering de uma instância do SAP ASCS/SCS. Conforme descrito no [Guia de arquitetura: cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk], há duas alternativas para o *disco compartilhado do cluster*:
 
-- [Discos compartilhados do Azure](../../windows/disks-shared.md)
+- [Discos compartilhados do Azure](../../disks-shared.md)
 - Usando o [sios Datakeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para criar um armazenamento espelhado, que simulará o disco compartilhado clusterizado 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -250,7 +250,7 @@ Use a funcionalidade de investigação do balanceador interno de carga para faze
 No entanto, isso não funcionará em algumas configurações de cluster porque apenas uma instância está ativa. A outra instância é passiva e não pode aceitar parte da carga de trabalho. Uma funcionalidade de investigação ajuda quando o balanceador de carga interno do Azure detecta qual instância está ativa e só tem como alvo a instância ativa.  
 
 > [!IMPORTANT]
-> Nesta configuração de exemplo, **ProbePort** é definido como 620**NR**. Para a instância do SAP ASCS com o número **00** , é 620**00**. Você precisará ajustar a configuração para corresponder aos números de instância do SAP e ao seu SID do SAP.
+> Nesta configuração de exemplo, **ProbePort** é definido como 620 **NR**. Para a instância do SAP ASCS com o número **00** , é 620 **00**. Você precisará ajustar a configuração para corresponder aos números de instância do SAP e ao seu SID do SAP.
 
 Para adicionar uma porta de investigação, execute este módulo do PowerShell em uma das VMs do cluster:
 

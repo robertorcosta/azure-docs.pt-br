@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649425"
+ms.locfileid: "94682835"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -144,7 +144,7 @@ Especifique as configurações de política da seguinte maneira:
 1. Em **Nome da política**, insira um nome para a nova política.
 
    ![Inserir o nome da política](./media/backup-azure-sap-hana-database/policy-name.png)
-2. Em **Política de Backup Completo**, selecione uma **Frequência de Backup** escolhendo **Diária** ou **Semanal**.
+1. Em **Política de Backup Completo**, selecione uma **Frequência de Backup** escolhendo **Diária** ou **Semanal**.
    * **Diariamente**: selecione a hora e fuso horário em que o trabalho de backup começa.
        * Você precisa executar um backup completo. Você não pode desativar essa opção.
        * Selecione **Backup Completo** para exibir a política.
@@ -153,16 +153,16 @@ Especifique as configurações de política da seguinte maneira:
 
    ![Selecionar a frequência de backup](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. Em **Período de Retenção**, defina as configurações de retenção para o backup completo.
+1. Em **Período de Retenção**, defina as configurações de retenção para o backup completo.
     * Por padrão, todas as opções são selecionadas. Desmarque os limites de período de retenção que você não deseja usar e marque os que você deseja.
     * O período de retenção mínimo para qualquer tipo de backup (completo/diferencial/log) é de sete dias.
     * Os pontos de recuperação são marcados para retenção com base em seu intervalo de retenção. Por exemplo, se você selecionar um backup completo diário, apenas um backup completo será disparado a cada dia.
     * O backup para um dia específico é marcado e mantido com base na configuração e no período de retenção semanal.
     * Os intervalos de retenção mensal e anual comportam-se de maneira semelhante.
 
-4. No menu de **política de Backup Completo**, clique em **OK** para aceitar as configurações.
-5. Selecione **Backup Diferencial** para adicionar uma política diferencial.
-6. Em **Política de Backup Diferencial**, selecione **Habilitar** para abrir os controles de retenção e frequência.
+1. No menu de **política de Backup Completo**, clique em **OK** para aceitar as configurações.
+1. Selecione **Backup Diferencial** para adicionar uma política diferencial.
+1. Em **Política de Backup Diferencial**, selecione **Habilitar** para abrir os controles de retenção e frequência.
     * No máximo, você pode acionar um backup diferencial por dia.
     * Backups diferenciais podem ser retidos por até 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
 
@@ -170,22 +170,22 @@ Especifique as configurações de política da seguinte maneira:
 
     > [!NOTE]
     > Os backups incrementais agora têm suporte na visualização pública. Você pode escolher uma diferencial ou uma incremental como um backup diário, mas não ambos.
-7. Em **política de backup incremental**, selecione **habilitar** para abrir os controles de frequência e retenção.
+1. Em **política de backup incremental**, selecione **habilitar** para abrir os controles de frequência e retenção.
     * No máximo, você pode disparar um backup incremental por dia.
     * Os backups incrementais podem ser retidos por um máximo de 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
 
     ![Política de backup incremental](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
-7. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
-8. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
+1. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
+1. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
     * Em **Backup de Log**, selecione **Habilitar**.  Isso não pode ser desabilitado, pois SAP HANA gerencia todos os backups de log.
     * Defina a frequência e os controles de retenção.
 
     > [!NOTE]
     > Os backups de log só começam a fluir depois que um backup completo bem-sucedido é concluído.
 
-9. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
-10. Depois de terminar de definir a política de backup, selecione **OK**.
+1. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
+1. Depois de terminar de definir a política de backup, selecione **OK**.
 
 > [!NOTE]
 > Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que um usuário tenha um backup completo semanal, os logs diferenciais diários e de 2 horas. Todos eles são retidos por 30 dias. Porém, a semana completa pode ser realmente limpa/excluída somente depois que o próximo backup completo estiver disponível, ou seja, após 30 a 7 dias. Por exemplo, um backup completo semanal ocorre em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.

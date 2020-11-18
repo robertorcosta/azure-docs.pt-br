@@ -1,5 +1,5 @@
 ---
-title: Suporte ao ciclo de vida estendido Red Hat Enterprise Linux
+title: Suporte ao ciclo de vida estendido do Red Hat Enterprise Linux
 description: Saiba mais sobre como adicionar o suporte ao ciclo de vida estendido do Red Hat Enterprise
 author: mathapli
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: e7c9f9b158d01204536712f8024ed098cd7a5037
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372864"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684348"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) suporte ao ciclo de vida estendido
 Este artigo fornece informações sobre o suporte ao ciclo de vida estendido para as imagens do Red Hat Enterprise:
@@ -40,7 +40,7 @@ A partir de 30 de novembro de 2020, o Red Hat Enterprise Linux 6 atingirá o fim
 
 #### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>Qual é o processo para adicionar repositórios de ELS (suporte ao ciclo de vida estendida) para continuar a receber manutenção de software (correções de bugs e de segurança) e suporte para o Red Hat Enterprise Linux 6?
 
-O processo de ponta a ponta de se inscrever no ELS estará disponível em breve (mais recente em 15 de novembro de 2020).
+O processo de ponta a ponta de se inscrever no ELS estará disponível em breve (mais recente em 30 de novembro de 2020).
 
 ## <a name="next-steps"></a>Próximas etapas
 

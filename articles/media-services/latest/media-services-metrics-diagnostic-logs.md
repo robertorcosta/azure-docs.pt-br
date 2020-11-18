@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309059"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685164"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico com Azure Monitor
 
@@ -67,8 +67,8 @@ As métricas de [pontos de extremidade de streaming](/rest/api/media/streamingen
 |Requests|Requests|Fornece o número total de solicitações HTTP atendidas pelo ponto de extremidade de streaming.|
 |Saída|Saída|Total de bytes de saída por minuto por ponto de extremidade de streaming.|
 |SuccessE2ELatency|Latência de ponta a ponta bem-sucedida|Duração de tempo de quando o ponto de extremidade de streaming recebeu a solicitação para quando o último byte da resposta foi enviado.|
-|Uso da CPU| Uso da CPU para pontos de extremidade de streaming Premium. Esses dados não estão disponíveis para pontos de extremidade de streaming padrão. |
-|Largura de banda de saída | Largura de banda de saída em bits por segundo.|
+|Uso da CPU| | Uso da CPU para pontos de extremidade de streaming Premium. Esses dados não estão disponíveis para pontos de extremidade de streaming padrão. |
+|Largura de banda de saída | | Largura de banda de saída em bits por segundo.|
 
 ### <a name="metrics-are-useful"></a>As métricas são úteis
 
@@ -98,7 +98,7 @@ Os serviços de mídia oferecem suporte aos seguintes logs de diagnóstico:
 
 ### <a name="key-delivery"></a>Entrega de chave
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |Solicitação do serviço de distribuição de chaves|Logs que mostram as informações de solicitação de serviço de entrega de chave. Para obter mais informações, consulte [esquemas](media-services-diagnostic-logs-schema.md).|
 

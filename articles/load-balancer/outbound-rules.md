@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422154"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683107"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Regras de saída Azure Load Balancer
 
@@ -106,7 +106,7 @@ Se um NSG bloquear as solicitações de investigação de integridade da AZURE_L
 
 
 * Configure conexões de saída para um conjunto específico de IPs ou de prefixo público.
-* Modificar a alocação de porta [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) .
+* Modificar a alocação de porta [SNAT](load-balancer-outbound-connections.md) .
 * Habilitar somente saída.
 * NAT de saída somente para VMs (sem entrada).
 * NAT de saída para o balanceador de carga Standard interno.
@@ -135,28 +135,28 @@ Para usar um IP público ou prefixo diferente do usado por uma regra de balancea
 5. Configure uma regra de saída no balanceador de carga público para habilitar o NAT de saída para as VMs usando o front-end. Não é recomendável usar uma regra de balanceamento de carga para saída, desabilitar o SNAT de saída na regra de balanceamento de carga.
 
 
-### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Cenário 2: modificar a alocação de porta [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources)
+### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>Cenário 2: modificar a alocação de porta [SNAT](load-balancer-outbound-connections.md)
 
 
 #### <a name="details"></a>Detalhes
 
 
-Você pode usar regras de saída para ajustar a [alocação automática da porta SNAT com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports). 
+Você pode usar regras de saída para ajustar a [alocação de porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports). 
 
 
-Se você experimentar o esgotamento de SNAT, aumente o número de portas [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) dadas do padrão de 1024. 
+Se você experimentar o esgotamento de SNAT, aumente o número de portas [SNAT](load-balancer-outbound-connections.md)dadas do padrão de 1024. 
 
 
-Cada endereço IP público contribui para até 64.000 portas efêmeras. O número de VMs no pool de back-end determina o número de portas distribuídas para cada VM. Uma VM no pool de back-end tem acesso ao máximo de 64.000 portas. Para duas VMs, no máximo 32.000 portas [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) podem ser dadas com uma regra de saída (2x 32.000 = 64.000). 
+Cada endereço IP público contribui para até 64.000 portas efêmeras. O número de VMs no pool de back-end determina o número de portas distribuídas para cada VM. Uma VM no pool de back-end tem acesso ao máximo de 64.000 portas. Para duas VMs, no máximo 32.000 portas [SNAT](load-balancer-outbound-connections.md)podem ser dadas com uma regra de saída (2x 32.000 = 64.000). 
 
 
-Você pode usar regras de saída para ajustar as portas SNAT fornecidas por padrão. Você dá mais ou menos do que a alocação de porta [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) padrão fornecida. Cada endereço IP público de um front-end de uma regra de saída contribui para até 64.000 portas efêmeras para uso como portas [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) . 
+Você pode usar regras de saída para ajustar as portas SNAT fornecidas por padrão. Você dá mais ou menos do que a alocação de porta [SNAT](load-balancer-outbound-connections.md)padrão fornecida. Cada endereço IP público de um front-end de uma regra de saída contribui para até 64.000 portas efêmeras para uso como portas [SNAT](load-balancer-outbound-connections.md). 
 
 
-O balanceador de carga fornece portas [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada. Cada regra de balanceamento de carga e a regra NAT de entrada consumirão um intervalo de 8 portas. Se uma regra de balanceamento de carga ou de entrada de NAT compartilhar o mesmo intervalo de 8 como outra, nenhuma porta adicional será consumida.
+O balanceador de carga fornece portas [SNAT](load-balancer-outbound-connections.md)em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada. Cada regra de balanceamento de carga e a regra NAT de entrada consumirão um intervalo de 8 portas. Se uma regra de balanceamento de carga ou de entrada de NAT compartilhar o mesmo intervalo de 8 como outra, nenhuma porta adicional será consumida.
 
 
-Se você tentar fornecer mais portas [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) do que as disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada. Por exemplo, se você fornecer 10.000 portas por VM e sete VMs em um pool de back-end compartilharem um único IP público, a configuração será rejeitada. Sete multiplicado por 10.000 excede o limite de 64.000 portas. Adicione mais endereços IP públicos ao front-end da regra de saída para habilitar o cenário. 
+Se você tentar fornecer mais portas [SNAT](load-balancer-outbound-connections.md)do que as disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada. Por exemplo, se você fornecer 10.000 portas por VM e sete VMs em um pool de back-end compartilharem um único IP público, a configuração será rejeitada. Sete multiplicado por 10.000 excede o limite de 64.000 portas. Adicione mais endereços IP públicos ao front-end da regra de saída para habilitar o cenário. 
 
 
 Reverta para a [alocação de porta padrão](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. As primeiras 50 instâncias de VM receberão 1024 portas, as instâncias de VM 51-100 terão 512 até o máximo de instâncias. Para obter mais informações sobre a alocação de porta SNAT padrão, consulte a [tabela de alocação de portas SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
@@ -195,7 +195,7 @@ Para este cenário: Azure Load Balancer regras de saída e NAT de rede virtual s
 
 
 
-Use um prefixo ou IP público para dimensionar portas [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) . Adicione a origem das conexões de saída a uma lista de permissão ou negação.
+Use um prefixo ou IP público para dimensionar portas [SNAT](load-balancer-outbound-connections.md). Adicione a origem das conexões de saída a uma lista de permissão ou negação.
 
 
 
@@ -225,7 +225,7 @@ Para obter mais informações, consulte [configuração de balanceador de carga 
 Ao usar um balanceador de carga padrão público, o NAT de saída automático fornecido corresponde ao protocolo de transporte da regra de balanceamento de carga. 
 
 
-1. Desabilite o [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) de saída na regra de balanceamento de carga. 
+1. Desabilite o [SNAT](load-balancer-outbound-connections.md)de saída na regra de balanceamento de carga. 
 2. Configure uma regra de saída no mesmo balanceador de carga.
 3. Reutilize o pool de back-end já usado por suas VMs. 
 4. Especifique "protocolo": "Todos" como parte da regra de saída. 

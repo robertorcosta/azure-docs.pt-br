@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f6d5b5ef816127fe5f0c689132326f6157731d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664866"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684403"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
@@ -99,5 +99,4 @@ Você pode configurar *um* recurso de Standard Load Balancer público para os re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como configurar portas de alta disponibilidade para seu ILB por meio do portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), do [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), da [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)ou de [modelos](quickstart-load-balancer-standard-internal-template.md).
-- [Saiba mais sobre o Standard Load Balancer](load-balancer-standard-overview.md)
+- [Saiba mais sobre o Standard Load Balancer](load-balancer-overview.md)

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649306"
+ms.locfileid: "94684910"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -521,7 +521,7 @@ Os bancos de dados do sistema não são replicados para a instância secundária
 - O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O `tempdb` tamanho máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento de instância gerenciada do SQL. O tamanho do arquivo de log `Tempdb` é limitado a 120 GB na camada uso geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
 - `Tempdb` sempre é dividido em 12 arquivos de dados: 1 primário, também chamado de mestre, arquivo de dados e 11 arquivos de dados não primários. A estrutura do arquivo não pode ser alterada e novos arquivos não podem ser adicionados ao `tempdb` . 
 - Não há suporte para os [ `tempdb` metadados com otimização de memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), um novo SQL Server o recurso de banco de dados em memória do 2019.
-- Os objetos criados no banco de dados modelo não podem ser criados automaticamente no `tempdb` após uma reinicialização ou um failover porque `tempdb` o não obtém sua lista inicial de objetos do banco de dados modelo replicado. 
+- Os objetos criados no banco de dados modelo não podem ser criados automaticamente no `tempdb` após uma reinicialização ou um failover porque `tempdb` o não obtém sua lista inicial de objetos do banco de dados modelo. Você deve criar objetos `tempdb` manualmente após cada reinicialização ou um failover.
 
 ### <a name="msdb"></a>MSDB
 

@@ -1,19 +1,19 @@
 ---
 title: Guia de solução de problemas para Serviço do Azure SignalR
-description: Saiba mais
+description: Saiba como solucionar problemas comuns
 author: YanJin
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 5b8360134ace3852fb3c7fbe458ca2572f45b624
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663416"
+ms.locfileid: "94684110"
 ---
-# <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
+# <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de solução de problemas comuns do serviço Signaler do Azure
 
 Este guia é para fornecer um guia de solução de problemas útil com base nos problemas comuns que os clientes cumpriram e resolveram nos últimos anos.
 
@@ -347,3 +347,9 @@ Considere ASP.NET Core um, por exemplo (ASP.NET um é semelhante):
 
     * [Cliente ASP.NET JavaScript](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
+## <a name="next-steps"></a>Próximas etapas
+
+Neste guia, você aprendeu sobre como lidar com os problemas comuns. Você também pode aprender mais métodos genéricos de solução de problemas. 
+
+> [!div class="nextstepaction"]
+> [Como solucionar problemas de conectividade e entrega de mensagens](./signalr-howto-troubleshoot-method.md)
