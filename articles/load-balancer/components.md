@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685504"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do Azure Load Balancer
 
@@ -139,7 +139,7 @@ O balanceador de carga básico não é compatível com regras de saída.
 - Confira [Criar um Standard Load Balancer público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um Load Balancer.
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
 - Saiba mais sobre [Endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- Saiba mais sobre [Endereço IP privado](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+- Saiba mais sobre [Endereço IP privado](../virtual-network/private-ip-addresses.md)
 - Saiba mais sobre usar o [Standard Load Balancer e Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).
 - Saiba mais sobre o [Diagnóstico do Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre a [Redefinição de TCP quando ocioso](load-balancer-tcp-reset.md).

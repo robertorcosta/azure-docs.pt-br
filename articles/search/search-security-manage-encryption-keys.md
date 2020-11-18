@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682903"
+ms.locfileid: "94693436"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurar chaves gerenciadas pelo cliente para criptografia de dados no Azure Pesquisa Cognitiva
 
@@ -52,7 +52,7 @@ As ferramentas e os serviços a seguir são usados neste cenário.
 Você deve ter um aplicativo de pesquisa que possa criar o objeto criptografado. Nesse código, você fará referência a uma chave do Key Vault e Active Directory informações de registro. Esse código pode ser um aplicativo em funcionamento ou um código de protótipo como o [exemplo de código C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Você pode usar o [postmaster](search-get-started-postman.md) ou o [Azure PowerShell](./search-get-started-powershell.md) para chamar as APIs REST que criam índices e mapas de sinônimos que incluem um parâmetro de chave de criptografia. Não há suporte do portal para adicionar uma chave a índices ou mapas de sinônimos no momento.
+> Você pode usar o [postmaster ou o Visual Studio Code](search-get-started-rest.md), ou [Azure PowerShell](./search-get-started-powershell.md), para chamar as APIs REST que criam índices e mapas de sinônimos que incluem um parâmetro de chave de criptografia. Não há suporte do portal para adicionar uma chave a índices ou mapas de sinônimos no momento.
 
 ## <a name="1---enable-key-recovery"></a>1-Habilitar recuperação de chave
 

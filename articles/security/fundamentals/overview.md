@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536484"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693725"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -141,8 +141,8 @@ No Application Diagnostics, você pode ver os eventos agrupados destas maneiras:
 ## <a name="storage"></a>Armazenamento
 A seção fornece outras informações sobre os principais recursos em segurança de armazenamento do Azure e informações de resumo sobre esses recursos.
 
-### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e aos princípios de segurança de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função apropriada do Azure a grupos e aplicativos em um determinado escopo. Você pode usar [funções internas do Azure](../../role-based-access-control/built-in-roles.md), como colaborador da conta de armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o [modelo Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado por meio do RBAC (Controle de Acesso Baseado em Função).
+### <a name="azure-role-based-access-control-azure-rbac"></a>RBAC do Azure (controle de acesso baseado em função do Azure)
+Você pode proteger sua conta de armazenamento com o Azure RBAC (controle de acesso baseado em função). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e aos princípios de segurança de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função apropriada do Azure a grupos e aplicativos em um determinado escopo. Você pode usar [funções internas do Azure](../../role-based-access-control/built-in-roles.md), como colaborador da conta de armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o modelo de [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado por meio do RBAC do Azure.
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 Uma [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-sas-overview.md) fornece acesso delegado aos recursos em sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
@@ -322,7 +322,7 @@ As atualizações de patch fornecem a base para encontrar e corrigir problemas e
 ### <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios
 A [central de segurança](../../security-center/security-center-introduction.md) ajuda você a prevenir, detectar e responder a ameaças, além de oferecer maior visibilidade e controle sobre a segurança de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
+## <a name="identity-and-access-management"></a>Gerenciamento de identidades e acesso
 A proteção de sistemas, aplicativos e dados começa com controles de acesso baseados em identidade. Os recursos de gerenciamento de identidades e acesso integrados aos produtos e serviços comerciais da Microsoft ajudam a proteger as informações pessoais e corporativas contra o acesso não autorizado, mas as disponibilizam aos usuários legítimos, quando e onde eles precisarem.
 
 ### <a name="secure-identity"></a>Proteção da identidade
@@ -336,7 +336,7 @@ A Microsoft usa várias tecnologias e práticas de segurança em seus produtos e
 
 -   A [Autenticação baseada em token](../../active-directory/develop/authentication-vs-authorization.md) permite autenticação via Azure Active Directory.
 
--   O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/built-in-roles.md) permite que você conceda acesso com base na função atribuída do usuário, facilitando a concessão dos usuários apenas da quantidade de acesso de que eles precisam para realizar suas tarefas de trabalho. Você pode personalizar o RBAC de acordo com o modelo de negócios e da tolerância a riscos de sua organização.
+-   O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/built-in-roles.md) permite que você conceda acesso com base na função atribuída do usuário, facilitando a concessão dos usuários apenas da quantidade de acesso de que eles precisam para realizar suas tarefas de trabalho. Você pode personalizar o Azure RBAC de acordo com o modelo de negócios e a tolerância a riscos de sua organização.
 
 -   O [Gerenciamento de identidade integrado (identidade híbrida)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) permite que você mantenha o controle do acesso dos usuários em data centers internos e plataformas de nuvem, criando uma identidade de usuário único para autenticação e autorização para todos os recursos.
 

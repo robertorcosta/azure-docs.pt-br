@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913952"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685980"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -27,7 +27,7 @@ A extensão de VM Key Vault dá suporte a versões anteriores do Windows:
 - Windows Server 2016
 - Windows Server 2012
 
-O Key Vault VM extensão também tem suporte na VM local Personalizada que é carregada e convertida em uma imagem especializada para uso no Azure usando a instalação básica do Windows Server 2019.
+A extensão de VM Key Vault também tem suporte na VM local Personalizada que é carregada e convertida em uma imagem especializada para uso no Azure usando a instalação básica do Windows Server 2019.
 
 ### <a name="supported-certificate-content-types"></a>Tipos suportados de conteúdo de certificado
 
@@ -81,7 +81,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 > Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> A propriedade ' authenticationSettings ' é **necessária** somente para VMs com **identidades atribuídas pelo usuário** .
+> A propriedade ' authenticationSettings ' é **necessária** somente para VMs com **identidades atribuídas pelo usuário**.
 > Especifica a identidade a ser usada para autenticação para Key Vault.
 
 

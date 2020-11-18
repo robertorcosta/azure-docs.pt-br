@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320502"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685810"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -46,9 +46,9 @@ Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma c
 Para saber mais, confira os [tipos de nós do Service Fabric e os conjuntos de dimensionamento de máquina virtual](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e a um rótulo de DNS.  Quando você provisiona um cluster com * &lt; ClusterName &gt; *, o nome DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
+As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e a um rótulo de DNS.  Quando você provisiona um cluster com *&lt; ClusterName &gt;*, o nome DNS, *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
 
-As VMs em um cluster têm apenas [endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, outros tipos de nó têm o rótulo DNS * &lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
+As VMs em um cluster têm apenas [endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, outros tipos de nó têm o rótulo DNS *&lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 A [conta de armazenamento do Azure](../storage/common/storage-introduction.md) e os Managed Disks oferecem suporte a cada tipo de nó de cluster.
@@ -68,12 +68,12 @@ Além de certificados de cliente, o Azure Active Directory também pode ser conf
 
 Para saber mais, leia [Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
-O Controle de Acesso Baseado em Função (RBAC) permite atribuir controles de acesso refinado a recursos do Azure.  Você pode atribuir regras de acesso diferentes para assinaturas, grupos de recursos e recursos.  As regras de RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupos de usuários em seu AAD com regras de RBAC, de modo que esses usuários e grupos designados possam modificar o cluster.  Para saber mais, confira a [visão geral do RBAC do Azure](../role-based-access-control/overview.md).
+### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+O Azure RBAC (controle de acesso baseado em função) do Azure permite que você atribua controles de acesso refinados nos recursos do Azure.  Você pode atribuir regras de acesso diferentes para assinaturas, grupos de recursos e recursos.  As regras RBAC do Azure são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupo de usuários em seu AAD com as regras de RBAC do Azure para que usuários e grupos designados possam modificar o cluster.  Para saber mais, confira a [visão geral do RBAC do Azure](../role-based-access-control/overview.md).
 
 O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: função de Administrador e função de Usuário.  
 
-Para saber mais, confira o item sobre o [Controle de Acesso Baseado em Função (RBAC) do Service Fabric](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Para obter mais informações, leia [Service Fabric controle de acesso baseado em função](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Grupos de segurança de rede (NSGs) controlam o tráfego de entrada e de saída de uma sub-rede, VM ou NIC específica.  Por padrão, quando várias VMs são colocadas na mesma rede virtual, elas podem se comunicar entre si por meio de qualquer porta.  Se quiser restringir a comunicação entre as máquinas, é possível definir os NSGs para segmentar a rede ou isolar as VMs umas das outras.  Se tiver vários tipos de nó em um cluster, é possível aplicar os NSGs a sub-redes para impedir que as máquinas que pertencem a diferentes tipos de nó se comuniquem entre si.  

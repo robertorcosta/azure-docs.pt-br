@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425284"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686065"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Linha de base de segurança do Azure para Azure Load Balancer
 
@@ -30,7 +30,7 @@ O Azure oferece dois tipos de ofertas de Load Balancer, Standard e Basic. Use o 
 
 O uso de um Standard Load Balancer é recomendado para suas cargas de trabalho de produção e, normalmente, o Load Balancer básico é usado apenas para teste, já que o tipo básico é aberto para conexões da Internet por padrão e não requer grupos de segurança de rede para a operação. 
 
-- [Conexões de saída no Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Conexões de saída no Azure](load-balancer-outbound-connections.md)
 
 - [Atualizar Load Balancer públicos do Azure](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 
@@ -442,7 +442,7 @@ Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft 
 
 Verifique as permissões apropriadas (leitura) no seu locatário e enumere todas as assinaturas e recursos do Azure em suas assinaturas.
 
-- [Como criar consultas com o Gerenciador de gráficos de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Como criar consultas com o Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 - [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
@@ -496,7 +496,7 @@ Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
 - [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [Como criar consultas com o Gerenciador de gráficos de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Como criar consultas com o Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -656,7 +656,7 @@ Utilize o conector de dados da central de segurança para transmitir os alertas 
 
 **Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft. 
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
