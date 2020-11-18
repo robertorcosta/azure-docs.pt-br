@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684825"
+ms.locfileid: "94696346"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solucionando problemas de falhas de conexões de saída
 
 Este artigo destina-se a fornecer resoluções para problemas comuns que podem ocorrer com conexões de saída de um Azure Load Balancer. A maioria dos problemas com a conectividade de saída que os clientes enfrentam é devido ao esgotamento da porta SNAT e tempos limite de conexão que levam a pacotes descartados. Este artigo fornece etapas para atenuar cada um desses problemas.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gerenciar esgotamento da porta SNAT (PAT)
-[As portas efêmeras](load-balancer-outbound-connections.md) usadas [para Pat](load-balancer-outbound-connections.md) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](load-balancer-outbound-connections.md) e [VM com balanceamento de carga sem um endereço IP público](load-balancer-outbound-connections.md). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar o esgotamento de SNAT usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
+[As portas efêmeras](load-balancer-outbound-connections.md) usadas [para Pat](load-balancer-outbound-connections.md) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](load-balancer-outbound-connections.md) e [VM com balanceamento de carga sem um endereço IP público](load-balancer-outbound-connections.md). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar o esgotamento de SNAT usando [este](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guia.
 
 Se você sabe que está iniciando muitas conexões TCP ou UDP de saída para o mesmo endereço e porta IP de destino, se você observa as conexões de saída com falha ou é avisado pelo suporte que as portas SNAT ([portas efêmeras](load-balancer-outbound-connections.md#preallocatedports) pré-alocadas usadas pela [PAT](load-balancer-outbound-connections.md)) estão se esgotando, você terá várias opções gerais de mitigação. Avalie essas opções e decida o que está disponível e melhor para o seu cenário. É possível que uma ou mais possam ajudar a gerenciar esse cenário.
 

@@ -4,12 +4,12 @@ description: Saiba como criar uma política de Configuração de Convidado do Az
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694235"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -163,10 +163,10 @@ Os arquivos de suporte devem ser empacotados juntos. O pacote fechado é usado p
 
 O cmdlet `New-GuestConfigurationPackage` cria um pacote. Parâmetros do cmdlet `New-GuestConfigurationPackage` ao criar um conteúdo do Linux:
 
-- **Name** : nome do pacote da Configuração de Convidado.
-- **Configuração** : caminho completo do documento com a configuração compilada.
-- **Caminho** : caminho da pasta de saída. Esse parâmetro é opcional. Caso não seja especificado, o pacote será criado no diretório atual.
-- **ChefInspecProfilePath** : caminho completo para o perfil inspec. Esse parâmetro só tem suporte durante a criação de conteúdo para auditar o Linux.
+- **Name**: nome do pacote da Configuração de Convidado.
+- **Configuração**: caminho completo do documento com a configuração compilada.
+- **Caminho**: caminho da pasta de saída. Esse parâmetro é opcional. Caso não seja especificado, o pacote será criado no diretório atual.
+- **ChefInspecProfilePath**: caminho completo para o perfil inspec. Esse parâmetro só tem suporte durante a criação de conteúdo para auditar o Linux.
 
 Execute o seguinte comando para criar um pacote usando a configuração fornecida na etapa anterior:
 
@@ -183,9 +183,9 @@ Como o agente está realmente avaliando o ambiente local, na maioria dos casos, 
 
 Parâmetros do cmdlet `Test-GuestConfigurationPackage`:
 
-- **Name** : nome da Configuração de Convidado.
-- **Parâmetro** : parâmetros de política fornecidos no formato de tabela de hash.
-- **Caminho** : caminho completo do pacote de Configuração de Convidado.
+- **Name**: nome da Configuração de Convidado.
+- **Parâmetro**: parâmetros de política fornecidos no formato de tabela de hash.
+- **Caminho**: caminho completo do pacote de Configuração de Convidado.
 
 Execute o comando a seguir para testar o pacote criado pela etapa anterior:
 
@@ -210,13 +210,13 @@ Depois que um pacote de política personalizada de Configuração de Convidado t
 
 Parâmetros do cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri** : URI de http(s) público do pacote de conteúdo da Configuração de Convidado.
-- **DisplayName** : nome de exibição da política.
-- **Descrição** : descrição da política.
-- **Parâmetro** : parâmetros de política fornecidos no formato de tabela de hash.
-- **Versão** : versão da política.
-- **Caminho** : caminho de destino no qual as definições de política são criadas.
-- **Platform** : plataforma de destino (Windows/Linux) da política de Configuração de Convidado e do pacote de conteúdo.
+- **ContentUri**: URI de http(s) público do pacote de conteúdo da Configuração de Convidado.
+- **DisplayName**: nome de exibição da política.
+- **Descrição**: descrição da política.
+- **Parâmetro**: parâmetros de política fornecidos no formato de tabela de hash.
+- **Versão**: versão da política.
+- **Caminho**: caminho de destino no qual as definições de política são criadas.
+- **Platform**: plataforma de destino (Windows/Linux) da política de Configuração de Convidado e do pacote de conteúdo.
 - **Tag** adiciona um ou mais filtros de tag à definição de política
 - **Category** define o campo de metadados da categoria na definição de política
 
@@ -330,9 +330,9 @@ Para liberar uma atualização para a definição de política, há três campos
 > [!NOTE]
 > A `version` propriedade da atribuição de configuração de convidado afeta apenas os pacotes que são hospedados pela Microsoft. A prática recomendada para o controle de versão de conteúdo personalizado é incluir a versão no nome do arquivo.
 
-- **Versão** : ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente.
-- **contentUri** : ao executar o `New-GuestConfigurationPolicy` cmdlet, você deve especificar um URI para o local do pacote. A inclusão de uma versão do pacote no nome do arquivo garantirá que o valor dessa propriedade seja alterado em cada versão.
-- **contentHash** : essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. Trata-se de um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Caso apenas a propriedade **contentUri** seja atualizada, a extensão não aceitará o pacote de conteúdo.
+- **Versão**: ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente.
+- **contentUri**: ao executar o `New-GuestConfigurationPolicy` cmdlet, você deve especificar um URI para o local do pacote. A inclusão de uma versão do pacote no nome do arquivo garantirá que o valor dessa propriedade seja alterado em cada versão.
+- **contentHash**: essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. Trata-se de um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Caso apenas a propriedade **contentUri** seja atualizada, a extensão não aceitará o pacote de conteúdo.
 
 A maneira mais fácil de liberar um pacote atualizado é repetindo o processo descrito neste artigo e fornecendo um número de versão atualizado. Esse processo garante que todas as propriedades tenham sido atualizadas corretamente.
 
@@ -375,8 +375,8 @@ Para usar o recurso de Validação de Assinatura, execute o cmdlet `Protect-Gues
 
 Parâmetros do cmdlet `Protect-GuestConfigurationPackage`:
 
-- **Caminho** : caminho completo do pacote de Configuração de Convidado.
-- **PublicGpgKeyPath** : caminho da chave GPG pública. Esse parâmetro só tem suporte ao assinar um conteúdo para o Linux.
+- **Caminho**: caminho completo do pacote de Configuração de Convidado.
+- **PublicGpgKeyPath**: caminho da chave GPG pública. Esse parâmetro só tem suporte ao assinar um conteúdo para o Linux.
 
 Uma boa referência para a criação de chaves GPG a serem usadas com computadores Linux é fornecida por um artigo no GitHub, [Gerar uma nova chave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
@@ -384,12 +384,6 @@ O agente GuestConfiguration espera que a chave pública do certificado esteja pr
 A política de acesso de Key Vault deve permitir o acesso do provedor de recursos de computação a certificados durante as implantações. Para obter etapas detalhadas, consulte [Configurar o Key Vault para máquinas virtuais no Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Depois que o conteúdo for publicado, acrescente uma tag com o nome `GuestConfigPolicyCertificateValidation` e o valor `enabled` a todas as máquinas virtuais em que a assinatura de código deve ser necessária. Consulte as [Amostras de tag](../samples/built-in-policies.md#tags) sobre como tags podem ser entregues em escala usando o Azure Policy. Depois que essa tag estiver sendo usada, a definição de política gerada usando o cmdlet `New-GuestConfigurationPolicy` habilita o requisito por meio da extensão da Configuração de Convidado.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Solucionar problemas de atribuições de política de Configuração de Convidado (versão prévia)
-
-Há uma ferramenta disponível em versão prévia para auxiliar na solução de problemas de atribuições da Configuração de Convidado do Azure Policy. A ferramenta está em versão prévia e foi publicada na Galeria do PowerShell com o nome de módulo [Solução de problemas de Configuração de Convidado](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Para obter mais informações sobre os cmdlets nessa ferramenta, use o comando Get-Help no PowerShell para mostrar as diretrizes internas. Como a ferramenta recebe atualizações frequentes, essa é a melhor maneira de obter as informações mais recentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

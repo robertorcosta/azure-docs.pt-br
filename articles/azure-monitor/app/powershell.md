@@ -3,12 +3,12 @@ title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Doc
 description: Automatize a criação e gerenciamento de recursos, alertas e testes de disponibilidade no PowerShell usando um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dabb29abe4530307ef5204659297f4675376605
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760896"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694520"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar recursos do Application Insights usando o PowerShell
 
@@ -431,7 +431,6 @@ Para automatizar a criação de qualquer outro recurso de qualquer variante, cri
    
     Cada teste da web tem uma regra de alerta associada, então você precisa copiar ambos.
    
-    Você também pode incluir alertas sobre métricas. [Nomes de métrica](powershell-alerts.md#metric-names).
 5. Insira esta linha em cada recurso:
    
     `"apiVersion": "2015-05-01",`
@@ -470,7 +469,6 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
 Outros artigos sobre automação:
 
 * [Criar um recurso do Application Insights](./create-new-resource.md#creating-a-resource-automatically) -método rápido sem usar um modelo.
-* [Configurar alertas](powershell-alerts.md)
 * [Criar testes na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Enviar o Diagnóstico do Azure para o Application Insights](powershell-azure-diagnostics.md)
 * [Criar anotações de versão](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 1f81285e869bd2c65cce29766de0b2bd39a627f6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557541"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696108"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Segurança do hipervisor no Azure frota
 
@@ -26,7 +26,7 @@ O hipervisor do Azure é criado tendo em mente os seguintes objetivos de seguran
 | Isolamento | Uma política de segurança não exige transferência de informações entre VMs. Essa restrição requer recursos no Virtual Machine Manager (VMM) e no hardware para isolamento de memória, dispositivos, rede e recursos gerenciados, como dados persistentes. |
 | Integridade do VMM | Para obter a integridade geral do sistema, a integridade dos componentes individuais do hipervisor é estabelecida e mantida. |
 | Integridade da plataforma | A integridade do hipervisor depende da integridade do hardware e do software do qual ele se baseia. Embora o hipervisor não tenha controle direto sobre a integridade da plataforma, o Azure conta com mecanismos de hardware e firmware, como o chip [o Cerberus](project-cerberus.md) , para proteger e detectar a integridade da plataforma subjacente. O VMM e os convidados serão impedidos de serem executados se a integridade da plataforma for comprometida. |
-| Acesso restrito | As funções de gerenciamento são exercidas somente por administradores autorizados conectados por conexões seguras. Um princípio de privilégios mínimos é imposto por mecanismos de controle de acesso baseado em função (RBAC). |
+| Acesso restrito | As funções de gerenciamento são exercidas somente por administradores autorizados conectados por conexões seguras. Um princípio de privilégios mínimos é imposto pelos mecanismos do controle de acesso baseado em função (RBAC do Azure). |
 | Audit | O Azure permite que a funcionalidade de auditoria Capture e proteja dados sobre o que acontece em um sistema para que ele possa ser inspecionado posteriormente. |
 
 A abordagem da Microsoft para proteger o hipervisor do Azure e o subsistema de virtualização pode ser dividida nas três categorias a seguir.
@@ -71,5 +71,5 @@ Para saber mais sobre o que fazemos para impulsionar a integridade e a seguranç
 - [Segurança do firmware](firmware.md)
 - [Inicialização segura](secure-boot.md)
 - [Atestado de inicialização e host medidos](measured-boot-host-attestation.md)
-- [O Cerberus do projeto](project-cerberus.md)
+- [Projeto Cerberus](project-cerberus.md)
 - [Criptografia em repouso](encryption-atrest.md)

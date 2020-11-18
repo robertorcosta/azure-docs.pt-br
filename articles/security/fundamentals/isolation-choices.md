@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410565"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696210"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 
@@ -38,7 +38,7 @@ Cada diretório do Azure AD é distinto e separado de outros diretórios do Azur
 
 ### <a name="azure-tenancy"></a>Locação do Azure
 
-A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](../../active-directory/develop/quickstart-create-new-tenant.md) no [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento no nível do locatário no Microsoft Azure é obtido usando o Azure Active Directory e [controles com base em função](../../role-based-access-control/overview.md) oferecidos por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
+A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](../../active-directory/develop/quickstart-create-new-tenant.md) no [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento no nível do locatário no Microsoft Azure é obtido usando Azure Active Directory e o [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md) oferecido por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
 
 Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Você pode atribuir esses direitos de acesso usando o Portal do Azure, ferramentas de linha de comando do Azure e APIs de Gerenciamento do Azure. Um locatário do Azure AD é logicamente isolado usando limites de segurança, para que nenhum cliente possa acessar ou comprometer colocatários, de forma maliciosa ou acidental. O Azure AD é executado em servidores "bare metal" isolados em um segmento de rede segregado, onde a filtragem de pacotes no nível do host e o Firewall do Windows bloqueiam o tráfego e conexões indesejadas.
 
@@ -52,7 +52,7 @@ Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assina
 
 - O acesso físico aos servidores que compõem o serviço Azure AD, e acesso direto aos sistemas de back-end do Azure AD, é restrito.
 
-- Os usuários do Azure AD não têm acesso a ativos físicos ou locais e, portanto, não é possível ignorar as verificações lógicas da política de RBAC mencionadas a seguir.
+- Os usuários do Azure AD não têm acesso a ativos físicos ou locais e, portanto, não é possível ignorar as verificações lógicas de política do RBAC do Azure declaradas a seguir.
 
 Para as necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é exigido e usado. Azure AD Privileged Identity Management (PIM) apresenta o conceito de um administrador qualificado. [Administradores qualificados](../../active-directory/privileged-identity-management/pim-configure.md) devem ser usuários que precisam de acesso privilegiado agora e, em seguida, não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
 
@@ -80,7 +80,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 O restante das funções do Azure no Azure permite o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não concede acesso à Rede Virtual ou à sub-rede do Azure com a qual a máquina virtual se conecta.
 
-[Funções internas de RBAC](../../role-based-access-control/built-in-roles.md) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](../../role-based-access-control/custom-roles.md).
+[Funções internas do Azure](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](../../role-based-access-control/custom-roles.md).
 
 Entre os outros recursos para o Azure Active Directory estão:
 

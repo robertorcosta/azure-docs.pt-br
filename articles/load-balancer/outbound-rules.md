@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 98bc962c0c57716cee9339056b0793bfe4bcb0ea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683107"
+ms.locfileid: "94694721"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Regras de saída Azure Load Balancer
 
@@ -60,7 +60,7 @@ Cada endereço IP adicional fornecido por um front-end fornece portas efêmeras 
 
 Use vários endereços IP para planejar cenários em larga escala. Use regras de saída para atenuar o [esgotamento de SNAT](troubleshoot-outbound-connection.md#snatexhaust). 
 
-Você também pode usar um [prefixo IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída. 
+Você também pode usar um [prefixo IP público](./load-balancer-outbound-connections.md#outboundrules) diretamente com uma regra de saída. 
 
 Um prefixo IP público aumenta o dimensionamento da sua implantação. O prefixo pode ser adicionado à lista de permissões de fluxos provenientes de seus recursos do Azure. Você pode configurar uma configuração de IP de front-end dentro do balanceador de carga para fazer referência a um prefixo de endereço IP público.  
 
@@ -74,7 +74,7 @@ Regras de saída fornecem um parâmetro de configuração para controlar o tempo
 
 O comportamento padrão do balanceador de carga é descartar o fluxo silenciosamente quando o tempo limite de ociosidade de saída for atingido. O `enableTCPReset` parâmetro habilita um comportamento e controle previsíveis do aplicativo. O parâmetro determina se a redefinição TCP bidirecional (TCP RST) deve ser enviada no tempo limite do tempo limite de ociosidade de saída. 
 
-Examine a [redefinição de TCP no tempo limite ocioso](https://aka.ms/lbtcpreset) para obter detalhes, incluindo a disponibilidade da região.
+Examine a [redefinição de TCP no tempo limite ocioso](./load-balancer-tcp-reset.md) para obter detalhes, incluindo a disponibilidade da região.
 
 ## <a name="securing-and-controlling-outbound-connectivity-explicitly"></a><a name="preventoutbound"></a>Proteger e controlar a conectividade de saída explicitamente
 
@@ -91,9 +91,9 @@ A operação para configurar uma regra de saída falhará se você tentar redefi
 >[!IMPORTANT]
 > Sua máquina virtual não terá conectividade de saída se você definir esse parâmetro como true e não tiver uma regra de saída para definir a conectividade de saída.  Algumas operações de sua VM ou do seu aplicativo podem depender de ter conectividade de saída disponível. Entenda as dependências do seu cenário e considere o impacto de fazer essa alteração.
 
-Às vezes, não é desejável que uma VM crie um fluxo de saída. Pode haver um requisito para gerenciar quais destinos recebem fluxos de saída ou quais destinos iniciam fluxos de entrada. Use [grupos de segurança de rede](../virtual-network/security-overview.md) para gerenciar os destinos que a VM atinge. Use NSGs para gerenciar quais destinos públicos iniciam fluxos de entrada.
+Às vezes, não é desejável que uma VM crie um fluxo de saída. Pode haver um requisito para gerenciar quais destinos recebem fluxos de saída ou quais destinos iniciam fluxos de entrada. Use [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md) para gerenciar os destinos que a VM atinge. Use NSGs para gerenciar quais destinos públicos iniciam fluxos de entrada.
 
-Ao aplicar um NSG a uma VM com balanceamento de carga, atente-se às [marcas de serviço](../virtual-network/security-overview.md#service-tags) e às [regras de segurança padrão](../virtual-network/security-overview.md#default-security-rules). 
+Ao aplicar um NSG a uma VM com balanceamento de carga, atente-se às [marcas de serviço](../virtual-network/network-security-groups-overview.md#service-tags) e às [regras de segurança padrão](../virtual-network/network-security-groups-overview.md#default-security-rules). 
 
 Verifique se a VM pode receber solicitações de investigação de integridade de Azure Load Balancer.
 
@@ -159,7 +159,7 @@ O balanceador de carga fornece portas [SNAT](load-balancer-outbound-connections.
 Se você tentar fornecer mais portas [SNAT](load-balancer-outbound-connections.md)do que as disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada. Por exemplo, se você fornecer 10.000 portas por VM e sete VMs em um pool de back-end compartilharem um único IP público, a configuração será rejeitada. Sete multiplicado por 10.000 excede o limite de 64.000 portas. Adicione mais endereços IP públicos ao front-end da regra de saída para habilitar o cenário. 
 
 
-Reverta para a [alocação de porta padrão](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. As primeiras 50 instâncias de VM receberão 1024 portas, as instâncias de VM 51-100 terão 512 até o máximo de instâncias. Para obter mais informações sobre a alocação de porta SNAT padrão, consulte a [tabela de alocação de portas SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Reverta para a [alocação de porta padrão](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. As primeiras 50 instâncias de VM receberão 1024 portas, as instâncias de VM 51-100 terão 512 até o máximo de instâncias. Para obter mais informações sobre a alocação de porta SNAT padrão, consulte a [tabela de alocação de portas SNAT](./load-balancer-outbound-connections.md#preallocatedports).
 
 
 ### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>Cenário 3: habilitar somente saída
@@ -211,7 +211,7 @@ Use um prefixo ou IP público para dimensionar portas [SNAT](load-balancer-outbo
 A conectividade de saída não está disponível para um balanceador de carga padrão interno até que tenha sido declarado explicitamente por meio de IPs públicos em nível de instância ou NAT de rede virtual ou associando os membros do pool de back-end com uma configuração de balanceador de carga somente de saída. 
 
 
-Para obter mais informações, consulte [configuração de balanceador de carga somente de saída](https://docs.microsoft.com/azure/load-balancer/egress-only).
+Para obter mais informações, consulte [configuração de balanceador de carga somente de saída](./egress-only.md).
 
 
 
@@ -253,4 +253,3 @@ Quando são usadas apenas regras NAT de entrada, nenhuma NAT de saída é fornec
 
 - Saiba mais sobre o [Azure Standard Load Balancer](load-balancer-overview.md)
 - Veja nossas [perguntas frequentes sobre Azure Load Balancer](load-balancer-faqs.md)
-

@@ -1,22 +1,22 @@
 ---
 title: Configurar o ambiente de desenvolvimento do Python
 titleSuffix: Azure Machine Learning
-description: Saiba como configurar um ambiente de desenvolvimento do Python para Azure Machine Learning. Use ambientes Conda, Crie arquivos de configuração e configure seu próprio servidor de notebook baseado em nuvem, notebooks Jupyter, Azure Databricks, IDEs, editores de código e o Máquina Virtual de Ciência de Dados.
+description: Configure Azure Machine Learning ambientes de desenvolvimento do Python em Jupyter notebooks, Visual Studio Code, Azure Databricks e máquinas virtuais de ciência de dados.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422885"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695360"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Python para Azure Machine Learning
 
@@ -61,7 +61,7 @@ Crie um arquivo de configuração de espaço de trabalho em um dos seguintes mé
 
 * Portal do Azure
 
-    **Baixe o arquivo** : no [portal do Azure](https://ms.portal.azure.com), selecione  **baixar config.jsna** seção **visão geral** do seu espaço de trabalho.
+    **Baixe o arquivo**: no [portal do Azure](https://ms.portal.azure.com), selecione  **baixar config.jsna** seção **visão geral** do seu espaço de trabalho.
 
     ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 

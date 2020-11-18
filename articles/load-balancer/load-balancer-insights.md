@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686235"
+ms.locfileid: "94694874"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Usando informações para monitorar e configurar seu Azure Load Balancer
 
@@ -26,7 +26,7 @@ Por meio de Azure Monitor para redes, você recebe visualizações de dependênc
 >Observe que esse recurso está em visualização e a exibição de dependência funcional e o painel pré-configurado podem mudar para melhorar essa experiência
 
 >[!IMPORTANT]
->O Standard Load Balancer é necessário para ver as métricas do namespace Load Balancer no painel de métricas pré-configurado. Você ainda poderá ver as métricas da VM, do conjunto de dimensionamento de máquinas virtuais e dos namespaces do monitor de conexão, no entanto, recomendamos [atualizar para Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) para qualquer carga de trabalho de produção para aproveitar o conjunto robusto de métricas de Load Balancer.
+>O Standard Load Balancer é necessário para ver as métricas do namespace Load Balancer no painel de métricas pré-configurado. Você ainda poderá ver as métricas da VM, do conjunto de dimensionamento de máquinas virtuais e dos namespaces do monitor de conexão, no entanto, recomendamos [atualizar para Standard](./upgrade-basic-standard.md) para qualquer carga de trabalho de produção para aproveitar o conjunto robusto de métricas de Load Balancer.
 
 ## <a name="functional-dependency-view"></a>Exibição de dependência funcional
 
@@ -40,7 +40,7 @@ Para balanceadores de carga padrão, seus recursos de pool de back-end são codi
 
 ## <a name="metrics-dashboard"></a>Dashboard de métricas
 
-Na folha de informações do seu Load Balancer, você pode selecionar métricas mais detalhadas para exibir uma pasta de trabalho pré-configurada do [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) contendo elementos visuais de métricas relevantes para aspectos específicos do seu Load Balancer. Este painel mostrará o status da Load Balancer e os links para a documentação relevante na parte superior da página.
+Na folha de informações do seu Load Balancer, você pode selecionar métricas mais detalhadas para exibir uma pasta de trabalho pré-configurada do [Azure monitor](../azure-monitor/platform/workbooks-overview.md) contendo elementos visuais de métricas relevantes para aspectos específicos do seu Load Balancer. Este painel mostrará o status da Load Balancer e os links para a documentação relevante na parte superior da página.
 
 Inicialmente, você verá a guia Visão geral. Você pode navegar pelas guias disponíveis, cada uma delas contendo visuais relevantes para um aspecto específico de seu Load Balancer. As diretrizes explícitas para cada um estão disponíveis no painel na parte inferior de cada guia.
 
@@ -68,16 +68,16 @@ A guia taxa de transferência de dados permite que você examine sua taxa de tra
 ### <a name="flow-distribution"></a>Distribuição de Fluxo
 A guia distribuição de fluxo ajudará você a visualizar e gerenciar o número de fluxos que suas instâncias de back-end estão recebendo e produzindo. Ele mostra a taxa de criação de fluxo e a contagem de fluxo para tráfego de entrada e saída, bem como o tráfego de rede que cada VM e instância do conjunto de dimensionamento de máquinas virtuais está recebendo. 
 
-Esses modos de exibição podem fornecer comentários sobre se sua configuração de Load Balancer ou os padrões de tráfego estão levando a tráfego desbalanceado. Por exemplo, se você tiver a afinidade de sessão configurada e um único cliente estiver fazendo um número desproporcional de solicitações. Ele também informará se você está se aproximando do [limite de fluxo por VM](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) para o tamanho do seu computador.
+Esses modos de exibição podem fornecer comentários sobre se sua configuração de Load Balancer ou os padrões de tráfego estão levando a tráfego desbalanceado. Por exemplo, se você tiver a afinidade de sessão configurada e um único cliente estiver fazendo um número desproporcional de solicitações. Ele também informará se você está se aproximando do [limite de fluxo por VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) para o tamanho do seu computador.
 
 ### <a name="connection-monitors"></a>Monitores de Conexão
-A guia monitores de conexão mostrará a latência de ida e volta em um mapa global para todos os [monitores de conexão](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  que você configurou. Esses elementos visuais fornecem informações úteis para serviços com requisitos estritos de latência. Para atender aos seus requisitos, talvez seja necessário adicionar implantações regionais adicionais ou mover para um modelo de [balanceamento de carga entre regiões](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
+A guia monitores de conexão mostrará a latência de ida e volta em um mapa global para todos os [monitores de conexão](../network-watcher/connection-monitor.md)  que você configurou. Esses elementos visuais fornecem informações úteis para serviços com requisitos estritos de latência. Para atender aos seus requisitos, talvez seja necessário adicionar implantações regionais adicionais ou mover para um modelo de [balanceamento de carga entre regiões](./cross-region-overview.md)
 
 ### <a name="metric-definitions"></a>Definições de métrica
-A guia definições de métrica contém todas as informações mostradas no [artigo métricas multidimensionais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+A guia definições de métrica contém todas as informações mostradas no [artigo métricas multidimensionais](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Examine o painel e forneça comentários usando o link abaixo se houver algo que possa ser melhorado
-* [Examine a documentação de métricas para garantir que você entenda como cada métrica é calculada](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
-* [Criar monitores de conexão para seu Load Balancer](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
-* [Crie suas próprias pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview), você pode fazer a inspiração clicando no botão Editar em seu painel de métricas detalhado
+* [Examine a documentação de métricas para garantir que você entenda como cada métrica é calculada](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [Criar monitores de conexão para seu Load Balancer](../network-watcher/connection-monitor.md)
+* [Crie suas próprias pastas de trabalho](../azure-monitor/platform/workbooks-overview.md), você pode fazer a inspiração clicando no botão Editar em seu painel de métricas detalhado

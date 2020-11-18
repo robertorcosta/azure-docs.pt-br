@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145830"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696975"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
@@ -33,17 +33,17 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 1. Crie um aplicativo no portal, como você faria normalmente. Navegue até ele no portal.
 
-2. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma** . Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
+2. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma**. Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
 
-3. Selecionar **Identidade** .
+3. Selecionar **Identidade**.
 
-4. Na guia **Sistema atribuído** , alterne o **Status** para **Ligado** . Clique em **Save** (Salvar).
+4. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar).
 
     ![Captura de tela que mostra onde alternar o status para ativado e, em seguida, selecione salvar.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Para localizar a identidade gerenciada para seu aplicativo Web ou de slot no portal do Azure, em **aplicativos empresariais** , procure na seção **configurações do usuário** . Normalmente, o nome do slot é semelhante a `<app name>/slots/<slot name>` .
+> Para localizar a identidade gerenciada para seu aplicativo Web ou de slot no portal do Azure, em **aplicativos empresariais**, procure na seção **configurações do usuário** . Normalmente, o nome do slot é semelhante a `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
@@ -198,13 +198,13 @@ Primeiro, você precisará criar um recurso de identidade atribuído pelo usuár
 
 2. Crie um aplicativo no portal, como você faria normalmente. Navegue até ele no portal.
 
-3. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma** . Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
+3. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma**. Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
 
-4. Selecionar **Identidade** .
+4. Selecionar **Identidade**.
 
-5. Na guia **Usuário atribuído** , clique em **Adicionar** .
+5. Na guia **Usuário atribuído**, clique em **Adicionar**.
 
-6. Procure a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar** .
+6. Procure a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar**.
 
     ![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -345,7 +345,7 @@ Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > | expires_on    | O período de expiração do token de acesso. A data é representada como o número de segundos de “1970-01-01T0:0:0Z UTC” (corresponde à declaração `exp` do token).                                                                                |
 > | not_before    | O período para o token de acesso entrar em vigor e poder ser aceito. A data é representada como o número de segundos de “1970-01-01T0:0:0Z UTC” (corresponde à declaração `nbf` do token).                                                      |
 > | recurso      | O recurso para o qual o token de acesso foi solicitado, que corresponde ao parâmetro de cadeia de consulta `resource` da solicitação.                                                                                                                               |
-> | token_type    | Indica o valor do tipo de token. O único tipo com suporte do Azure Active Directory é FBearer. Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+> | token_type    | Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Essa resposta é igual à [resposta para a solicitação de token de acesso de serviço a serviço do Azure Active Directory](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 

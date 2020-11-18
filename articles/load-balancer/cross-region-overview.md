@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398004"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695054"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -74,7 +74,7 @@ O balanceador de carga entre regiões do Azure usa o algoritmo de balanceamento 
 
 O modo de distribuição de carga configurado dos balanceadores de carga regionais é usado para fazer a decisão de roteamento final quando vários balanceadores de carga regionais são usados para a proximidade geográfica.
 
-Para saber mais, confira [Configurar o modo de distribuição para o Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+Para saber mais, confira [Configurar o modo de distribuição para o Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidade de escalar verticalmente por trás de um único ponto de extremidade
@@ -84,7 +84,7 @@ Ao expor o ponto de extremidade global de um balanceador de carga entre regiões
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>IP Estático
-O balanceador de carga entre regiões é fornecido com um IP público estático, o que garante que o endereço IP permaneça o mesmo. Para saber mais sobre o IP estático, leia mais [aqui](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+O balanceador de carga entre regiões é fornecido com um IP público estático, o que garante que o endereço IP permaneça o mesmo. Para saber mais sobre o IP estático, leia mais [aqui](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### <a name="client-ip-preservation"></a>Preservação de IP do cliente
 O balanceador de carga entre regiões é um balanceador de carga de rede de passagem de camada 4. Essa passagem preserva o IP original do pacote.  O IP original está disponível para o código em execução na máquina virtual. Essa preservação permite que você aplique lógica específica a um endereço IP.
@@ -126,7 +126,7 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 * Sul do Reino Unido 
 * Sudeste Asiático 
 * Centro-Norte dos EUA 
-* Leste do Japão 
+* Japan East 
 * Leste da Ásia 
 * Centro-Oeste dos EUA 
 * Australia Southeast 

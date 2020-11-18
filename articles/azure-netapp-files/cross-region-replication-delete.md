@@ -12,20 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 0904ac36a9453e51dbb1efc50eee2b9bf3c669c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e08b69271ba9d115c26418bc5e421ee6c94b031d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708524"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695700"
 ---
 # <a name="delete-replications"></a>Excluir replicações
 
 Você pode encerrar a conexão de replicação entre os volumes de origem e de destino excluindo a replicação de volume. Você pode executar a operação de exclusão do volume de origem ou de destino. A operação de exclusão remove apenas a autorização para replicação; Ele não remove a origem ou o volume de destino. 
 
 ## <a name="steps"></a>Etapas
+
+1. Verifique se o emparelhamento de replicação foi quebrado antes de excluir a replicação de volume.    
+    Consulte [Exibir o status de integridade do relacionamento de replicação](cross-region-replication-display-health-status.md) e [interromper o emparelhamento de replicação](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume).  
 
 1. Para excluir a replicação de volume, selecione **replicação** no volume de origem ou de destino.  
 

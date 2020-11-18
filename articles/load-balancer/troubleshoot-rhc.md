@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855258"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696312"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Solucionar problemas de disponibilidade do Resource Health, frontend e back-end 
 
@@ -52,7 +52,7 @@ Digamos que verifiquemos nosso status de investigação de integridade e descubr
   * Se você achar que esse problema de NSG é o caso, mova a regra de permissão existente ou crie uma nova regra de alta prioridade para permitir o tráfego de AzureLoadBalancer
 * Verifique seu sistema operacional. Verifique se suas VMs estão escutando na porta de investigação e examine suas regras de firewall do so para garantir que elas não estejam bloqueando o tráfego de investigação proveniente do endereço IP 168.63.129.16
   * Você pode verificar portas de escuta executando netstat-a no prompt de comando do Windows ou netstat-l em um terminal do Linux
-* Não coloque uma VM NVA de firewall no pool de back-end do balanceador de carga, use [rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) para rotear o tráfego para instâncias de back-end por meio do firewall
+* Não coloque uma VM NVA de firewall no pool de back-end do balanceador de carga, use [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md#user-defined) para rotear o tráfego para instâncias de back-end por meio do firewall
 * Verifique se você está usando o protocolo correto, se estiver usando HTTP para investigar uma porta que escuta um aplicativo não HTTP, a investigação falhará
 
 Se você tiver feito essa lista de verificação e ainda estiver encontrando falhas de investigação de integridade, poderá haver problemas raros de plataforma afetando o serviço de investigação para suas instâncias. Nesse caso, o Azure tem seu retorno e um alerta automatizado é enviado à nossa equipe para resolver rapidamente todos os problemas de plataforma.
@@ -61,5 +61,3 @@ Se você tiver feito essa lista de verificação e ainda estiver encontrando fal
 
 * [Saiba mais sobre a investigação de integridade Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [Saiba mais sobre as métricas de Azure Load Balancer](load-balancer-standard-diagnostics.md)
-
-

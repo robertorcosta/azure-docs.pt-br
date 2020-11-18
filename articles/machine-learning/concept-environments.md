@@ -1,23 +1,22 @@
 ---
 title: Sobre ambientes de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Neste artigo, Aprenda as vantagens dos ambientes de aprendizado de máquina, que permitem definições de dependência de aprendizado de máquina reproduzíveis, auditáveis e portáteis em uma variedade de destinos de computação.
+description: Saiba mais sobre os ambientes de aprendizado de máquina, que habilitam as definições de dependência de aprendizado de máquina para vários destinos de computação reproduzíveis, auditáveis &.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322185"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695377"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes Azure Machine Learning?
-
 
 Os ambientes de Azure Machine Learning são um encapsulamento do ambiente no qual o treinamento do Machine Learning acontece. Eles especificam os pacotes python, as variáveis de ambiente e as configurações de software em relação aos seus scripts de treinamento e pontuação. Eles também especificam tempos de execução (Python, Spark ou Docker). Os ambientes são entidades gerenciadas e com controle de versão dentro de seu espaço de trabalho de Machine Learning que permitem a reproduzidas, a auditoria e o aprendizado de produção de máquinas portáteis em uma variedade de destinos de computação.
 
@@ -35,7 +34,7 @@ O ambiente, o destino de computação e o script de treinamento em conjunto form
 
 ## <a name="types-of-environments"></a>Tipos de ambientes
 
-Os ambientes podem ser amplamente divididos em três categorias: *organizadas* , *gerenciadas pelo usuário* e *gerenciadas pelo sistema*.
+Os ambientes podem ser amplamente divididos em três categorias: *organizadas*, *gerenciadas pelo usuário* e *gerenciadas pelo sistema*.
 
 Os ambientes organizados são fornecidos por Azure Machine Learning e estão disponíveis em seu espaço de trabalho por padrão. Destinado a ser usado como está, eles contêm coleções de pacotes e configurações do Python para ajudá-lo a começar com várias estruturas do Machine Learning. Esses ambientes pré-criados também permitem um tempo de implantação mais rápido. Para obter uma lista completa, consulte o [artigo sobre ambientes organizados](resource-curated-environments.md).
 
