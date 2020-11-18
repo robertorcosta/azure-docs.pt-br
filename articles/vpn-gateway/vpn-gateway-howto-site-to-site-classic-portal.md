@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892814"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656949"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
@@ -46,10 +46,10 @@ Os exemplos neste artigo usam os seguintes valores. Você pode usar esses valore
 * **Grupo de recursos:** TestRG1
 * **Nome da VNet:** TestVNet1
 * **Espaço de endereço:** 10.11.0.0/16
-* **Nome da sub-rede:** Front-end
+* **Nome da sub-rede:** FrontEnd
 * **Intervalo de endereços da sub-rede:** 10.11.0.0/24
 * **GatewaySubnet:** 10.11.255.0/27
-* **Região:** (EUA) leste dos EUA
+* **Região:** (EUA) Leste dos EUA
 * **Nome do site local:** Site2
 * **Espaço de endereço do cliente:** o espaço de endereço localizado no site local.
 
@@ -135,7 +135,7 @@ Se você estiver tendo problemas para se conectar, consulte a seção **Solucion
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Como redefinir um gateway de VPN
 
-Redefinir um gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN site a site. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. Para obter as etapas, consulte [Redefinir um gateway de VPN](vpn-gateway-resetgw-classic.md#resetclassic).
+Redefinir um gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN site a site. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. Para obter as etapas, consulte [Redefinir um gateway de VPN](./reset-gateway.md#resetclassic).
 
 ## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>Como alterar um SKU de gateway
 
@@ -143,5 +143,5 @@ Para obter as etapas para alterar um SKU de gateway, consulte [redimensionar um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/).
+* Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](../index.yml).
 * Para obter informações sobre o túnel forçado, consulte [sobre o túnel forçado](vpn-gateway-about-forced-tunneling.md).

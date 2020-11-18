@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370620"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657731"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -58,7 +58,7 @@ Para adicionar um usuário convidado como um coadministrador, siga as mesmas eta
 
 - O usuário convidado deve ter uma presença em seu diretório. Isso significa que o usuário foi convidado para seu diretório e aceitou o convite.
 
-Para obter mais informações, sobre como adicionar um usuário convidado ao seu diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../active-directory/b2b/add-users-administrator.md).
+Para obter mais informações, sobre como adicionar um usuário convidado ao seu diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="differences-for-guest-users"></a>Diferenças para usuários convidados
 
@@ -126,7 +126,7 @@ Só pode haver um administrador de serviços por assinatura do Azure. A alteraç
 | Conta de administrador da conta | Pode alterar o administrador de serviços para um conta Microsoft diferente? | Pode alterar o administrador de serviço para uma conta do Azure AD no mesmo diretório? | Pode alterar o administrador de serviço para uma conta do Azure AD em um diretório diferente? |
 | --- | --- | --- | --- |
 | Conta da Microsoft | Sim | Não | Não |
-| Conta do Azure AD | Sim | Sim | Não |
+| Conta do AD do Azure | Sim | Sim | Não |
 
 Se o administrador da conta for uma conta do Azure AD, você poderá alterar o administrador do serviço para uma conta do Azure AD no mesmo diretório, mas não em um diretório diferente. Por exemplo, abby@contoso.com o pode alterar o administrador de serviços para o bob@contoso.com , mas não pode alterar o administrador de serviços para, john@notcontoso.com a menos que john@notcontoso.com tenha uma presença no diretório contoso.com
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515907"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359469"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
@@ -73,11 +73,11 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais de Administrador**, clique em **Autorizar**. Isso abre uma caixa de diálogo de autorização do Slack em uma nova janela do navegador.
 
@@ -172,7 +172,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
   * Suporta caracteres não ingleses, espaços e letras maiúsculas. 
   
-  * As pontuações permitidas são pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, ** ( [ { } ] ) **) e separadores (por exemplo, **, /; **).
+  * As pontuações permitidas são pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, **( [ { } ] )**) e separadores (por exemplo, **, /;**).
   
   * A propriedade displayName não pode ter um caractere '@'. Se um '@' for incluído, você poderá encontrar um evento ignorado nos logs de provisionamento com a descrição "AttributeValidationFailed".
 

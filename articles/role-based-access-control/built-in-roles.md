@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 701c901cb9b85aeaf329846c13e6ed051ea52e63
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2ffa5d65675b8fe6eeecbcc71c49d7aa8ebb7eaf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288510"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657764"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -63,17 +63,17 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Acesso a Dados e Leitor](#reader-and-data-access) | Permite que você exiba tudo, mas não permitirá que exclua ou crie uma conta de armazenamento ou um recurso contido. Ele também permitirá o acesso de leitura/gravação a todos os dados contidos em uma conta de armazenamento por meio de acesso às chaves de conta de armazenamento. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Colaborador da Conta de Armazenamento](#storage-account-contributor) | Permite o gerenciamento de contas de armazenamento. Fornece acesso à chave de conta, que pode ser usada para acessar dados por meio de autorização de chave compartilhada. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | [Função do Serviço de Operador da Chave da Conta de Armazenamento](#storage-account-key-operator-service-role) | Permite listar e regenerar chaves de acesso da conta de armazenamento. | 81a9662b-bebf-436f-a333-f67b29880f12 |
-> | [Colaborador de dados de blob de armazenamento](#storage-blob-data-contributor) | Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
-> | [Proprietário de Dados do Blob de Armazenamento](#storage-blob-data-owner) | Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
-> | [Leitor de Dados do Blob de Armazenamento](#storage-blob-data-reader) | Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
-> | [Delegador de blob de armazenamento](#storage-blob-delegator) | Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou blob que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [Criar uma SAS de delegação de usuário](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | [Colaborador de dados de blob de armazenamento](#storage-blob-data-contributor) | Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | [Proprietário de Dados do Blob de Armazenamento](#storage-blob-data-owner) | Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
+> | [Leitor de Dados do Blob de Armazenamento](#storage-blob-data-reader) | Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | [Delegador de blob de armazenamento](#storage-blob-delegator) | Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou blob que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [Criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | [Colaborador de compartilhamento SMB de dados de arquivo de armazenamento](#storage-file-data-smb-share-contributor) | Permite o acesso de leitura, gravação e exclusão em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função não tem equivalente interno nos servidores de arquivos do Windows. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | [Colaborador elevado de compartilhamento SMB de dados de arquivo de armazenamento](#storage-file-data-smb-share-elevated-contributor) | Permite ler, gravar, excluir e modificar ACLs em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função é equivalente a uma ACL de compartilhamento de arquivos de alteração em servidores de arquivos do Windows. | a7264617-510b-434b-a828-9731dc254ea7 |
 > | [Leitor de compartilhamento SMB de dados de arquivo de armazenamento](#storage-file-data-smb-share-reader) | Permite acesso de leitura em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função é equivalente a uma ACL de compartilhamento de arquivos de leitura em servidores de arquivos do Windows. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
-> | [Colaborador de dados da fila de armazenamento](#storage-queue-data-contributor) | Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
-> | [Processador de mensagens de dados da fila de armazenamento](#storage-queue-data-message-processor) | Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
-> | [Remetente da mensagem de dados da fila de armazenamento](#storage-queue-data-message-sender) | Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
-> | [Leitor de dados da fila de armazenamento](#storage-queue-data-reader) | Lê e lista as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
+> | [Colaborador de dados da fila de armazenamento](#storage-queue-data-contributor) | Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | [Processador de mensagens de dados da fila de armazenamento](#storage-queue-data-message-processor) | Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | [Remetente da mensagem de dados da fila de armazenamento](#storage-queue-data-message-sender) | Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | [Leitor de dados da fila de armazenamento](#storage-queue-data-reader) | Lê e lista as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
 > | [Leitor de dados do Azure Mapas](#azure-maps-data-reader) | Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Mapas. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
@@ -180,9 +180,9 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | **Monitorar** |  |  |
 > | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Quando você concede aos usuários a função de Depurador de Instantâneos do Application Insights, deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Publicador de Métricas de Monitoramento](#monitoring-metrics-publisher) | Habilita a publicação de métricas com base nos recursos do Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Colaborador da pasta de trabalho](#workbook-contributor) | Pode salvar as pastas de trabalho compartilhadas. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Leitor de pasta de trabalho](#workbook-reader) | Pode ler as pastas de trabalho. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Gerenciamento + governança** |  |  |
@@ -2114,7 +2114,7 @@ Permite listar e regenerar chaves de acesso da conta de armazenamento. [Saiba ma
 
 ### <a name="storage-blob-data-contributor"></a>Colaborador de dados de blob de armazenamento
 
-Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2167,7 +2167,7 @@ Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber
 
 ### <a name="storage-blob-data-owner"></a>Proprietário de Dados do Blob de Armazenamento
 
-Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2210,7 +2210,7 @@ Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azu
 
 ### <a name="storage-blob-data-reader"></a>Leitor de Dados do Blob de Armazenamento
 
-Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2253,7 +2253,7 @@ Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais a�
 
 ### <a name="storage-blob-delegator"></a>Delegador do Blob de Armazenamento
 
-Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou blob que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [Criar uma SAS de delegação de usuário](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). [Saiba mais](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
+Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou blob que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [Criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas). [Saiba mais](/rest/api/storageservices/get-user-delegation-key)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2419,7 +2419,7 @@ Permite acesso de leitura em arquivos/diretórios nos compartilhamentos de arqui
 
 ### <a name="storage-queue-data-contributor"></a>Colaborador de Dados da Fila de Armazenamento
 
-Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2468,7 +2468,7 @@ Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para sa
 
 ### <a name="storage-queue-data-message-processor"></a>Processador de Mensagens de Dados da Fila de Armazenamento
 
-Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2509,7 +2509,7 @@ Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Par
 
 ### <a name="storage-queue-data-message-sender"></a>Remetente da Mensagem de Dados da Fila de Armazenamento
 
-Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2548,7 +2548,7 @@ Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais açõe
 
 ### <a name="storage-queue-data-reader"></a>Leitor de Dados da Fila de Armazenamento
 
-Lê e lista as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Lê e lista as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4214,7 +4214,7 @@ Permite que você gerencie instâncias gerenciadas do SQL e a configuração de 
 
 ### <a name="sql-security-manager"></a>Gerenciador de Segurança do SQL
 
-Permite você gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL, mas não acessá-los. [Saiba mais](../sql-database/sql-database-advanced-data-security.md)
+Permite você gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL, mas não acessá-los. [Saiba mais](../azure-sql/database/azure-defender-for-sql.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4339,7 +4339,7 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 
 ### <a name="sql-server-contributor"></a>Colaborador do SQL Server
 
-Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as políticas relacionadas à segurança. [Saiba mais](../sql-database/sql-database-aad-authentication-configure.md)
+Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as políticas relacionadas à segurança. [Saiba mais](../azure-sql/database/authentication-aad-configure.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7727,7 +7727,7 @@ Concede permissão ao usuário para exibir e baixar os instantâneos de depuraç
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 
-Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7875,7 +7875,7 @@ Permite a publicação de métricas em relação aos recursos do Azure [saiba ma
 
 ### <a name="monitoring-reader"></a>Leitor de monitoramento
 
-Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

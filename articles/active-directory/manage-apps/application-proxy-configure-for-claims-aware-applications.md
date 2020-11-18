@@ -15,15 +15,15 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386972"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656268"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalho com aplicativos com reconhecimento de declarações no Proxy de Aplicativo
-Os [aplicativos com reconhecimento de declarações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) executam um redirecionamento para o STS (Serviço de Token de Segurança). O STS solicita as credenciais do usuário em troca de um token e, em seguida, redireciona o usuário para o aplicativo. Há algumas maneiras de habilitar o Proxy de Aplicativo para que ele funcione com esses redirecionamentos. Use este artigo para configurar sua implantação de aplicativos com reconhecimento de declarações. 
+Os [aplicativos com reconhecimento de declarações](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) executam um redirecionamento para o STS (Serviço de Token de Segurança). O STS solicita as credenciais do usuário em troca de um token e, em seguida, redireciona o usuário para o aplicativo. Há algumas maneiras de habilitar o Proxy de Aplicativo para que ele funcione com esses redirecionamentos. Use este artigo para configurar sua implantação de aplicativos com reconhecimento de declarações. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que o STS para o qual o aplicativo com reconhecimento de declarações seja redirecionado está disponível fora da sua rede local. Você pode disponibilizar o STS, expondo-o por meio de um proxy ou permitindo conexões externas. 
@@ -56,5 +56,3 @@ Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmen
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Habilitar aplicativos clientes nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md)
-
-

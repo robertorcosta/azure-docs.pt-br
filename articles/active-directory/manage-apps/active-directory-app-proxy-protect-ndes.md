@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078930"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656744"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrar com o Azure Proxy de Aplicativo do AD em um servidor NDES (serviço de registro de dispositivo de rede)
 
@@ -26,7 +26,7 @@ O proxy de aplicativo Azure Active Directory (AD) permite que você publique apl
 
 Se você for novo no Azure Proxy de Aplicativo do AD e quiser saber mais, consulte [acesso remoto a aplicativos locais por meio do azure proxy de aplicativo do AD](application-proxy.md).
 
-O Proxy de Aplicativo do AD do Azure é criado no Azure. Ele oferece uma grande quantidade de largura de banda de rede e infraestrutura de servidor para melhor proteção contra ataques de DDOS (negação de serviço distribuído) e excelente disponibilidade. Além disso, não há necessidade de abrir portas de firewall externas para sua rede local e nenhum servidor DMZ é necessário. Todo o tráfego é originado de entrada. Para obter uma lista completa de portas de saída, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+O Proxy de Aplicativo do AD do Azure é criado no Azure. Ele oferece uma grande quantidade de largura de banda de rede e infraestrutura de servidor para melhor proteção contra ataques de DDOS (negação de serviço distribuído) e excelente disponibilidade. Além disso, não há necessidade de abrir portas de firewall externas para sua rede local e nenhum servidor DMZ é necessário. Todo o tráfego é originado de entrada. Para obter uma lista completa de portas de saída, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > O Azure Proxy de Aplicativo do AD é um recurso que está disponível somente se você estiver usando as edições Premium ou Basic do Azure Active Directory. Para obter mais informações, consulte [Preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Se você tiver licenças do Enterprise Mobility Suite (EMS), você estará qualificado para usar essa solução.
@@ -70,7 +70,7 @@ O Proxy de Aplicativo do AD do Azure é criado no Azure. Ele oferece uma grande 
 
    ![Verifique se você está participando dos participantes certos](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
 
-1. Selecione **+ novo aplicativo**e, em seguida, selecione **aplicativo local**. 
+1. Selecione **+ novo aplicativo** e, em seguida, selecione **aplicativo local**. 
 
 1. Em **Adicionar seu próprio aplicativo local**, configure os seguintes campos:
 
@@ -96,4 +96,4 @@ O Proxy de Aplicativo do AD do Azure é criado no Azure. Ele oferece uma grande 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Com o Proxy de Aplicativo do AD do Azure integrado com o NDES, publique aplicativos para que os usuários acessem. Para obter mais informações, consulte [publicar aplicativos usando o Azure proxy de aplicativo do AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Com o Proxy de Aplicativo do AD do Azure integrado com o NDES, publique aplicativos para que os usuários acessem. Para obter mais informações, consulte [publicar aplicativos usando o Azure proxy de aplicativo do AD](./application-proxy-add-on-premises-application.md).

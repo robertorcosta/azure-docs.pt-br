@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 512e5e0140038b27b7ffc9f2affb4a0e5b28b41b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655826"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Etapa 1: implantar o encaminhador de log
 
@@ -48,7 +48,7 @@ Nesta etapa, você designará e configurará o computador Linux que encaminhará
  
 1. No menu de navegação do Azure Sentinel, clique em **conectores de dados**. Na lista de conectores, clique no bloco **CEF (formato de evento comum)** e, em seguida, no botão **abrir página do conector** no canto inferior direito. 
 
-1. Em **1,2 Instale o coletor CEF no computador Linux** , copie o link fornecido em **executar o script a seguir para instalar e aplicar o coletor CEF** ou do texto abaixo (aplicando a ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
+1. Em **1,2 Instale o coletor CEF no computador Linux**, copie o link fornecido em **executar o script a seguir para instalar e aplicar o coletor CEF** ou do texto abaixo (aplicando a ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
 
     ```bash
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
@@ -212,5 +212,4 @@ Escolha um daemon syslog para ver a descrição apropriada.
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a implantar o agente de Log Analytics para conectar dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

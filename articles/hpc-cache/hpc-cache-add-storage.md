@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340301"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657169"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -103,9 +103,9 @@ Etapas para adicionar as funções do Azure:
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Pré-requisito: acesso à conta de armazenamento
+
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Antes de adicionar um destino de armazenamento de BLOBs, verifique se o cache tem as funções corretas para acessar a conta de armazenamento e se as configurações de firewall permitirão a criação do destino de armazenamento.
 
@@ -217,7 +217,7 @@ Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Use o comando CLI do Azure [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) para criar o destino de armazenamento.
 
@@ -301,7 +301,7 @@ Leia [Editar destinos de armazenamento](hpc-cache-edit-storage.md) para saber ma
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Use a opção [AZ HPC-cache Storage-Target List](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar os destinos de armazenamento existentes para um cache. Forneça o nome do cache e o grupo de recursos (a menos que você o tenha definido globalmente).
 

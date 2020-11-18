@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8494852bcff49602645c940470b529302f119f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09e813e0dff09885f104e43099b10d6f6f8a7f9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165066"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657424"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Como habilitar aplicativos cliente nativos para interagir com os aplicativos do proxy
 
@@ -31,7 +31,7 @@ Para dar suporte a aplicativos cliente nativos, o Proxy de Aplicativo aceita tok
 
 ![Relação entre os usuários finais, o Azure Active Directory e os aplicativos publicados](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Para publicar os aplicativos nativos, use a Biblioteca de Autenticação da Microsoft, que trata da autenticação e dá suporte a vários ambientes de cliente. O Proxy do Aplicativo se ajusta ao cenário do [Aplicativo da área de trabalho que chama a API Web em nome de um usuário conectado](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user).
+Para publicar os aplicativos nativos, use a Biblioteca de Autenticação da Microsoft, que trata da autenticação e dá suporte a vários ambientes de cliente. O Proxy do Aplicativo se ajusta ao cenário do [Aplicativo da área de trabalho que chama a API Web em nome de um usuário conectado](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user).
 
 Este artigo explica as quatro etapas para publicar um aplicativo nativo com o Proxy de Aplicativo e a Biblioteca de Autenticação do Azure AD.
 
@@ -68,7 +68,7 @@ Agora que você registrou seu aplicativo nativo, você pode conceder a ele acess
 1. Na barra lateral da página de registro do novo aplicativo, selecione **Permissões de API**. A página **Permissões de API** do registro do novo aplicativo é exibida.
 1. Selecione **Adicionar uma permissão**. A página **Solicitar permissões de API** é exibida.
 1. Nas configurações de **Selecionar uma API**, selecione **APIs que minha organização usa**. É exibida uma lista com os aplicativos do seu diretório que expõem APIs.
-1. Digite a caixa de pesquisa ou role até encontrar o aplicativo que você publicou na [Etapa 1: Publicar seu aplicativo de proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application) e selecione o aplicativo de proxy.
+1. Digite a caixa de pesquisa ou role até encontrar o aplicativo que você publicou na [Etapa 1: Publicar seu aplicativo de proxy](#step-1-publish-your-proxy-application) e selecione o aplicativo de proxy.
 1. No título **Que tipo de permissões seu aplicativo exige?** , selecione o tipo de permissão. Se seu aplicativo nativo precisar acessar a API do aplicativo de proxy como o usuário conectado, escolha **Permissões delegadas**.
 1. No título **Selecionar permissões**, selecione a permissão desejada e selecione **Adicionar permissões**. A página **Permissões de API** para seu aplicativo nativo agora mostra o aplicativo proxy e a API de permissão que você adicionou.
 

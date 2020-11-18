@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517964"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655843"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
@@ -42,7 +42,7 @@ Como alternativa, essa configuração existirá se você usar uma VM em outra nu
 
  ![CEF no local](./media/connect-cef/cef-syslog-onprem.png)
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
 
@@ -94,5 +94,4 @@ Neste documento, você aprendeu como o Azure Sentinel coleta logs de CEF de solu
 
 Para saber mais sobre o que fazer com os dados que você coletou no Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

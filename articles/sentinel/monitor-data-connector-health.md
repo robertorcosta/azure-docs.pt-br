@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428577"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656983"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Monitorar a integridade de seus conectores de dados com esta pasta de trabalho do Azure Sentinel
 
@@ -42,12 +42,12 @@ Há três seções com guias nesta pasta de trabalho:
 
 1. A guia **visão geral** mostra o status geral da ingestão de dados no espaço de trabalho selecionado: medidas de volume, taxas EPS e tempo do último log recebido.
 
-1. A guia **anomalias de coleta de dados** ajudará você a detectar anomalias no processo de coleta de dados, por tabela e fonte de dados. Cada guia apresenta anomalias para uma determinada tabela (a guia **geral** inclui uma coleção de tabelas). As anomalias são calculadas usando a função **series_decompose_anomalies ()** que retorna uma **Pontuação de anomalias**. [Saiba mais sobre essa função](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Defina os seguintes parâmetros para a função a ser avaliada:
+1. A guia **anomalias de coleta de dados** ajudará você a detectar anomalias no processo de coleta de dados, por tabela e fonte de dados. Cada guia apresenta anomalias para uma determinada tabela (a guia **geral** inclui uma coleção de tabelas). As anomalias são calculadas usando a função **series_decompose_anomalies ()** que retorna uma **Pontuação de anomalias**. [Saiba mais sobre essa função](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Defina os seguintes parâmetros para a função a ser avaliada:
 
-    - **AnomaliesTimeRange** : esse seletor de tempo aplica-se somente à exibição de anomalias de coleta de dados.
-    - **SampleInterval** : o intervalo de tempo no qual os dados são amostrados no intervalo de tempo determinado. A pontuação de anomalias é calculada somente nos dados do último intervalo.
-    - **PositiveAlertThreshold** : esse valor define o limite de Pontuação de anomalias positivo. Ele aceita valores decimais.
-    - **NegativeAlertThreshold** : esse valor define o limite de Pontuação de anomalias negativa. Ele aceita valores decimais.
+    - **AnomaliesTimeRange**: este seletor de tempo aplica-se somente à exibição de anomalias de coleta de dados.
+    - **SampleInterval**: o intervalo de tempo no qual os dados são amostrados no intervalo de tempo determinado. A pontuação de anomalias é calculada somente nos dados do último intervalo.
+    - **PositiveAlertThreshold**: este valor define o limite positivo da pontuação de anomalias. Ele aceita valores decimais.
+    - **NegativeAlertThreshold**: este valor define o limite negativo da pontuação de anomalias. Ele aceita valores decimais.
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="página anomalias da pasta de trabalho de monitoramento de integridade do conector de dados" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 

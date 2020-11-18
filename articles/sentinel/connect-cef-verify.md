@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 8bdc9d588e89f498b973db7d1de299b0b26a3d02
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515703"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655724"
 ---
 # <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
 
@@ -247,6 +247,5 @@ O script de validação executa as seguintes verificações:
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+- Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
-

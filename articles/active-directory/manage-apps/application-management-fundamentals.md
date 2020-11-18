@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642428"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656400"
 ---
 # <a name="application-management-best-practices"></a>Melhores práticas de gerenciamento de aplicativos
 
@@ -30,7 +30,7 @@ Este artigo contém recomendações e práticas recomendadas para o gerenciament
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recomendações de logon único e de aplicativo de nuvem
 | Recomendação | Comentários |
 | --- | --- |
-| Verificar a Galeria de aplicativos do Azure AD para aplicativos  | O Azure AD tem uma galeria que contém milhares de aplicativos previamente integrados que são habilitados com o SSO (logon único) corporativo. Para obter diretrizes de instalação específicas do aplicativo, consulte a [lista de tutoriais do aplicativo SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Verificar a Galeria de aplicativos do Azure AD para aplicativos  | O Azure AD tem uma galeria que contém milhares de aplicativos previamente integrados que são habilitados com o SSO (logon único) corporativo. Para obter diretrizes de instalação específicas do aplicativo, consulte a [lista de tutoriais do aplicativo SaaS](../saas-apps/tutorial-list.md).  | 
 | Usar SSO baseado em SAML federado  | Quando um aplicativo dá suporte a ele, use SSO Federado baseado em SAML com o Azure AD em vez de SSO baseado em senha e ADFS.  | 
 | Usar SHA-256 para assinatura de certificado  | O Azure AD usa o algoritmo SHA-256 por padrão para assinar a resposta SAML. Use SHA-256, a menos que o aplicativo exija SHA-1 (consulte [Opções de assinatura de certificado](certificate-signing-options.md) e problema de [conexão do aplicativo](application-sign-in-problem-application-error.md)).  | 
 | Exigir atribuição de usuário  | Por padrão, os usuários podem acessar seus aplicativos empresariais sem serem atribuídos a eles. No entanto, se o aplicativo expor funções ou se você quiser que o aplicativo apareça nos meus aplicativos de um usuário, exija a atribuição de usuário. (Consulte as [diretrizes para desenvolvedores para a integração de aplicativos](developer-guidance-for-integrating-applications.md).)  | 
@@ -41,7 +41,7 @@ Este artigo contém recomendações e práticas recomendadas para o gerenciament
 ## <a name="provisioning-recommendations"></a>Recomendações de provisionamento
 | Recomendação | Comentários |
 | --- | --- |
-| Use os tutoriais para configurar o provisionamento com aplicativos de nuvem | Consulte a [lista de tutoriais do aplicativo SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para obter diretrizes passo a passo sobre como configurar o provisionamento para o aplicativo da galeria que você deseja adicionar. |
+| Use os tutoriais para configurar o provisionamento com aplicativos de nuvem | Consulte a [lista de tutoriais do aplicativo SaaS](../saas-apps/tutorial-list.md) para obter diretrizes passo a passo sobre como configurar o provisionamento para o aplicativo da galeria que você deseja adicionar. |
 | Usar logs de provisionamento (versão prévia) para monitorar o status | Os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) fornecem detalhes sobre todas as ações executadas pelo serviço de provisionamento, incluindo o status para usuários individuais. |
 | Atribuir um grupo de distribuição ao email de notificação de provisionamento | Para aumentar a visibilidade dos alertas críticos enviados pelo serviço de provisionamento, atribua um grupo de distribuição à configuração emails de notificação. |
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ea7211ea895c5f6db3e84e382632737468898fb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: MT
+ms.openlocfilehash: 25767a7ddb83acf3ad10698f9f2ff8949a0ad55f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319102"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357191"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar o 8x8 para provisionamento automático de usuários
 
@@ -94,17 +94,17 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**. Clique em **Introdução**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
    ![Folha de introdução](./media/8x8-provisioning-tutorial/get-started.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais de Administrador**, copie a URL do **8x8** do Configuration Manager para a **URL do locatário**. Copie o **Token da API do 8x8** do Configuration Manager para **Token Secreto**. Clique em **Testar Conexão** para verificar se o Azure AD pode se conectar ao 8x8. Se a conexão falhar, verifique se sua conta 8x8 tem permissões de administrador e tente novamente.
 
-    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/8x8-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostrando a caixa de diálogo Credenciais de Administrador, em que você pode inserir a URL do Locatário e o Token Secreto.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

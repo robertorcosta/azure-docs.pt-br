@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ff70e7c05ca8de49f560fba3d59f0609785b8c4
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636768"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655962"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Conectar máquinas virtuais do Hub Azure Stack ao sentinela do Azure
 
@@ -34,8 +34,8 @@ Depois de conectar Azure Stack máquinas de Hub, escolha uma das galerias de pai
 
 Adicione a extensão de máquina virtual de **Gerenciamento de Azure monitor, atualização e configuração** para as máquinas virtuais em execução no seu Hub de Azure Stack. 
 
-1. Em uma nova guia do navegador, faça logon em seu [portal do hub de Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Vá para a página **máquinas virtuais** , selecione a máquina virtual que você deseja proteger com o Azure Sentinel. Para obter informações sobre como criar uma máquina virtual no Hub Azure Stack, consulte [criar uma VM do Windows Server com o portal do hub de Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) ou [criar uma VM do servidor Linux usando o portal do Hub do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+1. Em uma nova guia do navegador, faça logon em seu [portal do hub de Azure Stack](/azure-stack/user/azure-stack-use-portal#access-the-portal).
+2. Vá para a página **máquinas virtuais** , selecione a máquina virtual que você deseja proteger com o Azure Sentinel. Para obter informações sobre como criar uma máquina virtual no Hub Azure Stack, consulte [criar uma VM do Windows Server com o portal do hub de Azure Stack](/azure-stack/user/azure-stack-quick-windows-portal) ou [criar uma VM do servidor Linux usando o portal do Hub do Azure Stack](/azure-stack/user/azure-stack-quick-linux-portal).
 3. Selecione **Extensões**. A lista de extensões da máquina virtual instaladas nesta máquina virtual é mostrada.
 4. Clique na guia **Adicionar**. A folha de menu **Novo recurso** é aberta e mostra a lista de extensões da máquina virtual disponíveis. 
 5. Selecione a extensão de **Gerenciamento de Azure monitor, atualização e configuração** e clique em **criar**. A janela instalar configuração de **extensão** é aberta.
@@ -53,7 +53,7 @@ Para obter mais informações sobre como instalar e configurar o agente para Win
 
 Para solução de problemas de agente do Linux, confira [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md) (Solucionar problemas do agente do Linux do Azure Log Analytics).
 
-No portal do Azure Sentinel no Azure, em **máquinas virtuais** , você tem uma visão geral de todas as VMs e computadores junto com seu status. 
+No portal do Azure Sentinel no Azure, em **máquinas virtuais**, você tem uma visão geral de todas as VMs e computadores junto com seu status. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, você poderá remover a extensão da máquina virtual por meio do portal do hub de Azure Stack.
@@ -61,8 +61,8 @@ Quando não for mais necessário, você poderá remover a extensão da máquina 
 Para remover a extensão:
 
 1. Abra o **portal do Hub Azure Stack**.
-2. Acesse a página **Máquinas virtuais** , selecione a máquina virtual da qual você deseja remover a extensão.
-3. Selecione **Extensões** , selecione a extensão **Microsoft.EnterpriseCloud.Monitoring**.
+2. Acesse a página **Máquinas virtuais**, selecione a máquina virtual da qual você deseja remover a extensão.
+3. Selecione **Extensões**, selecione a extensão **Microsoft.EnterpriseCloud.Monitoring**.
 4. Clique em **desinstalar** e confirme sua seleção.
 
 ## <a name="next-steps"></a>Próximas etapas

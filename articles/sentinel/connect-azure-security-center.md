@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659645"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655945"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Conectar dados de alerta do Azure defender da central de segurança do Azure
 
-Use o conector de alerta do Azure defender para ingerir alertas do Azure defender da [central de segurança do Azure](../security-center/security-center-intro.md) e transmiti-los para o Azure Sentinel. 
+Use o conector de alerta do Azure defender para ingerir alertas do Azure defender da [central de segurança do Azure](../security-center/security-center-introduction.md) e transmiti-los para o Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

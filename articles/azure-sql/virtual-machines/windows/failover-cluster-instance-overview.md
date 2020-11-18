@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289305"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556356"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,8 +60,8 @@ O restante desta seção lista os benefícios e as limitações de cada opção 
 
 Os [discos compartilhados do Azure](../../../virtual-machines/windows/disks-shared.md) são um recurso dos [discos gerenciados do Azure](../../../virtual-machines/managed-disks-overview.md). O Clustering de failover do Windows Server dá suporte ao uso de discos compartilhados do Azure com uma instância de cluster de failover. 
 
-**SO com suporte** : Todos   
-**Versão do SQL com suporte** : Todos     
+**SO com suporte**: Todos   
+**Versão do SQL com suporte**: Todos     
 
 **Benefícios:** 
 - útil para aplicativos que buscam migrar para o Azure mantendo sua arquitetura de HADR (alta disponibilidade e recuperação de desastres) como está. 
@@ -71,7 +71,7 @@ Os [discos compartilhados do Azure](../../../virtual-machines/windows/disks-shar
 - Dá suporte ao FileStream.
 
 
-**Limitações** : 
+**Limitações**: 
 - as máquinas virtuais precisam ser colocadas no mesmo conjunto de disponibilidade e no mesmo grupo de posicionamento por proximidade.
 - Não há suporte para zonas de disponibilidade.
 - Não há suporte para o cache de disco SSD Premium.
@@ -82,8 +82,8 @@ Para começar, confira [Instância de cluster de failover do SQL Server com disc
 
 Os [Espaços de Armazenamento Diretos](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) são um recurso do Windows Server que têm suporte com clustering de failover nas Máquinas Virtuais do Azure. Ele fornece uma SAN virtual baseada em software.
 
-**SO com suporte** : Windows Server 2016 e posterior   
-**Versão do SQL com suporte** : SQL Server 2016 e posterior   
+**SO com suporte**: Windows Server 2016 e posterior   
+**Versão do SQL com suporte**: SQL Server 2016 e posterior   
 
 
 **Benefícios:** 
@@ -104,8 +104,8 @@ Para começar, confira [Instância de cluster de failover do SQL Server com os E
 
 Os [compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) são um recurso dos [Arquivos do Azure](../../../storage/files/index.yml). Os compartilhamentos de arquivos Premium têm suporte de SSD e têm baixa latência de maneira consistente. Eles têm suporte total para uso com as instâncias de cluster de failover para o SQL Server 2012 ou posterior no Windows Server 2012 ou posterior. Os compartilhamentos de arquivo Premium proporcionam maior flexibilidade, porque você pode redimensionar e escalar um compartilhamento de arquivo sem nenhum tempo de inatividade.
 
-**SO com suporte** : Windows Server 2012 e posterior   
-**Versão do SQL com suporte** : SQL Server 2012 e posterior   
+**SO com suporte**: Windows Server 2012 e posterior   
+**Versão do SQL com suporte**: SQL Server 2012 e posterior   
 
 **Benefícios:** 
 - única solução de armazenamento compartilhado para máquinas virtuais espalhadas em várias zonas de disponibilidade. 
@@ -122,8 +122,8 @@ Para começar, confira [Instância de cluster de failover do SQL Server com um c
 
 Há soluções de clustering de parceiros com armazenamento com suporte. 
 
-**SO com suporte** : Todos   
-**Versão do SQL com suporte** : Todos   
+**SO com suporte**: Todos   
+**Versão do SQL com suporte**: Todos   
 
 Um exemplo usa o SIOS DataKeeper como armazenamento. Para obter mais informações, confira a entrada de blog [Clustering de failover e SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ Um exemplo usa o SIOS DataKeeper como armazenamento. Para obter mais informaçõ
 
 Você também pode expor um armazenamento em bloco compartilhado de destino iSCSI por meio do Azure ExpressRoute. 
 
-**SO com suporte** : Todos   
-**Versão do SQL com suporte** : Todos   
+**SO com suporte**: Todos   
+**Versão do SQL com suporte**: Todos   
 
 Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio do ExpressRoute com o Equinix para VMs do Azure.
 
@@ -148,10 +148,11 @@ Para obter mais detalhes sobre as opções de conectividade de cluster, confira 
 
 Considere as limitações a seguir das instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure. 
 
-### <a name="lightweight-resource-provider"></a>Provedor de recursos leve   
-No momento, há suporte para as instâncias de cluster de failover do SQL Server somente em máquinas virtuais do Azure no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da [Extensão SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Para alterar do modo de extensão completo para leve, exclua o recurso **máquina virtual do SQL** para as VMs correspondentes e registre-as no provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso **máquina virtual do SQL** usando o portal do Azure, desmarque a caixa de seleção ao lado da máquina virtual correta. 
+### <a name="lightweight-extension-support"></a>Suporte de extensão leve   
 
-A extensão completa dá suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do portal. Esses recursos não funcionarão em VMs do SQL Server depois que o agente for reinstalado no modo de gerenciamento leve.
+No momento, as instâncias de cluster de failover do SQL Server em máquinas virtuais do Azure têm suporte somente com o [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da Extensão SQL Server IaaS Agent. Para alterar do modo de extensão completo para leve, exclua o recurso **máquina virtual do SQL** das VMs correspondentes e registre-as na extensão SQL IaaS Agent no modo leve. Ao excluir o recurso **máquina virtual do SQL** usando o portal do Azure, desmarque a caixa de seleção ao lado da máquina virtual correta para evitar a exclusão da máquina virtual. 
+
+A extensão completa dá suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do portal. Esses recursos não funcionarão para VMs do SQL Server registradas no modo de gerenciamento leve.
 
 ### <a name="msdtc"></a>MSDTC 
 

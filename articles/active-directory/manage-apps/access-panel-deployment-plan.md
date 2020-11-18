@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372473"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656727"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planejar uma implantação do Azure Active Directory meus aplicativos
 
@@ -54,10 +54,10 @@ Os meus aplicativos do Azure AD beneficiam as empresas das seguintes maneiras:
 
 Meus aplicativos é gratuito e não requer licenças para usar em um nível básico. No entanto, o número de objetos em seu diretório e os recursos adicionais que você deseja implantar podem exigir licenças adicionais. Alguns cenários comuns do AD do Azure que têm requisitos de licenciamento incluem os seguintes recursos de segurança:
 
-* [Autenticação Multifator do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Associação baseada em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Redefinição de senha de autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Autenticação Multifator do Azure](../authentication/concept-mfa-howitworks.md)
+* [Associação baseada em grupo](../fundamentals/active-directory-manage-groups.md)
+* [Redefinição de senha de autoatendimento](../authentication/tutorial-enable-sspr.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Consulte o [Guia de licenciamento completo do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Consulte o [Guia de licenciamento completo do Azure ad](https://azure.microsoft.
 
 Conclua os seguintes pré-requisitos antes de iniciar este projeto:
 
-* [Integrar SSO de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Gerenciar a infraestrutura de usuário e grupo do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integrar SSO de aplicativo](./plan-sso-deployment.md)
+* [Gerenciar a infraestrutura de usuário e grupo do Azure AD](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planejar a implantação de meus aplicativos do Azure AD
 
@@ -74,8 +74,8 @@ A tabela a seguir descreve os principais casos de uso para uma implantação de 
 
 | Área| Descrição |
 | - | - |
-| Acesso| Meu Portal de aplicativos é acessível de dispositivos corporativos e pessoais na rede corporativa. |
-|Acesso | Meu Portal de aplicativos é acessível de dispositivos corporativos fora da rede corporativa. |
+| Access| Meu Portal de aplicativos é acessível de dispositivos corporativos e pessoais na rede corporativa. |
+|Access | Meu Portal de aplicativos é acessível de dispositivos corporativos fora da rede corporativa. |
 | Auditoria| Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias. |
 | Governança| O ciclo de vida das atribuições de usuário para aplicativos e grupos conectados ao Azure AD é definido e monitorado. |
 | Segurança| O acesso aos recursos é controlado por meio de atribuições de usuário e de grupo. Somente usuários autorizados podem gerenciar o acesso a recursos. |
@@ -166,23 +166,23 @@ Para obter a melhor experiência com a página meus aplicativos, comece com a in
 
 Use o SSO Federado com o Azure AD (OpenID Connect/SAML) quando um aplicativo oferecer suporte a ele, em vez de SSO baseado em senha e ADFS.
 
-Para obter mais informações sobre como implantar e configurar seus aplicativos SaaS, consulte o [plano de implantação de SSO do SaaS](https://aka.ms/deploymentplans/sso).
+Para obter mais informações sobre como implantar e configurar seus aplicativos SaaS, consulte o [plano de implantação de SSO do SaaS](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planejar a implantação da extensão do navegador meus aplicativos
 
-Quando os usuários entram em aplicativos de SSO baseados em senha, eles precisam instalar e usar a extensão de entrada segura dos meus aplicativos. A extensão executa um script que transmite a senha para o formulário de entrada do aplicativo. Os usuários são solicitados a instalar a extensão quando iniciam o aplicativo SSO baseado em senha pela primeira vez. Mais informações sobre a extensão podem ser encontradas nesta documentação sobre como [instalar a extensão do navegador de meus aplicativos](access-panel-extension-problem-installing.md).
+Quando os usuários entram em aplicativos de SSO baseados em senha, eles precisam instalar e usar a extensão de entrada segura dos meus aplicativos. A extensão executa um script que transmite a senha para o formulário de entrada do aplicativo. Os usuários são solicitados a instalar a extensão quando iniciam o aplicativo SSO baseado em senha pela primeira vez. Mais informações sobre a extensão podem ser encontradas nesta documentação sobre como [instalar a extensão do navegador de meus aplicativos]().
 
-Se você precisar integrar aplicativos SSO baseados em senha, defina um mecanismo para implantar a extensão em escala com os [navegadores com suporte](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). As opções incluem:
+Se você precisar integrar aplicativos SSO baseados em senha, defina um mecanismo para implantar a extensão em escala com os [navegadores com suporte](../user-help/my-apps-portal-end-user-access.md). As opções incluem:
 
-* [Política de Grupo para o Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager para o Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Download e configuração controlados pelo usuário para Chrome, Firefox, Microsoft Edge ou IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Política de Grupo para o Internet Explorer]()
+* [Configuration Manager para o Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Download e configuração controlados pelo usuário para Chrome, Firefox, Microsoft Edge ou IE](../user-help/my-apps-portal-end-user-access.md)
 
 Os usuários que não usam aplicativos SSO baseados em senha também se beneficiam da extensão. Esses benefícios incluem a capacidade de iniciar qualquer aplicativo de sua barra de pesquisa, localizar acesso a aplicativos usados recentemente e ter um link para a página meus aplicativos.
 
 #### <a name="plan-for-mobile-access"></a>Planejar o acesso móvel
 
-Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Managed Browser) é necessário para usuários móveis que iniciam aplicativos de SSO baseados em senha. Um navegador protegido por política permite a transferência da senha salva para o aplicativo. O Microsoft Edge ou o navegador gerenciado fornece um conjunto de recursos de proteção de dados da Web. Você também pode usar o Microsoft Edge para cenários empresariais em dispositivos iOS e Android. O Microsoft Edge dá suporte aos mesmos cenários de gerenciamento que o Intune Managed Browser e melhora a experiência do usuário. Saiba mais: [gerenciar o acesso à Web usando um navegador Microsoft Intune protegido por política](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Managed Browser) é necessário para usuários móveis que iniciam aplicativos de SSO baseados em senha. Um navegador protegido por política permite a transferência da senha salva para o aplicativo. O Microsoft Edge ou o navegador gerenciado fornece um conjunto de recursos de proteção de dados da Web. Você também pode usar o Microsoft Edge para cenários empresariais em dispositivos iOS e Android. O Microsoft Edge dá suporte aos mesmos cenários de gerenciamento que o Intune Managed Browser e melhora a experiência do usuário. Saiba mais: [gerenciar o acesso à Web usando um navegador Microsoft Intune protegido por política](/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Planejar a implantação de meus aplicativos
 
@@ -248,7 +248,7 @@ Para backups de auditoria, relatórios e recuperação de desastres, documente a
 
 Depois que um aplicativo tiver sido configurado para SSO, os grupos receberão acesso. Os usuários nos grupos atribuídos terão acesso, e eles verão o aplicativo em meus aplicativos e no iniciador do aplicativo Microsoft 365.
 
-Consulte [atribuir usuários e grupos a um aplicativo no Active Directory](methods-for-assigning-users-and-groups.md).
+Consulte [atribuir usuários e grupos a um aplicativo no Active Directory](./assign-user-or-group-access-portal.md).
 
 Se, durante o teste ou a implantação, você quiser adicionar os grupos, mas ainda não permitir que os aplicativos sejam mostrados em meus aplicativos, consulte [ocultar um aplicativo da experiência do usuário em Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 ### <a name="rollback-steps"></a>Etapas de reversão
 
-É importante planejar o que fazer se a implantação não funcionar conforme o planejado. Se a configuração de SSO falhar durante a implantação, você deve entender como [solucionar problemas de SSO](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) e reduzir o impacto para os usuários. Em circunstâncias extremas, talvez seja necessário [reverter o SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
+É importante planejar o que fazer se a implantação não funcionar conforme o planejado. Se a configuração de SSO falhar durante a implantação, você deve entender como [solucionar problemas de SSO](../hybrid/tshoot-connect-sso.md) e reduzir o impacto para os usuários. Em circunstâncias extremas, talvez seja necessário [reverter o SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Gerenciar sua implementação
@@ -312,4 +312,4 @@ Use a função menos privilegiada para realizar uma tarefa necessária dentro do
 Você pode usar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Planejar uma implantação da autenticação multifator do Azure](https://aka.ms/deploymentplans/mfa)
+[Planejar uma implantação da autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)

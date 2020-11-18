@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614538"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657101"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o namespace agregado
 
@@ -57,7 +57,7 @@ No portal do Azure, carregue a página Configurações de **namespace** . Você 
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Ao usar o CLI do Azure, você deve adicionar um caminho de namespace ao criar o destino de armazenamento. Leia [Adicionar um novo destino de armazenamento de BLOBs do Azure](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) para obter detalhes.
 
@@ -119,7 +119,7 @@ Preencha esses valores para cada caminho de namespace:
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
 Ao usar o CLI do Azure, você deve adicionar pelo menos um caminho de namespace ao criar o destino de armazenamento. Leia [Adicionar um novo destino de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obter detalhes.
 

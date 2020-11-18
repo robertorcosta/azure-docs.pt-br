@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b592591f3d2190fdcc9ed7b3b12b2eca20a25a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675830"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359775"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configurar o ServiceNow para o provisionamento automático de usuários
 
@@ -58,11 +58,11 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 3. Verifique se as seguintes configurações estão **desabilitadas** no ServiceNow:
 
-   1. Selecione **segurança do sistema**  >  **configurações de alta segurança**  >  **exigir autenticação básica para solicitações de esquema de entrada** .
-   2. Selecione **Propriedades do sistema**  >  **Serviços Web**  >  **exigem autorização básica para solicitações SOAP de entrada** .
+   1. Selecione **Segurança do Sistema** > **Configurações de Alta Segurança** > **Exigir autenticação Básica para solicitações SCHEMA de entrada**.
+   2. Selecione **Propriedades do Sistema** > **Serviços Web** > **Exigir autorização básica para solicitações SOAP de entrada**.
      
    > [!IMPORTANT]
-   > Se essas configurações estiverem *habilitadas* , o mecanismo de provisionamento não conseguirá se comunicar com o ServiceNow.
+   > Se essas configurações estiverem *habilitadas*, o mecanismo de provisionamento não conseguirá se comunicar com o ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicione o ServiceNow por meio da galeria de aplicativos do Azure AD
 
@@ -72,7 +72,7 @@ Adicione o ServiceNow por meio da galeria de aplicativos do Azure AD para começ
 
 No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos ao ServiceNow, é preciso selecionar uma função diferente de **Acesso Padrão** . Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao ServiceNow, é preciso selecionar uma função diferente de **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -83,55 +83,55 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Para configurar o provisionamento automático de usuários para o ServiceNow no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos** .
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **ServiceNow** .
+2. Na lista de aplicativos, selecione **ServiceNow**.
 
     ![O link do ServiceNow na lista de Aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento** .
+3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
+    ![Captura de tela das opções Gerenciar com a opção Provisionamento destacada.](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático** .
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **Credenciais do Administrador** , insira as credenciais de administrador e o nome de usuário do ServiceNow. Clique em **Testar Conexão** para verificar se o Azure AD pode se conectar ao ServiceNow. Se a conexão falhar, verifique se a conta do ServiceNow tem permissões de Administrador e tente novamente.
+5. Na seção **Credenciais do Administrador**, insira as credenciais de administrador e o nome de usuário do ServiceNow. Clique em **Testar Conexão** para verificar se o Azure AD pode se conectar ao ServiceNow. Se a conexão falhar, verifique se a conta do ServiceNow tem permissões de Administrador e tente novamente.
 
-    ![Captura de tela mostra a página de provisionamento de serviço, onde você pode inserir credenciais de administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostrando a página Provisionamento de Serviço, em que você pode inserir as Credenciais de Administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
+6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar** .
+7. Clique em **Salvar**.
 
-8. Na seção **Mapeamentos** , selecione **Sincronizar Usuários do Azure Active Directory com o ServiceNow** .
+8. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o ServiceNow**.
 
-9. Examine os atributos de usuário sincronizados do Azure AD para o ServiceNow na seção **Mapeamento de Atributos** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do ServiceNow em operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), precisará garantir que a API do ServiceNow seja compatível com a filtragem de usuários com base no atributo em questão. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário sincronizados do Azure AD para o ServiceNow na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do ServiceNow em operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), precisará garantir que a API do ServiceNow seja compatível com a filtragem de usuários com base no atributo em questão. Selecione o botão **Salvar** para confirmar as alterações.
 
-10. Na seção **Mapeamentos** , selecione **Sincronizar Grupos do Azure Active Directory com o ServiceNow** .
+10. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o ServiceNow**.
 
-11. Examine os atributos de grupo sincronizados do Azure AD para o ServiceNow na seção **Mapeamento de Atributos** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder os grupos no ServiceNow em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo sincronizados do Azure AD para o ServiceNow na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder os grupos no ServiceNow em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento do Azure AD no ServiceNow, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações** .
+13. Para habilitar o serviço de provisionamento do Azure AD no ServiceNow, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos a serem provisionados para o ServiceNow escolhendo os valores desejados em **Escopo** na seção **Configurações** .
+14. Defina os usuários e/ou grupos a serem provisionados para o ServiceNow escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **Salvar** .
+15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações** . O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
@@ -149,10 +149,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   Esse erro indica um problema de comunicação com a instância do ServiceNow. Verifique se as seguintes configurações estão *desabilitadas* no ServiceNow:
+   Esse erro indica um problema de comunicação com a instância do ServiceNow. Verifique novamente se as seguintes configurações estão *desabilitadas* no ServiceNow:
    
-   1. Selecione **segurança do sistema**  >  **configurações de alta segurança**  >  **exigir autenticação básica para solicitações de esquema de entrada** .
-   2. Selecione **Propriedades do sistema**  >  **Serviços Web**  >  **exigem autorização básica para solicitações SOAP de entrada** .
+   1. Selecione **Segurança do Sistema** > **Configurações de Alta Segurança** > **Exigir autenticação Básica para solicitações SCHEMA de entrada**.
+   2. Selecione **Propriedades do Sistema** > **Serviços Web** > **Exigir autorização básica para solicitações SOAP de entrada**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
