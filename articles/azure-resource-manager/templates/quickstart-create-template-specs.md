@@ -2,15 +2,15 @@
 title: Criar e implantar especificação de modelo
 description: Saiba como criar uma especificação usando um modelo do ARM. Implante a especificação de modelo em um grupo de recursos em sua assinatura.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728770"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506355"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Início Rápido: Criar e implantar especificação de modelo (versão prévia)
 
@@ -88,7 +88,7 @@ Essas opções são mostradas abaixo.
 1. Quando você usa um modelo do ARM para criar a especificação de modelo, o modelo é incorporado na definição de recursos. Copie o modelo a seguir e salve-o localmente como **azuredeploy.json**. Este início rápido assume que você salvou no caminho **c:\Templates\azuredeploy.json**, mas é possível usar qualquer caminho.
 
     > [!NOTE]
-    > No modelo incorporado, todos os colchetes esquerdos devem ser precedidos por um segundo colchete esquerdo. Use `[[` em vez de `[`.
+    > No modelo inserido, todas as [expressões do modelo](template-expressions.md) devem ser precedidas por um segundo colchete à esquerda. Use `"[[` em vez de `"[`. As matrizes JSON ainda usam apenas um colchete à esquerda.
 
     ```json
     {

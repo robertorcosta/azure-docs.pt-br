@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 204cdc689d5a117df428bb314a81a35081f7b13c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273663"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357633"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar o BlueJeans para o provisionamento automático de usuário
 
@@ -42,7 +42,7 @@ Antes de configurar o BlueJeans para o provisionamento automático de usuário c
 
 **Para adicionar o BlueJeans por meio da galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -50,11 +50,11 @@ Antes de configurar o BlueJeans para o provisionamento automático de usuário c
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **BlueJeans**, selecione **BlueJeans** no painel de resultados e, em seguida, selecione o botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **BlueJeans**, selecione **BlueJeans** no painel de resultados e, depois, selecione o botão **Adicionar** para adicionar o aplicativo.
 
     ![BlueJeans na lista de resultados](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o BlueJeans no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **BlueJeans**.
+1. Entre no [portal do Azure](https://portal.azure.com), selecione **Aplicativos Empresariais**, **Todos os aplicativos** e **BlueJeans**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -91,11 +91,11 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Captura de tela da barra lateral do aplicativo do BlueJeans Enterprise com a opção de provisionamento realçada e chamada.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![Captura de tela da barra lateral Aplicativo Empresarial BlueJeans com a opção Provisionamento realçada e destacada.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Captura de tela da página de provisionamento com as seções modo de provisionamento e credenciais de administrador chamadas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![Captura de tela da página Provisionamento com as seções Modo de Provisionamento e Credenciais de Administrador destacadas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
 5. Na seção **Credenciais de Administrador**, insira o **Nome de Usuário Administrador** e a **Senha do Administrador** de sua conta do BlueJeans. Exemplos desses valores são:
 
@@ -105,17 +105,17 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 6. Ao popular os campos mostrados na Etapa 5, clique em **Testar Conectividade** para garantir que o Azure AD pode se conectar ao BlueJeans. Se a conexão falhar, verifique se a conta do BlueJeans tem permissões de Administrador e tente novamente.
 
-    ![Captura de tela da seção de credenciais de administrador com a opção de conexão de teste chamada out.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![Captura de tela da seção Credenciais de Administrador com a opção Testar Conectividade destacada.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
 7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
-    ![Captura de tela da caixa de texto email de notificação.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+    ![Captura de tela da caixa de texto Email de Notificação.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. Clique em **Salvar**.
 
 9. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o BlueJeans**.
 
-    ![Captura de tela da seção mapeamentos com a opção sincronizar Azure Active Directory usuários com BlueJeans realçada.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+    ![Captura de tela da seção Mapeamentos com a opção Sincronizar Usuários do Azure Active Directory com o BlueJeans realçada.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
 10. Examine os atributos de usuário que serão sincronizados do Azure AD para o BlueJeans na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência entre as contas de usuário no BlueJeans para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
@@ -125,15 +125,15 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 12. Para habilitar o serviço de provisionamento do Azure AD no BlueJeans, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
-    ![Captura de tela da seção configurações com a opção status de provisionamento definida como ativado.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+    ![Captura de tela da seção Configurações com a opção Status de Provisionamento definida como Ativado.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
 13. Defina os usuários e/ou grupos a serem provisionados para o BlueJeans escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
-    ![Captura de tela da configuração de escopo com a opção sincronizar apenas usuários e grupos atribuídos realçada.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+    ![Captura de tela da configuração Escopo com a opção Sincronizar apenas usuários e grupos atribuídos realçada.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
 14. Quando estiver pronto para provisionar, clique em **Salvar**.
 
-    ![Captura de tela da barra lateral do aplicativo do BlueJeans Enterprise com a opção salvar chamada out.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![Captura de tela da barra lateral Aplicativo Empresarial BlueJeans com a opção Salvar destacada.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para o relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no BlueJeans.
 

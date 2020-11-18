@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927967"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348280"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia)
 
@@ -75,7 +75,7 @@ Você tem duas opções de rede para se conectar ao Servidor Flexível do Banco 
    * Usar a VPN ou o ExpressRoute para se conectar de recursos que não são do Azure com seu servidor flexível
    * Nenhum ponto de extremidade público
 
-* **Acesso público (endereços IP permitidos)** – você pode implantar seu servidor flexível com um ponto de extremidade público. O ponto de extremidade público é um endereço DNS que poderia ser resolvido publicamente. A frase "endereços IP permitidos" refere-se a um intervalo de IPs que você escolhe para conceder permissão para acessar o servidor. Essas permissões são chamadas **regras de firewall**.
+* **Acesso público (endereços IP permitidos)** – você pode implantar seu servidor flexível com um ponto de extremidade público. O ponto de extremidade público é um endereço DNS que poderia ser resolvido publicamente. A frase "endereços IP permitidos" refere-se a um intervalo de IPs que você escolhe para conceder permissão de acesso ao servidor. Essas permissões são chamadas **regras de firewall**.
 
 Confira os [Conceitos de rede](concepts-networking.md) para saber mais.
 
@@ -89,7 +89,7 @@ Confira [Conceitos de computação e armazenamento](concepts-compute-storage.md)
 
 O MySQL é um dos mecanismos de banco de dados populares para a execução de aplicativos Web e móveis de escala da Internet. Muitos de nossos clientes o utilizam para os serviços de treinamento online, serviços de streaming de vídeo, soluções de pagamento digital, plataformas de comércio eletrônico, serviços de jogos, portais de notícias, governo e sites de saúde. Esses serviços são necessários para serem fornecidos e dimensionados conforme o tráfego no aplicativo Web ou móvel aumenta.
 
-No lado dos aplicativos, o aplicativo normalmente é desenvolvido em Java ou php e migrado para ser executado em [conjuntos de dimensionamento da máquinas virtuais do Azure](/azure/virtual-machine-scale-sets/overview.md) ou [Serviço de Aplicativo do Azure](/azure/app-service/overview.md) ou são colocados em contêineres para serem executados no [AKS (Serviço de Kubernetes do Azure)](/azure/aks/intro-kubernetes.md). Com o conjunto de dimensionamento de máquinas virtuais, o Serviço de Aplicativo ou o AKS como infraestrutura subjacente, a escala do aplicativo é simplificada provisionando instantaneamente novas VMs e replicando os componentes de aplicativos sem estado para atender às solicitações, mas geralmente o banco de dados acaba sendo um gargalo como componente com estado centralizado.
+No lado dos aplicativos, o aplicativo normalmente é desenvolvido em Java ou php e migrado para ser executado em [conjuntos de dimensionamento da máquinas virtuais do Azure](../../virtual-machine-scale-sets/overview.md) ou [Serviço de Aplicativo do Azure](../../app-service/overview.md) ou são colocados em contêineres para serem executados no [AKS (Serviço de Kubernetes do Azure)](../../aks/intro-kubernetes.md). Com o conjunto de dimensionamento de máquinas virtuais, o Serviço de Aplicativo ou o AKS como infraestrutura subjacente, a escala do aplicativo é simplificada provisionando instantaneamente novas VMs e replicando os componentes de aplicativos sem estado para atender às solicitações, mas geralmente o banco de dados acaba sendo um gargalo como componente com estado centralizado.
 
 O recurso de réplica de leitura permite replicar dados de um servidor flexível do Banco de Dados do Azure para MySQL para um servidor somente leitura. Você pode replicar do servidor de origem para **até 10 réplicas**. As réplicas são atualizadas de maneira assíncrona usando a [tecnologia de replicação baseada em posição do arquivo binário nativo (log binário)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) do mecanismo MySQL. Você pode usar uma solução de proxy de balanceador de carga como [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para expandir de modo ininterrupto sua carga de trabalho de aplicativo para réplicas de leitura sem nenhum custo de refatoração de aplicativo. 
 

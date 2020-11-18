@@ -1,19 +1,19 @@
 ---
-title: Interagir com um dispositivo IoT Plug and Play conectado à solução de IoT do Azure (Node.js) | Microsoft Docs
-description: Use o Node.js para se conectar com um dispositivo IoT Plug and Play conectado à sua solução de IoT do Azure e interagir com ele.
+title: Início Rápido – Interagir com um dispositivo IoT Plug and Play conectado à solução de IoT do Azure (Node.js) | Microsoft Docs
+description: Início Rápido – Use o Node.js para se conectar com um dispositivo IoT Plug and Play conectado à sua solução de IoT do Azure e para interagir com ele.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 814221997bc927cf411e531b523d693f3ef5854c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735997"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421508"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Início Rápido: Interagir com um dispositivo IoT Plug and Play conectado à sua solução (Node.js)
 
@@ -69,8 +69,8 @@ Neste início rápido, você usa um dispositivo de termostato de exemplo que é 
 
 Em [Configurar o ambiente para os inícios rápidos e os tutoriais do IoT Plug and Play](set-up-environment.md), você criou duas variáveis de ambiente para configurar o exemplo a ser conectado ao hub IoT e ao dispositivo:
 
-* **IOTHUB_CONNECTION_STRING** : a cadeia de conexão do hub IoT anotada anteriormente.
-* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING**: a cadeia de conexão do hub IoT anotada anteriormente.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 Neste início rápido, você usará uma solução de IoT de exemplo em Node.js para interagir com o dispositivo de exemplo que acabou de configurar.
 
@@ -84,7 +84,7 @@ Neste início rápido, você usará uma solução de IoT de exemplo em Node.js p
 
 ### <a name="read-a-property"></a>Ler uma propriedade
 
-1. Quando você executou o dispositivo termostato de exemplo no terminal do **dispositivo** , você viu as seguintes mensagens indicando seu status online:
+1. Quando você executou o dispositivo termostato de exemplo no terminal do **dispositivo**, você viu as seguintes mensagens indicando seu status online:
 
     ```cmd/sh
     properties have been reported for component
@@ -97,7 +97,7 @@ Neste início rápido, você usará uma solução de IoT de exemplo em Node.js p
     node twin.js
     ```
 
-1. No saída de terminal do **serviço** , observe a resposta do dispositivo gêmeo. Você verá a ID do modelo do dispositivo e as propriedades associadas relatadas:
+1. No saída de terminal do **serviço**, observe a resposta do dispositivo gêmeo. Você verá a ID do modelo do dispositivo e as propriedades associadas relatadas:
 
     ```json
     Model Id: dtmi:com:example:Thermostat;1
@@ -187,13 +187,13 @@ Neste cenário, ele gera `Model Id: dtmi:com:example:Thermostat;1`.
 
     A propriedade `targetTemperature` é definida como uma propriedade gravável no modelo de dispositivo Termostato.
 
-1. No terminal de **serviço** , use o seguinte comando para executar a amostra de atualização da propriedade:
+1. No terminal de **serviço**, use o seguinte comando para executar a amostra de atualização da propriedade:
 
     ```cmd/sh
     node twin.js
     ```
 
-1. No terminal do **dispositivo** , você verá que o dispositivo recebeu a atualização:
+1. No terminal do **dispositivo**, você verá que o dispositivo recebeu a atualização:
 
     ```cmd/sh
     The following properties will be updated for the default component:
@@ -208,13 +208,13 @@ Neste cenário, ele gera `Model Id: dtmi:com:example:Thermostat;1`.
     updated the property
     ```
 
-1. No terminal de **serviço** , execute o seguinte comando para confirmar se a propriedade está atualizada:
+1. No terminal de **serviço**, execute o seguinte comando para confirmar se a propriedade está atualizada:
 
     ```cmd/sh
     node twin.js
     ```
 
-1. No saída de terminal de **serviço** , na seção de propriedades`reported`, você verá a temperatura de destino atualizada relatada. Pode demorar algum tempo para que o dispositivo conclua a atualização. Repita essa etapa até que o dispositivo tenha processado a atualização da propriedade:
+1. No saída de terminal de **serviço**, na seção de propriedades`reported`, você verá a temperatura de destino atualizada relatada. Pode demorar algum tempo para que o dispositivo conclua a atualização. Repita essa etapa até que o dispositivo tenha processado a atualização da propriedade:
 
     ```json
     "reported": {
@@ -257,7 +257,7 @@ Neste cenário, ele gera `Model Id: dtmi:com:example:Thermostat;1`.
     }
     ```
 
-1. No terminal do **dispositivo** , você verá que o comando foi confirmado:
+1. No terminal do **dispositivo**, você verá que o comando foi confirmado:
 
     ```cmd/sh
     MaxMinReport commandpayload

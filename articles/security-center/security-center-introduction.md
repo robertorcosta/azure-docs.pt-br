@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901556"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372261"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -37,11 +37,11 @@ A Central de Segurança do Azure aborda os três desafios de segurança mais urg
 
 Para ajudá-lo a se proteger contra esses desafios, a Central de Segurança fornece ferramentas para:
 
--   **Fortalecer a postura de segurança** : A Central de Segurança avalia seu ambiente e permite que você entenda o status de seus recursos e se eles são seguros.
+-   **Fortalecer a postura de segurança**: A Central de Segurança avalia seu ambiente e permite que você entenda o status de seus recursos e se eles são seguros.
 
--   **Proteger contra ameaças** : a Central de Segurança avalia a suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de segurança.
+-   **Proteger contra ameaças**: a Central de Segurança avalia a suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de segurança.
 
--   **Ficar seguro com mais rapidez** : Na Central de Segurança, tudo é feito na velocidade da nuvem. Por ser integrada nativamente, a implantação da Central de Segurança é fácil, oferecendo provisionamento automático e proteção com os serviços do Azure.
+-   **Ficar seguro com mais rapidez**: Na Central de Segurança, tudo é feito na velocidade da nuvem. Por ser integrada nativamente, a implantação da Central de Segurança é fácil, oferecendo provisionamento automático e proteção com os serviços do Azure.
 
 > [!NOTE]
 > Esse serviço dá suporte ao [Azure Lighthouse](../lighthouse/overview.md), que permite que os provedores de serviços entrem no próprio locatário para gerenciar assinaturas e grupos de recursos delegados pelos clientes. Para cenários da Central de Segurança do Azure, uma assinatura precisa ser delegada em vez de grupos de recursos individuais.
@@ -54,7 +54,7 @@ Além disso, a Central de Segurança protege servidores e máquinas virtuais que
 
 Os eventos coletados dos agentes e do Azure são correlacionados no mecanismo de análise de segurança para fornecer alertas de segurança e recomendações (tarefas de proteção) personalizados, que você deve seguir para que suas cargas de trabalho fiquem seguras. Você deve investigar esses alertas assim que possível para verificar se ataques mal-intencionados não estão ocorrendo em suas cargas de trabalho.
 
-Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como uma iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (tipos de preço Gratuito ou Standard). A iniciativa interna contém somente políticas de Auditoria. Para obter mais informações sobre as políticas da Central de Segurança no Azure Policy, confira [Trabalhando com políticas de segurança](tutorial-security-policy.md).
+Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como uma iniciativa interna, sob a categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (independentemente de elas terem ou não o Azure Defender habilitado). A iniciativa interna contém somente políticas de Auditoria. Para obter mais informações sobre as políticas da Central de Segurança no Azure Policy, confira [Trabalhando com políticas de segurança](tutorial-security-policy.md).
 
 ## <a name="strengthen-security-posture"></a>Fortalecer a postura de segurança
 
@@ -137,6 +137,6 @@ Ampla coleta de log – logs do Windows e do Linux são todos aproveitados no me
 
 - Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
 
-- O tipo de preço Gratuito da Central de Segurança é habilitado em todas as suas assinaturas atuais do Azure quando você acessa o painel da Central de Segurança do Azure no portal do Azure pela primeira vez ou se ele é habilitado de maneira programática por meio da API. Para obter vantagem do gerenciamento de segurança avançado e dos recursos de detecção de ameaças, você deve atualizar para o tipo de preço Standard. O nível Standard pode ser experimentado gratuitamente durante 30 dias. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
+- O tipo de preço Gratuito da Central de Segurança é habilitado em todas as suas assinaturas atuais do Azure quando você acessa o painel da Central de Segurança do Azure no portal do Azure pela primeira vez ou se ele é habilitado de maneira programática por meio da API. Para aproveitar as funcionalidades avançadas de gerenciamento de segurança e detecção de ameaças, você deve habilitar o Azure Defender. O Azure Defender pode ser avaliado gratuitamente durante 30 dias. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
 
-- Se você estiver pronto para habilitar a Central de Segurança Standard agora, o [Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) o orientará pelas etapas.
+- Se você estiver pronto para habilitar o Azure Defender agora, o [Início Rápido: configuração da Central de Segurança do Azure](security-center-get-started.md) orienta você ao longo das etapas.

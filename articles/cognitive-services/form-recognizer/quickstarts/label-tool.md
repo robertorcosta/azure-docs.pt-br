@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976140"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360863"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -37,6 +37,14 @@ Para concluir este início rápido, é necessário ter:
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Experimente
+
+Para experimentar a Ferramenta de Rotulagem de Exemplo online do Reconhecimento de Formulários, vá para o [site FOTT](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Ferramenta de Rotulagem de Exemplo do Reconhecimento de Formulários](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem de exemplo
 
@@ -139,7 +147,7 @@ Na ferramenta de rótulo de exemplo, os projetos armazenam as suas configuraçõ
 * **Chave de API** – sua chave de assinatura do Reconhecimento de Formulários.
 * **Descrição** (opcional) – descrição do projeto
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Página Novo projeto na ferramenta de rotulagem de exemplo.":::
 
 ## <a name="label-your-forms"></a>Rotular seus formulários
 
@@ -155,7 +163,7 @@ Clique em **Executar o OCR em todos os arquivos** no painel esquerdo para obter 
 
 Ela também mostrará quais tabelas foram extraídas automaticamente. Clique no ícone de tabela/grade à esquerda do documento para ver a tabela extraída. Neste guia de início rápido, como o conteúdo da tabela é extraído automaticamente, não rotularemos o conteúdo da tabela; em vez disso, dependeremos da extração automatizada.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização de tabela na ferramenta de rotulagem de exemplo.":::
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
 
@@ -201,7 +209,7 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rótulo de exemplo.":::
 
 
 Siga as etapas acima para rotular pelo menos cinco de seus formulários.
@@ -256,7 +264,7 @@ Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em
 * A lista de marcas e a precisão estimada por marca.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Exibição de treinamento.":::
 
 Após a conclusão do treinamento, examine o valor de **Precisão Média**. Se ele estiver baixo, você deverá adicionar mais documentos de entrada e repetir as etapas acima. Os documentos que você já rotulou permanecerão no índice do projeto.
 
@@ -275,7 +283,7 @@ Com o Model Compose, você pode compor até 100 modelos para uma ID de modelo. Q
 
 Para compor modelos na ferramenta de rotulagem de exemplo, clique no ícone Model Compose (setas se mesclando) à esquerda. À esquerda, selecione os modelos que deseja compor juntos. Modelos com o ícone de setas já são modelos compostos. Clique no botão "Redigir". No pop-up, dê um nome ao seu novo modelo composto e clique em "Redigir". Quando a operação for concluída, o novo modelo composto deverá aparecer na lista. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Exibição da experiência do usuário do Model Compose.":::
 
 ---
 

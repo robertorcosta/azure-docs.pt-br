@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518704"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516536"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
@@ -27,11 +27,11 @@ Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada
 > * Compartilhar uma galeria de imagens
 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que execute a CLI do Azure versão 2.4.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este artigo exige a versão 2.4.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="overview"></a>Visão geral
 
@@ -41,7 +41,7 @@ A Galeria de Imagens Compartilhadas permite que você compartilhe suas imagens d
 
 ## <a name="create-and-configure-a-source-vm"></a>Criar e configurar uma VM de origem
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group); em seguida, crie uma VM com [az vm create](/cli/azure/vm). Essa VM é usada como a origem da imagem. O exemplo abaixo inicia uma VM chamada *myVM* no grupo de recursos chamado *myResourceGroup* :
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group); em seguida, crie uma VM com [az vm create](/cli/azure/vm). Essa VM é usada como a origem da imagem. O exemplo abaixo inicia uma VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -77,7 +77,7 @@ Uma galeria de imagens é o principal recurso usado para habilitar o compartilha
 
 Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços.   Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
-Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria um grupo de recursos da galeria chamado *myGalleryRG* no *Leste dos EUA* , bem como uma galeria chamada *myGallery*.
+Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria um grupo de recursos da galeria chamado *myGalleryRG* no *Leste dos EUA*, bem como uma galeria chamada *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -118,7 +118,7 @@ az sig image-definition create \
 
 Crie uma versão da imagem com base na VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Neste exemplo, a versão de nossa imagem é *1.0.0* e vamos criar uma réplica na região *Centro-Sul dos EUA* e uma na região *Leste dos EUA 2*. As regiões de replicação precisam incluir a região em que a VM de origem fica localizada.
 
@@ -165,7 +165,7 @@ Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjun
 
 
 ## <a name="test-your-scale-set"></a>Testar seu conjunto de dimensionamento
-Para permitir que o tráfego alcance o conjunto de dimensionamento e verifique se o servidor Web está funcionando corretamente, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo abaixo cria uma regra denominada *myLoadBalancerRuleWeb* que permite o tráfego na porta *TCP* *80* :
+Para permitir que o tráfego alcance o conjunto de dimensionamento e verifique se o servidor Web está funcionando corretamente, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo abaixo cria uma regra denominada *myLoadBalancerRuleWeb* que permite o tráfego na porta *TCP* *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -179,7 +179,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Para ver seu conjunto de dimensionamento em ação, obtenha o endereço IP público de seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O seguinte exemplo obtém o endereço IP de *myScaleSetLBPublicIP* , criado como parte do conjunto de dimensionamento:
+Para ver seu conjunto de dimensionamento em ação, obtenha o endereço IP público de seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O seguinte exemplo obtém o endereço IP de *myScaleSetLBPublicIP*, criado como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \

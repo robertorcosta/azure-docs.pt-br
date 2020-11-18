@@ -8,16 +8,16 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4921078e9e7b5d9de06fbbc9a97dc4a964569e04
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754648"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357616"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solução de problemas nos Serviços de Comunicação do Azure
 
-Este documento ajudará você a reunir as informações necessárias para solucionar problemas de sua solução de serviços de comunicação.
+Este documento ajudará você a solucionar problemas que podem ocorrer na solução de Serviços de Comunicação. Se estiver solucionando problemas de SMS, você poderá [habilitar o relatório de entrega com a Grade de Eventos](../quickstarts/telephony-sms/handle-sms-events.md) para capturar os detalhes da entrega do SMS.
 
 ## <a name="getting-help"></a>Obtendo ajuda
 
@@ -30,9 +30,11 @@ Dependendo do [plano de suporte](https://azure.microsoft.com/support/plans/) de 
 
 Para ajudá-lo a solucionar determinados tipos de problemas, você pode ser solicitado a fornecer qualquer uma das seguintes informações:
 
-* **ID MS-CV** : Essa ID é usada para solucionar problemas de chamadas e mensagens. 
-* **ID da chamada** : Essa ID é usada para identificar chamadas de Serviços de Comunicação.
-* **ID da mensagem do SMS** : Essa ID é usada para identificar mensagens SMS.
+* **ID MS-CV**: Essa ID é usada para solucionar problemas de chamadas e mensagens. 
+* **ID da chamada**: Essa ID é usada para identificar chamadas de Serviços de Comunicação.
+* **ID da mensagem do SMS**: Essa ID é usada para identificar mensagens SMS.
+* **Logs de chamada**: Esses logs contêm informações detalhadas que podem ser usadas para solucionar problemas de chamada e de rede.
+
 
 ## <a name="access-your-ms-cv-id"></a>Acessar sua ID do MS-CV
 
@@ -126,6 +128,44 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## <a name="enable-and-access-call-logs"></a>Habilitar e acessar os logs de chamadas
+
+
+
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O seguinte código pode ser usado a fim de configurar `AzureLogger` para gerar logs no console usando a biblioteca de cliente JavaScript:
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# <a name="ios"></a>[iOS](#tab/ios)
+
+Ao desenvolver para iOS, os logs são armazenados em arquivos `.blog`. Observe que você não pode ver os logs diretamente, pois eles estão criptografados.
+
+Eles podem acessados abrindo o Xcode. Vá para Windows > Dispositivos e Simuladores > Dispositivos. Selecione seu dispositivo. Em Aplicativos Instalados, selecione o aplicativo desejado e clique em "Baixar contêiner". 
+
+Isso lhe proporcionará um arquivo `xcappdata`. Clique com o botão direito do mouse sobre esse arquivo e selecione "Mostrar conteúdo do pacote". Em seguida, você verá os arquivos `.blog` que podem ser anexados à solicitação de Suporte do Azure.
+
+# <a name="android"></a>[Android](#tab/android)
+
+Ao desenvolver para Android, os logs são armazenados em arquivos `.blog`. Observe que você não pode ver os logs diretamente, pois eles estão criptografados.
+
+No Android Studio, navegue até o Explorador de Arquivos do Dispositivo selecionando Exibir > Janelas de Ferramentas > Explorador de Arquivos do Dispositivo tanto do simulador quanto do dispositivo. O arquivo `.blog` estará localizado no diretório do aplicativo, que deve ser semelhante a `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Você pode anexar esse arquivo à sua solicitação de suporte. 
+   
+
+---
+
 
 ## <a name="related-information"></a>Informações relacionadas
 - [Configurar logs e diagnósticos](logging-and-diagnostics.md)

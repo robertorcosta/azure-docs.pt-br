@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Introdução a Jupyter Notebooks (Python)'
 titleSuffix: Azure Machine Learning
-description: Tutoriais de Instalação para Jupyter Notebook. Crie um workspace do Azure Machine Learning, clone Jupyter Notebooks no workspace e crie uma instância de computação na qual você executa os notebooks.
+description: Tutoriais de Instalação para Jupyter Notebook. Crie um workspace, clone notebooks no workspace e crie uma instância de computação na qual você executará os notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913289"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532963"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introdução ao Azure Machine Learning em Jupyter Notebooks
 
@@ -78,7 +78,7 @@ Conclua as etapas de instalação e execução de teste a seguir no Estúdio do 
 1. Abra a pasta **tutoriais** que foi fechada na seção **Arquivos do usuário**.
 
     > [!IMPORTANT]
-    > Você pode exibir notebooks na pasta **samples** , mas não pode executar um notebook partindo dela. Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
+    > Você pode exibir notebooks na pasta **samples**, mas não pode executar um notebook partindo dela. Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
     
 1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials/image-classification-mnist-data**.
 

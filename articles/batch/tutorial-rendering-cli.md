@@ -4,12 +4,12 @@ description: 'Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold 
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747044"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542381"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
@@ -26,19 +26,21 @@ Neste tutorial, você renderiza uma cena 3ds Max com o Lote usando o renderizado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. **O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.**
+ - Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. **O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.**
 
-A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright &copy; Autodesk, Inc.)
+ - A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright &copy; Autodesk, Inc.)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.20 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este tutorial requer a versão 2.0.20 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
+> [!TIP]
+> Veja os [modelos de trabalho do Arnold](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames) no repositório GitHub de Modelos de Extensão do Lote do Azure.
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
 Se você ainda não fez isso, crie um grupo de recursos, uma conta do Lote e uma conta de armazenamento vinculada em sua assinatura. 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus2* .
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -83,7 +85,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-Agora, crie um contêiner de blob na conta de armazenamento para os arquivos da cena. O exemplo a seguir usa o comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para criar um contêiner de blob denominado *scenefiles* , que permite acesso de leitura público.
+Agora, crie um contêiner de blob na conta de armazenamento para os arquivos da cena. O exemplo a seguir usa o comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para criar um contêiner de blob denominado *scenefiles*, que permite acesso de leitura público.
 
 ```azurecli-interactive
 az storage container create \
@@ -195,7 +197,7 @@ az batch job create \
 
 Use o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar uma tarefa de renderização no trabalho. Neste exemplo, você deve especificar as configurações da tarefa em um arquivo JSON. No shell atual, crie um arquivo chamado *myrendertask.json* e copie e cole o conteúdo a seguir. Verifique se todo o texto foi copiado corretamente. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
-A tarefa especifica um comando do 3ds Max para renderizar um único quadro da cena *MotionBlur DragonFlying.max* .
+A tarefa especifica um comando do 3ds Max para renderizar um único quadro da cena *MotionBlur DragonFlying.max*.
 
 Modifique os elementos `blobSource` e `containerURL` no arquivo JSON para que eles incluam o nome da sua conta de armazenamento e seu token SAS. 
 
@@ -276,7 +278,7 @@ Abra *dragon.jpg* em seu computador. A imagem renderizada é semelhante à segui
 
 ## <a name="scale-the-pool"></a>Dimensionar o pool
 
-Agora, modifique o pool para se preparar para um trabalho de renderização maior, com vários quadros. O Lote fornece várias maneiras para dimensionar os recursos de computação, incluindo [dimensionamento automático](batch-automatic-scaling.md), que adiciona ou remove nós, de acordo com as alterações na demanda. Para este exemplo básico, use o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no pool para *6* :
+Agora, modifique o pool para se preparar para um trabalho de renderização maior, com vários quadros. O Lote fornece várias maneiras para dimensionar os recursos de computação, incluindo [dimensionamento automático](batch-automatic-scaling.md), que adiciona ou remove nós, de acordo com as alterações na demanda. Para este exemplo básico, use o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no pool para *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -286,7 +288,7 @@ O pool leva alguns minutos para ser redimensionado. Durante esse processo, confi
 
 ## <a name="render-a-multiframe-scene"></a>Renderizar uma cena com vários quadros
 
-Como no exemplo de quadro único, use o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de renderização do trabalho chamado *myrenderjob* . Aqui, especifique as configurações da tarefa em um arquivo JSON chamado *myrendertask_multi.json* . (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar um quadro da cena 3ds Max *MotionBlur DragonFlying.max* .
+Como no exemplo de quadro único, use o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de renderização do trabalho chamado *myrenderjob*. Aqui, especifique as configurações da tarefa em um arquivo JSON chamado *myrendertask_multi.json*. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar um quadro da cena 3ds Max *MotionBlur DragonFlying.max*.
 
 Crie um arquivo no shell atual denominado *myrendertask_multi.json* e copie e cole o conteúdo do arquivo baixado. Modifique os elementos `blobSource` e `containerURL` no arquivo JSON para incluir o nome da sua conta de armazenamento e seu token SAS. Não deixe de alterar as configurações para cada uma das seis tarefas. Salve o arquivo e execute o seguinte comando para enfileirar as tarefas:
 

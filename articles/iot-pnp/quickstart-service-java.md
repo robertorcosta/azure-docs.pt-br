@@ -1,6 +1,6 @@
 ---
-title: Interagir com um dispositivo IoT Plug and Play conectado à sua solução de IoT do Azure (Java) | Microsoft Docs
-description: Use o Java para se conectar com um dispositivo IoT Plug and Play conectado à solução de IOT do Azure e interagir com ele.
+title: Início Rápido – Interagir com um dispositivo IoT Plug and Play conectado à solução de IoT do Azure (Java) | Microsoft Docs
+description: Início Rápido – Use o Java para se conectar com um dispositivo IoT Plug and Play conectado à solução de IOT do Azure e para interagir com ele.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/17/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ce41e6b502aef1c44cf96f3b4a5efe401fba3173
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7229eedc82dfa7b76ae4a22d095f20c41f102e16
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046478"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421525"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Início Rápido: interagir com um dispositivo IoT Plug and Play conectado à sua solução (Java)
 

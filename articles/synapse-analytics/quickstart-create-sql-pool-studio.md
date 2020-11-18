@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324312"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506338"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Início Rápido: Criar um pool de SQL dedicado usando o Synapse Studio
 
@@ -63,7 +63,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
 
     ![Listagem de pools de SQL do Hub de Gerenciamento do Synapse Studio.](media/quickstart-create-sql-pool/create-sql-pool-studio-23.png)
 
-1. Insira os seguintes detalhes na guia **Informações Básicas** :
+1. Insira os seguintes detalhes na guia **Informações Básicas**:
 
     | Configuração | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
@@ -74,13 +74,15 @@ Entre no [Portal do Azure](https://portal.azure.com/)
     > [!IMPORTANT]
     > Observe que há limitações específicas para os nomes que os pools de SQL dedicados podem usar. Os nomes não podem conter caracteres especiais, devem ter 15 caracteres ou menos, não conter palavras reservadas e ser exclusivos no workspace.
 
-4. Na próxima guia, **Configurações adicionais** , selecione **nenhum** para provisionar o pool de SQL sem dados. Deixe a ordenação padrão conforme selecionada.
+4. Na próxima guia, **Configurações adicionais**, selecione **nenhum** para provisionar o pool de SQL sem dados. Deixe a ordenação padrão conforme selecionada.
+
+    Se você quiser restaurar o pool de SQL dedicado com base em um ponto de restauração, selecione **Ponto de restauração**. Para obter mais informações sobre como executar uma restauração, confira [Instruções: restaurar um pool de SQL dedicado existente](backuprestore/restore-sql-pool.md)
 
     ![Fluxo de criação de pool de SQL – guia Configurações adicionais.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 
 1. Por enquanto não adicionaremos marcas, assim, selecione **Examinar + criar**.
 
-1. Na guia **Revisar + criar** , verifique se os detalhes estão corretos com base no que foi inserido anteriormente e clique em **criar**. 
+1. Na guia **Revisar + criar**, verifique se os detalhes estão corretos com base no que foi inserido anteriormente e clique em **criar**. 
 
     ![Fluxo de criação do pool de SQL – guia Examinar configurações.](media/quickstart-create-sql-pool/create-sql-pool-studio-26.png)
 
@@ -101,7 +103,7 @@ Siga as etapas abaixo para excluir o pool de SQL dedicado do workspace usando o 
 Caso deseje excluir o pool de SQL dedicado, faça o seguinte:
 
 1. Navegue até os pools de SQL no Hub de Gerenciamento no Synapse Studio.
-1. Selecione as reticências no pool de SQL dedicado a ser excluído (nesse caso, **contosoedw** ) para mostrar os comandos do pool de SQL dedicado:
+1. Selecione as reticências no pool de SQL dedicado a ser excluído (nesse caso, **contosoedw**) para mostrar os comandos do pool de SQL dedicado:
 
     ![Listagem de pools de SQL, com o pool recém-criado selecionado.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Selecione **delete**.

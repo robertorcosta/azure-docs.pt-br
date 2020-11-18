@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151805"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487985"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais são as novidades da documentação do Azure Monitor?
 
@@ -157,7 +157,7 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 ### <a name="alerts"></a>Alertas
 - [Regras de ação para alertas de Azure Monitor](platform/alerts-action-rules.md) – processos da CLI adicionados.
 - [Crie e gerencie grupos de ação no portal do Azure](platform/action-groups.md) – atualizado para refletir as alterações à interface do usuário.
-- [Consultas salvas no Azure Monitor Log Analytics](log-query/saved-queries.md) – novo artigo.
+- [Consultas de exemplo no Log Analytics do Azure Monitor](log-query/example-queries.md) – Novo artigo.
 - [Solucionar problemas de alertas de log no Azure Monitor](platform/alerts-troubleshoot-log.md) – adicionada seção sobre cota de regra de alerta.
 - [Solução de problemas de alertas de métrica do Azure](platform/alerts-troubleshoot-metric.md) – adicionada seção sobre regra de alerta em uma métrica personalizada que ainda não foi emitida.
 - [Entender como funcionam os alertas de métrica no Azure Monitor.](platform/alerts-metric-overview.md) – Adicionada recomendação para selecionar a granularidade da agregação.

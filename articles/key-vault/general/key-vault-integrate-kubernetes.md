@@ -4,14 +4,15 @@ description: Neste tutorial, você acessa o Azure Key Vault e recupera segredos 
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368648"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488631"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -35,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Antes de iniciar este tutorial, instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Antes de iniciar este tutorial, instale a [CLI do Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Criar uma entidade de serviço ou usar identidades gerenciadas
 
@@ -52,11 +53,17 @@ Essa operação retorna uma série de pares de chave/valor:
 
 Copie as credenciais de **appId** e **senha** para uso posterior.
 
+## <a name="flow-for-using-managed-identity"></a>Fluxo para uso da identidade gerenciada
+
+Este diagrama ilustra o fluxo de integração entre o AKS e Key Vault para a identidade gerenciada:
+
+![Diagrama que mostra o fluxo de integração entre o AKS e o Key Vault para a identidade gerenciada](../media/aks-key-vault-integration-flow.png)
+
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure
 
 Você não precisa usar o Azure Cloud Shell. O prompt de comando (terminal) com a CLI do Azure instalada será suficiente. 
 
-Conclua as seções "Criar um grupo de recursos", "Criar cluster do AKS" e "Conectar-se ao cluster" em [Implantar um cluster do Serviço de Kubernetes do Azure usando a CLI do Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
+Conclua as seções "Criar um grupo de recursos", "Criar cluster do AKS" e "Conectar-se ao cluster" em [Implantar um cluster do Serviço de Kubernetes do Azure usando a CLI do Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
 > Se você planeja usar uma identidade de pod em vez de uma entidade de serviço, não deixe de habilitá-la ao criar o cluster do Kubernetes, conforme mostrado no seguinte comando:
@@ -103,7 +110,7 @@ Com a interface do driver da [Secrets Store CSI](https://github.com/Azure/secret
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Criar um Azure Key Vault e definir os segredos
 
-Para criar seu próprio cofre de chaves e definir seus segredos, siga as instruções em [Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Para criar seu próprio cofre de chaves e definir seus segredos, siga as instruções em [Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > Você não precisa usar o Azure Cloud Shell nem criar um grupo de recursos. Use o grupo de recursos criado anteriormente para o cluster do Kubernetes.
@@ -210,7 +217,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Se estiver usando identidades gerenciadas, atribua funções específicas ao cluster do AKS que você criou. 
 
-1. Para criar, listar ou ler uma identidade gerenciada atribuída pelo usuário, seu cluster do AKS precisa ter a função de [Operador de Identidade Gerenciada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator). Verifique se a **$clientId** é a do cluster do Kubernetes. Para o escopo, ele estará sob seu serviço de assinatura do Azure, especificamente, o grupo de recursos do nó que foi gerado quando o cluster AKS foi criado. Esse escopo garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções atribuídas a seguir. 
+1. Para criar, listar ou ler uma identidade gerenciada atribuída pelo usuário, seu cluster do AKS precisa ter a função de [Operador de Identidade Gerenciada](../../role-based-access-control/built-in-roles.md#managed-identity-operator). Verifique se a **$clientId** é a do cluster do Kubernetes. Para o escopo, ele estará sob seu serviço de assinatura do Azure, especificamente, o grupo de recursos do nó que foi gerado quando o cluster AKS foi criado. Esse escopo garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções atribuídas a seguir. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +362,4 @@ Verifique se o conteúdo do segredo é exibido.
 
 Para ajudar a garantir que o cofre de chaves seja recuperável, confira:
 > [!div class="nextstepaction"]
-> [Ligar a exclusão temporária](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Ligar a exclusão temporária](./soft-delete-cli.md)

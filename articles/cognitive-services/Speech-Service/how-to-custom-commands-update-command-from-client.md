@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571153"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654330"
 ---
 # <a name="update-a-command-from-the-client"></a>Atualizar um comando do cliente
 
@@ -121,17 +121,30 @@ Por exemplo, pense no cenário em que você deseja enviar a ID e o nome do dispo
 Para testar esse cenário, vamos criar um novo comando em nosso aplicativo atual.
 1. Crie um novo comando chamado GetDeviceInfo.
 1. Adicione uma sentença de exemplo com "obter informações do dispositivo".
-1. Na regra de conclusão "concluído", adicione uma ação enviar resposta de fala.
+1. Na regra de conclusão "Done", adicione uma ação enviar resposta de fala que contém os atributos do clientContext.
     > ![Enviar resposta de fala com contexto](media/custom-commands/send-speech-response-context.png)
-1. Salve e treine seu aplicativo.
-1. Teste seu aplicativo.
+1. Salve, treine e teste seu aplicativo.
+1. Uma vez na janela de teste, envie uma atividade para atualizar o contexto do cliente.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. Envie o texto "obter informações do dispositivo".
     > ![Enviar atividade de contexto de cliente](media/custom-commands/send-client-context-activity.png)
 
 Observe algumas coisas.
 1. Você só precisa enviar essa atividade uma vez (idealmente logo após a inicialização de uma conexão).
-1. Você pode usar objetos complexos para ClientContext.
-1. Você pode usar ClientContext em respostas de fala para enviar atividades e ao chamar pontos de extremidade da Web.
-
+1. Você pode usar objetos complexos para clientContext.
+1. Você pode usar clientContext em respostas de fala para enviar atividades e ao chamar pontos de extremidade da Web.
 
 ## <a name="next-steps"></a>Próximas etapas
 

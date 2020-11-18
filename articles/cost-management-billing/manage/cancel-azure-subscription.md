@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/09/2020
 ms.author: banders
-ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684874"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408015"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar sua assinatura do Azure
 
-Será possível cancelar sua assinatura do Azure no portal do Azure se você não precisar mais da assinatura.
+Você poderá cancelar sua assinatura do Azure no portal do Azure se não precisar mais dela.
 
 Embora não seja necessário, a Microsoft *recomenda* que você execute as seguintes ações para cancelar a assinatura:
 
@@ -28,7 +28,7 @@ Embora não seja necessário, a Microsoft *recomenda* que você execute as segui
 * Exclua todos os recursos e todos os grupos de recursos.
 * Se você tiver funções personalizadas que fazem referência a essa assinatura no `AssignableScopes`, deverá atualizá-las para remover a assinatura. Se tentar atualizar uma função personalizada após cancelar uma assinatura, você poderá receber um erro. Para obter mais informações, confira [Solucionar problemas com funções personalizadas](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md).
 
-Se você cancelar um plano de Suporte do Azure pago, será cobrado pelo restante do período de assinatura. Para obter mais informações, consulte [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+Se você cancelar um plano de Suporte do Azure pago, o restante do período de assinatura será cobrado de você. Para obter mais informações, consulte [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
 
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelar assinatura no portal do Azure
 
@@ -54,7 +54,7 @@ Após o cancelamento, a cobrança será interrompida imediatamente. No entanto, 
 
 Após o cancelamento, seus serviços serão desabilitados. Isso significa que as máquinas virtuais são desalocadas, os endereços IP temporários são liberados e o armazenamento é somente leitura.
 
-Após o cancelamento de sua assinatura, a Microsoft aguarda de 30 a 90 dias antes de excluir permanentemente seus dados, caso você precise acessá-los ou mude de ideia. Você não é cobrado pela retenção dos dados. Para saber mais, consulte a [Central de Confiabilidade da Microsoft – Como gerenciamos seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+Após o cancelamento de sua assinatura, a Microsoft aguarda de 30 a 90 dias antes de excluir permanentemente seus dados, caso você precise acessá-los ou mude de ideia. Nós não cobramos para manter os dados. Para saber mais, consulte a [Central de Confiabilidade da Microsoft – Como gerenciamos seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="delete-free-trial-subscription"></a>Excluir uma assinatura de avaliação gratuita
 
@@ -69,11 +69,23 @@ Se tiver uma assinatura de avaliação gratuita, você não precisará aguardar 
 
 Se você cancelar acidentalmente sua assinatura com taxas pagas conforme o uso, poderá [reativá-la no Centro de Contas](subscription-disabled.md).
 
-Caso sua assinatura não tenha taxas pagas conforme o uso, entre em contato com o suporte em até 90 dias após o cancelamento para reativar a assinatura.
+Caso sua assinatura não tenha taxas Pagas Conforme o Uso, entre em contato com o suporte em até 90 dias após o cancelamento para reativar a assinatura.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Por que eu não vejo a opção Cancelar Assinatura no portal do Azure? 
 
-Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Talvez você não tenha as permissões necessárias para cancelar uma assinatura. Confira [Quem pode cancelar uma assinatura?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) para obter uma descrição de quem pode cancelar vários tipos de assinaturas.
+
+## <a name="how-do-i-delete-my-azure-account"></a>Como faço para excluir a minha conta do Azure?
+
+*Preciso remover minha conta, incluindo todas as minhas informações pessoais. Eu já cancelei minhas assinaturas ativas (da avaliação gratuita). Não tenho nenhuma assinatura ativa e gostaria de excluir minha conta por completo*.
+
+* Se você tiver uma conta do Azure Active Directory por intermédio de uma organização, o administrador do Azure AD poderá excluir a conta. Depois disso, os serviços são desabilitados. Isso significa que as máquinas virtuais são desalocadas, os endereços IP temporários são liberados e o armazenamento é somente leitura. Em resumo, após o cancelamento, a cobrança será interrompida imediatamente.
+
+* Se não tiver uma conta do Azure AD por intermédio de uma organização, você poderá cancelar e excluir as assinaturas do Azure e, depois, remover os dados do cartão de crédito da conta. Embora essa ação não exclua a conta, fará com que a conta fique inoperável. Você poderá ir um pouco além e também excluir a conta Microsoft associada se ela não estiver sendo usada para nenhuma outra finalidade.
+
+## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Como faço para cancelar uma conta do Visual Studio Professional?
+
+Confira o artigo [Renovação e Cancelamento](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Se você tiver alguma assinatura do Azure do Visual Studio, ela precisará ser cancelada e também excluída.
 
 ## <a name="next-steps"></a>Próximas etapas
 

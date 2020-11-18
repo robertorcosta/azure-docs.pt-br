@@ -1,23 +1,23 @@
 ---
 title: Marcar imagens em um projeto de rotulagem
 title.suffix: Azure Machine Learning
-description: Saiba como usar as ferramentas de marcação de dados em um projeto de rotulagem do Azure Machine Learning.
+description: Saiba como usar as ferramentas de marcação de dados para preparar rapidamente os dados para o Machine Learning em um projeto de rotulagem do Azure Machine Learning.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897560"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542177"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
-Depois que o administrador de projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem (versão prévia pública) para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
+Depois que o administrador de projeto [criar um projeto de rotulagem](./how-to-create-labeling-projects.md#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como acessar seus projetos de rotulagem
@@ -127,6 +127,28 @@ Para excluir *todas* as caixas delimitadoras na imagem atual, selecione a ferram
 
 Depois de criar as caixas delimitadores para uma imagem, selecione **Enviar** para salvar o trabalho, caso contrário, o trabalho em andamento não será salvo.
 
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Marcar imagens e especificar polígonos para segmentação de imagem 
+
+Se o seu projeto for do tipo "Segmentação de Instância (Polígono)", você especificará um ou mais polígonos na imagem e aplicará uma marca a cada polígono. As imagens podem ter vários polígonos delimitadores, cada um com uma marca individual. Use **Exibir instruções detalhadas** para determinar se vários polígonos delimitadores serão usados no projeto.
+
+1. Selecione uma marca para o polígono que pretende criar.
+1. Escolha a ferramenta **Desenhar região do polígono** ![ferramenta Desenhar região do polígono](./media/how-to-label-images/polygon-tool.png) ou selecione "P".
+3. Clique em cada ponto no polígono.  Quando você tiver concluído a forma, clique duas vezes para concluir.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Criar polígonos para gato e cachorro":::
+
+Para excluir um polígono, clique no destino em formato de X exibido ao lado do polígono após a criação.
+
+Caso deseje alterar a marca de um polígono, selecione a ferramenta **Mover região**, clique no polígono e escolha a marca correta.
+
+Edite os polígonos existentes. A ferramenta **Bloquear/desbloquear regiões** ![Editar polígonos com a ferramenta Bloquear/desbloquear regiões](./media/how-to-label-images/lock-bounding-boxes-tool.png) ou a seleção de "L" ativa e desativa esse comportamento. Se as regiões estiverem bloqueadas, você só poderá alterar a forma ou a localização de um novo polígono.
+
+Use a ferramenta **Adicionar ou remover pontos de polígono** ![ferramenta Adicionar ou remover pontos de polígono](./media/how-to-label-images/add-remove-points-tool.png) ou "U" para ajustar um polígono existente. Clique no polígono para adicionar ou remover um ponto. Caso não seja possível editar uma região, talvez você tenha acionado a ferramenta **Bloquear/desbloquear regiões**.
+
+Para excluir *todos* os polígonos da imagem atual, selecione a ferramenta **Excluir todas as regiões** ![ferramenta Excluir todas as regiões](./media/how-to-label-images/delete-regions-tool.png).
+
+Depois de criar os polígonos para uma imagem, selecione **Enviar** para salvar o trabalho. Caso contrário, o trabalho em andamento não será salvo.
+
 ## <a name="finish-up"></a>Conclusão
 
 Quando você envia uma página de dados marcados, o Azure atribui a você novos dados sem rótulo de uma fila de trabalho. Se não houver mais dados sem rótulo disponíveis, você receberá uma mensagem indicando isso junto com um link para a home page do portal.
@@ -135,5 +157,4 @@ Quando terminar a rotulagem, selecione seu nome no canto superior direito do por
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [treinar modelos de classificação de imagens no Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Saiba como [treinar modelos de classificação de imagens no Azure](./tutorial-train-models-with-aml.md)

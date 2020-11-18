@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322168"
+ms.locfileid: "93349045"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -39,25 +39,25 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    
 1. Insira as seguintes informações para configurar cada etapa do assistente:
 
-    1. **Noções básicas** :
+    1. **Noções básicas**:
     
-       * **Assinatura** : se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
-       * **Grupo de recursos** : crie um novo grupo ou use um existente.
-       * **Nome da máquina virtual** : Insira o nome da máquina virtual. Esse nome será usado em seu portal do Azure.
-       * **Região** : selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Imagem** : Mantenha o valor padrão.
-       * **Size** : essa opção deve ser populada automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/sizes.md).
-       * **Tipo de autenticação** : Para configuração mais rápida, selecione "Senha". 
+       * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
+       * **Grupo de recursos**: crie um novo grupo ou use um existente.
+       * **Nome da máquina virtual**: Insira o nome da máquina virtual. Esse nome será usado em seu portal do Azure.
+       * **Região**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Imagem**: Mantenha o valor padrão.
+       * **Size**: essa opção deve ser populada automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/sizes.md).
+       * **Tipo de autenticação**: Para configuração mais rápida, selecione "Senha". 
          
          > [!NOTE]
          > Caso pretenda usar o JupyterHub, selecione "Senha", pois o JupyterHub *não* é configurado para usar chaves públicas SSH.
 
-       * **Nome de usuário** : Insira o nome de usuário do administrador. Você usará esse nome de usuário para fazer logon em sua máquina virtual. Esse nome de usuário não precisa ser igual ao seu nome de usuário do Azure. *Não* use letras em maiúsculas.
+       * **Nome de usuário**: Insira o nome de usuário do administrador. Você usará esse nome de usuário para fazer logon em sua máquina virtual. Esse nome de usuário não precisa ser igual ao seu nome de usuário do Azure. *Não* use letras em maiúsculas.
          
          > [!IMPORTANT]
          > Se você usar letras em maiúsculas em seu nome de usuário, o JupyterHub não funcionará e você obterá um erro de servidor interno 500.
 
-       * **Senha** : insira a senha que você usará para fazer logon em sua máquina virtual.    
+       * **Senha**: insira a senha que você usará para fazer logon em sua máquina virtual.    
     
    1. Selecione **Examinar + criar**.
    1. **Examinar + criar**
@@ -95,13 +95,13 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
 1. Execute o cliente X2Go. Se a janela "Nova Sessão" não aparecer automaticamente, vá para Sessão -> Nova Sessão.
 
 1. Na janela de configuração resultante, insira os seguintes parâmetros de configuração:
-   * **Guia Sessão** :
-     * **Host** : Insira o endereço IP de sua VM, que você anotou anteriormente.
-     * **Logon** : Insira o nome de usuário na VM Linux.
-     * **Porta SSH** : Deixe em 22, o valor padrão.
-     * **Tipo de Sessão** : Altere o valor para **XFCE**. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
-   * **Guia Mídia** : Você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
-   * **Pastas compartilhadas** : use essa guia para adicionar o diretório de computador cliente que você deseja montar na VM. 
+   * **Guia Sessão**:
+     * **Host**: Insira o endereço IP de sua VM, que você anotou anteriormente.
+     * **Logon**: Insira o nome de usuário na VM Linux.
+     * **Porta SSH**: Deixe em 22, o valor padrão.
+     * **Tipo de Sessão**: Altere o valor para **XFCE**. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
+   * **Guia Mídia**: Você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
+   * **Pastas compartilhadas**: use essa guia para adicionar o diretório de computador cliente que você deseja montar na VM. 
 
    ![Configuração do X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selecione **OK**.
@@ -121,12 +121,16 @@ A DSVM do Ubuntu executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub
 
    1. No computador local, abra um navegador da Web e navegue até https: https:\//seu-IP-de-VM:8000, substituindo "Seu-IP-de-VM" pelo endereço IP que anotou anteriormente.
    1. Seu navegador provavelmente impedirá que você abra a página diretamente, informando que há um erro de certificado. O DSVM está fornecendo segurança por meio de um certificado autoassinado. A maioria dos navegadores permitirá que você clique após esse aviso. Muitos navegadores continuarão a fornecer algum tipo de aviso visual sobre o certificado em toda a sessão da Web.
+
+      >[!NOTE]
+      > Se você vir a mensagem de erro `ERR_EMPTY_RESPONSE` no navegador, acesse o computador usando explicitamente o protocolo *HTTPS* – e não o *HTTP* ou apenas o endereço Web. Se você digitar o endereço Web sem `https://` na linha de endereço, a maioria dos navegadores usará como padrão `http` e você verá esse erro.
+
    1. Insira o nome de usuário e a senha usados para criar a VM e entre. 
 
       ![Insira o logon do Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> Se você receber um erro 500 neste estágio, é provável que tenha usado letras maiúsculas em seu nome de usuário. Essa é uma interação conhecida entre o Jupyter Hub e o PAMAuthenticator que ele usa. Se você receber um erro "Não é possível acessar esta página", é provável que suas permissões do Grupo de Segurança de Rede precisem ser ajustadas. No portal do Azure, encontre o recurso de Grupo de Segurança de Rede dentro do Grupo de Recursos. Para acessar o JupyterHub da Internet pública, será preciso que a porta 8000 esteja aberta. (A imagem mostra que essa VM está configurada para acesso just-in-time, o que é altamente recomendado. Confira [Proteja suas portas de gerenciamento com acesso just-in-time](../../security-center/security-center-just-in-time.md).) ![Configuração do Grupo de Segurança de Rede](./media/dsvm-ubuntu-intro/nsg-permissions.png)
+      >[!NOTE]
+      > Se você receber um erro 500 neste estágio, é provável que tenha usado letras maiúsculas em seu nome de usuário. Essa é uma interação conhecida entre o Jupyter Hub e o PAMAuthenticator que ele usa. Se você receber um erro "Não é possível acessar esta página", é provável que suas permissões do Grupo de Segurança de Rede precisem ser ajustadas. No portal do Azure, encontre o recurso de Grupo de Segurança de Rede dentro do Grupo de Recursos. Para acessar o JupyterHub da Internet pública, será preciso que a porta 8000 esteja aberta. (A imagem mostra que essa VM está configurada para acesso just-in-time, o que é altamente recomendado. Confira [Proteja suas portas de gerenciamento com acesso just-in-time](../../security-center/security-center-just-in-time.md).) ![Configuração do Grupo de Segurança de Rede](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Procure os vários notebooks de exemplo disponíveis.
 

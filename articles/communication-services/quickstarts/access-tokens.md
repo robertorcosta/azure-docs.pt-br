@@ -3,27 +3,27 @@ title: Início rápido – Criar e gerenciar tokens de acesso
 titleSuffix: An Azure Communication Services quickstart
 description: Saiba como gerenciar identidades e tokens de acesso usando a biblioteca de clientes da Administração dos Serviços de Comunicação do Azure.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074117"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506203"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Início Rápido: Criar e gerenciar tokens de acesso
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Comece a usar os Serviços de Comunicação do Azure com a biblioteca de clientes da Administração dos Serviços de Comunicação para provisionar e gerenciar seus tokens de acesso. Os tokens de acesso permitem que suas bibliotecas de clientes de Chat e Chamada se autentiquem diretamente nos Serviços de Comunicação do Azure. Esses tokens são gerados em um serviço de provisionamento de token no servidor que você implementa. Em seguida, eles são usados para inicializar as bibliotecas de clientes dos Serviços de Comunicação em dispositivos cliente.
+Comece a empregar os Serviços de Comunicação do Azure usando a biblioteca de clientes para Administração dos Serviços de Comunicação. Isso permite que você crie identidades e gerencie os tokens de acesso. A identidade representa a entidade do aplicativo no Serviço de Comunicação do Azure (por exemplo, o usuário ou o dispositivo). Os tokens de acesso permitem que suas bibliotecas de clientes de Chat e Chamada se autentiquem diretamente nos Serviços de Comunicação do Azure. É recomendável gerar tokens de acesso em um serviço do lado do servidor. Em seguida, os tokens de acesso são usados para inicializar as bibliotecas de clientes dos Serviços de Comunicação em dispositivos cliente.
 
-Observe que todos os preços vistos nas imagens ao longo deste tutorial são apenas para fins de exemplo.
+Todos os preços vistos nas imagens ao longo deste tutorial são apenas para fins de demonstração.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,15 +46,14 @@ A saída do aplicativo descreve cada ação concluída:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
@@ -81,3 +80,4 @@ Você também pode querer:
  - [Aprender sobre autenticação](../concepts/authentication.md)
  - [Adicionar o chat ao seu aplicativo](./chat/get-started.md)
  - [Saber mais sobre a arquitetura cliente e servidor](../concepts/client-and-server-architecture.md)
+ 

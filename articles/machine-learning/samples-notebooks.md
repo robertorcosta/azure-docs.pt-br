@@ -1,7 +1,7 @@
 ---
 title: Exemplos de Notebooks Jupyter
 titleSuffix: Azure Machine Learning
-description: Encontre e use Jupyter Notebooks de exemplo para explorar o SDK do Python do Azure Machine Learning.
+description: Saiba como encontrar e usar os Jupyter Notebooks projetados para ajudar você a explorar o SDK e que servem como modelos para seus projetos de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675764"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542551"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorar o Azure Machine Learning com os Jupyter Notebooks
 
@@ -47,7 +47,7 @@ Caso deseje trazer seu próprio servidor de notebook para o desenvolvimento loca
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-Essas instruções instalam os pacotes base do SDK necessários para o início rápido e os notebooks do tutorial. Outros notebooks de exemplo podem exigir a instalação de componentes extras. Para obter mais informações, confira [Instalar o SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Essas instruções instalam os pacotes base do SDK necessários para o início rápido e os notebooks do tutorial. Outros notebooks de exemplo podem exigir a instalação de componentes extras. Para obter mais informações, confira [Instalar o SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Obter exemplos no DSVM

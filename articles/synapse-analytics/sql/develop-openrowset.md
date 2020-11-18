@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341324"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337739"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como usar o OPENROWSET usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
@@ -129,7 +129,7 @@ Abaixo você encontrará os valores <storage account path> relevantes que serão
 Especifica um caminho no armazenamento que aponta para a pasta ou o arquivo que você deseja ler. Se o caminho apontar para um contêiner ou uma pasta, todos os arquivos serão lidos nessa pasta ou nesse contêiner específico. Os arquivos nas subpastas não serão incluídos. 
 
 Use curingas para direcionar vários arquivos ou várias pastas. O uso de vários curingas não consecutivos é permitido.
-Veja abaixo um exemplo que lê todos os arquivos *csv* que começam com *population* de todas as pastas que começam com */csv/population* :  
+Veja abaixo um exemplo que lê todos os arquivos *csv* que começam com *population* de todas as pastas que começam com */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se você especificar o unstructured_data_path para ser uma pasta, uma consulta do pool de SQL sem servidor vai recuperar os arquivos dessa pasta. 
@@ -261,12 +261,12 @@ Os arquivos Parquet contêm descrições de tipo para cada coluna. A tabela a se
 | BINARY |UTF8 |varchar \*(ordenação UTF8) |
 | BINARY |STRING |varchar \*(ordenação UTF8) |
 | BINARY |ENUM|varchar \*(ordenação UTF8) |
-| BINARY |UUID |UNIQUEIDENTIFIER |
+| FIXED_LEN_BYTE_ARRAY |UUID |UNIQUEIDENTIFIER |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar (max) \*(ordenação UTF8) |
-| BINARY |BSON |varbinary(max) |
+| BINARY |JSON |varchar(8000) \*(ordenação UTF8) |
+| BINARY |BSON | Sem suporte |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar (max), serializado em formato padronizado |
+| BYTE_ARRAY |INTERVAL | Sem suporte |
 | INT32 |INT(8, true) |SMALLINT |
 | INT32 |INT(16, true) |SMALLINT |
 | INT32 |INT(32, true) |INT |
@@ -279,10 +279,10 @@ Os arquivos Parquet contêm descrições de tipo para cada coluna. A tabela a se
 | INT64 |INT(64, true) |BIGINT |
 | INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS/NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar (max), serializado em JSON |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar (max), serializado em JSON |
+| INT64 |TIME (MICROS) |time – TIME(NANOS) não compatível |
+|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 – TIMESTAMP(NANOS) não compatível |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(8000), serializado em JSON |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serializado em JSON |
 
 ## <a name="examples"></a>Exemplos
 

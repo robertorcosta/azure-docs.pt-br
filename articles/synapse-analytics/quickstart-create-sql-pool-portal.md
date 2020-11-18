@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9dcb2fa8be22c21cc2b005cce1bf8bb1c614381
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324261"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505063"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Início Rápido: criar um pool de SQL dedicado (versão prévia) usando o portal do Azure
 
@@ -44,7 +44,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
 
 1. No workspace do Azure Synapse em que você deseja criar o pool de SQL dedicado, selecione o comando **Novo pool de SQL dedicado** na barra superior.
 ![Visão geral do workspace do Azure Synapse com uma caixa vermelha em torno do comando para criar um pool de SQL dedicado.](media/quickstart-create-sql-pool/create-sql-pool-portal-01.png)
-2. Insira os seguintes detalhes na guia **Informações Básicas** :
+2. Insira os seguintes detalhes na guia **Informações Básicas**:
 
     | Configuração | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
@@ -59,6 +59,9 @@ Entre no [Portal do Azure](https://portal.azure.com/)
 
 3. Selecione **Avançar: configurações adicionais**.
 4. Selecione **Nenhum** para provisionar o pool de SQL dedicado sem dados. Deixe a ordenação padrão selecionada.
+
+    Se você quiser restaurar o pool de SQL dedicado com base em um ponto de restauração, selecione **Ponto de restauração**. Para obter mais informações sobre como executar uma restauração, confira [Instruções: restaurar um pool de SQL dedicado existente](backuprestore/restore-sql-pool.md)
+
 ![Fluxo de criação do pool de SQL dedicado – guia Configurações adicionais.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. Selecione **Examinar + criar**.
@@ -84,7 +87,7 @@ Siga as etapas abaixo para excluir o pool de SQL dedicado do workspace.
 Se você quiser excluir o pool de SQL dedicado, execute as seguintes etapas:
 
 1. Navegue até a folha de pools de SQL na folha do workspace
-1. Selecione o pool de SQL dedicado a ser excluído (nesse caso, **contosowdw** )
+1. Selecione o pool de SQL dedicado a ser excluído (nesse caso, **contosowdw**)
 1. Depois de selecionar, clique em **excluir**
 1. Confirme a exclusão e pressione o botão **Excluir** ![Visão geral do pool de SQL dedicado – realçando a confirmação de exclusão.](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)
 1. Quando o processo for concluído com sucesso, o pool de SQL dedicado não será mais listado nos recursos do workspace.

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918461"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653531"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
@@ -43,7 +43,7 @@ Além disso, nós pré-empacotamos executáveis para computadores com o conjunto
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Por fim, você pode definir o número de decodificadores que deseja dentro de um *único* contêiner usando `DECODER MAX_COUNT` variável. Portanto, basicamente, devemos começar com sua SKU (CPU/memória) e podemos sugerir como tirar o melhor proveito dela. Um ótimo ponto de partida é fazer referência às especificações de recursos de máquina host recomendadas.
+Você pode definir o número de decodificadores que deseja dentro de um *único* contêiner usando `DECODER MAX_COUNT` variável. Portanto, basicamente, devemos começar com sua SKU (CPU/memória) e podemos sugerir como tirar o melhor proveito dela. Um ótimo ponto de partida é fazer referência às especificações de recursos de máquina host recomendadas.
 
 <br>
 </details>
@@ -397,29 +397,29 @@ Quantas solicitações simultâneas serão um identificador de 4 núcleos e 4 GB
 
 # <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
-| Contêiner      | Mínimo             | Recomendadas         |
+| Contêiner      | Mínimo             | Recomendado         |
 |----------------|---------------------|---------------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
-| Contêiner             | Mínimo             | Recomendadas         |
+| Contêiner             | Mínimo             | Recomendado         |
 |-----------------------|---------------------|---------------------|
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
-| Contêiner      | Mínimo             | Recomendadas         |
+| Contêiner      | Mínimo             | Recomendado         |
 |----------------|---------------------|---------------------|
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-| Contêiner             | Mínimo             | Recomendadas         |
+| Contêiner             | Mínimo             | Recomendado         |
 |-----------------------|---------------------|---------------------|
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
-***
+**_
 
 - Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
 - Para arquivos, a limitação estará no SDK de fala, a 2x (os primeiros 5 segundos de áudio não são limitados).
@@ -438,7 +438,7 @@ Por exemplo, para lidar com 1000 horas/24 horas, tentamos configurar as VMs de 3
 <b>O contêiner de fala dá suporte à Pontuação?</b>
 </summary>
 
-**Resposta:** Temos em (maiúsculas e minúsculas) disponíveis no contêiner local. A pontuação é dependente de idioma e não tem suporte para algumas linguagens, incluindo chinês e japonês.
+_ *Resposta:** temos uso de maiúsculas (em) disponíveis no contêiner local. A pontuação é dependente de idioma e não tem suporte para algumas linguagens, incluindo chinês e japonês.
 
 Temos *suporte* de Pontuação implícito e básico para os contêineres existentes, mas ele é `off` por padrão. Isso significa que você pode obter o `.` caractere no seu exemplo, mas não o `。` caractere. Para habilitar essa lógica implícita, aqui está um exemplo de como fazer isso no Python usando nosso SDK de fala (ele seria semelhante em outras linguagens):
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Resposta:** Não há suporte para a API REST no contêiner de conversão de fala em texto, só damos suporte a WebSockets por meio do SDK de fala. Consulte sempre a documentação oficial, consulte [pontos de extremidade de previsão de consulta](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Por que o contêiner está sendo executado como um usuário não raiz? Quais problemas podem ocorrer por causa disso?</b>
+</summary>
+
+**Resposta:** Observe que o usuário padrão dentro do contêiner é um usuário não raiz. Isso fornece proteção contra os processos que escapem o contêiner e a obtenção de permissões escalonadas no nó do host. Por padrão, algumas plataformas como a plataforma de contêiner OpenShift já fazem isso executando contêineres usando uma ID de usuário atribuída arbitrariamente. Para essas plataformas, o usuário não raiz precisará ter permissões para gravar em qualquer volume mapeado externamente que exija gravações. Por exemplo, uma pasta de log ou uma pasta de download de modelo personalizado.
 <br>
 </details>
 
@@ -561,7 +571,7 @@ Eles são para finalidades diferentes e são usados de forma diferente.
 Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` API
-| Linguagem | Detalhes da API |
+| Idioma | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -582,7 +592,7 @@ Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` funç�
 
 ### <a name="fromhost-apis"></a>`FromHost` API
 
-| Linguagem | Detalhes da API |
+| Idioma | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |

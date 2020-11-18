@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542449"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654002"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos Azure Active Directory: o que há de novo
 
@@ -43,7 +43,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 ### <a name="new-articles"></a>Novos artigos
 - [Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-oidc-sso.md)
 - [Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo no docs?](whats-new-docs.md)
+- [O que há de novo no Docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados
@@ -70,7 +70,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 - [O que é SSO (logon único)?](what-is-single-sign-on.md)
 - [Tome medidas sobre aplicativos com privilégios elevados ou suspeitos no Azure Active Directory](manage-application-permissions.md)
 - [Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)](add-application-portal-configure.md)
-- [Automatizar a configuração do aplicativo SSO baseado em SAML com a API do Microsoft Graph](application-saml-sso-configure-api.md)
+- [Automatizar a configuração do aplicativo SSO baseado em SAML com a API do Microsoft Graph](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>Julho de 2020
