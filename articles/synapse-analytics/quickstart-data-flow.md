@@ -1,6 +1,6 @@
 ---
-title: Um guia de início rápido para transformar dados usando um fluxo de dados de mapeamento
-description: Este tutorial fornece instruções passo a passo para usar o Azure Synapse Analytics para transformar dados com o fluxo de dados de mapeamento
+title: 'Início rápido: transformar dados usando um fluxo de dados de mapeamento'
+description: Este tutorial fornece instruções passo a passo para usar o Azure Synapse Analytics para transformar dados com o fluxo de dados de mapeamento.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342876"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743840"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Início rápido: transformar dados usando mapeamento de fluxos de dados
 
-Neste guia de início rápido, você usará a análise de Synapse do Azure para criar um pipeline que transforma dados de uma origem de Gen2 (ADLS) de Azure Data Lake Storage para um coletor de ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste guia de início rápido pode ser expandido ao transformar dados usando o fluxo de dados de mapeamento
+Neste guia de início rápido, você usará o Azure Synapse Analytics para criar um pipeline que transforma dados de uma fonte de Azure Data Lake Storage Gen2 (ADLS Gen2) em um coletor ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste guia de início rápido pode ser expandido ao transformar dados usando o fluxo de dados de mapeamento
 
 Neste guia de início rápido, você executa as seguintes etapas:
 
@@ -29,28 +29,28 @@ Neste guia de início rápido, você executa as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure** : Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Espaço de trabalho Synapse do Azure** : Crie um espaço de trabalho do Synapse usando o portal do Azure seguindo as instruções em [início rápido: criar um espaço de trabalho do Synapse](quickstart-create-workspace.md).
-* **Conta de armazenamento do Azure** : Use o armazenamento ADLS como armazenamento de dados de *origem* e de *coletor* . Se você não tiver uma conta de armazenamento, confira [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) a fim de conhecer as etapas para criar uma.
+* **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Espaço de trabalho Synapse do Azure**: Crie um espaço de trabalho do Synapse usando o portal do Azure seguindo as instruções em [início rápido: criar um espaço de trabalho do Synapse](quickstart-create-workspace.md).
+* **Conta de armazenamento do Azure**: Use o armazenamento ADLS como armazenamento de dados de *origem* e de *coletor* . Se você não tiver uma conta de armazenamento, confira [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) a fim de conhecer as etapas para criar uma.
 
     O arquivo que estamos transformando neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar o arquivo do GitHub, copie o conteúdo para um editor de texto de sua escolha para salvar localmente como um arquivo. csv. Para carregar o arquivo em sua conta de armazenamento, consulte [carregar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contêiner chamado ' sample-data '.
 
-### <a name="navigate-to-the-synapse-studio"></a>Navegue até o Synapse Studio
+### <a name="navigate-to-the-synapse-studio"></a>Navegar até o Synapse Studio
 
 Após criar o workspace do Azure Synapse, você tem duas maneiras de abrir o Synapse Studio:
 
-* Abra o workspace do Synapse no [portal do Azure](https://ms.portal.azure.com/#home). Na parte superior da seção Visão Geral, selecione **Iniciar o Synapse Studio**.
-* Abra o [Azure Synapse Analytics](https://web.azuresynapse.net/) e entre no seu espaço de trabalho.
+* Abra o workspace do Synapse no [portal do Azure](https://ms.portal.azure.com/#home). Selecione **abrir** no cartão aberto do Synapse Studio em introdução.
+* Abra o [Azure Synapse Analytics](https://web.azuresynapse.net/) e entre no seu workspace.
 
-Neste guia de início rápido, usamos o espaço de trabalho chamado "adftest2020" como um exemplo. Ele o navegará automaticamente para a home page do Synapse Studio.
+Neste guia de início rápido, usamos o workspace chamado "adftest2020" como um exemplo. Você será direcionado automaticamente para a home page do Synapse Studio.
 
-![home page do Synapse Studio](media/doc-common-process/synapse-studio-home.png)
+![Home page do Synapse Studio](media/doc-common-process/synapse-studio-home.png)
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Criar um pipeline com uma atividade de fluxo de dados
 
 Um pipeline contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta seção, você criará um pipeline que contém uma atividade de fluxo de dados.
 
-1. Vá para a guia **integrar** . Selecione no ícone de adição ao lado do cabeçalho pipelines e selecione pipeline.
+1. Vá para a guia **Integrar**. Selecione o ícone de adição ao lado do cabeçalho de pipelines e selecione Pipeline.
 
    ![Criar um novo pipeline](media/doc-common-process/new-pipeline.png)
 

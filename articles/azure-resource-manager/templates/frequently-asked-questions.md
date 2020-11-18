@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333113"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744528"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos do ARM
 
@@ -68,7 +68,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Posso criar uma assinatura em um modelo do ARM?**
 
-  Ainda não, mas estamos trabalhando nele.
+  Sim, para obter mais informações, consulte [criar programaticamente assinaturas do Azure com as APIs mais recentes](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **Como posso testar meu modelo antes de implantá-lo?**
 
@@ -104,9 +104,9 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 ## <a name="template-specs"></a>Especificações de Modelo
 
-* **Como posso ficar envolvido na versão de visualização das especificações de modelo?**
+* **Como posso começar a usar a versão de visualização das especificações de modelo?**
 
-  [Ingresse na lista de espera](https://aka.ms/templateSpecsWaitlist) de especificações de modelo.
+  Instale a versão mais recente do PowerShell ou CLI do Azure. Para Azure PowerShell, use a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 * **Como as especificações de modelo e os planos gráficos do Azure estão relacionados?**
 

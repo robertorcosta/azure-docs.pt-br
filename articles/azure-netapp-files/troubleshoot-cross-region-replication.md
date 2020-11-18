@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708574"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745676"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Solucionar problemas de replicação entre regiões
 
@@ -50,6 +50,7 @@ Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo 
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Valide se a replicação foi quebrada ou se ela não foi inicializada e está ociosa (inicialização com falha).    |
 |     `Cannot delete   source replication`    |     Não é permitido excluir a replicação do lado da origem. Certifique-se de que você está excluindo a replicação do lado de destino.    |
+| `Volume with replication cannot be deleted`  |  Exclua a replicação antes de excluir o volume. Consulte [excluir replicações](cross-region-replication-delete.md). Esta operação requer que você interrompa o emparelhamento antes de excluir a replicação para o volume. 
 
 ## <a name="errors-resyncing-volume"></a>Erros ao ressincronizar o volume
 

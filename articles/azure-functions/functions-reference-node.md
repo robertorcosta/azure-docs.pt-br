@@ -3,14 +3,14 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628825"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743313"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -134,7 +134,7 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    ```
 
 ### <a name="outputs"></a>Saídas
-As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json* , corresponde ao nome do membro do objeto gravado na sua função. 
+As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json*, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
 
@@ -204,8 +204,8 @@ O contexto passado para sua função expõe uma `executionContext` propriedade, 
 | Nome da propriedade  | Type  | Descrição |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador exclusivo para a invocação de função específica. |
-| `functionName` | Cadeia de caracteres | Fornece o nome da função em execução |
-| `functionDirectory` | Cadeia de caracteres | Fornece o diretório de aplicativos do functions. |
+| `functionName` | String | Fornece o nome da função em execução |
+| `functionDirectory` | String | Fornece o diretório de aplicativos do functions. |
 
 O exemplo a seguir mostra como retornar o `invocationId` .
 
@@ -325,10 +325,10 @@ Além do nível padrão, os seguintes métodos de log estão disponíveis para p
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **erro ( _mensagem_ )**   | Grava um evento de nível de erro nos logs.   |
-| **warn( _message_ )**    | Grava um evento no nível de aviso nos logs. |
-| **info( _message_ )**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
-| **verbose( _message_ )** | Grava no registro em log no nível detalhado.           |
+| **erro (_mensagem_)**   | Grava um evento de nível de erro nos logs.   |
+| **warn(_message_)**    | Grava um evento no nível de aviso nos logs. |
+| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
+| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
 
 O exemplo a seguir grava o mesmo log no nível de rastreamento de aviso, em vez do nível de informações:
 
@@ -551,7 +551,7 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 
 ### <a name="using-kudu"></a>Usando o Kudu
-1. Ir para `https://<function_app_name>.scm.azurewebsites.net`.
+1. Acesse `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Clique em **console de depuração**  >  **cmd**.
 
@@ -563,21 +563,42 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [configurações do aplicativo](functions-app-settings.md), como conexão de serviço cadeias de caracteres, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `process.env` , conforme mostrado aqui na segunda e terceira chamadas para `context.log()` onde registramos as `AzureWebJobsStorage` variáveis de `WEBSITE_SITE_NAME` ambiente e:
+Adicione suas próprias variáveis de ambiente a um aplicativo de funções, em seus ambientes locais e de nuvem, como segredos operacionais (cadeias de conexão, chaves e pontos de extremidade) ou configurações ambientais (como variáveis de criação de perfil). Acesse essas configurações usando `process.env` o no seu código de função.
+
+### <a name="in-local-development-environment"></a>No ambiente de desenvolvimento local
+
+Ao executar localmente, seu projeto de funções inclui um [ `local.settings.json` arquivo](/functions-run-local.md?tabs=node#local-settings-file), onde você armazena suas variáveis de ambiente no `Values` objeto. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>No ambiente de nuvem do Azure
+
+Ao executar no Azure, o aplicativo de funções permite que você defina o usa [configurações do aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, e expõe essas configurações como variáveis de ambiente durante a execução. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Acessar variáveis de ambiente no código
+
+Acesse as configurações do aplicativo como variáveis de ambiente usando `process.env` , conforme mostrado aqui na segunda e terceira chamadas para `context.log()` onde registramos as `AzureWebJobsStorage` variáveis de `WEBSITE_SITE_NAME` ambiente e:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Ao executar localmente, as configurações do aplicativo são lidos a partir de [Settings](functions-run-local.md#local-settings-file) arquivo de projeto.
 
 ## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada de função
 

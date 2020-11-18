@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 7451cab3e6bdc387b0a9afa1af34776d54160a99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d08923a640b632e64017a1630eca5f354e19b623
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319950"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746849"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Os registros de contêiner devem ser criptografados com uma CMK (chave gerenciada pelo cliente)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580) |Faça auditoria dos registros de contêiner que não têm a criptografia habilitada com CMK (chaves gerenciadas pelo cliente). O Azure criptografa automaticamente o conteúdo do Registro em repouso com chaves gerenciadas pelo serviço. Você pode complementar a criptografia padrão com uma camada de criptografia adicional usando uma chave criada e gerenciada por você no Azure Key Vault. Para obter mais informações sobre a criptografia CMK, visite: [https://aka.ms/acr/CMK](https://aka.ms/acr/CMK). |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_CMKEncryptionEnabled_Audit.json) |
+|[Os registros de contêiner devem ser criptografados com uma CMK (chave gerenciada pelo cliente)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580) |Auditar ou negar registros de contêiner que não têm criptografia habilitada com chaves gerenciadas pelo cliente (CMK). O Azure criptografa automaticamente o conteúdo do Registro em repouso com chaves gerenciadas pelo serviço. Você pode complementar a criptografia padrão com uma camada de criptografia adicional usando uma chave criada e gerenciada por você no Azure Key Vault. Para obter mais informações sobre a criptografia CMK, visite: [https://aka.ms/acr/CMK](https://aka.ms/acr/CMK). |Audit, Deny, desabilitado |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_CMKEncryptionEnabled_Audit.json) |
 |[Os registros de contêiner não devem permitir acesso irrestrito à rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd0793b48-0edc-4296-a390-4c75d1bdfd71) |Faça auditoria dos registros de contêiner que não têm nenhuma regra de rede (IP) configurada e, assim, permitem todo o acesso à rede por padrão. Restringir o acesso à rede protege registros de contêiner contra possíveis ameaças. Os registros de contêiner com pelo menos uma regra de IP/firewall ou uma rede virtual configurada são considerados em conformidade. Para obter mais informações sobre regras de rede do Registro de Contêiner, acesse [https://aka.ms/acr/portal/public-network](https://aka.ms/acr/portal/public-network) e [https://aka.ms/acr/vnet](https://aka.ms/acr/vnet). |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_NetworkRulesExist_Audit.json) |
 |[Os registros de contêiner devem usar links privados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8eef0a8-67cf-4eb4-9386-14b0e78733d4) |Faça a auditoria de registros de contêiner que não têm pelo menos uma conexão de ponto de extremidade privado aprovada. Os clientes em uma rede virtual podem acessar com segurança recursos que têm conexões de ponto de extremidade privado por meio de links privados. O acesso público pode ser desabilitado para garantir que apenas links privados possam ser usados para se conectar ao Registro. Para obter mais informações, visite: [https://aka.ms/acr/private-link](https://aka.ms/acr/private-link). |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PrivateEndpointEnabled_Audit.json) |
 |[O Registro de Contêiner deve usar um ponto de extremidade de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |Esta política audita os Registros de Contêiner que não estão configurados para usar um ponto de extremidade de serviço de rede virtual. |Audit, desabilitado |[1.0.0 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json) |

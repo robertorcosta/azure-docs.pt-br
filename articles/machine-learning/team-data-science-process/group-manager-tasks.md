@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321217"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740219"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tarefas do gerenciador de grupos de Processo de Ciência de Dados de Equipe
 
@@ -43,7 +43,7 @@ O tutorial a seguir percorre as etapas em detalhes.
    
    ![Entre na sua conta da Microsoft](./media/group-manager-tasks/signinvs.png)
    
-   Se você não tiver um conta Microsoft, selecione **inscrever-se agora** , criar um conta Microsoft e entrar usando essa conta. Se sua organização tiver uma assinatura do Visual Studio, entre com as credenciais para essa assinatura.
+   Se você não tiver um conta Microsoft, selecione **inscrever-se agora**, criar um conta Microsoft e entrar usando essa conta. Se sua organização tiver uma assinatura do Visual Studio, entre com as credenciais para essa assinatura.
    
 1. Depois de entrar, no canto superior direito na página DevOps do Azure, selecione **criar nova organização**.
    
@@ -65,9 +65,9 @@ A página de **Resumo** do projeto **GroupCommon** é aberta. A URL da página �
 
 Azure Repos hospeda os seguintes tipos de repositórios para seu grupo:
 
-- **Repositórios comuns de grupo** : repositórios de uso geral que várias equipes em uma unidade de ciência de dados podem adotar para muitos projetos de ciência de dados. 
-- **Repositórios de equipe** : repositórios para equipes específicas em uma unidade de ciência de dados. Esses repositórios são específicos para as necessidades de uma equipe e podem ser usados para vários projetos dentro dessa equipe, mas não são gerais o suficiente para serem usados em várias equipes em uma unidade de ciência de dados.
-- **Repositórios de projeto** : repositórios para projetos específicos. Esses repositórios podem não ser gerais o suficiente para vários projetos dentro de uma equipe ou para outras equipes em uma unidade de ciência de dados.
+- **Repositórios comuns de grupo**: repositórios de uso geral que várias equipes em uma unidade de ciência de dados podem adotar para muitos projetos de ciência de dados. 
+- **Repositórios de equipe**: repositórios para equipes específicas em uma unidade de ciência de dados. Esses repositórios são específicos para as necessidades de uma equipe e podem ser usados para vários projetos dentro dessa equipe, mas não são gerais o suficiente para serem usados em várias equipes em uma unidade de ciência de dados.
+- **Repositórios de projeto**: repositórios para projetos específicos. Esses repositórios podem não ser gerais o suficiente para vários projetos dentro de uma equipe ou para outras equipes em uma unidade de ciência de dados.
 
 Para configurar os repositórios comuns de grupo em seu projeto, você: 
 - Renomeie o repositório **GroupCommon** padrão para **GroupProjectTemplate**
@@ -75,7 +75,7 @@ Para configurar os repositórios comuns de grupo em seu projeto, você:
 
 ### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Renomeie o repositório de projeto padrão para GroupProjectTemplate
 
-Para renomear o repositório de projeto **GroupCommon** padrão para **GroupProjectTemplate** :
+Para renomear o repositório de projeto **GroupCommon** padrão para **GroupProjectTemplate**:
 
 1. Na página **Resumo** do projeto **GroupCommon** , selecione **repositórios**. Essa ação leva você para o repositório **GroupCommon** padrão do projeto GroupCommon, que está vazio no momento.
    
@@ -101,7 +101,7 @@ Para criar o repositório **GroupUtilities** :
    
    ![Selecionar novo repositório](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. Na caixa de diálogo **criar um novo repositório** , selecione **git** como o **tipo** , insira *GroupUtilities* como o nome do **repositório** e, em seguida, selecione **criar**.
+1. Na caixa de diálogo **criar um novo repositório** , selecione **git** como o **tipo**, insira *GroupUtilities* como o nome do **repositório** e, em seguida, selecione **criar**.
    
    ![Criar repositório GroupUtilities](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
@@ -126,8 +126,6 @@ Para importar os repositórios da equipe do TDSP:
    ![Importar repositório da equipe do Microsoft TDSP](./media/group-manager-tasks/import-repo-2.png)
    
 1. Na parte superior da página **repositórios** , clique no menu suspenso e selecione o repositório **GroupUtilities** .
-   
-1. Repita o processo de importação para importar o conteúdo do repositório de **utilitários** de equipe do Microsoft TDSP, *https: \/ /github.com/Azure/Azure-TDSP-Utilities.git* , para seu repositório **GroupUtilities** . 
    
 Cada um dos seus repositórios de dois grupos agora contém todos os arquivos, exceto aqueles no diretório *. git* , do repositório correspondente do Microsoft TDSP Team. 
 

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412537"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743330"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Marcas de imagem e notas de versão do contêiner de serviços cognitivas do Azure
 
@@ -574,6 +574,39 @@ A imagem de contêiner de [texto em fala neural][sp-ntts] pode ser encontrada na
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis. Você também pode encontrar uma lista completa de [marcas no MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list).
 
+
+# <a name="latest-version"></a>[Última versão](#tab/current)
+
+Notas de versão para `v1.3.0` :
+* O contêiner de texto em fala neural agora está disponível para o público geral. 
+
+| Marcas de imagem                                  | Observações                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
+| `1.3.0-amd64-<locale-and-voice>`    | Substitua `<locale>` por uma das localidades disponíveis, listadas abaixo. Por exemplo, `1.3.0-amd64-en-us-arianeural`. |
+
+
+| v 1.3.0 localidades e vozes           | Observações                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | Imagem de contêiner com a `de-DE` localidade e a `de-DE-KatjaNeural` voz.     |
+| `en-au-natashaneural`               | Imagem de contêiner com a `en-AU` localidade e a `en-AU-NatashaNeural` voz.   |
+| `en-ca-claraneural`                 | Imagem de contêiner com a `en-CA` localidade e a `en-CA-ClaraNeural` voz.     |
+| `en-gb-libbyneural`                 | Imagem de contêiner com a `en-GB` localidade e a `en-GB-LibbyNeural` voz.     |
+| `en-gb-mianeural`                   | Imagem de contêiner com a `en-GB` localidade e a `en-GB-MiaNeural` voz.       |
+| `en-us-arianeural`                  | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
+| `en-us-guyneural`                   | Imagem de contêiner com a `en-US` localidade e a `en-US-GuyNeural` voz.       |
+| `es-es-elviraneural`                | Imagem de contêiner com a `es-ES` localidade e a `es-ES-ElviraNeural` voz.    |
+| `es-mx-dalianeural`                 | Imagem de contêiner com a `es-MX` localidade e a `es-MX-DaliaNeural` voz.     |
+| `fr-ca-sylvieneural`                | Imagem de contêiner com a `fr-CA` localidade e a `fr-CA-SylvieNeural` voz.    |
+| `fr-fr-deniseneural`                | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-DeniseNeural` voz.    |
+| `it-it-elsaneural`                  | Imagem de contêiner com a `it-IT` localidade e a `it-IT-ElsaNeural` voz.      |
+| `ja-jp-nanamineural`                | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-NanamiNeural` voz.    |
+| `ko-kr-sunhineural`                 | Imagem de contêiner com a `ko-KR` localidade e a `ko-KR-SunHiNeural` voz.     |
+| `pt-br-franciscaneural`             | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-FranciscaNeural` voz. |
+| `zh-cn-xiaoxiaoneural`              | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-XiaoxiaoNeural` voz.  |
+
+# <a name="previous-version"></a>[Versão anterior](#tab/previous)
+
 | Marcas de imagem                                  | Observações                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
@@ -599,6 +632,8 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis. Você também po
 | `ko-kr-sunhineural-preview`                 | Imagem de contêiner com a `ko-KR` localidade e a `ko-KR-SunHiNeural` voz.     |
 | `pt-br-franciscaneural-preview`             | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-FranciscaNeural` voz. |
 | `zh-cn-xiaoxiaoneural-preview`              | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-XiaoxiaoNeural` voz.  |
+
+---
 
 ## <a name="speech-language-detection"></a>Detecção de idioma de fala
 

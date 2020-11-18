@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: d709bd1c68608720e5fa354b23d2b457e99b1ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4676ec54165c94663ec5ad76d4c43d7fabfc717
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087381"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742225"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli"></a>Implantar um aplicativo IPv6 dual stack na rede virtual do Azure-CLI
 
 Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) usando Standard Load Balancer no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, uma Standard Load Balancer com configurações de front-end (IPv4 + IPv6) duplas, VMs com NICs que têm uma configuração de IP dupla, duas regras de grupo de segurança de rede e IPs públicos duplos.
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a versão 2.0.49 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.49 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

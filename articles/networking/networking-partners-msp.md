@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 78a79c84060fe6dc8b94e4b977ddaea8b5408ee0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7ba8f4e08b1be1af5fa2870494db2c08c2cd7b7e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577882"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739828"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros de rede do MSP do Azure
 
@@ -50,15 +50,16 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 |[Dados de NTT](https://us.nttdata.com/en/digital/cloud-transformation)|[Serviços gerenciados: Implementação de 10 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
 |[Serviços de Nuvem do Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)|[Fundamentos da Enterprise Cloud: Workshop (~10 dias)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge para Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[OpenSystems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|||[SD gerenciado seguro-WAN utilizando Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/open_systems_ag.sdwan_0820?tab=Overview)||
+|[Serviços de negócios em laranja](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider)||[Estudo de rede do ExpressRoute: implementação de 3 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/orangebusinessservicessa1603182943272.expressroute_study_obs_connectivity)|||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[ExpressRoute gerenciado do Orixcom](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Serviço de consultoria de rede do Azure: Avaliação de 1 semana](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure); [Serviço de avaliação do Azure: 1 semana](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Migração do Azure: Avaliação de 3 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
 |[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[Azure ExpressRoute gerenciado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[WAN virtual gerenciado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
 |[Mahindra de tecnologia](https://www.techmahindra.com/en-in/network-services/)|[Soluções de rede gerenciada E2E](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-network-transformstrategy?tab=Overview)|||[MSP do LTE privado do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-networking-azureprivate5g?tab=Overview)|
 |[TI vigilante](https://vigilant.it/manage-cloud-service/)|[Verificação de Integridade do Azure: Avaliação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: Implementação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute gerenciado do Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN da plataforma Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN da plataforma Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|[NAC gerenciado com o ClearPass Policy Manager da Aruba](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_aruba_clearpass?tab=Overview)|[ExpressRoute gerenciado do Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN da plataforma Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN da plataforma Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-As ofertas do Azure Marketplace para ExpressRoute gerenciados, WAN virtual, serviços de segurança e serviços de zona de borda privada dos seguintes parceiros MSP de rede do Azure estão em nosso roteiro: [Amdocs](https://www.amdocs.com/);  [Alemão Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX REACH](https://www.ixreach.com/services/sdn-cloud-connect/);  Entre  [Cloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Serviços de negócios em laranja](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+As ofertas do Azure Marketplace para ExpressRoute gerenciados, WAN virtual, serviços de segurança e serviços de zona de borda privada dos seguintes parceiros MSP de rede do Azure estão em nosso roteiro: [Amdocs](https://www.amdocs.com/); [Redes Cirrus Core](https://cirruscorenetworks.com/); [Alemão Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX REACH](https://www.ixreach.com/services/sdn-cloud-connect/);  Entre  [Cloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Parceiros do ExpressRoute
 

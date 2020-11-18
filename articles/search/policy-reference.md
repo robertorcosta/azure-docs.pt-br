@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure Cognitive Search
 description: Lista as definições de políticas internas do Azure Policy para o Azure Cognitive Search. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a4830448980994538bfc700fa771aafdfe0d10b7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 61be53bb2d76187d7e5ab116482998eda6eb243f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746476"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cognitive-search"></a>Definições internas do Azure Policy para o Azure Cognitive Search
 
