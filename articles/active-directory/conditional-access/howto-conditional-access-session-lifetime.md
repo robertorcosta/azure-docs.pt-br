@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503803"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837457"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
 
@@ -90,7 +90,7 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
 > [!WARNING]
 > Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável para atualização e tempos de vida de token de sessão em 30 de janeiro de 2021 e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
 >
-> Antes de habilitar a frequência de entrada, verifique se outras configurações de reautenticação estão desabilitadas em seu locatário. Se "lembrar MFA em dispositivos confiáveis" estiver habilitado, certifique-se de desabilitá-lo antes de usar a frequência de entrada, pois usar essas duas configurações em conjunto pode levar à solicitação de usuários inesperadamente. Para saber mais sobre prompts de reautenticação e tempo de vida da sessão, consulte o artigo [otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Antes de habilitar a frequência de entrada, verifique se outras configurações de reautenticação estão desabilitadas em seu locatário. Se "lembrar MFA em dispositivos confiáveis" estiver habilitado, certifique-se de desabilitá-lo antes de usar a frequência de entrada, pois usar essas duas configurações em conjunto pode levar à solicitação de usuários inesperadamente. Para saber mais sobre prompts de reautenticação e tempo de vida da sessão, consulte o artigo [otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure ad](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 

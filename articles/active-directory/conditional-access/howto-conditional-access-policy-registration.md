@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049087"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837531"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: proteger o registro de informações de segurança
 
-A proteção de quando e como os usuários se registram para a Autenticação Multifator do Microsoft Azure e a redefinição de senha self-service agora é possível através de ações do usuário na política de Acesso Condicional. Essa versão prévia do recurso está disponível para organizações que habilitaram a [versão prévia de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações que desejam usar condições como local de rede confiável para restringir o acesso ao registro para Autenticação Multifator do Azure e à SSPR (redefinição de senha self-service). Para obter mais informações sobre as condições utilizáveis, consulte o artigo [Acesso Condicional: Condições](concept-conditional-access-conditions.md).
+A proteção de quando e como os usuários se registram para a autenticação multifator do Azure AD e a redefinição de senha de autoatendimento agora é possível com as ações do usuário na política de acesso condicional. Essa versão prévia do recurso está disponível para organizações que habilitaram a [versão prévia de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações em que desejam usar condições como local de rede confiável para restringir o acesso ao registro para a autenticação multifator do Azure AD e a SSPR (redefinição de senha de autoatendimento). Para obter mais informações sobre as condições utilizáveis, consulte o artigo [Acesso Condicional: Condições](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registro de um local confiável
 

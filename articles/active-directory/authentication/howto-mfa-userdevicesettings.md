@@ -1,6 +1,6 @@
 ---
-title: Gerenciar métodos de autenticação para a autenticação multifator do Azure-Azure Active Directory
-description: Saiba como você pode definir Azure Active Directory configurações de usuário para a autenticação multifator do Azure
+title: Gerenciar métodos de autenticação para autenticação multifator do Azure AD-Azure Active Directory
+description: Saiba como você pode definir Azure Active Directory configurações de usuário para a autenticação multifator do Azure AD
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1117b5194dae92a8025594ed71fc629670d875cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378033"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838920"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Gerenciar métodos de autenticação de usuário para a autenticação multifator do Azure
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Gerenciar métodos de autenticação de usuário para a autenticação multifator do Azure AD
 
 Os usuários no Azure AD têm dois conjuntos distintos de informações de contato:  
 
 - Informações de contato do perfil público, que são gerenciadas no perfil do usuário e visíveis para os membros da sua organização. Para os usuários sincronizados do Active Directory local, essas informações são gerenciadas no Windows Server Active Directory Domain Services local.
 - Os métodos de autenticação, que são sempre mantidos privados e são usados somente para autenticação, incluindo a MFA (autenticação multifator). Os administradores podem gerenciar esses métodos na folha do método de autenticação de um usuário e os usuários podem gerenciar seus métodos na página de informações de segurança de myaccount.
 
-Ao gerenciar os métodos de autenticação multifator do Azure para seus usuários, os administradores de autenticação podem: 
+Ao gerenciar os métodos de autenticação multifator do Azure AD para seus usuários, os administradores de autenticação podem: 
 
 1. Adicione métodos de autenticação para um usuário específico, incluindo números de telefone usados para MFA.
 1. Redefina a senha de um usuário.
@@ -111,11 +111,11 @@ Para excluir as senhas de aplicativo de um usuário, conclua as seguintes etapas
 1. No lado esquerdo, selecione **Azure Active Directory**  >  **usuários**  >  **todos os usuários**.
 1. Selecione **Autenticação Multifator**. Role para a direita para ver esta opção de menu. Selecione a captura de tela de exemplo abaixo para ver a janela portal do Azure completa e o local do menu: [ ![ selecione autenticação multifator na janela usuários no Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
-1. Selecione **gerenciar configurações de usuário** e marque a caixa **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados** , conforme mostrado no exemplo a seguir: ![ excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Selecione **gerenciar configurações de usuário** e marque a caixa **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**, conforme mostrado no exemplo a seguir: ![ excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Selecione **salvar** e **fechar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo mostrou como definir configurações de usuário individuais. Para definir as configurações gerais do serviço de autenticação multifator do Azure, consulte [definir as configurações da autenticação multifator do Azure](howto-mfa-mfasettings.md).
+Este artigo mostrou como definir configurações de usuário individuais. Para definir as configurações gerais do serviço de autenticação multifator do Azure AD, consulte [definir configurações de autenticação multifator do Azure ad](howto-mfa-mfasettings.md).
 
-Se os usuários precisarem de ajuda, consulte o [Guia do usuário para autenticação multifator do Azure](../user-help/multi-factor-authentication-end-user-first-time.md).
+Se os usuários precisarem de ajuda, consulte o [Guia do usuário para autenticação multifator do Azure ad](../user-help/multi-factor-authentication-end-user-first-time.md).

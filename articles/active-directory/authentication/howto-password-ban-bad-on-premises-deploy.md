@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077720"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838205"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
 
@@ -142,8 +142,8 @@ O serviço atualizador do agente do Microsoft Azure AD Connect é instalado lado
 
 Há dois instaladores necessários para uma implantação de proteção de senha do Azure AD local:
 
-* Agente DC de proteção de senha do Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Proxy de proteção de senha do Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
+* Agente DC de proteção de senha do Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Proxy de proteção de senha do Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
 
 Baixe ambos os instaladores do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -193,7 +193,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    O resultado deve mostrar o **status** *em execução* .
+    O resultado deve mostrar o **status** *em execução*.
 
 1. O serviço de proxy está em execução no computador, mas não tem credenciais para se comunicar com o Azure AD. Registre o servidor proxy de proteção por senha do Azure AD com o Azure AD usando o `Register-AzureADPasswordProtectionProxy` cmdlet.
 
@@ -201,7 +201,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
 
     Depois que esse comando for executado uma vez para um serviço de proxy de proteção de senha do Azure AD, as invocações adicionais serão realizadas com sucesso, mas são desnecessárias.
 
-    O `Register-AzureADPasswordProtectionProxy` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure, mas o terceiro modo não.
+    O `Register-AzureADPasswordProtectionProxy` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure AD, mas o terceiro modo não.
 
     > [!TIP]
     > Pode haver um atraso perceptível antes da conclusão na primeira vez em que esse cmdlet for executado para um locatário específico do Azure. A menos que uma falha seja relatada, não se preocupe com esse atraso.
@@ -231,11 +231,11 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
         ```
 
         > [!NOTE]
-        > Esse modo falhará se a autenticação multifator do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
+        > Esse modo falhará se a autenticação multifator do Azure AD for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
         > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse requisito, você pode usar uma conta diferente que dá suporte a MFA com um dos dois modos de autenticação anteriores, ou pode também relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure.
         >
-        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo** . Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
+        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo**. Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 
@@ -252,7 +252,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
     
     Esta etapa é executada uma vez por floresta.
 
-    O `Register-AzureADPasswordProtectionForest` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure, mas o terceiro modo não.
+    O `Register-AzureADPasswordProtectionForest` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure AD, mas o terceiro modo não.
 
     > [!TIP]
     > Pode haver um atraso perceptível antes da conclusão na primeira vez em que esse cmdlet for executado para um locatário específico do Azure. A menos que uma falha seja relatada, não se preocupe com esse atraso.
@@ -282,11 +282,11 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
         ```
 
         > [!NOTE]
-        > Esse modo falhará se a autenticação multifator do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
+        > Esse modo falhará se a autenticação multifator do Azure AD for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
         > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse requisito, você pode usar uma conta diferente que dá suporte a MFA com um dos dois modos de autenticação anteriores, ou pode também relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure.
         >
-        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo** . Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
+        > Para fazer essa alteração, procure e selecione **Azure Active Directory** na portal do Azure e, em seguida, selecione **dispositivos > configurações do dispositivo**. Set **requer autenticação multifator para unir dispositivos** ao *.* Certifique-se de reconfigurar essa configuração de volta para *Sim* quando o registro for concluído.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 

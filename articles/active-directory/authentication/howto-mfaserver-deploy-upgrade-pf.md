@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e7c0399cce45b36a96bedb14d225490d48ee049
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f08bf985c4d1a5d85cd82cd03e19f5b2f310f4d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966875"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838562"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Atualizar o PhoneFactor Agent para o Servidor de Autenticação Multifator do Azure
 
 Para atualizar o PhoneFactor Agent v5.x ou mais antigo para o Servidor de Autenticação Multifator do Azure, desinstale o Agente PhoneFactor e os componentes afiliados primeiro. Em seguida, o Servidor de Autenticação Multifator e seus componentes afiliados podem ser instalados.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure baseada em nuvem.
+> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure AD baseada em nuvem.
 >
-> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada do usuário com a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada de usuário com a autenticação multifator do Azure ad](tutorial-enable-azure-mfa.md).
 >
 > Os clientes existentes que ativaram o servidor MFA antes de 1º de julho de 2019 podem baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 

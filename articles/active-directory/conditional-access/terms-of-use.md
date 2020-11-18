@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366489"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837593"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -41,7 +41,7 @@ Os termos de uso do Azure AD têm os seguintes recursos:
 - Exigir que os funcionários ou convidados aceitem seus termos de uso antes de obter acesso.
 - Exigir que os funcionários ou convidados aceitem seus termos de uso em cada dispositivo antes de obter acesso.
 - Exigir que os funcionários ou convidados aceitem seus termos de uso em um agendamento recorrente.
-- Exigir que os funcionários ou convidados aceitem seus termos de uso antes de registrar as informações de segurança na MFA (autenticação multifator do Azure).
+- Exigir que os funcionários ou convidados aceitem seus termos de uso antes de registrar as informações de segurança na MFA (autenticação multifator) do Azure AD.
 - Exigir que os funcionários aceitem seus termos de uso antes de registrar informações de segurança na redefinição de senha de autoatendimento (SSPR) do Azure AD.
 - Apresente os termos de uso gerais para todos os usuários em sua organização.
 - Apresentar termos de uso específicos com base em atributos de usuário (por exemplo, médicos, enfermeiras, funcionários locais ou internacionais, usando [grupos dinâmicos](../enterprise-users/groups-dynamic-membership.md)).
@@ -61,7 +61,7 @@ Para usar e configurar os termos de uso do Azure AD, você deve ter:
 - Uma das seguintes contas de administrador para o diretório que você deseja configurar:
    - Administrador global
    - Administrador de Segurança
-   - Administrador de acesso condicional
+   - Administrador de Acesso Condicional
 
 ## <a name="terms-of-use-document"></a>Documento Termos de uso
 
@@ -94,22 +94,22 @@ Depois de ter finalizado seu documento de termos de uso, use o procedimento a se
 
    | Expirar a partir de | Frequência | Resultado |
    | --- | --- | --- |
-   | Data de hoje  | Mensalmente | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
-   | Data no futuro  | Mensalmente | A partir de hoje, os usuários devem aceitar os termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
+   | Data de hoje  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
+   | Data no futuro  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
 
    Por exemplo, se você definir a expiração a partir da data para **1 de janeiro** e a frequência para **Mensal**, segue como ocorreriam as expirações para dois usuários:
 
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
-   | Roberto | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
+   | Bob | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
 
 1. Use a configuração **duração antes da reaceitação requer (dias)** para especificar o número de dias antes que o usuário precise aceitar os termos de uso novamente. Isso permite que os usuários sigam seu próprio cronograma. Por exemplo, se você definir a duração como **30** dias, segue como ocorreriam as expirações para dois usuários:
 
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 31 de janeiro | 2 de março | 1 de abril |
-   | Roberto | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
+   | Bob | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
 
    É possível usar as configurações **Expirar consentimentos** e **Duração (dias) até exigir a nova aceitação** juntas, mas normalmente você usa uma ou a outra.
 
@@ -151,7 +151,7 @@ A folha Termos de uso mostra uma contagem de usuários que os aceitaram e recusa
 
    ![Termos de uso painel consentis listando os usuários que aceitaram](./media/terms-of-use/accepted-tou.png)
 
-1. Para exibir o histórico de um usuário individual, clique no botão de reticências (**... **) e, em seguida **Exibir histórico**.
+1. Para exibir o histórico de um usuário individual, clique no botão de reticências (**...**) e, em seguida **Exibir histórico**.
 
    ![Exibir o menu de contexto do histórico para um usuário](./media/terms-of-use/view-history-menu.png)
 
@@ -253,7 +253,7 @@ A configuração **exigir que os usuários consentim em cada dispositivo** permi
 Segue uma lista dos softwares e plataformas com suporte.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outros |
+> |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
 > | **Aplicativo nativo** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |

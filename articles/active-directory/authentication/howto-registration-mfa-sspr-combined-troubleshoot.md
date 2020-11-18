@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae5995340640e9cda16634cf76b9953d7d663c2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966654"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838171"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Solucionando problemas de registro de informações de segurança combinadas
 
@@ -34,10 +34,10 @@ A tabela a seguir lista todos os eventos de auditoria gerados pelo registro comb
 | --- | --- | --- | --- |
 | Usuário registrou todas as informações de segurança necessárias | Êxito | Usuário registrou todas as informações de segurança necessárias. | Esse evento ocorre quando um usuário concluiu o registro com êxito.|
 | Usuário registrou todas as informações de segurança necessárias | Falha | O usuário cancelou o registro das informações de segurança. | Esse evento ocorre quando um usuário cancela o registro do modo de interrupção.|
-| Informações de segurança registradas pelo usuário | Êxito | *Método*registrado pelo usuário. | Esse evento ocorre quando um usuário registra um método individual. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.| 
+| Informações de segurança registradas pelo usuário | Êxito | *Método* registrado pelo usuário. | Esse evento ocorre quando um usuário registra um método individual. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.| 
 | Informações de segurança revisadas pelo usuário | Êxito | O usuário analisou com êxito as informações de segurança. | Esse evento ocorre quando um usuário seleciona uma **boa aparência** na página de revisão informações de segurança.|
 | Informações de segurança revisadas pelo usuário | Falha | O usuário não pôde examinar as informações de segurança. | Esse evento ocorre quando um usuário seleciona uma **boa aparência** na página de revisão informações de segurança, mas algo falha no back-end.|
-| Informações de segurança excluídas pelo usuário | Êxito | *Método*excluído pelo usuário. | Esse evento ocorre quando um usuário exclui um método individual. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.|
+| Informações de segurança excluídas pelo usuário | Êxito | *Método* excluído pelo usuário. | Esse evento ocorre quando um usuário exclui um método individual. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.|
 | Informações de segurança excluídas pelo usuário | Falha | O usuário não pôde excluir o *método*. | Esse evento ocorre quando um usuário tenta excluir um método, mas a tentativa falha por algum motivo. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.|
 | Informações de segurança padrão alteradas pelo usuário | Êxito | O usuário alterou as informações de segurança padrão para o *método*. | Esse evento ocorre quando um usuário altera o método padrão. O *método* pode ser a notificação do aplicativo autenticador, um código do meu aplicativo autenticador ou token, chamar + x xxxxxxxxxx, enviar um código para + x xxxxxxxxx e assim por diante.|
 | Informações de segurança padrão alteradas pelo usuário | Falha | O usuário não pôde alterar as informações de segurança padrão para o *método*. | Esse evento ocorre quando um usuário tenta alterar o método padrão, mas a tentativa falha por algum motivo. O *método* pode ser a notificação do aplicativo autenticador, um código do meu aplicativo autenticador ou token, chamar + x xxxxxxxxxx, enviar um código para + x xxxxxxxxx e assim por diante.|
@@ -151,10 +151,10 @@ Para desabilitar a experiência atualizada para seus usuários, conclua estas et
 
 1. Entre no portal do Azure como um administrador de usuário.
 2. Vá para **Azure Active Directory**  >  **configurações**  >  **do usuário Gerenciar configurações para recursos de visualização do painel de acesso**.
-3. Em **os usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança**, defina o seletor como **nenhum**e, em seguida, selecione **salvar**.
+3. Em **os usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança**, defina o seletor como **nenhum** e, em seguida, selecione **salvar**.
 
 Os usuários não serão mais solicitados a se registrar usando a experiência atualizada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre o registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre o registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure AD](concept-registration-mfa-sspr-combined.md)

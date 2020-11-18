@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964099"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838954"
 ---
 # <a name="configure-mfa-server-settings"></a>Definir configurações do servidor MFA
 
 Este artigo ajuda você a gerenciar as configurações do servidor MFA do Azure no portal do Azure.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Os novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a Autenticação Multifator do Microsoft Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Os novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure AD baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 As seguintes configurações do servidor MFA estão disponíveis:
 
@@ -41,7 +41,7 @@ O recurso de bypass único permite que um usuário autentique uma única vez sem
 Para criar um bypass único, conclua as seguintes etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-1. Procure e selecione **Azure Active Directory**e, em seguida, navegue até **segurança**  >  **MFA**de  >  **passagem única**.
+1. Procure e selecione **Azure Active Directory** e, em seguida, navegue até **segurança**  >  **MFA** de  >  **passagem única**.
 1. Selecione **Adicionar**.
 1. Se necessário, selecione o grupo de replicação para o bypass.
 1. Insira o nome de usuário como `username\@domain.com`. Insira o número de segundos que o bypass deve durar e o motivo do bypass.

@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 267a543e771f33f0cfe1fac7abe225e3db2a8e3f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964087"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838733"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurar o Servidor de Autenticação Multifator do Azure para alta disponibilidade
 
 Para obter alta disponibilidade com a implantação do Servidor do Azure MFA, você precisa implantar vários servidores do MFA. Esta seção fornece informações sobre um design com balanceamento de carga para atingir suas metas de alta disponibilidade na implantação do Servidor do Azure MFS.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure baseada em nuvem.
+> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure AD baseada em nuvem.
 >
-> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada do usuário com a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada de usuário com a autenticação multifator do Azure ad](tutorial-enable-azure-mfa.md).
 >
 > Os clientes existentes que ativaram o servidor MFA antes de 1º de julho de 2019 podem baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 

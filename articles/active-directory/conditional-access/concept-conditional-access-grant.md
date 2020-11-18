@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042810"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837644"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -34,7 +34,7 @@ O bloco é um controle poderoso que deve ser atraente com o conhecimento apropri
 
 Os administradores podem optar por impor um ou mais controles ao conceder acesso. Esses controles incluem as seguintes opções: 
 
-- [Exigir autenticação multifator (autenticação multifator do Azure)](../authentication/concept-mfa-howitworks.md)
+- [Exigir autenticação multifator (autenticação multifator do Azure AD)](../authentication/concept-mfa-howitworks.md)
 - [Exigir que o dispositivo seja marcado como em conformidade (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Exigir dispositivo ingressado no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
 - [Exigir um aplicativo cliente aprovado](app-based-conditional-access.md)
@@ -50,7 +50,7 @@ Por padrão, o acesso condicional requer todos os controles selecionados.
 
 ### <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
 
-A seleção dessa caixa de seleção exigirá que os usuários executem a autenticação multifator do Azure. Mais informações sobre a implantação da autenticação multifator do Azure podem ser encontradas no artigo [planejando uma implantação da autenticação multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md).
+A seleção dessa caixa de seleção exigirá que os usuários executem a autenticação multifator do Azure AD. Mais informações sobre como implantar a autenticação multifator do Azure AD podem ser encontradas no artigo [planejando uma implantação da autenticação multifator do Azure ad baseada em nuvem](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como em conformidade
 
@@ -106,7 +106,7 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 **Comentários**
 
 - Os aplicativos cliente aprovados fornecem suporte ao recurso de gerenciamento de aplicativo móvel Intune.
-- O requisito **Exigir o aplicativo do cliente aprovado** :
+- O requisito **Exigir o aplicativo do cliente aprovado**:
    - Fornece suporte apenas para iOS e Android para condição de plataforma de dispositivo.
    - Um aplicativo de agente é necessário para registrar o dispositivo. No iOS, o aplicativo agente é Microsoft Authenticator e no Android, é Portal da Empresa do Intune aplicativo.
 - O acesso condicional não pode considerar o Microsoft Edge no modo InPrivate em um aplicativo cliente aprovado.

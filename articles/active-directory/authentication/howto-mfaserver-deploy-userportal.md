@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2982e50a66aeccccd333e2a40b7162a4c6e8579
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: abf6a76a47fdc146af91f912fe8dcb2f37064ae3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966977"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838664"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -29,9 +29,9 @@ Os Administradores do portal do usuário podem receber uma configuração e perm
 Dependendo do seu ambiente, convém implantar o portal do usuário no mesmo servidor do Servidor de Autenticação Multifator do Azure ou em outro servidor voltado para a internet.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure baseada em nuvem.
+> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure AD baseada em nuvem.
 >
-> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada do usuário com a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada de usuário com a autenticação multifator do Azure ad](tutorial-enable-azure-mfa.md).
 >
 > Os clientes existentes que ativaram o servidor MFA antes de 1º de julho de 2019 podem baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
