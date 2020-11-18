@@ -5,13 +5,13 @@ keywords: serviço de aplicativo do Azure, aplicativo Web, configurações de ap
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152045"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833649"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -25,7 +25,7 @@ No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em segui
 
 ![Pesquisar serviços de aplicativos](./media/configure-common/search-for-app-services.png)
 
-No menu à esquerda do aplicativo, selecione **Configuration**  >  **configurações do aplicativo**de configuração.
+No menu à esquerda do aplicativo, selecione **Configuration**  >  **configurações do aplicativo** de configuração.
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
@@ -112,7 +112,7 @@ Você pode usar o CLI do Azure para criar e gerenciar configurações na linha d
 
 ## <a name="configure-connection-strings"></a>Configurar cadeias de conexão
 
-No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione **Configuration**  >  **configurações do aplicativo**de configuração.
+No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione **Configuration**  >  **configurações do aplicativo** de configuração.
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
@@ -197,7 +197,7 @@ Aqui, você pode definir algumas configurações comuns para o aplicativo. Algum
     ![Configurações gerais para contêineres do Linux](./media/configure-common/open-general-linux.png)
 
 - **Configurações de plataforma**: permite que você defina as configurações para a plataforma de hospedagem, incluindo:
-    - Bit de **bits: 32**bits ou 64 bits.
+    - Bit de **bits: 32** bits ou 64 bits.
     - **Protocolo WebSocket**: para [ASP.net signalr] ou [Socket.Io](https://socket.io/), por exemplo.
     - **Always on**: mantém o aplicativo carregado mesmo quando não há tráfego. Ele é necessário para trabalhos Web contínuos ou para trabalhos Web que são disparados usando uma expressão CRON.
       > [!NOTE]
@@ -224,7 +224,7 @@ Se o aplicativo usa módulos que roteiam com base na URL em vez de fornecer cont
 
 ## <a name="configure-path-mappings"></a>Configurar mapeamentos de caminho
 
-No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione **Configuration**  >  **mapeamentos de caminho**de configuração.
+No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. No menu à esquerda do aplicativo, selecione **Configuration**  >  **mapeamentos de caminho** de configuração.
 
 ![Mapeamentos de caminho](./media/configure-common/open-path.png)
 
@@ -236,7 +236,7 @@ Para aplicativos do Windows, você pode personalizar os mapeamentos de manipulad
 
 Mapeamentos de manipulador permitem que você adicione processadores de script personalizados para manipular solicitações para extensões de arquivo específicas. Para adicionar um manipulador personalizado, clique em **novo manipulador**. Configure o manipulador da seguinte maneira:
 
-- **Extensão**. A extensão de arquivo que você deseja manipular, como * \* . php* ou *Handler. fcgi*.
+- **Extensão**. A extensão de arquivo que você deseja manipular, como *\* . php* ou *Handler. fcgi*.
 - **Processador de script**. O caminho absoluto do processador de script para você. As solicitações para arquivos que correspondem à extensão de arquivo são processadas pelo processador de script. Use o caminho `D:\home\site\wwwroot` para se referir ao diretório raiz do seu aplicativo.
 - **Argumentos**. Argumentos de linha de comando opcionais para o processador de script.
 

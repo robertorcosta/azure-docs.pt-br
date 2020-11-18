@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392609"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833088"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições de código de função do Orchestrator
 
@@ -18,7 +18,7 @@ Durable Functions é uma extensão de [Azure Functions](../functions-overview.md
 
 ## <a name="orchestrator-code-constraints"></a>Restrições de código do orquestrador
 
-As funções de orquestrador usam o [fornecimento de eventos](/azure/architecture/patterns/event-sourcing) para garantir a execução confiável e para manter o estado da variável local. O [comportamento de reprodução](durable-functions-orchestrations.md#reliability) do código do Orchestrator cria restrições sobre o tipo de código que você pode escrever em uma função de orquestrador. Por exemplo, as funções de orquestrador devem ser *determinísticas* : uma função de orquestrador será repetida várias vezes e deverá produzir o mesmo resultado a cada vez.
+As funções de orquestrador usam o [fornecimento de eventos](/azure/architecture/patterns/event-sourcing) para garantir a execução confiável e para manter o estado da variável local. O [comportamento de reprodução](durable-functions-orchestrations.md#reliability) do código do Orchestrator cria restrições sobre o tipo de código que você pode escrever em uma função de orquestrador. Por exemplo, as funções de orquestrador devem ser *determinísticas*: uma função de orquestrador será repetida várias vezes e deverá produzir o mesmo resultado a cada vez.
 
 ### <a name="using-deterministic-apis"></a>Usando APIs determinísticas
 
@@ -30,8 +30,8 @@ A tabela a seguir mostra exemplos de APIs que você deve evitar porque elas *nã
 
 | Categoria da API | Motivo | Solução alternativa |
 | ------------ | ------ | ---------- |
-| Datas e horas  | As APIs que retornam a data ou hora atual são não determinísticas porque o valor retornado é diferente para cada repetição. | Use a `CurrentUtcDateTime` API no .net, a `currentUtcDateTime` API em JavaScript ou a `current_utc_datetime` API no Python, que é segura para reprodução. |
-| GUIDs e UUIDs  | As APIs que retornam um GUID aleatório ou UUID são não determinísticas porque o valor gerado é diferente para cada repetição. | Use o `NewGuid` no .net ou `newGuid` no JavaScript para gerar GUIDs aleatórios com segurança. |
+| Datas e horas  | As APIs que retornam a data ou hora atual são não determinísticas porque o valor retornado é diferente para cada repetição. | Use a propriedade [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) no .net, a `currentUtcDateTime` API em JavaScript ou a `current_utc_datetime` API no Python, que são seguras para reprodução. |
+| GUIDs e UUIDs  | As APIs que retornam um GUID aleatório ou UUID são não determinísticas porque o valor gerado é diferente para cada repetição. | Use [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) no .net ou `newGuid` em JavaScript para gerar GUIDs aleatórios com segurança. |
 | Números aleatórios | As APIs que retornam números aleatórios são não determinísticas porque o valor gerado é diferente para cada repetição. | Use uma função de atividade para retornar números aleatórios para uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para reprodução. |
 | Associações | As associações de entrada e saída normalmente fazem e/s e não são determinísticas. Uma função de orquestrador não deve usar diretamente as associações [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [cliente de entidade](durable-functions-bindings.md#entity-client) . | Use associações de entrada e saída dentro de funções de cliente ou atividade. |
 | Rede | As chamadas de rede envolvem sistemas externos e não são determinísticas. | Use funções de atividade para fazer chamadas de rede. Se você precisar fazer uma chamada HTTP de sua função de orquestrador, também poderá usar as [APIs de http duráveis](durable-functions-http-features.md#consuming-http-apis). |
@@ -57,7 +57,7 @@ Uma orquestração durável pode ser executada continuamente por dias, meses, an
 > [!NOTE]
 > Esta seção descreve os detalhes de implementação interna do Framework de Tarefa Durável. Você pode usar funções duráveis sem conhecer essas informações. Elas destinam-se somente a ajudá-lo a entender o comportamento de reprodução.
 
-As tarefas que podem esperar com segurança nas funções de orquestrador são ocasionalmente chamadas de *tarefas duráveis*. A estrutura de tarefa durável cria e gerencia essas tarefas. Os exemplos são as tarefas retornadas por **CallActivityAsync** , **WaitForExternalEvent** e **CreateTimer** nas funções do orquestrador do .net.
+As tarefas que podem esperar com segurança nas funções de orquestrador são ocasionalmente chamadas de *tarefas duráveis*. A estrutura de tarefa durável cria e gerencia essas tarefas. Os exemplos são as tarefas retornadas por **CallActivityAsync**, **WaitForExternalEvent** e **CreateTimer** nas funções do orquestrador do .net.
 
 Essas tarefas duráveis são gerenciadas internamente por uma lista de `TaskCompletionSource` objetos no .net. Durante a repetição, essas tarefas são criadas como parte da execução do código do Orchestrator. Elas são concluídas à medida que o Dispatcher enumera os eventos de histórico correspondentes.
 

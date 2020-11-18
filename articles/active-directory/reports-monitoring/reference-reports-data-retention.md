@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393448"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834703"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Por quanto tempo o Azure AD armazena dados de relatório?
 
@@ -41,7 +41,7 @@ Neste artigo, você saberá mais sobre as políticas de retenção de dados dos 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando os dados da atividade estarão disponíveis no portal do Azure?
 
 - **Imediatamente** -se você já tiver trabalhado com relatórios no portal do Azure.
-- **Dentro de 2 horas** : se você não tiver ativado os relatórios no portal do Azure.
+- **Dentro de 2 horas**: se você não tiver ativado os relatórios no portal do Azure.
 
 ---
 
@@ -65,7 +65,7 @@ Para sinais de segurança, o processo de coleção é iniciado quando você acei
 | :--                    | :--           | :--                 | :--                 |
 | Logs de auditoria             | 7 dias        | 30 dias             | 30 dias             |
 | Entradas               | 7 dias        | 30 dias             | 30 dias             |
-| Uso do Azure MFA        | 30 dias       | 30 dias             | 30 dias             |
+| Uso do Azure AD MFA        | 30 dias       | 30 dias             | 30 dias             |
 
 É possível manter os dados da atividade de entrada e de auditoria por mais tempo que o período de retenção padrão descrito acima, roteando-os para uma conta de armazenamento do Azure usando o Azure Monitor. Para obter mais informações, consulte [Arquivar logs do Azure AD em uma conta de armazenamento do Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
@@ -80,6 +80,6 @@ Para sinais de segurança, o processo de coleção é iniciado quando você acei
 
 ### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Eu poderei visualizar os dados do último mês, após obter uma licença Premium do Azure AD?
 
-**Não** , você não pode. O Azure armazena até sete dias de dados de atividade para uma versão gratuita. Isso significa que, quando você alternar de uma versão gratuita para uma para a Premium, só poderá ver até 7 dias de dados.
+**Não**, você não pode. O Azure armazena até sete dias de dados de atividade para uma versão gratuita. Isso significa que, quando você alternar de uma versão gratuita para uma para a Premium, só poderá ver até 7 dias de dados.
 
 ---

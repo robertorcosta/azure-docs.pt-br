@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a46c272ee2f7aa2d6621e3dc2db81605ba0363f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325769"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833105"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Associação de entrada do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -175,6 +175,15 @@ No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada p
 
 A seção [configuração](#configuration) explica essas propriedades.
 
+A `dataType` propriedade determina qual associação é usada. Os seguintes valores estão disponíveis para dar suporte a diferentes estratégias de ligação:
+
+| Valor de associação | Padrão | Descrição | Exemplo |
+| --- | --- | --- | --- |
+| `undefined` | S | Usa associação avançada | `def main(input: func.InputStream)` |
+| `string` | N | Usa associação genérica e converte o tipo de entrada como um `string` | `def main(input: str)` |
+| `binary` | N | Usa associação genérica e converte o blob de entrada como `bytes` objeto do Python | `def main(input: bytes)` |
+
+
 Aqui está o código Python:
 
 ```python
@@ -309,7 +318,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**name** | n/d | O nome da variável que representa o blob no código de função.|
 |**path** |**BlobPath** | O caminho para o blob. |
 |**connection** |**Conexão**| O nome de uma configuração de aplicativo que contém a [cadeia de conexão de armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|n/a | **Acesso** | Indica se você será leitura ou gravação. |
+|**dataType**| N/D | Para linguagens tipificadas dinamicamente, especifica o tipo de dados subjacente. Os valores possíveis são `string`, `binary`, ou `stream`. Para obter mais detalhes, consulte os [conceitos de gatilhos e associações](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+|N/D | **Acesso** | Indica se você será leitura ou gravação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

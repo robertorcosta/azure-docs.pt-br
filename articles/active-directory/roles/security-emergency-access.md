@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378747"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834431"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -33,7 +33,7 @@ Este artigo fornece diretrizes para gerenciar contas de acesso de emergência no
 Uma organização pode precisar usar uma conta de acesso de emergência nas seguintes situações:
 
 - As contas de usuário são federadas e a federação está indisponível no momento devido a uma interrupção de rede celular ou uma interrupção do provedor de identidade. Por exemplo, se o host de provedor de identidade em seu ambiente foi desligado, os usuários podem não conseguir entrar quando o Azure AD redireciona para seu provedor de identidade.
-- Os administradores são registrados por meio da Autenticação Multifator do Azure e todos os seus dispositivos individuais ou o serviço não estão disponíveis. Os usuários podem não conseguir concluir a Autenticação Multifator para ativar uma função. Por exemplo, uma interrupção de rede celular está impedindo que eles atendam a chamadas telefônicas ou recebam mensagens de texto, os dois únicos dois mecanismos de autenticação registrados para os dispositivos.
+- Os administradores são registrados por meio da autenticação multifator do Azure AD, e todos os seus dispositivos individuais ficam indisponíveis ou o serviço não está disponível. Os usuários podem não conseguir concluir a Autenticação Multifator para ativar uma função. Por exemplo, uma interrupção de rede celular está impedindo que eles atendam a chamadas telefônicas ou recebam mensagens de texto, os dois únicos dois mecanismos de autenticação registrados para os dispositivos.
 - A pessoa com acesso administrativo global mais recente saiu da organização. O Microsoft Azure Active Directory impede que a conta do último Administrador Global seja excluída, mas não impede que a conta seja excluída ou desabilitada localmente. Qualquer situação pode fazer com que a organização não consiga recuperar a conta.
 - Circunstâncias imprevisíveis, como uma emergência de desastre natural, em que um telefone celular ou outras redes podem não estar disponíveis. 
 
@@ -44,7 +44,7 @@ Crie duas ou mais contas de acesso de emergência. Elas devem ser contas somente
 Ao configurar essas contas, os seguintes requisitos devem ser atendidos:
 
 - As contas de emergência não devem ser associadas a nenhum usuário individual na organização. Certifique-se de que suas contas não estejam conectadas a nenhum telefone celular fornecido pelo funcionário, tokens de hardware que viajam com funcionários específicos ou outras credenciais específicas do funcionário. Essa precaução abrange instâncias em que um funcionário individual está inacessível quando a credencial é necessária. É importante garantir que todos os dispositivos registrados sejam mantidos em uma localização segura e conhecida que tenha vários meios de comunicação com o Azure AD.
-- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada normal no administrador é por meio da Autenticação Multifator do Microsoft Azure (MFA) local, o Azure MFA seria um mecanismo diferente.  No entanto, se Azure MFA é a parte primária de autenticação para suas contas administrativas, considere uma abordagem diferente para elas, como o uso de Acesso Condicional com um provedor MFA de terceiros via Controles personalizados.
+- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada de administrador normal for por meio de MFA local, a MFA do Azure AD será um mecanismo diferente.  No entanto, se o Azure AD MFA for sua parte principal da autenticação para suas contas administrativas, considere uma abordagem diferente para eles, como usar o acesso condicional com um provedor de MFA de terceiros por meio de controles personalizados.
 - O dispositivo ou a credencial não deve expirar ou estar no escopo de limpeza automatizado devido à falta de uso.  
 - A atribuição de função de Administrador Global deve ser permanente para suas contas de acesso de emergência. 
 
@@ -87,34 +87,34 @@ As organizações devem monitorar a atividade de entrada e log de auditoria das 
 ### <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função de colaborador de monitoramento no Azure Monitor.
-1. Selecione **todos os serviços** ", insira "Log Analytics" na pesquisa e, em seguida, selecione **espaço de trabalho do Log Analytics**.
+1. Selecione **todos os serviços**", insira "Log Analytics" na pesquisa e, em seguida, selecione **espaço de trabalho do Log Analytics**.
 1. Selecione um workspace.
 1. Em seu espaço de trabalho, selecione **Alertas** > **Nova regra de alerta**.
-    1. Em **Recursos** , verifique se a assinatura é aquela com a qual você deseja associar a regra de alerta.
-    1. Em **Condição** , selecione **Adicionar**.
+    1. Em **Recursos**, verifique se a assinatura é aquela com a qual você deseja associar a regra de alerta.
+    1. Em **Condição**, selecione **Adicionar**.
     1. Selecione **Pesquisa de log personalizada** em **Nome do sinal**.
-    1. Em **Consulta de pesquisa** , insira a consulta a seguir, inserindo as IDs de objeto das duas contas de interrupção.
+    1. Em **Consulta de pesquisa**, insira a consulta a seguir, inserindo as IDs de objeto das duas contas de interrupção.
         > [!NOTE]
         > Para cada conta de interrupção adicional que você deseja incluir, adicione outro "or UserId == "ObjectGuid"" à consulta.
 
         ![Adicionar as IDs de objeto das contas de interrupção a uma regra de alerta](./media/security-emergency-access/query-image1.png)
 
-    1. Em **Lógica de alerta** , insira o seguinte:
+    1. Em **Lógica de alerta**, insira o seguinte:
 
         - Baseado em: Número de resultados
         - Operador: Maior que
         - Valor do limite: 0
 
-    1. Em **Avaliado com base em** , selecione o **Período (em minutos)** para informar quanto tempo você deseja que a consulta seja executada e a **Frequência (em minutos)** para a frequência de execução da consulta. A frequência deve ser inferior ou igual ao período.
+    1. Em **Avaliado com base em**, selecione o **Período (em minutos)** para informar quanto tempo você deseja que a consulta seja executada e a **Frequência (em minutos)** para a frequência de execução da consulta. A frequência deve ser inferior ou igual ao período.
 
         ![lógica de alerta](./media/security-emergency-access/alert-image2.png)
 
     1. Selecione **Concluído**. Agora você pode exibir o custo mensal estimado deste alerta.
 1. Selecione um grupo de ações de usuários a ser notificado pelo alerta. Se você quiser criar um, confira [Criar um grupo de ação](#create-an-action-group).
 1. Para personalizar a notificação por email enviada aos membros do grupo de ações, selecione ações em **Personalizar ações**.
-1. Em **Detalhes do alerta** , especifique o nome da regra de alerta e adicione uma descrição opcional.
+1. Em **Detalhes do alerta**, especifique o nome da regra de alerta e adicione uma descrição opcional.
 1. Defina o **Nível de severidade** do evento. É recomendável defini-lo como **Crítico (Sev 0)** .
-1. Em **Habilitar regra ao criar** , deixe-a definida como **Sim**.
+1. Em **Habilitar regra ao criar**, deixe-a definida como **Sim**.
 1. Para desativar os alertas por um tempo, marque a caixa de seleção **Suprimir alertas** e insira a duração da espera antes de alertar novamente e, em seguida, selecione **Salvar**.
 1. Clique em **Criar regra de alerta**.
 

@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 1e6bace9652ff68bb4cc28d482016b7e7510154b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150200"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833547"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
 
@@ -134,12 +134,12 @@ Para configurar o DNS em seu servidor DNS com o ASE do ILB:
 
 Para configurar o DNS em Zonas Privadas do DNS do Azure:
 
-1. Crie uma zona privada de DNS do Azure denominada &lt; ase name &gt; . appserviceenvironment.net
+1. crie uma zona privada de DNS do Azure chamada &lt;ASE name&gt;.appserviceenvironment.net
 1. crie um registro A nessa zona que aponte * para o endereço IP do ILB
 1. crie um registro A nessa zona que aponte @ para o endereço IP do ILB
 1. crie um registro A nessa zona que aponte *.scm para o endereço IP do ILB
 
-As configurações de DNS do sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessados apenas por esses nomes. Você pode definir um nome de domínio personalizado sem nenhuma validação em seus aplicativos em um ASE do ILB. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP ILB. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do scm. O site do SCM está disponível somente em * &lt; AppName &gt; . SCM. &lt; asename &gt; . appserviceenvironment.net*. 
+As configurações de DNS do sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessados apenas por esses nomes. Você pode definir um nome de domínio personalizado sem nenhuma validação em seus aplicativos em um ASE do ILB. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP ILB. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do scm. O site do SCM está disponível somente em *&lt; AppName &gt; . SCM. &lt; asename &gt; . appserviceenvironment.net*. 
 
 A zona chamada *. &lt; asename &gt; . appserviceenvironment.net* é globalmente exclusivo. Antes de maio de 2019, os usuários podiam especificar o sufixo de domínio do ASE do ILB. Se você quisesse usar *. contoso.com* para o sufixo de domínio, você poderia fazer isso e isso incluiria o site do SCM. Havia desafios com esse modelo, incluindo o gerenciamento do certificado SSL padrão, a falta de logon único com o site do scm e a necessidade de usar um certificado curinga. O processo de atualização de certificado padrão do ASE do ILB também era problemático e causava a reinicialização do aplicativo. Para resolver esses problemas, o comportamento do ASE do ILB foi alterado de maneira a passar a usar um sufixo de domínio baseado no nome do ASE e com um sufixo de propriedade da Microsoft. A alteração no comportamento do ASE do ILB afeta apenas o ASEs do ILB criados após maio de 2019. ASEs do ILB preexistente ainda precisam gerenciar o certificado padrão do ASE e sua configuração de DNS.
 
@@ -149,7 +149,7 @@ Em um ASE, assim como no serviço de aplicativo multilocatário, você pode publ
 
 - Implantação da Web
 - FTP
-- CI (integração contínua)
+- CI (Integração contínua)
 - Operação de arrastar e soltar no console do Kudu
 - Um IDE, como Visual Studio, Eclipse ou IntelliJ IDEA
 
@@ -218,7 +218,7 @@ Se você estiver usando https://resources.azure.com o, siga estas etapas para de
 1. Acesse resources.azure.com e entre com sua conta do Azure.
 1. Percorra os recursos para assinaturas nome da \/ \[ assinatura \] \/ resourceGroups nome \/ \[ do grupo de recursos \] \/ provedores \/ Microsoft. Web \/ hostingenvironments \/ \[ ase nome \] .
 1. Selecione **leitura/gravação** na parte superior.
-1. Selecione **Editar**.
+1. Selecione **Edit** (Editar).
 1. Defina **upgradePreference** para qualquer um dos três valores desejados.
 1. Selecione **patch**.
 

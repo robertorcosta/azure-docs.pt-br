@@ -12,18 +12,18 @@ ms.topic: end-user-help
 ms.date: 10/20/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 017898249f1ad32a37b7ccd6bce17fe3d32843f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480302"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833955"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
 Este artigo responde a perguntas comuns sobre o aplicativo Microsoft Authenticator. Caso não encontre uma resposta para sua pergunta, vá para o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator e é o aplicativo recomendado quando você usa a autenticação multifator do Azure. O aplicativo Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator e é o aplicativo recomendado quando você usa a autenticação multifator do Azure AD. O aplicativo Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -55,7 +55,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: posso tirar capturas de tela de meus códigos de senha de uso único (OTP) no autenticador do Android?
 
-**R: a**partir da versão 6.2003.1704 do autenticador Android, por padrão, todos os códigos de OTP ficam ocultos sempre que uma captura de tela do autenticador é tomada. Se você quiser ver seus códigos de OTP em capturas de tela ou permitir que outros aplicativos capturem o autenticador, você pode. Basta ativar a configuração de **captura de tela** no autenticador e reiniciar o aplicativo.
+**R: a** partir da versão 6.2003.1704 do autenticador Android, por padrão, todos os códigos de OTP ficam ocultos sempre que uma captura de tela do autenticador é tomada. Se você quiser ver seus códigos de OTP em capturas de tela ou permitir que outros aplicativos capturem o autenticador, você pode. Basta ativar a configuração de **captura de tela** no autenticador e reiniciar o aplicativo.
 
 ### <a name="delete-stored-data"></a>Excluir dados armazenados
 
@@ -156,7 +156,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: o sistema operacional Windows 10 Mobile foi preterido em dezembro de 2019. O Microsoft Authenticator em sistemas operacionais Windows Mobile também será preterido?
 
-**R: o**autenticador em todos os sistemas operacionais Windows Mobile não terá suporte após 28 de fevereiro de 2020. Os usuários não estarão qualificados para receber novas atualizações do aplicativo após a data mencionada acima. Após 28 de fevereiro de 2020, os serviços da Microsoft que atualmente dão suporte a autenticações que usam o Microsoft Authenticator em todos os sistemas operacionais Windows Mobile começarão a ter o suporte desativado. Para autenticar nos serviços da Microsoft, recomendamos que todos os nossos usuários mudem para outro mecanismo de autenticação antes dessa data.
+**R: o** autenticador em todos os sistemas operacionais Windows Mobile não terá suporte após 28 de fevereiro de 2020. Os usuários não estarão qualificados para receber novas atualizações do aplicativo após a data mencionada acima. Após 28 de fevereiro de 2020, os serviços da Microsoft que atualmente dão suporte a autenticações que usam o Microsoft Authenticator em todos os sistemas operacionais Windows Mobile começarão a ter o suporte desativado. Para autenticar nos serviços da Microsoft, recomendamos que todos os nossos usuários mudem para outro mecanismo de autenticação antes dessa data.
 
 ### <a name="default-mail-app"></a>Aplicativo de email padrão
 
@@ -174,7 +174,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: por que todas as minhas contas não aparecem quando abro o autenticador no meu Apple Watch?
 
-**R: o**autenticador dá suporte apenas a contas pessoais ou de estudante ou corporativas da Microsoft com notificações por push no aplicativo Apple Watch Companion. Para suas outras contas, como o Google ou o Facebook, você precisa abrir o aplicativo autenticador em seu telefone para ver seus códigos de verificação.
+**R: o** autenticador dá suporte apenas a contas pessoais ou de estudante ou corporativas da Microsoft com notificações por push no aplicativo Apple Watch Companion. Para suas outras contas, como o Google ou o Facebook, você precisa abrir o aplicativo autenticador em seu telefone para ver seus códigos de verificação.
 
 ### <a name="apple-watch-notifications"></a>Notificações de Apple Watch
 

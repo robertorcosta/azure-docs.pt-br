@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659190"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835502"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usar o AD FS relatório de atividade do aplicativo (versão prévia) para migrar aplicativos para o Azure AD
 
@@ -76,7 +76,7 @@ A tabela a seguir lista todos os testes de configuração que são executados em
 
 |Resultado  |Aprovação/aviso/falha  |Descrição  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migrada foi detectada para AdditionalAuthentication.       | Aprovação/aviso          | A terceira parte confiável tem regras para solicitar a autenticação multifator (MFA). Para mudar para o Azure AD, traduza essas regras em políticas de acesso condicional. Se você estiver usando uma MFA local, recomendamos que você mude para o Azure MFA. [Saiba mais sobre o acesso condicional](../authentication/concept-mfa-howitworks.md).        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migrada foi detectada para AdditionalAuthentication.       | Aprovação/aviso          | A terceira parte confiável tem regras para solicitar a autenticação multifator (MFA). Para mudar para o Azure AD, traduza essas regras em políticas de acesso condicional. Se você estiver usando uma MFA local, recomendamos que você mova para o Azure AD MFA. [Saiba mais sobre o acesso condicional](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> A terceira parte confiável tem AdditionalWSFedEndpoint definido como true.       | Aprovado/Reprovado          | A terceira parte confiável no AD FS permite vários pontos de extremidade de asserção WS-Fed.Atualmente, o Azure AD dá suporte apenas a um.Se você tiver um cenário em que esse resultado está bloqueando a migração, [informe-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> A terceira parte confiável definiu AllowedAuthenticationClassReferences.       | Aprovado/Reprovado          | Essa configuração no AD FS permite que você especifique se o aplicativo está configurado para permitir apenas determinados tipos de autenticação. É recomendável usar o acesso condicional para obter esse recurso. Se você tiver um cenário em que esse resultado está bloqueando a migração, [informe-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).  [Saiba mais sobre o acesso condicional](../authentication/concept-mfa-howitworks.md).          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | Aprovado/Reprovado          | Essa configuração no AD FS permite que você especifique se o aplicativo está configurado para ignorar cookies de SSO e **sempre solicitar autenticação**. No Azure AD, você pode gerenciar a sessão de autenticação usando políticas de acesso condicional para obter um comportamento semelhante. [Saiba mais sobre como configurar o gerenciamento de sessão de autenticação com acesso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).          |

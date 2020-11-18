@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378628"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834448"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -114,7 +114,7 @@ Avalie as contas que são atribuídas ou qualificadas para a função de adminis
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar autenticação multifator e registrar todas as outras contas de administrador de usuário único, não federadas e altamente privilegiadas
 
-Exigir a MFA (autenticação multifator) do Azure na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: administrador global, administrador de função com privilégios, administrador do Exchange e administrador do SharePoint. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e a etapa 3 do guia [proteger o acesso a dados e serviços no Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exigir a MFA (autenticação multifator) do Azure AD na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: administrador global, administrador de função com privilégios, administrador do Exchange e administrador do SharePoint. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e a etapa 3 do guia [proteger o acesso a dados e serviços no Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Etapa 2: Atenuar ataques usados com frequência
 
@@ -135,7 +135,7 @@ O aumento de "bring your own device" e políticas de trabalho de casa e o cresci
 * Verifique se as contas são usadas para fins de administração:
 
   * Tenha endereços de email de trabalho anexados a elas
-  * Registre na Autenticação Multifator do Azure ou use a MFA local
+  * Ter se registrado para a autenticação multifator do Azure AD ou usar MFA local
 * Pergunte aos usuários sua justificativa de negócios para acesso administrativo.
 * Remova o acesso de administrador para os indivíduos e serviços que não precisam dele.
 
@@ -240,7 +240,7 @@ Sua organização deve fazer com que todos os funcionários tratem transações 
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Continuar a distribuição de autenticação mais forte para todos os usuários
 
-Exija que usuários altamente expostos tenham autenticação moderna e forte, como Azure MFA ou Windows Hello. Exemplos de usuários altamente expostos incluem:
+Exigir que usuários altamente expostos tenham autenticação moderna e forte, como o Azure AD MFA ou o Windows Hello. Exemplos de usuários altamente expostos incluem:
 
 * Diretores
 * Gerentes de alto nível
