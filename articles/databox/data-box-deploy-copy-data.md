@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334662"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616732"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
     ![Obter credenciais de compartilhamento para compartilhamentos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Se a senha tiver caracteres especiais, adicione aspas duplas antes e depois dela. Depois, selecione **OK**.
+2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Depois, selecione **OK**.
     
     ![Obter nome de usuário e senha para um compartilhamento](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -87,11 +87,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     - Blob de páginas do Azure – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Arquivos do Azure – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Quando solicitado, digite a senha do compartilhamento. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
+4. Quando solicitado, digite a senha do compartilhamento. Se a senha tiver caracteres especiais, adicione aspas duplas antes e depois dela. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 

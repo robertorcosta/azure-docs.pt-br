@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132560"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844703"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)
 
@@ -23,7 +23,7 @@ Como cliente do Azure no [EA (Enterprise Agreement)](https://azure.microsoft.com
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para [criar assinaturas em uma conta de registro](programmatically-create-subscription.md), os usuários precisam ter a [função de Proprietário](../../role-based-access-control/built-in-roles.md#owner) do Azure RBAC nessa conta. Você pode conceder a um usuário ou grupo de usuários a função de Proprietário do Azure RBAC em uma conta de registro seguindo estas etapas:
+Para [criar assinaturas em uma conta de registro](programmatically-create-subscription-enterprise-agreement.md), os usuários precisam ter a [função de Proprietário](../../role-based-access-control/built-in-roles.md#owner) do Azure RBAC nessa conta. Você pode conceder a um usuário ou grupo de usuários a função de Proprietário do Azure RBAC em uma conta de registro seguindo estas etapas:
 
 1. Obter a ID de objeto da conta de registro à qual você deseja permitir acesso
 
@@ -174,7 +174,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Depois que um usuário se tornar um Proprietário do Azure RBAC da sua conta de registro, ele poderá [criar programaticamente assinaturas](programmatically-create-subscription.md) nela. Uma assinatura criada por um usuário delegado ainda tem o Proprietário da Conta original como Administrador de Serviço, mas ele também tem o usuário delegado como um Proprietário do Azure RBAC por padrão.
+    Depois que um usuário se tornar um Proprietário do Azure RBAC da sua conta de registro, ele poderá [criar programaticamente assinaturas](programmatically-create-subscription-enterprise-agreement.md) nela. Uma assinatura criada por um usuário delegado ainda tem o Proprietário da Conta original como Administrador de Serviço, mas ele também tem o usuário delegado como um Proprietário do Azure RBAC por padrão.
 
     ---
 
@@ -193,7 +193,7 @@ Para chamar convenientemente esta API da linha de comando, tente [ARMClient](htt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Agora que o usuário ou entidade de serviço tem permissão para criar uma assinatura, use essa identidade para [criar programaticamente as assinaturas do Azure Enterprise](programmatically-create-subscription.md).
+* Agora que o usuário ou entidade de serviço tem permissão para criar uma assinatura, use essa identidade para [criar programaticamente as assinaturas do Azure Enterprise](programmatically-create-subscription-enterprise-agreement.md).
 * Para obter um exemplo sobre como criar assinaturas usando .NET, consulte [código de exemplo no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Para saber mais sobre o Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Para saber mais sobre como gerenciar grandes números de assinaturas usando grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](../../governance/management-groups/overview.md)
