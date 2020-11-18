@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203493"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656591"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)
 
@@ -52,15 +52,15 @@ Para configurar o logon único para um aplicativo:
    > [!IMPORTANT]
     > Se você já tiver uma assinatura para o aplicativo, a validação dos detalhes do usuário e das informações de locatário/diretório ocorrerão. Se o aplicativo não puder verificar o usuário, ele redirecionará você para se inscrever no serviço de aplicativo ou para a página de erro.
 
-3. Após a autenticação bem-sucedida, uma caixa de diálogo será exibida solicitando o consentimento do administrador. Selecione **Consentir em nome da organização** e selecione **Aceitar** . 
+3. Após a autenticação bem-sucedida, uma caixa de diálogo será exibida solicitando o consentimento do administrador. Selecione **Consentir em nome da organização** e selecione **Aceitar**. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Captura de tela mostra a opção de logon único e o botão de inscrição." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Captura de tela mostra a tela de consentimento de um aplicativo." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. O aplicativo é adicionado ao locatário e a home page do aplicativo é exibida.
 
 
 > [!TIP]
-> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

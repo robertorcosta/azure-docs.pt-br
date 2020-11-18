@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795513"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698889"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Início Rápido: Criar um índice de Azure Cognitive Search usando o SDK do JavaScript
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795513"
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-Use o [SDK do Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) para criar um aplicativo Node.js em JavaScript que cria, carrega e consulta um índice de pesquisa.
+Use o [SDK do Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) para criar um aplicativo Node.js em JavaScript que cria, carrega e consulta um índice de pesquisa.
 
 Este artigo demonstra como criar o aplicativo passo a passo. Como alternativa, você pode [baixar o código-fonte e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) e executar o aplicativo na linha de comando.
 
@@ -56,9 +56,9 @@ As chamadas ao serviço exigem um ponto de extremidade de URL e uma chave de ace
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
-2. Em **Configurações** > **Chaves** , obtenha uma chave de administração para obter direitos totais sobre o serviço, necessários se você estiver criando ou excluindo objetos. Há duas chaves primárias e secundárias intercambiáveis. Você pode usar qualquer uma delas.
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço, necessários se você estiver criando ou excluindo objetos. Há duas chaves primárias e secundárias intercambiáveis. Você pode usar qualquer uma delas.
 
-   ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+   ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-rest/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
@@ -80,7 +80,7 @@ Comece abrindo o VS Code e seu [terminal integrado](https://code.visualstudio.co
     ```
      Aceite os valores padrão, exceto para a licença, que você deve definir como "MIT". 
 
-3. Instale `@azure/search-documents`, o [SDK do JavaScript/Typscript para o Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Instale `@azure/search-documents`, o [SDK do JavaScript/Typscript para o Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -126,7 +126,7 @@ Substitua o valor `<search-service-name>` pelo nome do serviço de pesquisa. Sub
 
 ### <a name="create-indexjs-file"></a>Criar o arquivo index.js
 
-Em seguida, criamos um arquivo **index.js** , que é o arquivo principal que hospedará nosso código.
+Em seguida, criamos um arquivo **index.js**, que é o arquivo principal que hospedará nosso código.
 
 Na parte superior desse arquivo, importe a biblioteca `@azure/search-documents`:
 

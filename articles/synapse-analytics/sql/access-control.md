@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311750"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682053"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerenciar o acesso a workspaces, dados e pipelines
 
@@ -149,7 +149,7 @@ ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 
 ### <a name="dedicated-sql-pool"></a>Pool de SQL dedicado
 
-Para permitir acesso a um usuário a um banco de dados SQL **individual** , siga estas etapas:
+Para permitir acesso a um usuário a um banco de dados SQL **individual**, siga estas etapas:
 
 1. Crie o usuário no banco de dados executando o seguinte comando, tendo como destino o banco de dados desejado no seletor de contexto (selecione a lista suspensa para escolher os bancos de dados):
 

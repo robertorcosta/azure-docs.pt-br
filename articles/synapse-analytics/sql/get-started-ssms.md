@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311114"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686201"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conectar-se ao Synapse SQL com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
@@ -50,13 +50,13 @@ Antes de iniciar, verifique se você cumpre os seguintes pré-requisitos:
 Para se conectar ao SQL do Synapse usando o pool de SQL dedicado, siga estas etapas: 
 
 1. Abra o SSMS (SQL Server Management Studio). 
-1. Na caixa de diálogo **Conectar-se ao Servidor** , preencha os campos e selecione **Conectar** : 
+1. Na caixa de diálogo **Conectar-se ao Servidor**, preencha os campos e selecione **Conectar**: 
   
     ![Conectar-se ao Servidor 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nome do servidor** : Insira o **nome do servidor** identificado anteriormente.
-   * **Autenticação** :  Escolha um tipo de autenticação, como **Autenticação do SQL Server** ou **Autenticação Integrada do Active Directory**.
-   * **Nome de Usuário** e **Senha** : Insira seu nome de usuário e senha se a Autenticação do SQL Server foi selecionada acima.
+   * **Nome do servidor**: Insira o **nome do servidor** identificado anteriormente.
+   * **Autenticação**:  Escolha um tipo de autenticação, como **Autenticação do SQL Server** ou **Autenticação Integrada do Active Directory**.
+   * **Nome de Usuário** e **Senha**: Insira seu nome de usuário e senha se a Autenticação do SQL Server foi selecionada acima.
 
 1. Expanda o SQL Server do Azure no **Pesquisador de Objetos**. Você pode ver os bancos de dados associados ao servidor, como o banco de dados AdventureWorksDW de exemplo. Expanda o banco de dados para ver as tabelas:
    
@@ -68,13 +68,13 @@ Para se conectar ao SQL do Synapse usando o pool de SQL dedicado, siga estas eta
 Para se conectar ao SQL do Synapse usando o pool de SQL sem servidor, siga estas etapas: 
 
 1. Abra o SSMS (SQL Server Management Studio).
-1. Na caixa de diálogo **Conectar-se ao Servidor** , preencha os campos e selecione **Conectar** : 
+1. Na caixa de diálogo **Conectar-se ao Servidor**, preencha os campos e selecione **Conectar**: 
    
     ![Conectar-se ao Servidor 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nome do servidor** : Insira o **nome do servidor** identificado anteriormente.
-   * **Autenticação** : Escolha um tipo de autenticação, como **Autenticação do SQL Server** ou **Autenticação Integrada do Active Directory** :
-   * **Nome de Usuário** e **Senha** : Insira seu nome de usuário e senha se a Autenticação do SQL Server foi selecionada acima.
+   * **Nome do servidor**: Insira o **nome do servidor** identificado anteriormente.
+   * **Autenticação**: Escolha um tipo de autenticação, como **Autenticação do SQL Server** ou **Autenticação Integrada do Active Directory**:
+   * **Nome de Usuário** e **Senha**: Insira seu nome de usuário e senha se a Autenticação do SQL Server foi selecionada acima.
    * Selecione **Conectar**.
 
 4. Para explorar, expanda seu servidor do SQL Azure. Você pode exibir os bancos de dados associados ao servidor. Expanda *demonstração* para ver o conteúdo em seu banco de dados de exemplo.

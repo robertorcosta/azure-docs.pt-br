@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604114"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658801"
 ---
 # <a name="what-is-application-management"></a>O que é gerenciamento de aplicativos?
 
@@ -57,7 +57,7 @@ O Azure AD simplifica a maneira de gerenciar seus aplicativos, fornecendo um só
 
 Há quatro tipos principais de aplicativos que você pode adicionar aos seus **Aplicativos empresariais** e gerenciar com o Azure AD:
 
-- **Os aplicativos da Galeria do Azure AD** – o Azure AD tem uma galeria que contém milhares de aplicativos que foram pré-integrados para logon único com o Azure AD. Alguns dos aplicativos que sua organização usa provavelmente estão na galeria. [Saiba mais sobre como planejar a integração do aplicativo](plan-an-application-integration.md) ou obter etapas detalhadas de integração para aplicativos individuais nos [tutoriais de aplicativos SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+- **Os aplicativos da Galeria do Azure AD** – o Azure AD tem uma galeria que contém milhares de aplicativos que foram pré-integrados para logon único com o Azure AD. Alguns dos aplicativos que sua organização usa provavelmente estão na galeria. [Saiba mais sobre como planejar a integração do aplicativo](plan-an-application-integration.md) ou obter etapas detalhadas de integração para aplicativos individuais nos [tutoriais de aplicativos SaaS](/azure/active-directory/saas-apps/).
 
 - **Aplicativos locais com Proxy de Aplicativo** – com o Proxy de Aplicativo do Azure AD, você pode integrar seus aplicativos Web locais com o Azure AD para dar suporte ao logon único. Em seguida, os usuários finais podem acessar seus aplicativos Web locais da mesma forma que acessam o Microsoft 365 e outros aplicativos SaaS. Confira [Fornecer acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure AD](application-proxy.md).
 

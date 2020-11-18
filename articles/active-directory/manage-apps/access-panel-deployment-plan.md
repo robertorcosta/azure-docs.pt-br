@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656727"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835655"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planejar uma implantação do Azure Active Directory meus aplicativos
 
@@ -26,7 +26,7 @@ Usando meus aplicativos do Azure AD, você pode:
 * Descubra e acesse todos os recursos conectados ao Azure AD de sua empresa, como aplicativos
 * Solicitar acesso a novos aplicativos e grupos
 * Gerenciar o acesso a esses recursos para outras pessoas
-* Gerenciar redefinições de senha de autoatendimento e configurações de autenticação multifator do Azure
+* Gerenciar redefinições de senha de autoatendimento e configurações de autenticação multifator do Azure AD
 * Gerenciar seus dispositivos
 
 Ele também permite que os administradores gerenciem:
@@ -54,7 +54,7 @@ Os meus aplicativos do Azure AD beneficiam as empresas das seguintes maneiras:
 
 Meus aplicativos é gratuito e não requer licenças para usar em um nível básico. No entanto, o número de objetos em seu diretório e os recursos adicionais que você deseja implantar podem exigir licenças adicionais. Alguns cenários comuns do AD do Azure que têm requisitos de licenciamento incluem os seguintes recursos de segurança:
 
-* [Autenticação Multifator do Azure](../authentication/concept-mfa-howitworks.md)
+* [Autenticação multifator do Azure AD](../authentication/concept-mfa-howitworks.md)
 * [Associação baseada em grupo](../fundamentals/active-directory-manage-groups.md)
 * [Redefinição de senha de autoatendimento](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
@@ -312,4 +312,4 @@ Use a função menos privilegiada para realizar uma tarefa necessária dentro do
 Você pode usar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Planejar uma implantação da autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)
+[Planejar uma implantação da autenticação multifator do Azure AD](../authentication/howto-mfa-getstarted.md)

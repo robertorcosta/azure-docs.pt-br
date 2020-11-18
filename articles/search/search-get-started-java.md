@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ab87dfdeb18f97265c3bb2f34616c942a345c1e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698940"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Java usando APIs REST
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "92791215"
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 Crie um aplicativo de console Java que cria, carrega e consulta um índice de pesquisa usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK do Java 11](/java/azure/jdk/) e a [API REST do Azure Cognitive Search](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
@@ -49,7 +49,7 @@ As chamadas ao serviço exigem um ponto de extremidade de URL e uma chave de ace
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
-2. Em **Configurações** > **Chaves** , obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    Crie também uma chave de consulta. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
@@ -63,22 +63,22 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Abra o IntelliJ IDEA e selecione **Criar Novo Projeto** .
-1. Selecione **Maven** .
-1. Na lista **SDK do Projeto** , selecione o SDK 11 do Java.
+1. Abra o IntelliJ IDEA e selecione **Criar Novo Projeto**.
+1. Selecione **Maven**.
+1. Na lista **SDK do Projeto**, selecione o SDK 11 do Java.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Criar um projeto Maven" border="false":::
 
-1. Para **GroupId** e **ArtifactId** , insira `AzureSearchQuickstart`.
+1. Para **GroupId** e **ArtifactId**, insira `AzureSearchQuickstart`.
 1. Aceite os padrões restantes para abrir o projeto.
 
 ### <a name="specify-maven-dependencies"></a>Especificar as dependências do Maven
 
-1. Selecione **Arquivo** > **Configurações** .
-1. Na janela **Configurações** , selecione **Build, Execução, Implantação** > **Ferramentas de Build** > **Maven** > **Importando** .
+1. Selecione **Arquivo** > **Configurações**.
+1. Na janela **Configurações**, selecione **Build, Execução, Implantação** > **Ferramentas de Build** > **Maven** > **Importando**.
 1. Marque a caixa de seleção **Importar projetos Maven automaticamente** e clique em **OK** para fechar a janela. Agora, os plug-ins e outras dependências do Maven serão sincronizados automaticamente quando você atualizar o arquivo pom.xml na etapa seguinte.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Configuração das opções de importação do Maven no IntelliJ" border="false":::
 
 1. Abra o arquivo pom.xml e substitua o conteúdo pelos seguintes detalhes de configuração do Maven. Isso inclui referências ao [Plug-in Exec Maven](https://www.mojohaus.org/exec-maven-plugin/) e uma [API de interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -133,20 +133,20 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 
 ### <a name="set-up-the-project-structure"></a>Configurar a estrutura do projeto
 
-1. Selecione **Arquivo** > **Estrutura do Projeto** .
+1. Selecione **Arquivo** > **Estrutura do Projeto**.
 1. Selecione **Módulos** e expanda a árvore de origem para acessar o conteúdo da pasta `src` >  `main`.
 1. Na pasta `src` >  `main` > `java`, adicione as pastas `app` e `service`. Para fazer isso, selecione a pasta `java`, pressione Alt + Insert e, em seguida, insira o nome da pasta.
 1. Na pasta `src` >  `main` >`resources`, adicione as pastas `app` e `service`.
 
     Quando você terminar, a árvore do projeto deverá ser semelhante à imagem a seguir.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Estrutura de diretórios do projeto" border="false":::
 
 1. Clique em **OK** para fechar a janela.
 
 ### <a name="add-azure-cognitive-search-service-information"></a>Adicionar informações de serviço da Pesquisa Cognitiva do Azure
 
-1. Na janela **Projeto** , expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `app` e adicione um arquivo `config.properties`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
+1. Na janela **Projeto**, expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `app` e adicione um arquivo `config.properties`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
 
 1. Copie as configurações a seguir no novo arquivo e substitua `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` e `<YOUR-QUERY-KEY>` pelo nome do serviço e pelas chaves. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será `"mydemo"`.
 
@@ -373,10 +373,10 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 
 1. Verifique se o projeto tem a seguinte estrutura.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Estrutura de diretório do projeto e classes" border="false":::
 
 1. Abra a janela de ferramentas do **Maven** e execute esta meta do Maven: `verify exec:java`
-:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
+:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute a meta do Maven: verify exec:java" border="false":::
 
 Quando o processamento for concluído, procure uma mensagem de SUCESSO NO BUILD seguida de um código de saída igual a zero (0).
 
@@ -384,7 +384,7 @@ Quando o processamento for concluído, procure uma mensagem de SUCESSO NO BUILD 
 
 A definição do índice de hotéis contém campos simples e um campo complexo. Exemplos de um campo simples são "Nome do hotel" ou "Descrição". O campo "Endereço" é um campo complexo porque tem subcampos, como "Rua" e "Cidade". Neste guia de início rápido, a definição do índice é especificada usando JSON.
 
-1. Na janela **Projeto** , expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `service` e adicione um arquivo `index.json`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
+1. Na janela **Projeto**, expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `service` e adicione um arquivo `index.json`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
 
 1. Abra o arquivo `index.json` e insira a seguinte definição de índice.
 
@@ -571,7 +571,7 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
     
 ## <a name="2---load-documents"></a>2 - Carregar documentos
 
-1. Na janela **Projeto** , expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `service` e adicione um arquivo `hotels.json`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
+1. Na janela **Projeto**, expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `service` e adicione um arquivo `hotels.json`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
 1. Insira os seguintes documentos de hotel no arquivo.
 
     ```json

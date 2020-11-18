@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261402"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683005"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Início Rápido: Carregar, codificar e transmitir o conteúdo com o portal
 
@@ -54,7 +54,7 @@ Este início rápido mostra como usar o portal do Azure para carregar, codificar
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Criar uma conta dos Serviços de Mídia](create-account-howto.md#use-the-azure-portal)
+[Criar uma conta dos Serviços de Mídia](create-account-howto.md)
 
 ## <a name="upload"></a>Carregar
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172046"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659379"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Início Rápido: Criar um workspace do Azure Synapse com a CLI do Azure
 
@@ -22,7 +22,7 @@ A CLI do Azure é a experiência de linha de comando do Azure para gerenciar rec
 
 Neste guia de início rápido, você aprenderá a criar um workspace do Synapse usando a CLI do Azure.
 
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,28 +32,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de c
     > [!IMPORTANT]
     > O workspace do Azure Synapse precisa conseguir fazer leituras e gravações na conta do ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento vinculada como a conta de armazenamento primária, você precisa ter habilitado **namespace hierárquico** na criação da conta de armazenamento, conforme descrito na página [Criar uma Conta de Armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>Instalar a CLI do Azure localmente
-
-Se você optar por instalar e usar a CLI do Azure localmente, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Se você estiver executando a CLI do Azure localmente, precisará fazer logon e se autenticar. Esta etapa não será necessária se você estiver usando o Azure Cloud Shell. Para fazer logon na CLI do Azure, execute `az login` e autentique-se na janela do navegador:
-
-```azurecli
-az login
-```
-
-Para obter mais informações sobre a autenticação com a CLI do Azure, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Instalar a extensão do Azure Synapse para a CLI do Azure
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> A extensão do Azure Synapse para CLI do Azure está em versão prévia.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Criar um workspace do Azure Synapse usando a CLI do Azure
 

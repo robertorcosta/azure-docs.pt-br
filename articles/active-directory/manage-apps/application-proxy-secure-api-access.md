@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e38d8261bf141248fd143f27c74e0761e54f73f9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eaa4a8f92809dcf44969958573231ad37d908daa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649323"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835690"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro a APIs locais com o Azure Proxy de Aplicativo do AD
 
@@ -36,7 +36,7 @@ O diagrama a seguir mostra como você pode usar o Azure Proxy de Aplicativo do A
 
 O Proxy de Aplicativo do AD do Azure forma o backbone da solução, trabalhando como um ponto de extremidade público para acesso à API e fornecendo autenticação e autorização. Você pode acessar suas APIs de uma vasta gama de plataformas usando as bibliotecas [MSAL (biblioteca de autenticação da Microsoft)](../azuread-dev/active-directory-authentication-libraries.md) .
 
-Como a autenticação e a autorização do Azure Proxy de Aplicativo do AD são criadas com base no Azure AD, você pode usar o acesso condicional do Azure AD para garantir que somente dispositivos confiáveis possam acessar APIs publicadas por meio do proxy de aplicativo. Use o ingresso no Azure AD ou o Azure AD híbrido Unido para desktops e o Intune gerenciado para dispositivos. Você também pode aproveitar Azure Active Directory Premium recursos como a autenticação multifator do Azure e a segurança com suporte do Machine Learning da [proteção de identidade do Azure](../identity-protection/overview-identity-protection.md).
+Como a autenticação e a autorização do Azure Proxy de Aplicativo do AD são criadas com base no Azure AD, você pode usar o acesso condicional do Azure AD para garantir que somente dispositivos confiáveis possam acessar APIs publicadas por meio do proxy de aplicativo. Use o ingresso no Azure AD ou o Azure AD híbrido Unido para desktops e o Intune gerenciado para dispositivos. Você também pode aproveitar os recursos Azure Active Directory Premium como a autenticação multifator do Azure AD e a segurança com suporte do Machine Learning da [proteção de identidade do Azure](../identity-protection/overview-identity-protection.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
