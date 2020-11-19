@@ -3,12 +3,12 @@ title: Como habilitar o recurso de solução do Azure VMware
 description: Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: c9c31d8ffbf62a511f4f2ab19f995b6bc0ee0ca4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695139"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888429"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como habilitar o recurso da solução Azure VMware
 Saiba como enviar uma solicitação de suporte para habilitar o recurso de [solução do Azure VMware](introduction.md) . Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
@@ -78,7 +78,7 @@ Os CSPs devem usar [o Microsoft Partner Center](https://partner.microsoft.com) p
 
 1. Examine e conclua a configuração geral da assinatura do plano do Azure para seu cliente. Para obter mais informações, consulte a [documentação do Microsoft Partner Center](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-Depois de configurar o plano do Azure e as permissões de RBAC necessárias estiverem em vigor como um CSP, você entrará em contato com a Microsoft para habilitar a cota de uma assinatura do plano do Azure. Acesse portal do Azure do Partner Center usando o procedimento **admin em nome do** (Aobo).
+Depois de configurar o plano do Azure e as permissões de RBAC vSphere necessárias estiverem em vigor como um CSP, você entrará em contato com a Microsoft para habilitar a cota de uma assinatura do plano do Azure. Acesse portal do Azure do Partner Center usando o procedimento **admin em nome do** (Aobo).
 
 1. Entre no [Partner Center](https://partner.microsoft.com).
 

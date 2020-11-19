@@ -2,14 +2,14 @@
 title: Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 description: Os pools de imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745527"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888344"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -40,7 +40,7 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 
 - **Uma conta do Lote do Azure.** Para criar uma conta do Lote, confira os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-- **Uma imagem da Galeria de Imagens Compartilhadas** . Para criar uma imagem compartilhada, você precisa ter ou criar um recurso de imagem gerenciada. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados.
+- **Uma imagem da Galeria de Imagens Compartilhadas**. Para criar uma imagem compartilhada, você precisa ter ou criar um recurso de imagem gerenciada. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados.
 
 > [!NOTE]
 > Se a imagem compartilhada não estiver na mesma assinatura que a conta do lote, você deverá [registrar o provedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para essa assinatura. As duas assinaturas devem estar no mesmo locatário do Azure AD.
@@ -208,9 +208,9 @@ Usar as etapas a seguir para criar um pool de uma imagem compartilhada no portal
 1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Vá para **Contas do Lote** e selecione sua conta.
 1. Selecione **Pools** e, em seguida, **Adicionar** para criar um pool.
-1. Na seção **Tipo de Imagem** , selecione **Galeria de Imagens Compartilhadas** .
+1. Na seção **Tipo de Imagem**, selecione **Galeria de Imagens Compartilhadas**.
 1. Conclua as seções restantes com informações sobre sua imagem gerenciada.
-1. Selecione **OK** .
+1. Selecione **OK**.
 
 ![Crie um pool de uma imagem compartilhada com o portal.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +218,7 @@ Usar as etapas a seguir para criar um pool de uma imagem compartilhada no portal
 
 Se você planeja criar um pool com centenas ou milhares de VMs ou mais usando uma imagem compartilhada, use as diretrizes a seguir.
 
-- **Números de réplica da Galeria de Imagens Compartilhadas.**  Para cada pool com até 600 instâncias, recomendamos que você mantenha pelo menos uma réplica. Por exemplo, se você estiver criando um pool com 3000 VMs, deverá manter pelo menos cinco réplicas de sua imagem. Sempre sugerimos manter mais réplicas do que os requisitos mínimos para obter melhor desempenho.
+- **Números de réplica da Galeria de Imagens Compartilhadas.**  Para cada pool com até 300 instâncias, recomendamos que você mantenha pelo menos uma réplica. Por exemplo, se você estiver criando um pool com 3000 VMs, deverá manter pelo menos 10 réplicas da imagem. Sempre sugerimos manter mais réplicas do que os requisitos mínimos para obter melhor desempenho.
 
 - **Tempo limite de redimensionamento.** Se o pool contiver um número fixo de nós (se não tiver dimensionamento automático), aumente a propriedade `resizeTimeout` do pool, dependendo do tamanho do pool. Para cada 1000 VMs, o tempo limite de redimensionamento recomendado é de pelo menos 15 minutos. Por exemplo, o tempo limite de redimensionamento recomendado para um pool com 2000 VMs é de pelo menos 30 minutos.
 

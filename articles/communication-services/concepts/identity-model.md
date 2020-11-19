@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651236"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888701"
 ---
 # <a name="identity-model"></a>Modelo de identidade
 
@@ -63,7 +63,7 @@ Um token de acesso é sempre válido por 24 horas. Depois de expirar, o token de
 
 Uma identidade precisa de uma maneira de solicitar um novo token de acesso de um serviço do lado do servidor. O parâmetro *Scope* define um conjunto não vazio de primitivos que podem ser usados. Os serviços de comunicação do Azure dão suporte aos seguintes escopos para tokens de acesso.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |Chat|  Concede a capacidade de participar de um chat|
 |VoIP|  Concede a capacidade de chamar identidades e números de telefone|
@@ -83,6 +83,6 @@ Se você armazenar em cache tokens de acesso a um repositório de backup, recome
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução ao gerenciamento de tokens de acesso, consulte [criar e gerenciar tokens de acesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
-* Para obter uma introdução à autenticação, consulte [autenticar para os serviços de comunicação do Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* Para obter uma introdução à privacidade e à residência de dados, consulte [disponibilidade de região e residência de dados](https://docs.microsoft.com/azure/communication-services/concepts/privacy).
+* Para obter uma introdução ao gerenciamento de tokens de acesso, consulte [criar e gerenciar tokens de acesso](../quickstarts/access-tokens.md).
+* Para obter uma introdução à autenticação, consulte [autenticar para os serviços de comunicação do Azure](./authentication.md).
+* Para obter uma introdução à privacidade e à residência de dados, consulte [disponibilidade de região e residência de dados](./privacy.md).

@@ -3,12 +3,12 @@ title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como os assinantes podem definir quais mensagens desejam receber de um tópico especificando filtros.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04ae585c42f8acfbf338bf23befb32a5521fcf57
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066739"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889024"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
@@ -18,14 +18,14 @@ Cada assinatura de tópico recém-criada tem uma regra de assinatura padrão ini
 
 O Barramento de Serviço dá suporte a três condições de filtro:
 
--   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura.
+-   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura. Esses dois filtros derivam do filtro SQL. 
 
 -   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto de idiomas SQL para filtrar condições](service-bus-messaging-sql-filter.md) testa a existência de Propriedades ( `EXISTS` ), valores nulos ( `IS NULL` ), não lógicos e/ou operadores relacionais, aritmética de numérico simples e correspondência de padrão de texto simples com `LIKE` .
 
 -   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é fazer a correspondência com a propriedade **CorrelationId** , mas o aplicativo também pode optar por corresponder às seguintes propriedades:
 
     - **ContentType**
-     - **Chamada**
+     - **Rotular**
      - **MessageId**
      - **ReplyTo**
      - **ReplyToSessionId**
@@ -52,6 +52,75 @@ Os filtros e as ações permitem dois grupos de padrões adicionais: particionam
 O particionamento usa filtros para distribuir mensagens através de várias assinaturas de tópico existentes de maneira previsível e mutuamente exclusiva. O padrão de particionamento é usado quando um sistema é escalado horizontalmente para lidar com muitos contextos diferentes em compartimentos funcionalmente idênticos que mantêm um subconjunto dos dados dos gerais. Por exemplo, informações de perfil do cliente. Com o particionamento, um editor envia a mensagem em um tópico sem a necessidade de qualquer conhecimento do modelo de particionamento. Depois, a mensagem é movida para a assinatura correta da qual ela pode ser recuperada pelo manipulador de mensagens da partição.
 
 O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em aplicativos de linhas de negócios.
+
+## <a name="examples"></a>Exemplos
+
+### <a name="set-rule-action-for-a-sql-filter"></a>Definir ação de regra para um filtro SQL
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>Filtro SQL em uma propriedade do sistema
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>Usando ou 
+
+```csharp
+sys.Label LIKE '%bus%' OR user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>Usando IN e NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Para obter um exemplo em C# usando esses filtros, consulte o [tópico filtros de exemplo no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
+### <a name="correlation-filter-using-correlationid"></a>Filtro de correlação usando CorrelationId
+
+```csharp
+new CorrelationFilter("Contoso");
+```
+
+Ele filtra mensagens com `CorrelationID` definido como `Contoso` . 
+
+### <a name="correlation-filter-using-system-and-user-properties"></a>Filtro de correlação usando propriedades do sistema e do usuário
+
+```csharp
+var filter = new CorrelationFilter();
+filter.Label = "Important";
+filter.ReplyTo = "johndoe@contoso.com";
+filter.Properties["color"] = "Red";
+```
+
+É equivalente a: `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`
 
 
 > [!NOTE]

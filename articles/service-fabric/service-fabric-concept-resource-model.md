@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral do gerenciamento de um aplicat
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681679"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888820"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicativo Service Fabric
 
@@ -91,6 +91,7 @@ O aplicativo de exemplo contém [modelos de Azure Resource Manager](https://gith
 >
 >
 
+
 | Parâmetro              | Descrição                                 | Exemplo                                                      | Comentários                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | O nome do cluster no qual você está implantando | It-cluster123                                                |                                                              |
@@ -137,6 +138,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Atualizar o aplicativo Service Fabric usando o Gerenciador de recursos
+
+
+> [!IMPORTANT]
+> Qualquer serviço que está sendo implantado por meio da definição de JSON do ARM deve ser removido da seção DefaultServices do arquivo de ApplicationManifest.xml correspondente.
+
 
 Você pode atualizar um aplicativo que já está implantado em um Cluster Service Fabric por um destes motivos:
 

@@ -6,14 +6,14 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487901"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887137"
 ---
-# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planejada no banco de dados do Azure para PostgreSQL-servidor único
+# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planejada no Banco de Dados do Azure para PostgreSQL – Servidor Único
 
 Saiba como se preparar para eventos de manutenção planejada no banco de dados do Azure para PostgreSQL.
 
@@ -21,7 +21,7 @@ Saiba como se preparar para eventos de manutenção planejada no banco de dados 
 
 O serviço banco de dados do Azure para PostgreSQL executa aplicação de patch automatizada do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. O patch inclui novos recursos de serviço, segurança e atualizações de software. Para o mecanismo do PostgreSQL, as atualizações de versão secundária são automáticas e incluídas como parte do ciclo de aplicação de patch. Não há nenhuma ação do usuário nem definições de configuração necessárias para a aplicação de patch. O patch é testado extensivamente e distribuído usando práticas de implantação seguras.
 
-Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização do serviço é implantada na região do Azure que hospeda seus servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção 72 horas de antecedência.
+Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização de serviço é implantada na região do Azure que hospeda os servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção com 72 horas de antecedência.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada-duração e impacto sobre o cliente
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como uma falha transitória, é um erro 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para PostgreSQL, envie um email para a equipe do banco de dados do Azure para PostgreSQL em *AskAzureDBforMySQL@service.microsoft.com* .
+- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para PostgreSQL, envie um email para a equipe do banco de dados do Azure para PostgreSQL em *AskAzureDBforPostgreSQL@service.microsoft.com* .
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - [Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único](howto-troubleshoot-common-connection-issues.md)
 - [Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para PostgreSQL-servidor único](concepts-connectivity.md)

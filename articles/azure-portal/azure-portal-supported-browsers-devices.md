@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 11/18/2020
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d48add78eb73ba1aea248e95ddc5ebc0900ee000
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090203"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888327"
 ---
 # <a name="supported-devices"></a>Dispositivos com suporte
 
@@ -33,7 +33,7 @@ Se você precisar gerenciar recursos do Azure de um dispositivo móvel, tente a 
 É recomendável que você use o navegador mais atualizado compatível com o sistema operacional. Há suporte para os seguintes navegadores:
 
 * Microsoft Edge (última versão)
-* Internet Explorer 11
+* Internet Explorer 11 (com suporte até 31 de março de 2021)
 * Safari (última versão, apenas Mac)
 * Chrome (última versão)
 * Firefox (última versão)

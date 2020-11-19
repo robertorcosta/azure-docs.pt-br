@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874705"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888412"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -218,7 +218,7 @@ Você terá privilégios de grupo do CloudAdmin. Confira mais informações em [
 
 #### <a name="what-privileges-and-permissions-will-i-have-on-the-nsx-t-manager"></a>Quais privilégios e permissões eu terei no NSX-T Manager?
 
-Você terá privilégios totais de administrador no NSX-T e poderá gerenciar o controle de acesso baseado em função da mesma maneira que faria com o Data Center do NSX-T local. Confira mais informações em [Conceitos de acesso e identidade](concepts-identity.md).
+Você terá privilégios totais de administrador no NSX-T e poderá gerenciar o controle de acesso baseado em função vSphere como faria com o Data Center do NSX-T local. Confira mais informações em [Conceitos de acesso e identidade](concepts-identity.md).
 
 > [!NOTE]
 > Um roteador T0 é criado e configurado como parte de uma implantação de nuvem privada. Toda modificação no roteador lógico ou nas VMs do nó de borda do NSX-T pode afetar a conectividade com sua nuvem privada.
