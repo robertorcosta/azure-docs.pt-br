@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069748"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919668"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -86,6 +86,9 @@ Ao definir `enabled = off` o provisionamento ou ao pressionar parar, o ciclo de 
 
 Quando um grupo estiver no escopo e um membro estiver fora do escopo, o grupo será provisionado. O usuário fora do escopo não será provisionado. Se o membro voltar ao escopo, o serviço não detectará imediatamente a alteração. Reiniciar o provisionamento abordará o problema. É recomendável reiniciar o serviço periodicamente para garantir que todos os usuários sejam provisionados corretamente.  
 
+**O Gerenciador não está provisionado**
+
+Se um usuário e seu gerente estiverem no escopo do provisionamento, o serviço provisionará o usuário e, em seguida, atualizará o Gerenciador. No entanto, se no dia um usuário estiver no escopo e o Gerenciador estiver fora do escopo, provisionaremos o usuário sem a referência do Gerenciador. Quando o gerente chega ao escopo, a referência do Gerenciador não será atualizada até que você reinicie o provisionamento e faça com que o serviço reavalie todos os usuários novamente. 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Como funciona o provisionamento](how-provisioning-works.md)

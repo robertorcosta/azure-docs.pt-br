@@ -3,12 +3,12 @@ title: Cria políticas de maneira programática
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy com a CLI do Azure, o Azure PowerShell e a API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491793"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920008"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -88,7 +88,7 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
    Substitua _ContosoRG_ pelo nome do grupo de recursos desejado.
 
    O parâmetro **scope** em `New-AzPolicyAssignment` funciona com grupos de gerenciamento, assinaturas, grupos de recursos ou com um recurso único. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente.
-   `{rType}` deve ser substituído pelo **tipo de recurso** , como `Microsoft.Compute/virtualMachines` para uma VM.
+   `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
 
    - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos – `/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -203,7 +203,7 @@ Para criar uma definição de política, use o procedimento a seguir:
    ```
 
    O comando cria uma definição de política denominada _Auditar Contas de Armazenamento Abertas para Redes Públicas_.
-   Para saber mais sobre outros parâmetros que você pode usar, confira [Criar definição de política do az](/cli/azure/policy/definition#az-policy-definition-create).
+   Para saber mais sobre outros parâmetros que você pode usar, confira [Criar definição de política do az](/cli/azure/policy/definition#az_policy_definition_create).
 
    Quando chamado sem parâmetros de local, `az policy definition creation` é padronizado para salvar a definição de política na assinatura selecionada do contexto de sessões. Para salvar a definição para um local diferente, use os seguintes parâmetros:
 
@@ -216,7 +216,7 @@ Para criar uma definição de política, use o procedimento a seguir:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   O parâmetro **scope** em `az policy assignment create` funciona com grupos de gerenciamento, assinaturas, grupos de recursos ou com um recurso único. O parâmetro usa um caminho de recurso completo. O padrão para **scope** em cada contêiner é descrito a seguir. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{rType}` deve ser substituído pelo **tipo de recurso** , como `Microsoft.Compute/virtualMachines` para uma VM.
+   O parâmetro **scope** em `az policy assignment create` funciona com grupos de gerenciamento, assinaturas, grupos de recursos ou com um recurso único. O parâmetro usa um caminho de recurso completo. O padrão para **scope** em cada contêiner é descrito a seguir. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
 
    - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos – `/subscriptions/{subID}/resourceGroups/{rgName}`

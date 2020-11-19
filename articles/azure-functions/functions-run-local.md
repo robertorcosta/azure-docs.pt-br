@@ -1,16 +1,16 @@
 ---
 title: Trabalhar com o Azure Functions Core Tools
-description: Saiba como codificar e testar o Azure Functions do prompt de comando ou terminal no computador local antes de executá-las no Azure Functions.
+description: Saiba como codificar e testar Azure Functions no prompt de comando ou terminal no computador local antes de executá-los em Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 78c6e4dffb35980b73fbc09bdc07d55215e659ae
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3cf495ca0687e6fa37f619615fb1529659a462dc
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422579"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920212"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Há três versões do Azure Functions Core Tools. A versão usada depende do seu
 
 + A [**versão 3. x/2. x**](#v2): oferece suporte à [versão 3. x ou 2. x do tempo de execução de Azure Functions](functions-versions.md). Essas versões dão suporte ao [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)e [Linux](?tabs=linux#v2) e usam gerenciadores de pacotes específicos da plataforma ou NPM para instalação.
 
-+ **Versão 1. x** : dá suporte à versão 1. x do tempo de execução de Azure functions. Esta versão das ferramentas só tem suporte em computadores Windows e é instalada por meio de um [pacote npm](https://www.npmjs.com/package/azure-functions-core-tools).
++ **Versão 1. x**: dá suporte à versão 1. x do tempo de execução de Azure functions. Esta versão das ferramentas só tem suporte em computadores Windows e é instalada por meio de um [pacote npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
 Você só pode instalar uma versão das ferramentas principais em um determinado computador. Salvo indicação em contrário, os exemplos neste artigo são para a versão 3. x.
 
@@ -253,7 +253,7 @@ Mesmo ao usar o Emulador de Armazenamento do Microsoft Azure para desenvolviment
   Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações** e, em seguida, copie um dos valores da cadeia de **conexão** .
   ![Copiar cadeia de conexão do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Use o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para conectar-se à sua conta do Azure. No **Gerenciador** , expanda sua assinatura, expanda **contas de armazenamento** , selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
+- Use o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para conectar-se à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, expanda **contas de armazenamento**, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
 
   ![Copiar cadeia de conexão do Gerenciador de Armazenamento](./media/functions-run-local/storage-explorer.png)
 
@@ -312,9 +312,9 @@ Você também pode especificar essas opções no comando usando os seguintes arg
 | Argumento     | Descrição                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2. x e versões posteriores.) Gera os mesmos modelos de script C# (. CSX) usados na versão 1. x e no Portal. |
-| **`--language`** , **`-l`**| A linguagem de programação modelo, como C#, F# ou JavaScript. Essa opção é necessária na versão 1.x. Na versão 2. x e versões posteriores, não use essa opção ou escolha um idioma que corresponda ao tempo de execução do trabalho. |
-| **`--name`** , **`-n`** | O nome da função. |
-| **`--template`** , **`-t`** | Use o `func templates list` comando para ver a lista completa de modelos disponíveis para cada idioma com suporte.   |
+| **`--language`**, **`-l`**| A linguagem de programação modelo, como C#, F# ou JavaScript. Essa opção é necessária na versão 1.x. Na versão 2. x e versões posteriores, não use essa opção ou escolha um idioma que corresponda ao tempo de execução do trabalho. |
+| **`--name`**, **`-n`** | O nome da função. |
+| **`--template`**, **`-t`** | Use o `func templates list` comando para ver a lista completa de modelos disponíveis para cada idioma com suporte.   |
 
 
 Por exemplo, para criar um gatilho de HTTP de JavaScript em um único comando, execute:
@@ -385,10 +385,10 @@ npm start
 | **`--language-worker`** | Argumentos para configurar o trabalhador de idioma. Por exemplo, você pode habilitar a depuração para o trabalho de idioma fornecendo a [porta de depuração e outros argumentos necessários](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Sem suporte para a versão 1. x. |
 | **`--cert`** | O caminho para um arquivo .pfx que contém uma chave privada. Usado somente com `--useHttps`. Sem suporte para a versão 1. x. |
 | **`--password`** | A senha ou um arquivo que contém a senha para um arquivo .pfx. Usado somente com `--cert`. Sem suporte para a versão 1. x. |
-| **`--port`** , **`-p`** | A porta local na qual escutar. Valor Padrão: 7071. |
+| **`--port`**, **`-p`** | A porta local na qual escutar. Valor Padrão: 7071. |
 | **`--pause-on-error`** | Pausar para entrada adicional antes de encerrar o processo. Usado apenas ao iniciar as Core Tools de um IDE (ambiente de desenvolvimento integrado).|
-| **`--script-root`** , **`--prefix`** | Usado para especificar o caminho para a raiz do aplicativo de funções que deve ser executado ou implantado. Usado para projetos compilados que geram arquivos de projeto para uma subpasta. Por exemplo, quando você cria um projeto de biblioteca de classes C#, os arquivos host.json, local.settings.json e function.json são gerados em uma subpasta *raiz* com um caminho como `MyProject/bin/Debug/netstandard2.0`. Nesse caso, defina o prefixo como `--script-root MyProject/bin/Debug/netstandard2.0`. Essa é a raiz do aplicativo de funções durante a execução no Azure. |
-| **`--timeout`** , **`-t`** | O tempo limite para o host de funções ser iniciado, em segundos. Padrão: 20 segundos.|
+| **`--script-root`**, **`--prefix`** | Usado para especificar o caminho para a raiz do aplicativo de funções que deve ser executado ou implantado. Usado para projetos compilados que geram arquivos de projeto para uma subpasta. Por exemplo, quando você cria um projeto de biblioteca de classes C#, os arquivos host.json, local.settings.json e function.json são gerados em uma subpasta *raiz* com um caminho como `MyProject/bin/Debug/netstandard2.0`. Nesse caso, defina o prefixo como `--script-root MyProject/bin/Debug/netstandard2.0`. Essa é a raiz do aplicativo de funções durante a execução no Azure. |
+| **`--timeout`**, **`-t`** | O tempo limite para o host de funções ser iniciado, em segundos. Padrão: 20 segundos.|
 | **`--useHttps`** | Associar a `https://localhost:{port}` em vez de `http://localhost:{port}`. Por padrão, essa opção cria um certificado confiável no computador.|
 
 Quando o host de funções é iniciado, ele gera as funções acionadas por URL de HTTP:
@@ -488,10 +488,10 @@ Na versão 1. x, você também pode invocar uma função diretamente usando `fun
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`--content`** , **`-c`** | Conteúdo embutido. |
-| **`--debug`** , **`-d`** | Anexe um depurador ao processo de host antes de executar a função.|
-| **`--timeout`** , **`-t`** | Tempo de espera (em segundos) até que o host local de funções esteja pronto.|
-| **`--file`** , **`-f`** | O nome do arquivo a ser usado como conteúdo.|
+| **`--content`**, **`-c`** | Conteúdo embutido. |
+| **`--debug`**, **`-d`** | Anexe um depurador ao processo de host antes de executar a função.|
+| **`--timeout`**, **`-t`** | Tempo de espera (em segundos) até que o host local de funções esteja pronto.|
+| **`--file`**, **`-f`** | O nome do arquivo a ser usado como conteúdo.|
 | **`--no-interactive`** | Não solicitará a entrada. Útil para cenários de automação.|
 
 Por exemplo, para chamar uma função ativada por HTTP e passar o corpo do conteúdo, execute o seguinte comando:
@@ -537,12 +537,12 @@ As opções de publicação a seguir têm suporte apenas para a versão 2. x e v
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only`** , **`-o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
+| **`--publish-settings-only`**, **`-o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
 |**`--list-ignored-files`** | Exibe uma lista de arquivos que são ignorados durante a publicação, que é baseada no arquivo .funcignore. |
 | **`--list-included-files`** | Exibe uma lista de arquivos que são publicados, que é baseada no arquivo .funcignore. |
 | **`--nozip`** | Transforma o padrão de `Run-From-Package` modo desativado. |
 | **`--build-native-deps`** | Ignora a geração da pasta. Wheels ao publicar aplicativos de funções do Python. |
-| **`--build`** , **`-b`** | Executa a ação de compilação ao implantar em um aplicativo de funções do Linux. Aceita: `remote` e `local` . |
+| **`--build`**, **`-b`** | Executa a ação de compilação ao implantar em um aplicativo de funções do Linux. Aceita: `remote` e `local` . |
 | **`--additional-packages`** | Lista de pacotes para instalar ao compilar dependências nativas. Por exemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorar a verificação de pré-publicação em determinados cenários. |
 | **`--csx`** | Publicar um projeto de script (.csx) C#. |
@@ -593,7 +593,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal do Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

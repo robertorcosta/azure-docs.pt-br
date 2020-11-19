@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887426"
+ms.locfileid: "94920518"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notificação de manutenção planejada no banco de dados do Azure para MariaDB
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como uma falha transitória, é um erro 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MariaDB, envie um email para a equipe do banco de dados do Azure para MariaDB em **AskAzureDBforMariaDB@service.microsoft.com**
+- Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MariaDB, envie um email para a equipe do banco de dados do Azure para MariaDB em AskAzureDBforMariaDB@service.microsoft.com
 - Consulte [Como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - [Solucione problemas de conexão com o Banco de Dados do Azure para MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MariaDB](concepts-connectivity.md)

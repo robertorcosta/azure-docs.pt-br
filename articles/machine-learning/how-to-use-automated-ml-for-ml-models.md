@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536244"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919634"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 
@@ -91,7 +91,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
         Selecione **Avançar**.
 1. Selecione seu conjunto de dados recém-criado assim que ele aparecer. Você também pode exibir uma versão prévia do conjunto de dados e das estatísticas de amostra. 
 
-1. No formulário **Configurar execução** , insira um nome exclusivo para o experimento.
+1. No formulário **Configurar execução**, insira um nome exclusivo para o experimento.
 
 1. Selecione uma coluna de destino, a qual representa a coluna na qual você gostaria de fazer previsões.
 
@@ -115,9 +115,9 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
     Selecione **Avançar**.
 
-1. No formulário **Tipo de tarefa e configurações** , selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [tipos de tarefas com suporte](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
+1. No formulário **Tipo de tarefa e configurações**, selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [tipos de tarefas com suporte](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
-    1. Para **classificação** , você também pode habilitar o aprendizado profundo.
+    1. Para **classificação**, você também pode habilitar o aprendizado profundo.
     
         Se o aprendizado profundo estiver habilitado, a validação será limitada à _divisão de train_validation_. [Saiba mais sobre as opções de validação](how-to-configure-cross-validation-data-splits.md).
 
@@ -126,9 +126,9 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     
         1. Habilite o aprendizado profundo.
     
-        1. Selecionar *coluna de tempo* : esta coluna contém os dados de hora a serem usados.
+        1. Selecionar *coluna de tempo*: esta coluna contém os dados de hora a serem usados.
 
-        1. Selecione *previsão horizonte* : indica quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for usado para fazer previsões do futuro, menos preciso ele será. [Saiba mais sobre previsão e horizonte de previsão](how-to-auto-train-forecast.md).
+        1. Selecione *previsão horizonte*: indica quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for usado para fazer previsões do futuro, menos preciso ele será. [Saiba mais sobre previsão e horizonte de previsão](how-to-auto-train-forecast.md).
 
 1. (Opcional) Exibir definições de configuração adicionais: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento. 
 
@@ -137,9 +137,9 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#primary-metric).
     Explicar o melhor modelo | Selecione para habilitar ou desabilitar o para mostrar explicações para o melhor modelo recomendado. <br> Essa funcionalidade não está disponível atualmente para [determinados algoritmos de previsão](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento. <br><br> A permissão de algoritmos só está disponível para [experimentos do SDK](how-to-configure-auto-train.md#supported-models). <br> Consulte os [modelos com suporte para cada tipo de tarefa](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
-    Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica* :  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.
+    Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica*:  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. <br> [Saiba mais sobre a validação cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>A previsão só dá suporte à validação cruzada de k-fold.
-    Simultaneidade| *Máximo de iterações simultâneas* : número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais vezes do que o número de iterações especificado.
+    Simultaneidade| *Máximo de iterações simultâneas*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais vezes do que o número de iterações especificado. Saiba mais sobre como o ML automatizado executa [várias execuções filhas em clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. Adicional Exibir configurações de personalização: se você optar por habilitar o **personalização automático** no formulário de **definições de configuração adicional, as** técnicas padrão do personalização serão aplicadas. Em **exibir configurações de personalização** , você pode alterar esses padrões e personalizá-los adequadamente. Saiba como [Personalizar o featurizations](#customize-featurization). 
 
@@ -161,7 +161,7 @@ Imputar com| Selecione o valor com o qual imputar valores ausentes em seus dados
 
 ## <a name="run-experiment-and-view-results"></a>Executar o experimento e exibir os resultados
 
-Selecione **Concluir** , para executar o experimento. O processo de preparação do experimento pode levar até 10 minutos. Os trabalhos de treinamento podem levar mais 2 a 3 minutos para que cada pipeline termine a execução.
+Selecione **Concluir**, para executar o experimento. O processo de preparação do experimento pode levar até 10 minutos. Os trabalhos de treinamento podem levar mais 2 a 3 minutos para que cada pipeline termine a execução.
 
 > [!NOTE]
 > Os algoritmos Automated ML empregam uma randomização inerente que pode causar uma pequena variação em uma pontuação de métricas final de modelos recomendados, como precisão. O ML automatizado também realiza operações em dados como o Train-Test Split, a divisão de treinamento ou a validação cruzada quando necessário. Portanto, se você executar um experimento com as mesmas definições de configuração e métrica primária várias vezes, provavelmente verá variação em cada experimento a pontuação de métricas finais devido a esses fatores. 

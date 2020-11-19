@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286883"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920433"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -46,7 +46,7 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 **Etapa 3** - Um administrador de Contoso, junto com um funcionário da Contoso (usuário do Key Vault) que possui certificados, dependendo da autoridade de certificação, pode obter um certificado com o administrador ou diretamente a partir da conta com a autoridade de certificação.  
 
 - Inicie uma operação de inclusão de credenciais em um cofre de chaves, definindo [um recurso de emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Um emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
-  - Ex.: MyDigiCertIssuer  
+  - Ex. MyDigiCertIssuer  
     -   Provedor  
     -   Credenciais – Credenciais da conta da autoridade de certificação. Cada autoridade de certificação tem seus próprios dados específicos.  
 
@@ -96,7 +96,7 @@ Key Vault serviço envia solicitações à CA (tráfego de saída). Portanto, el
 
 -   Se não houver nenhuma outra operação, a primeira coisa que o Key Vault é enviar uma notificação de expiração. 
 
--   Além disso, o usuário pode editar a política, que está funcionando no momento da importação, mas contém padrões onde nenhuma informação foi especificada durante a importação. Ex.: sem informações do emissor  
+-   Além disso, o usuário pode editar a política, que está funcionando no momento da importação, mas contém padrões onde nenhuma informação foi especificada durante a importação. Ex. sem informações do emissor  
 
 ### <a name="formats-of-import-we-support"></a>Formatos de importação para os quais damos suporte
 O Azure Key Vault dá suporte a arquivos de certificado. pem e. pfx para importar certificados para o Key Vault.
@@ -113,7 +113,6 @@ O AKV dá suporte a dois formatos baseados em PEM. Você pode mesclar um único 
 
 -----INICIAR CERTIFICADO----------FIM DO CERTIFICADO-----
 
-No momento, não há suporte para chaves do EC no formato PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criar um certificado com uma autoridade de certificação não parceira do Key Vault  
  Esse método permite trabalhar com outras autoridades de certificação diferentes dos provedores parceiros do Key Vault, o que significa que sua organização pode trabalhar com uma autoridade de certificação de sua escolha.  

@@ -3,12 +3,12 @@ title: Criar políticas para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição do Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 92339a6da4fd2061d66935cc8d04428c69822862
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323222"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920450"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criar políticas para propriedades de matriz em recursos do Azure
 
@@ -17,7 +17,7 @@ As propriedades do Azure Resource Manager são normalmente definidas como cadeia
 - O tipo de um [parâmetro de definição](../concepts/definition-structure.md#parameters), para fornecer várias opções
 - Parte de uma [regra de política](../concepts/definition-structure.md#policy-rule) usando as condições **in** ou **notIn**
 - Parte de uma regra de política que avalia o [alias \[\*\]](../concepts/definition-structure.md#understanding-the--alias) para avaliar:
-  - Cenários como **None** , **Any** ou **All**
+  - Cenários como **None**, **Any** ou **All**
   - Cenários complexos com **count**
 - No [efeito append](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
 
@@ -44,7 +44,7 @@ Essa definição de política permite qualquer local único para o parâmetro **
 }
 ```
 
-Como **type** era _string_ , apenas um valor pode ser definido ao atribuir a política. Se essa política for atribuída, os recursos no escopo só serão permitidos em uma região do Azure. A maioria das definições de política precisa permitir uma lista de opções aprovadas, como permitir _eastus2_ , _eastus_ e _westus2_.
+Como **type** era _string_, apenas um valor pode ser definido ao atribuir a política. Se essa política for atribuída, os recursos no escopo só serão permitidos em uma região do Azure. A maioria das definições de política precisa permitir uma lista de opções aprovadas, como permitir _eastus2_, _eastus_ e _westus2_.
 
 Para criar a definição de política para permitir várias opções, use o **type** _array_. A mesma política pode ser reescrita da seguinte maneira:
 
@@ -75,7 +75,7 @@ Essa nova definição de parâmetro usa mais de um valor durante a atribuição 
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passar valores para uma matriz de parâmetros durante a atribuição
 
-Ao atribuir a política por meio do portal do Azure, um parâmetro de **type** _array_ é exibido como uma caixa de texto. A dica diz "Use ; para separar valores. (por exemplo, Londres; Nova York)". Para passar os valores de local permitidos de _eastus2_ , _eastus_ e _westus2_ para o parâmetro, use a seguinte cadeia de caracteres:
+Ao atribuir a política por meio do portal do Azure, um parâmetro de **type** _array_ é exibido como uma caixa de texto. A dica diz "Use ; para separar valores. (por exemplo, Londres; Nova York)". Para passar os valores de local permitidos de _eastus2_, _eastus_ e _westus2_ para o parâmetro, use a seguinte cadeia de caracteres:
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ O formato do valor do parâmetro é diferente ao usar CLI do Azure, o Azure Powe
 
 Para usar essa cadeia de caracteres com cada SDK, use os seguintes comandos:
 
-- CLI do Azure: Comando [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) com o parâmetro **params**
+- CLI do Azure: Comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) com o parâmetro **params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com o parâmetro **PolicyParameter**
 - API REST: Na operação [create](/rest/api/resources/policyassignments/create) _PUT_ como parte do corpo da solicitação, como o valor da propriedade **Properties.Parameters**
 
@@ -134,7 +134,7 @@ A tentativa de criar essa definição de política por meio do portal do Azure l
 
 - "A política '{GUID}' não pôde ser parametrizada devido a erros de validação. Verifique se os parâmetros da política estão definidos corretamente. A exceção interna 'O resultado da avaliação da expressão de linguagem [parameters('allowedLocations')]' é do tipo 'Array', o tipo esperado é 'String'.".
 
-O **type** esperado da condição `equals` é _string_. Como **allowedLocations** é definido como **type** _array_ , o mecanismo de política avalia a expressão de linguagem e gera o erro. Com a condição `in` e `notIn`, o mecanismo de política espera o **type** _array_ na expressão de linguagem. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
+O **type** esperado da condição `equals` é _string_. Como **allowedLocations** é definido como **type** _array_, o mecanismo de política avalia a expressão de linguagem e gera o erro. Com a condição `in` e `notIn`, o mecanismo de política espera o **type** _array_ na expressão de linguagem. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
 
 ## <a name="referencing-array-resource-properties"></a>Referenciando Propriedades de recurso de matriz
 
@@ -201,7 +201,7 @@ Com a `field()` função, o valor retornado é a matriz do conteúdo da solicita
 
 #### <a name="referencing-the-array-members-collection"></a>Referenciando a coleção de membros da matriz
 
-Os aliases que usam a `[*]` sintaxe representam uma **coleção de valores de propriedade selecionados de uma propriedade de matriz** , que é diferente de selecionar a própria propriedade de matriz. No caso do `Microsoft.Test/resourceType/stringArray[*]` , ele retorna uma coleção que tem todos os membros de `stringArray` . Como mencionado anteriormente, uma `field` condição verifica se todas as propriedades de recurso selecionadas atendem à condição. portanto, a condição a seguir será verdadeira somente se **todos** os membros de `stringArray` forem iguais a ' "valor" '.
+Os aliases que usam a `[*]` sintaxe representam uma **coleção de valores de propriedade selecionados de uma propriedade de matriz**, que é diferente de selecionar a própria propriedade de matriz. No caso do `Microsoft.Test/resourceType/stringArray[*]` , ele retorna uma coleção que tem todos os membros de `stringArray` . Como mencionado anteriormente, uma `field` condição verifica se todas as propriedades de recurso selecionadas atendem à condição. portanto, a condição a seguir será verdadeira somente se **todos** os membros de `stringArray` forem iguais a ' "valor" '.
 
 ```json
 {
@@ -311,7 +311,7 @@ Esse comportamento também funciona com matrizes aninhadas. Por exemplo, a expre
 }
 ```
 
-A potência do `count` está na `where` condição. Quando especificado, Azure Policy enumera os membros da matriz e avalia cada um em relação à condição, contando quantos membros de matriz foram avaliados `true` . Especificamente, em cada iteração da `where` avaliação da condição, Azure Policy seleciona um único membro da matriz * **i** _ e avaliamos o conteúdo do recurso com a `where` condição _* como se * *_eu_*_ fosse o único membro do array_ *. Ter apenas um membro de matriz disponível em cada iteração fornece uma maneira de aplicar condições complexas em cada membro da matriz individual.
+A potência do `count` está na `where` condição. Quando especificado, Azure Policy enumera os membros da matriz e avalia cada um em relação à condição, contando quantos membros de matriz foram avaliados `true` . Especificamente, em cada iteração da `where` avaliação da condição, Azure Policy seleciona um único membro da matriz ***i** _ e avaliamos o conteúdo do recurso com a `where` condição _* como se **_eu_*_ fosse o único membro do array_ *. Ter apenas um membro de matriz disponível em cada iteração fornece uma maneira de aplicar condições complexas em cada membro da matriz individual.
 
 Exemplo:
 ```json

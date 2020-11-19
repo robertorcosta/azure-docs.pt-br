@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535326"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920365"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
 
@@ -69,7 +69,7 @@ Requisitos para dados de treinamento:
 - Os dados devem estar em formato de tabela.
 - O valor que você quer prever, coluna de destino, deve estar presente nos dados.
 
-**Para experimentos remotos** , os dados de treinamento devem ser acessíveis a partir da computação remota. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ao trabalhar em uma computação remota. 
+**Para experimentos remotos**, os dados de treinamento devem ser acessíveis a partir da computação remota. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ao trabalhar em uma computação remota. 
 
 Os conjuntos de dados do Azure Machine Learning expõem a funcionalidade para:
 
@@ -83,7 +83,7 @@ from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-**Para experimentos de computação local** , recomendamos o pandas dataframes para tempos de processamento mais rápidos.
+**Para experimentos de computação local**, recomendamos o pandas dataframes para tempos de processamento mais rápidos.
 
   ```python
   import pandas as pd
@@ -103,7 +103,7 @@ Se você não especificar explicitamente um `validation_data` parâmetro ou `n_c
 |&nbsp;Tamanho dos dados de treinamento &nbsp;| Técnica de validação |
 |---|-----|
 |**Mais &nbsp; de &nbsp; 20.000 &nbsp; linhas**| A divisão de dados de treinamento/validação é aplicada. O padrão é levar 10% do conjunto de dados de treinamento inicial como o conjunto de validação. Por sua vez, esse conjunto de validação é usado para cálculo de métricas.
-|**Menos &nbsp; de &nbsp; 20.000 &nbsp; linhas**| A abordagem de validação cruzada é aplicada. O número padrão de dobras depende do número de linhas. <br> **Se o conjunto de registros for menor que 1.000 linhas** , serão usadas 10 dobras. <br> **Se as linhas estiverem entre 1.000 e 20.000** , serão usadas três dobras.
+|**Menos &nbsp; de &nbsp; 20.000 &nbsp; linhas**| A abordagem de validação cruzada é aplicada. O número padrão de dobras depende do número de linhas. <br> **Se o conjunto de registros for menor que 1.000 linhas**, serão usadas 10 dobras. <br> **Se as linhas estiverem entre 1.000 e 20.000**, serão usadas três dobras.
 
 Neste momento, você precisa fornecer seus próprios dados de **teste** para avaliação do modelo. Para obter um exemplo de código de como trazer seus próprios dados de teste para avaliação de modelo, consulte a seção de **teste** deste [Notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
@@ -130,26 +130,24 @@ Alguns exemplos incluem:
 1. Experimento de classificação usando AUC ponderado como a métrica primária com tempo limite de experimento definido como 30 minutos e 2 dobras de validação cruzada.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. O exemplo a seguir é um experimento de regressão definido para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -261,12 +259,12 @@ Para alterar o comportamento padrão de Ensemble, há vários argumentos padrão
 > [!IMPORTANT]
 >  Os parâmetros a seguir não são parâmetros explícitos da classe AutoMLConfig. 
 
-* `ensemble_download_models_timeout_sec`: Durante **VotingEnsemble** e geração de modelo de **StackEnsemble** , vários modelos ajustados das execuções filho anteriores são baixados. Se você encontrar esse erro: `AutoMLEnsembleException: Could not find any models for running ensembling`, talvez seja necessário esperar mais para que os modelos sejam baixados. O valor padrão é 300 segundos para baixar esses modelos em paralelo e não o tempo limite máximo não é limitado. Configure esse parâmetro com um valor maior que 300 segundos, se for necessário mais tempo. 
+* `ensemble_download_models_timeout_sec`: Durante **VotingEnsemble** e geração de modelo de **StackEnsemble**, vários modelos ajustados das execuções filho anteriores são baixados. Se você encontrar esse erro: `AutoMLEnsembleException: Could not find any models for running ensembling`, talvez seja necessário esperar mais para que os modelos sejam baixados. O valor padrão é 300 segundos para baixar esses modelos em paralelo e não o tempo limite máximo não é limitado. Configure esse parâmetro com um valor maior que 300 segundos, se for necessário mais tempo. 
 
   > [!NOTE]
   >  Se o tempo limite for atingido e houver modelos baixados, o ensembling continuará com quantos modelos foram baixados. Não é necessário que todos os modelos sejam baixados para concluir dentro desse tempo limite.
 
-Os parâmetros a seguir se aplicam somente a modelos de **StackEnsemble** : 
+Os parâmetros a seguir se aplicam somente a modelos de **StackEnsemble**: 
 
 * `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogêneos individuais. Os meta-aprendizes padrão são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver habilitada) e `ElasticNet` para tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver habilitada). Esse parâmetro pode ser uma das seguintes cadeias de caracteres: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` ou `LinearRegression`.
 
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Critérios de saída
+
+Há algumas opções que você pode definir em seu AutoMLConfig para encerrar seu experimento.
+
+|Critérios| descrição
+|----|----
+Nenhum &nbsp; critério | Se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum outro progresso seja feito em sua métrica primária.
+Após &nbsp; um &nbsp; período &nbsp; de &nbsp; tempo| Use `experiment_timeout_minutes` em suas configurações para definir por quanto tempo, em minutos, seu experimento deve continuar a ser executado. <br><br> Para ajudar a evitar falhas de tempo limite de experimento, há um mínimo de 15 minutos ou 60 minutos se a linha por tamanho de coluna exceder 10 milhões.
+Uma &nbsp; Pontuação &nbsp; foi &nbsp; &nbsp; atingida| Usar `experiment_exit_score` concluirá o experimento depois que uma pontuação de métrica primária especificada for atingida.
+
 ## <a name="run-experiment"></a>Executar o experimento
 
 Para ML automatizado, você pode criar um objeto `Experiment`, que é um objeto nomeado em um `Workspace` usado para executar experimentos.
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >As dependências são instaladas pela primeira vez em um novo computador.  Pode levar até dez minutos antes da saída ser exibida.
 >Definir `show_output` como `True` faz a saída ser mostrada no console.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Várias execuções filhas em clusters
 
-### <a name="exit-criteria"></a>Critérios de saída
+Execuções filhas de teste ML automatizadas podem ser executadas em um cluster que já está executando outro experimento. No entanto, o tempo depende de quantos nós o cluster tem e se esses nós estão disponíveis para executar um experimento diferente.
 
-Há algumas opções que você pode definir para encerrar seu experimento.
+Cada nó no cluster atua como uma VM (máquina virtual) individual que pode realizar uma única execução de treinamento; para o ML automatizado, isso significa uma execução filho. Se todos os nós estiverem ocupados, o novo experimento será colocado na fila. Mas, se houver nós livres, o novo experimento executará o filho de ML automatizado em paralelo nos nós/VMs disponíveis.
 
-|Critérios| descrição
-|----|----
-Nenhum &nbsp; critério | Se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum outro progresso seja feito em sua métrica primária.
-Após &nbsp; um &nbsp; período &nbsp; de &nbsp; tempo| Use `experiment_timeout_minutes` em suas configurações para definir por quanto tempo, em minutos, seu experimento deve continuar a ser executado. <br><br> Para ajudar a evitar falhas de tempo limite de experimento, há um mínimo de 15 minutos ou 60 minutos se a linha por tamanho de coluna exceder 10 milhões.
-Uma &nbsp; Pontuação &nbsp; foi &nbsp; &nbsp; atingida| Usar `experiment_exit_score` concluirá o experimento depois que uma pontuação de métrica primária especificada for atingida.
+Para ajudar a gerenciar as execuções filhas e quando elas podem ser executadas, recomendamos que você crie um cluster dedicado por experimento e coincida com o número de `max_concurrent_iterations` seu experimento para o número de nós no cluster. Dessa forma, você usa todos os nós do cluster ao mesmo tempo com o número de execuções/iterações de filhos simultâneas desejadas.
+
+Configure  `max_concurrent_iterations` em seu `AutoMLConfig` objeto. Se não estiver configurado, por padrão, apenas uma execução/iteração filho simultânea é permitida por experimento.  
 
 ## <a name="explore-models-and-metrics"></a>Explorar modelos e métricas
 
@@ -348,7 +356,7 @@ Consulte [avaliar os resultados do experimento automatizado do Machine Learning]
 Para obter um resumo do personalização e entender quais recursos foram adicionados a um modelo específico, consulte [transparência do personalização](how-to-configure-auto-features.md#featurization-transparency). 
 
 > [!NOTE]
-> Os algoritmos Automated ML empregam uma randomização inerente que pode causar uma pequena variação em uma pontuação de métricas final de modelos recomendados, como precisão. O ML automatizado também realiza operações em dados como o Train-Test Split, a divisão de treinamento ou a validação cruzada quando necessário. Portanto, se você executar um experimento com as mesmas definições de configuração e métrica primária várias vezes, provavelmente verá variação em cada experimento a pontuação de métricas finais devido a esses fatores. 
+> Os algoritmos Automated ML empregam uma aleatoriedade inerente que pode causar uma pequena variação em uma pontuação de métrica final do modelo recomendado, como a precisão. O ML automatizado também realiza operações em dados como o Train-Test Split, a divisão de treinamento ou a validação cruzada quando necessário. Portanto, se você executar um experimento com as mesmas definições de configuração e métrica primária várias vezes, provavelmente verá variação em cada experimento a pontuação de métricas finais devido a esses fatores. 
 
 ## <a name="register-and-deploy-models"></a>Registrar e implantar modelos
 
