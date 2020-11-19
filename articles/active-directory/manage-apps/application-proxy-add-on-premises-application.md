@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240912"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656438"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -92,7 +92,7 @@ Para habilitar o TLS 1.2:
 Primeiro, habilite a comunicação com os datacenters do Azure para preparar o ambiente para o Proxy de Aplicativo do Azure AD. Se houver um firewall no caminho, verifique se ele está aberto. Com o firewall aberto, o conector pode enviar solicitações HTTPS (TCP) para o Proxy de Aplicativo.
 
 > [!IMPORTANT]
-> Se você estiver instalando o conector para a nuvem do Azure Governamental, siga os [pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e as [etapas de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Isso requer a habilitação do acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
+> Se você estiver instalando o conector para a nuvem do Azure Governamental, siga os [pré-requisitos](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e as [etapas de instalação](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Isso requer a habilitação do acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
 
 ### <a name="open-ports"></a>Abrir portas
 
@@ -202,7 +202,7 @@ Agora que você preparou seu ambiente e instalou um conector, está pronto para 
     | **Tempo Limite do Aplicativo Back-end** | Defina esse valor como **Longo** somente se o aplicativo estiver lento para se autenticar e se conectar. No padrão, o tempo limite do aplicativo de back-end tem uma duração de 85 segundos. Quando definido como longo, o tempo limite de back-end é aumentado para 180 segundos. |
     | **Usar Cookie Somente HTTP** | Defina esse valor como **Sim** para que os cookies do Proxy de Aplicativo incluam o sinalizador HTTPOnly no cabeçalho da resposta HTTP. Se estiver usando os Serviços de Área de Trabalho Remota, defina esse valor como **Não**.|
     | **Usar um Cookie Seguro**| Defina esse valor como **Sim** para transmitir cookies em um canal seguro, como uma solicitação HTTPS criptografada.
-    | **Usar cookie persistente**| Mantenha esse valor definido como **Não**. Use essa configuração somente para aplicativos que não conseguem compartilhar cookies entre processos. Para saber mais sobre configurações de cookies, confira [Configurações de cookies para acessar aplicativos locais no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+    | **Usar cookie persistente**| Mantenha esse valor definido como **Não**. Use essa configuração somente para aplicativos que não conseguem compartilhar cookies entre processos. Para saber mais sobre configurações de cookies, confira [Configurações de cookies para acessar aplicativos locais no Azure Active Directory](./application-proxy-configure-cookie-settings.md).
     | **Converter URLs nos Cabeçalhos** | Mantenha esse valor como **Sim** a menos que seu aplicativo exija o cabeçalho de host original na solicitação de autenticação. |
     | **Converter URLs no Corpo do Aplicativo** | Mantenha esse valor como **Não** a menos que você tenha inserido links HTML em código para outros aplicativos locais e não use domínios personalizados. Para saber mais, consulte [Conversão de link com o Proxy de Aplicativo](application-proxy-configure-hard-coded-link-translation.md).<br><br>Defina esse valor como **Sim** se você pretende monitorar esse aplicativo com o MCAS (Microsoft Cloud App Security). Para saber mais, confira o tópico [Configurar o monitoramento de acesso do aplicativo em tempo real com o Microsoft Cloud App Security e o Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 

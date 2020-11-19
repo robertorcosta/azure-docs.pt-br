@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461151"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660994"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerenciar um gateway de VPN usando o PowerShell
 
@@ -74,7 +74,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Um grupo de recursos deve ser criado primeiro. No exemplo a seguir, um grupo de recursos chamado *TestRG1* é criado na região *Leste dos EUA* :
+Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Um grupo de recursos deve ser criado primeiro. No exemplo a seguir, um grupo de recursos chamado *TestRG1* é criado na região *Leste dos EUA*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
@@ -133,7 +133,7 @@ Concluída a criação de gateway, crie uma conexão entre a rede virtual e outr
 
 ## <a name="view-the-gateway-public-ip-address"></a>Exibir o endereço IP público do gateway
 
-Se você souber o nome do endereço IP público, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) para mostrar o endereço IP público atribuído ao gateway.
+Se você souber o nome do endereço IP público, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para mostrar o endereço IP público atribuído ao gateway.
 
 Se a sessão atingiu o tempo limite, copie os parâmetros comuns de rede do início deste tutorial para a nova sessão e continue.
 
@@ -162,11 +162,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-Para obter mais informações, consulte [Redefinir um gateway VPN](vpn-gateway-resetgw-classic.md).
+Para obter mais informações, consulte [Redefinir um gateway VPN](./reset-gateway.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você avançar para o [próximo tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), o ideal será manter esses recursos porque eles são os pré-requisitos.
+Se você avançar para o [próximo tutorial](./vpn-gateway-create-site-to-site-rm-powershell.md), o ideal será manter esses recursos porque eles são os pré-requisitos.
 
 No entanto, se o gateway fizer parte de uma implantação de protótipo, teste ou prova de conceito, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o gateway de VPN e todos os recursos relacionados.
 

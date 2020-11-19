@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458176"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684399"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutorial: Integrar o logon único do Azure AD ao Maverics Identity Orchestrator SAML Connector
 
@@ -67,9 +67,9 @@ Para começar a instalação do Maverics Identity Orchestrator, confira as [inst
 
     `sudo systemctl status maverics`
 
-Por padrão, o Maverics é instalado no diretório */usr/local/bin* .
+Por padrão, o Maverics é instalado no diretório */usr/local/bin*.
 
-Depois de instalar o Maverics, o arquivo *maverics.yaml* padrão é criado no diretório */etc/maverics* . Antes de você editar a configuração para incluir `workflows` e `connectors`, o arquivo de configuração terá esta aparência:
+Depois de instalar o Maverics, o arquivo *maverics.yaml* padrão é criado no diretório */etc/maverics*. Antes de você editar a configuração para incluir `workflows` e `connectors`, o arquivo de configuração terá esta aparência:
 
 ```yaml
 # © Strata Identity Inc. 2020. All Rights Reserved. Patents Pending.
@@ -115,7 +115,7 @@ includeFiles:
   - connector/siteminder.yaml
   ```
 
-Este tutorial usa um só arquivo de configuração *maverics.yaml* .
+Este tutorial usa um só arquivo de configuração *maverics.yaml*.
 
 ## <a name="use-azure-key-vault-as-your-secrets-provider"></a>Usar o Azure Key Vault como o provedor de segredos
 
@@ -123,7 +123,7 @@ Este tutorial usa um só arquivo de configuração *maverics.yaml* .
 
 Para carregar segredos, o Maverics pode se integrar a várias soluções de gerenciamento de segredo. As integrações atuais incluem um arquivo, o Hashicorp Vault e o Azure Key Vault. Se nenhuma solução de gerenciamento de segredos for especificada, o Maverics usará como padrão o carregamento de segredos do arquivo *maverics.yaml* em texto sem formatação.
 
-Para declarar um valor como um segredo em um arquivo de configuração *maverics.yaml* , empacote o segredo com colchetes angulares:
+Para declarar um valor como um segredo em um arquivo de configuração *maverics.yaml*, empacote o segredo com colchetes angulares:
 
   ```yaml
   connectors:
@@ -158,7 +158,7 @@ Você pode configurar um Azure Key Vault usando o portal do Azure ou a CLI do Az
 
 **Use o Portal do Azure**
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. [Crie um cofre de chaves](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Crie um cofre de chaves](../../key-vault/general/quick-create-portal.md).
 1. [Adicione os segredos ao cofre de chaves](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 1. [Registre um aplicativo no Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Autorize um aplicativo a usar um segredo](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
@@ -193,7 +193,7 @@ Você pode configurar um Azure Key Vault usando o portal do Azure ou a CLI do Az
     generated in the previous step
     ```
 
-1. Para carregar segredos do Azure Key Vault, defina a variável de ambiente `MAVERICS_SECRET_PROVIDER` no arquivo */etc/maverics/maverics.env* usando as credenciais encontradas no arquivo *azure-credentials.json* , no seguinte formato:
+1. Para carregar segredos do Azure Key Vault, defina a variável de ambiente `MAVERICS_SECRET_PROVIDER` no arquivo */etc/maverics/maverics.env* usando as credenciais encontradas no arquivo *azure-credentials.json*, no seguinte formato:
  
    `MAVERICS_SECRET_PROVIDER='azurekeyvault://<KEYVAULT NAME>.vault.azure.net?clientID=<APPID>&clientSecret=<PASSWORD>&tenantID=<TENANT>'`
 
@@ -201,11 +201,11 @@ Você pode configurar um Azure Key Vault usando o portal do Azure ou a CLI do Az
 
 ## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Configurar seu aplicativo no Azure AD para o SSO baseado em SAML
 
-1. Em seu locatário do Azure AD, acesse **Aplicativos empresariais** , procure o **Maverics Identity Orchestrator SAML Connector** e selecione-o.
+1. Em seu locatário do Azure AD, acesse **Aplicativos empresariais**, procure o **Maverics Identity Orchestrator SAML Connector** e selecione-o.
 
 1. No painel **Propriedades** do Maverics Identity Orchestrator SAML Connector, defina **Atribuição de usuário obrigatória?** como **Não** para permitir que o aplicativo funcione para usuários recém-migrados.
 
-1. No painel **Visão geral** do Maverics Identity Orchestrator SAML Connector, selecione **Configurar logon único** e escolha **SAML** .
+1. No painel **Visão geral** do Maverics Identity Orchestrator SAML Connector, selecione **Configurar logon único** e escolha **SAML**.
 
 1. No painel **Logon baseado em SAML** do Maverics Identity Orchestrator SAML Connector, edite a **Configuração Básica do SAML** selecionando o botão **Editar** (ícone de lápis).
 
@@ -217,9 +217,9 @@ Você pode configurar um Azure Key Vault usando o portal do Azure ou a CLI do Az
 
 1. Insira a **URL de Logon** no seguinte formato: `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>`. 
 
-1. Selecione **Salvar** .
+1. Selecione **Salvar**.
 
-1. Na seção **Certificado de Autenticação SAML** , selecione o botão **Copiar** para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no seu computador.
+1. Na seção **Certificado de Autenticação SAML**, selecione o botão **Copiar** para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no seu computador.
 
     ![Captura de tela do botão Copiar do "Certificado de Autenticação SAML".](common/copy-metadataurl.png)
 
@@ -277,15 +277,15 @@ Siga esta configuração para migrar de maneira incremental os usuários de um p
 
 ### <a name="configure-your-application-permissions-in-azure-ad-to-create-users"></a>Configurar as permissões de aplicativo no Azure AD para criar usuários
 
-1. No seu locatário do Azure AD, acesse `App registrations` e selecione o aplicativo **Maverics Identity Orchestrator SAML Connector** .
+1. No seu locatário do Azure AD, acesse `App registrations` e selecione o aplicativo **Maverics Identity Orchestrator SAML Connector**.
 
-1. No painel **Maverics Identity Orchestrator SAML Connector | Certificados e segredos** , selecione `New client secret` e escolha a opção de expiração. Selecione o botão **Copiar** para copiar o segredo e salvá-lo em seu computador.
+1. No painel **Maverics Identity Orchestrator SAML Connector | Certificados e segredos**, selecione `New client secret` e escolha a opção de expiração. Selecione o botão **Copiar** para copiar o segredo e salvá-lo em seu computador.
 
-1. No painel **Maverics Identity Orchestrator SAML Connector | Permissões de API** , selecione **Adicionar permissão** e, no painel **Solicitar permissões de API** , escolha **Microsoft Graph** e **Permissões de aplicativo** . 
+1. No painel **Maverics Identity Orchestrator SAML Connector | Permissões de API**, selecione **Adicionar permissão** e, no painel **Solicitar permissões de API**, escolha **Microsoft Graph** e **Permissões de aplicativo**. 
 
-1. Na próxima tela, selecione **User.ReadWrite.All** e escolha **Adicionar permissões** . 
+1. Na próxima tela, selecione **User.ReadWrite.All** e escolha **Adicionar permissões**. 
 
-1. De volta ao painel **Permissões de API** , selecione **Conceder consentimento do administrador** .
+1. De volta ao painel **Permissões de API**, selecione **Conceder consentimento do administrador**.
 
 ### <a name="configure-the-maverics-identity-orchestrator-saml-connector-yaml-file-for-user-migration"></a>Configurar o arquivo YAML do Maverics Identity Orchestrator Azure AD SAML Connector para a migração de usuário
 
@@ -388,7 +388,7 @@ Este fluxo de trabalho:
 
 Para configurar o fluxo de trabalho de migração, faça o seguinte:
 
-1. Dê um nome ao fluxo de trabalho (por exemplo, **Migração do SiteMinder para o Azure AD** ).
+1. Dê um nome ao fluxo de trabalho (por exemplo, **Migração do SiteMinder para o Azure AD**).
 1. Especifique o `endpoint`, que é um caminho HTTP no qual o fluxo de trabalho é exposto, que dispara as `actions` desse fluxo de trabalho em resposta às solicitações. Geralmente, o `endpoint` corresponde ao aplicativo intermediado por proxy (por exemplo, `/my_app`). O valor precisa incluir as barras à esquerda e à direita.
 1. Adicione as `actions` apropriadas ao fluxo de trabalho.
 
@@ -428,7 +428,7 @@ O conector do Azure usa o método `login` para redirecionar o usuário para a UR
 
 Depois de autenticado, o token de sessão criado como resultado é passado para o Maverics. O método `emulate` do conector do SiteMinder é usado para emular a sessão baseada em cookie ou a sessão baseada em cabeçalho e decorar a solicitação com os atributos adicionais exigidos pelo aplicativo.
 
-1. Dê um nome ao fluxo de trabalho (por exemplo, **Abstração de Sessão do SiteMinder** ).
+1. Dê um nome ao fluxo de trabalho (por exemplo, **Abstração de Sessão do SiteMinder**).
 1. Especifique o `endpoint`, que corresponde ao aplicativo que está sendo intermediado por proxy. O valor precisa incluir barras à esquerda e à direita (por exemplo, `/my_app/`).
 1. Adicione as `actions` apropriadas ao fluxo de trabalho.
 

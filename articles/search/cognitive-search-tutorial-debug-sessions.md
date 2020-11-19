@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8ec39c4616f5a34f8326b56d4f0ba6e15cdad91c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057545"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699110"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e confirmar alterações no conjunto de habilidades
 
@@ -59,7 +59,7 @@ As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicita
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
@@ -78,13 +78,13 @@ Nesta seção, o Postman e uma coleção fornecida são usados para criar a font
 1. Insira a storageConnectionString da página de chaves de sua conta de Armazenamento do Azure.
 1. Insira o ContainerName para o contêiner criado na conta de armazenamento.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="editar variáveis no Postman":::
 
 A coleção contém quatro chamadas REST diferentes usadas para concluir esta seção.
 
 A primeira chamada cria a fonte de dados. `clinical-trials-ds`. A segunda chamada cria o conjunto de habilidades, `clinical-trials-ss`. A terceira chamada cria o índice, `clinical-trials`. A quarta e última chamada cria o indexador, `clinical-trials-idxr`. Depois que todas as chamadas na coleção tiverem sido concluídas, feche o Postman e volte para o portal do Azure.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="usando o Postman para criar a fonte de dados":::
 
 ## <a name="check-the-results"></a>Verificar os resultados
 
@@ -107,7 +107,7 @@ Volte para a tela de visão geral do serviço de pesquisa.
 
 ## <a name="start-your-debug-session"></a>Inicie a sessão de depuração
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="iniciar uma nova sessão de depuração":::
 
 1. Clique na guia Sessões de depuração (versão prévia).
 1. Selecione +NewDebugSession
@@ -120,7 +120,7 @@ Volte para a tela de visão geral do serviço de pesquisa.
 > [!Important]
 > Uma sessão de depuração funciona apenas com um só documento. Um documento específico no conjunto de dados pode ser > selecionado ou a sessão usará como padrão o primeiro documento.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Nova sessão de depuração iniciada":::
 
 Quando a sessão de depuração termina a execução, ela usa como padrão a guia Aprimoramentos de IA, destacando o Grafo de Habilidades.
 
@@ -140,7 +140,7 @@ Na guia Erros/Avisos, há um erro para uma operação rotulada `Enrichment.NerSk
 1. Selecione o símbolo **</>** no início da linha e abra o Avaliador de Expressão.
 1. Clique no botão **Avaliar** para confirmar que essa expressão está resultando em um erro. Ele confirmará que a propriedade "languageCode" não é uma entrada válida.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Avaliador de Expressão":::
 
 Há duas maneiras de pesquisar esse erro na sessão. A primeira é examinar de onde a entrada é proveniente – qual habilidade na hierarquia deve produzir esse resultado? A guia Execuções no painel detalhes da habilidade deve exibir a origem da entrada. Se não houver uma origem, isso indicará um erro de mapeamento de campo.
 
@@ -148,15 +148,27 @@ Há duas maneiras de pesquisar esse erro na sessão. A primeira é examinar de o
 1. Examine as ENTRADAS e localize "languageCode". Não há nenhuma origem para essa entrada listada. 
 1. Alterne para o painel esquerdo para exibir a Estrutura de Dados Enriquecidos. Não há nenhum caminho mapeado correspondente a "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" desapareceu. No entanto, ainda há dois avisos de que o serviço não pôde mapear campos de saída de organizações e locais para o índice de pesquisa. Há valores ausentes: '/document/merged_content/organizations' e '/document/merged_content/locations'.
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Estrutura de Dados Enriquecidos":::
+
+Há um caminho mapeado para "language". Portanto, há um erro de digitação nas configurações da habilidade. Para corrigir isso, a expressão na habilidade #1 com a expressão '/document/language' precisará ser atualizada.
+
+1. Abra o Avaliador de Expressão **</>** para o caminho "language".
+1. Copie a expressão. Feche a janela.
+1. Vá para as Configurações de Habilidade da habilidade #1 e abra o Avaliador de Expressão **</>** para a entrada "languageCode".
+1. Cole o novo valor, '/document/language', na caixa de Expressão e clique em **Avaliar**.
+1. Ela deve exibir a entrada correta "en". Clique em Aplicar para atualizar a expressão.
+1. Clique em **Salvar** no painel direito de detalhes da habilidade.
+1. Clique em **Executar** no menu da janela da sessão. Isso iniciará outra execução do conjunto de habilidades usando o documento. 
+
+Depois que a execução da sessão de depuração for concluída, clique na guia Erros/Avisos e ela mostrará que o erro chamado "Enrichment.NerSkillV2.#1" desapareceu. No entanto, ainda há dois avisos de que o serviço não pôde mapear campos de saída de organizações e locais para o índice de pesquisa. Há valores ausentes: '/document/merged_content/organizations' e '/document/merged_content/locations'.
 
 ## <a name="fix-missing-skill-output-values"></a>Corrigir valores de saída da habilidade ausente
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Erros e avisos":::
 
 Há valores de saída ausentes de uma habilidade. Para identificar a habilidade com erro, vá para a Estrutura de Dados Enriquecidos, localize o nome do valor e examine sua Fonte de Origem. No caso dos valores de organizações e locais ausentes, eles são saídas do da habilidade #1. Abrir o Avaliador de Expressão </> para cada caminho exibirá as expressões listadas como '/document/content/organizations' e '/document/content/locations', respectivamente.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Entidade de organizações do Avaliador de Expressão":::
 
 A saída dessas entidades está vazia e não deveria estar vazia. Quais são as entradas que produzem esse resultado?
 
@@ -164,14 +176,18 @@ A saída dessas entidades está vazia e não deveria estar vazia. Quais são as 
 1. Selecione a guia **Execuções** no painel de detalhes da habilidade à direita.
 1. Abra o Avaliador de Expressão **</>** para a ENTRADA "text".
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Entrada da habilidade de texto":::
 
 O resultado exibido para essa entrada não se parece com uma entrada de texto. Ele parece uma imagem envolvida por novas linhas. A falta de texto significa que nenhuma entidade pode ser identificada. Examinar a hierarquia do conjunto de habilidades mostra que o conteúdo é processado primeiro pela habilidade #6 (OCR) e, em seguida, passado para a habilidade #5 (Merge). 
 
 1. Selecione a habilidade #5 (Merge) no **Grafo de Habilidades**.
 1. Selecione a guia **Execuções** no painel de detalhes da habilidade à direita e abra o Avaliador de Expressão **</>** para as SAÍDAS "mergedText".
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" e feche a janela do Avaliador de Expressão.
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Saída para a habilidade Merge":::
+
+Aqui, o texto está emparelhado com a imagem. Examinando a expressão '/Document/merged_content', o erro nos caminhos "organizations" e "locations" para a habilidade #1 é visível. Em vez de usar '/document/content', ele deve usar '/document/merged_content' para as entradas de "text".
+
+1. Copie a expressão da saída "mergedText" e feche a janela do Avaliador de Expressão.
 1. Selecione a habilidade #1 no **Grafo de Habilidades**.
 1. Selecione a guia **Configurações de Habilidade** no painel de detalhes da habilidade à direita.
 1. Abra o Avaliador de Expressão **</>** para a entrada "text".
@@ -187,11 +203,18 @@ Quando a execução do indexador for concluída, os erros ainda estarão lá. Vo
 1. Navegue para as **Configurações de Habilidade** para encontrar "outputs".
 1. Abra o Avaliador de Expressão **</>** para a entidade "organizations".
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" e edite-a para ler '/document/merged_content'.
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Saída da entidade organizations":::
+
+Avaliar o resultado da expressão fornece o resultado correto. A habilidade está trabalhando para identificar o valor correto da entidade "organizations". No entanto, o mapeamento de saída no caminho da entidade ainda está gerando um erro. Comparando o caminho de saída na habilidade com o caminho de saída no erro, a habilidade está gerando as saídas, organizações e locais sob o nó /document/content. Enquanto o mapeamento do campo de saída está esperando que os resultados sejam gerados no nó /document/merged_content. Na etapa anterior, a entrada mudou de '/document/content' para '/document/merged_content'. O contexto nas configurações da habilidade precisa ser alterado para garantir que a saída seja gerada com o contexto correto.
+
+1. Selecione a guia **Enriquecimentos de IA**.
+1. Selecione o **Grafo de Habilidades** e clique na habilidade #1.
+1. Navegue para as **Configurações de Habilidade** para encontrar "context".
+1. Clique duas vezes na configuração de "context" e edite-a para ler '/document/merged_content'.
 1. Clique em **Salvar** no painel direito de detalhes da habilidade.
 1. Clique em **Executar** no menu da janela das sessões. Isso iniciará outra execução do conjunto de habilidades usando o documento.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso":::
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Correção de contexto na configuração da habilidade":::
 
 Todos os erros foram resolvidos.
 

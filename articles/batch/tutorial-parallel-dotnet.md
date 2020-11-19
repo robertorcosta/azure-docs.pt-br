@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335648"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578290"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -35,7 +35,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 * Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-* [Versão do Windows de 64 bits do ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (.zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
+* [Versão do Windows de 64 bits do ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) (.zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -47,7 +47,7 @@ Use o portal do Azure para adicionar o ffmpeg à sua conta do Lote como um [paco
 
 1. No portal do Azure, clique em **Mais serviços** > **Contas do Lote** e clique no nome da sua conta do Lote.
 3. Clique em **Aplicativos** > **Adicionar**.
-4. Para obter a **ID do aplicativo** , insira *ffmpeg* e uma versão do pacote de *4.3.1*. Selecione o arquivo zip de ffmpeg que você baixou anteriormente e clique em **OK**. O pacote de aplicativos ffmpeg é adicionado à sua conta do Lote.
+4. Para obter a **ID do aplicativo**, insira *ffmpeg* e uma versão do pacote de *4.3.1*. Selecione o arquivo zip de ffmpeg que você baixou anteriormente e clique em **OK**. O pacote de aplicativos ffmpeg é adicionado à sua conta do Lote.
 
 ![Adicionar pacote de aplicativos](./media/tutorial-parallel-dotnet/add-application.png)
 

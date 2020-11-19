@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423021"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579123"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer o acesso a sites particulares do Azure Functions
 
-Este tutorial mostra como habilitar o [acesso a sites particulares](./functions-networking-options.md#private-site-access) com o Azure Functions. Usando o acesso a sites particulares, você pode exigir que o código de função seja disparado apenas de uma rede virtual específica.
+Este tutorial mostra como habilitar o [acesso a sites particulares](./functions-networking-options.md#private-endpoint-connections) com o Azure Functions. Usando o acesso a sites particulares, você pode exigir que o código de função seja disparado apenas de uma rede virtual específica.
 
 O acesso a sites particulares é útil em cenários quando o acesso ao aplicativo de funções precisa ser limitado a uma rede virtual específica. Por exemplo, o aplicativo de funções pode ser aplicável somente aos funcionários de uma organização específica ou aos serviços que estão dentro da rede virtual especificada (como outra Função do Azure, Máquina Virtual do Azure ou um cluster do AKS).
 
@@ -57,7 +57,7 @@ A primeira etapa deste tutorial é criar uma máquina virtual dentro de uma rede
 
 1. Selecione **Windows Server 2019 Datacenter** na lista de opções do Windows Server e selecione o botão **Criar**.
 
-1. Na guia _Informações Básicas_ , use as configurações da VM, conforme especificado na tabela abaixo da imagem:
+1. Na guia _Informações Básicas_, use as configurações da VM, conforme especificado na tabela abaixo da imagem:
 
     >[!div class="mx-imgBorder"]
     >![Guia Informações Básicas de uma nova VM do Windows](./media/functions-create-private-site-access/create-vm-3.png)
@@ -75,7 +75,7 @@ A primeira etapa deste tutorial é criar uma máquina virtual dentro de uma rede
     >[!div class="mx-imgBorder"]
     >![Captura de tela que mostra a guia "Rede" com a ação "Criar" realçada na seção "Rede virtual".](./media/functions-create-private-site-access/create-vm-networking.png)
 
-1. Em _Criar rede virtual_ , use as configurações na tabela abaixo da imagem:
+1. Em _Criar rede virtual_, use as configurações na tabela abaixo da imagem:
 
     >[!div class="mx-imgBorder"]
     >![Criar uma rede virtual para a nova VM](./media/functions-create-private-site-access/create-vm-vnet-1.png)
@@ -88,9 +88,9 @@ A primeira etapa deste tutorial é criar uma máquina virtual dentro de uma rede
     | _Intervalo de endereços_ (sub-rede) | 10.10.1.0/24 | O tamanho da sub-rede define o número de interfaces que podem ser adicionadas à sub-rede. Essa sub-rede é usada pela VM. Uma sub-rede /24 fornece 254 endereços de host. |
 
 1. Selecione **OK** para criar a rede virtual.
-1. De volta à guia _Rede_ , verifique se **Nenhum** está selecionado em _IP Público_.
-1. Escolha a guia _Gerenciamento_ e, em _Conta de armazenamento de diagnóstico_ , escolha **Criar** para criar uma conta de armazenamento.
-1. Mantenha os valores padrão nas seções _Identidade_ , _Desligamento automático_ e _Backup_.
+1. De volta à guia _Rede_, verifique se **Nenhum** está selecionado em _IP Público_.
+1. Escolha a guia _Gerenciamento_ e, em _Conta de armazenamento de diagnóstico_, escolha **Criar** para criar uma conta de armazenamento.
+1. Mantenha os valores padrão nas seções _Identidade_, _Desligamento automático_ e _Backup_.
 1. Selecione _Examinar + criar_. Depois de concluir a validação, selecione **Criar**. O processo de criação da VM leva alguns minutos.
 
 ## <a name="configure-azure-bastion"></a>Configurar o Azure Bastion
@@ -100,7 +100,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
 1. No portal, escolha **Adicionar** na parte superior da exibição do grupo de recursos.
 1. No campo de pesquisa, digite **Bastion**.
 1. Selecione **Bastion** nos resultados da pesquisa.
-1. Selecione **Criar** para iniciar o processo de criação de um recurso do Azure Bastion. Você observará uma mensagem de erro na seção _Rede virtual_ , pois ainda não há uma sub-rede AzureBastionSubnet. A sub-rede será criada nas etapas a seguir. Use as configurações da tabela abaixo da imagem:
+1. Selecione **Criar** para iniciar o processo de criação de um recurso do Azure Bastion. Você observará uma mensagem de erro na seção _Rede virtual_, pois ainda não há uma sub-rede AzureBastionSubnet. A sub-rede será criada nas etapas a seguir. Use as configurações da tabela abaixo da imagem:
 
     >[!div class="mx-imgBorder"]
     >![Início da criação do Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
@@ -121,7 +121,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
     >[!div class="mx-imgBorder"]
     >![Criar a sub-rede para o host do Azure Bastion](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
-1. Na página _Criar um Bastion_ , selecione o **AzureBastionSubnet** recém-criado na lista de sub-redes disponíveis.
+1. Na página _Criar um Bastion_, selecione o **AzureBastionSubnet** recém-criado na lista de sub-redes disponíveis.
 
     >[!div class="mx-imgBorder"]
     >![Criar um host do Azure Bastion com uma sub-rede específica](./media/functions-create-private-site-access/create-bastion-basics-2.png)
@@ -134,7 +134,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
 
 1. No portal, escolha **Adicionar** na parte superior da exibição do grupo de recursos.
 1. Selecione **Computação > Aplicativo de Funções**
-1. Na seção _Informações Básicas_ , use as configurações do aplicativo de funções especificadas na tabela abaixo.
+1. Na seção _Informações Básicas_, use as configurações do aplicativo de funções especificadas na tabela abaixo.
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
@@ -145,7 +145,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
     | _Região_ | Centro-Norte dos EUA | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
     Selecione **Próximo: Hospedagem >** .
-1. Na seção _Hospedagem_ , selecione a _Conta de armazenamento_ , o _Sistema operacional_ e o _Plano_ adequados, conforme descrito na tabela a seguir.
+1. Na seção _Hospedagem_, selecione a _Conta de armazenamento_, o _Sistema operacional_ e o _Plano_ adequados, conforme descrito na tabela a seguir.
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
@@ -159,24 +159,24 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
 
 A próxima etapa é configurar [restrições de acesso](../app-service/app-service-ip-restrictions.md) para garantir que apenas os recursos na rede virtual possam invocar a função.
 
-O acesso a [sites particulares](functions-networking-options.md#private-site-access) é habilitado pela criação de um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) da Rede Virtual do Azure entre o aplicativo de funções e a rede virtual especificada. As restrições de acesso são implementadas por meio de pontos de extremidade de serviço. Os pontos de extremidade de serviço garantem que apenas o tráfego proveniente da rede virtual especificada possa acessar o recurso designado. Nesse caso, o recurso designado é a Função do Azure.
+O acesso a [sites particulares](functions-networking-options.md#private-endpoint-connections) é habilitado pela criação de um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) da Rede Virtual do Azure entre o aplicativo de funções e a rede virtual especificada. As restrições de acesso são implementadas por meio de pontos de extremidade de serviço. Os pontos de extremidade de serviço garantem que apenas o tráfego proveniente da rede virtual especificada possa acessar o recurso designado. Nesse caso, o recurso designado é a Função do Azure.
 
 1. No aplicativo de funções, selecione o link **Rede** no cabeçalho da seção _Configurações_.
 1. A página _Rede_ é o ponto de partida para configurar o Azure Front Door, a CDN do Azure e também as Restrições de Acesso.
 1. Selecione **Configurar Restrições de Acesso** para configurar o acesso a sites particulares.
-1. Na página _Restrições de Acesso_ , apenas a restrição padrão em vigor é exibida. O padrão não coloca nenhuma restrição no acesso ao aplicativo de funções.  Selecione **Adicionar regra** para criar uma configuração de restrição de acesso a sites particulares.
-1. No painel _Adicionar Restrição de Acesso_ , forneça um _Nome_ , uma _Prioridade_ e _Descrição_ para a nova regra.
+1. Na página _Restrições de Acesso_, apenas a restrição padrão em vigor é exibida. O padrão não coloca nenhuma restrição no acesso ao aplicativo de funções.  Selecione **Adicionar regra** para criar uma configuração de restrição de acesso a sites particulares.
+1. No painel _Adicionar Restrição de Acesso_, forneça um _Nome_, uma _Prioridade_ e _Descrição_ para a nova regra.
 1. Selecione **Rede Virtual** na caixa suspensa _Tipo_ e a rede virtual criada anteriormente. Depois, selecione a sub-rede **Tutorial**. 
     > [!NOTE]
     > Podem ser necessários vários minutos para que o ponto de extremidade de serviço seja habilitado.
 1. A página _Restrições de Acesso_ agora mostra que há uma nova restrição. Podem ser necessários alguns segundos para que o _Status do ponto de extremidade_ seja alterado de Desabilitado por meio do Provisionamento para Habilitado.
 
     >[!IMPORTANT]
-    > Cada aplicativo de funções tem um [site de Ferramenta Avançada (Kudu)](../app-service/app-service-ip-restrictions.md#scm-site) que é usado para gerenciar implantações de aplicativo de funções. Esse site é acessado em uma URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Habilitar restrições de acesso no site Kudu impede a implantação do código do projeto de uma estação de trabalho de desenvolvedor local e, consequentemente, um agente é necessário na rede virtual para executar a implantação.
+    > Cada aplicativo de funções tem um [site de Ferramenta Avançada (Kudu)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) que é usado para gerenciar implantações de aplicativo de funções. Esse site é acessado em uma URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Habilitar restrições de acesso no site Kudu impede a implantação do código do projeto de uma estação de trabalho de desenvolvedor local e, consequentemente, um agente é necessário na rede virtual para executar a implantação.
 
 ## <a name="access-the-functions-app"></a>Acessar o aplicativo de funções
 
-1. Volte ao aplicativo de funções criado anteriormente.  Na seção _Visão Geral_ , copie a URL.
+1. Volte ao aplicativo de funções criado anteriormente.  Na seção _Visão Geral_, copie a URL.
 
     >[!div class="mx-imgBorder"]
     >![Obter a URL do aplicativo de funções](./media/functions-create-private-site-access/access-function-overview.png)

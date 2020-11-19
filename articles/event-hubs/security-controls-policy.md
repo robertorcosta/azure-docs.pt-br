@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para os Hubs de Eventos do Azure
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para os Hubs de Eventos do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: event-hubs
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ab5384793347f22141d36aca70e76284fdc7f26b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7e743ccd58bf3933bd654f1d0e0c22a79689a5e9
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317688"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697503"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-hubs"></a>Controles de Conformidade Regulatória do Azure Policy para os Hubs de Eventos do Azure
 

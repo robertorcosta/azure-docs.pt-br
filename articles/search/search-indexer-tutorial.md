@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399220"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697162"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Indexar dados SQL do Azure usando o SDK do .NET
 
@@ -69,7 +69,7 @@ Caso você tenha um recurso existente do Banco de Dados SQL do Azure, adicione a
 
 1. Selecione o arquivo e clique em **Abrir**. O script deve ser semelhante à captura de tela a seguir:
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Script SQL" border="false":::
 
 1. Clique em **Executar** para executar a consulta. No painel Resultados, você verá uma mensagem de consulta bem-sucedida, para 3 linhas.
 
@@ -99,7 +99,7 @@ As chamadas à API exigem a URL do serviço e uma chave de acesso. Um serviço d
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 – Configurar o ambiente
 
@@ -201,7 +201,7 @@ Um objeto de indexador é independente da plataforma, com invocação, a program
 
 Pressione F5 para compilar e executar sua solução. O programa é executado no modo de depuração. Uma janela de console relata o status de cada operação.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Saída do console" border="false":::
 
 O código é executado localmente no Visual Studio, conectando-se ao serviço de pesquisa no Azure, que, por sua vez, conecta-se ao Banco de Dados SQL do Azure e recupera o conjunto de dados. Com essas muitas operações, há vários pontos potenciais de falha. Se você receber um erro, verifique as seguintes condições primeiro:
 
@@ -217,7 +217,7 @@ Use o portal do Azure para verificar a criação do objeto e, em seguida, use o 
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão geral** do serviço de pesquisa, abra cada lista por vez para verificar se o objeto foi criado. Os **Índices**, os **Indexadores** e as **Fontes de dados** terão "hotels", "azure-sql-indexer" e "azure-sql", respectivamente.
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Blocos de indexador e de fonte de dados" border="false":::
 
 1. Selecione o índice de hotéis. Na página de hotéis, o **Gerenciador de pesquisa** é a primeira guia. 
 
@@ -225,7 +225,7 @@ Use o portal do Azure para verificar a criação do objeto e, em seguida, use o 
 
    As três entradas no índice são retornadas como documentos JSON. O Gerenciador de pesquisa retorna documentos em JSON para que você possa exibir toda a estrutura.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Página Novo banco de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Consultar um índice" border="false":::
    
 1. Em seguida, insira uma cadeia de caracteres de pesquisa: `search=river&$count=true`. 
 
