@@ -330,7 +330,9 @@
         - name: Backup e recuperação de desastres para discos
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Discos compartilhados
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Níveis de desempenho de disco
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Discos do SO Efêmero
           href: ../ephemeral-os-disks.md
     - name: Rede
@@ -886,8 +888,10 @@
               href: attach-disk-ps.md
             - name: Portal do Azure
               href: attach-managed-disk-portal.md
-        - name: Alterar camada de disco
+        - name: Alterar camada de disco – PowerShell/CLI
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Alterar camada de disco – Portal
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Desanexar um disco
           href: detach-disk.md
         - name: Implantar discos com modelo ARM

@@ -81,6 +81,8 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Usar armazenamento persistente
           href: spring-cloud-howto-persistent-storage.md
+        - name: Identificar um endereço IP público de saída
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitoramento
       items:
         - name: Rastreamento distribuído e insights do aplicativo
@@ -121,7 +123,7 @@
           href: spring-cloud-howto-self-diagnose-solve.md
         - name: Guia de solução de problemas
           href: spring-cloud-troubleshoot.md
-    - name: Migrar
+    - name: Migrações
       items:
         - name: Spring Cloud
           href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'
