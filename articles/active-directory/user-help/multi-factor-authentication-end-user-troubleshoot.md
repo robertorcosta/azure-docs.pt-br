@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 095ea62ee992fa12fc80f715f9e63725e9930595
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322595"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886202"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e sua conta corporativa ou de estudante
 
@@ -74,6 +74,7 @@ Não receber seu código de verificação é um problema comum. O problema norma
 
 Tente isto | Informações de diretrizes
 --------- | ------------
+Usar o aplicativo Microsoft Authenticator ou códigos de verificação | Você está recebendo "você atingiu nosso limite de chamadas de verificação" ou "você atingiu nosso limite em códigos de verificação de texto" durante a entrada. <br/><br/>A Microsoft pode limitar tentativas de autenticação repetidas que são executadas pelo mesmo usuário em um curto período de tempo. Essa limitação não se aplica ao código de Microsoft Authenticator ou verificação. Se você tiver atingido esses limites, poderá usar o aplicativo autenticador, o código de verificação ou tentar entrar novamente em alguns minutos.
 Reiniciar o dispositivo móvel | Às vezes, o dispositivo precisa apenas de uma atualização. Quando você reinicia o dispositivo, todos os processos e serviços em segundo plano são encerrados. A reinicialização também desliga os componentes principais do seu dispositivo. Qualquer serviço ou componente é atualizado quando você reinicia o dispositivo.
 Verificar se as informações de segurança estão corretas | Verifique se as informações do método de verificação de segurança estão corretas, principalmente seus números de telefone. Se você colocar o número de telefone errado, todos os alertas irão para esse número incorreto. Felizmente, esse usuário não poderá fazer nada com os alertas, mas isso não ajuda você a entrar na conta. Para confirmar se as informações estão corretas, confira as instruções no artigo [Gerenciar suas configurações do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md).
 Verificar se as notificações estão ativadas | Verifique se o dispositivo móvel tem notificações ativadas. Verifique se os seguintes modos de notificação são permitidos: <br/><br/> &bull; Chamadas telefônicas <br/> &bull; Seu aplicativo de autenticação <br/> &bull; Seu aplicativo de mensagens de texto <br/><br/> Verifique se esses modos criam um alerta _visível_ em seu dispositivo.
