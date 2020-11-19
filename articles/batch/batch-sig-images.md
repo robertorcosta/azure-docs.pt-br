@@ -4,12 +4,12 @@ description: Os pools de imagens personalizadas são uma maneira eficiente de co
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888344"
+ms.locfileid: "94917776"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -73,6 +73,7 @@ Se você estiver criando uma nova VM para a imagem, use uma imagem interna do Az
 - Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.
 - Ao usar discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
 - Verifique se a imagem do sistema operacional base que você forneceu usa unidade temporária padrão. O agente do nó de Lote no momento espera unidade temporária padrão.
+- Verifique se o disco do sistema operacional não está criptografado.
 - Quando a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale o software necessário ou copie os dados desejados.  
 
 ### <a name="create-a-vm-snapshot"></a>Criar um instantâneo da VM

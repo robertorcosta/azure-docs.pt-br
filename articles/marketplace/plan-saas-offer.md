@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734388"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917538"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -104,7 +104,26 @@ Você pode adicionar ou modificar uma conexão do CRM a qualquer momento durante
 
 ## <a name="selecting-an-online-store"></a>Selecionando uma loja online
 
-Quando você publica uma oferta de SaaS, ela será listada no Microsoft AppSource, no Azure Marketplace ou em ambos. Cada loja online atende aos requisitos exclusivos do cliente. O AppSource é para soluções de negócios e o Azure Marketplace é para soluções de ti. Seu tipo de oferta, recursos de transação e categorias determinarão onde sua oferta será publicada. Categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução. Para obter informações detalhadas sobre as opções de listagem com suporte nas lojas online, consulte [lista e opções de preços por loja online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Para obter mais informações sobre categorias e subcategorias, consulte [categorias e subcategorias no Marketplace comercial](categories.md).
+Quando você publica uma oferta de SaaS, ela será listada no Microsoft AppSource, no Azure Marketplace ou em ambos. Cada loja online atende aos requisitos exclusivos do cliente. O AppSource é para soluções de negócios e o Azure Marketplace é para soluções de ti. Seu tipo de oferta, recursos de transação e categorias determinarão onde sua oferta será publicada. Categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução. 
+
+Se sua oferta de SaaS *for uma solução de ti* (Azure Marketplace) e uma solução de negócios (AppSource), selecione uma categoria e uma subcategoria aplicáveis a cada loja online. As ofertas publicadas em lojas online devem ter uma proposta de valor como uma solução de ti *e* uma solução de negócios.
+
+> [!IMPORTANT]
+> As ofertas de SaaS com [cobrança limitada](partner-center-portal/saas-metered-billing.md) estão disponíveis por meio do Azure Marketplace e do portal do Azure. As ofertas de SaaS com apenas planos privados estão disponíveis por meio do portal do Azure.
+
+| Cobrança limitada | Plano público | Plano particular | Disponível em: |
+|---|---|---|---|
+| Sim             | Sim         | Não           | Azure Marketplace e portal do Azure |
+| Sim             | Sim         | Sim          | Azure Marketplace e portal do Azure * |
+| Sim             | Não          | Sim          | Somente portal do Azure |
+| Não              | Não          | Sim          | Somente portal do Azure |
+|||||
+
+&#42; o plano privado da oferta só estará disponível por meio do portal do Azure
+
+Por exemplo, uma oferta com cobrança limitada e um plano privado somente (sem plano público) serão adquiridas pelos clientes na portal do Azure. Saiba mais sobre as [ofertas privadas no Microsoft Commercial Marketplace](private-offers.md).
+
+Para obter informações detalhadas sobre as opções de listagem com suporte nas lojas online, consulte [lista e opções de preços por loja online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Para obter mais informações sobre categorias e subcategorias, consulte [categorias e subcategorias no Marketplace comercial](categories.md).
 
 ## <a name="legal-contracts"></a>Contratos legais
 
@@ -131,7 +150,7 @@ Ao [criar uma nova oferta de SaaS](create-new-saas-offer.md) no Partner Center, 
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Description
+9. Descrição
 10. Capturas de tela/vídeos
 11. Documentos
 
@@ -183,7 +202,7 @@ Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens 
   - arquivo. png
   - Deve incluir uma legenda
 - **Mídia-vídeos** (opcional): você pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram sua oferta:
-  - Name
+  - Nome
   - URL: deve ser hospedada somente no YouTube ou Vimeo.
   - Miniatura: 1280 x 720. arquivo PNG
 

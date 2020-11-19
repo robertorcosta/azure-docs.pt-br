@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660280"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916484"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -159,7 +159,7 @@ As cargas de trabalho que dependem da criação de um grande número de arquivos
 
 ### <a name="workaround"></a>Solução alternativa
 
-- nenhuma.
+- Nenhum.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou do servidor 2012 R2
 
@@ -196,7 +196,7 @@ Alterações recentes nas definições de configuração de Multichannel do SMB 
 
 ### <a name="cause"></a>Causa  
 
-A notificação de alteração de arquivo de número alto em compartilhamentos de arquivos pode resultar em latências altas significativas. Isso normalmente ocorre com sites hospedados em compartilhamentos de arquivos com estrutura de diretório aninhada profunda. Um cenário típico é o aplicativo Web hospedado pelo IIS em que a notificação de alteração de arquivo é configurada para cada diretório na configuração padrão. Cada alteração (ReadDirectoryChangesW) no compartilhamento que o cliente SMB está registrado para envia uma notificação de alteração do serviço de arquivo para o cliente, que usa recursos do sistema e emite piora com o número de alterações. Isso pode causar a limitação de compartilhamento e, portanto, resultar em maior latência do cliente. 
+A notificação de alteração de arquivo de número alto em compartilhamentos de arquivos pode resultar em latências altas significativas. Isso normalmente ocorre com sites hospedados em compartilhamentos de arquivos com estrutura de diretório aninhada profunda. Um cenário típico é o aplicativo Web hospedado pelo IIS em que a notificação de alteração de arquivo é configurada para cada diretório na configuração padrão. Cada alteração ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) no compartilhamento que o cliente SMB está registrado para envia uma notificação de alteração do serviço de arquivo para o cliente, que usa recursos do sistema e emite piora com o número de alterações. Isso pode causar a limitação de compartilhamento e, portanto, resultar em maior latência do cliente. 
 
 Para confirmar, você pode usar as métricas do Azure no portal- 
 
@@ -213,10 +213,8 @@ Para confirmar, você pode usar as métricas do Azure no portal-
     - Atualize o intervalo de sondagem do processo de trabalho do IIS (W3WP) para 0 definindo `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` no registro e reinicie o processo W3wp. Para saber mais sobre essa configuração, consulte [chaves comuns do registro que são usadas por muitas partes do IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Aumente a frequência do intervalo de sondagem de notificação de alteração de arquivo para reduzir o volume.
     - Atualize o intervalo de sondagem do processo de trabalho W3WP para um valor mais alto (por exemplo, 10mins ou 30mins) com base em seu requisito. Defina `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [no registro](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) e reinicie o processo W3wp.
-- Se o diretório físico mapeado de seu site tiver estrutura de diretório aninhada, você poderá tentar limitar o escopo da notificação de alteração de arquivo para reduzir o volume de notificação.
-    - Por padrão, o IIS usa a configuração de Web.config arquivos no diretório físico para o qual o diretório virtual é mapeado, bem como em todos os diretórios filho nesse diretório físico. Se você não quiser usar Web.config arquivos em diretórios filho, especifique false para o atributo allowSubDirConfig no diretório virtual. Encontre mais detalhes [aqui](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Defina a configuração "allowSubDirConfig" do diretório virtual do IIS em Web.Config como false para excluir os diretórios filho físicos mapeados do escopo.  
+- Se o diretório físico mapeado de seu site tiver estrutura de diretório aninhada, você poderá tentar limitar o escopo da notificação de alteração de arquivo para reduzir o volume de notificação. Por padrão, o IIS usa a configuração de Web.config arquivos no diretório físico para o qual o diretório virtual é mapeado, bem como em todos os diretórios filho nesse diretório físico. Se você não quiser usar Web.config arquivos em diretórios filho, especifique false para o atributo allowSubDirConfig no diretório virtual. Encontre mais detalhes [aqui](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Defina a configuração "allowSubDirConfig" do diretório virtual do IIS em Web.Config como *false* para excluir os diretórios filho físicos mapeados do escopo.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se um compartilhamento de arquivos for limitado
 

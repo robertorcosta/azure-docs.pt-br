@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377115"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917232"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -161,6 +161,8 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 | snapshotConfiguration | N/D | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
+
+Para obter mais informações sobre essas configurações, consulte [amostragem em Application insights](../azure-monitor/app/sampling.md). 
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
@@ -409,7 +411,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
 |lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>Versão
 
 Esse valor indica a versão do esquema do host.jsno. A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tenha como destino o tempo de execução v2 ou uma versão posterior. Não há host.jsem alterações de esquema entre V2 e v3.
 

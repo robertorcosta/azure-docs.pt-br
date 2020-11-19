@@ -1,18 +1,18 @@
 ---
 title: Práticas recomendadas
-description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
-ms.date: 08/12/2020
+description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913221"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916858"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
-Este artigo aborda uma coleção de melhores práticas para usar o serviço de Lote do Azure de forma eficaz e eficiente, com base na experiência real com o Lote. Leia este artigo para evitar armadilhas de design, possíveis problemas de desempenho e antipadrões ao desenvolver para e usar o Lote.
+Este artigo discute uma coleção de práticas recomendadas e dicas úteis para usar o serviço de lote do Azure com eficiência, com base em experiências reais com o lote. Essas dicas podem ajudá-lo a melhorar o desempenho e evitar armadilhas de design em suas soluções de lote do Azure.
 
 ## <a name="pools"></a>Pools
 
@@ -20,7 +20,7 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 
 ### <a name="pool-configuration-and-naming"></a>Configuração e nomenclatura de pool
 
-- **Modo de alocação de pool** Ao criar uma conta do Lote, você pode escolher entre dois modos de alocação de pool: **Serviço de lote** ou **assinatura de usuário** . Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modo de alocação de pool** Ao criar uma conta do Lote, você pode escolher entre dois modos de alocação de pool: **Serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Considere o tempo de execução de trabalho e tarefa ao determinar o mapeamento do trabalho para o pool.**
     Se você tiver trabalhos compostos principalmente de tarefas de execução curta, e as contagens de tarefas totais esperadas forem pequenas, para que o tempo de execução esperado geral do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de alocação dos nós reduzirá o tempo de execução do trabalho.
@@ -41,7 +41,7 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 O tempo de vida do pool pode variar de acordo com o método de alocação e as opções aplicadas à configuração do pool. Os pools podem ter um tempo de vida arbitrário e um número variável de nós de computação no pool a qualquer momento. É sua responsabilidade gerenciar os nós de computação no pool, explicitamente ou por meio de recursos fornecidos pelo serviço (dimensionamento ou pool automático).
 
 - **Mantenha os pools atualizados.**
-    Você deve redimensionar seus pools para zero a cada poucos meses para garantir que você obtenha as [atualizações e correções de bug mais recentes do agente de nó](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes).
+    Redimensione seus pools para zero a cada poucos meses para garantir que você obtenha as [atualizações e correções de bug mais recentes do agente de nó](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes).
 
 - **Recriação do pool** Em uma observação semelhante, não é recomendável excluir e recriar seus pools diariamente. Em vez disso, crie um novo pool, atualize seus trabalhos existentes para apontar para o novo pool. Depois que todas as tarefas forem movidas para o novo pool, exclua o pool antigo.
 
@@ -67,7 +67,7 @@ Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marke
 
 ### <a name="azure-region-dependency"></a>Dependência da região do Azure
 
-É aconselhável não depender de uma única região do Azure caso você tenha uma carga de trabalho de produção ou sensível ao tempo. Embora seja raro, há problemas que podem afetar toda a região. Por exemplo, se o processamento precisar ser iniciado em um momento específico, considere escalar verticalmente o pool em sua região primária *bem antes da hora de início* . Se a escala do pool falhar, você poderá fazer fallback para escalar verticalmente um pool em uma região (ou regiões) de backup. Os pools em várias contas em regiões diferentes fornecem um backup pronto e facilmente acessível se algo der errado com outro pool. Para obter mais informações, consulte [Projetar seu aplicativo para alta disponibilidade](high-availability-disaster-recovery.md).
+É aconselhável não depender de uma única região do Azure caso você tenha uma carga de trabalho de produção ou sensível ao tempo. Embora seja raro, há problemas que podem afetar toda a região. Por exemplo, se o processamento precisar ser iniciado em um momento específico, considere escalar verticalmente o pool em sua região primária *bem antes da hora de início*. Se a escala do pool falhar, você poderá fazer fallback para escalar verticalmente um pool em uma região (ou regiões) de backup. Os pools em várias contas em regiões diferentes fornecem um backup pronto e facilmente acessível se algo der errado com outro pool. Para obter mais informações, consulte [Projetar seu aplicativo para alta disponibilidade](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Trabalhos
 
@@ -175,7 +175,7 @@ Para obter mais informações sobre o Resource Manager e modelos, consulte [Iní
 
 ## <a name="connectivity"></a>Conectividade
 
-Examine as diretrizes a seguir ao considerar a conectividade em suas soluções do Lote.
+Examine as diretrizes a seguir relacionadas à conectividade em suas soluções do lote.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>NSGs (grupos de segurança de rede) e UDRs (rotas definidas pelo usuário)
 
@@ -198,6 +198,10 @@ Verifique se os clientes do serviço do Lote têm políticas de repetição apro
 
 Normalmente, as máquinas virtuais em um pool do lote são acessadas por meio de endereços IP públicos que podem ser alterados durante o tempo de vida do pool. Isso pode dificultar a interação com um banco de dados ou outro serviço externo que limita o acesso a determinados endereços IP. Para garantir que os endereços IP públicos em seu pool não sejam alterados inesperadamente, você pode criar um pool usando um conjunto de endereços IP públicos estáticos que você controla. Para obter mais informações, consulte [criar um pool do lote do Azure com endereços IP públicos especificados](create-pool-public-ip.md).
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Testando a conectividade com a configuração de serviços de nuvem
+
+Você não pode usar o protocolo/ICMP "ping" normal com os serviços de nuvem, pois o protocolo ICMP não é permitido por meio do Azure Load Balancer. Para obter mais informações, consulte [conectividade e rede para serviços de nuvem do Azure](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+
 ## <a name="batch-node-underlying-dependencies"></a>Dependências subjacentes do nó do Lote
 
 Considere as seguintes dependências e restrições ao projetar suas soluções do Lote.
@@ -206,12 +210,12 @@ Considere as seguintes dependências e restrições ao projetar suas soluções 
 
 O Lote do Azure cria e gerencia um conjunto de usuários e grupos na VM, que não devem ser alterados. Elas são as seguintes:
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - Um usuário chamado **PoolNonAdmin**
 - Um grupo de usuários chamado **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - Um usuário chamado **_azbatch**
 
@@ -220,3 +224,9 @@ O Lote do Azure cria e gerencia um conjunto de usuários e grupos na VM, que nã
 O Lote tenta ativamente limpar o diretório de trabalho no qual as tarefas são executadas, quando o tempo de retenção expira. [Você é responsável por limpar](#manage-task-lifetime) todos os arquivos gravados fora desse diretório para evitar o preenchimento do espaço em disco.
 
 A limpeza automatizada para o diretório de trabalho será bloqueada se você executar um serviço no Windows a partir do diretório de trabalho startTask, porque a pasta ainda está em uso. Isso resultará em degradação do desempenho. Para corrigir isso, altere o diretório desse serviço para um diretório separado que não seja gerenciado pelo Lote.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Crie uma conta do Lote do Azure usando o portal do Azure](batch-account-create-portal.md).
+- Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
+- Saiba mais sobre as [cotas, os limites e as restrições do lote do Azure padrão e como solicitar aumentos de cota](batch-quota-limit.md).

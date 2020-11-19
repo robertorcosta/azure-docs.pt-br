@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
-ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 11/19/2020
+ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659974"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916773"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurar um IR auto-hospedado como um proxy para um Azure-SSIS IR no Azure Data Factory
 
@@ -175,8 +175,10 @@ Para habilitar seus componentes personalizados/de terceiros para acessar dados l
 
 1. Instale os componentes personalizados/de terceiros direcionados SQL Server 2017 em Azure-SSIS IR por meio de [instalações personalizadas padrão/Express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-1. Crie as seguintes chaves do registro DTSPath no IR via hospedagem interna, se elas ainda não existirem: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` e `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
- 
+1. Crie as seguintes chaves do registro DTSPath no IR via hospedagem interna, se elas ainda não existirem:
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` definido como `C:\Program Files\Microsoft SQL Server\140\DTS\`
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` definido como `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
+   
 1. Instale os componentes personalizados/de terceiros direcionados SQL Server 2017 no IR hospedado internamente sob o DTSPath acima e verifique se o processo de instalação:
 
    1. Cria `<DTSPath>` pastas,, e, `<DTSPath>/Connections` `<DTSPath>/PipelineComponents` `<DTSPath>/UpgradeMappings` se elas ainda não existirem.
@@ -185,7 +187,7 @@ Para habilitar seus componentes personalizados/de terceiros para acessar dados l
    
    1. Instala todos os assemblies referenciados por seus assemblies de componente personalizado/de terceiros no GAC (cache de assembly global).
 
-Veja um [exemplo de componente de terceiros](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) que usa uma instalação personalizada expressa e o ir hospedado internamente como um proxy para Azure-SSIS ir.
+Aqui estão exemplos de nossos parceiros, [Theobald software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) e [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), que adaptaram seus componentes para usar nossa configuração personalizada expressa e o ir auto-hospedado como um proxy para Azure-SSIS ir.
 
 ## <a name="enforce-tls-12"></a>Impor TLS 1.2
 

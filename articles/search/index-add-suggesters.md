@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445329"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917266"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
-No Azure Pesquisa Cognitiva, "Pesquisar conforme o tipo" é habilitado por meio de uma construção de **sugestão** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um Sugestor dá suporte a duas experiências: *preenchimento automático* , que conclui uma entrada parcial para uma consulta de termo inteiro e *sugestões* que o convite clica para uma correspondência específica. O preenchimento automático produz uma consulta. As sugestões produzem um documento correspondente.
+No Azure Pesquisa Cognitiva, "Pesquisar conforme o tipo" é habilitado por meio de uma construção de **sugestão** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um Sugestor dá suporte a duas experiências: *preenchimento automático*, que conclui uma entrada parcial para uma consulta de termo inteiro e *sugestões* que o convite clica para uma correspondência específica. O preenchimento automático produz uma consulta. As sugestões produzem um documento correspondente.
 
 A captura de tela a seguir de [criar seu primeiro aplicativo em C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambos. O preenchimento automático prevê um prazo potencial, concluindo "TW" com "in". Sugestões são resultados de mini pesquisa, onde um campo como nome de Hotel representa um documento de pesquisa de Hotel correspondente do índice. Para obter sugestões, você pode retonar qualquer campo que forneça informações descritivas.
 
@@ -54,7 +54,7 @@ O preenchimento automático beneficia-se de um pool maior de campos para desenha
 
 As sugestões, por outro lado, produzem resultados melhores quando a opção de seu campo é seletiva. Lembre-se de que a sugestão é um proxy para um documento de pesquisa, para que você queira campos que melhor representem um único resultado. Os nomes, títulos ou outros campos exclusivos que distinguem entre várias correspondências funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um usuário não saberá em qual deles clicar.
 
-Para atender a experiências de pesquisa conforme o uso, adicione todos os campos necessários para preenchimento automático, mas, em seguida, use **$Select** , **$Top** , **$Filter** e **searchFields** para controlar os resultados das sugestões.
+Para atender a experiências de pesquisa conforme o uso, adicione todos os campos necessários para preenchimento automático, mas, em seguida, use **$Select**, **$Top**, **$Filter** e **searchFields** para controlar os resultados das sugestões.
 
 ### <a name="choose-analyzers"></a>Escolher analisadores
 
@@ -120,20 +120,20 @@ Na API REST, adicione sugestores por meio de [CREATE INDEX](/rest/api/searchserv
 Em C#, defina um [objeto SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` é uma coleção em um objeto SearchIndex, mas só pode pegar um item. 
 
 ```csharp
-private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
-    FieldBuilder fieldBuilder = new FieldBuilder();
-    var searchFields = fieldBuilder.Build(typeof(Hotel));
+    var definition = new SearchIndex()
+    {
+        FieldBuilder builder = new FieldBuilder();
+        Fields = builder.Build(typeof(Hotel);
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelName", "Category" }
+            }}
+    }
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
-    var definition = new SearchIndex(indexName, searchFields);
-
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
-    definition.Suggesters.Add(suggester);
-
-    indexClient.CreateOrUpdateIndex(definition);
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 

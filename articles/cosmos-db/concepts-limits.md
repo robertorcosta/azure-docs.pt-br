@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491810"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917725"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,26 +41,48 @@ Você pode provisionar a taxa de transferência em um nível de contêiner ou em
 > [!NOTE]
 > Para saber mais sobre as práticas recomendadas para o gerenciamento de cargas de trabalho que têm chaves de partição que exigem limites mais altos para armazenamento ou taxa de transferência, confira [Criar uma chave de partição sintética](synthetic-partition-keys.md).
 
-Um contêiner do Cosmos (ou banco de dados de produtividade compartilhado) deve ter uma taxa de transferência mínima de 400 RU/s. À medida que o contêiner cresce, a taxa de transferência mínima compatível também depende dos seguintes fatores:
+### <a name="minimum-throughput-limits"></a>Limites de taxa de transferência mínima
 
-* A taxa de transferência máxima já provisionada no contêiner. Por exemplo, se a taxa de transferência foi aumentada para 50.000 RU/s, a menor taxa de transferência provisionada pode ser 500 RU/s.
-* O armazenamento atual em GB no contêiner. Por exemplo, se o contêiner tiver 100 GB de armazenamento, a taxa de transferência provisionada mais baixa possível será 1000 RU/s. **Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
-* A taxa de transferência mínima em um banco de dados de produtividade compartilhada também depende do número total de contêineres que você já criou em um banco de dados de produtividade compartilhado, medido em 100 RU/s por contêiner. Por exemplo, se você tiver criado cinco contêineres em um banco de dados de produtividade compartilhado, a taxa de transferência deverá ser de pelo menos 500 RU/s.
+Um contêiner do Cosmos (ou banco de dados de produtividade compartilhado) deve ter uma taxa de transferência mínima de 400 RU/s. À medida que o contêiner cresce, Cosmos DB requer uma taxa de transferência mínima para garantir que o banco de dados ou o contêiner tenha recursos suficientes para suas operações.
 
 A taxa de transferência atual e mínima de um contêiner ou de um banco de dados pode ser recuperada do portal do Azure ou dos SDKs. Para obter mais informações, confira [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md). 
 
-> [!NOTE]
-> Em alguns casos, talvez seja possível reduzir a taxa de transferência para menos de 10%. Use a API para obter o mínimo exato de RUs por contêiner.
+O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para exibir o histórico de taxa de transferência provisionada (ru/s) e o armazenamento em um recurso. 
+
+#### <a name="minimum-throughput-on-container"></a>Taxa de transferência mínima no contêiner 
+
+Para estimar a taxa de transferência mínima necessária de um contêiner com taxa de transferência manual, encontre o máximo de:
+
+* 400 RU/s 
+* Armazenamento atual em GB * 10 RU/s
+* RU/s mais alto provisionado no contêiner/100
+
+Exemplo: Suponha que você tenha um contêiner provisionado com o armazenamento de 400 RU/s e 0 GB. Você aumenta a taxa de transferência para 50.000 RU/s e importa 20 GB de dados. O mínimo de RU/s agora é `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 ru/s. Ao longo do tempo, o armazenamento aumenta para 200 GB. O mínimo de RU/s agora é `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 ru/s. 
+
+**Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
+
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Taxa de transferência mínima no banco de dados de produtividade compartilhada 
+Para estimar a taxa de transferência mínima necessária de um banco de dados de produtividade compartilhado com taxa de transferência manual, encontre o máximo de:
+
+* 400 RU/s 
+* Armazenamento atual em GB * 10 RU/s
+* RU/s mais alto provisionado no banco de dados/100
+* 400 + MAX (contagem de contêineres-25, 0) * 100 RU/s
+
+Exemplo: Suponha que você tenha um banco de dados provisionado com 400 RU/s, 15 GB de armazenamento e 10 contêineres. O mínimo de RU/s é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Se houver 30 contêineres no banco de dados, o RU/s mínimo seria `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 ru/s. 
+
+**Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
 
 Em resumo, aqui estão os limites mínimos de RU provisionadas. 
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Mínimo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Mínimo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Mínimo de RUs por contêiner em um banco de dados de taxa de transferência compartilhada | 100 |
+| RUs mínima por contêiner ([modo de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| RUs mínima por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s para os primeiros 25 contêineres. 100 RU/s adicionais para cada contêiner posteriormente. |
 
-O Cosmos DB dá suporte à escala elástica da taxa de transferência (RUs) por contêiner ou banco de dados por meio de SDKs ou portal. Cada contêiner pode ser dimensionado de modo síncrono e imediatamente dentro de um intervalo de escala de 10 a 100 vezes entre os valores mínimo e máximo. Se o valor da taxa de transferência solicitado estiver fora do intervalo, a colocação em escala será executada de modo assíncrono. A colocação em escala assíncrona pode levar de minutos a horas para ser concluída, dependendo da taxa de transferência e do tamanho de armazenamento de dados solicitados no contêiner.  
+O Cosmos DB dá suporte ao dimensionamento programático de taxa de transferência (RU/s) por contêiner ou banco de dados por meio de SDKs ou Portal.    
+
+Dependendo das configurações atuais de configuração e de corrente de RU/s, cada recurso pode ser dimensionado de forma síncrona e imediatamente entre o mínimo de RU/s até 100x o mínimo de RU/s. Se o valor da taxa de transferência solicitado estiver fora do intervalo, a colocação em escala será executada de modo assíncrono. A colocação em escala assíncrona pode levar de minutos a horas para ser concluída, dependendo da taxa de transferência e do tamanho de armazenamento de dados solicitados no contêiner.  
 
 ### <a name="serverless"></a>Sem servidor
 
@@ -172,9 +194,9 @@ Azure Cosmos DB mantém metadados do sistema para cada conta. Esses metadados pe
 
 | Recurso | Limite padrão |
 | --- | --- |
-|Taxa máxima de criação de coleção por minuto| 5|
-|Taxa máxima de criação de banco de dados por minuto|   5|
-|Taxa máxima de atualização de produtividade provisionada por minuto| 5|
+|Taxa máxima de criação de coleção por minuto|    5|
+|Taxa máxima de criação de banco de dados por minuto|    5|
+|Taxa máxima de atualização de produtividade provisionada por minuto|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para a taxa de transferência provisionada de dimensionamento automático
 
