@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 36ba593a1d8cd2e50293eaf77dc9ec864245df4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397035"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566581"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando a CLI do Azure
 
@@ -34,13 +34,11 @@ O exemplo a seguir mostra o tráfego do site proveniente de ambas as portas 8080
 
 Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Caso opte por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+ - Este tutorial requer a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -236,7 +234,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual nas quais você instala o NGINX.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual nas quais você instala o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
