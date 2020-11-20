@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074243"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980500"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -67,13 +67,13 @@ Use as etapas a seguir para configurar sua conta de armazenamento para ativos de
 
 1. Preencha a página Stream Analytics trabalho com os detalhes necessários, como nome, região e escala. 
 
-1. Marque a caixa de seleção que diz *proteger todos os ativos de dados privados necessários para esse trabalho em minha conta de armazenamento* .
+1. Marque a caixa de seleção que diz *proteger todos os ativos de dados privados necessários para esse trabalho em minha conta de armazenamento*.
 
 1. Selecione uma conta de armazenamento da sua assinatura. Observe que essa configuração não pode ser modificada durante o ciclo de vida do trabalho. 
 
    ![Configurações de conta de armazenamento de dados particulares](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Ativos de dados privados que são armazenados
+## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Ativos de dados privados armazenados por Stream Analytics
 
 Todos os dados privados que precisam ser persistidos pelo Stream Analytics são armazenados em sua conta de armazenamento. Exemplos de ativos de dados privados incluem: 
 

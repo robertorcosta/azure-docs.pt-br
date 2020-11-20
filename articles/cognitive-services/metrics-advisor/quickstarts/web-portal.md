@@ -93,11 +93,11 @@ Quando o esquema de dados for carregado e mostrado conforme abaixo, selecione os
 |---------|---------|---------|
 |**Timestamp**     | O carimbo de data/hora de um ponto de dados. Se omitido, o Assistente de Métricas usará o carimbo de data/hora de quando o ponto de dados for ingerido. Para cada feed de dados, você pode especificar no máximo uma coluna como carimbo de data/hora.        | Opcional. Deve ser especificado com, no máximo, uma coluna.       |
 |**Medida**     |  Os valores numéricos no feed de dados. Para cada feed de dados, você pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com, pelo menos, uma coluna.        |
-|**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série temporal de dimensão única em particular, por exemplo: país, idioma, locatário. Você pode selecionar um número arbitrário de colunas como dimensões ou pode não selecionar nenhuma. Observação: se for selecionar como dimensão uma coluna que não seja de cadeia de caracteres, tenha cuidado com a explosão da dimensão. | Opcional.        |
+|**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série temporal de dimensão única em particular, por exemplo: país/região, idioma, locatário. Você pode selecionar um número arbitrário de colunas como dimensões ou pode não selecionar nenhuma. Observação: se for selecionar como dimensão uma coluna que não seja de cadeia de caracteres, tenha cuidado com a explosão da dimensão. | Opcional.        |
 |**Ignorar**     | Ignorar a coluna selecionada.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configurações de conexão" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Configuração de esquema" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Configurações de acúmulo automático
 
@@ -117,7 +117,7 @@ Quando a detecção for aplicada, clique em uma das métricas listadas no feed d
 - Atualizar a configuração de detecção para chegar aos resultados esperados
 - Configurar notificações de anomalias detectadas
 
-:::image type="content" source="../media/metric-details.png" alt-text="Configurações de conexão" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Detalhes da métrica" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Exibir os insights de diagnóstico
 
@@ -125,13 +125,13 @@ Após o ajuste da configuração de detecção, as anomalias encontradas devem r
 
 Para exibir insights de diagnóstico, clique nos pontos vermelhos nas visualizações de série temporal, que representam as anomalias detectadas. Aparecerá uma janela com um link para a página de análise de incidentes. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Configurações de conexão" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Link do incidente" lightbox="../media/incident-link.png":::
 
 Após clicar no link, você será dinamizado para a página de análise de incidentes, que analisa a anomalia correspondente e apresenta diversos insights de diagnóstico. Na parte superior, haverá estatísticas sobre o incidente, como a **Gravidade**, as **Anomalias envolvidas** e a **Hora de início** e a **Hora de término** do impacto. 
 
 Em seguida, você verá a anomalia ancestral do incidente, bem como um aviso automatizado sobre a causa raiz. Esse aviso automatizado sobre a causa raiz é gerado pela análise da árvore de incidentes de todas as anomalias relacionadas, incluindo: desvio, distribuição e contribuição para as anomalias pai. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Configurações de conexão" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidente" lightbox="../media/incident-diagnostic.png":::
 
 Com base nesses dados, você já pode ter uma visão clara do que está acontecendo e do impacto do incidente, bem como da causa raiz mais provável. Dessa forma, é possível agir imediatamente para resolver o incidente o quanto antes. 
 

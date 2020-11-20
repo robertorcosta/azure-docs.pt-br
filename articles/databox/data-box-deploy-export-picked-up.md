@@ -149,7 +149,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
 5. Se você encontrar algum problema, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas encontrados e coloque o número da nota de entrega na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
 
-## <a name="hong-kong"></a>[Hong Kong](#tab/in-hk)
+## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
 1. Empacote o dispositivo para a remessa de devolução na caixa original.
 2. Anote o número de referência (número de acompanhamento para remessa reversa) mostrado na IU da Web local do dispositivo. Esse número é exibido depois que a **executada de Preparação para o envio** é bem-sucedida.

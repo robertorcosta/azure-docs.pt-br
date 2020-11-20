@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649136"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980908"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -22,7 +22,7 @@ Esta seção lista as operações para provedores de recursos do Azure, que são
 
 Clique no nome do provedor de recursos na tabela a seguir para ver a lista de operações.
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 | Geral |
 | --- |
@@ -156,7 +156,7 @@ Clique no nome do provedor de recursos na tabela a seguir para ver a lista de op
 | [Microsoft.Subscription](#microsoftsubscription) |
 | **Intune** |
 | [Microsoft.Intune](#microsoftintune) |
-| **Outros** |
+| **Outras** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 
@@ -843,6 +843,7 @@ Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [b
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Read | Obter NetworkRuleCollection do firewall do Azure |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Write | CreatesOrUpdates NetworkRuleCollection do firewall do Azure |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Delete | Exclui o Firewall do Azure NetworkRuleCollection |
+> | Microsoft. Network/azureWebCategories/Read | Obter as categorias do Azure |
 > | Microsoft.Network/bastionHosts/read | Obtém um host bastião |
 > | Microsoft.Network/bastionHosts/write | Criar ou atualizar um host bastião |
 > | Microsoft.Network/bastionHosts/delete | Exclui um host bastião |
@@ -1242,6 +1243,8 @@ Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [b
 > | Microsoft. Network/virtualHubs/bgpConnections/Read | Obter um recurso filho de conexão BGP de Hub do Hub virtual |
 > | Microsoft. Network/virtualHubs/bgpConnections/Write | Cria ou atualiza um recurso filho de conexão BGP de Hub do Hub virtual |
 > | Microsoft. Network/virtualHubs/bgpConnections/Delete | Excluir um recurso filho de conexão BGP de Hub do Hub virtual |
+> | Microsoft. Network/virtualHubs/bgpConnections/advertisedRoutes/Action | Obtém rotas anunciadas do virtualrouter |
+> | Microsoft. Network/virtualHubs/bgpConnections/learnedRoutes/Action | Obtém rotas aprendidas do virtualrouter |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Read | Obter um recurso filho da tabela de rotas do Hub virtual |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Write | Cria ou atualiza um recurso filho da tabela de rotas do Hub virtual |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Exclui um recurso filho da tabela de rotas do Hub virtual |
@@ -1329,6 +1332,9 @@ Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [b
 > | Microsoft. Network/vpngateways/startpacketcapture/Action | Iniciar a captura de pacotes do gateway de VPN com o recurso de acordo |
 > | Microsoft. Network/vpngateways/stoppacketcapture/Action | Parar captura de pacotes do gateway de VPN com sasURL |
 > | microsoft.network/vpngateways/listvpnconnectionshealth/action | Obtém a integridade da conexão para todas ou um subconjunto das conexões em um VpnGateway |
+> | Microsoft. Network/vpnGateways/natRules/Read | Obter um recurso de regra NAT |
+> | Microsoft. Network/vpnGateways/natRules/Write | Coloca um recurso de regra NAT |
+> | Microsoft. Network/vpnGateways/natRules/Delete | Exclui um recurso de regra NAT |
 > | microsoft.network/vpnGateways/vpnConnections/read | Obter um VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/write | Implementar um VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/delete | Exclui um VpnConnection. |
@@ -1934,6 +1940,9 @@ Serviço do Azure: [mapas do Azure](../azure-maps/index.yml)
 > | Microsoft.Maps/accounts/delete | Exclui uma Conta de Mapas. |
 > | Microsoft.Maps/accounts/listKeys/action | Lista as chaves de conta do Maps. |
 > | Microsoft.Maps/accounts/regenerateKey/action | Gerar nova chave primária ou secundária de conta de mapas. |
+> | Microsoft. Maps/contas/criadores/gravação | Criar ou atualizar um criador. |
+> | Microsoft. Maps/contas/criadores/leitura | Obtenha um criador. |
+> | Microsoft. Maps/contas/criadores/exclusão | Excluir um criador. |
 > | Microsoft.Maps/accounts/eventGridFilters/delete | Excluir um filtro de grade de eventos. |
 > | Microsoft.Maps/accounts/eventGridFilters/read | Obtenha um filtro de Grade de Eventos |
 > | Microsoft.Maps/accounts/eventGridFilters/write | Criar ou atualizar um filtro de grade de eventos. |
@@ -2103,6 +2112,7 @@ Serviço do Azure: [serviço de signaler do Azure](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/locations/checknameavailability/action | Verifica se um nome está disponível para uso com um novo serviço SignalR |
 > | Microsoft.SignalRService/locations/operationresults/signalr/read | Consultar o resultado de uma operação assíncrona baseada em local |
 > | Microsoft. SignalRService/Locations/operationStatuses/operationId/Read | Consultar o status de uma operação assíncrona baseada em local |
+> | Microsoft. SignalRService/Locations/operationStatuses/signalr/Read | Consultar o status de uma operação assíncrona baseada em local |
 > | Microsoft.SignalRService/locations/usages/read | Obtém os usos de cota para o Serviço do Azure SignalR |
 > | Microsoft.SignalRService/operationresults/read | Consultar o resultado de uma operação assíncrona no nível do provedor |
 > | Microsoft. SignalRService/operações/leitura | Listar as operações do serviço de Signaler do Azure. |
@@ -2610,6 +2620,7 @@ Serviço do Azure: [serviço de aplicativo](../app-service/index.yml), [Azure Fu
 > | Microsoft. Web/staticSites/GetUser/Action | Obter informações de um usuário para um site estático |
 > | Microsoft. Web/staticSites/listsecrets/Action | Listar os segredos para um site estático |
 > | Microsoft. Web/staticSites/resetapikey/Action | Redefinir a chave de API para um site estático |
+> | Microsoft. Web/staticSites/zipdeploy/Action | Implantar um site estático do conteúdo compactado |
 > | Microsoft. Web/staticSites/authproviders/Listusers/Action | Listar os usuários para um site estático |
 > | Microsoft. Web/staticSites/authproviders/Users/Delete | Excluir um usuário de um site estático |
 > | Microsoft. Web/staticSites/authproviders/usuários/gravação | Atualizar um usuário para um site estático |
@@ -2617,6 +2628,7 @@ Serviço do Azure: [serviço de aplicativo](../app-service/index.yml), [Azure Fu
 > | Microsoft. Web/staticSites/compilar/excluir | Excluir uma compilação para um site estático |
 > | Microsoft. Web/staticSites/Builds/listfunctionappsettings/Action | Listar configurações de aplicativo de funções para uma compilação de site estática |
 > | Microsoft. Web/staticSites/Builds/listappsettings/Action | Listar configurações de aplicativo para uma compilação de site estático |
+> | Microsoft. Web/staticSites/Builds/zipdeploy/Action | Implantar uma compilação de site estática a partir de conteúdo compactado |
 > | Microsoft. Web/staticSites/Builds/config/Write | Criar ou atualizar configurações de aplicativo para uma compilação de site estática |
 > | Microsoft. Web/staticSites/config/Write | Criar ou atualizar configurações de aplicativo para um site estático |
 > | Microsoft. Web/staticSites/customdomains/Write | Criar um domínio personalizado para um site estático |
@@ -3931,6 +3943,8 @@ Serviço do Azure: [banco de dados SQL do](../azure-sql/database/index.yml)Azure
 > | Microsoft. SQL/Locations/serverAdministratorOperationResults/Read | Resultados da operação do administrador de Azure Active Directory do servidor |
 > | Microsoft. SQL/Locations/serverKeyAzureAsyncOperation/Read | Obter operações em andamento em chaves de servidor de Transparent Data Encryption |
 > | Microsoft. SQL/Locations/serverKeyOperationResults/Read | Obter operações em andamento em chaves de servidor de Transparent Data Encryption |
+> | Microsoft. SQL/Locations/serverTrustGroupAzureAsyncOperation/Read | Obter o status da operação assíncrona do grupo de confiabilidade do servidor |
+> | Microsoft. SQL/Locations/serverTrustGroupOperationResults/Read | Obter o resultado da operação do grupo de confiança do servidor |
 > | Microsoft. SQL/Locations/serverTrustGroups/Write | Cria um grupo de confiança do servidor com os parâmetros especificados |
 > | Microsoft. SQL/Locations/serverTrustGroups/Delete | Exclui o grupo de confiança SQL Server existente |
 > | Microsoft. SQL/Locations/serverTrustGroups/Read | Retorna os grupos de confiança existentes do SQL Server |
@@ -3946,12 +3960,12 @@ Serviço do Azure: [banco de dados SQL do](../azure-sql/database/index.yml)Azure
 > | Microsoft.Sql/locations/virtualNetworkRulesAzureAsyncOperation/read | Retornar os detalhes da operação assíncrona de regras de rede virtual especificada do Azure  |
 > | Microsoft.Sql/locations/virtualNetworkRulesOperationResults/read | Retornar os detalhes da operação de regras de rede virtual especificada  |
 > | Microsoft.Sql/managedInstances/tdeCertificates/action | Criar/atualizar certificado TDE |
-> | Microsoft. SQL/managedInstances/joinServerTrustGroup/Action | Determinar se o usuário tem permissão para ingressar no grupo de confiança do servidor |
+> | Microsoft. SQL/managedInstances/failover/ação | Failover de instância gerenciada iniciada pelo cliente. |
+> | Microsoft. SQL/managedInstances/joinServerTrustGroup/Action | Determinar se um usuário tem permissão para ingressar no servidor gerenciado em um grupo de confiança do servidor |
 > | Microsoft. SQL/managedInstances/exportar/ação | Exportar o banco de dados do sistema e a chave SMK |
 > | Microsoft.Sql/managedInstances/read | Retornar a lista de instâncias gerenciadas ou obter as propriedades para a instância gerenciada especificada. |
 > | Microsoft.Sql/managedInstances/write | Criar uma instância gerenciada com os parâmetros especificados ou atualizar as propriedades ou marcas para a instância gerenciada especificada. |
 > | Microsoft.Sql/managedInstances/delete | Excluir uma instância gerenciada existente. |
-> | Microsoft. SQL/managedInstances/failover/ação | Failover de instância gerenciada iniciada pelo cliente. |
 > | Microsoft.Sql/managedInstances/administrators/read | Obter uma lista de administradores de instância gerenciada. |
 > | Microsoft.Sql/managedInstances/administrators/write | Criar ou atualizar o administrador da instância gerenciada com os parâmetros especificados. |
 > | Microsoft.Sql/managedInstances/administrators/delete | Excluir um administrador existente da instância gerenciada. |
@@ -4100,11 +4114,11 @@ Serviço do Azure: [banco de dados SQL do](../azure-sql/database/index.yml)Azure
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/delete | Excluir regra de política de máscara de dados para um determinado banco de dados |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/read | Retornar as informações de consulta de distribuição do data warehouse para a ID de consulta selecionada |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read | Retornar as informações de etapa de consulta distribuída da consulta de data warehouse para ID da etapa selecionada |
-> | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Recupera as atividades do usuário de um pool SQL dedicado do Azure Synapse Analytics que inclui consultas em execução e suspensas |
+> | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Recuperar as atividades do usuário de uma instância do SQL Data Warehouse que inclui consultas suspensas e em execução |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Recuperar detalhes da política de auditoria de blob estendida configurada em um determinado banco de dados |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/write | Alterar a política de auditoria de blob estendida para um determinado banco de dados |
-> | Microsoft.Sql/servers/databases/extensions/read | Obter uma coleção de extensões para o banco de dados. |
-> | Microsoft.Sql/servers/databases/extensions/write | Alterar a extensão de um determinado banco de dados |
+> | Microsoft.Sql/servers/databases/extensions/write | Executa uma operação de extensão de banco de dados. |
+> | Microsoft.Sql/servers/databases/extensions/read | Operação de obtenção de extensões de banco de dados. |
 > | Microsoft. SQL/servidores/bancos de dados/extensões/importExtensionOperationResults/leitura | Obter operações de importação em andamento |
 > | Microsoft.Sql/servers/databases/geoBackupPolicies/read | Recuperar políticas do backup geográfico para um determinado banco de dados |
 > | Microsoft.Sql/servers/databases/geoBackupPolicies/write | Criar ou atualizar uma política do backup geográfico de banco de dados |
@@ -5140,6 +5154,7 @@ Serviço do Azure: [Serviços cognitivas](../cognitive-services/index.yml)
 > | Microsoft. Cognitivaservices/contas/textanalytics/entidades/ação | A API retorna uma lista de entidades conhecidas e entidades nomeadas gerais ( \" pessoa \" , \" local \" , \" organização \" etc.) em um determinado documento. |
 > | Microsoft. Cognitivaservices/accounts/xmlanalytics/keyfrases/ação | A API retorna uma lista de cadeias de caracteres representando os principais pontos de discussão no texto de entrada. |
 > | Microsoft. Cognitivaservices/accounts/textanalytics/sentimentos/Action | A API retorna uma pontuação numérica entre 0 e 1.<br>Classificações próximas de 1 indicam sentimento positivo, enquanto as classificações próximas de 0 indicam sentimento negativo.<br>Uma pontuação de 0,5 indica a falta de sentimentos (por exemplo,<br>uma instrução factoname). |
+> | Microsoft. Cognitivaservices/accounts/textanalytics/Analyze/Action | Envie uma coleção de documentos de texto para análise. Especifique uma ou mais tarefas exclusivas a serem executadas. |
 > | Microsoft. Cognitivaservices/accounts/texttranslation/Detect/Action | Identifica o idioma de uma parte do texto. |
 > | Microsoft. Cognitivaservices/accounts/texttranslation/breaksentence/Action | Identifica o posicionamento dos limites de frase em uma parte do texto. |
 > | Microsoft. Cognitivaservices/accounts/texttranslation/translate/ação | Traduz texto. |
@@ -5496,29 +5511,29 @@ Serviço do Azure: [hubs de notificação](../notification-hubs/index.yml)
 > | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Verificar se determinado nome de recurso do Namespace está disponível no serviço NotificationHub. |
 > | Microsoft.NotificationHubs/Namespaces/write | Criar um recurso de namespace e atualizar suas propriedades. Marcas e Capacidade do namespace são as propriedades que podem ser atualizadas. |
 > | Microsoft.NotificationHubs/Namespaces/read | Obter a lista de descrição do recurso de namespace |
-> | Microsoft.NotificationHubs/Namespaces/Delete | Excluir o recurso de namespace |
+> | Microsoft. NotificationHubs/namespaces/excluir | Excluir o recurso de namespace |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | Obter a lista de descrição de regras de autorização de namespaces. |
 > | Microsoft.NotificationHubs/Namespaces/CheckNotificationHubAvailability/action | Verificar se determinado nome de NotificationHub está disponível em um Namespace. |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/write | Criar regras de autorização no nível do namespace e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas. |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/read | Obter a lista de descrição de regras de autorização de namespaces. |
-> | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída.  |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída. |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | Obter a cadeia de conexão para o namespace |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | Regra de autorização de namespace regenera chave primária/secundária; especifique a chave que precisa ser regenerada |
-> | Microsoft. NotificationHubs/namespaces/diagnosticSettings/Read | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
-> | Microsoft. NotificationHubs/namespaces/diagnosticSettings/Write | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
-> | Microsoft. NotificationHubs/namespaces/logDefinitions/Read | Obter lista de descrições do recurso de log do namespace |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/write | Criar um Hub de notificação e atualizar suas propriedades. Suas propriedades incluem principalmente as credenciais PNS. Tempo de vida útil e regras de autorização |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/read | Obter lista de descrições de recursos do Hub de notificação |
-> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/Delete | Excluir recurso de Hub de notificação |
+> | Microsoft. NotificationHubs/namespaces/NotificationHubs/Delete | Excluir recurso de Hub de notificação |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action | Obter a lista de regras de autorização do Hub de notificação |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/action | Obter todas as credenciais PNS do Hub de notificação. Isso inclui credenciais WNS, MPNS, APNS, GCM e Baidu |
-> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/debugSend/action | Enviar notificação por push de teste. |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/debugSend/action | Envie uma notificação por push de teste para 10 dispositivos correspondentes. |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/write | Criar regras de autorização do Hub de notificação e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas. |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/read | Obter a lista de regras de autorização do Hub de notificação |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/delete | Excluir regras de autorização do Hub de notificação |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listkeys/action | Obter a cadeia de conexão para o Hub de notificação |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action | Regra de autorização de Hub de notificação regenera chave primária/secundária; especifique a chave que precisa ser regenerada |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/read | Obter lista de métrica de descrições de recurso de métrica do namespace |
+> | Microsoft. NotificationHubs/namespaces/Providers/Microsoft. insights/diagnosticSettings/Read | Obter configurações de diagnóstico de namespace |
+> | Microsoft. NotificationHubs/namespaces/Providers/Microsoft. insights/diagnosticSettings/Write | Criar ou atualizar configurações de diagnóstico de namespace |
+> | Microsoft. NotificationHubs/namespaces/Providers/Microsoft. insights/logDefinitions/Read | Obtém os logs disponíveis para o namespace |
 > | Microsoft.NotificationHubs/operationResults/read | Retorna os resultados da operação para o provedor de Hubs de Notificação |
 > | Microsoft.NotificationHubs/operations/read | Retorna uma lista de operações com suporte para o provedor de Hubs de Notificação |
 
@@ -5566,7 +5581,25 @@ Serviço do Azure: [âncoras espaciais do Azure](../spatial-anchors/index.yml)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft. MixedReality/registro/ação | Registra uma assinatura para o provedor de recursos de realidade misturada. |
+> | Microsoft. MixedReality/cancelar registro/ação | Cancela o registro de uma assinatura para o provedor de recursos de realidade misturada. |
+> | Microsoft. MixedReality/Locations/checknameavailability/Read | Verifica a disponibilidade do nome |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Delete | Excluir uma conta de compreensão de objeto |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/listkeys/Action | Listar as chaves de um objeto que entende a conta |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Read | Ler as propriedades de uma conta de compreensão de objeto |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/regeneratekeys/Action | Regenerar as chaves de uma conta de compreensão de objeto |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Write | Atualizar as propriedades de uma conta de compreensão de objeto |
+> | Microsoft. MixedReality/operações/leitura | Listar as operações disponíveis para a realidade mista da Microsoft |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Delete | Excluir uma conta de renderização remota |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/listkeys/Action | Listar chaves de uma conta de renderização remota |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Read | Ler as propriedades de uma conta de renderização remota |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/regeneratekeys/Action | Regenerar as chaves de uma conta de renderização remota |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Write | Atualizar as propriedades de uma conta de renderização remota |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Keys/Read | Ler chaves de uma conta de renderização remota |
 > | Microsoft. MixedReality/remoteRenderingAccounts/Providers/Microsoft. insights/metricDefinitions/Read | Obtém as métricas disponíveis para Microsoft. MixedReality/remoteRenderingAccounts |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/listkeys/Action | Listar chaves de uma conta de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Read | Ler as propriedades de uma conta de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/regeneratekeys/Action | Regenerar as chaves de uma conta de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Keys/Read | Ler chaves de uma conta de âncoras espaciais |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/Providers/Microsoft. insights/diagnosticSettings/Read | Obtém a configuração de diagnóstico para Microsoft. MixedReality/spatialAnchorsAccounts |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/Providers/Microsoft. insights/diagnosticSettings/Write | Cria ou atualiza a configuração de diagnóstico para Microsoft. MixedReality/spatialAnchorsAccounts |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/Providers/Microsoft. insights/metricDefinitions/Read | Obtém as métricas disponíveis para Microsoft. MixedReality/spatialAnchorsAccounts |
@@ -5931,6 +5964,11 @@ Serviço do Azure: [borda de Azure Stack](../databox-online/azure-stack-edge-ove
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Listar ou obter as funções |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Cria ou atualiza as funções |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Exclui as funções |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/funções/Complementos/leitura | Listar ou obter o ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/funções/Complementos/leitura | Listar ou obter o ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/funções/Complementos/gravação | Cria ou atualiza o ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/funções/Complementos/excluir | Exclui o ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/funções/Complementos/operationResults/leitura | Listar ou obter o resultado da operação |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Roles/monitoringConfig/Write | Criar ou atualizar a configuração de monitoramento |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Roles/monitoringConfig/Delete | Exclui a configuração de monitoramento |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Roles/monitoringConfig/Read | Listar ou obter a configuração de monitoramento |
@@ -6543,65 +6581,65 @@ Serviço do Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft. keyvault/managedHSMs/Delete | Excluir um HSM gerenciado |
 > | Microsoft.KeyVault/operations/read | Lista as operações disponíveis no provedor de recursos Microsoft.KeyVault |
 > | Microsoft.KeyVault/vaults/read | Exibir as propriedades de um cofre de chaves |
-> | Microsoft.KeyVault/vaults/write | Criar um novo cofre de chaves ou atualizar as propriedades de um cofre de chaves existente |
+> | Microsoft.KeyVault/vaults/write | Cria um novo cofre de chaves ou atualiza as propriedades de um cofre de chaves existente. Determinadas propriedades podem exigir mais permissões. |
 > | Microsoft.KeyVault/vaults/delete | Excluir um cofre de chaves |
 > | Microsoft.KeyVault/vaults/deploy/action | Permite acesso aos segredos em um cofre de chaves durante a implantação de recursos do Azure |
-> | Microsoft.KeyVault/vaults/accessPolicies/write | Atualizar uma política de acesso existente por mesclagem ou substituição, ou adicionar uma nova política de acesso a um cofre. |
+> | Microsoft.KeyVault/vaults/accessPolicies/write | Atualiza uma política de acesso existente mesclando ou substituindo ou adiciona uma nova política de acesso ao cofre de chaves. |
 > | Microsoft. keyvault/cofres/eventGridFilters/Read | Notifica o Microsoft. keyvault que uma assinatura do EventGrid para Key Vault está sendo exibida |
 > | Microsoft. keyvault/cofres/eventGridFilters/Write | Notifica o Microsoft. keyvault de que uma nova assinatura do EventGrid para Key Vault está sendo criada |
 > | Microsoft. keyvault/vaultes/eventGridFilters/Delete | Notifica o Microsoft. keyvault que uma assinatura do EventGrid para Key Vault está sendo excluída |
 > | Microsoft. keyvault/cofres/chaves/leitura | Listar as chaves em um cofre especificado ou ler a versão atual de uma chave especificada. |
-> | Microsoft. keyvault/cofres/chaves/gravação | Crie uma nova chave ou atualize uma chave existente. |
+> | Microsoft. keyvault/cofres/chaves/gravação | Cria a primeira versão de uma nova chave, caso ela não exista. Se já existir, a chave existente será retornada sem nenhuma modificação. Essa API não cria versões subsequentes e não atualiza as chaves existentes. |
 > | Microsoft. keyvault/cofres/chaves/versões/leitura | Listar as versões de uma chave especificada ou ler a versão especificada de uma chave. |
 > | Microsoft.KeyVault/vaults/secrets/read | Exiba as propriedades de um segredo, mas não seu valor. |
-> | Microsoft.KeyVault/vaults/secrets/write | Crie um novo segredo ou atualize o valor de um segredo existente. |
+> | Microsoft.KeyVault/vaults/secrets/write | Cria um novo segredo ou atualiza o valor de um segredo existente. |
 > | **DataAction** | **Descrição** |
 > | Microsoft. keyvault/vaultes/certificatecas/Delete | Excluir emissor do certificado |
 > | Microsoft. keyvault/cofres/certificatecas/Read | Ler emissor do certificado |
 > | Microsoft. keyvault/cofres/certificatecas/Write | Gravar emissor do certificado |
 > | Microsoft. keyvault/cofres/certificatecontacts/Write | Gerenciar contato do certificado |
-> | Microsoft. keyvault/cofres/certificados/excluir | Excluir um certificado. |
+> | Microsoft. keyvault/cofres/certificados/excluir | Exclui um certificado. Todas as versões são excluídas. |
 > | Microsoft. keyvault/cofres/certificados/leitura | Listar certificados em um cofre de chaves especificado ou obter informações sobre um certificado. |
-> | Microsoft. keyvault/cofres/certificados/backup/ação | Crie o arquivo de backup de um certificado. O arquivo pode ser usado para restaurar o certificado em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
+> | Microsoft. keyvault/cofres/certificados/backup/ação | Cria o arquivo de backup de um certificado. O arquivo pode ser usado para restaurar o certificado em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
 > | Microsoft. keyvault/cofres/certificados/limpeza/ação | Limpa um certificado, tornando-o irrecuperável. |
 > | Microsoft. keyvault/cofres/certificados/atualização/ação | Atualiza os atributos especificados associados ao certificado fornecido. |
-> | Microsoft. keyvault/cofres/certificados/criar/ação | Cria um novo certificado. |
-> | Microsoft. keyvault/cofres/certificados/importação/ação | Importa um certificado válido existente, contendo uma chave privada, para Azure Key Vault. O certificado a ser importado pode estar no formato PFX ou PEM. |
+> | Microsoft. keyvault/cofres/certificados/criar/ação | Cria um novo certificado. Se o certificado não existir, a primeira versão será criada. Caso contrário, uma nova versão será criada. |
+> | Microsoft. keyvault/cofres/certificados/importação/ação | Importa um certificado válido existente contendo uma chave privada.<br>O certificado a ser importado pode estar no formato PFX ou PEM.<br>Se o certificado não existir no Key Vault, a primeira versão será criada com o conteúdo especificado.<br>Caso contrário, uma nova versão será criada com o conteúdo especificado. |
 > | Microsoft. keyvault/cofres/certificados/recuperação/ação | Recupera o certificado excluído. A operação executa a reversão da operação de exclusão. A operação é aplicável em cofres habilitados para exclusão reversível e deve ser emitida durante o intervalo de retenção. |
-> | Microsoft. keyvault/cofres/certificados/restauração/ação | Restaura um certificado de backup e todas as suas versões para um cofre. |
+> | Microsoft. keyvault/cofres/certificados/restauração/ação | Restaura um certificado e todas as suas versões de um arquivo de backup gerado pelo Key Vault. |
 > | Microsoft. keyvault/cofres/chaves/leitura | Listar chaves no cofre especificado ou ler propriedades e material público de uma chave.<br>Para chaves assimétricas, essa operação expõe a chave pública e inclui a capacidade de executar algoritmos de chave pública, como criptografar e verificar assinatura.<br>Chaves privadas e chaves simétricas nunca são expostas. |
 > | Microsoft. keyvault/cofres/chaves/atualização/ação | Atualiza os atributos especificados associados à chave especificada. |
-> | Microsoft. keyvault/cofres/chaves/criar/ação | Cria uma nova chave. |
-> | Microsoft. keyvault/cofres/chaves/importação/ação | Importa uma chave criada externamente, armazena-a e retorna os parâmetros de chaves e atributos para o cliente. |
+> | Microsoft. keyvault/cofres/chaves/criar/ação | Cria uma nova chave. Se a chave não existir, a primeira versão será criada. Caso contrário, uma nova versão será criada com o valor especificado. |
+> | Microsoft. keyvault/cofres/chaves/importação/ação | Importa uma chave criada externamente. Se a chave não existir, a primeira versão será criada com o material importado. Caso contrário, uma nova versão será criada com o material importado. |
 > | Microsoft. keyvault/cofres/chaves/recuperação/ação | Recupera a chave excluída. A operação executa a reversão da operação de exclusão. A operação é aplicável em cofres habilitados para exclusão reversível e deve ser emitida durante o intervalo de retenção. |
-> | Microsoft. keyvault/cofres/chaves/restauração/ação | Restaura uma chave de backup e todas as suas versões para um cofre. |
-> | Microsoft. keyvault/cofres/chaves/excluir | Excluir uma chave. |
-> | Microsoft. keyvault/cofres/chaves/backup/ação | Crie o arquivo de backup de uma chave. O arquivo pode ser usado para restaurar a chave em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
+> | Microsoft. keyvault/cofres/chaves/restauração/ação | Restaura uma chave e todas as suas versões de um arquivo de backup gerado pelo Key Vault. |
+> | Microsoft. keyvault/cofres/chaves/excluir | Exclui uma chave. Todas as versões são excluídas. |
+> | Microsoft. keyvault/cofres/chaves/backup/ação | Cria o arquivo de backup de uma chave. O arquivo pode ser usado para restaurar a chave em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
 > | Microsoft. keyvault/cofres/chaves/limpeza/ação | Limpa uma chave, tornando-a irrecuperável. |
-> | Microsoft. keyvault/cofres/chaves/criptografia/ação | Criptografe o texto não criptografado com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
-> | Microsoft. keyvault/cofres/chaves/descriptografar/ação | Descriptografe o texto cifrado com uma chave. |
-> | Microsoft. keyvault/cofres/chaves/encapsulamento/ação | Encapsular uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada com acesso de leitura. |
-> | Microsoft. keyvault/cofres/chaves/desencapsulamento/ação | Desenvolva uma chave simétrica com uma chave de Key Vault. |
-> | Microsoft. keyvault/cofres/chaves/sinal/ação | Assinar um hash com uma chave. |
-> | Microsoft. keyvault/cofres/chaves/verificação/ação | Verifique um hash. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
-> | Microsoft. keyvault/cofres/segredos/excluir | Excluir um segredo. |
-> | Microsoft. keyvault/cofres/segredos/backup/ação | Crie o arquivo de backup de um segredo. O arquivo pode ser usado para restaurar o segredo em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
+> | Microsoft. keyvault/cofres/chaves/criptografia/ação | Criptografa texto sem formatação com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | Microsoft. keyvault/cofres/chaves/descriptografar/ação | Descriptografa o texto cifrado com uma chave. |
+> | Microsoft. keyvault/cofres/chaves/encapsulamento/ação | Encapsula uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | Microsoft. keyvault/cofres/chaves/desencapsulamento/ação | Desencapsula uma chave simétrica com uma chave de Key Vault. |
+> | Microsoft. keyvault/cofres/chaves/sinal/ação | Assina um resumo de mensagem (hash) com uma chave. |
+> | Microsoft. keyvault/cofres/chaves/verificação/ação | Verifica a assinatura de um resumo de mensagem (hash) com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | Microsoft. keyvault/cofres/segredos/excluir | Exclui um segredo. Todas as versões são excluídas. |
+> | Microsoft. keyvault/cofres/segredos/backup/ação | Cria o arquivo de backup de um segredo. O arquivo pode ser usado para restaurar o segredo em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
 > | Microsoft. keyvault/cofres/segredos/limpeza/ação | Limpa um segredo, tornando-o irrecuperável. |
 > | Microsoft. keyvault/cofres/segredos/UPDATE/Action | Atualiza os atributos especificados associados ao segredo fornecido. |
 > | Microsoft. keyvault/cofres/segredos/recuperação/ação | Recupera o segredo excluído. A operação executa a reversão da operação de exclusão. A operação é aplicável em cofres habilitados para exclusão reversível e deve ser emitida durante o intervalo de retenção. |
-> | Microsoft. keyvault/cofres/segredos/restauração/ação | Restaura um segredo de backup e todas as suas versões para um cofre. |
+> | Microsoft. keyvault/cofres/segredos/restauração/ação | Restaura um segredo e todas as suas versões de um arquivo de backup gerado pelo Key Vault. |
 > | Microsoft. keyvault/cofres/segredos/readMetadata/Action | Listar ou exibir as propriedades de um segredo, mas não seu valor. |
-> | Microsoft. keyvault/cofres/segredos/getsecreto/ação | Obter o valor de um segredo. |
-> | Microsoft. keyvault/cofres/segredos/setsecreto/ação | Criar novo segredo. |
+> | Microsoft. keyvault/cofres/segredos/getsecreto/ação | Obtém o valor de um segredo. |
+> | Microsoft. keyvault/cofres/segredos/setsecreto/ação | Define o valor de um segredo. Se o segredo não existir, a primeira versão será criada. Caso contrário, uma nova versão será criada com o valor especificado. |
 > | Microsoft. keyvault/cofres/storageaccounts/Read | Ler a definição de contas de armazenamento gerenciadas e SAS. |
-> | Microsoft. keyvault/vaultes/storageaccounts/Set/Action | Criar ou atualizar a definição de uma conta de armazenamento gerenciado. |
+> | Microsoft. keyvault/vaultes/storageaccounts/Set/Action | Cria ou atualiza a definição de uma conta de armazenamento gerenciado. |
 > | Microsoft. keyvault/vaultes/storageaccounts/Delete | Exclua a definição de uma conta de armazenamento gerenciado. |
-> | Microsoft. keyvault/cofres/storageaccounts/backup/ação | Crie um backup da definição de uma conta de armazenamento gerenciado e sua SAS (assinatura de acesso compartilhado). |
+> | Microsoft. keyvault/cofres/storageaccounts/backup/ação | Cria um arquivo de backup da definição de uma conta de armazenamento gerenciado e sua SAS (assinatura de acesso compartilhado). |
 > | Microsoft. keyvault/cofres/storageaccounts/limpeza/ação | Limpar a definição reversível de uma conta de armazenamento gerenciado ou SAS (assinatura de acesso compartilhado). |
 > | Microsoft. keyvault/vaultes/storageaccounts/regeneratekey/Action | Regenerar a chave de acesso de uma conta de armazenamento gerenciado. |
 > | Microsoft. keyvault/cofres/storageaccounts/Recover/Action | Recupere a definição reversível de uma conta de armazenamento gerenciado ou SAS (assinatura de acesso compartilhado). |
-> | Microsoft. keyvault/cofres/storageaccounts/Restore/Action | Restaura a definição de uma conta de armazenamento gerenciado e sua SAS (assinatura de acesso compartilhado). |
-> | Microsoft. keyvault/vaultes/storageaccounts/SAS/Set/Action | Crie ou atualize a definição de SAS (assinatura de acesso compartilhado) para uma conta de armazenamento gerenciada. |
+> | Microsoft. keyvault/cofres/storageaccounts/Restore/Action | Restaura a definição de uma conta de armazenamento gerenciado e sua SAS (assinatura de acesso compartilhado) de um arquivo de backup gerado pelo Key Vault. |
+> | Microsoft. keyvault/vaultes/storageaccounts/SAS/Set/Action | Cria ou atualiza a definição de SAS (assinatura de acesso compartilhado) para uma conta de armazenamento gerenciado. |
 > | Microsoft. keyvault/vaultes/storageaccounts/SAS/Delete | Exclua a definição de SAS (assinatura de acesso compartilhado) para uma conta de armazenamento gerenciado. |
 
 ### <a name="microsoftsecurity"></a>Microsoft.Security
@@ -6618,6 +6656,9 @@ Serviço do Azure: [central de segurança](../security-center/index.yml)
 > | Microsoft.Security/advancedThreatProtectionSettings/read | Obtém as Configurações de Proteção de Ameaça Avançadas para o recurso |
 > | Microsoft.Security/advancedThreatProtectionSettings/write | Atualiza as Configurações de Proteção de Ameaça Avançadas para o recurso |
 > | Microsoft.Security/alerts/read | Obter todos os alertas de segurança disponíveis |
+> | Microsoft. Security/alertsSuppressionRules/Read | Obtém todas as regras de supressão de alerta de segurança disponíveis |
+> | Microsoft. Security/alertsSuppressionRules/Write | Cria uma nova regra de supressão de alerta de segurança ou atualiza uma regra existente |
+> | Microsoft. Security/alertsSuppressionRules/Delete | Excluir uma regra de supressão de alerta de segurança |
 > | Microsoft.Security/applicationWhitelistings/read | Obter o aplicativo allowlistings |
 > | Microsoft.Security/applicationWhitelistings/write | Cria um novo aplicativo allowlisting ou atualiza um existente |
 > | Microsoft. Security/assessmentMetadata/Read | Obter metadados de avaliação de segurança disponíveis em sua assinatura |
@@ -6651,6 +6692,8 @@ Serviço do Azure: [central de segurança](../security-center/index.yml)
 > | Microsoft.Security/locations/alerts/read | Obter todos os alertas de segurança disponíveis |
 > | Microsoft.Security/locations/alerts/dismiss/action | Ignorar um alerta de segurança |
 > | Microsoft.Security/locations/alerts/activate/action | Ativar um alerta de segurança |
+> | Microsoft. Security/Locations/Alerts/resolve/Action | Resolver um alerta de segurança |
+> | Microsoft. Security/Locations/Alerts/Simulate/Action | Simular um alerta de segurança |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Obter as políticas de acesso de rede just-in-time |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Criar uma nova política de acesso de rede just-in-time ou atualizar uma existente |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Exclui a política de acesso de rede just-in-time |
@@ -6665,6 +6708,10 @@ Serviço do Azure: [central de segurança](../security-center/index.yml)
 > | Microsoft.Security/pricings/read | Obter as configurações de preço para o escopo |
 > | Microsoft.Security/pricings/write | Atualizar as configurações de preço para o escopo |
 > | Microsoft.Security/pricings/delete | Excluir as configurações de preço para o escopo |
+> | Microsoft. Security/secureScoreControlDefinitions/Read | Obter definição de controle de Pontuação segura |
+> | Microsoft. Security/secureScoreControls/Read | Obter controle de Pontuação seguro calculado para sua assinatura |
+> | Microsoft. Security/secureScores/Read | Obter pontuação segura calculada para sua assinatura |
+> | Microsoft. Security/secureScores/secureScoreControls/Read | Obter controle de Pontuação seguro calculado para seu cálculo de Pontuação segura |
 > | Microsoft.Security/securityContacts/read | Obter o contato de segurança |
 > | Microsoft.Security/securityContacts/write | Atualizar o contato de segurança |
 > | Microsoft.Security/securityContacts/delete | Excluir o contato de segurança |
@@ -6676,6 +6723,12 @@ Serviço do Azure: [central de segurança](../security-center/index.yml)
 > | Microsoft.Security/securityStatusesSummaries/read | Obter os resumos de status de segurança para o escopo |
 > | Microsoft.Security/settings/read | Obtém as configurações para o escopo |
 > | Microsoft.Security/settings/write | Atualiza as configurações do escopo |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Action | Adicione uma lista de resultados de regras à linha de base. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Read | Retornar a linha de base dos bancos de dados (todas as regras que foram adicionadas à linha de base) ou obter resultados de linha de base de regra para a ID de regra especificada. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Write | Alterar o resultado da linha de base da regra. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Delete | Remova o resultado da regra da linha de base. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/scans/Read | Retorne a lista de registros de verificação de avaliação de vulnerabilidade ou obtenha o registro de verificação para a ID de verificação especificada. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/scans/scanResults/Read | Retornar a lista de resultados da regra de avaliação de vulnerabilidade ou obter o resultado da regra para a ID de regra especificada. |
 > | Microsoft.Security/tasks/read | Obter todas as recomendações de segurança disponíveis |
 > | Microsoft.Security/webApplicationFirewalls/read | Obter firewalls do aplicativo Web |
 > | Microsoft.Security/webApplicationFirewalls/write | Criar um novo firewall do aplicativo Web ou atualizar um existente |
@@ -6732,7 +6785,8 @@ Serviço do Azure: [Sentinela do Azure](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/dataconnecters/Write | Atualiza um conector de dados |
 > | Microsoft. SecurityInsights/dataconnecters/Delete | Exclui um conector de dados |
 > | Microsoft. SecurityInsights/Entities/Read | Obter o grafo de entidades do Sentinel |
-> | Microsoft. SecurityInsights/Entities/cronograma/ação | Obtém a linha do tempo da entidade para um intervalo específico |
+> | Microsoft. SecurityInsights/Entities/GetRuntime/Action | Obtém a linha do tempo da entidade para um intervalo específico |
+> | Microsoft. SecurityInsights/Entities/getsights/ação | Obtém informações de entidade para um intervalo específico |
 > | Microsoft. SecurityInsights/Entities/relações/leitura | Obtém uma relação entre a entidade e os recursos relacionados |
 > | Microsoft. SecurityInsights/Entities/relações/gravação | Atualiza uma relação entre a entidade e os recursos relacionados |
 > | Microsoft. SecurityInsights/Entities/Relations/Delete | Exclui uma relação entre a entidade e os recursos relacionados |
@@ -6976,7 +7030,7 @@ Serviço do Azure: [DevOps do Azure](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Exclui o Projeto |
 > | Microsoft.VisualStudio/Project/Read | Lê o Projeto |
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -7436,7 +7490,7 @@ Serviço do Azure: [migrações para Azure](../migrate/migrate-services-overview
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Obtém as propriedades de um vCenter VMware |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Cria ou atualiza o vCenter VMware |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitoramento
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -8699,6 +8753,7 @@ Serviço do Azure: [Gerenciamento de custos + cobrança](../cost-management-bill
 > | Microsoft. billing/billingAccounts/billingSubscriptions/Read |  |
 > | Microsoft. billing/billingAccounts/billingSubscriptions/move/Action |  |
 > | Microsoft. billing/billingAccounts/billingSubscriptions/validateMoveEligibility/Action |  |
+> | Microsoft. billing/billingAccounts/billingSubscriptions/downloadDocuments/Action | Baixar a fatura usando o link de download da lista |
 > | Microsoft. billing/billingAccounts/Customers/Read |  |
 > | Microsoft. billing/billingAccounts/Customers/billingPermissions/Read |  |
 > | Microsoft.Billing/billingAccounts/departments/read |  |
@@ -8712,7 +8767,6 @@ Serviço do Azure: [Gerenciamento de custos + cobrança](../cost-management-bill
 > | Microsoft. billing/billingAccounts/Products/move/Action |  |
 > | Microsoft. billing/billingAccounts/Products/validateMoveEligibility/Action |  |
 > | Microsoft.Billing/departments/read |  |
-> | Microsoft. cobrança/faturas/download/ação | Baixar a fatura usando o link de download da lista |
 > | Microsoft. cobrança/faturas/download/ação | Baixar a fatura usando o link de download da lista |
 > | Microsoft. cobrança/operações/leitura |  |
 
@@ -9338,69 +9392,76 @@ Serviço do Azure: [site Recovery](../site-recovery/index.yml)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | Registrar assinatura de um determinado provedor de recursos |
-> | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/Locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validar recursos |
+> | Microsoft. recoveryservices/Locations/backupPreValidateProtection/Action |  |
+> | Microsoft. recoveryservices/Locations/backupStatus/Action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
+> | Microsoft. recoveryservices/Locations/backupValidateFeatures/Action | Validar recursos |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é uma operação interna usada pelo serviço |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Verifica se a Disponibilidade do Nome do Recurso é uma API para verificar se o nome do recurso está disponível |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft. Recoveryservices/Locations/backupProtectedItem/Write | Criar um item protegido de backup |
-> | Microsoft. Recoveryservices/Locations/backupProtectedItems/Read | Retornar a lista de todos os itens protegidos. |
+> | Microsoft. recoveryservices/Locations/backupProtectedItem/Write | Criar um item protegido de backup |
+> | Microsoft. recoveryservices/Locations/backupProtectedItems/Read | Retornar a lista de todos os itens protegidos. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
 > | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Retornar a informação de PIN de segurança para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no Item protegido |
+> | Microsoft. recoveryservices/Vaultes/backupCrossRegionRestore/Action | Pontos de recuperação de restauração entre regiões para itens protegidos. |
+> | Microsoft. recoveryservices/Vaultes/backupCrrJob/Action | Obter detalhes do trabalho de restauração entre regiões na região secundária para o cofre dos serviços de recuperação. |
+> | Microsoft. recoveryservices/Vaultes/backupCrrJobs/Action | Listar trabalhos de restauração entre regiões na região secundária para o cofre dos serviços de recuperação. |
+> | Microsoft. recoveryservices/Vaultes/backupJobsExport/Action | Exportar trabalhos |
+> | Microsoft. recoveryservices/Vaultes/backupSecurityPIN/Action | Retornar a informação de PIN de segurança para o cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaultes/backupValidateOperation/Action | Validar operação no Item protegido |
 > | Microsoft.RecoveryServices/Vaults/write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/delete | A operação Excluir cofre exclui o recurso do Azure do tipo 'cofre' especificado |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Retornar a configuração para cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/write | Atualizar configuração para o cofre dos Serviços de Recuperação. |
-> | Microsoft. Recoveryservices/Vaults/backupEncryptionConfigs/Read | Obtém a configuração de criptografia do recurso de backup. |
-> | Microsoft. Recoveryservices/Vaults/backupEncryptionConfigs/Write | Atualiza a configuração de criptografia do recurso de backup |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Excluir uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retornar o status da operação |
-> | Microsoft. Recoveryservices/Vaults/backupFabrics/operationsStatus/Read | Retornar o status da operação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegidos |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Exclui o Contêiner registrado |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Consultar cargas de trabalho em um contêiner |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retornar todos os contêineres registrados |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Criar um contêiner registrado |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obter o resultado da operação executada no contêiner de proteção. |
-> | Microsoft. Recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/Read | Obtém o status da operação executada no contêiner de proteção. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executar um backup para um item protegido. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Excluir item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obter o resultado da operação executada em itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retornar o status da operação executada em itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provisionar recuperação de item instantânea para item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter pontos de recuperação para itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar pontos de recuperação para itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revogar a recuperação de item instantânea para item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancelar o trabalho |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retornar todos os objetos de trabalho |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Retornar o resultado da operação do trabalho. |
-> | Microsoft. Recoveryservices/Vaults/backupJobs/operationsStatus/Read | Retorna o status da operação de trabalho. |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Excluir uma política de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Criar uma política de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Retornar a lista de todos os itens que podem ser protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retornar a lista de todos os itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retornar todos os contêineres pertencentes à assinatura |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Retornar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Atualizar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupAadProperties/Read | Obtenha as propriedades do AAD para autenticação na terceira região para a restauração entre regiões. |
+> | Microsoft. recoveryservices/Vaults/BackupConfig/Read | Retornar a configuração para cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaults/BackupConfig/Write | Atualizar configuração para o cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupCrrOperationResults/Read | Retorna o resultado da operação de CRR para o cofre dos serviços de recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupCrrOperationsStatus/Read | Retorna o status da operação de CRR para o cofre dos serviços de recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupEncryptionConfigs/Read | Obtém a configuração de criptografia do recurso de backup. |
+> | Microsoft. recoveryservices/Vaults/backupEncryptionConfigs/Write | Atualiza a configuração de criptografia do recurso de backup |
+> | Microsoft. recoveryservices/Vaults/backupEngines/Read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
+> | Microsoft. recoveryservices/cofres/backupFabrics/refreshContainers/ação | Atualizar a lista de contêineres |
+> | Microsoft. recoveryservices/Vaultes/backupFabrics/backupProtectionIntent/Delete | Excluir uma Intenção de Proteção de backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/backupProtectionIntent/Read | Obter uma Intenção de Proteção de backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/backupProtectionIntent/Write | Criar uma Intenção de Proteção de backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/operationResults/Read | Retornar o status da operação |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/operationsStatus/Read | Retornar o status da operação |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectableContainers/Read | Obter todos os contêineres protegidos |
+> | Microsoft. recoveryservices/Vaultes/backupFabrics/protectionContainers/Delete | Exclui o Contêiner registrado |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/Action | Consultar cargas de trabalho em um contêiner |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/Read | Retornar todos os contêineres registrados |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/Write | Criar um contêiner registrado |
+> | Microsoft. recoveryservices/cofres/backupFabrics/protectionContainers/itens/ler | Obter todos os itens em um contêiner |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/Read | Obter o resultado da operação executada no contêiner de proteção. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/Read | Obtém o status da operação executada no contêiner de proteção. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/ação | Executar um backup para um item protegido. |
+> | Microsoft. recoveryservices/Vaultes/backupFabrics/protectionContainers/protectedItems/Delete | Excluir item protegido |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Read | Retornar detalhes do objeto do item protegido |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Write | Criar um item protegido de backup |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Obter o resultado da operação executada em itens protegidos. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Retornar o status da operação executada em itens protegidos. |
+> | Microsoft. recoveryservices/Vaultes/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/Action | Obter AccessToken para a restauração entre regiões. |
+> | Microsoft. recoveryservices/Vaultes/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Provisionar recuperação de item instantânea para item protegido |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Obter pontos de recuperação para itens protegidos. |
+> | Microsoft. recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Restaurar pontos de recuperação para itens protegidos. |
+> | Microsoft. recoveryservices/Vaultes/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Revogar a recuperação de item instantânea para item protegido |
+> | Microsoft. recoveryservices/cofres/backupJobs/cancelamento/ação | Cancelar o trabalho |
+> | Microsoft. recoveryservices/Vaults/backupJobs/Read | Retornar todos os objetos de trabalho |
+> | Microsoft. recoveryservices/Vaults/backupJobs/operationResults/Read | Retornar o resultado da operação do trabalho. |
+> | Microsoft. recoveryservices/Vaults/backupJobs/operationsStatus/Read | Retorna o status da operação de trabalho. |
+> | Microsoft. recoveryservices/Vaults/backupOperationResults/Read | Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupOperations/Read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaultes/backupPolicies/Delete | Excluir uma política de proteção |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Read | Retornar todas as políticas de proteção |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Write | Criar uma política de proteção |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/operationResults/Read | Obter os resultados da operação de política. |
+> | Microsoft. recoveryservices/Vaults/backupPolicies/Operations/Read | Obter o status da operação de política. |
+> | Microsoft. recoveryservices/Vaults/backupProtectableItems/Read | Retornar a lista de todos os itens que podem ser protegidos. |
+> | Microsoft. recoveryservices/Vaults/backupProtectedItems/Read | Retornar a lista de todos os itens protegidos. |
+> | Microsoft. recoveryservices/Vaults/backupProtectionContainers/Read | Retornar todos os contêineres pertencentes à assinatura |
+> | Microsoft. recoveryservices/Vaults/backupProtectionIntents/Read | Listar todas as Intenções de Proteção de backup |
+> | Microsoft. recoveryservices/Vaults/backupstorageconfig/Read | Retornar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupstorageconfig/Write | Atualizar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/Vaults/backupUsageSummaries/Read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
@@ -9409,14 +9470,14 @@ Serviço do Azure: [site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Obter a configuração de notificação do cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configurar notificações por email para o cofre dos Serviços de Recuperação. |
-> | Microsoft. Recoveryservices/Vaultes/privateEndpointConnectionProxies/Delete | Aguarde alguns minutos e repita a operação. Se o problema persistir, contate o suporte da Microsoft. |
-> | Microsoft. Recoveryservices/Vaults/privateEndpointConnectionProxies/Read | Obter todos os contêineres protegidos |
-> | Microsoft. Recoveryservices/cofres/privateEndpointConnectionProxies/validação/ação | Obter todos os contêineres protegidos |
-> | Microsoft. Recoveryservices/Vaults/privateEndpointConnectionProxies/Write | Obter todos os contêineres protegidos |
-> | Microsoft. Recoveryservices/Vaults/privateEndpointConnectionProxies/operationsStatus/Read | Obter todos os contêineres protegidos |
-> | Microsoft. Recoveryservices/Vaultes/privateEndpointConnections/Delete | Excluir solicitações de ponto de extremidade particular. Essa chamada é feita pelo administrador de backup. |
-> | Microsoft. Recoveryservices/Vaults/privateEndpointConnections/Write | Aprove ou rejeite solicitações de ponto de extremidade particulares. Essa chamada é feita pelo administrador de backup. |
-> | Microsoft. Recoveryservices/Vaults/privateEndpointConnections/operationsStatus/Read | Retorna o status da operação para uma conexão de ponto de extremidade privada. |
+> | Microsoft. recoveryservices/Vaultes/privateEndpointConnectionProxies/Delete | Aguarde alguns minutos e repita a operação. Se o problema persistir, contate o suporte da Microsoft. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/Read | Obter todos os contêineres protegidos |
+> | Microsoft. recoveryservices/cofres/privateEndpointConnectionProxies/validação/ação | Obter todos os contêineres protegidos |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/Write | Obter todos os contêineres protegidos |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnectionProxies/operationsStatus/Read | Obter todos os contêineres protegidos |
+> | Microsoft. recoveryservices/Vaultes/privateEndpointConnections/Delete | Excluir solicitações de ponto de extremidade particular. Essa chamada é feita pelo administrador de backup. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnections/Write | Aprove ou rejeite solicitações de ponto de extremidade particulares. Essa chamada é feita pelo administrador de backup. |
+> | Microsoft. recoveryservices/Vaults/privateEndpointConnections/operationsStatus/Read | Retorna o status da operação para uma conexão de ponto de extremidade privada. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | A operação Registrar o contêiner de serviço pode ser usada para registrar um contêiner com o Serviço de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | A operação Cancelar o registro de contêiner pode ser usada para cancelar o registro de um contêiner. |
@@ -9532,7 +9593,7 @@ Serviço do Azure: [site Recovery](../site-recovery/index.yml)
 > | Microsoft. Recoveryservices/Vaults/replicationVaultSettings/Read | Lê qualquer  |
 > | Microsoft. Recoveryservices/Vaults/replicationVaultSettings/Write | Criar ou atualizar qualquer  |
 > | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Ler quaisquer vCenters |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | Microsoft. recoveryservices/cofres/usos/leitura | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/vaults/usages/read | Ler usos de cofre |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 
@@ -9673,7 +9734,7 @@ Serviço do Azure: insights de monitoramento da Microsoft
 > | Microsoft.Intune/diagnosticsettings/delete | Exclusão de uma configuração de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 

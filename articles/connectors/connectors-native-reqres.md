@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330981"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980993"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
@@ -60,7 +60,7 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
    | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação de entrada |
    |||||
 
-1. Na caixa de **Esquema JSON do Corpo da Solicitação** , opcionalmente, insira um esquema JSON que descreva o corpo na solicitação de entrada, por exemplo:
+1. Na caixa de **Esquema JSON do Corpo da Solicitação**, opcionalmente, insira um esquema JSON que descreva o corpo na solicitação de entrada, por exemplo:
 
    ![Exemplo de esquema JSON](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -153,7 +153,7 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
 
 1. Para verificar se a chamada de entrada tem um corpo de solicitação que corresponde ao esquema especificado, siga estas etapas:
 
-   1. Na barra de título do gatilho de solicitação, selecione o botão de reticências ( **...** ).
+   1. Na barra de título do gatilho de solicitação, selecione o botão de reticências (**...**).
 
    1. Nas configurações do gatilho, ative a **validação de esquema** e selecione **concluído**.
 
@@ -167,7 +167,7 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que a URL do seu ponto de extremidade pode aceitar |
    |||||
 
-   Este exemplo adiciona a propriedade **Método** :
+   Este exemplo adiciona a propriedade **Método**:
 
    ![Adicionar parâmetro Método](./media/connectors-native-reqres/add-parameters.png)
 
@@ -190,9 +190,9 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
    > [!NOTE]
    > Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI ao fazer uma chamada para o gatilho de solicitação, use esta versão codificada em vez disso: `%25%23`
 
-1. Para disparar seu aplicativo lógico, envie um HTTP POST para a URL gerada.
+1. Para testar seu aplicativo lógico, envie uma solicitação HTTP para a URL gerada.
 
-   Por exemplo, você pode usar uma ferramenta como [Postman](https://www.getpostman.com/) para enviar o HTTP POST. Para obter mais informações sobre a definição JSON subjacente do gatilho e como chamar esse gatilho, consulte os tópicos [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS nos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
+   Por exemplo, você pode usar uma ferramenta como o [postmaster](https://www.getpostman.com/) para enviar a solicitação HTTP. Para obter mais informações sobre a definição JSON subjacente do gatilho e como chamar esse gatilho, consulte os tópicos [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS nos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 Para obter mais informações sobre segurança, autorização e criptografia para chamadas de entrada para seu aplicativo lógico, como o protocolo [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL), [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml), expondo seu aplicativo lógico com o gerenciamento de API do Azure ou restringindo os endereços IP que originam chamadas de entrada, consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
@@ -233,7 +233,7 @@ Ao usar o gatilho de solicitação para lidar com solicitações de entrada, voc
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal mais ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **escolher uma ação** , na caixa de pesquisa, insira `response` como seu filtro e selecione a ação de **resposta** .
+1. Em **escolher uma ação**, na caixa de pesquisa, insira `response` como seu filtro e selecione a ação de **resposta** .
 
    ![Selecionar a ação de resposta](./media/connectors-native-reqres/select-response-action.png)
 
@@ -243,7 +243,7 @@ Ao usar o gatilho de solicitação para lidar com solicitações de entrada, voc
 
    Em alguns campos, clicar dentro de suas caixas abre a lista de conteúdo dinâmico. Em seguida, você pode selecionar tokens que representam as saídas disponíveis de etapas anteriores no fluxo de trabalho. As propriedades do esquema especificado no exemplo anterior agora aparecem na lista de conteúdo dinâmico.
 
-   Por exemplo, para a caixa **Cabeçalhos** , inclua `Content-Type` como o nome da chave e defina o valor da chave como `application/json`, conforme mencionado anteriormente neste tópico. Para a caixa **Corpo** , você pode selecionar a saída do corpo do gatilho na lista de conteúdo dinâmico.
+   Por exemplo, para a caixa **Cabeçalhos**, inclua `Content-Type` como o nome da chave e defina o valor da chave como `application/json`, conforme mencionado anteriormente neste tópico. Para a caixa **Corpo**, você pode selecionar a saída do corpo do gatilho na lista de conteúdo dinâmico.
 
    ![Detalhes da ação de resposta](./media/connectors-native-reqres/response-details.png)
 

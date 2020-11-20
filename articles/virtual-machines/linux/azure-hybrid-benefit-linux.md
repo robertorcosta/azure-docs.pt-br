@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916467"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980874"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Benefício Híbrido do Azure – como ele se aplica para Máquinas Virtuais do Linux
 
@@ -146,6 +146,35 @@ R: não é possível. A tentativa de inserir um tipo de licença que corresponde
 *P: Eu me registrei com o Red Hat Cloud Access, mas ainda não consigo habilitar o benefício em minhas VMs RHEL. O que devo fazer?*
 
 R: pode levar algum tempo para que o registro da assinatura do Red Hat Cloud Access se propague do Red Hat para o Azure. Se você ainda estiver vendo o erro após um dia útil, entre em contato com o suporte da Microsoft.
+
+*P: Eu implantei uma VM usando um RHEL BYOS "imagem dourada". Posso converter a cobrança nessas imagens de BYOS para PAYG?*
+
+R: não é possível. Benefício Híbrido do Azure dá suporte à conversão somente em imagens pagas conforme o uso.
+
+*P: Eu implantei uma VM usando um RHEL BYOS "imagem dourada". Posso converter a cobrança nessas imagens de BYOS para PAYG?*
+
+R: não é possível. Benefício Híbrido do Azure dá suporte à conversão somente em imagens pagas conforme o uso.
+
+*P: Eu carreguei minha própria imagem RHEL do local (via ASR ou de outra forma) para o Azure. Posso converter a cobrança nessas imagens de BYOS para PAYG?*
+
+R: não é possível. A funcionalidade Benefício Híbrido do Azure está disponível apenas para imagens RHEL e SLES Marketplace hoje. 
+
+*P: posso usar Benefício Híbrido do Azure em VMs implantadas de imagens do Marketplace RHEL e do SLES SAP?*
+
+R: Sim, você pode. Você pode usar o tipo de licença ' RHEL_BYOS ' para VMs RHEL e ' SLES_BYOS ' para conversões de VMs implantadas a partir de imagens do Marketplace RHEL e SLES SAP.
+
+*P: posso usar Benefício Híbrido do Azure no conjunto de dimensionamento de máquinas virtuais (VMSS) para RHEL e SLES?*
+
+R: não, você não pode. Os VMSS atualmente não estão no escopo de Benefício Híbrido do Azure para RHEL e SLES no momento.
+
+*P: posso usar Benefício Híbrido do Azure em instâncias reservadas (RIs) para RHEL e SLES?*
+
+R: não, você não pode. O RIs não está no escopo de Benefício Híbrido do Azure hoje para RHEL e SLES atualmente.
+
+*P: posso usar Benefício Híbrido do Azure em uma máquina virtual implantada para SQL Server em imagens RHEL?*
+
+R: não, você não pode. Não há nenhum plano para dar suporte a esses.
+ 
 
 ## <a name="common-issues"></a>Problemas comuns
 Esta seção contém uma lista de problemas comuns que podem ser encontrados e as etapas de mitigação.

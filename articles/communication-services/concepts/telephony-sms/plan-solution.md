@@ -29,7 +29,7 @@ Os Serviços de Comunicação do Azure permitem que você use números de telefo
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de telefone nos Serviços de Comunicação do Azure
  
-Os Serviços de Comunicação oferecem dois tipos de números de telefone: **local** e **gratuito** . 
+Os Serviços de Comunicação oferecem dois tipos de números de telefone: **local** e **gratuito**. 
 
 ### <a name="local-numbers"></a>Números locais
 Os números locais (geográficos) são números de telefone de 10 dígitos que consistem nos códigos de área locais dos Estados Unidos. Por exemplo, `+1 (206) XXX-XXXX` é um número local com o código de área `206`. Esse código de área é atribuído à cidade de Seattle. Esses números de telefone geralmente são usados por indivíduos e empresas locais. Os Serviços de Comunicação do Azure oferecem números locais nos Estados Unidos. Esses números podem ser usados para fazer chamadas telefônicas, mas não para enviar mensagens SMS. 
@@ -48,14 +48,14 @@ A tabela a seguir resume esses tipos de números de telefone:
 | Tipo de número de telefone | Exemplo                              | Disponibilidade do país    | Funcionalidade de número de telefone |Caso de uso comum                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | Local (geográfico)        | +1 (código de área local) XXX XX XX  | EUA                      | Chamada (saída) | Como atribuir números de telefone aos usuários nos seus aplicativos  |
-| Chamada gratuita         | \+ 1 ( *código* de área gratuita) XXX XX XX | EUA                      | Chamada (de saída), SMS (entrada/saída)| Como atribuir números de telefone a sistemas IVR (resposta interativa de voz)/bots, aplicativos de SMS                                        |
+| Chamada gratuita         | \+ 1 (*código* de área gratuita) XXX XX XX | EUA                      | Chamada (de saída), SMS (entrada/saída)| Como atribuir números de telefone a sistemas IVR (resposta interativa de voz)/bots, aplicativos de SMS                                        |
 
 
 ## <a name="phone-number-features-in-azure-communication-services"></a>Recursos de número de telefone nos Serviços de Comunicação do Azure 
 
 Para a maioria dos números de telefone, permitimos que você configure um conjunto de recursos "a la carte". Esses recursos podem ser selecionados à medida que você arrenda seus números de telefone nos Serviços de Comunicação do Azure.
 
-Os recursos disponíveis dependem do país em que você está operando, no caso de uso e no tipo de número de telefone escolhido. Esses recursos variam conforme o país devido a requisitos regulatórios. Os Serviços de Comunicação do Azure oferecem os seguintes recursos de números de telefone:
+Os recursos disponíveis dependem do país/região em que você está operando, no caso de uso e no tipo de número de telefone escolhido. Esses recursos variam conforme o país/região devido a requisitos regulatórios. Os Serviços de Comunicação do Azure oferecem os seguintes recursos de números de telefone:
 
 - **SMS de saída unidirecional** Essa opção permite que você envie mensagens SMS para os usuários. Isso pode ser útil em cenários de notificação e autenticação de dois fatores. 
 - **SMS de entrada e saída bidirecional** Essa opção permite que você envie e receba mensagens dos usuários usando números de telefone. Isso pode ser útil em cenários de atendimento ao cliente.

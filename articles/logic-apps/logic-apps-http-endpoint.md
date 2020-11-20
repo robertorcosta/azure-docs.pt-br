@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331967"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981197"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
@@ -104,7 +104,7 @@ Para obter mais informações sobre segurança, autorização e criptografia par
 
    * À direita da caixa **URL do http post** , selecione **Copiar URL** (ícone copiar arquivos).
 
-   * Faça esta chamada POST:
+   * Faça essa chamada usando o método esperado pelo gatilho de solicitação. Este exemplo usa o `POST` método:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -116,7 +116,7 @@ Para obter mais informações sobre segurança, autorização e criptografia par
 
         ![Obter URL do ponto de extremidade de portal do Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-     1. Em **URL de retorno de chamada [post]** , copie a URL:
+     1. Em **URL de retorno de chamada [post]**, copie a URL:
 
         ![Copiar URL do ponto de extremidade de portal do Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
@@ -124,9 +124,9 @@ Para obter mais informações sobre segurança, autorização e criptografia par
 
 ## <a name="select-expected-request-method"></a>Selecionar o método de solicitação esperado
 
-Por padrão, o gatilho de solicitação espera uma solicitação POST. Você pode especificar um método diferente para esperar, mas apenas um único método.
+Por padrão, o gatilho de solicitação espera uma `POST` solicitação. No entanto, você pode especificar um método diferente que o chamador deve usar, mas apenas um único método.
 
-1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione o **método** , que adiciona essa propriedade ao gatilho.
+1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione o **método**, que adiciona essa propriedade ao gatilho.
 
    ![Adicionar a propriedade "Method" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -154,7 +154,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 ### <a name="accept-values-through-get-parameters"></a>Aceitar valores por meio de parâmetros GET
 
-1. No gatilho de solicitação, abra a **lista Adicionar novo parâmetro** , adicione a propriedade **método** ao gatilho e selecione o método **Get** .
+1. No gatilho de solicitação, abra a **lista Adicionar novo parâmetro**, adicione a propriedade **método** ao gatilho e selecione o método **Get** .
 
    Para obter mais informações, consulte [selecionar método de solicitação esperado](#select-method).
 
@@ -162,7 +162,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    1. No gatilho de solicitação, selecione **nova etapa**  >  **Adicionar uma ação**.
    
-   1. Em **Escolher uma ação** , na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
+   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
 1. Para criar a `triggerOutputs()` expressão que recupera o valor do parâmetro, siga estas etapas:
 
@@ -217,7 +217,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 ### <a name="accept-values-through-a-relative-path"></a>Aceitar valores por meio de um caminho relativo
 
-1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione **caminho relativo** , que adiciona essa propriedade ao gatilho.
+1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione **caminho relativo**, que adiciona essa propriedade ao gatilho.
 
    ![Adicionar a propriedade "caminho relativo" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -229,7 +229,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    1. No gatilho de solicitação, selecione **nova etapa**  >  **Adicionar uma ação**.
 
-   1. Em **Escolher uma ação** , na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
+   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
 1. Na propriedade **Body** da ação de resposta, inclua o token que representa o parâmetro que você especificou no caminho relativo do gatilho.
 
@@ -262,7 +262,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Chamar aplicativo lógico por meio da URL do ponto de extremidade
 
-Depois de criar o ponto de extremidade, você pode disparar o aplicativo lógico enviando uma `POST` solicitação HTTPS para a URL completa do ponto de extremidade. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
+Depois de criar o ponto de extremidade, você pode disparar o aplicativo lógico enviando uma solicitação HTTPS para a URL completa do ponto de extremidade. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
 
 <a name="generated-tokens"></a>
 
@@ -306,7 +306,7 @@ Você pode aninhar fluxos de trabalho em seu aplicativo lógico adicionando outr
 
 1. Na etapa em que você deseja chamar outro aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**.
 
-1. Em **Escolha uma ação** , selecione **Interno**. Na caixa de pesquisa, insira `logic apps` como o filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
+1. Em **Escolha uma ação**, selecione **Interno**. Na caixa de pesquisa, insira `logic apps` como o filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
 
    ![Aninhar aplicativo lógico dentro do aplicativo lógico atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -396,7 +396,7 @@ Para obter mais informações sobre segurança, autorização e criptografia par
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: posso configurar os pontos de extremidade que podem ser chamados ainda mais?
 
-**R** : Sim, os pontos de extremidade https dão suporte à configuração mais avançada por meio [do gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+**R**: Sim, os pontos de extremidade https dão suporte à configuração mais avançada por meio [do gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
 
 * [Alterar o método de solicitação](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Alterar os segmentos de URL da solicitação](../api-management/api-management-transformation-policies.md#RewriteURL)

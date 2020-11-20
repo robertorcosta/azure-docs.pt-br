@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: a48a13fa18025254ee31344868d10181ae87c65e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685470"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980844"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -237,6 +237,7 @@ Concede acesso completo para gerenciar todos os recursos, mas não permite que v
 > | /ElevateAccess/Action [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Concede ao chamador o acesso de Administrador de Acesso do Usuário no escopo do locatário |
 > | /BlueprintAssignments/Write [Microsoft. Blueprint](resource-provider-operations.md#microsoftblueprint) | Criar ou atualizar quaisquer atribuições de blueprint |
 > | /BlueprintAssignments/Delete [Microsoft. Blueprint](resource-provider-operations.md#microsoftblueprint) | Excluir quaisquer atribuições de blueprint |
+> | /Galleries/share/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Compartilha uma galeria com escopos diferentes |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -260,7 +261,8 @@ Concede acesso completo para gerenciar todos os recursos, mas não permite que v
         "Microsoft.Authorization/*/Write",
         "Microsoft.Authorization/elevateAccess/Action",
         "Microsoft.Blueprint/blueprintAssignments/write",
-        "Microsoft.Blueprint/blueprintAssignments/delete"
+        "Microsoft.Blueprint/blueprintAssignments/delete",
+        "Microsoft.Compute/galleries/share/action"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -6551,6 +6553,7 @@ Colaborador do Azure Sentinel [saiba mais](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/Read | Ler uma pasta de trabalho particular |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
@@ -6583,6 +6586,7 @@ Colaborador do Azure Sentinel [saiba mais](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6620,6 +6624,7 @@ Leitor do Azure Sentinel [saiba mais](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Ler uma pasta de trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/Read | Ler uma pasta de trabalho particular |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
@@ -6656,6 +6661,7 @@ Leitor do Azure Sentinel [saiba mais](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6699,13 +6705,15 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Ler uma pasta de trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/Read | Ler uma pasta de trabalho particular |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
 > | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
-> | *nenhum* |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/*/Delete |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/*/Delete |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -6741,13 +6749,17 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/cases/*/Delete",
+        "Microsoft.SecurityInsights/incidents/*/Delete"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -7004,8 +7016,8 @@ Ler metadados de chaves e executar operações de encapsulamento/desencapsulamen
 > | *nenhum* |  |
 > | **DataActions** |  |
 > | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read | Listar chaves no cofre especificado ou ler propriedades e material público de uma chave. Para chaves assimétricas, essa operação expõe a chave pública e inclui a capacidade de executar algoritmos de chave pública, como criptografar e verificar assinatura. Chaves privadas e chaves simétricas nunca são expostas. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Wrap/Action | Encapsular uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada com acesso de leitura. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Unwrap/Action | Desenvolva uma chave simétrica com uma chave de Key Vault. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Wrap/Action | Encapsula uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Unwrap/Action | Desencapsula uma chave simétrica com uma chave de Key Vault. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -7048,13 +7060,13 @@ Executar operações criptográficas usando chaves. Funciona somente para cofres
 > | **DataActions** |  |
 > | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read | Listar chaves no cofre especificado ou ler propriedades e material público de uma chave. Para chaves assimétricas, essa operação expõe a chave pública e inclui a capacidade de executar algoritmos de chave pública, como criptografar e verificar assinatura. Chaves privadas e chaves simétricas nunca são expostas. |
 > | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/UPDATE/Action | Atualiza os atributos especificados associados à chave especificada. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/backup/Action | Crie o arquivo de backup de uma chave. O arquivo pode ser usado para restaurar a chave em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Encrypt/Action | Criptografe o texto não criptografado com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Decrypt/Action | Descriptografe o texto cifrado com uma chave. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Wrap/Action | Encapsular uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada com acesso de leitura. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Unwrap/Action | Desenvolva uma chave simétrica com uma chave de Key Vault. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Sign/Action | Assinar um hash com uma chave. |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Verify/Action | Verifique um hash. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/backup/Action | Cria o arquivo de backup de uma chave. O arquivo pode ser usado para restaurar a chave em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Encrypt/Action | Criptografa texto sem formatação com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Decrypt/Action | Descriptografa o texto cifrado com uma chave. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Wrap/Action | Encapsula uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Unwrap/Action | Desencapsula uma chave simétrica com uma chave de Key Vault. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Sign/Action | Assina um resumo de mensagem (hash) com uma chave. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Verify/Action | Verifica a assinatura de um resumo de mensagem (hash) com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -7221,7 +7233,7 @@ Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo 
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/getSecret/Action | Obter o valor de um segredo. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/getSecret/Action | Obtém o valor de um segredo. |
 > | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/readMetadata/Action | Listar ou exibir as propriedades de um segredo, mas não seu valor. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
@@ -7760,7 +7772,7 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/sharedKeys/Action | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/storageinsightconfigs/* | Ler/gravar/excluir configurações de insight de armazenamento da análise de logs. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
-> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* | Obtenha informações sobre monitores de integridade de VM convidadas.  |
+> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* | Obtenha informações sobre monitores de integridade de VM convidadas. |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |

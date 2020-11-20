@@ -3,18 +3,21 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042964"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981095"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
 Este artigo descreve como a Grade de Eventos do Azure manipula eventos quando a entrega não é confirmada.
 
-A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada mensagem é entregue pelo menos uma vez para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
+A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Ele entrega cada mensagem **pelo menos uma vez** para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
+
+> [!NOTE]
+> A grade de eventos não garante a ordem de entrega de eventos, portanto, o assinante pode recebê-las fora de ordem. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos em lote
 
@@ -78,7 +81,7 @@ Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos com
 A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
-Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas** . A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
+Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
 
 - O evento não é entregue dentro do período de **vida útil** . 
 - O **número de tentativas** de entregar o evento excedeu o limite.

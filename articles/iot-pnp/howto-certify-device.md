@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748479"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980228"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar dispositivos de IoT Plug and Play
 
@@ -44,6 +44,10 @@ Para atender aos requisitos de certificação, seu dispositivo deve:
 - Publicar o modelo e todas as interfaces necessárias no repositório de [modelo público do Azure IOT](https://devicemodels.azureiotsolutions.com/)
 - Envie a ID do modelo durante o [registro do DPS](concepts-developer-guide-device-csharp.md#dps-payload) na carga de provisionamento do DPS.
 - Anuncie a ID do modelo durante a [conexão MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Todos os modelos de dispositivo devem ser compatíveis com o [Azure IOT central](https://aka.ms/pnp-iotc-getstarted).
+
+> [!NOTE]
+> Atualmente, o Azure IoT Central não dá suporte completo à **matriz** e aos tipos de dados **geoespaciais** DTDL.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testar com a CLI de extensão de IoT do Azure
 
@@ -182,7 +186,7 @@ As informações de perfil da empresa são usadas na descrição do dispositivo 
 
 Para certificar um dispositivo, você deve primeiro criar um novo projeto.
 
-Navegue até o [portal de certificação](https://aka.ms/acdp). Na página **projetos** , selecione *+ criar novo projeto* . Em seguida, insira um nome para o projeto, o nome do dispositivo e selecione uma classe de dispositivo.
+Navegue até o [portal de certificação](https://aka.ms/acdp). Na página **projetos** , selecione *+ criar novo projeto*. Em seguida, insira um nome para o projeto, o nome do dispositivo e selecione uma classe de dispositivo.
 
 As informações do produto que você fornece durante o processo de certificação se enquadram em quatro categorias:
 

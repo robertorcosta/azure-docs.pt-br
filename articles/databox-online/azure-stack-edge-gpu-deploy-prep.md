@@ -113,7 +113,7 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
 
     ![Criar um recurso 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Selecione o tipo de dispositivo. Em **Azure Stack Edge Pro** , escolha **Azure Stack Edge Pro com GPU** e **Selecionar**. Se você encontrar problemas ou não conseguir selecionar o tipo de dispositivo, vá para [Solucionar problemas de pedido](azure-stack-edge-troubleshoot-ordering.md).
+4. Selecione o tipo de dispositivo. Em **Azure Stack Edge Pro**, escolha **Azure Stack Edge Pro com GPU** e **Selecionar**. Se você encontrar problemas ou não conseguir selecionar o tipo de dispositivo, vá para [Solucionar problemas de pedido](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Criar um recurso 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -121,7 +121,7 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
 
     ![Criar um recurso 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-6. Na guia **Informações Básicas** , insira ou selecione os **Detalhes do projeto** a seguir.
+6. Na guia **Informações Básicas**, insira ou selecione os **Detalhes do projeto** a seguir.
     
     |Configuração  |Valor  |
     |---------|---------|
@@ -149,7 +149,7 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
 
 9. Selecione **Avançar: Marcas**. Opcionalmente, forneça marcas para categorizar recursos e consolidar a cobrança. Selecione **Avançar: Revisar + criar**.
 
-10. Na guia **Examinar + criar** , examine os **Detalhes de preço** , os **Termos de uso** e os detalhes do recurso. Marque a caixa de combinação **Li os termos de privacidade**.
+10. Na guia **Examinar + criar**, examine os **Detalhes de preço**, os **Termos de uso** e os detalhes do recurso. Marque a caixa de combinação **Li os termos de privacidade**.
 
     ![Criar um recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -180,7 +180,7 @@ Depois que o recurso do Azure Stack Edge estiver em execução, será necessári
 
     ![Selecionar Configuração do dispositivo](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. No bloco **Ativar** , forneça um nome para o Azure Key Vault ou aceite o nome padrão. O nome do cofre de chaves deve ter entre 3 e 24 caracteres. 
+2. No bloco **Ativar**, forneça um nome para o Azure Key Vault ou aceite o nome padrão. O nome do cofre de chaves deve ter entre 3 e 24 caracteres. 
 
     Um cofre de chaves é criado para cada recurso do Azure Stack Edge ativado com seu dispositivo. O cofre de chaves permite que você armazene e acesse segredos, por exemplo, a CIK (chave de integridade do canal) do serviço é armazenada no cofre de chaves. 
 

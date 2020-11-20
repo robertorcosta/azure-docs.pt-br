@@ -154,12 +154,12 @@ A tabela a seguir faz a referência cruzada dos tipos de entidade do Bing Mapas 
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Endereço*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Vizinhança*                             |
-| `PopulatedPlace`      | `Municipality` ou `MunicipalitySubdivision`     | *Cidade* , *Município ou subterritório* ou *Supercidade*     |
+| `PopulatedPlace`      | `Municipality` ou `MunicipalitySubdivision`     | *Cidade*, *Município ou subterritório* ou *Supercidade*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Código postal* ou *CEP*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Estado* ou *Província*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Condado* ou *distritos*                    |
 | `CountryRegion`       | `Country`                                       | *Nome do país*                             |
-|                       | `CountryTertiarySubdivision`                    | *Burgos* , *Cantões* , *Comunas*          |
+|                       | `CountryTertiarySubdivision`                    | *Burgos*, *Cantões*, *Comunas*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Obter sugestões de localização (Sugestão Automática)
 
@@ -380,7 +380,7 @@ No Azure Mapas, os marcadores também podem ser adicionados a uma imagem de mapa
 
 Estilos adicionais podem ser usados adicionando parâmetros `pins` extras à URL com um estilo e um conjunto de locais diferentes.
 
-Quando se trata de localizações de marcador, o Azure Mapas exige que as coordenadas estejam no formato `longitude latitude`, enquanto o Bing Mapas usa o formato `latitude,longitude`. Observe também que **há um espaço, não uma vírgula** , separando a longitude e a latitude no Azure Mapas.
+Quando se trata de localizações de marcador, o Azure Mapas exige que as coordenadas estejam no formato `longitude latitude`, enquanto o Bing Mapas usa o formato `latitude,longitude`. Observe também que **há um espaço, não uma vírgula**, separando a longitude e a latitude no Azure Mapas.
 
 O valor `iconType` especifica o tipo de marcador a ser criado e pode ter os seguintes valores:
 
@@ -446,7 +446,7 @@ No Azure Mapas, linhas e polígonos também podem ser adicionados a uma imagem d
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-Quando se trata de localizações de caminho, o Azure Mapas exige que as coordenadas estejam no formato `longitude latitude`, enquanto o Bing Mapas usa o formato `latitude,longitude`. Observe também que **há um espaço, não uma vírgula** , separando a longitude e a latitude no Azure Mapas. Atualmente, o Azure Mapas não dá suporte a caminhos codificados. Conjuntos de dados maiores podem ser carregados como preenchimentos GeoJSON na API de Armazenamento de Dados do Azure Mapas, conforme documentado [aqui](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+Quando se trata de localizações de caminho, o Azure Mapas exige que as coordenadas estejam no formato `longitude latitude`, enquanto o Bing Mapas usa o formato `latitude,longitude`. Observe também que **há um espaço, não uma vírgula**, separando a longitude e a latitude no Azure Mapas. Atualmente, o Azure Mapas não dá suporte a caminhos codificados. Conjuntos de dados maiores podem ser carregados como preenchimentos GeoJSON na API de Armazenamento de Dados do Azure Mapas, conforme documentado [aqui](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
 Os estilos de caminho no Azure Mapas são adicionados com o formato `optionNameValue`, com vários estilos separados por caracteres de barra vertical (`|`) como este `optionName1Value1|optionName2Value2`. Observe que os nomes e os valores de opção não são separados. Os seguintes nomes de opção de estilo podem ser usados para caminhos de estilo no Azure Mapas:
 
@@ -528,7 +528,7 @@ A tabela a seguir faz referência cruzada dos parâmetros da API do Bing Mapas c
 Dados de ponto de interesse podem ser pesquisados no Bing Mapas usando as seguintes APIs:
 
 -   **Pesquisa local:** pesquisa pontos de interesse próximos (pesquisa radial), por nome ou por tipo de entidade (categoria). As APIs de [Pesquisa de POI](/rest/api/maps/search/getsearchpoi) e de [Pesquisa de categoria de POI](/rest/api/maps/search/getsearchpoicategory) do Azure Mapas são as mais semelhantes a essa API.
--   **Reconhecimento de localização** : Pesquisa pontos de interesse dentro de uma determinada distância de uma localização. A API de [Pesquisa nas redondezas](/rest/api/maps/search/getsearchnearby) do Azure Mapas é a mais semelhante a essa API.
+-   **Reconhecimento de localização**: Pesquisa pontos de interesse dentro de uma determinada distância de uma localização. A API de [Pesquisa nas redondezas](/rest/api/maps/search/getsearchnearby) do Azure Mapas é a mais semelhante a essa API.
 -   **Insights locais:** pesquisa pontos de interesse dentro de uma distância máxima ou de um tempo máximo de condução especificado com relação a uma coordenada específica. Para isso, o Azure Mapas calcula primeiro um isócrono e, em seguida, passa-o para a API [Pesquisar dentro da geometria](/rest/api/maps/search/postsearchinsidegeometry).
 
 O Azure Mapas fornece várias APIs de pesquisa para pontos de interesse:
