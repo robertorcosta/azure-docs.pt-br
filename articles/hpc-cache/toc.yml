@@ -8,6 +8,10 @@
   items:
     - name: Planejar o namespace agregado
       href: hpc-cache-namespace.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de instruções
   items:
     - name: Pré-requisitos
