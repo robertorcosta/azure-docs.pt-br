@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2c2ebe9b419100163ae55c1be85dd1464904e841
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677447"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979213"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contêiner
 
@@ -89,9 +89,8 @@ Anteriormente, os contêineres de visualização restringida eram hospedados no 
 |--|--|--|
 | [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leia v 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leia v 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
-| [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Análise Espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Pesquisa Visual Computacional](../../computer-vision/spatial-analysis-container.md) | Análise Espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=ctts) | Conversão de texto em fala personalizada | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=lid) | Detecção de Idioma | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=ntts) | Texto em fala neural | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
 | [Análise de Texto para integridade](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Análise de Texto para integridade | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
-
