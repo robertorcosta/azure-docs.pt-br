@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337926"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955320"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
 Uma característica importante do Azure digital gêmeos é a capacidade de definir seu próprio vocabulário e criar seu grafo de entrelaçamento nos termos autodefinidos de sua empresa. Esse recurso é fornecido por meio de **modelos** definidos pelo usuário. Você pode considerar os modelos como os substantivos em uma descrição do seu mundo. 
 
-Um modelo é semelhante a uma **classe** em uma linguagem de programação orientada a objeto, definindo uma forma de dados para um determinado conceito em seu ambiente de trabalho real. Os modelos têm nomes (como *sala* ou *sensor* ) e contêm elementos como propriedades, telemetria/eventos e comandos que descrevem o que esse tipo de entidade em seu ambiente pode fazer. Posteriormente, você usará esses modelos para criar [**gêmeos digitais**](concepts-twins-graph.md) que representam entidades específicas que atendem a essa descrição de tipo.
+Um modelo é semelhante a uma **classe** em uma linguagem de programação orientada a objeto, definindo uma forma de dados para um determinado conceito em seu ambiente de trabalho real. Os modelos têm nomes (como *sala* ou *sensor*) e contêm elementos como propriedades, telemetria/eventos e comandos que descrevem o que esse tipo de entidade em seu ambiente pode fazer. Posteriormente, você usará esses modelos para criar [**gêmeos digitais**](concepts-twins-graph.md) que representam entidades específicas que atendem a essa descrição de tipo.
 
 Os modelos de gêmeos digitais do Azure são representados na **DTDL (digital Mydefinition Language)** baseada em JSON-ld.  
 
@@ -49,7 +49,7 @@ Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos
 * As relações de **relacionamento** permitem que você represente como uma teledigital pode ser envolvida com outros gêmeos digitais. As relações podem representar significados de semântica diferentes, como *Contains* ("piso contém sala"), *frios* ("sala de frios do HVAC"), *isBilledTo* ("o compresso é cobrado pelo usuário") etc. As relações permitem que a solução forneça um grafo de entidades inter-relacionadas.
 
 > [!NOTE]
-> A [especificação para DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) também define **comandos** , que são métodos que podem ser executados em uma troca digital (como um comando de redefinição ou um comando para ativar ou desativar um ventilador). No entanto, os *comandos não têm suporte no momento no Azure digital gêmeos.*
+> A [especificação para DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) também define **comandos**, que são métodos que podem ser executados em uma troca digital (como um comando de redefinição ou um comando para ativar ou desativar um ventilador). No entanto, os *comandos não têm suporte no momento no Azure digital gêmeos.*
 
 ### <a name="properties-vs-telemetry"></a>Propriedades versus telemetria
 
@@ -84,7 +84,7 @@ O gêmeos digital do Azure também não observa o `writable` atributo em Proprie
 
 Os modelos de tipo de entrelaçamento podem ser escritos em qualquer editor de texto. A linguagem DTDL segue a sintaxe JSON, portanto, você deve armazenar modelos com a extensão *. JSON*. Usar a extensão JSON permitirá que muitos editores de texto de programação forneçam verificação e realce de sintaxe básica para seus documentos do DTDL. Também há uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Visual Studio Code](https://code.visualstudio.com/).
 
-Esta seção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve os **planetas** , cada um com um nome, uma massa e uma temperatura.
+Esta seção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve os **planetas**, cada um com um nome, uma massa e uma temperatura.
  
 Considere que os planetas também podem interagir com **luas** que são seus satélites e **podem conter** enjuntores. No exemplo a seguir, o `Planet` modelo expressa conexões com essas outras entidades fazendo referência a dois modelos externos — `Moon` e `Crater` . Esses modelos também são definidos no código de exemplo abaixo, mas são mantidos muito simples para não detrair o `Planet` exemplo primário.
 
@@ -144,10 +144,10 @@ Os campos do modelo são:
 | `@type` | Identifica o tipo de informações que estão sendo descritas. Para uma interface, o tipo é *interface*. |
 | `@context` | Define o [contexto](https://niem.github.io/json/reference/json-ld/context/) para o documento JSON. Os modelos devem usar o `dtmi:dtdl:context;2` . |
 | `displayName` | adicional Permite que você dê um nome amigável ao modelo, se desejado. |
-| `contents` | Todos os dados de interface restantes são colocados aqui, como uma matriz de definições de atributo. Cada atributo deve fornecer um `@type` ( *Propriedade* , *telemetria* , *comando* , *relação* ou *componente* ) para identificar o tipo de informações de interface que ele descreve e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, `name` e `schema` para definir uma *Propriedade* ). |
+| `contents` | Todos os dados de interface restantes são colocados aqui, como uma matriz de definições de atributo. Cada atributo deve fornecer um `@type` (*Propriedade*, *telemetria*, *comando*, *relação* ou *componente*) para identificar o tipo de informações de interface que ele descreve e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, `name` e `schema` para definir uma *Propriedade*). |
 
 > [!NOTE]
-> Observe que a interface de componente ( *Crater* neste exemplo) é definida na mesma matriz que a interface que a usa ( *planeta* ). Os componentes devem ser definidos dessa forma em chamadas à API para que a interface seja encontrada.
+> Observe que a interface de componente (*Crater* neste exemplo) é definida na mesma matriz que a interface que a usa (*planeta*). Os componentes devem ser definidos dessa forma em chamadas à API para que a interface seja encontrada.
 
 ### <a name="possible-schemas"></a>Esquemas possíveis
 
@@ -222,9 +222,13 @@ Neste exemplo, *CelestialBody* contribui com um nome, uma massa e uma temperatur
 
 Depois que a herança é aplicada, a interface de extensão expõe todas as propriedades de toda a cadeia de herança.
 
-A interface de extensão não pode alterar nenhuma das definições das interfaces pai; Ele só pode adicionar a eles. Ele também não pode redefinir um recurso já definido em qualquer uma de suas interfaces pai (mesmo que os recursos estejam definidos para serem os mesmos). Por exemplo, se uma interface pai define uma `double` propriedade de *massa* , a interface de extensão não pode conter uma declaração de *massa* , mesmo que também seja um `double` .
+A interface de extensão não pode alterar nenhuma das definições das interfaces pai; Ele só pode adicionar a eles. Ele também não pode redefinir um recurso já definido em qualquer uma de suas interfaces pai (mesmo que os recursos estejam definidos para serem os mesmos). Por exemplo, se uma interface pai define uma `double` propriedade de *massa*, a interface de extensão não pode conter uma declaração de *massa*, mesmo que também seja um `double` .
 
-## <a name="validating-models"></a>Validando modelos
+## <a name="best-practices-for-designing-models"></a>Práticas recomendadas para a criação de modelos
+
+Ao criar modelos para refletir as entidades em seu ambiente, pode ser útil olhar em frente e considerar as implicações de [consulta](concepts-query-language.md) do seu design. Talvez você queira criar propriedades de uma maneira que evite grandes conjuntos de resultados de percurso de grafo. Você também pode querer modelar relações que serão respondidas em uma única consulta como relações de nível único.
+
+### <a name="validating-models"></a>Validando modelos
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
