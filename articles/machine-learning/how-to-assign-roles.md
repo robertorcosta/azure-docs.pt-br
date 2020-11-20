@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961219"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
 Neste artigo, você aprenderá a gerenciar o acesso (autorização) a um espaço de trabalho Azure Machine Learning. O Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) do Azure é usado para gerenciar o acesso aos recursos do Azure, como a capacidade de criar novos recursos ou usar os existentes. Os usuários em seu Azure Active Directory (Azure AD) recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
 
 > [!TIP]
-> Embora este artigo se concentre em Azure Machine Learning, os serviços individuais dos quais o Azure ML depende fornecem suas próprias configurações de RBAC. Por exemplo, usando as informações neste artigo, você pode configurar quem pode enviar solicitações de Pontuação para um modelo implantado como um serviço Web no serviço kubernetes do Azure. Mas o serviço kubernetes do Azure fornece seu próprio conjunto de funções de RBAC do Azure. Para informações de RBAC específicas de serviço que podem ser úteis com Azure Machine Learning, consulte os links a seguir:
+> Embora este artigo se concentre em Azure Machine Learning, os serviços individuais dos quais o Azure ML depende fornecem suas próprias configurações de RBAC. Por exemplo, usando as informações neste artigo, você pode configurar quem pode enviar solicitações de Pontuação para um modelo implantado como um serviço Web no serviço kubernetes do Azure. Mas o serviço kubernetes do Azure fornece seu próprio conjunto de funções do Azure. Para informações de RBAC específicas de serviço que podem ser úteis com Azure Machine Learning, consulte os links a seguir:
 >
 > * [Controlar o acesso aos recursos do cluster kubernetes do Azure](../aks/azure-ad-rbac.md)
 > * [Usar o RBAC do Azure para autorização kubernetes](../aks/manage-azure-rbac.md)
@@ -209,7 +209,7 @@ Para executar operações de MLflow com seu espaço de trabalho Azure Machine Le
 
 ### <a name="data-scientist"></a>Cientista de dados
 
-Permite que um cientista de dados execute todas as operações dentro de um espaço de trabalho **, exceto** :
+Permite que um cientista de dados execute todas as operações dentro de um espaço de trabalho **, exceto**:
 
 * Criação de computação
 * Implantando modelos em um cluster AKS de produção
@@ -247,7 +247,7 @@ Permite que um cientista de dados execute todas as operações dentro de um espa
 
 ### <a name="data-scientist-restricted"></a>Cientista de dados restrito
 
-Uma definição de função mais restrita sem curingas nas ações permitidas. Ele pode executar todas as operações dentro de um espaço de trabalho **, exceto** :
+Uma definição de função mais restrita sem curingas nas ações permitidas. Ele pode executar todas as operações dentro de um espaço de trabalho **, exceto**:
 
 * Criação de computação
 * Implantando modelos em um cluster AKS de produção
@@ -310,7 +310,7 @@ Uma definição de função mais restrita sem curingas nas ações permitidas. E
      
 ### <a name="mlflow-data-scientist"></a>Cientista de dados de MLflow
 
-Permite que um cientista de dados execute todas as operações com suporte do MLflow AzureML **, exceto** :
+Permite que um cientista de dados execute todas as operações com suporte do MLflow AzureML **, exceto**:
 
 * Criação de computação
 * Implantando modelos em um cluster AKS de produção
@@ -395,7 +395,7 @@ Permite atribuir uma função a uma entidade de serviço e usá-la para automati
 
 ### <a name="workspace-admin"></a>Administrador do espaço de trabalho
 
-Permite que você execute todas as operações dentro do escopo de um espaço de trabalho, **exceto** :
+Permite que você execute todas as operações dentro do escopo de um espaço de trabalho, **exceto**:
 
 * Criando um novo workspace
 * Atribuindo cotas de nível de espaço de trabalho ou de assinatura

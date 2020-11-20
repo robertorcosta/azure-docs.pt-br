@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893723"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962562"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o BD do Azure para PostgreSQL
 
@@ -29,7 +29,7 @@ O problemas e limitações conhecidos associados às migrações online do Postg
 
 - O servidor PostgreSQL de origem deve estar executando a versão 9,4, 9,5, 9,6, 10 ou 11. Para obter mais informações, consulte o artigo [Versões com suporte do Banco de Dados do PostgreSQL](../postgresql/concepts-supported-versions.md).
 - Há suporte apenas para migrações para a mesma versão ou para versões posteriores. Por exemplo, há suporte para a migração de PostgreSQL 9,5 para o banco de dados do Azure para PostgreSQL 9,6 ou 10, mas não há suporte para migrar do PostgreSQL 11 para PostgreSQL 9,6.
-- Para habilitar a replicação lógica no arquivo ** postgresql.conf do PostgreSQL de origem** defina os seguintes parâmetros:
+- Para habilitar a replicação lógica no arquivo **postgresql.conf do PostgreSQL de origem** defina os seguintes parâmetros:
   - **wal_level** = lógico
   - **max_replication_slots** = [pelo menos o número máximo de bancos de dados para migração]; Se você quiser migrar quatro bancos de dados, defina o valor para pelo menos 4.
   - **max_wal_senders** = [número de bancos de dados executados simultaneamente]; o valor recomendado é 10
@@ -96,13 +96,13 @@ Ao tentar executar uma migração online do AWS RDS PostgreSQL para o banco de d
 - **Erro**: O valor padrão da coluna '{column}' na tabela '{table}' no banco de dados '{database}' é diferente nos servidores de origem e destino. É '{value on source}' na origem e '{value on target}' no destino.
 
   **Limitação**: esse erro ocorre quando o valor padrão em um esquema de coluna é diferente entre os bancos de dados de origem e de destino.
-  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Erro**: O banco de dados de destino '{database}' tem '{number of tables}' tabelas, enquanto que o banco de dados de origem '{database}' tem '{number of tables}' tabelas. O número de tabelas nos bancos de dados de origem e destino deve corresponder.
 
   **Limitação**: esse erro ocorre quando o número de tabelas é diferente entre os bancos de dados de origem e de destino.
 
-  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Erro:** O banco de dados de origem {Database} está vazio.
 
@@ -113,7 +113,7 @@ Ao tentar executar uma migração online do AWS RDS PostgreSQL para o banco de d
 - **Erro:** O banco de dados de destino {Database} está vazio. Migre o esquema.
 
   **Limitação**: esse erro ocorre quando não há esquema no banco de dados de destino. Verifique se o esquema no destino corresponde ao esquema na origem.
-  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solução alternativa**: Verifique se o esquema no destino corresponde ao esquema na origem. Para obter detalhes sobre a migração de esquema, consulte a [documentação de migração online do PostgreSQL do Azure](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Outras limitações
 
