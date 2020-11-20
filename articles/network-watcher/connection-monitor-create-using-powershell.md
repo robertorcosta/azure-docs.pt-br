@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 532f045233f26a9a2933a19ae7a0a893195ad33f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384079"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949030"
 ---
 # <a name="create-a-connection-monitor-using-powershell"></a>Criar um monitor de conexão usando o PowerShell
 
@@ -89,7 +89,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 * Grupos de teste
     * nome-nome do seu grupo de teste.
     * testConfigurations-testar configurações com base em quais pontos de extremidade de origem se conectam aos pontos de extremidade de destino
-    * fontes – escolha um dos pontos de extremidade criados acima. Os pontos de extremidade de origem baseados no Azure precisam ter a extensão do observador de rede do Azure instalada e os pontos de extremidade de origem não baseados no Azure precisam haveAzure o agente Log Analytics instalado. Para instalar um agente para sua origem, consulte [instalar agentes de monitoramento](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * fontes – escolha um dos pontos de extremidade criados acima. Os pontos de extremidade de origem baseados no Azure precisam ter a extensão do observador de rede do Azure instalada e os pontos de extremidade de origem não baseados no Azure precisam haveAzure o agente Log Analytics instalado. Para instalar um agente para sua origem, consulte [instalar agentes de monitoramento](./connection-monitor-overview.md#install-monitoring-agents).
     * destinos – escolha os pontos de extremidade criados acima. Você pode monitorar a conectividade com as VMs do Azure ou qualquer ponto de extremidade (um IP público, uma URL ou um FQDN) especificando-os como destinos. Em um único grupo de teste, você pode adicionar VMs do Azure, URLs do Office 365, URLs do Dynamics 365 e pontos de extremidade personalizados.
     * desabilitar – Use esse campo para desabilitar o monitoramento de todas as origens e destinos que o grupo de teste especifica.
 
@@ -115,5 +115,5 @@ Os monitores de conexão têm os seguintes limites de escala:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba [como analisar dados de monitoramento e definir alertas](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Saiba [como diagnosticar problemas em sua rede](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Saiba [como analisar dados de monitoramento e definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Saiba [como diagnosticar problemas em sua rede](./connection-monitor-overview.md#diagnose-issues-in-your-network)

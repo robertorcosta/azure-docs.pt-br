@@ -11,16 +11,16 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255322"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949778"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
-Os preços de Azure Active Directory B2C (Azure AD B2C) baseiam-se em usuários ativos mensais (MAU), que é a contagem de usuários exclusivos com atividade de autenticação em um mês civil. Esse modelo de cobrança se aplica aos locatários Azure AD B2C e à [colaboração do usuário convidado (B2B) do Azure ad](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing). A cobrança do MAU ajuda a reduzir os custos oferecendo uma camada gratuita e preços flexíveis e previsíveis. Neste artigo, saiba mais sobre a cobrança do MAU, vinculando seus locatários do Azure AD B2C a uma assinatura e alterando o tipo de preço.
+Os preços de Azure Active Directory B2C (Azure AD B2C) baseiam-se em usuários ativos mensais (MAU), que é a contagem de usuários exclusivos com atividade de autenticação em um mês civil. Esse modelo de cobrança se aplica aos locatários Azure AD B2C e à [colaboração do usuário convidado (B2B) do Azure ad](../active-directory/external-identities/external-identities-pricing.md). A cobrança do MAU ajuda a reduzir os custos oferecendo uma camada gratuita e preços flexíveis e previsíveis. Neste artigo, saiba mais sobre a cobrança do MAU, vinculando seus locatários do Azure AD B2C a uma assinatura e alterando o tipo de preço.
 
 > [!IMPORTANT]
 > Este artigo não contém detalhes de preços. Para obter as informações mais recentes sobre cobrança e preços de uso, consulte [preços de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
@@ -62,10 +62,10 @@ Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobr
 2. Selecione o **diretório +** filtro de assinatura no menu superior e selecione o diretório que contém a assinatura do Azure que você gostaria de usar (*não* o diretório que contém o locatário Azure ad B2C).
 3. Selecione **criar um recurso**, insira `Active Directory B2C` no campo **Pesquisar no Marketplace** e, em seguida, selecione **Azure Active Directory B2C**.
 4. Selecione **Criar**.
-5. Selecione **vincular um locatário existente do Azure ad B2C à minha assinatura do Azure**.
+5. Selecione **Vincular um Locatário do Azure AD B2C existente à minha assinatura do Azure**.
 6. Selecione um **locatário Azure ad B2C** na lista suspensa. Somente os locatários para os quais você é um administrador global e que ainda não estão vinculados a uma assinatura são mostrados. O campo **nome do recurso de Azure ad B2C** é populado com o nome de domínio do locatário de Azure ad B2C que você selecionar.
 7. Selecione uma **assinatura** ativa do Azure da qual você é um administrador.
-8. Em **grupo de recursos**, selecione **criar novo**e especifique o **local do grupo de recursos**. As configurações do grupo de recursos aqui não têm impacto sobre o local Azure AD B2C locatário, o desempenho ou o status de cobrança.
+8. Em **grupo de recursos**, selecione **criar novo** e especifique o **local do grupo de recursos**. As configurações do grupo de recursos aqui não têm impacto sobre o local Azure AD B2C locatário, o desempenho ou o status de cobrança.
 9. Selecione **Criar**.
 
     ![A página de criação de recursos de Azure AD B2C no portal do Azure](./media/billing/portal-01-create-b2c-resource-page.png)

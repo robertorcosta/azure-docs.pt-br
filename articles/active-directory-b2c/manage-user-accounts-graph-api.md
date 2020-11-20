@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949404"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerenciar Azure AD B2C contas de usuário com Microsoft Graph
 
@@ -35,13 +35,13 @@ Siga as etapas neste artigo de instruções para criar um registro de aplicativo
 
 ## <a name="user-management-microsoft-graph-operations"></a>Operações de Microsoft Graph de gerenciamento de usuário
 
-As seguintes operações de gerenciamento de usuário estão disponíveis na [API de Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user):
+As seguintes operações de gerenciamento de usuário estão disponíveis na [API de Microsoft Graph](/graph/api/resources/user):
 
-- [Obter uma lista de usuários](https://docs.microsoft.com/graph/api/user-list)
-- [Criar um usuário](https://docs.microsoft.com/graph/api/user-post-users)
-- [Obter um usuário](https://docs.microsoft.com/graph/api/user-get)
-- [Atualizar um usuário](https://docs.microsoft.com/graph/api/user-update)
-- [Excluir um usuário](https://docs.microsoft.com/graph/api/user-delete)
+- [Obter uma lista de usuários](/graph/api/user-list)
+- [Criar um usuário](/graph/api/user-post-users)
+- [Obter um usuário](/graph/api/user-get)
+- [Atualizar um usuário](/graph/api/user-update)
+- [Excluir um usuário](/graph/api/user-delete)
 
 ## <a name="user-properties"></a>Propriedades do usuário
 
@@ -125,7 +125,7 @@ A API do Microsoft Graph dá suporte à criação e à atualização de um usuá
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Exemplo de código: como gerenciar programaticamente contas de usuário
 
-Este exemplo de código é um aplicativo de console .NET Core que usa o [SDK Microsoft Graph](https://docs.microsoft.com/graph/sdks/sdks-overview) para interagir com Microsoft Graph API. Seu código demonstra como chamar a API para gerenciar programaticamente os usuários em um locatário Azure AD B2C.
+Este exemplo de código é um aplicativo de console .NET Core que usa o [SDK Microsoft Graph](/graph/sdks/sdks-overview) para interagir com Microsoft Graph API. Seu código demonstra como chamar a API para gerenciar programaticamente os usuários em um locatário Azure AD B2C.
 Você pode [baixar o arquivo morto de exemplo](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [procurar o repositório](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) no GitHub ou clonar o repositório:
 
 ```cmd
@@ -152,7 +152,7 @@ O aplicativo exibe uma lista de comandos que você pode executar. Por exemplo, o
 
 ### <a name="code-discussion"></a>Discussão de código
 
-O código de exemplo usa o [SDK do Microsoft Graph](https://docs.microsoft.com/graph/sdks/sdks-overview), que foi projetado para simplificar a criação de aplicativos de alta qualidade, eficientes e resilientes que acessam Microsoft Graph.
+O código de exemplo usa o [SDK do Microsoft Graph](/graph/sdks/sdks-overview), que foi projetado para simplificar a criação de aplicativos de alta qualidade, eficientes e resilientes que acessam Microsoft Graph.
 
 Qualquer solicitação para a API de Microsoft Graph requer um token de acesso para autenticação. A solução utiliza o pacote NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) que fornece um wrapper baseado em cenário de autenticação da MSAL (biblioteca de autenticação da Microsoft) para uso com o SDK do Microsoft Graph.
 
@@ -203,7 +203,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Faça chamadas à API usando os SDKs de Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) inclui informações sobre como ler e gravar informações de Microsoft Graph, usar `$select` para controlar as propriedades retornadas, fornecer parâmetros de consulta personalizados e usar os `$filter` parâmetros de `$orderBy` consulta e.
+[Faça chamadas à API usando os SDKs de Microsoft Graph](/graph/sdks/create-requests) inclui informações sobre como ler e gravar informações de Microsoft Graph, usar `$select` para controlar as propriedades retornadas, fornecer parâmetros de consulta personalizados e usar os `$filter` parâmetros de `$orderBy` consulta e.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -211,5 +211,5 @@ Para obter um índice completo das operações de API de Microsoft Graph com sup
 
 <!-- LINK -->
 
-[graph-objectIdentity]: https://docs.microsoft.com/graph/api/resources/objectidentity
+[graph-objectIdentity]: /graph/api/resources/objectidentity
 [graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

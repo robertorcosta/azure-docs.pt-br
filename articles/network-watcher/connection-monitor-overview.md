@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699229"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948946"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
 
@@ -34,7 +34,7 @@ Aqui estão alguns casos de uso para o monitor de conexão:
 - Seu aplicativo híbrido precisa de conectividade com um ponto de extremidade de armazenamento do Azure. Seu site local e seu aplicativo do Azure se conectam ao mesmo ponto de extremidade de armazenamento do Azure. Você deseja comparar as latências do site local com as latências do aplicativo do Azure.
 - Você deseja verificar a conectividade entre suas configurações locais e as VMs do Azure que hospedam seu aplicativo de nuvem.
 
-O monitor de conexão combina o melhor de dois recursos: o recurso de monitor de conexão do observador de rede [(clássico)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) e o [Monitor de conectividade do serviço](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)de monitor de desempenho de rede (NPM), monitoramento do [ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e recurso de [monitoramento de desempenho](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+O monitor de conexão combina o melhor de dois recursos: o recurso de monitor de conexão do observador de rede [(clássico)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) e o [Monitor de conectividade do serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md)de monitor de desempenho de rede (NPM), monitoramento do [ExpressRoute](../expressroute/how-to-npm.md)e recurso de [monitoramento de desempenho](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) .
 
 Aqui estão alguns benefícios do monitor de conexão:
 
@@ -65,7 +65,7 @@ O monitor de conexão depende de arquivos executáveis leves para executar verif
 
 Para fazer com que o monitor de conexão reconheça suas VMs do Azure como fontes de monitoramento, instale a extensão da máquina virtual do agente do observador de rede neles. Essa extensão também é conhecida como a *extensão do observador de rede*. As máquinas virtuais do Azure exigem a extensão para disparar o monitoramento de ponta a ponta e outras funcionalidades avançadas. 
 
-Você pode instalar a extensão do observador de rede ao [criar uma VM](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). Você também pode instalar, configurar e solucionar problemas separadamente da extensão do observador de rede para [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) e [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+Você pode instalar a extensão do observador de rede ao [criar uma VM](./connection-monitor.md#create-the-first-vm). Você também pode instalar, configurar e solucionar problemas separadamente da extensão do observador de rede para [Linux](../virtual-machines/extensions/network-watcher-linux.md) e [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 As regras para um grupo de segurança de rede (NSG) ou firewall podem bloquear a comunicação entre a origem e o destino. O monitor de conexão detecta esse problema e o mostra como uma mensagem de diagnóstico na topologia. Para habilitar o monitoramento de conexão, verifique se as regras de firewall e NSG permitem pacotes via TCP ou ICMP entre a origem e o destino.
 
@@ -73,7 +73,7 @@ As regras para um grupo de segurança de rede (NSG) ou firewall podem bloquear a
 
 Para fazer com que o monitor de conexão reconheça seus computadores locais como fontes de monitoramento, instale o agente de Log Analytics nos computadores. Em seguida, habilite a solução Monitor de Desempenho de Rede. Esses agentes são vinculados a espaços de trabalho do Log Analytics, portanto, você precisa configurar a ID do espaço de trabalho e a chave primária antes que os agentes possam iniciar o monitoramento.
 
-Para instalar o agente de Log Analytics para computadores Windows, consulte [Azure monitor extensão de máquina virtual para Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+Para instalar o agente de Log Analytics para computadores Windows, consulte [Azure monitor extensão de máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md).
 
 Se o caminho incluir firewalls ou NVAs (soluções de virtualização de rede), verifique se o destino está acessível.
 
@@ -81,7 +81,7 @@ Se o caminho incluir firewalls ou NVAs (soluções de virtualização de rede), 
 
 Todas as assinaturas que têm uma rede virtual são habilitadas com o observador de rede. Quando você cria uma rede virtual em sua assinatura, o observador de rede é habilitado automaticamente na região e na assinatura da rede virtual. Essa habilitação automática não afeta seus recursos ou incorre em um encargo. Verifique se o observador de rede não está explicitamente desabilitado em sua assinatura. 
 
-Para obter mais informações, consulte [habilitar o observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Para obter mais informações, consulte [habilitar o observador de rede](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Criar um monitor de conexão 
 
@@ -111,7 +111,7 @@ O monitor de conexão inclui as seguintes entidades:
 
  ![Diagrama mostrando um monitor de conexão, definindo a relação entre os grupos de teste e os testes](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Você pode criar um monitor de conexão usando [portal do Azure](connection-monitor-preview-create-using-portal.md) ou [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Você pode criar um monitor de conexão usando [portal do Azure](./connection-monitor-create-using-portal.md) ou [ARMClient](./connection-monitor-create-using-template.md)
 
 Todas as fontes, destinos e configurações de teste que você adiciona a um grupo de teste são divididos em testes individuais. Veja um exemplo de como as origens e os destinos são divididos:
 
@@ -213,7 +213,7 @@ Para mostrar apenas os testes com falha no monitor de conexão em que o IP de or
 Para mostrar apenas os testes com falha no monitor de conexão em que o destino é outlook.office365.com:
 1. Alterar exibição para **teste**.
 1. Para o filtro baseado em estado, selecione **falha**.
-1. No campo de pesquisa, digite *Outlook.office365.com*
+1. No campo de pesquisa, digite *Office.Live.com*
 1. Em **escopo** no filtro de nível superior, selecione **destinos**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Captura de tela mostrando uma exibição filtrada para mostrar apenas os testes com falha para o destino Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -271,7 +271,7 @@ Nos monitores de conexão que foram criados antes da experiência do monitor de 
 
 Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome de exibição | Unidade | Tipo de agregação | Description | Dimensões |
+| Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | Porcentagem de investigações com falha | Percentual | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
@@ -348,5 +348,5 @@ Para redes cujas fontes são VMs do Azure, os seguintes problemas podem ser dete
 
 ## <a name="next-steps"></a>Próximas etapas
     
-   * Saiba [como criar um monitor de conexão usando o portal do Azure](connection-monitor-preview-create-using-portal.md)  
-   * Saiba [como criar um monitor de conexão usando o ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Saiba [como criar um monitor de conexão usando o portal do Azure](./connection-monitor-create-using-portal.md)  
+   * Saiba [como criar um monitor de conexão usando o ARMClient](./connection-monitor-create-using-template.md)

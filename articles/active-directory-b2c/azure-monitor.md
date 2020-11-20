@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562740"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949948"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
@@ -25,7 +25,7 @@ Use Azure Monitor para rotear logs de entrada e [auditoria](view-audit-logs.md) 
 Você pode rotear eventos de log para:
 
 * Uma [conta de armazenamento](../storage/blobs/storage-blobs-introduction.md)do Azure.
-* Um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analisar dados, criar painéis e alertar sobre eventos específicos).
+* Um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (para analisar dados, criar painéis e alertar sobre eventos específicos).
 * Um [Hub de eventos](../event-hubs/event-hubs-about.md) do Azure (e integre com suas instâncias de lógica Splunk e do resumo).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -34,7 +34,7 @@ Neste artigo, você aprende a transferir os logs para um espaço de trabalho do 
 
 ## <a name="deployment-overview"></a>Visão geral da implantação
 
-Azure AD B2C aproveita [Azure Active Directory monitoramento](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar *as configurações de diagnóstico* no Azure Active Directory em seu locatário do Azure ad B2C, use o [Lighthouse do Azure](../lighthouse/concepts/azure-delegated-resource-management.md) para [delegar um recurso](../lighthouse/concepts/azure-delegated-resource-management.md), que permite que seu Azure ad B2C (o **provedor de serviços** ) gerencie um recurso do Azure AD (o **cliente** ). Depois de concluir as etapas neste artigo, você terá acesso ao grupo de recursos *Azure-ad-B2C-monitor* que contém o espaço de [trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) em seu portal de **Azure ad B2C** . Você também poderá transferir os logs de Azure AD B2C para seu espaço de trabalho do Log Analytics.
+Azure AD B2C aproveita [Azure Active Directory monitoramento](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar *as configurações de diagnóstico* no Azure Active Directory em seu locatário do Azure ad B2C, use o [Lighthouse do Azure](../lighthouse/concepts/azure-delegated-resource-management.md) para [delegar um recurso](../lighthouse/concepts/azure-delegated-resource-management.md), que permite que seu Azure ad B2C (o **provedor de serviços**) gerencie um recurso do Azure AD (o **cliente**). Depois de concluir as etapas neste artigo, você terá acesso ao grupo de recursos *Azure-ad-B2C-monitor* que contém o espaço de [trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) em seu portal de **Azure ad B2C** . Você também poderá transferir os logs de Azure AD B2C para seu espaço de trabalho do Log Analytics.
 
 Durante essa implantação, você autorizará um usuário ou grupo em seu diretório de Azure AD B2C para configurar a instância do espaço de trabalho Log Analytics dentro do locatário que contém sua assinatura do Azure. Para criar a autorização, você implanta um modelo de [Azure Resource Manager](../azure-resource-manager/index.yml) no seu locatário do Azure AD que contém a assinatura.
 
@@ -58,7 +58,7 @@ Um **espaço de trabalho log Analytics** é um ambiente exclusivo para dados de 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém seu **locatário do Azure ad**.
-1. [Crie um espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md). Este exemplo usa um espaço de trabalho Log Analytics chamado *AzureAdB2C* , em um grupo de recursos chamado *Azure-ad-B2C-monitor*.
+1. [Crie um espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md). Este exemplo usa um espaço de trabalho Log Analytics chamado *AzureAdB2C*, em um grupo de recursos chamado *Azure-ad-B2C-monitor*.
 
 ## <a name="3-delegate-resource-management"></a>3. delegar o gerenciamento de recursos
 
@@ -70,7 +70,7 @@ Primeiro, obtenha a **ID do locatário** do seu diretório de Azure ad B2C (tamb
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário **Azure ad B2C** .
-1. Selecione **Azure Active Directory** , selecione **visão geral**.
+1. Selecione **Azure Active Directory**, selecione **visão geral**.
 1. Registre a **ID do locatário**.
 
 ### <a name="32-select-a-security-group"></a>3,2 selecionar um grupo de segurança
@@ -87,7 +87,7 @@ Para facilitar o gerenciamento, é recomendável usar *grupos* de usuários do A
 
 ### <a name="33-create-an-azure-resource-manager-template"></a>3,3 criar um modelo de Azure Resource Manager
 
-Em seguida, você criará um modelo de Azure Resource Manager que concede Azure AD B2C acesso ao grupo de recursos do Azure AD que você criou anteriormente (por exemplo, *Azure-ad-B2C-monitor* ). Implante o modelo do exemplo do GitHub usando o botão **implantar no Azure** , que abre a Portal do Azure e permite que você configure e implante o modelo diretamente no Portal. Para essas etapas, verifique se você está conectado ao seu locatário do Azure AD (não o locatário Azure AD B2C).
+Em seguida, você criará um modelo de Azure Resource Manager que concede Azure AD B2C acesso ao grupo de recursos do Azure AD que você criou anteriormente (por exemplo, *Azure-ad-B2C-monitor*). Implante o modelo do exemplo do GitHub usando o botão **implantar no Azure** , que abre a Portal do Azure e permite que você configure e implante o modelo diretamente no Portal. Para essas etapas, verifique se você está conectado ao seu locatário do Azure AD (não o locatário Azure AD B2C).
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém seu locatário **do Azure ad** .
@@ -104,7 +104,7 @@ Em seguida, você criará um modelo de Azure Resource Manager que concede Azure 
    | Nome da oferta MSP| Um nome que descreve essa definição. Por exemplo, *Azure ad B2C monitoramento*.  |
    | Descrição da oferta MSP| Uma breve descrição da sua oferta. Por exemplo, *habilita Azure monitor em Azure ad B2C*.|
    | Gerenciado por ID de locatário| A **ID de locatário** do seu locatário de Azure ad B2C (também conhecido como a ID de diretório). |
-   |Autorizações|Especifique uma matriz JSON de objetos que incluam o Azure AD `principalId` , o `principalIdDisplayName` e o Azure `roleDefinitionId` . O `principalId` é a **ID de objeto** do grupo B2C ou usuário que terá acesso aos recursos nesta assinatura do Azure. Para este guia, especifique a ID de objeto do grupo que você registrou anteriormente. Para o `roleDefinitionId` , use o valor da [função interna](../role-based-access-control/built-in-roles.md) para a *função colaborador* , `b24988ac-6180-42a0-ab88-20f7382dd24c` .|
+   |Autorizações|Especifique uma matriz JSON de objetos que incluam o Azure AD `principalId` , o `principalIdDisplayName` e o Azure `roleDefinitionId` . O `principalId` é a **ID de objeto** do grupo B2C ou usuário que terá acesso aos recursos nesta assinatura do Azure. Para este guia, especifique a ID de objeto do grupo que você registrou anteriormente. Para o `roleDefinitionId` , use o valor da [função interna](../role-based-access-control/built-in-roles.md) para a *função colaborador*, `b24988ac-6180-42a0-ab88-20f7382dd24c` .|
    | Nome do Rg | O nome do grupo de recursos que você cria anteriormente no seu locatário do Azure AD. Por exemplo, *Azure-ad-B2C-monitor*. |
 
    O exemplo a seguir demonstra uma matriz de autorizações com um grupo de segurança.
@@ -155,7 +155,7 @@ Para definir configurações de monitoramento para Azure AD B2C logs de atividad
 1. Entre no [portal do Azure](https://portal.azure.com/) com sua conta administrativa do Azure ad B2C. Essa conta deve ser um membro do grupo de segurança especificado na etapa [selecionar um grupo de segurança](#32-select-a-security-group) .
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 1. Selecionar **Azure Active Directory**
-1. Em **Monitoramento** , selecione **Configurações de diagnóstico**.
+1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 1. Se houver configurações existentes para o recurso, você verá uma lista de configurações já configuradas. Selecione **Adicionar configuração de diagnóstico** para adicionar uma nova configuração ou selecione **Editar** para editar uma configuração existente. Cada configuração não pode ter mais de um de cada um dos tipos de destino.
 
     ![Painel de configurações de diagnóstico no portal do Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
@@ -179,7 +179,7 @@ Agora você pode configurar seu espaço de trabalho Log Analytics para visualiza
 
 As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos logs do Azure Monitor têm a oferecer. Uma linguagem de consulta eficiente permite unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte tenham sido coletados e você entenda como construir a consulta correta. Para obter mais informações, consulte Introdução [às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md).
 
-1. Em **log Analytics espaço de trabalho** , selecione **logs**
+1. Em **log Analytics espaço de trabalho**, selecione **logs**
 1. No editor de consultas, Cole a seguinte consulta de [linguagem de consulta Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) . Essa consulta mostra o uso de políticas por operação nos últimos x dias. A duração padrão é definida como 90 dias (90d). Observe que a consulta é focada apenas na operação em que um token/código é emitido pela política.
 
     ```kusto
@@ -228,7 +228,7 @@ As pastas de trabalho fornecem uma tela flexível para análise de dados e a cri
 
 Siga as instruções abaixo para criar uma nova pasta de trabalho usando um modelo de galeria JSON. Esta pasta de trabalho fornece um painel de **informações do usuário** e de **autenticação** para Azure ad B2C locatário.
 
-1. No **espaço de trabalho log Analytics** , selecione **pastas de trabalho**.
+1. No **espaço de trabalho log Analytics**, selecione **pastas de trabalho**.
 1. Na barra de ferramentas, selecione **+ nova** opção para criar uma nova pasta de trabalho.
 1. Na página **nova pasta de trabalho** , selecione o **Editor avançado** usando a **</>** opção na barra de ferramentas.
 
@@ -239,7 +239,7 @@ Siga as instruções abaixo para criar uma nova pasta de trabalho usando um mode
 1. Aplique o modelo usando o botão **aplicar** .
 1. Selecione o botão de **edição concluído** na barra de ferramentas para concluir a edição da pasta de trabalho.
 1. Por fim, salve a pasta de trabalho usando o botão **salvar** da barra de ferramentas.
-1. Forneça um **título** , como *Azure ad B2C Dashboard*.
+1. Forneça um **título**, como *Azure ad B2C Dashboard*.
 1. Selecione **Salvar**.
 
     ![Salvar a pasta de trabalho](./media/azure-monitor/wrkb-title.png)
@@ -261,7 +261,7 @@ Alertas são criados por regras de alerta no Azure Monitor e podem executar auto
 Use as instruções a seguir para criar um novo alerta do Azure, que enviará uma [notificação por email](../azure-monitor/platform/action-groups.md#configure-notifications) sempre que houver um descarte de 25% no **total de solicitações** comparadas ao período anterior. O alerta será executado a cada 5 minutos e procurará o descarte nas últimas 24 horas do Windows. Os alertas são criados usando a linguagem de consulta Kusto.
 
 
-1. Em **log Analytics espaço de trabalho** , selecione **logs**. 
+1. Em **log Analytics espaço de trabalho**, selecione **logs**. 
 1. Crie uma nova **consulta Kusto** usando a consulta abaixo.
 
     ```kusto

@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f107ba4dd0150e9727183d0bd334c9279de17337
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144194"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949999"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA escalar verticalmente com Azure NetApp Files no Red Hat Enterprise Linux
 
@@ -51,7 +52,7 @@ ms.locfileid: "92144194"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Este artigo descreve como configurar a replicação de sistema SAP HANA em implantação de expansão, quando os sistemas de arquivos do HANA são montados via NFS, usando Azure NetApp Files (seja). No exemplo configurações e comandos de instalação, o número da instância **03**e a ID do sistema Hana **HN1** são usados. A replicação do SAP HANA consiste em um nó primário e, pelo menos, um nó secundário.
+Este artigo descreve como configurar a replicação de sistema SAP HANA em implantação de expansão, quando os sistemas de arquivos do HANA são montados via NFS, usando Azure NetApp Files (seja). No exemplo configurações e comandos de instalação, o número da instância **03** e a ID do sistema Hana **HN1** são usados. A replicação do SAP HANA consiste em um nó primário e, pelo menos, um nó secundário.
 
 Quando as etapas deste documento são marcadas com os seguintes prefixos, o significado é o seguinte:
 
@@ -251,7 +252,7 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Em seguida, exec
     1.  Em seguida, crie uma investigação de integridade:
         1.  Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
         1.  Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-        1.  Selecione TCP como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+        1.  Selecione TCP como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
         1.  Selecione **OK**.
     1.  Em seguida, crie as regras de balanceamento de carga:
         1.  Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
@@ -280,35 +281,35 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Em seguida, exec
     1.  Em seguida, crie uma investigação de integridade:
         1.  Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
         1.  Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-        1.  Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+        1.  Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
         1.  Selecione **OK**.
     1.  Para o SAP HANA 1.0, crie as regras de balanceamento de carga:
         1.  Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-        1.  Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**15).
+        1.  Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 15).
         1.  Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-        1.  Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**15.
+        1.  Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 15.
         1.  Aumente o **tempo limite de ociosidade** para 30 minutos.
         1.  Certifique-se de **habilitar IP Flutuante**.
         1.  Selecione **OK**.
-        1.  Repita essas etapas para a porta 3**03**17.
+        1.  Repita essas etapas para a porta 3 **03** 17.
     1.  Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
         1.  Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-        1.  Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
+        1.  Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 13).
         1.  Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-        1.  Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
+        1.  Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 13.
         1.  Aumente o **tempo limite de ociosidade** para 30 minutos.
         1.  Certifique-se de **habilitar IP Flutuante**.
         1.  Selecione **OK**.
-        1.  Repita essas etapas para a porta 3**03**14.
+        1.  Repita essas etapas para a porta 3 **03** 14.
     1.  Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
         1.  Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-        1.  Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
+        1.  Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3 **03** 40).
         1.  Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
-        1.  Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
+        1.  Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 40.
         1.  Aumente o **tempo limite de ociosidade** para 30 minutos.
         1.  Certifique-se de **habilitar IP Flutuante**.
         1.  Selecione **OK**.
-        1.  Repita essas etapas para portas 3**03**41 e 3**03**42.
+        1.  Repita essas etapas para portas 3 **03** 41 e 3 **03** 42.
 
 Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [conexões a bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [SAP Hana bancos de dados de locatários](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -563,7 +564,7 @@ Neste exemplo, cada nó de cluster tem seus próprios sistemas de filenfs do HAN
 
    Verificar o status do cluster e de todos os recursos
    > [!NOTE]
-   > Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+   > Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
    
     ```
     sudo pcs status
