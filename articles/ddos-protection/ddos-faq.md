@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 871ededce1db5e4c3179c187fc46a828cd157456
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6c475971f604c951280d0351d593cd5d96879d31
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886270"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992396"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Perguntas frequentes padrão sobre a proteção contra DDoS do Azure
 
@@ -29,7 +29,7 @@ A negação de serviço distribuída, ou DDoS, é um tipo de ataque em que um in
 A proteção contra DDoS do Azure Standard, combinada com as práticas recomendadas de design de aplicativos, fornece recursos aprimorados de mitigação de DDoS para se defender contra ataques de DDoS. Ele é ajustado automaticamente para ajudar a proteger seus recursos específicos do Azure em uma rede virtual. É muito simples habilitar a proteção em qualquer rede virtual nova ou existente, e ela não exige nenhum aplicativo ou alterações de recursos. Ela tem várias vantagens em comparação com o serviço básico, incluindo registro em log, alertas e telemetria. Consulte [visão geral da proteção contra DDoS do Azure Standard](ddos-protection-overview.md) para obter mais detalhes. 
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>E quanto à proteção na camada de serviço (camada 7)?
-Os clientes podem usar o serviço de proteção contra DDoS do Azure em combinação com a [SKU do WAF do gateway de aplicativo](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) para proteção na camada de rede (camada 3 e 4, oferecida pelo serviço de proteção contra DDoS do Azure) e na camada de aplicativo (camada 7, oferecida pela SKU do WAF do gateway de aplicativo).
+Os clientes podem usar o serviço de proteção contra DDoS do Azure em combinação com a [SKU do WAF do gateway de aplicativo](../web-application-firewall/ag/ag-overview.md) para proteção na camada de rede (camada 3 e 4, oferecida pelo serviço de proteção contra DDoS do Azure) e na camada de aplicativo (camada 7, oferecida pela SKU do WAF do gateway de aplicativo).
 
 ## <a name="are-services-unsafe-in-azure-without-the-service"></a>Os serviços não são seguros no Azure sem o serviço?
 Os serviços em execução no Azure são protegidos inerentemente pela proteção contra DDoS do Azure básica que está em vigor para proteger a infraestrutura do Azure. No entanto, a proteção que protege a infraestrutura tem um limite muito maior do que a maioria dos aplicativos tem a capacidade de lidar e não fornece telemetria ou alertas, portanto, embora um volume de tráfego possa ser percebido como inofensivo pela plataforma, ele pode ser devastador para o aplicativo que o recebe. 
@@ -64,6 +64,3 @@ Consulte [testando por meio de simulações](test-through-simulations.md).
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>Quanto tempo leva para que as métricas sejam carregadas no portal?
 As métricas devem ser visíveis no portal dentro de 5 minutos. Se o recurso estiver sob ataque, outras métricas começarão a aparecer no portal dentro de 5-7 minutos. 
     
-
-
-

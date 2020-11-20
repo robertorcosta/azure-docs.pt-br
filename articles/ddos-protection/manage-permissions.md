@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 10b10309e438bab3c99cb2ed7202eaa272d24abe
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989404"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Gerenciar planos de proteção contra DDoS: permissões e restrições
 
@@ -37,7 +37,7 @@ Para trabalhar com os planos de proteção DDoS, sua conta deve ser atribuída �
 | Microsoft.Network/ddosProtectionPlans/delete      | Excluir um plano de proteção contra DDoS            |
 | Microsoft.Network/ddosProtectionPlans/join/action | Participar de um plano de proteção DDoS              |
 
-Para habilitar a proteção DDoS a uma rede virtual, sua conta deve também ser atribuída a ações [apropriadas para redes virtuais](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
+Para habilitar a proteção DDoS a uma rede virtual, sua conta deve também ser atribuída a ações [apropriadas para redes virtuais](../virtual-network/manage-virtual-network.md#permissions).
 
 ## <a name="azure-policy"></a>Azure Policy
 
@@ -51,4 +51,4 @@ Para clientes que têm várias assinaturas e que desejam garantir que um único 
 Para saber como exibir e configurar a telemetria para seu plano de proteção contra DDoS, continue com os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Exibir e configurar a telemetria de proteção contra DDoS](telemetry-monitoring-alerting.md)
+> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry-monitoring-alerting.md)

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629182"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989421"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Para uma assinatura única, há limitações no número de solicitações de res
 Não há um método interno para restaurar o servidor inteiro. Para obter um exemplo de como realizar essa tarefa, consulte [banco de dados SQL do Azure: recuperação completa do servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Para recuperar usando backups automatizados, você deve ser membro da função colaborador do SQL Server ou da função colaborador do SQL Instância Gerenciada (dependendo do destino de recuperação) na assinatura ou deve ser o proprietário da assinatura. Para saber mais, confira [RBAC: funções internas](../../role-based-access-control/built-in-roles.md). Você pode usar o portal do Azure, o PowerShell ou a API REST para a recuperação. Não é possível usar o T-SQL.
+> Para recuperar usando backups automatizados, você deve ser membro da função colaborador do SQL Server ou da função colaborador do SQL Instância Gerenciada (dependendo do destino de recuperação) na assinatura ou deve ser o proprietário da assinatura. Para obter mais informações, consulte [RBAC do Azure: funções internas](../../role-based-access-control/built-in-roles.md). Você pode usar o portal do Azure, o PowerShell ou a API REST para a recuperação. Não é possível usar o T-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauração em um momento determinado
 
@@ -157,10 +157,10 @@ No portal do Azure, você cria um novo banco de dados de instância única ou ge
 
 Para restaurar geograficamente um único banco de dados do portal do Azure na região e no servidor de sua escolha, siga estas etapas:
 
-1. No **painel** , selecione **Adicionar** > **Criar Banco de Dados SQL**. Na guia **Noções básicas** , insira as informações necessárias.
+1. No **painel**, selecione **Adicionar** > **Criar Banco de Dados SQL**. Na guia **Noções básicas**, insira as informações necessárias.
 2. Selecione **Configurações adicionais**.
-3. Para **usar dados existentes** , selecione **Backup**.
-4. Para **fazer backup** , selecione um backup na lista de backups de restauração geográfica disponíveis.
+3. Para **usar dados existentes**, selecione **Backup**.
+4. Para **fazer backup**, selecione um backup na lista de backups de restauração geográfica disponíveis.
 
     ![Captura de tela das opções para criar Banco de Dados SQL](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
@@ -172,7 +172,7 @@ Para restaurar geograficamente um banco de dados de instância gerenciada do por
 
 1. Selecione **Novo banco de dados**.
 2. Digite um nome de banco de dados desejado.
-3. Em **Usar dados existentes** , selecione **Backup**.
+3. Em **Usar dados existentes**, selecione **Backup**.
 4. Selecione um backup na lista de backups de restauração geográfica disponíveis.
 
     ![Captura de tela das opções de novo banco de dados](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)

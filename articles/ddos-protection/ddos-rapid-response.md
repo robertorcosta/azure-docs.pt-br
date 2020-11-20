@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 36e61c8d1e0e41fd981f5483eff1f30814b22b92
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3655b117b641a6179bd6539aaf3f75af07f21a1a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905045"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992362"
 ---
 # <a name="azure-ddos-rapid-response"></a>Resposta rápida do DDoS do Azure
 
@@ -38,7 +38,7 @@ Você só deve envolver DRR se:
 ## <a name="engage-drr-during-an-active-attack"></a>Envolver o DRR durante um ataque ativo
 
 1. Em portal do Azure ao criar uma nova solicitação de suporte, escolha **tipo de problema** como técnico.
-2. Escolha **serviço** como **proteção contra DDoS** .
+2. Escolha **serviço** como **proteção contra DDoS**.
 3. Escolha um recurso no menu suspenso de recursos. _Você deve selecionar um plano de DDoS vinculado à rede virtual que está sendo protegida pela proteção contra DDoS Standard para envolver o DRR._
 
     ![Escolher recurso](./media/ddos-rapid-response/choose-resource.png)
@@ -51,7 +51,7 @@ Você só deve envolver DRR se:
 
 DRR segue o modelo de suporte Azure Rapid Response. Consulte o [escopo de suporte e a capacidade de resposta](https://azure.microsoft.com/en-us/support/plans/response/) para obter mais informações sobre resposta rápida.
 
-Para saber mais, leia a [documentação padrão de proteção contra DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Para saber mais, leia a [documentação padrão de proteção contra DDoS](./ddos-protection-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

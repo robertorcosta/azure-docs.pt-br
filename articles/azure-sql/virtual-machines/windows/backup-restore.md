@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: a386ea5149b36a4e82b4c935e2373f505c6c83cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789872"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991529"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauração para o SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,23 +55,23 @@ Para restaurar um banco de dados, você deve localizar os arquivos de backup nec
 
 Para saber mais sobre como configurar o Backup Automatizado para VMs do SQL, veja um dos seguintes artigos:
 
-- **SQL Server 2016/2017** : [Backup Automatizado v2 para Máquinas Virtuais do Azure](automated-backup.md)
-- **SQL Server 2014** : [Backup Automatizado para Máquinas Virtuais do SQL Server 2014](automated-backup-sql-2014.md)
+- **SQL Server 2016/2017**: [Backup Automatizado v2 para Máquinas Virtuais do Azure](automated-backup.md)
+- **SQL Server 2014**: [Backup Automatizado para Máquinas Virtuais do SQL Server 2014](automated-backup-sql-2014.md)
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Backup do Azure para VMs do SQL
 
 O [Backup do Azure](../../../backup/index.yml) fornece uma funcionalidade de backup de classe empresarial para SQL Server em VMs do Azure. Todos os backups são armazenados e gerenciados em um cofre de Serviços de Recuperação. Esta solução fornece diversas vantagens, especialmente para empresas:
 
-- **Backup com infraestrutura zero** : você não precisa gerenciar servidores de backup ou locais de armazenamento.
-- **Escala** : proteja muitas máquinas virtuais do SQL e milhares de bancos de dados.
-- **Pagamento Conforme o Uso** : esse recurso é um serviço separado fornecido pelo Backup do Azure, mas assim como acontece com todos os serviços do Azure, você só paga pelo que usa.
-- **Gerenciamento e monitoramento central** : gerencie centralmente todos os seus backups, inclusive outras cargas de trabalho para as quais o Backup do Azure dá suporte, de um único painel de controle no Azure.
-- **Backup e retenção controlados por política** : crie políticas de backup padrão para backups regulares. Estabeleça políticas de retenção para manter os backups por anos.
-- **Suporte para SQL Always On** : detecte e proteja uma configuração do SQL Server Always On e respeite a preferência de backup do Grupo de Disponibilidade.
-- **RPO (Objetivo de Ponto de Recuperação) de 15 minutos** : configure backups de log de transações do SQL para a cada 15 minutos.
-- **Recuperação Pontual** : use o portal para recuperar bancos de dados para um ponto específico no tempo sem a necessidade de restaurar manualmente vários backups completos, diferenciais e de log.
-- **Alertas de email consolidados para falhas** : configure notificações de email consolidadas para todas as falhas.
-- **Controle de acesso baseado em função** : determine quem pode gerenciar as operações de backup e restauração por meio do portal.
+- **Backup com infraestrutura zero**: você não precisa gerenciar servidores de backup ou locais de armazenamento.
+- **Escala**: proteja muitas máquinas virtuais do SQL e milhares de bancos de dados.
+- **Pagamento Conforme o Uso**: esse recurso é um serviço separado fornecido pelo Backup do Azure, mas assim como acontece com todos os serviços do Azure, você só paga pelo que usa.
+- **Gerenciamento e monitoramento central**: gerencie centralmente todos os seus backups, inclusive outras cargas de trabalho para as quais o Backup do Azure dá suporte, de um único painel de controle no Azure.
+- **Backup e retenção controlados por política**: crie políticas de backup padrão para backups regulares. Estabeleça políticas de retenção para manter os backups por anos.
+- **Suporte para SQL Always On**: detecte e proteja uma configuração do SQL Server Always On e respeite a preferência de backup do Grupo de Disponibilidade.
+- **RPO (Objetivo de Ponto de Recuperação) de 15 minutos**: configure backups de log de transações do SQL para a cada 15 minutos.
+- **Recuperação Pontual**: use o portal para recuperar bancos de dados para um ponto específico no tempo sem a necessidade de restaurar manualmente vários backups completos, diferenciais e de log.
+- **Alertas de email consolidados para falhas**: configure notificações de email consolidadas para todas as falhas.
+- **Controle de acesso baseado em função do Azure**: Determine quem pode gerenciar operações de backup e restauração por meio do Portal.
 
 Para obter uma visão geral rápida de como isso funciona junto com uma demonstração, assista ao vídeo a seguir:
 
@@ -108,9 +108,9 @@ A partir do SQL Server 2012 SP1 CU2, você pode fazer backup e restaurar diretam
 
 Para saber mais, veja um dos seguintes artigos com base em sua versão do SQL Server:
 
-- **SQL Server 2016/2017** : [Backup do SQL Server para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014** : [Backup do SQL Server 2014 para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
-- **SQL Server 2012** : [Backup do SQL Server 2012 para URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
+- **SQL Server 2016/2017**: [Backup do SQL Server para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [Backup do SQL Server 2014 para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**: [Backup do SQL Server 2012 para URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>Backup Gerenciado
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842236"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992158"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ O gerenciamento de identidade central oferece os seguintes benefícios:
 > [!NOTE]
 >
 > - A autenticação do Azure AD é registrada nos logs de auditoria do Azure SQL, mas não nos logs de entrada do Azure AD.
-> - As permissões de RBAC concedidas no Azure não se aplicam ao banco de dados SQL do Azure ou às permissões do SQL Instância Gerenciada. Essas permissões devem ser criadas/mapeadas manualmente usando permissões SQL existentes.
+> - As permissões do RBAC do Azure concedidas no Azure não se aplicam ao banco de dados SQL do Azure ou às permissões do SQL Instância Gerenciada. Essas permissões devem ser criadas/mapeadas manualmente usando permissões SQL existentes.
 > - No lado do cliente, a autenticação do Azure AD precisa acessar a Internet ou por meio de UDR (rota definida pelo usuário) para uma rede virtual.
 > - O token de acesso do AD do Azure é armazenado em cache no lado do cliente e seu tempo de vida depende da configuração do token. Confira o artigo [tempos de vida de token configuráveis no Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientação sobre como solucionar problemas de autenticação do Azure AD, consulte o seguinte blog: [solução de problemas do Azure ad](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).

@@ -8,17 +8,17 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 70793b585a11da2eccb43fd6cf47053774f1e991
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 4cc0fd970f9adc26f5fdb024f501dcb0edf77bde
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905062"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992413"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Parceria com a proteção contra DDoS do Azure Standard
 Este artigo descreve as oportunidades de parceria habilitadas pelo padrão de proteção contra DDoS do Azure. Este artigo foi projetado para ajudar gerentes de produto e funções de desenvolvimento de negócios a entender os caminhos de investimento e fornecer informações sobre as propostas de valor de parceria.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 Ataques de DDoS (negação de serviço distribuído) são uma das principais preocupações de disponibilidade e segurança em voz por clientes que movem seus aplicativos para a nuvem. Com o extortion e o Hacktivism sendo as motivações comuns por trás dos ataques de DDoS, eles foram consistentemente aumentando em tipo, escala e frequência de ocorrência, pois são relativamente fáceis e baratos de iniciar.
 
 A proteção contra DDoS do Azure fornece medidas defensivas contra as ameaças de DDoS mais sofisticadas, aproveitando a escala global da rede do Azure. O serviço fornece recursos aprimorados de mitigação de DDoS para aplicativos e recursos implantados em redes virtuais.
@@ -77,8 +77,8 @@ As etapas a seguir são necessárias para que os parceiros configurem a integra�
 
 - [Página do produto proteção contra DDoS do Azure](https://azure.microsoft.com/services/ddos-protection/)
 - [Documentação da proteção contra DDoS do Azure](ddos-protection-overview.md)
-- [Referência da API de proteção contra DDoS do Azure](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Referência da API de rede virtual do Azure](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Referência da API de proteção contra DDoS do Azure](/rest/api/virtualnetwork/ddosprotectionplans)
+- [Referência da API de rede virtual do Azure](/rest/api/virtualnetwork/virtualnetworks)
 
 ### <a name="get-help"></a>Obter ajuda
 

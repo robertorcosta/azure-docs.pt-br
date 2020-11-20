@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: f4f35aed10465fb06460f2818a876444bf989e01
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843954"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990883"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucionar problemas do motivo pelo qual os dispositivos não estão sendo exibidos no Azure IoT Central
 
@@ -130,12 +130,12 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| Status de provisionamento do dispositivo | Descrição | Possível mitigação |
+| Status de provisionamento do dispositivo | Description | Possível mitigação |
 | - | - | - |
 | Provisionado | Nenhum problema imediatamente reconhecível. | N/D |
 | Registrada | O dispositivo ainda não se conectou ao IoT Central. | Verifique os logs do dispositivo para problemas de conectividade. |
 | Bloqueado | O dispositivo está impedido de se conectar ao IoT Central. | O dispositivo está impedido de se conectar ao aplicativo IoT Central. Desbloqueie o dispositivo no IoT Central e tente novamente. Para saber mais, confira [bloquear dispositivos](concepts-get-connected.md#device-status-values). |
-| Não aprovados | O dispositivo não está aprovado. | O dispositivo não está aprovado para se conectar ao aplicativo IoT Central. Aprove o dispositivo em IoT Central e tente novamente. Para saber mais, confira [aprovar dispositivos](concepts-get-connected.md#connect-without-registering-devices) |
+| Não aprovados | O dispositivo não está aprovado. | O dispositivo não está aprovado para se conectar ao aplicativo IoT Central. Aprove o dispositivo em IoT Central e tente novamente. Para saber mais, confira [aprovar dispositivos](concepts-get-connected.md#device-registration) |
 | Não associado | O dispositivo não está associado a um modelo de dispositivo. | Associe o dispositivo a um modelo de dispositivo para que IoT Central saiba como analisar os dados. |
 
 Saiba mais sobre os [códigos de status do dispositivo](concepts-get-connected.md#device-status-values).

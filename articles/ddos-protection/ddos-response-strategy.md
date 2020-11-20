@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 23822ce5b311dc479824128d66bc18a15473862d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905044"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992226"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Componentes de uma estratégia de resposta a DDoS
 
@@ -44,9 +44,9 @@ Além disso, a DCU (Unidade de Crimes Digitais da Microsoft) executa estratégia
 
 - Meu serviços são ativo/ativo com failover em várias regiões?
 
-É essencial que você compreenda o comportamento normal de um aplicativo e se prepare para agir se o aplicativo não estiver se comportando conforme o esperado durante um ataque de DDoS. Ter monitores configurados para seus aplicativos críticos para os negócios que imitam o comportamento do cliente e notificá-lo quando anomalias relevantes forem detectadas. Consulte as [práticas recomendadas de monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) para obter informações sobre a integridade do seu aplicativo.
+É essencial que você compreenda o comportamento normal de um aplicativo e se prepare para agir se o aplicativo não estiver se comportando conforme o esperado durante um ataque de DDoS. Ter monitores configurados para seus aplicativos críticos para os negócios que imitam o comportamento do cliente e notificá-lo quando anomalias relevantes forem detectadas. Consulte as [práticas recomendadas de monitoramento e diagnóstico](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) para obter informações sobre a integridade do seu aplicativo.
 
-O [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço de gerenciamento de desempenho de aplicativo (APM) extensível para desenvolvedores da Web em várias plataformas. Use o Application Insights para monitorar seu aplicativo Web em tempo real. Ele detecta anomalias de desempenho automaticamente. Ele inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os usuários fazem com seu aplicativo. Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo.
+O [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) é um serviço de gerenciamento de desempenho de aplicativo (APM) extensível para desenvolvedores da Web em várias plataformas. Use o Application Insights para monitorar seu aplicativo Web em tempo real. Ele detecta anomalias de desempenho automaticamente. Ele inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os usuários fazem com seu aplicativo. Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo.
 
 ## <a name="customer-ddos-response-team"></a>Equipe de resposta a DDoS do cliente
 
@@ -56,7 +56,7 @@ Recomendamos que você use os exercícios de simulação como uma parte normal d
 
 ## <a name="alerts-during-an-attack"></a>Alertas durante um ataque
 
-A Proteção contra DDoS do Azure Standard identificará e mitigará os ataques de DDoS sem qualquer intervenção do usuário. Para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](telemetry-monitoring-alerting.md) na métrica **sob ataque de DDoS ou não** . Você pode optar por criar alertas para as outras métricas de DDoS para entender a escala do ataque, o tráfego que está sendo descartado e outros detalhes.
+A Proteção contra DDoS do Azure Standard identificará e mitigará os ataques de DDoS sem qualquer intervenção do usuário. Para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](telemetry-monitoring-alerting.md) na métrica **sob ataque de DDoS ou não**. Você pode optar por criar alertas para as outras métricas de DDoS para entender a escala do ataque, o tráfego que está sendo descartado e outros detalhes.
 
 ### <a name="when-to-contact-microsoft-support"></a>Quanto entrar em contato com o Suporte da Microsoft
 

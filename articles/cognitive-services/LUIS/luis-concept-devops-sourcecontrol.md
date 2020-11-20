@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309499"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990560"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -54,11 +54,11 @@ Para salvar um aplicativo LUIS no `.lu` formato e colocá-lo no controle do cód
 
 > [!TIP]
 > Se você estiver trabalhando com a exportação JSON de um aplicativo LUIS, poderá [convertê-lo em LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) usando a [CLI BOTBUILDER-Tools Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Use a `--sort` opção para garantir que as intenções e declarações sejam classificadas em ordem alfabética.  
-> Observe que o **. ** A funcionalidade de exportação de Lu interna no portal do Luis já classifica a saída.
+> Observe que o **.** A funcionalidade de exportação de Lu interna no portal do Luis já classifica a saída.
 
 ### <a name="build-the-luis-app-from-source"></a>Criar o aplicativo LUIS da origem
 
-Para um aplicativo LUIS, para criar a *partir do meio de origem* , [crie uma nova versão do aplicativo Luis importando a `.lu` origem](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) , para [treinar a versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e[publicá-la](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app). Você pode fazer isso no portal do LUIS ou na linha de comando:
+Para um aplicativo LUIS, para criar a *partir do meio de origem* , [crie uma nova versão do aplicativo Luis importando a `.lu` origem](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) , para [treinar a versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publicá-la](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app). Você pode fazer isso no portal do LUIS ou na linha de comando:
 
 - Use o portal do LUIS para [importar a `.lu` versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) do aplicativo do controle do código-fonte e [treine](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publique](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) o aplicativo.
 
@@ -74,7 +74,7 @@ Os seguintes tipos de arquivos para seu aplicativo LUIS devem ser mantidos sob c
 
 - [Arquivos de teste em lotes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (declarações e resultados esperados) usados para teste de desempenho
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>Não há check-in de credenciais e chaves
+### <a name="credentials-and-keys-are-not-checked-in"></a>Não há check-in de credenciais e chaves
 
 Não inclua chaves de assinatura ou valores confidenciais semelhantes em arquivos que você faz check-in em seu repositório, onde eles podem estar visíveis para pessoas não autorizadas. As chaves e outros valores que você deve impedir do check-in incluem:
 

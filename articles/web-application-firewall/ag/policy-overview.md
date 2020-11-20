@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952124"
+ms.locfileid: "94990118"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do firewall do aplicativo Web do Azure (WAF)
 
@@ -43,13 +43,13 @@ Para obter ainda mais personalização até o nível de URI, você pode associar
 
 Assim como ocorre com políticas de WAF por site, políticas mais específicas substituem aquelas menos específicas. Isso significa que uma política por URI em um mapa de caminho de URL substitui qualquer política de WAF por site ou global acima dela.
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 Digamos que você tenha três sites: contoso.com, fabrikam.com e adatum.com todos atrás do mesmo gateway de aplicativo. Você quer um WAF aplicado a todos os três sites, mas precisa de segurança adicional com o adatum.com, pois é aí que os clientes visitam, navegam e compram produtos.
 
 Você pode aplicar uma política global ao WAF, com algumas configurações básicas, exclusões ou regras personalizadas, se necessário, para interromper alguns falsos positivos do bloqueio do tráfego. Nesse caso, não é necessário ter regras de injeção de SQL globais em execução porque fabrikam.com e contoso.com são páginas estáticas sem back-end SQL. Portanto, você pode desabilitar essas regras na política global.
 
-Essa política global é adequada para contoso.com e fabrikam.com, mas você precisa ter mais cuidado com adatum.com em que as informações de entrada e os pagamentos são manipulados. Você pode aplicar uma política por site ao ouvinte do adatum e deixar as regras do SQL em execução. Além disso, suponha que haja um cookie bloqueando algum tráfego, para que você possa criar uma exclusão para esse cookie para parar o falso positivo. 
+Essa política global é adequada para contoso.com e fabrikam.com, mas você precisa ter mais cuidado com adatum.com em que as informações de entrada e os pagamentos são tratados. Você pode aplicar uma política por site ao ouvinte do adatum e deixar as regras do SQL em execução. Além disso, suponha que haja um cookie bloqueando algum tráfego, para que você possa criar uma exclusão para esse cookie para parar o falso positivo. 
 
 O URI adatum.com/payments é onde você precisa ter cuidado. Portanto, aplique outra política a esse URI e deixe todas as regras habilitadas e também remova todas as exclusões.
 

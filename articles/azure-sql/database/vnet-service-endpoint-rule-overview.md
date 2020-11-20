@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325010"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990798"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
 - **Administrador do banco de dados:** &nbsp; Atualize a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao servidor.
 
-*Alternativa de RBAC:*
+*Alternativa do RBAC do Azure:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras da rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -89,7 +89,7 @@ Para o Banco de Dados SQL do Azure, o recurso de regras da rede virtual tem as s
 
 Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, veja as considerações a seguir:
 
-- **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária** : NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../../virtual-network/network-security-groups-overview.md#service-tags) para o Banco de Dados SQL do Azure.
+- **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária**: NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../../virtual-network/network-security-groups-overview.md#service-tags) para o Banco de Dados SQL do Azure.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -149,7 +149,7 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Criar credencial com escopo de banco de dados com **IDENTITY = 'Managed Service Identity'** :
+   1. Criar credencial com escopo de banco de dados com **IDENTITY = 'Managed Service Identity'**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -188,11 +188,11 @@ Defina o sinalizador **IgnoreMissingVNetServiceEndpoint** usando o PowerShell. P
 
 ## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615
 
-O erro de conexão 40914 está relacionado a *regras da rede virtual* , conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
+O erro de conexão 40914 está relacionado a *regras da rede virtual*, conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
 
 ### <a name="error-40914"></a>Erro 40914
 
-*Texto da mensagem:* não é possível abrir o servidor ' *[nome-do-servidor]* ' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
+*Texto da mensagem:* não é possível abrir o servidor '*[nome-do-servidor]*' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
 
 *Descrição do erro:* o cliente está em uma sub-rede que tem pontos de extremidade de servidor de rede virtual. Mas o servidor não tem nenhuma regra de rede virtual que conceda à sub-rede o direito de se comunicar com o banco de dados.
 
@@ -240,18 +240,18 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 1. Entre no [portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Procure e selecione **servidores SQL** e, em seguida, selecione o servidor. Em **segurança** , selecione **firewalls e redes virtuais**.
+2. Procure e selecione **servidores SQL** e, em seguida, selecione o servidor. Em **segurança**, selecione **firewalls e redes virtuais**.
 
 3. Defina o controle **Permitir acesso aos serviços do Azure** como OFF.
 
     > [!IMPORTANT]
     > Se você deixar o controle definido como ativado, o servidor aceitará a comunicação de qualquer sub-rede dentro do limite do Azure, ou seja, proveniente de um dos endereços IP que são reconhecidos como aqueles nos intervalos definidos para data centers do Azure. Deixar o controle definido como ON pode ocasionar acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço de rede virtual do Microsoft Azure, em conjunto com o recurso de regra da rede virtual do Banco de dados SQL do Microsoft Azure, pode reduzir a área de superfície de segurança.
 
-4. Clique no controle **+ Adicionar existente** , na seção **Redes virtuais**.
+4. Clique no controle **+ Adicionar existente**, na seção **Redes virtuais**.
 
     ![Clique em Adicionar existente (ponto de extremidade de sub-rede, como uma regra SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
-5. No novo painel **Criar/Atualizar** , preencha os controles com os nomes dos recursos do Azure.
+5. No novo painel **Criar/Atualizar**, preencha os controles com os nomes dos recursos do Azure.
 
     > [!TIP]
     > Você deve incluir o **prefixo de endereço** correto para a sua sub-rede. É possível encontrar o valor no portal.
