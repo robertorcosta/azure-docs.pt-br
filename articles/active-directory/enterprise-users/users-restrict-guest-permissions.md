@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 11/17/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e89793ed8404bf36f2857f228d94fdf2a8828d43
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646586"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984253"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir as permissões de acesso de convidado (versão prévia) no Azure Active Directory
 
@@ -147,15 +147,16 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 - Formulários
 - Planejador nas equipes
 - Aplicativo do Planner
-- Projeto
+- Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 Pergunta | Resposta
 -------- | ------
 Onde se aplicam essas permissões? | Essas permissões de nível de diretório são aplicadas nos serviços e portais do Azure AD, incluindo o Microsoft Graph, o PowerShell v2, o portal do Azure e o portal de meus aplicativos. Os serviços Microsoft 365 aproveitando grupos de Microsoft 365 para cenários de colaboração também são afetados, especificamente o Outlook, o Microsoft Teams e o SharePoint.
-Quais partes do portal meus aplicativos serão afetadas por esse recurso? | A funcionalidade grupos no portal meus aplicativos respeitará essas novas permissões. Isso inclui todos os caminhos para exibir a lista de grupos e as associações de grupo em meus aplicativos. Nenhuma alteração foi feita na disponibilidade do bloco do grupo. A disponibilidade de bloco do grupo ainda é controlada pela configuração de grupo existente no portal de administração do Azure.
+Como as permissões restritas afetam quais grupos convidados podem ver? | Independentemente das permissões de convidado padrão ou restritas, os convidados não podem enumerar a lista de grupos ou usuários. Os convidados podem ver os grupos dos quais são membros no portal do Azure e no portal meus aplicativos, dependendo das permissões:<li>**Permissões padrão**: para localizar os grupos dos quais eles são membros na portal do Azure, o convidado deve pesquisar sua ID de objeto na lista **todos os usuários** e, em seguida, selecionar **grupos**. Aqui, eles podem ver a lista de grupos dos quais eles são membros, incluindo todos os detalhes do grupo, incluindo nome, email e assim por diante. No portal meus aplicativos, eles podem ver uma lista de grupos dos quais eles possuem e grupos dos quais eles são membros.</li><li>**Permissões de convidado restritas**: no portal do Azure, eles ainda podem encontrar a lista de grupos dos quais eles são membros, pesquisando sua ID de objeto na lista todos os usuários e, em seguida, selecionar grupos. Eles só podem ver detalhes muito limitados sobre o grupo, notavelmente a ID do objeto. Por design, as colunas nome e email estão em branco e o tipo de grupo não é reconhecido. No portal meus aplicativos, eles não podem acessar a lista de grupos dos quais eles possuem ou grupos dos quais eles são membros.</li><br>Para obter uma comparação mais detalhada das permissões de diretório provenientes da API do Graph, consulte [permissões de usuário padrão](../fundamentals/users-default-permissions.md#member-and-guest-users).
+Quais partes do portal meus aplicativos serão afetadas por esse recurso? | A funcionalidade grupos no portal meus aplicativos respeitará essas novas permissões. Isso inclui todos os caminhos para exibir a lista de grupos e as associações de grupo em meus aplicativos. Nenhuma alteração foi feita na disponibilidade do bloco do grupo. A disponibilidade de bloco do grupo ainda é controlada pela configuração de grupo existente no portal do Azure.
 Essas permissões substituem as configurações de convidado do SharePoint ou do Microsoft Teams? | Não. Essas configurações existentes ainda controlam a experiência e o acesso nesses aplicativos. Por exemplo, se você vir problemas no SharePoint, verifique as configurações de compartilhamento externas.
 Quais são os problemas de compatibilidade conhecidos no Planner e no Yammer? | <li>Com as permissões definidas como ' Restricted ', os convidados registrados no aplicativo planejador ou acessar o planejador no Microsoft Teams não poderão acessar seus planos ou tarefas.<li>Com as permissões definidas como ' Restricted ', os convidados registrados no Yammer não poderão sair do grupo.
 Minhas permissões de convidado existentes serão alteradas no meu locatário? | Nenhuma alteração foi feita nas configurações atuais. Mantemos compatibilidade com versões anteriores com suas configurações existentes. Você decide quando deseja fazer alterações.

@@ -1,5 +1,5 @@
 ---
-title: Migrar para o monitor de conexão do monitor de conexão
+title: Migrar para o monitor de conexão (versão prévia) do monitor de conexão
 titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o monitor de conexão do monitor de conexão.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 0ae1a1f36b9f81145b49245d8e6ace37ab36f834
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974747"
+ms.locfileid: "94985783"
 ---
-# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o monitor de conexão do monitor de conexão (clássico)
+# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Migrar para o monitor de conexão (visualização) do monitor de conexão (clássico)
 
-Você pode migrar os monitores de conexão existentes para um novo monitor de conexão aprimorado com apenas alguns cliques e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão](./connection-monitor-overview.md).
+É possível migrar os monitores de conexão existentes para um monitor de conexão novo e aprimorado (versão prévia) com apenas alguns cliques e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão](./connection-monitor-overview.md).
+
+> [!IMPORTANT]
+> O monitor de conexão está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-points-to-note"></a>Pontos-chave a serem observados
 

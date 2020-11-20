@@ -1,5 +1,5 @@
 ---
-title: Monitor de conexão | Microsoft Docs
+title: Monitor de conexão (versão prévia) no Azure | Microsoft Docs
 description: Saiba como usar o monitor de conexão para monitorar a comunicação de rede em um ambiente distribuído.
 services: network-watcher
 documentationcenter: na
@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948946"
+ms.locfileid: "94984355"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade de rede com o monitor de conexão (versão prévia)
 
 O monitor de conexão fornece monitoramento de conexão de ponta a ponta unificado no observador de rede do Azure. O recurso de monitor de conexão dá suporte a implantações de nuvem híbridas e do Azure. O observador de rede fornece ferramentas para monitorar, diagnosticar e exibir métricas relacionadas à conectividade para suas implantações do Azure.
 
-Aqui estão alguns casos de uso para o monitor de conexão:
+> [!IMPORTANT]
+> O monitor de conexão está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Aqui estão alguns casos de uso para o monitor de conexão:
 
 - A VM do servidor Web front-end se comunica com uma VM do servidor de banco de dados em um aplicativo de várias camadas. Você deseja verificar a conectividade de rede entre as duas VMs.
 - Você deseja que as VMs na região leste dos EUA executem ping nas VMs na região EUA Central e você deseja comparar as latências de rede entre regiões.
@@ -271,7 +274,7 @@ Nos monitores de conexão que foram criados antes da experiência do monitor de 
 
 Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
+| Métrica | Nome de exibição | Unidade | Tipo de agregação | Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | Porcentagem de investigações com falha | Percentual | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |

@@ -1,5 +1,5 @@
 ---
-title: Criar monitor de conexão-PowerShell
+title: Criar monitor de conexão (versão prévia) – PowerShell
 titleSuffix: Azure Network Watcher
 description: Saiba como criar um monitor de conexão usando o PowerShell.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949030"
+ms.locfileid: "94984236"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>Criar um monitor de conexão usando o PowerShell
+# <a name="create-a-connection-monitor-preview-using-powershell"></a>Criar um monitor de conexão (versão prévia) usando o PowerShell
 
 Saiba como criar um monitor de conexão para monitorar a comunicação entre seus recursos usando o PowerShell.
+
+> [!IMPORTANT]
+> O monitor de conexão está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de começar 
 
@@ -80,7 +84,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Pontos de extremidade
     * nome – nome exclusivo para cada ponto de extremidade
-    * ResourceId – para pontos de extremidade do Azure, a ID de recurso refere-se à ID de recurso Azure Resource Manager para máquinas virtuais. Para pontos de extremidade não Azure, a ID de recurso refere-se à ID de recurso do Azure Resource Manager para o espaço de trabalho Log Analytics vinculado a agentes não Azure.
+    * ResourceId – para pontos de extremidade do Azure, a ID de recurso refere-se à ID de recurso Azure Resource Manager para máquinas virtuais. Para pontos de extremidade não Azure, a ID de recurso refere-se à ID de recurso Azure Resource Manager para o espaço de trabalho Log Analytics vinculado a agentes não Azure.
     * Endereço – aplicável somente quando a ID do recurso não é especificada ou se a ID do recurso é Log Analytics espaço de trabalho. Se usado com Log Analytics ID de recurso, isso se refere ao FQDN do agente que pode ser usado para monitoramento. Se usado sem a ID do recurso, pode ser a URL ou o IP de qualquer ponto de extremidade público.
     * filtro – para pontos de extremidade não Azure, use filtrar para selecionar agentes de Log Analytics espaço de trabalho que será usado para monitoramento no recurso de monitor de conexão. Se os filtros não estiverem definidos, todos os agentes pertencentes ao espaço de trabalho Log Analytics poderão ser usados para monitoramento
         * tipo – defina o tipo como "endereço do agente"
@@ -100,6 +104,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
         * preferHTTPS-especifique se deseja usar HTTPS sobre HTTP
         * porta-especifique a porta de destino de sua escolha.
         * disableTraceRoute-isso se aplica a grupos de teste cujo protocolo é TCP ou ICMP. Ele interrompe fontes de descobrir a topologia e o RTT de salto a salto.
+        * método – isso se aplica a configurações de teste cujo protocolo é HTTP. Selecione o método de solicitação HTTP – GET ou POST
+        * caminho-especifique os parâmetros de caminho a serem acrescentados à URL
+        * validStatusCodes-escolha os códigos de status aplicáveis. Se o código de resposta não corresponder a essa lista, você receberá uma mensagem de diagnóstico
+        * requestHeaders-especificar cadeias de caracteres de cabeçalho de solicitação personalizadas que serão passadas para o destino
     * successThreshold-você pode definir limites nos seguintes parâmetros de rede:
         * checksFailedPercent-define a porcentagem de verificações que podem falhar quando as origens verificam a conectividade com os destinos usando os critérios que você especificou. Para o protocolo TCP ou ICMP, a porcentagem de verificações com falha pode ser igual à porcentagem de perda de pacotes. Para o protocolo HTTP, esse campo representa o percentual de solicitações HTTP que não receberam resposta.
         * roundTripTimeMs – defina o RTT em milissegundos para o tempo que as fontes podem levar para se conectar ao destino pela configuração de teste.

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: e91a3cc0a96add1f53d220e04fb98d63cc7c33f4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841079"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988537"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Além disso, os grupos de failover automático fornecem pontos de extremidade de
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados em um servidor ou instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
-- [Portal do Azure](geo-distributed-application-configure-tutorial.md)
+- [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: grupo de failover](/rest/api/sql/failovergroups).
@@ -142,15 +142,15 @@ As permissões para um grupo de failover são gerenciadas por meio do Azure [RBA
 
 ### <a name="create-failover-group"></a>Criar grupo de failover
 
-Para criar um grupo de failover, você precisa de acesso de gravação de RBAC para os servidores primários e secundários e para todos os bancos de dados no grupo de failover. Para um Instância Gerenciada de dados SQL, você precisa de acesso de gravação de RBAC para o SQL Instância Gerenciada primário e secundário, mas as permissões em bancos de dados individuais não são relevantes, pois os bancos de dados SQL Instância Gerenciada individuais não podem ser adicionados ou removidos de um grupo de failover.
+Para criar um grupo de failover, você precisa de acesso de gravação do RBAC do Azure para os servidores primários e secundários e para todos os bancos de dados no grupo de failover. Para um Instância Gerenciada de dados SQL, você precisa de acesso de gravação do RBAC do Azure para o SQL Instância Gerenciada primário e secundário, mas as permissões em bancos de dados individuais não são relevantes, pois os bancos de dados SQL Instância Gerenciada individuais não podem ser adicionados ou removidos de um grupo de failover.
 
 ### <a name="update-a-failover-group"></a>Atualizar um grupo de failover
 
-Para atualizar um grupo de failover, você precisa de acesso de gravação do RBAC para o grupo de failover e de todos os bancos de dados no servidor primário atual ou instância gerenciada.  
+Para atualizar um grupo de failover, você precisa de acesso de gravação do RBAC do Azure para o grupo de failover e de todos os bancos de dados no servidor primário atual ou instância gerenciada.  
 
 ### <a name="fail-over-a-failover-group"></a>Fazer failover de um grupo de failover
 
-Para fazer failover de um grupo de failover, você precisa de acesso de gravação de RBAC ao grupo de failover no novo servidor primário ou instância gerenciada.
+Para fazer failover de um grupo de failover, você precisa de acesso de gravação do RBAC do Azure para o grupo de failover no novo servidor primário ou instância gerenciada.
 
 ## <a name="best-practices-for-sql-database"></a>Práticas recomendadas para o banco de dados SQL
 
@@ -409,7 +409,7 @@ Esteja ciente das seguintes limitações:
 
 ## <a name="programmatically-managing-failover-groups"></a>Gerenciando os grupos de failover programaticamente
 
-Conforme discutido anteriormente, os grupos de failover automático e a replicação geográfica ativa podem ser gerenciados programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do Banco de Dados SQL do Azure](/rest/api/sql/) e [cmdlets do Azure PowerShell](/powershell/azure/). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
+Conforme discutido anteriormente, os grupos de failover automático e a replicação geográfica ativa podem ser gerenciados programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do Banco de Dados SQL do Azure](/rest/api/sql/) e [cmdlets do Azure PowerShell](/powershell/azure/). Essas APIs exigem o uso de grupos de recursos e dão suporte ao controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Gerenciar failover do banco de dados SQL
 

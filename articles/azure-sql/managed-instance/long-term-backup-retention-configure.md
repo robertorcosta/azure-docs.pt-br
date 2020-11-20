@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503429"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987483"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerenciar o Azure SQL Instância Gerenciada retenção de backup de longo prazo (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Para **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, você precisará t
 > [!NOTE]
 > A função Colaborador de Instância Gerenciada não tem permissão para excluir backups de LTR.
 
-As permissões RBAC podem ser concedidas no escopo de *assinatura* ou *grupo de recursos*. No entanto, para acessar backups de LTR que pertencem a uma instância descartada, a permissão deve ser concedida no escopo de *assinatura* da instância.
+As permissões do RBAC do Azure podem ser concedidas em escopo de *assinatura* ou *grupo de recursos* . No entanto, para acessar backups de LTR que pertencem a uma instância descartada, a permissão deve ser concedida no escopo de *assinatura* da instância.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988554"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -64,7 +64,7 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
 
-|Cabeçalho| Descrição | Obrigatório/Opcional |
+|Cabeçalho| Description | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
@@ -90,10 +90,10 @@ O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um 
 
 Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de pronúncia.
 
-| Parâmetro | Descrição | Obrigatório/Opcional |
+| Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
 | ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
-| GradingSystem | O sistema de ponto para a calibragem de pontuação. Os valores aceitos são `FivePoint` e `HundredMark`. A configuração padrão é `FivePoint`. | Opcional |
+| GradingSystem | O sistema de ponto para a calibragem de pontuação. O `FivePoint` sistema fornece uma pontuação de ponto flutuante de 0-5 e `HundredMark` fornece uma pontuação de ponto flutuante de 0-100. Padrão: `FivePoint`. | Opcional |
 | Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme` , que mostra a pontuação no nível de texto completo, Word e fonema, `Word` , que mostra a pontuação no texto completo e no nível de palavra, `FullText` , que mostra a pontuação somente no nível de texto completo. A configuração padrão é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceitos são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, Pontuação fluência e pontuação de integridade no nível de texto completo, tipo de erro no nível de palavra). Verifique os [parâmetros de resposta](#response-parameters) para ver as definições de diferentes dimensões de Pontuação e tipos de erro do Word. A configuração padrão é `Basic`. | Opcional |
 | EnableMiscue | Habilita o cálculo de miscue. Com isso habilitado, as palavras pronunciadas serão comparadas ao texto de referência e serão marcadas com omissão/inserção com base na comparação. Os valores aceitos são `False` e `True`. A configuração padrão é `False`. | Opcional |
