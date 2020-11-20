@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure HANA, ultra Disk de armazenamento, armazenamento Premium
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357070"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967458"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -46,7 +47,7 @@ As condições mínimas certificadas pelo SAP HANA para os diferentes tipos de a
 - Ultra Disk do Azure pelo menos para o volume **/Hana/log** . O volume **/Hana/data** pode ser colocado em um armazenamento Premium sem o Azure acelerador de gravação ou para obter tempos de reinicialização mais rápidos
 - Volumes **NFS v 4.1** sobre Azure NetApp Files para **/Hana/log e/Hana/data**. O volume de/Hana/Shared pode usar o protocolo NFS v3 ou NFS v 4.1
 
-Alguns tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/Hana/data** no armazenamento Premium e **/Hana/log** pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. Se você usar um volume baseado em seja para **/Hana/data** , o  **/Hana/log** volume também precisará ser baseado em NFS na parte superior do seja. **Não há suporte** para o uso de NFS sobre seja para um dos volumes (como/Hana/Data) e armazenamento Premium do Azure ou ultra Disk para o outro volume (como **/Hana/log** ).
+Alguns tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/Hana/data** no armazenamento Premium e **/Hana/log** pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. Se você usar um volume baseado em seja para **/Hana/data**, o  **/Hana/log** volume também precisará ser baseado em NFS na parte superior do seja. **Não há suporte** para o uso de NFS sobre seja para um dos volumes (como/Hana/Data) e armazenamento Premium do Azure ou ultra Disk para o outro volume (como **/Hana/log**).
 
 No mundo local, você raramente precisava preocupar-se com os subsistemas de E/S e as funcionalidades. O motivo era que o fornecedor do dispositivo precisava certificar-se de que os requisitos mínimos de armazenamento fossem atendidos para o SAP HANA. Ao criar a infraestrutura do Azure por conta própria, você deve estar ciente de alguns desses requisitos emitidos pelo SAP. Algumas das características mínimas de taxa de transferência que o SAP recomenda, são:
 
@@ -192,7 +193,7 @@ Para os outros volumes, a configuração teria a seguinte aparência:
 | M416ms_v2 | 11.400 GiB | 2.000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-Verifique se a taxa de transferência de armazenamento para os diferentes volumes recomendados atende à carga de trabalho que você quer executar. Se a carga de trabalho exigir volumes maiores para **/Hana/data** e **/Hana/log** , você precisará aumentar o número de VHDs de armazenamento Premium do Azure. Dimensionar um volume com mais VHDs do que o listado aumenta a taxa de transferência de E/S e IOPS dentro dos limites do tipo de máquina virtual do Azure.
+Verifique se a taxa de transferência de armazenamento para os diferentes volumes recomendados atende à carga de trabalho que você quer executar. Se a carga de trabalho exigir volumes maiores para **/Hana/data** e **/Hana/log**, você precisará aumentar o número de VHDs de armazenamento Premium do Azure. Dimensionar um volume com mais VHDs do que o listado aumenta a taxa de transferência de E/S e IOPS dentro dos limites do tipo de máquina virtual do Azure.
 
 O Acelerador de Gravação do Azure funciona somente em conjunto com o [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Portanto, pelo menos os discos de armazenamento Premium do Azure que formam o volume **/Hana/log** precisam ser implantados como discos gerenciados. Instruções e restrições mais detalhadas do Azure Acelerador de Gravação podem ser encontradas no artigo [acelerador de gravação](../../how-to-enable-write-accelerator.md).
 

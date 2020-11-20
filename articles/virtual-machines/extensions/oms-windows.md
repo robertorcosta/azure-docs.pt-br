@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331498"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967917"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
@@ -43,9 +44,9 @@ A tabela a seguir fornece um mapeamento da versão da extensão de VM do Windows
 | 10.20.18011 | 1.0.18011 | Julho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Aumento de MaxExpressionDepth para 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Capacidade adicional de desabilitar as credenciais padrão ao fazer a conexão proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Março de 2019 | <ul><li>Correções secundárias de estabilização </li></ul> |
-| 10.19.10006 | n/a | Dec 2018 | <ul><li> Correções secundárias de estabilização </li></ul> | 
-| 8.0.11136 | n/a | Setembro de 2018 |  <ul><li> Suporte adicionado para detectar a alteração da ID de recurso na movimentação da VM </li><li> Adicionado suporte para relatar a ID de recurso ao usar a instalação sem extensão </li></ul>| 
-| 8.0.11103 | n/a |  Abril de 2018 | |
+| 10.19.10006 | N/D | Dec 2018 | <ul><li> Correções secundárias de estabilização </li></ul> | 
+| 8.0.11136 | N/D | Setembro de 2018 |  <ul><li> Suporte adicionado para detectar a alteração da ID de recurso na movimentação da VM </li><li> Adicionado suporte para relatar a ID de recurso ao usar a instalação sem extensão </li></ul>| 
+| 8.0.11103 | N/D |  Abril de 2018 | |
 | 8.0.11081 | 1.0.11081 | 2017 de novembro | | 
 | 8.0.11072 | 1.0.11072 | 2017 de setembro | |
 | 8.0.11049 | 1.0.11049 | Fevereiro de 2017 | |

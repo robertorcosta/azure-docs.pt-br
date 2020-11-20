@@ -9,22 +9,23 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure, seja, HANA, Azure NetApp Files, instantâneo
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973624"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967475"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
-O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes **/Hana/Shared**, **/Hana/data**e **/Hana/log** . O uso de compartilhamentos NFS baseados em seja para os volumes **/Hana/data** e **/Hana/log** requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes **/Hana/data** e **/Hana/log** ao basear os compartilhamentos em seja. 
+O Azure NetApp Files fornece compartilhamentos NFS nativos que podem ser usados para volumes **/Hana/Shared**, **/Hana/data** e **/Hana/log** . O uso de compartilhamentos NFS baseados em seja para os volumes **/Hana/data** e **/Hana/log** requer o uso do protocolo v 4.1 NFS. Não há suporte para o protocolo de NFS v3 para o uso de volumes **/Hana/data** e **/Hana/log** ao basear os compartilhamentos em seja. 
 
 
 > [!IMPORTANT]

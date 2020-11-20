@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357837"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967152"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
 
@@ -154,7 +154,7 @@ Estamos integrando as funcionalidades de detecção do CDA (análise de despejo 
 
 Alguns dos benefícios dessa transição:
 
-- **Detecção de malware proativa e oportuna** : a abordagem da CDA envolvia a espera da ocorrência de uma falha e a posterior execução da análise para encontrar artefatos mal-intencionados. O uso da detecção de ataque sem arquivos introduz a identificação proativa de ameaças na memória enquanto elas estão em execução. 
+- **Detecção de malware proativa e oportuna**: a abordagem da CDA envolvia a espera da ocorrência de uma falha e a posterior execução da análise para encontrar artefatos mal-intencionados. O uso da detecção de ataque sem arquivos introduz a identificação proativa de ameaças na memória enquanto elas estão em execução. 
 
 - **Alertas aprimorados** – os alertas de segurança da detecção de ataque sem arquivos incluem aprimoramentos que não estão disponíveis no CDA, como as informações de conexões de rede ativas. 
 
@@ -188,7 +188,7 @@ Agora, você pode adicionar padrões como:
 - **PBMM Federal do Canadá**
 - **Azure CIS 1.1.0 (novo)** (que é uma representação mais completa do Azure CIS 1.1.0)
 
-Além disso, adicionamos recentemente o **Azure Security Benchmark** , as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Outros padrões se tornarão compatíveis com o painel à medida que forem disponibilizados.  
+Além disso, adicionamos recentemente o **Azure Security Benchmark**, as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Outros padrões se tornarão compatíveis com o painel à medida que forem disponibilizados.  
  
 Saiba mais sobre [como personalizar o conjunto de padrões em seu painel de conformidade regulatória](update-regulatory-compliance-packages.md).
 
@@ -316,7 +316,7 @@ Saiba mais sobre a [Pontuação segura aprimorada (visualização)](secure-score
 
 ## <a name="november-2019"></a>Novembro de 2019
 
-As atualizações em novembro incluem:
+As atualizações de novembro incluem:
  - [Proteção contra ameaças para Azure Key Vault em regiões América do Norte (visualização)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
  - [A Proteção contra Ameaças para o Armazenamento do Microsoft Azure inclui Triagem de Reputação de Malware](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
  - [Automação de fluxo de trabalho com Aplicativos Lógicos (versão preliminar)](#workflow-automation-with-logic-apps-preview)
@@ -391,9 +391,9 @@ O Kubernetes está se tornando rapidamente o novo padrão para implantar e geren
 
 Os novos recursos dessa versão preliminar pública incluem:
 
-- **Descoberta e visibilidade** : descoberta contínua de instâncias do AKS gerenciadas nas assinaturas registradas da Central de Segurança.
-- **Recomendações de Classificação de Segurança** : itens acionáveis para ajudar os clientes a cumprir as melhores práticas de segurança no AKS como parte da Classificação de Segurança do cliente, por exemplo, "o controle de acesso baseado em função deve ser usado para restringir o acesso a um cluster do serviço do Kubernetes".
-- **Detecção de ameaças** : análise baseada em cluster e host, como "um contêiner privilegiado detectado".
+- **Descoberta e visibilidade**: descoberta contínua de instâncias do AKS gerenciadas nas assinaturas registradas da Central de Segurança.
+- **Recomendações de Pontuação segura** -itens acionáveis para ajudar os clientes a cumprir as práticas recomendadas de segurança para AKs e aumentar sua pontuação segura. As recomendações incluem itens como "o controle de acesso baseado em função deve ser usado para restringir o acesso a um cluster do serviço kubernetes".
+- **Detecção de ameaças**: análise baseada em cluster e host, como "um contêiner privilegiado detectado".
 
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Avaliação de vulnerabilidades de máquinas virtuais (versão preliminar)

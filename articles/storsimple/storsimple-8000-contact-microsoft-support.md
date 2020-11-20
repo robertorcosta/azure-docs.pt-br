@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960313"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968750"
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
 
@@ -21,7 +21,7 @@ O Gerenciador de Dispositivos StorSimple fornece a capacidade de **fazer uma nov
 * Como gerenciar o ciclo de vida de uma solicitação de suporte de dentro do portal.
 * Como iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
 
-Examine os [SLAs e informações de suporte ao StorSimple 8000 Series](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
+Examine os [SLAs e informações de suporte ao StorSimple 8000 Series](./storsimple-8000-support-options.md) antes de criar uma solicitação de suporte.
 
 ## <a name="create-a-support-request"></a>Criar uma solicitação de suporte
 

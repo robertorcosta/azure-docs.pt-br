@@ -3,6 +3,7 @@ title: Configurar uma ADCD (distribuição controlada por desenvolvedores de apl
 description: Execute um ambiente de desenvolvimento e teste do IBM Z (zD&T) em VMs (máquinas virtuais) do Azure.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcd354b906b4d6c92d8b3186fc8e09c94a31ca55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87052409"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968393"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD&T v1
 
@@ -52,17 +53,17 @@ O acesso à mídia ADCD é necessário. As etapas a seguir pressupõem que você
 
 2. Selecione **downloads de software** e **acesso à mídia**.
 
-3. Selecione **oferta do programa e número do contrato**e clique em **continuar**.
+3. Selecione **oferta do programa e número do contrato** e clique em **continuar**.
 
 4. Insira a descrição da parte ou o número da peça e clique em **Finder**.
 
 5. Opcionalmente, clique na lista ordem alfabética para exibir e exibir o produto por nome.
 
-6. Selecione **todos os sistemas operacionais** no **campo sistema operacional**e **todos os idiomas** no **campo idiomas**. Em seguida, clique em **ir**.
+6. Selecione **todos os sistemas operacionais** no **campo sistema operacional** e **todos os idiomas** no **campo idiomas**. Em seguida, clique em **ir**.
 
 7. Clique em **selecionar arquivos individuais** para expandir a lista e exibir a mídia individual a ser baixada.
 
-8. Verifique os pacotes que você deseja baixar, selecione **baixar**e, em seguida, baixe os arquivos para o diretório desejado.
+8. Verifique os pacotes que você deseja baixar, selecione **baixar** e, em seguida, baixe os arquivos para o diretório desejado.
 
 ## <a name="upload-the-adcd-packages"></a>Carregar os pacotes ADCD
 

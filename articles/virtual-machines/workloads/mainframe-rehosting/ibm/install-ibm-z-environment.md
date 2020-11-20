@@ -3,6 +3,7 @@ title: Instalar o ambiente de desenvolvimento/teste do IBM zD&T no Azure | Micro
 description: Implante o ambiente de teste e desenvolvimento IBM Z (zD&T) na infraestrutura como serviço (IaaS) da VM (máquina virtual) do Azure.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499912"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968325"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalar o ambiente de desenvolvimento/teste do IBM zD&T no Azure
 
@@ -62,7 +63,7 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 3. Obtenha as credenciais SSH mostradas na folha **visão geral** da VM por meio do botão **conectar** . Selecione a guia **SSH** e copie o comando logon SSH para a área de transferência.
 
-4. Faça logon em um [shell bash](../../../../cloud-shell/quickstart.md) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\> **. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
+4. Faça logon em um [shell bash](../../../../cloud-shell/quickstart.md) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\>**. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiar o arquivo de instalação para o servidor
 

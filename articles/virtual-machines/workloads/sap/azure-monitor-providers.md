@@ -3,22 +3,23 @@ title: Azure Monitor para provedores de soluções SAP | Microsoft Docs
 description: Este artigo fornece respostas para perguntas frequentes sobre o Azure monitor para provedores de soluções SAP.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968597"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Azure monitor para provedores de soluções SAP (versão prévia)
 
 ## <a name="overview"></a>Visão geral  
 
-No contexto de Azure Monitor para soluções SAP, um *tipo de provedor* se refere a um *provedor* específico. Por exemplo *SAP Hana* , que é configurado para um componente específico dentro do cenário do SAP, como SAP Hana banco de dados. Um provedor contém as informações de conexão para o componente correspondente e ajuda a coletar dados de telemetria desse componente. Um Azure Monitor para o recurso de soluções SAP (também conhecido como recurso do SAP monitor) pode ser configurado com vários provedores do mesmo tipo de provedor ou vários provedores de vários tipos de provedor.
+No contexto de Azure Monitor para soluções SAP, um *tipo de provedor* se refere a um *provedor* específico. Por exemplo *SAP Hana*, que é configurado para um componente específico dentro do cenário do SAP, como SAP Hana banco de dados. Um provedor contém as informações de conexão para o componente correspondente e ajuda a coletar dados de telemetria desse componente. Um Azure Monitor para o recurso de soluções SAP (também conhecido como recurso do SAP monitor) pode ser configurado com vários provedores do mesmo tipo de provedor ou vários provedores de vários tipos de provedor.
    
 Os clientes podem optar por configurar diferentes tipos de provedor para habilitar a coleta de dados do componente correspondente em sua estrutura SAP. Por exemplo, os clientes podem configurar um provedor para SAP HANA tipo de provedor, outro provedor para o tipo de provedor de cluster de alta disponibilidade e assim por diante.  
 

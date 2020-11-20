@@ -1,17 +1,17 @@
 ---
 title: Como habilitar o recurso de solução do Azure VMware
-description: Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
+description: Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais hosts em sua nuvem privada da solução Azure VMware existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888429"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967356"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como habilitar o recurso da solução Azure VMware
-Saiba como enviar uma solicitação de suporte para habilitar o recurso de [solução do Azure VMware](introduction.md) . Você também pode solicitar mais nós em sua nuvem privada da solução Azure VMware existente.
+Saiba como enviar uma solicitação de suporte para habilitar o recurso de [solução do Azure VMware](introduction.md) . Você também pode solicitar mais hosts em sua nuvem privada da solução Azure VMware existente.
 
 ## <a name="eligibility-criteria"></a>Critérios de qualificação
 
@@ -22,7 +22,7 @@ Você precisará de uma conta do Azure em uma assinatura do Azure. A assinatura 
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Habilitar solução Azure VMware para clientes EA
-Antes de criar o recurso da Solução VMware no Azure, você precisará enviar um tíquete de suporte para que os nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
+Antes de criar o recurso de solução do Azure VMware, você precisará enviar um tíquete de suporte para que seus hosts sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os hosts. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais hosts alocados, deverá passar pelo mesmo processo.
 
 
 1. Em seu portal do Azure, em **ajuda + suporte**, crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:
@@ -38,20 +38,20 @@ Antes de criar o recurso da Solução VMware no Azure, você precisará enviar u
 
    - POC ou produção 
    - Nome da Região
-   - Número de nós
+   - Número de hosts
    - Quaisquer outros detalhes
 
    >[!NOTE]
-   >A solução Azure VMware recomenda um mínimo de três nós para criar sua nuvem privada e para redundância de N + 1 nós. 
+   >A solução Azure VMware recomenda um mínimo de três hosts para criar sua nuvem privada e para redundância N + 1 hosts. 
 
 1. Selecione **revisão + criar** para enviar a solicitação.
 
    Levará até cinco dias úteis para que um representante de suporte confirme sua solicitação.
 
    >[!IMPORTANT] 
-   >Se você já tiver uma solução existente do Azure VMware e estiver solicitando nós adicionais, observe que precisamos de cinco dias úteis para alocar os nós. 
+   >Se você já tiver uma solução existente do Azure VMware e estiver solicitando hosts adicionais, observe que precisamos de cinco dias úteis para alocar os hosts. 
 
-1. Antes de provisionar seus nós, certifique-se de registrar o provedor de recursos **Microsoft. AVS** no portal do Azure.  
+1. Antes de poder provisionar seus hosts, certifique-se de registrar o provedor de recursos **Microsoft. AVS** no portal do Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -99,21 +99,21 @@ Depois de configurar o plano do Azure e as permissões de RBAC vSphere necessár
 
    - POC ou produção 
    - Nome da Região
-   - Número de nós
+   - Número de hosts
    - Quaisquer outros detalhes
    - O destina-se a hospedar vários clientes?
 
    >[!NOTE]
-   >A solução Azure VMware recomenda um mínimo de três nós para criar sua nuvem privada e para redundância de N + 1 nós. 
+   >A solução Azure VMware recomenda um mínimo de três hosts para criar sua nuvem privada e para redundância N + 1 hosts. 
 
 1. Selecione **revisão + criar** para enviar a solicitação.
 
    Levará até cinco dias úteis para que um representante de suporte confirme sua solicitação.
 
    >[!IMPORTANT] 
-   >Se você já tiver uma solução existente do Azure VMware e estiver solicitando nós adicionais, observe que precisamos de cinco dias úteis para alocar os nós. 
+   >Se você já tiver uma solução existente do Azure VMware e estiver solicitando hosts adicionais, observe que precisamos de cinco dias úteis para alocar os hosts. 
 
-1. Depois de adicionado ao plano do Azure e com a cota habilitada, o cliente ou o administrador do parceiro pode implantar uma nuvem privada da solução Azure VMware por meio do portal do Azure. Antes de provisionar seus nós, certifique-se de registrar o provedor de recursos **Microsoft. AVS** no portal do Azure.  
+1. Depois de adicionado ao plano do Azure e com a cota habilitada, o cliente ou o administrador do parceiro pode implantar uma nuvem privada da solução Azure VMware por meio do portal do Azure. Antes de poder provisionar seus hosts, certifique-se de registrar o provedor de recursos **Microsoft. AVS** no portal do Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

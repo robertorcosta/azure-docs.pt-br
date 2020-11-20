@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371062"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967135"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorar a identidade e acesso
 
@@ -30,7 +30,7 @@ Ao monitorar as atividades e as definições de configuração relacionadas à i
 
 A central de segurança do Azure tem dois controles de segurança dedicados para garantir que você esteja atendendo aos requisitos de segurança e identidade da sua organização: 
 
- - **Gerenciar acesso e permissões** – incentivamos você a adotar o [modelo de acesso de privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que os usuários só acessem o acesso necessário para que eles realizem seus trabalhos. Esse controle também inclui recomendações para implementar o [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
+ - **Gerenciar acesso e permissões** – incentivamos você a adotar o [modelo de acesso de privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que os usuários só acessem o acesso necessário para que eles realizem seus trabalhos. Esse controle também inclui recomendações para implementar o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
  
  - **Habilitar MFA** -com a [MFA](https://www.microsoft.com/security/business/identity/mfa) habilitada, suas contas são mais seguras e os usuários ainda podem se autenticar em quase todos os aplicativos com logon único.
 

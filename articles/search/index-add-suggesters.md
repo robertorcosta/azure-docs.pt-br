@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917266"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968002"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
@@ -40,9 +40,11 @@ Um Sugestor é uma estrutura de dados interna que dá suporte a comportamentos d
 
 Para criar um Sugestor, adicione um a uma [definição de índice](/rest/api/searchservice/create-index). Um Sugestor Obtém um nome e uma coleção de campos sobre os quais a experiência do typeahead está habilitada. e [Defina cada propriedade](#property-reference). O melhor momento para criar um Sugestor é quando você também está definindo o campo que o usará.
 
-+ Usar somente campos de cadeia de caracteres
++ Use somente campos de cadeia de caracteres.
 
-+ Use o analisador Lucene padrão padrão ( `"analyzer": null` ) ou um [analisador de linguagem](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo
++ Se o campo de cadeia de caracteres fizer parte de um tipo complexo (por exemplo, um campo cidade dentro do endereço), inclua o pai no campo: `"Address/City"` (REST e C# e Python) ou `["Address"]["City"]` (JavaScript).
+
++ Use o analisador Lucene padrão padrão ( `"analyzer": null` ) ou um [analisador de linguagem](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo.
 
 Se você tentar criar um Sugestor usando campos preexistentes, a API não permitirá isso. Os prefixos são gerados durante a indexação, quando termos parciais em duas ou mais combinações de caracteres são indexados ao longo de termos inteiros. Considerando que os campos existentes já foram indexados, você precisará recompilar o índice se quiser adicioná-los a um Sugestor. Para obter mais informações, consulte [como recriar um índice de pesquisa cognitiva do Azure](search-howto-reindex.md).
 

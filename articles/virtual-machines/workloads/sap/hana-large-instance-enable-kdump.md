@@ -7,18 +7,19 @@ author: prtyag
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b6afcfe7684102b451860d9916d849842489cace
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379257"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967696"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA em Instâncias Grandes do Azure (HLI)
 
@@ -28,7 +29,7 @@ Nesses casos, ele pode ser um problema de sistema operacional ou aplicativo e o 
 
 ## <a name="enable-kdump-service"></a>Habilitar serviço kdump
 
-Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azure HANA em instâncias grandes ( **tipo I e tipo II** )
+Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azure HANA em instâncias grandes (**tipo I e tipo II**)
 
 ## <a name="supported-skus"></a>SKUs com suporte
 

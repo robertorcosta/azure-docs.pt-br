@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b99e744fb949f707467286c3d79de0f4e76a49c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf9fd361dea43b1cfa6ae45710a3a7bbf4e4de03
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835503"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967662"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitetura de rede do SAP HANA (Instâncias Grandes)
 
@@ -135,7 +136,7 @@ Por padrão, a implantação de três considerações de roteamento de rede é i
 
 * Se você tiver unidades de instância grande do HANA implantadas em duas regiões diferentes do Azure para recuperação de desastre, as mesmas restrições de roteamento transitórias são aplicadas no passado. Em outras palavras, os endereços IP de uma unidade de instância grande do HANA em uma região (por exemplo, oeste dos EUA) não eram roteados para uma unidade de instância grande do HANA implantada em outra região (por exemplo, leste dos EUA). Essa restrição era independente do uso do emparelhamento de rede do Azure entre regiões ou da conexão cruzada dos circuitos do ExpressRoute que conectam unidades de instância grande do HANA a redes virtuais. Para uma representação gráfica, consulte a figura na seção "Usar unidades do SAP HANA em Instâncias Grandes em várias regiões". Essa restrição, que vem com a arquitetura implantada, proibiu o uso imediato da replicação de sistema do HANA como uma funcionalidade de recuperação de desastre. Para alterações recentes, procure a seção ' usar unidades de instância grande do HANA em várias regiões '. 
 
-* SAP HANA em unidades do Azure (instâncias grandes) têm um endereço IP atribuído do intervalo de endereços do pool de IPS do servidor que você enviou ao solicitar a implantação da instância grande do HANA. Para obter mais informações, consulte [infraestrutura e conectividade do SAP Hana (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esse endereço IP pode ser acessado por meio das assinaturas e do circuito do Azure que conecta redes virtuais do Azure a instâncias grandes do HANA. O endereço IP atribuído fora desse intervalo de endereços do pool de IP do servidor é atribuído diretamente à unidade de hardware. Ele*não* é atribuído pelo NAT, como foi o caso nas primeiras implantações dessa solução. 
+* SAP HANA em unidades do Azure (instâncias grandes) têm um endereço IP atribuído do intervalo de endereços do pool de IPS do servidor que você enviou ao solicitar a implantação da instância grande do HANA. Para obter mais informações, consulte [infraestrutura e conectividade do SAP Hana (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esse endereço IP pode ser acessado por meio das assinaturas e do circuito do Azure que conecta redes virtuais do Azure a instâncias grandes do HANA. O endereço IP atribuído fora desse intervalo de endereços do pool de IP do servidor é atribuído diretamente à unidade de hardware. Ele *não* é atribuído pelo NAT, como foi o caso nas primeiras implantações dessa solução. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>Roteamento direto para instâncias grandes do HANA
 
