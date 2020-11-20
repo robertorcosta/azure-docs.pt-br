@@ -3,16 +3,17 @@ title: Visão geral das imagens de Red Hat Enterprise Linux no Azure
 description: Saiba mais sobre as imagens de Red Hat Enterprise Linux no Microsoft Azure.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 46504f7d6d3a989119a3c851fc029bdf4494e01f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994305"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957530"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral de imagens de Red Hat Enterprise Linux
 

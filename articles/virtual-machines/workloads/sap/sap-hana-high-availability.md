@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9efdbb32683c9a244226012bd2d4bfcab6046678
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2783d9dc7151190857d870b5493465884b82ffcc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151171"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957258"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 
@@ -110,9 +111,9 @@ Para implantar o modelo, siga estas etapas:
     - **Tipo de banco de dados**: Selecionar **HANA**.
     - **Tamanho do Sistema SAP**: Insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     - **Disponibilidade do Sistema**: Selecione **HA**.
-    - **Nome de usuário e senha de**administrador: um novo usuário é criado e pode ser usado para entrar no computador.
+    - **Nome de usuário e senha de** administrador: um novo usuário é criado e pode ser usado para entrar no computador.
     - **Sub-rede nova ou existente**: determina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-    - **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name> **.
+    - **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente é semelhante a **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /Providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**.
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -163,7 +164,7 @@ Para implantar o modelo, siga estas etapas:
    
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
    
    1. Em seguida, crie as regras de balanceamento de carga:
@@ -198,41 +199,41 @@ Para implantar o modelo, siga estas etapas:
    
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
    
    1. Para o SAP HANA 1.0, crie as regras de balanceamento de carga:
    
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**15).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 15).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**15.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 15.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para a porta 3**03**17.
+      1. Repita essas etapas para a porta 3 **03** 17.
    
    1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
    
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3 **03** 13).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 13.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para a porta 3**03**14.
+      1. Repita essas etapas para a porta 3 **03** 14.
    
    1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
    
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3 **03** 40).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
-      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3 **03** 40.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
-      1. Repita essas etapas para portas 3**03**41 e 3**03**42.
+      1. Repita essas etapas para portas 3 **03** 41 e 3 **03** 42.
 
    Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Conexões aos bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [Bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [Nota SAP 2388694][2388694].
 

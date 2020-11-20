@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915383"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957105"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps
 
@@ -27,6 +27,12 @@ Neste artigo, você aprenderá a:
 * Solicite previsões diárias usando a [API obter previsão diária](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
 * Solicitar previsões por hora usando a [API obter previsão por hora](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
 * Solicite previsões de minuto por minuto usando a [API de previsão de obter minuto](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+
+Este vídeo fornece uma visão geral dos serviços meteorológicos no Azure Maps com exemplos de chamada REST.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Serviços meteorológicos do Azure Maps para desenvolvedores – vídeo do Microsoft Channel 9"></iframe>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,9 +50,9 @@ A [API obter condições atuais](https://docs.microsoft.com/rest/api/maps/weathe
 
 Neste exemplo, você usará a [API obter condições atuais](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) para recuperar as condições do clima atual em coordenadas localizadas em Seattle, WA.
 
-1. Abra o aplicativo Postman. Próximo à parte superior do aplicativo Postman, selecione **Novo** . Na janela **Criar** , selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar** . Você usará essa coleção para o restante dos exemplos neste documento.
+1. Abra o aplicativo Postman. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar**. Você usará essa coleção para o restante dos exemplos neste documento.
 
-2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar** , selecione **Solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar** .
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar**.
 
 3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -236,7 +242,7 @@ Neste exemplo, você usará a [API obter alertas meteorológicos severas](https:
 >[!NOTE]
 >Este exemplo recupera alertas de clima severos no momento da redação deste artigo. É provável que não haja mais nenhum alerta de clima severo no local solicitado. Para recuperar dados de alerta graves reais ao executar este exemplo, você precisará recuperar dados em um local de coordenadas diferente.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -288,7 +294,7 @@ A [API obter previsão diária](https://docs.microsoft.com/rest/api/maps/weather
 
 Neste exemplo, você usará a [API obter previsão diária](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) para recuperar a previsão do tempo de cinco dias para as coordenadas localizadas em Seattle, WA.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -536,7 +542,7 @@ A [API obter previsão por hora](https://docs.microsoft.com/rest/api/maps/weathe
 
 Neste exemplo, você usará a [API obter previsão por hora](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) para recuperar a previsão do tempo por hora das próximas 12 horas nas coordenadas localizadas em Seattle, WA.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
@@ -643,7 +649,7 @@ Neste exemplo, você usará a [API obter previsão por hora](https://docs.micros
 
 Neste exemplo, você usará a [API obter previsão de minutos](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) para recuperar a previsão do tempo por minuto nas coordenadas localizadas em Seattle, WA. A previsão do tempo é dada para os próximos 120 minutos. Nossa consulta solicita que a previsão seja fornecida em intervalos de 15 minutos, mas você pode ajustar o parâmetro para ser 1 ou 5 minutos.
 
-1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
+1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar**.
 
 2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 

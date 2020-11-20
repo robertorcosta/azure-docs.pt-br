@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532317"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959876"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do Serviço de Provisionamento de Dispositivos do Azure
 Um *registro de dispositivo* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para seu serviço de provisionamento programaticamente usando os SDKs de Serviço de Provisionamento do Azure IoT.  Os SDKs do estão disponíveis no GitHub no mesmo repositório dos SDKs do Azure IoT.
@@ -21,12 +21,12 @@ Um *registro de dispositivo* cria um registro de um único dispositivo ou um gru
 ## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha a cadeia de conexão da instância do Serviço de Provisionamento de Dispositivos.
 * Obter os artefatos de segurança do dispositivo para o [mecanismo de atestado](concepts-service.md#attestation-mechanism) usado:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)**](./concepts-tpm-attestation.md):
         * Registro individual: ID do Registro e Chave de Endosso de TPM de um dispositivo físico ou do Simulador de TPM.
         * O grupo de registros não é aplicável ao atestado de TPM.
-    * [**X. 509**](/azure/iot-dps/concepts-security):
-        * Registro individual: o [Certificado de folha](/azure/iot-dps/concepts-security) do dispositivo físico ou do Emulador SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
-        * Grupo de registros: o [certificado raiz/CA](/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](/azure/iot-dps/concepts-security#intermediate-certificate), usado para gerar o certificado do dispositivo em um dispositivo físico.  Ele também pode ser gerado no emulador SDK DICE.
+    * [**X. 509**](./concepts-service.md#attestation-mechanism):
+        * Registro individual: o [Certificado de folha](./concepts-service.md#attestation-mechanism) do dispositivo físico ou do Emulador SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
+        * Grupo de registros: o [certificado raiz/CA](./concepts-x509-attestation.md#root-certificate) ou o [certificado intermediário](./concepts-x509-attestation.md#intermediate-certificate), usado para gerar o certificado do dispositivo em um dispositivo físico.  Ele também pode ser gerado no emulador SDK DICE.
 * Chamadas à API exatas podem ser diferentes devido a diferenças de linguagem. Examine os exemplos fornecidos no GitHub para obter detalhes:
    * [Exemplos de cliente de serviço de provisionamento do Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Exemplos de cliente de serviço de provisionamento do Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -35,7 +35,7 @@ Um *registro de dispositivo* cria um registro de um único dispositivo ou um gru
 ## <a name="create-a-device-enrollment"></a>Criar um registro do dispositivo
 Há duas maneiras em que você pode registrar seus dispositivos com o serviço de provisionamento:
 
-* Um **Grupo de registros** é uma entrada para um grupo de dispositivos que compartilham um mecanismo de atestado comum de certificados X.509, assinados pelo [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou pelo [certificado intermediário](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). É recomendável usar um grupo de registro para um grande número de dispositivos que compartilhem uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. Observe que você só pode registrar dispositivos que usam o mecanismo de atestado X.509 como *grupos de registro*. 
+* Um **Grupo de registros** é uma entrada para um grupo de dispositivos que compartilham um mecanismo de atestado comum de certificados X.509, assinados pelo [certificado raiz](./concepts-x509-attestation.md#root-certificate) ou pelo [certificado intermediário](./concepts-x509-attestation.md#intermediate-certificate). É recomendável usar um grupo de registro para um grande número de dispositivos que compartilhem uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. Observe que você só pode registrar dispositivos que usam o mecanismo de atestado X.509 como *grupos de registro*. 
 
     Você pode criar um grupo de registro com os SDKs seguindo este fluxo de trabalho:
 

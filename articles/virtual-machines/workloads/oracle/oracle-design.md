@@ -3,16 +3,17 @@ title: Projetar e implementar um banco de dados Oracle no Azure | Microsoft Docs
 description: Projete e implemente um banco de dados Oracle no seu ambiente do Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534066"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959162"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
@@ -45,7 +46,7 @@ A tabela a seguir lista algumas das diferenças entre uma implementação local 
 | **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (aplicação de patch/upgrades gerenciados pelo Azure) |
 | **Recurso** |Dedicado  |Compartilhado com outros clientes|
 | **Regiões** |Datacenters |[Pares de regiões](../../regions.md#region-pairs)|
-| **Armazenamento** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Storage** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 | **Dimensionar** |Escala vertical |Escala horizontal|
 
 
@@ -143,13 +144,13 @@ Com base nos requisitos de largura de banda de sua rede, há vários tipos de ga
 
 ### <a name="disk-types-and-configurations"></a>Tipos e configurações de disco
 
-- *Discos padrão do SO* : esses tipos de disco oferecem dados persistentes e cache. Eles são otimizados para acesso de SO na inicialização, e não foram projetados para cargas de trabalho transacionais ou de data warehouse (analíticas).
+- *Discos padrão do SO*: esses tipos de disco oferecem dados persistentes e cache. Eles são otimizados para acesso de SO na inicialização, e não foram projetados para cargas de trabalho transacionais ou de data warehouse (analíticas).
 
-- *Discos não gerenciados* : com esses tipos de disco, você gerencia as contas de armazenamento que armazenam os arquivos de VHD (disco rígido virtual) que correspondem aos seus discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento do Azure.
+- *Discos não gerenciados*: com esses tipos de disco, você gerencia as contas de armazenamento que armazenam os arquivos de VHD (disco rígido virtual) que correspondem aos seus discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento do Azure.
 
-- *Discos gerenciados* : o Azure gerencia contas de armazenamento que podem ser usadas para seus discos de VM. Especifique o tipo de disco (premium ou standard) e o tamanho do disco de que você precisa. O Azure cria e gerencia o disco para você.
+- *Discos gerenciados*: o Azure gerencia contas de armazenamento que podem ser usadas para seus discos de VM. Especifique o tipo de disco (premium ou standard) e o tamanho do disco de que você precisa. O Azure cria e gerencia o disco para você.
 
-- *Discos de armazenamento premium* : esses tipos de disco são ideais para cargas de trabalho de produção. O armazenamento premium dá suporte a discos de VM que podem ser anexados a VMs com série e tamanho específicos, por exemplo, das séries DS, DSv2, GS e F. O disco premium vem com tamanhos diferentes, e você pode optar entre discos de 32 GB a 4.096 GB. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM.
+- *Discos de armazenamento premium*: esses tipos de disco são ideais para cargas de trabalho de produção. O armazenamento premium dá suporte a discos de VM que podem ser anexados a VMs com série e tamanho específicos, por exemplo, das séries DS, DSv2, GS e F. O disco premium vem com tamanhos diferentes, e você pode optar entre discos de 32 GB a 4.096 GB. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM.
 
 Ao criar um novo disco gerenciado no portal, você pode escolher o **Tipo de conta** para o tipo de disco que você deseja usar. Lembre-se de que nem todos os discos disponíveis aparecem no menu suspenso. Depois de escolher um tamanho de VM específico, o menu mostrará apenas os SKUs de armazenamento premium disponíveis com base no tamanho da VM.
 
@@ -186,21 +187,21 @@ Quando você tiver uma visão clara dos requisitos de E/S, poderá escolher a co
 
 Há três opções para o cache de host:
 
-- *ReadOnly* : todas as solicitações são armazenadas em cache para leituras futuras. Todas as gravações são persistidas diretamente no armazenamento de Blobs do Azure.
+- *ReadOnly*: todas as solicitações são armazenadas em cache para leituras futuras. Todas as gravações são persistidas diretamente no armazenamento de Blobs do Azure.
 
-- *ReadWrite* : é um algoritmo "Read-Ahead". As leituras e gravações são armazenadas em cache para futuras leituras. Gravações não write-through são persistidas no cache local primeiro. Ele também fornece a menor latência de disco para cargas de trabalho leves. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
+- *ReadWrite*: é um algoritmo "Read-Ahead". As leituras e gravações são armazenadas em cache para futuras leituras. Gravações não write-through são persistidas no cache local primeiro. Ele também fornece a menor latência de disco para cargas de trabalho leves. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
 
 - *Nenhum* (desabilitado): com essa opção, você pode ignorar o cache. Todos os dados são transferidos para o disco e persistidos para o Armazenamento do Azure. Esse método fornece a mais alta taxa de E/S para cargas de trabalho intensivas de E/S. Você também precisa levar o "custo de transação" em consideração.
 
 **Recomendações**
 
-Para maximizar a taxa de transferência, recomendamos que você inicie com **nenhum** para o cache de host. Para o Armazenamento Premium, lembre-se de que você deve desabilitar as "barreiras" ao montar o sistema de arquivos com as opções **ReadOnly** ou **Nenhum** . Atualize o arquivo /etc/fstab com o UUID para os discos.
+Para maximizar a taxa de transferência, recomendamos que você inicie com **nenhum** para o cache de host. Para o Armazenamento Premium, lembre-se de que você deve desabilitar as "barreiras" ao montar o sistema de arquivos com as opções **ReadOnly** ou **Nenhum**. Atualize o arquivo /etc/fstab com o UUID para os discos.
 
 ![Captura de tela da página de disco gerenciado que mostra as opções ReadOnly e None.](./media/oracle-design/premium_disk02.png)
 
 - Para discos do sistema operacional, use o cache de **Leitura/Gravação** padrão.
 - Para SYSTEM, TEMP e UNDO, use **Nenhum** para o cache.
-- Para DATA, use **Nenhum** para armazenar em cache. Porém, se o banco de dados for somente leitura ou leitura intensiva, use o cache de **Somente leitura** .
+- Para DATA, use **Nenhum** para armazenar em cache. Porém, se o banco de dados for somente leitura ou leitura intensiva, use o cache de **Somente leitura**.
 
 Após a gravação da configuração de disco de dados, não será possível alterar a configuração de cache de host, a menos que você desmonte a unidade no nível do SO e remonte-a após a alteração.
 
@@ -208,9 +209,9 @@ Após a gravação da configuração de disco de dados, não será possível alt
 
 Depois de instalar e configurar seu ambiente do Azure, a próxima etapa será proteger sua rede. Veja algumas recomendações:
 
-- *Política de NSG* : o NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso no nível de sub-rede, tanto para segurança quanto para roteamento de força para coisas como firewalls de aplicativo.
+- *Política de NSG*: o NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso no nível de sub-rede, tanto para segurança quanto para roteamento de força para coisas como firewalls de aplicativo.
 
-- *Jumpbox* : para um acesso mais seguro, os administradores não devem conectar diretamente ao serviço de aplicativo ou ao banco de dados. Um jumpbox é usado como um intermediário entre o computador do administrador e os recursos do Azure.
+- *Jumpbox*: para um acesso mais seguro, os administradores não devem conectar diretamente ao serviço de aplicativo ou ao banco de dados. Um jumpbox é usado como um intermediário entre o computador do administrador e os recursos do Azure.
 ![Captura de tela da página de topologia do Jumpbox](./media/oracle-design/jumpbox.png)
 
     O computador do administrador deve oferecer somente acesso restrito por IP ao jumpbox. O jumpbox deve ter acesso ao aplicativo e ao banco de dados.

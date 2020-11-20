@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320466"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959128"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
 
 ## <a name="levels-of-permission"></a>Níveis de permissão
 
-As permissões em um objeto de contêiner são de **leitura**, **gravação**e **execução**, e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
+As permissões em um objeto de contêiner são de **leitura**, **gravação** e **execução**, e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
 
 |            |    Arquivo     |   Diretório |
 |------------|-------------|----------|
@@ -73,7 +73,7 @@ As permissões em um objeto de contêiner são de **leitura**, **gravação**e *
 
 ### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
 
-**RWX**é usado para indicar **Ler + Gravar + Executar**. Existe um formato numérico mais condensado na qual **Ler = 4**, **Gravar = 2** e **Executar = 1** e sua soma representa as permissões. Estes são alguns exemplos:
+**RWX** é usado para indicar **Ler + Gravar + Executar**. Existe um formato numérico mais condensado na qual **Ler = 4**, **Gravar = 2** e **Executar = 1** e sua soma representa as permissões. Estes são alguns exemplos:
 
 | Formato numérico | Formato curto |      O que significa     |
 |--------------|------------|------------------------|
@@ -90,9 +90,9 @@ No modelo de estilo POSIX usado pelo Data Lake Storage Gen2, as permissões para
 
 A tabela a seguir mostra as entradas de ACL necessárias para habilitar uma entidade de segurança para executar as operações listadas na coluna **operação** . 
 
-Esta tabela mostra uma coluna que representa cada nível de uma hierarquia de diretório fictícia. Há uma coluna para o diretório raiz do contêiner ( `\` ), um subdiretório chamado **Oregon**, um subdiretório do diretório Oregon chamado **Portland**e um arquivo de texto no diretório de Portland chamado **Data.txt**. 
+Esta tabela mostra uma coluna que representa cada nível de uma hierarquia de diretório fictícia. Há uma coluna para o diretório raiz do contêiner ( `\` ), um subdiretório chamado **Oregon**, um subdiretório do diretório Oregon chamado **Portland** e um arquivo de texto no diretório de Portland chamado **Data.txt**. 
 
-> [! IMPORANT] Esta tabela pressupõe que você está usando **somente** ACLs sem nenhuma atribuição de função de RBAC do Azure. Para ver uma tabela semelhante que combina o RBAC do Azure junto com ACLs, consulte [tabela de permissões: combinando o RBAC e a ACL do Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [! IMPORANT] Esta tabela pressupõe que você está usando **somente** ACLs sem nenhuma atribuição de função do Azure. Para ver uma tabela semelhante que combina o RBAC do Azure junto com ACLs, consulte [tabela de permissões: combinando o RBAC e a ACL do Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operação             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -270,7 +270,7 @@ Se o HNS for desativado, as regras de autorização do RBAC do Azure ainda serã
 
 Para saber como o sistema avalia o RBAC e as ACLs do Azure juntos para tomar decisões de autorização para recursos de conta de armazenamento, consulte [como as permissões são avaliadas](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Quais são os limites para as atribuições de função do RBAC do Azure e entradas de ACL?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quais são os limites para as atribuições de função do Azure e as entradas de ACL?
 
 A tabela a seguir fornece uma exibição resumida dos limites a serem considerados ao usar o RBAC do Azure para gerenciar permissões "de alta granularidade" (permissões que se aplicam a contêineres ou contas de armazenamento) e usando ACLs para gerenciar permissões "refinadas" (permissões que se aplicam a arquivos e diretórios). Use grupos de segurança para atribuições de ACL. Usando grupos, você tem menor probabilidade de exceder o número máximo de atribuições de função por assinatura e o número máximo de entradas de ACl por arquivo ou diretório. 
 
@@ -343,6 +343,6 @@ A API REST do armazenamento do Azure contém uma operação denominada [set cont
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Modelo de controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

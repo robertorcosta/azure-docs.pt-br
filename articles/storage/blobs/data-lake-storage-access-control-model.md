@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578641"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959196"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controle de acesso no Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ As funções a seguir permitem que uma entidade de segurança acesse dados em um
 | [Colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Ler, gravar e excluir o acesso a BLOBs e contêineres de armazenamento de BLOBs. Esse acesso não permite que a entidade de segurança defina a propriedade de um item, mas pode modificar a ACL de itens que pertencem à entidade de segurança. |
 | [Leitor de Dados do Blob de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Ler e listar contêineres e blobs de armazenamento de BLOBs. |
 
-Funções como [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)e colaborador de [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permitem que uma entidade de segurança gerencie uma conta de armazenamento, mas não forneça acesso aos dados dentro dessa conta. No entanto, essas funções (exceto o **leitor** ) podem obter acesso às chaves de armazenamento, que podem ser usadas em várias ferramentas de cliente para acessar os dados.
+Funções como [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)e colaborador de [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permitem que uma entidade de segurança gerencie uma conta de armazenamento, mas não forneça acesso aos dados dentro dessa conta. No entanto, essas funções (exceto o **leitor**) podem obter acesso às chaves de armazenamento, que podem ser usadas em várias ferramentas de cliente para acessar os dados.
 
 ## <a name="access-control-lists-acls"></a>ACLs (listas de controle de acesso)
 
@@ -53,16 +53,16 @@ As ACLs oferecem a capacidade de aplicar o nível de acesso "mais detalhado" a d
 
 Durante a autorização baseada em entidade de segurança, as permissões são avaliadas na seguinte ordem.
 
-: uma: &nbsp; &nbsp; as atribuições de função do RBAC do Azure são avaliadas primeiro e têm prioridade sobre quaisquer atribuições de ACL.
+: uma: &nbsp; &nbsp; as atribuições de função do Azure são avaliadas primeiro e têm prioridade sobre quaisquer atribuições de ACL.
 
-: dois: &nbsp; &nbsp; se a operação for totalmente autorizada com base na atribuição de função do RBAC do Azure, as ACLs não serão avaliadas.
+: dois: &nbsp; &nbsp; se a operação for totalmente autorizada com base na atribuição de função do Azure, as ACLs não serão avaliadas.
 
 : três: &nbsp; &nbsp; se a operação não for totalmente autorizada, as ACLs serão avaliadas.
 
 > [!div class="mx-imgBorder"]
 > ![fluxo de permissão de armazenamento do data Lake](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Devido à maneira como as permissões de acesso são avaliadas pelo sistema, você **não pode** usar uma ACL para **restringir** o acesso que já foi concedido por uma atribuição de função. Isso ocorre porque o sistema avalia primeiro as atribuições de função do RBAC do Azure e, se a atribuição conceder permissão de acesso suficiente, as ACLs serão ignoradas. 
+Devido à maneira como as permissões de acesso são avaliadas pelo sistema, você **não pode** usar uma ACL para **restringir** o acesso que já foi concedido por uma atribuição de função. Isso ocorre porque o sistema avalia primeiro as atribuições de função do Azure e, se a atribuição conceder permissão de acesso suficiente, as ACLs serão ignoradas. 
 
 O diagrama a seguir mostra o fluxo de permissão para três operações comuns: listar o conteúdo do diretório, ler um arquivo e gravar um arquivo.
 
@@ -71,7 +71,7 @@ O diagrama a seguir mostra o fluxo de permissão para três operações comuns: 
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabela de permissões: combinando o RBAC do Azure e a ACL
 
-A tabela a seguir mostra como combinar as funções do RBAC do Azure e as entradas de ACL para que uma entidade de segurança possa executar as operações listadas na coluna **operação** . Esta tabela mostra uma coluna que representa cada nível de uma hierarquia de diretório fictícia. Há uma coluna para o diretório raiz do contêiner ( `/` ), um subdiretório chamado **Oregon** , um subdiretório do diretório Oregon chamado **Portland** e um arquivo de texto no diretório de Portland chamado **Data.txt**. A exibição dessas colunas é uma pequena representação de [forma abreviada](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessária para conceder permissões. **N/A** ( _não aplicável_ ) aparece na coluna se uma entrada de ACL não for necessária para executar a operação.
+A tabela a seguir mostra como combinar funções do Azure e entradas de ACL para que uma entidade de segurança possa executar as operações listadas na coluna **operação** . Esta tabela mostra uma coluna que representa cada nível de uma hierarquia de diretório fictícia. Há uma coluna para o diretório raiz do contêiner ( `/` ), um subdiretório chamado **Oregon**, um subdiretório do diretório Oregon chamado **Portland** e um arquivo de texto no diretório de Portland chamado **Data.txt**. A exibição dessas colunas é uma pequena representação de [forma abreviada](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessária para conceder permissões. **N/A** (_não aplicável_) aparece na coluna se uma entrada de ACL não for necessária para executar a operação.
 
 |    Operação             | Função RBAC atribuída               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -112,7 +112,7 @@ A tabela a seguir mostra como combinar as funções do RBAC do Azure e as entrad
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Limites em atribuições de função do RBAC do Azure e entradas de ACL
+## <a name="limits-on-azure-role-assignments-and-acl-entries"></a>Limites em atribuições de função do Azure e entradas de ACL
 
 Usando grupos, você tem menor probabilidade de exceder o número máximo de atribuições de função por assinatura e o número máximo de entradas de ACL por arquivo ou diretório. A tabela a seguir descreve esses limites.
 

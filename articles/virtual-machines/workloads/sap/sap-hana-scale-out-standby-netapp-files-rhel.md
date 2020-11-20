@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893163"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958737"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux 
 
@@ -237,9 +238,9 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
    Quando você implanta as máquinas virtuais, o nome da interface de rede é gerado automaticamente. Nestas instruções para simplificar, vamos nos referir às interfaces de rede geradas automaticamente, que são anexadas à sub-rede de rede virtual do Azure cliente, como **hanadb1-** Client, **hanadb2-** Client e **hanadb3-Client**. 
 
-3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` sub-rede da rede virtual (neste exemplo, **hanadb1**-Storage, **hanadb2-Storage**e **hanadb3-Storage**).  
+3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` sub-rede da rede virtual (neste exemplo, **hanadb1**-Storage, **hanadb2-Storage** e **hanadb3-Storage**).  
 
-4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana`  sub-rede de rede virtual (neste exemplo, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
+4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana`  sub-rede de rede virtual (neste exemplo, **hanadb1-Hana**, **hanadb2-Hana** e **hanadb3-Hana**).  
 
 5. Anexe as interfaces de rede virtual recém-criadas às máquinas virtuais correspondentes executando as seguintes etapas:  
 
@@ -249,9 +250,9 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
     c. No painel **visão geral** , selecione **parar** para desalocar a máquina virtual.  
 
-    d. Selecione **rede**e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `storage` sub-redes e `hana` .  
+    d. Selecione **rede** e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `storage` sub-redes e `hana` .  
     
-    e. Selecione **Salvar**. 
+    e. Clique em **Salvar**. 
  
     f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo,  **hanadb2** e **hanadb3**).
  
@@ -531,7 +532,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Altere a propriedade de SAP HANA `data` e `log` diretórios para **hn1**ADM.   
+4. **[2], [3]** Altere a propriedade de SAP HANA `data` e `log` diretórios para **hn1** ADM.   
 
     <pre><code>
     # Execute as root
@@ -708,8 +709,8 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
 6. Para otimizar SAP HANA para o armazenamento de Azure NetApp Files subjacente, defina os seguintes parâmetros de SAP HANA:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit`**em**
-   - `async_write_submit_active`**em**
+   - `async_read_submit` **on**
+   - `async_write_submit_active` **on**
    - `async_write_submit_blocks`**todos**
 
    Para obter mais informações, consulte [aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp files][anf-sap-applications-azure]. 
@@ -730,7 +731,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
 
 1. Simular uma falha de nó em um nó de trabalho SAP HANA. Faça o seguinte: 
 
-   a. Antes de simular a falha do nó, execute os seguintes comandos como **hn1**ADM para capturar o status do ambiente:  
+   a. Antes de simular a falha do nó, execute os seguintes comandos como **hn1** ADM para capturar o status do ambiente:  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +787,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
 
 2. Elimine o servidor de nomes fazendo o seguinte:
 
-   a. Antes do teste, verifique o status do ambiente executando os seguintes comandos como **hn1**ADM:  
+   a. Antes do teste, verifique o status do ambiente executando os seguintes comandos como **hn1** ADM:  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +809,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Execute os comandos a seguir como **hn1**ADM no nó mestre ativo, que é **hanadb1** neste caso:  
+   b. Execute os comandos a seguir como **hn1** ADM no nó mestre ativo, que é **hanadb1** neste caso:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

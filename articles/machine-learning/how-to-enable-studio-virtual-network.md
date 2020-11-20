@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554658"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959995"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -36,7 +36,7 @@ Consulte os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__ , como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar Jupyter Notebooks em uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__, como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar Jupyter Notebooks em uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -90,7 +90,7 @@ Azure Machine Learning usa [repositórios](concept-data.md#datastores) de armaze
 1. Nas configurações do repositório de armazenamento, selecione __Sim__ para  __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada pelo espaço de trabalho__.
 
 
-Essas etapas adicionam a identidade gerenciada pelo espaço de trabalho como um __leitor__ ao serviço de armazenamento usando o controle de acesso baseado em recursos do Azure (RBAC do Azure). O acesso de __leitor__ permite que o espaço de trabalho recupere as configurações de firewall e verifique se os dados não deixam a rede virtual.
+Essas etapas adicionam a identidade gerenciada pelo espaço de trabalho como um __leitor__ ao serviço de armazenamento usando o controle de acesso baseado em função do Azure (RBAC do Azure). O acesso de __leitor__ permite que o espaço de trabalho recupere as configurações de firewall e verifique se os dados não deixam a rede virtual.
 
 > [!NOTE]
 > Essas alterações podem levar até 10 minutos para entrar em vigor.
@@ -104,7 +104,7 @@ O uso da identidade gerenciada para acessar serviços de armazenamento afeta alg
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-Para o __armazenamento de BLOBs do Azure__ , a identidade gerenciada por espaço de trabalho também é adicionada como um [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que possa ler dados do armazenamento de BLOBs.
+Para o __armazenamento de BLOBs do Azure__, a identidade gerenciada por espaço de trabalho também é adicionada como um [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que possa ler dados do armazenamento de BLOBs.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controle de acesso Azure Data Lake Storage Gen2
 

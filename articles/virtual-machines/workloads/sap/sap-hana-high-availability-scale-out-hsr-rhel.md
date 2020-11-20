@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152109"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957326"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA sistema de expansão em Red Hat Enterprise Linux 
 
@@ -131,16 +132,16 @@ Para a configuração apresentada neste documento, implante sete máquinas virtu
    Implantar discos gerenciados locais para o `/hana/data` e o `/hana/log` . A configuração de armazenamento mínima recomendada para o `/hana/data` e `/hana/log` é descrita em [SAP Hana configurações de armazenamento de VMs do Azure](./hana-vm-operations-storage.md).
 
    Implante a interface de rede primária para cada VM na `client` sub-rede da rede virtual.  
-   Quando a VM é implantada via portal do Azure, o nome da interface de rede é gerado automaticamente. Nestas instruções para simplificar, vamos nos referir às interfaces de rede primárias geradas automaticamente, que são anexadas à `client` sub-rede da rede virtual do Azure como **Hana-S1-DB1-Client**, **Hana-S1-DB2-Client**, **Hana-S1-DB3-Client**e assim por diante.  
+   Quando a VM é implantada via portal do Azure, o nome da interface de rede é gerado automaticamente. Nestas instruções para simplificar, vamos nos referir às interfaces de rede primárias geradas automaticamente, que são anexadas à `client` sub-rede da rede virtual do Azure como **Hana-S1-DB1-Client**, **Hana-S1-DB2-Client**, **Hana-S1-DB3-Client** e assim por diante.  
 
 
    > [!IMPORTANT]
    > Verifique se o sistema operacional selecionado é certificado pela SAP para SAP HANA nos tipos específicos de VM que você está usando. Para obter uma lista de tipos de VM certificados SAP HANA e versões de sistema operacional para esses tipos, vá para o site de [plataformas de IaaS certificado SAP Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . Clique nos detalhes do tipo de VM listado para obter a lista completa de versões de sistema operacional com suporte SAP HANA para esse tipo.  
   
 
-2. Crie seis interfaces de rede, uma para cada máquina virtual do HANA DB, na `inter` sub-rede da rede virtual (neste exemplo **, Hana-S1-DB1-inter**, **Hana-S1-DB2-inter**, **Hana-S1-DB3-inter**, **Hana-S2-DB1-inter**, **Hana-S2-DB2-inter**e **Hana-S2-DB3-inter**).  
+2. Crie seis interfaces de rede, uma para cada máquina virtual do HANA DB, na `inter` sub-rede da rede virtual (neste exemplo **, Hana-S1-DB1-inter**, **Hana-S1-DB2-inter**, **Hana-S1-DB3-inter**, **Hana-S2-DB1-inter**, **Hana-S2-DB2-inter** e **Hana-S2-DB3-inter**).  
 
-3. Crie seis interfaces de rede, uma para cada máquina virtual do HANA DB, na `hsr` sub-rede da rede virtual (neste exemplo, **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR**e **Hana-S2-DB3-HSR**).  
+3. Crie seis interfaces de rede, uma para cada máquina virtual do HANA DB, na `hsr` sub-rede da rede virtual (neste exemplo, **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR** e **Hana-S2-DB3-HSR**).  
 
 4. Anexe as interfaces de rede virtual recém-criadas às máquinas virtuais correspondentes:  
 
@@ -150,7 +151,7 @@ Para a configuração apresentada neste documento, implante sete máquinas virtu
 
     c. No painel **visão geral** , selecione **parar** para desalocar a máquina virtual.  
 
-    d. Selecione **rede**e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `inter` sub-redes e `hsr` .  
+    d. Selecione **rede** e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `inter` sub-redes e `hsr` .  
     
     e. Clique em **Salvar**. 
  
@@ -206,7 +207,7 @@ Para a configuração apresentada neste documento, implante sete máquinas virtu
 
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
       1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **TCP** como o protocolo e porta 625 **03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
 
    1. Em seguida, crie as regras de balanceamento de carga:
@@ -599,7 +600,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com HSR em 
 
 1. **[1]** configurar a replicação do sistema no site 1:
 
-   Faça backup dos bancos de dados como **hn1**ADM:
+   Faça backup dos bancos de dados como **hn1** ADM:
 
     ```
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
@@ -936,7 +937,7 @@ Inclua todas as máquinas virtuais, incluindo o criador principal no cluster.
 
    3. Em seguida, crie o recurso de instância do HANA.  
       > [!NOTE]
-      > Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.  
+      > Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.  
  
       Se estiver criando um cluster RHEL **7. x** , use os seguintes comandos:    
       ```

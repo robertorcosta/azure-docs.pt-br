@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: fd5c0905b4a5d050eaf35456353122fd26f8cbf7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 75d013b863671246e6249f367676e4de86bc1de8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445261"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960013"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e acompanhar pipelines do Machine Learning
 
@@ -74,7 +74,7 @@ Quando você tiver um pipeline em funcionamento, poderá publicar um pipeline pa
 Todos os pipelines publicados têm um ponto de extremidade REST. Com o ponto de extremidade do pipeline, você pode disparar uma execução do pipeline de qualquer sistema externo, incluindo clientes não Python. Esse ponto de extremidade permite a "repetibilidade gerenciada" em cenários de retreinamento e pontuação de lote.
 
 > [!IMPORTANT]
-> Se você estiver usando o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#common-scenarios).
+> Se você estiver usando o controle de acesso baseado em função do Azure (RBAC do Azure) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#common-scenarios).
 
 Para invocar a execução do pipeline anterior, você precisa de um token de cabeçalho de autenticação Azure Active Directory. Obter esse token é descrito na referência da [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) e na [autenticação no Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
