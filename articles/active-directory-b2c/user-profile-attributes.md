@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83738550"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952691"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil do usuário
 
@@ -26,7 +26,7 @@ Seu perfil do usuário do diretório do Azure Active Directory B2C é fornecido 
 
 Você também pode integrar com sistemas externos. Por exemplo, você pode usar o Azure AD B2C para autenticação, mas delegar para um CRM (gerenciamento de relacionamento com o cliente) externo ou a um banco de dados de fidelidade do cliente como a fonte de verdade dos dados do cliente. Para obter mais informações, consulte a solução de [perfil remoto](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
 
-A tabela a seguir lista os atributos do [tipo de recurso de usuário](https://docs.microsoft.com/graph/api/resources/user) que são suportados pelo perfil de usuário do diretório do Azure AD B2C. Ela contém as seguintes informações sobre cada atributo:
+A tabela a seguir lista os atributos do [tipo de recurso de usuário](/graph/api/resources/user) que são suportados pelo perfil de usuário do diretório do Azure AD B2C. Ela contém as seguintes informações sobre cada atributo:
 
 - Nome do atributo usado pelo Azure AD B2C (seguido pelo nome do Microsoft Graph em parênteses, se for diferente)
 - Tipo de dados de atributo
@@ -94,7 +94,7 @@ Em geral, você precisará criar seus próprios atributos, como nos seguintes ca
 - Um provedor de identidade tem um identificador exclusivo do usuário que deve ser salvo como **uniqueUserGUID**.
 - Um percurso do usuário personalizado precisa persistir para um estado do usuário, como **migrationStatus**.
 
-O Azure AD B2C estende o conjunto de atributos armazenados em cada conta de usuário. Os atributos de extensão [estender o esquema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) dos objetos de usuário no diretório. Os atributos de extensão só podem ser registrados em um objeto de aplicativo, mesmo que possam conter dados para um usuário. O atributo de extensão é anexado ao aplicativo chamado b2c-extensions-app. Não modifique esse aplicativo, pois ele é usado pelo Azure AD B2C para armazenar dados do usuário. Você pode encontrar esse aplicativo em Registros de aplicativo do Azure Active Directory.
+O Azure AD B2C estende o conjunto de atributos armazenados em cada conta de usuário. Os atributos de extensão [estender o esquema](/graph/extensibility-overview#schema-extensions) dos objetos de usuário no diretório. Os atributos de extensão só podem ser registrados em um objeto de aplicativo, mesmo que possam conter dados para um usuário. O atributo de extensão é anexado ao aplicativo chamado b2c-extensions-app. Não modifique esse aplicativo, pois ele é usado pelo Azure AD B2C para armazenar dados do usuário. Você pode encontrar esse aplicativo em Registros de aplicativo do Azure Active Directory.
 
 > [!NOTE]
 > - Até 100 atributos de extensão podem ser gravados em qualquer conta de usuário.
@@ -113,6 +113,6 @@ Os tipos de dados a seguir têm suporte ao definir uma propriedade em uma extens
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os atributos de extensão:
-- [Extensões de esquema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Extensões de esquema](/graph/extensibility-overview#schema-extensions)
 - [Definir atributos personalizados com fluxo dos usuários](user-flow-custom-attributes.md)
 - [Definir atributos personalizados com política personalizada](custom-policy-custom-attributes.md)

@@ -11,12 +11,12 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c0ab4d367d2ca9fd59c26ce8d36b5f80dcb832c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840620"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951886"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Azure Active Directory B2C
 
@@ -41,6 +41,3 @@ Esse recurso ajuda os aplicativos a lidar com cenários como:
 Você pode usar **Executar fluxo de usuário** na política para verificar a experiência. Confirme o seguinte cenário:
 
 Uma conta de cliente é criada em seu locatário antes que a etapa de autenticação de vários fatores ocorra. Durante a etapa, o cliente é solicitado a fornecer um número de telefone e a verificar. Se a verificação for bem-sucedida, o número de telefone será anexado à conta para uso posterior. Mesmo se o cliente cancelar ou desistir, o cliente poderá ser solicitado a confirmar um número de telefone novamente durante o próximo login, com a autenticação multi fatores ativada.
-
-
-

@@ -9,19 +9,20 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094217"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951276"
 ---
-# <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma de BI do SAP BusinessObjects no Azure
+# <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma SAP BusinessObjects BI no Azure
 
 ## <a name="overview"></a>Visão geral
 

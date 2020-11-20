@@ -11,12 +11,12 @@ ms.date: 11/30/2018
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2233dbd7b0e669c23397b4bc6a84f2bfdc208391
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115956"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952804"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definir atributos personalizados no Azure Active Directory B2C
 
@@ -48,8 +48,8 @@ O atributo personalizado agora está disponível na lista de **atributos de usu�
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
-1. Selecione **Atributos de inscrição** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Salvar**.
+1. Selecione **Atributos de inscrição** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Save** (Salvar).
 1. Selecione **Declarações de aplicativo** e selecione o atributo personalizado.
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
-Depois de criar um novo usuário usando um fluxo de usuário que usa o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, você pode usar o recurso [executar fluxo de usuário](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) no fluxo do usuário para verificar a experiência do cliente. Agora você deve ver **ShoeSize** na lista de atributos coletados durante a jornada de inscrição, e vê-lo no token enviado de volta ao seu aplicativo.
+Depois de criar um novo usuário usando um fluxo de usuário que usa o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, você pode usar o recurso [executar fluxo de usuário](./tutorial-create-user-flows.md) no fluxo do usuário para verificar a experiência do cliente. Agora você deve ver **ShoeSize** na lista de atributos coletados durante a jornada de inscrição, e vê-lo no token enviado de volta ao seu aplicativo.

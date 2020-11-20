@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385919"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953994"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
 
@@ -66,7 +66,7 @@ Em seguida, conceda as permissões do aplicativo registrado para manipular os re
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Agora você tem um aplicativo que tem permissão para *criar*, *ler*, *Atualizar*e *excluir* usuários em seu locatário Azure ad B2C. Continue na próxima seção para adicionar permissões de *atualização de senha* .
+Agora você tem um aplicativo que tem permissão para *criar*, *ler*, *Atualizar* e *excluir* usuários em seu locatário Azure ad B2C. Continue na próxima seção para adicionar permissões de *atualização de senha* .
 
 ## <a name="enable-user-delete-and-password-update"></a>Habilitar exclusão de usuário e atualização de senha
 
@@ -85,12 +85,12 @@ Se seu aplicativo ou script precisar excluir usuários ou atualizar suas senhas,
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você registrou seu aplicativo de gerenciamento e concedeu a ele as permissões necessárias, seus aplicativos e serviços (por exemplo, Azure Pipelines) podem usar suas credenciais e permissões para interagir com a API de Microsoft Graph. 
 
-* [Obter um token de acesso do Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Usar o token de acesso para chamar Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Obter um token de acesso do Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Usar o token de acesso para chamar Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [Operações B2C com suporte pelo Microsoft Graph](microsoft-graph-operations.md)
 * [Gerenciar Azure AD B2C contas de usuário com Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Obter logs de auditoria com a API de relatórios do Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview

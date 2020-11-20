@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6f62675d27310a15c434baba8e3451a3cd81f058
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840427"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953518"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TypingDNA com o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Neste tutorial, saiba como integrar um aplicativo de pagamento online de exemplo
 
 2. Quando o usuário enviar a página, a biblioteca TypingDNA calculará a característica de digitação do usuário. Depois disso, insira as informações em um campo de texto oculto que Azure AD B2C tenha renderizado. Esse campo é ocultado com CSS.  
 
-    O [exemplo contém arquivos HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) com as modificações de JavaScript e CSS e é referenciado pelas `api.selfasserted.tdnasignin` `api.selfasserted.tdnasignup` definições de conteúdo e. Consulte [hospedando o conteúdo da página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para hospedar seus arquivos HTML.
+    O [exemplo contém arquivos HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) com as modificações de JavaScript e CSS e é referenciado pelas `api.selfasserted.tdnasignin` `api.selfasserted.tdnasignup` definições de conteúdo e. Consulte [hospedando o conteúdo da página](./custom-policy-ui-customization.md#hosting-the-page-content) para hospedar seus arquivos HTML.
 
 3. Azure AD B2C agora tem o padrão de digitação dentro do recipiente de declarações quando o usuário envia suas credenciais. Ele deve chamar uma API (sua) para passar esses dados para o ponto de extremidade da API REST do TypingDNA. Essa API está incluída no [exemplo (typingDNA-API-interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. Em seguida, a API de camada intermediária passa os dados de padrão de digitação para a API REST do amTypingDNA. Na inscrição, o ponto de [extremidade do usuário de verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar se o usuário não existe e, em seguida, o ponto de extremidade de [salvar padrão](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) é chamado para salvar o primeiro padrão de digitação do usuário.
@@ -160,7 +160,7 @@ Esses limites devem ser ajustados em seu caso de uso.
 
 1. Hospede o [TypingDNA-API-interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) no seu provedor de Hospedagem de sua escolha
 2. Substitua todas as instâncias de `apiKey` e `apiSecret` na solução [TypingDNA-API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) pelas credenciais do seu painel do TypingDNA
-3. Hospede os arquivos HTML no seu provedor de escolha seguindo os requisitos de CORS [aqui](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
+3. Hospede os arquivos HTML no seu provedor de escolha seguindo os requisitos de CORS [aqui](./custom-policy-ui-customization.md#3-configure-cors)
 4. Substitua os elementos LoadURI para as `api.selfasserted.tdnasignup` `api.selfasserted.tdnasignin` definições de conteúdo e no `TrustFrameworkExtensions.xml` arquivo para o URI de seus arquivos HTML hospedados, respectivamente.
 5. Crie uma chave de política do B2C na estrutura de experiência de identidade na folha do Azure AD no **portal do Azure**. Use a `Generate` opção e nomeie essa chave `tdnaHashedId` .
 6. Substituir os Tenantid nos arquivos de política
@@ -194,6 +194,6 @@ Esses limites devem ser ajustados em seu caso de uso.
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no AAD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no AAD B2C](./custom-policy-get-started.md?tabs=applications)

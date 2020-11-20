@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383930"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952719"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -84,7 +84,7 @@ Para baixar a lista de eventos de atividade em um arquivo CSV (valores separados
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Obter logs de auditoria com a API de relatórios do Azure AD
 
-Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Para obter mais informações, consulte Introdução [à API de relatório do Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](/graph/api/directoryaudit-list). Para obter mais informações, consulte Introdução [à API de relatório do Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Habilitar o acesso à API de relatórios
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089529"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953365"
 ---
 # <a name="secure-your-restful-services"></a>Proteger os serviços RESTful 
 
@@ -111,7 +111,7 @@ A autenticação de certificado do cliente é uma autenticação mútua baseada 
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Preparar um certificado autoassinado (opcional)
 
-Para ambientes de não produção, se você ainda não tiver um certificado, é possível usar um certificado autoassinado. No Windows, você pode usar o cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) do PowerShell para gerar um certificado.
+Para ambientes de não produção, se você ainda não tiver um certificado, é possível usar um certificado autoassinado. No Windows, você pode usar o cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) do PowerShell para gerar um certificado.
 
 1. Execute esse comando do PowerShell para gerar um certificado autoassinado. Modifique o argumento `-Subject` conforme apropriado para o aplicativo e nome de locatário do Azure AD B2C. Você também pode ajustar a data `-NotAfter` para especificar uma expiração diferente para o certificado.
     ```powershell
@@ -230,9 +230,9 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 
 ### <a name="acquiring-an-access-token"></a>Aquisição de um token de acesso 
 
-Você pode obter um token de acesso de várias maneiras: obtendo [de um provedor de identidade federado](idp-pass-through-custom.md), chamando uma API REST que retorna um token de acesso, usando um [fluxo de ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) ou usando o [fluxo de credenciais do cliente](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  
+Você pode obter um token de acesso de várias maneiras: obtendo [de um provedor de identidade federado](idp-pass-through-custom.md), chamando uma API REST que retorna um token de acesso, usando um [fluxo de ROPC](../active-directory/develop/v2-oauth-ropc.md) ou usando o [fluxo de credenciais do cliente](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
-O exemplo a seguir usa um perfil técnico da API REST para fazer uma solicitação para o ponto de extremidade do token do Azure AD, usando as credenciais do cliente passadas como autenticação básica HTTP. Para configurar isso no Azure AD, confira a [plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Talvez seja necessário modificar isso para a interface com o Provedor de identidade. 
+O exemplo a seguir usa um perfil técnico da API REST para fazer uma solicitação para o ponto de extremidade do token do Azure AD, usando as credenciais do cliente passadas como autenticação básica HTTP. Para configurar isso no Azure AD, confira a [plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Talvez seja necessário modificar isso para a interface com o Provedor de identidade. 
 
 Para o ServiceUrl, substitua your-tenant-name pelo nome do locatário do Azure Active Directory. Confira a referência de [perfil técnico RESTful](restful-technical-profile.md) para todas as opções disponíveis.
 
@@ -367,4 +367,4 @@ Veja a seguir um exemplo de um perfil técnico RESTful configurado com a autenti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o elemento de [perfil técnico Restful](restful-technical-profile.md) na referência de IEF. 
+- Saiba mais sobre o elemento de [perfil técnico Restful](restful-technical-profile.md) na referência de IEF.

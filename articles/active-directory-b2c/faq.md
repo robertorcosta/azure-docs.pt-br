@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951784"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -37,7 +37,7 @@ Azure AD B2C não pode ser usado para autenticar usuários para Microsoft 365. O
 
 Em um locatário do Azure AD, os usuários que pertencem ao locatário entram com um endereço de email no formato `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no locatário ou no domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma conta corporativa ou de estudante.
 
-Em um locatário do Azure AD B2C, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Você pode escolher um dos dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no Portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
+Em um locatário do Azure AD B2C, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Você pode escolher um dos dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no Portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local** e, em seguida, selecione **nome de usuário**.
 
 As contas de usuário para aplicativos podem ser criadas por meio de um fluxo de usuário de inscrição, um fluxo de usuário de inscrição ou de entrada, a API de Microsoft Graph ou no portal do Azure.
 
@@ -90,7 +90,7 @@ Você pode usar a API de Microsoft Graph para escrever sua ferramenta de migraç
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Qual é a política de senha usada para contas locais no Azure Active Directory B2C?
 
-A política de senha do Azure Active Directory B2C para contas locais se baseia na política do Azure Active Directory. Os fluxos de usuário de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Para obter mais detalhes, consulte [diretivas e restrições de senha no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+A política de senha do Azure Active Directory B2C para contas locais se baseia na política do Azure Active Directory. Os fluxos de usuário de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Para obter mais detalhes, consulte [diretivas e restrições de senha no Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Para obter informações sobre bloqueios de contas e senhas, consulte [Gerenciar ameaças aos recursos e dados no Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ Não, por motivos de segurança, as páginas do Azure AD B2C não podem ser aber
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>O AD B2C do Azure funciona com sistemas CRM, como o Microsoft Dynamics?
 
-A integração com o Portal do Microsoft Dynamics 365 está disponível. Consulte [Configurando o Portal do Dynamics 365 para usar o Azure AD B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+A integração com o Portal do Microsoft Dynamics 365 está disponível. Consulte [Configurando o Portal do Dynamics 365 para usar o Azure AD B2C para autenticação](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>O AD B2C do Azure funciona com o SharePoint local 2016 ou anterior?
 
@@ -112,7 +112,7 @@ O Azure AD B2C não se destina ao cenário de compartilhamento com parceiros ext
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Devo usar o B2C ou o B2B do AD do Azure para gerenciar identidades externas?
 
-Leia [comparar colaboração B2B e B2C no Azure ad](../active-directory/b2b/compare-with-b2c.md) para saber mais sobre como aplicar os recursos apropriados aos seus cenários de identidade externa.
+Leia [comparar colaboração B2B e B2C no Azure ad](../active-directory/external-identities/compare-with-b2c.md) para saber mais sobre como aplicar os recursos apropriados aos seus cenários de identidade externa.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quais recursos de relatórios e de auditoria são oferecidos pelo AD B2C do Azure? São iguais aos do Azure AD Premium?
 
@@ -134,7 +134,7 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 
 Siga estas etapas para excluir seu locatário Azure AD B2C.
 
-Você pode usar nossa nova experiência unificada de **registros de aplicativo** ou nossa experiência  **de aplicativos herdados (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Você pode usar nossa nova experiência unificada de **registros de aplicativo** ou nossa experiência  **de aplicativos herdados (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
@@ -142,7 +142,7 @@ Você pode usar nossa nova experiência unificada de **registros de aplicativo**
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
-1. Selecione **registros de aplicativo**e, em seguida, selecione a guia **todos os aplicativos** .
+1. Selecione **registros de aplicativo** e, em seguida, selecione a guia **todos os aplicativos** .
 1. Exclua todos os aplicativos que você registrou.
 1. Exclua o **B2C-Extensions-app**.
 1. Em **Gerenciar**, selecione **Usuários**.
@@ -167,9 +167,9 @@ Você pode usar nossa nova experiência unificada de **registros de aplicativo**
 1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
 1. Selecione **Exibir todos os aplicativos**
-1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
+1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir** e, em seguida, selecione **Sim** quando solicitado.
 1. Em **gerenciar**, selecione **configurações do usuário**.
-1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
+1. Se houver, em **conexões de conta do LinkedIn**, selecione **não** e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.

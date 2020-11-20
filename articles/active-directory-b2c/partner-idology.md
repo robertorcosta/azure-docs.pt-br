@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07a8f785cf2b9a64f3acb9f44c4fca5023c4fcf3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259315"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953739"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial para configurar o IDology com o Azure Active Directory B2C 
 
@@ -67,13 +67,13 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1-implantar a API
 
-Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Você precisará da URL do serviço implantado para configurar o Azure AD com as configurações necessárias.
 
 ### <a name="part-2---configure-the-api"></a>Parte 2-configurar a API 
 
-As configurações do aplicativo podem ser [configuradas no serviço de aplicativo no Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Com esse método, as configurações podem ser configuradas com segurança sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
+As configurações do aplicativo podem ser [configuradas no serviço de aplicativo no Azure](../app-service/configure-common.md#configure-app-settings). Com esse método, as configurações podem ser configuradas com segurança sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
 
 | Configurações do aplicativo | Fonte | Observações |
 | :-------- | :------------| :-----------|
@@ -121,7 +121,7 @@ A política de exemplo usa estes nomes de chave:
 
 1. Abra o locatário Azure AD B2C e, em **políticas**, selecione **fluxos de usuário**.
 
-2. Selecione o fluxo de **usuário**criado anteriormente.
+2. Selecione o fluxo de **usuário** criado anteriormente.
 
 3. Selecione **executar fluxo de usuário** e selecione as configurações:
 
@@ -145,5 +145,4 @@ Para obter informações adicionais, examine os seguintes artigos:
 
 - [Políticas personalizadas no Azure AD B2C](custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Introdução às políticas personalizadas no Azure AD B2C](custom-policy-get-started.md?tabs=applications)
