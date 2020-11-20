@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225641"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964857"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Visualização: criar uma imagem de uma VM
 
@@ -81,7 +81,7 @@ Para obter mais informações sobre os valores que pode especificar para uma def
 
 Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para uma VM especializada que executa o Windows. Para criar uma definição para imagens usando o Linux, use `-OsType Linux` . 
+Neste exemplo, a definição de imagem é chamada *myImageDefinition* e é para uma VM especializada que executa o Windows. Para criar uma definição para imagens usando o Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -105,7 +105,7 @@ Caracteres permitidos para a versão da imagem são números e pontos. Os númer
 
 Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação.
 
-Para criar uma versão da imagem da VM, use `$vm.Id.ToString()` para o `-Source`.
+Para criar uma versão da imagem da VM, use `$vm.Id.ToString()` para o `-SourceImageId`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -119,7 +119,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $sourceVm.Id.ToString() `
+   -SourceImageId $sourceVm.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `  
    -asJob 
 ```

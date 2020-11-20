@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427370"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966047"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -76,7 +77,7 @@ O agente convidado do Windows não tem suporte de servidor proxy para redirecion
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
-Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS* :
+Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS*:
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +93,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="powershell"></a>PowerShell
 
-Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão* :
+Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -294,7 +295,7 @@ Para verificar qual versão você está executando, consulte [Detectando o Agent
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
-Quando uma atualização da extensão estiver disponível, o Agente de Convidado do Windows baixará e atualizará a extensão. Atualizações automáticas de extensão são *Secundárias* ou *Hotfix*. Você pode aceitar ou recusar atualizações de extensões *Secundárias* ao provisionar a extensão. O exemplo a seguir mostra como atualizar automaticamente as versões secundárias em um modelo do Resource Manager com *autoUpgradeMinorVersion": true,'* :
+Quando uma atualização da extensão estiver disponível, o Agente de Convidado do Windows baixará e atualizará a extensão. Atualizações automáticas de extensão são *Secundárias* ou *Hotfix*. Você pode aceitar ou recusar atualizações de extensões *Secundárias* ao provisionar a extensão. O exemplo a seguir mostra como atualizar automaticamente as versões secundárias em um modelo do Resource Manager com *autoUpgradeMinorVersion": true,'*:
 
 ```json
     "properties": {
@@ -322,7 +323,7 @@ Você pode ver no modelo da VM se a extensão foi provisionada com 'autoUpgradeM
  $vm.Extensions
 ```
 
-O seguinte exemplo de saída mostra que *autoUpgradeMinorVersion* foi definido como *true* :
+O seguinte exemplo de saída mostra que *autoUpgradeMinorVersion* foi definido como *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +337,7 @@ AutoUpgradeMinorVersion     : True
 
 Para ver quando ocorreu uma atualização da extensão, examine os registros de agente na VM em *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-No exemplo a seguir, *Microsoft.Compute.CustomScriptExtension 1.8* estava instalado na VM. Um hotfix estava disponível para a versão *1.9* :
+No exemplo a seguir, *Microsoft.Compute.CustomScriptExtension 1.8* estava instalado na VM. Um hotfix estava disponível para a versão *1.9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'

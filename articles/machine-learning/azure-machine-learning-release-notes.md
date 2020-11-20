@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542126"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965826"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -210,7 +210,7 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
     + Documentação atualizada do AzureML MLflow e exemplos de notebook 
     + Novo suporte para projetos MLflow com back-end do AzureML
     + Suporte ao registro de modelo MLflow
-    + Adicionado suporte a RBAC para operações de AzureML-MLflow 
+    + Adicionado suporte do RBAC do Azure para operações de AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + A documentação dos métodos PipelineOutputFileDataset.parse_ * foi aprimorada.
@@ -797,7 +797,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Description  |
+| Ferramenta baseada na Web  |     Descrição  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1309,7 +1309,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Description | 
+| Ferramenta baseada na Web | Descrição | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 

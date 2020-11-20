@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427455"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965350"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
@@ -36,7 +37,7 @@ Neste exemplo, a versão do produto e o layout do sistema de arquivos são usado
 - Banco de dados do Azure para MySQL (versão: 8.0.15)
 - Conector da API do MySQL C-libmysqlclient (versão: 6.1.11)
 
-| Sistema de Arquivos        | Description                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
+| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Agrupar  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | O sistema de arquivos para instalação da instância do SAP BOBI, aplicativo Web Tomcat padrão e drivers de banco de dados (se necessário) | Diretrizes de dimensionamento do SAP | bl1adm | sapsys | Disco Premium gerenciado-SSD |
 | /usr/sap/frsinput  | O diretório de montagem é para os arquivos compartilhados em todos os hosts BOBI que serão usados como diretório de repositório do arquivo de entrada  | Necessidade comercial         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +114,7 @@ Ao criar seu Azure NetApp Files para o servidor de repositório de arquivos da p
 
 As etapas nesta seção usam os seguintes prefixos:
 
-**[A]** : a etapa se aplica a todos os hosts
+**[A]**: a etapa se aplica a todos os hosts
 
 ### <a name="format-and-mount-sap-file-system"></a>Formatar e montar o sistema de arquivos SAP
 
@@ -395,15 +396,15 @@ Para o servidor de aplicativos SAP BOBI acessar o banco de dados, ele requer dri
 
 As etapas nesta seção usam os seguintes prefixos:
 
-**[A]** : a etapa se aplica a todos os hosts.
+**[A]**: a etapa se aplica a todos os hosts.
 
 1. **[A]** com base no tipo de Linux (SLES ou RHEL), você precisa definir os parâmetros do kernel e instalar as bibliotecas necessárias. Consulte a seção **requisitos do sistema** no [Guia de instalação da plataforma de Business Intelligence para UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** Verifique se o fuso horário em seu computador está definido corretamente. Consulte a [seção requisitos adicionais de UNIX e Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) no guia de instalação.
 
-3. **[A]** criar conta de usuário ( **BL1** ADM) e grupo (SAPs) sob a qual os processos em segundo plano do software podem ser executados. Use essa conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
+3. **[A]** criar conta de usuário (**BL1** ADM) e grupo (SAPs) sob a qual os processos em segundo plano do software podem ser executados. Use essa conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
 
-4. **[A]** definir o ambiente de conta de usuário ( **BL1** ADM) para usar uma localidade UTF-8 com suporte e garantir que o software do console ofereça suporte a conjuntos de caracteres UTF-8. Para garantir que seu sistema operacional use a localidade correta, defina as variáveis de ambiente LC_ALL e LANG para sua localidade preferida no seu ambiente de usuário do ( **BL1** ADM).
+4. **[A]** definir o ambiente de conta de usuário (**BL1** ADM) para usar uma localidade UTF-8 com suporte e garantir que o software do console ofereça suporte a conjuntos de caracteres UTF-8. Para garantir que seu sistema operacional use a localidade correta, defina as variáveis de ambiente LC_ALL e LANG para sua localidade preferida no seu ambiente de usuário do (**BL1** ADM).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +414,7 @@ As etapas nesta seção usam os seguintes prefixos:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** configurar conta de usuário ( **BL1** ADM).
+5. **[A]** configurar conta de usuário (**BL1** ADM).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -465,7 +466,7 @@ Siga o guia de instalação da [plataforma SAP BOBI](https://help.sap.com/viewer
 
 - Na tela **Selecionar tipo de instalação** , selecione instalação **completa** no primeiro servidor (azusbosl1), para outro servidor (azusbosl2) selecione **personalizado/expandir** que expandirá a configuração existente do BOBI.
 
-- Na tela **Selecionar Banco de dados padrão ou existente** , selecione **configurar um banco de dados existente** , o que solicitará que você selecione CMS e banco de dados de auditoria. Selecione **MySQL** para tipo de banco de dados CMS e tipo de banco de dados de auditoria.
+- Na tela **Selecionar Banco de dados padrão ou existente** , selecione **configurar um banco de dados existente**, o que solicitará que você selecione CMS e banco de dados de auditoria. Selecione **MySQL** para tipo de banco de dados CMS e tipo de banco de dados de auditoria.
 
   Você também pode selecionar sem banco de dados de auditoria, se não quiser configurar a auditoria durante a instalação.
 
@@ -557,7 +558,7 @@ Como parte do processo de backup, o instantâneo é obtido e os dados são trans
 
 #### <a name="backup--restore-for-file-repository-server"></a>Backup & restauração do servidor de repositório de arquivos
 
-Por **Azure NetApp files** , você pode criar instantâneos sob demanda e agendar o instantâneo automático usando políticas de instantâneo. As cópias de instantâneo fornecem uma cópia pontual do volume seja. Para obter mais informações, consulte [gerenciar instantâneos usando Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Por **Azure NetApp files**, você pode criar instantâneos sob demanda e agendar o instantâneo automático usando políticas de instantâneo. As cópias de instantâneo fornecem uma cópia pontual do volume seja. Para obter mais informações, consulte [gerenciar instantâneos usando Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 O backup de **arquivos do Azure** é integrado ao serviço de [backup nativo do Azure](../../../backup/backup-overview.md) , que centraliza a função de backup e restauração junto com as VMs backup e simplifica o trabalho de operação. Para obter mais informações, consulte [backup de compartilhamento de arquivos do Azure](../../../backup/azure-file-share-backup-overview.md) e [perguntas frequentes – fazer backup de arquivos do Azure](../../../backup/backup-azure-files-faq.md).
 

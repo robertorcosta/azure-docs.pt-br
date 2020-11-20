@@ -8,20 +8,20 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4284956138002d209ab0934cdd052748ef8aab78
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966268"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guia de referência de esquema styleobject para mapas dinâmicos
 
-Este artigo é um guia de referência para o esquema JSON e a sintaxe para o `StylesObject` . O `StylesObject` é uma `StyleObject` matriz que representa os estilos de estadoset. Use o [serviço de estado de recurso](/rest/api/maps/featurestate) do Azure Maps Creator para aplicar seus estilos de estadoset a recursos de dados de mapa em destaque. Depois de criar seus estilos de estado e os associados aos recursos de mapa interno, você pode usá-los para criar mapas de interno dinâmico. Para obter mais informações sobre a criação de mapas de interno dinâmico, consulte [implementar o estilo dinâmico para mapas de criador interno](indoor-map-dynamic-styling.md).
+ O `StylesObject` é uma `StyleObject` matriz que representa os estilos de estadoset. Use o [serviço de estado de recurso](/rest/api/maps/featurestate) do Azure Maps Creator para aplicar seus estilos de estadoset a recursos de dados de mapa em destaque. Depois de criar seus estilos de estado e os associados aos recursos de mapa interno, você pode usá-los para criar mapas de interno dinâmico. Para obter mais informações sobre a criação de mapas de interno dinâmico, consulte [implementar o estilo dinâmico para mapas de criador interno](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>Estilo de
 
-Um `StyleObject` é o como um [`BooleanTypeStyleRule`](#booleantypestylerule) ou um [`NumericTypeStyleRule`](#numerictypestylerule) .
+Um `StyleObject` é um [`BooleanTypeStyleRule`](#booleantypestylerule) ou um [`NumericTypeStyleRule`](#numerictypestylerule) .
 
 O JSON abaixo mostra um `BooleanTypeStyleRule` nome `occupied` e um `NumericTypeStyleRule` nomeado `temperature` .
 
@@ -67,8 +67,8 @@ O JSON abaixo mostra um `BooleanTypeStyleRule` nome `occupied` e um `NumericType
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
 | `keyName` | string | O *estado* ou o nome da propriedade dinâmica. Um `keyName` deve ser exclusivo dentro da `StyleObject` matriz.| Sim |
-| `type` | string | O valor é "numeric". | Sim |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Uma matriz de intervalos de estilo numérico com cores associadas. Cada intervalo define uma cor que deve ser usada quando o valor de *estado* satisfizer o intervalo.| Sim |
+| `type` | string | O valor é "numeric". | Yes |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Uma matriz de intervalos de estilo numérico com cores associadas. Cada intervalo define uma cor a ser usada quando o valor do *estado* satisfizer o intervalo.| Yes |
 
 ### <a name="numberruleobject"></a>NumberRuleObject
 
@@ -104,7 +104,7 @@ No exemplo JSON a seguir, os dois intervalos terão true quando o valor de *esta
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
 | `range` | [Intervalo de](#rangeobject) | O [rangeobject](#rangeobject) define um conjunto de condições de intervalo lógico, que, se `true` , altera a cor de exibição do *estado* para a cor especificada na `color` propriedade. Se `range` não for especificado, a cor definida na `color` propriedade sempre será usada.   | Não |
-| `color` | string | A cor a ser usada quando o valor do estado se enquadrar no intervalo. A `color` propriedade é uma cadeia de caracteres JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexadecimais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Nomes predefinidos de cores HTML, como amarelo e azul.</li></ul> | Sim |
+| `color` | string | A cor a ser usada quando o valor do estado se enquadrar no intervalo. A `color` propriedade é uma cadeia de caracteres JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexadecimais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Nomes predefinidos de cores HTML, como amarelo e azul.</li></ul> | Yes |
 
 ### <a name="rangeobject"></a>Intervalo de
 
@@ -112,10 +112,10 @@ O `RangeObject` define um valor de intervalo numérico de um [`NumberRuleObject`
 
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
-| `minimum` | double | Todo o número x que x ≥ `minimum` .| Não |
-| `maximum` | double | Todo o número x que x ≤ `maximum` . | Não |
-| `exclusiveMinimum` | double | Todo o número x > x `exclusiveMinimum` .| Não |
-| `exclusiveMaximum` | double | Todo o número x < x `exclusiveMaximum` .| Não |
+| `minimum` | double | Todo o número x que x ≥ `minimum` .| No |
+| `maximum` | double | Todo o número x que x ≤ `maximum` . | No |
+| `exclusiveMinimum` | double | Todo o número x > x `exclusiveMinimum` .| No |
+| `exclusiveMaximum` | double | Todo o número x < x `exclusiveMaximum` .| No |
 
 ### <a name="example-of-numerictypestylerule"></a>Exemplo de NumericTypeStyleRule
 
@@ -151,8 +151,8 @@ Um `BooleanTypeStyleRule` é um [`StyleObject`](#styleobject) e consiste nas seg
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
 | `keyName` | string |  O *estado* ou o nome da propriedade dinâmica.  Um `keyName` deve ser exclusivo na matriz de estilos.| Sim |
-| `type` | string |O valor é "booliano". | Sim |
-| `rules` | [`BooleanRuleObject`](#booleanruleobject)uma| Um par booliano com cores `true` para `false` valores de *estado* e.| Sim |
+| `type` | string |O valor é "booliano". | Yes |
+| `rules` | [`BooleanRuleObject`](#booleanruleobject)uma| Um par booliano com cores `true` para `false` valores de *estado* e.| Yes |
 
 ### <a name="booleanruleobject"></a>BooleanRuleObject
 
@@ -161,7 +161,7 @@ Um `BooleanRuleObject` define as cores `true` para `false` valores e.
 | Propriedade | Tipo | Descrição | Obrigatório |
 |-----------|----------|-------------|-------------|
 | `true` | string | A cor a ser usada quando o valor do *estado* é `true` . A `color` propriedade é uma cadeia de caracteres JSON em qualquer um dos seguintes formatos: <ul><li> Valores hexadecimais de estilo HTML </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Nomes predefinidos de cores HTML, como amarelo e azul.</li></ul>| Sim |
-| `false` | string | A cor a ser usada quando o valor do *estado* é `false` . | Sim |
+| `false` | string | A cor a ser usada quando o valor do *estado* é `false` . | Yes |
 
 ### <a name="example-of-booleantypestylerule"></a>Exemplo de BooleanTypeStyleRule
 

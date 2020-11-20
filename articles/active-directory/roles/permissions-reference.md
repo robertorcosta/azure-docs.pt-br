@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874671"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963633"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -707,10 +707,11 @@ Acesso completo para gerenciar os dispositivos no Azure AD.
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
 | microsoft.directory/devices/delete | Exclua dispositivos no Azure Active Directory. |
 | microsoft.directory/devices/disable | Desabilite dispositivos no Azure Active Directory. |
 | microsoft.directory/devices/enable | Habilite dispositivos no Azure Active Directory. |
+| Microsoft. Directory/Devices/extensionattributes/Update | Atualize todos os valores para dispositivos. Propriedade extensionattributes no Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
@@ -731,6 +732,7 @@ Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que us
 | microsoft.directory/applications/allProperties/allTasks | Criar e excluir aplicativos e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/allProperties/allTasks | Criar e excluir appRoleAssignments e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
 | microsoft.directory/contacts/allProperties/allTasks | Criar e excluir contatos e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.directory/contracts/allProperties/allTasks | Criar e excluir contratos e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.directory/devices/allProperties/allTasks | Criar e excluir dispositivos e ler e atualizar todas as propriedades no Azure Active Directory. |
@@ -1087,6 +1089,7 @@ Pode ler tudo o que um Administrador global pode, mas não pode editar nada.
 | microsoft.directory/applications/basic/read    | Ler as propriedades básicas em aplicativos do Azure Active Directory. |
 | microsoft.directory/applications/owners/read    | Ler a propriedade Owners no Azure Active Directory. |
 | microsoft.directory/applications/policies/read    | Leia a propriedade applications.policies no Active Directory do Azure. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
 | microsoft.directory/contacts/basic/read    | Ler as propriedades básicas em contatos no Azure Active Directory. |
 | microsoft.directory/contacts/memberOf/read    | Ler a propriedade Contacts no Azure Active Directory. |
 | microsoft.directory/contracts/basic/read    | Ler as propriedades básicas sobre os contratos no Azure Active Directory. |
@@ -1267,13 +1270,16 @@ Pode gerenciar todos os aspectos do produto Intune.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Atualize as propriedades básicas em contatos no Azure Active Directory. |
 | microsoft.directory/contacts/create | Crie contatos no Azure Active Directory. |
 | microsoft.directory/contacts/delete | Exclua contatos no Azure Active Directory. |
 | microsoft.directory/devices/basic/update | Atualize as propriedades básicas em dispositivos no Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | microsoft.directory/devices/create | Crie dispositivos no Azure Active Directory. |
 | microsoft.directory/devices/delete | Exclua dispositivos no Azure Active Directory. |
+| microsoft.directory/devices/disable | Desabilite dispositivos no Azure Active Directory. |
+| microsoft.directory/devices/enable | Habilite dispositivos no Azure Active Directory. |
+| Microsoft. Directory/Devices/extensionattributes/Update | Atualize todos os valores para dispositivos. Propriedade extensionattributes no Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Atualize a propriedade registeredowners no Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Atualize a propriedade registeredusers no Azure Active Directory. |
 | microsoft.directory/groups/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
@@ -1654,9 +1660,9 @@ Pode ler informações e relatórios de segurança e gerenciar a configuração 
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Atualize a propriedade applications.policies no Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | Microsoft. Directory/identityProtection/myproperties/Read | Ler todos os recursos em microsoft.aad.identityProtection. |
 | Microsoft. Directory/identityProtection/myproperties/Update | Atualize todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
@@ -1706,7 +1712,7 @@ Pode ler informações de segurança e relatórios no Azure AD e Microsoft 365.
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Ler a propriedade policies.conditionalAccess no Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |

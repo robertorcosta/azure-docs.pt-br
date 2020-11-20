@@ -7,13 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094051"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965044"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -69,7 +68,7 @@ O intervalo de tempo também pode ser ajustado dos últimos 30 minutos para os �
 
 ![Modificação de métrica](media/metrics/metrics-6.png)
 
-A exibição padrão inclui todas as métricas de application's do serviço de nuvem do Spring do Azure juntas. As métricas de um aplicativo ou instância podem ser filtradas na exibição.  Clique em **Adicionar filtro**, defina a propriedade como **aplicativo**e selecione o aplicativo de destino que você deseja monitorar na caixa de texto **valores** . 
+A exibição padrão inclui todas as métricas de application's do serviço de nuvem do Spring do Azure juntas. As métricas de um aplicativo ou instância podem ser filtradas na exibição.  Clique em **Adicionar filtro**, defina a propriedade como **aplicativo** e selecione o aplicativo de destino que você deseja monitorar na caixa de texto **valores** . 
 
 Você pode usar dois tipos de filtros (Propriedades):
 * Aplicativo: filtrar por nome do aplicativo
@@ -90,13 +89,13 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
 ### <a name="error"></a>Erro
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. Error | Tomcat. global. Error | Contagem | Número de erros que ocorreram em solicitações processadas |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| System. CPU. Usage | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
 >| Process. CPU. Usage | Percentual de Uso de CPU do Aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
@@ -110,11 +109,10 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| JVM. GC. PAUSE. total. Count | JVM. GC. PAUSE (total-contagem) | Contagem | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
 >| JVM. GC. PAUSE. total. time | JVM. GC. PAUSE (tempo total) | Milissegundos | Tempo total de GC consumido após esse JMV iniciado, incluindo o GC jovem e antigo. |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="performance-net"></a>Desempenho (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Uso da CPU       | uso da CPU      | Milissegundos | Quantidade de tempo que o processo utilizou a CPU. |
 >| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho usado pelo processo. |
@@ -136,22 +134,20 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| Contagem de temporizadores ativos               | active-timer-Count               | Contagem | O número de temporizadores que estão ativos no momento. Um temporizador ativo é aquele registrado para tique em algum momento no futuro e ainda não foi cancelado. |
 
 Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="request"></a>Solicitação
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. sent | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
 >| Tomcat. global. Received | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
 >| Tomcat. global. Request. total. Count | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
 >| Tomcat. global. Request. Max | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="request-net"></a>Solicitação (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Solicitações por segundo | solicitações por segundo | Contagem | Taxa de solicitação. |
 >| Total de solicitações | total-solicitações | Contagem | Número total de solicitações. |
@@ -159,11 +155,10 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 >| Solicitações falhas | solicitações com falha | Contagem | Número de solicitações com falha. |
 
 Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
 >| Tomcat. Sessions. Alive. Max | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
