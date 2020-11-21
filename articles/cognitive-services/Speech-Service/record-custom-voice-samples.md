@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261577"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026311"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -104,7 +104,7 @@ Sob a lei de direitos autorais, a leitura de um texto com direitos autorais pelo
 
 Felizmente, é possível evitar completamente esses problemas. Há muitas fontes de texto que podem ser utilizadas sem permissão ou licença.
 
-|Fonte de texto|Descrição|
+|Fonte de texto|Description|
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Cerca de 1100 frases selecionadas de obras que não possuem direitos autorais, especificamente para uso em projetos de sintetização de fala. Um excelente ponto de partida.|
 |Obras que não estão mais<br>sob direitos autorais|Normalmente, obras publicadas antes de 1923. Para inglês, o [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de obras desse tipo. Talvez seja conveniente concentra-se em textos mais recentes, pois a linguagem estará mais próxima do inglês moderno.|
@@ -211,7 +211,7 @@ Ouça cada arquivo atentamente. Nessa fase, é possível editar pequenos sons in
 
 Converta cada arquivo em 16 bits e uma taxa de amostragem de 16 kHz antes de salvar e, se registrou a conversa no estúdio, remova o segundo canal. Salve cada arquivo no formato WAV, nomeando os arquivos com o número do enunciado no script.
 
-Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em texto do enunciado correspondente. [Criar fontes de voz personalizada](how-to-customize-voice-font.md) inclui detalhes do formato necessário. É possível copiar o texto diretamente do script. Em seguida, crie um arquivo zip dos arquivos WAV e a transcrição do texto.
+Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em texto do enunciado correspondente. [Criar fontes de voz personalizada](./how-to-custom-voice-create-voice.md) inclui detalhes do formato necessário. É possível copiar o texto diretamente do script. Em seguida, crie um arquivo zip dos arquivos WAV e a transcrição do texto.
 
 Arquive as gravações originais em um local seguro, caso precise delas posteriormente. Guarde também o script e as anotações.
 
@@ -220,4 +220,4 @@ Arquive as gravações originais em um local seguro, caso precise delas posterio
 Você está pronto para fazer upload as gravações e criar a voz personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
+> [Criar fontes de voz personalizadas](./how-to-custom-voice-create-voice.md)

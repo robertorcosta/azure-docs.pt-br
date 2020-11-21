@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e0b9ac3f16a170bb14925b555e8894cb10080488
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658563"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026175"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de vínculo privado usando CLI do Azure
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando CLI do Azure.
@@ -79,7 +79,7 @@ Uma regra de balanceador de carga define a configuração de IP de front-end par
 ```
 ### <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Neste exemplo, não abordamos a criação da máquina virtual. Você pode seguir as etapas em [início rápido: criar um balanceador de carga interno para balancear a carga de VMs usando CLI do Azure](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) para criar duas máquinas virtuais a serem usadas como servidores de back-end para o balanceador de carga. 
+Neste exemplo, não abordamos a criação da máquina virtual. Você pode seguir as etapas em [início rápido: criar um balanceador de carga interno para balancear a carga de VMs usando CLI do Azure](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) para criar duas máquinas virtuais a serem usadas como servidores de back-end para o balanceador de carga. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Desabilitar políticas de rede do serviço de vínculo privado na sub-rede 

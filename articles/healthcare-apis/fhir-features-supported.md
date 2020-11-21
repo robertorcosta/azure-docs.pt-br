@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368274"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026294"
 ---
 # <a name="features"></a>Recursos
 
@@ -29,7 +29,7 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 
 | API                            | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| read                           | Sim       | Sim       | Sim       |                                                     |
+| leitura                           | Sim       | Sim       | Sim       |                                                     |
 | vread                          | Sim       | Sim       | Sim       |                                                     |
 | atualizar                         | Sim       | Sim       | Sim       |                                                     |
 | atualizar com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
@@ -100,8 +100,8 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é compatível       |
 | `_count`                | Sim       | Sim       | Sim       | `_count` é limitado a 100 caracteres. Se definido como maior que 100, somente 100 será retornado e um aviso será retornado no grupo. |
-| `_include`              | Não        | Sim       | Não        |         |
-| `_revinclude`           | Não        | Sim       | Não        | Os itens incluídos são limitados a 100. |
+| `_include`              | Sim       | Sim       | Sim       |Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não inclui: suporte a iteração.|
+| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não inclui: suporte a iteração.|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
 | `_total`                | Parcial   | Parcial   | Parcial   | _total = não e _total = preciso      |
 | `_elements`             | Sim       | Sim       | Sim       |         |
@@ -132,6 +132,27 @@ Cosmos DB é um banco de dados multimodelo distribuído globalmente (API do SQL,
 O servidor FHIR usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para controle de acesso. Especificamente, o controle de acesso Role-Based (RBAC) é imposto, se o `FhirServer:Security:Enabled` parâmetro de configuração for definido como `true` , e todas as solicitações (exceto `/metadata` ) para o servidor FHIR devem ter o `Authorization` cabeçalho de solicitação definido como `Bearer <TOKEN>` . O token deve conter uma ou mais funções, conforme definido na `roles` declaração. Uma solicitação será permitida se o token contiver uma função que permita a ação especificada no recurso especificado.
 
 Atualmente, as ações permitidas para uma determinada função são aplicadas *globalmente* na API.
+
+## <a name="service-limits"></a>Limites de serviço
+
+* [**Unidades de solicitação (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) – você pode configurar até 10.000 RUs no portal para a API do Azure para FHIR. Será necessário um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, poderá colocar em um tíquete de suporte para que isso seja aumentado. O máximo disponível é 1 milhão.
+
+* **Conexões simultâneas** e **instâncias** – por Dafault, você tem cinco conexões simultâneas em duas instâncias no cluster (para um total de 10 solicitações simultâneas). Se você acreditar que precisa de mais solicitações simultâneas, abra um tíquete de suporte com detalhes sobre suas necessidades.
+
+* **Tamanho do pacote** -cada pacote é limitado a 500 itens.
+
+* **Tamanho dos dados** – os dados/documentos devem ser um pouco menores que 2 MB.
+
+## <a name="performance-expectations"></a>Expectativas de desempenho
+
+O desempenho do sistema depende do número de RUs, conexões simultâneas e do tipo de operações que você está executando (put, post etc.). Abaixo estão alguns intervalos gerais do que você pode esperar com base no RUs configurado. Em geral, o desempenho é dimensionado linearmente com um aumento no RUs:
+
+| n º de RUs | Recursos/s |
+|----------|---------------|
+| 400      | 5-10          |
+| 1,000    | 100-150       |
+| 10.000   | 225-400       |
+| 100.000  | 2500 a 4.000   |
 
 ## <a name="next-steps"></a>Próximas etapas
 

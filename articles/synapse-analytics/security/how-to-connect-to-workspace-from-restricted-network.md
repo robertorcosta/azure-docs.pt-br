@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637125"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024458"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conectar-se a recursos de espaço de trabalho de uma rede restrita
 
@@ -21,9 +21,9 @@ Suponha que você seja um administrador de ti que esteja gerenciando a rede rest
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure** : Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Espaço de trabalho do Azure Synapse Analytics** : você pode criar um da análise de Synapse do Azure. Você precisa do nome do espaço de trabalho na etapa 4.
-* **Uma rede restrita** : o administrador de ti mantém a rede restrita para a organização e tem permissão para configurar a política de rede. Você precisa do nome da rede virtual e sua sub-rede na etapa 3.
+* **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Espaço de trabalho do Azure Synapse Analytics**: você pode criar um da análise de Synapse do Azure. Você precisa do nome do espaço de trabalho na etapa 4.
+* **Uma rede restrita**: o administrador de ti mantém a rede restrita para a organização e tem permissão para configurar a política de rede. Você precisa do nome da rede virtual e sua sub-rede na etapa 3.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Etapa 1: adicionar regras de segurança de saída de rede à rede restrita
@@ -38,9 +38,9 @@ A captura de tela a seguir mostra detalhes para a regra de saída Azure Resource
 
 ![Captura de tela de Azure Resource Manager detalhes da marca de serviço.](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
-Quando você estiver criando as outras três regras, substitua o valor da **marca de serviço de destino** por **AzureFrontDoor. frontend** , **AzureActiveDirectory** ou **AzureMonitor** da lista.
+Quando você estiver criando as outras três regras, substitua o valor da **marca de serviço de destino** por **AzureFrontDoor. frontend**, **AzureActiveDirectory** ou **AzureMonitor** da lista.
 
-Para obter mais informações, consulte [visão geral das marcas de serviço](/azure/virtual-network/service-tags-overview.md).
+Para obter mais informações, consulte [visão geral das marcas de serviço](/azure/virtual-network/service-tags-overview).
 
 ## <a name="step-2-create-private-link-hubs"></a>Etapa 2: criar hubs de link privado
 
@@ -53,7 +53,7 @@ Em seguida, crie hubs de link privados no portal do Azure. Para encontrá-lo no 
 
 ## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Etapa 3: criar um ponto de extremidade privado para seu gateway
 
-Para acessar o gateway do Azure Synapse Analytics Studio, você deve criar um ponto de extremidade privado do portal do Azure. Para encontrá-lo no portal, procure por um *link privado*. No **centro de links privado** , selecione **criar ponto de extremidade privado** e preencha as informações necessárias para criá-lo. 
+Para acessar o gateway do Azure Synapse Analytics Studio, você deve criar um ponto de extremidade privado do portal do Azure. Para encontrá-lo no portal, procure por um *link privado*. No **centro de links privado**, selecione **criar ponto de extremidade privado** e preencha as informações necessárias para criá-lo. 
 
 > [!Note]
 > Verifique se o valor da **região** é o mesmo que o espaço de trabalho do Azure Synapse Analytics.
@@ -65,9 +65,9 @@ Na guia **recurso** , escolha o Hub de link privado, que você criou na etapa 2.
 ![Captura de tela de criar um ponto de extremidade privado, guia de recursos.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-2.png)
 
 Na guia **configuração** : 
-* Para **rede virtual** , selecione o nome da rede virtual restrita.
-* Para **sub-rede** , selecione a sub-rede da rede virtual restrita. 
-* Para **integrar com a zona DNS privada** , selecione **Sim**.
+* Para **rede virtual**, selecione o nome da rede virtual restrita.
+* Para **sub-rede**, selecione a sub-rede da rede virtual restrita. 
+* Para **integrar com a zona DNS privada**, selecione **Sim**.
 
 ![Captura de tela de criar um ponto de extremidade privado, guia de configuração.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
 
@@ -78,15 +78,15 @@ Depois que o ponto de extremidade do link privado for criado, você poderá aces
 Para acessar os recursos dentro do recurso de espaço de trabalho do Azure Synapse Analytics Studio, você precisa criar o seguinte:
 
 - Pelo menos um ponto de extremidade de link privado com um tipo de **desenvolvimento** de **subrecurso de destino**.
-- Dois outros pontos de extremidade de link privado opcionais com tipos de **SQL** ou **OnDemand** , dependendo de quais recursos no espaço de trabalho você deseja acessar.
+- Dois outros pontos de extremidade de link privado opcionais com tipos de **SQL** ou **OnDemand**, dependendo de quais recursos no espaço de trabalho você deseja acessar.
 
 Criá-los é semelhante a como você cria o ponto de extremidade na etapa anterior.  
 
 Na guia **recurso** :
 
-* Para **tipo de recurso** , selecione **Microsoft. Synapse/Workspaces**.
-* Para **recurso** , selecione o nome do espaço de trabalho que você criou anteriormente.
-* Para o **subrecurso de destino** , selecione o tipo de ponto de extremidade:
+* Para **tipo de recurso**, selecione **Microsoft. Synapse/Workspaces**.
+* Para **recurso**, selecione o nome do espaço de trabalho que você criou anteriormente.
+* Para o **subrecurso de destino**, selecione o tipo de ponto de extremidade:
   * O **SQL** é para a execução da consulta SQL no pool do SQL.
   * **OnDemand** é para a execução de consulta interna do SQL.
   * O **dev** é para acessar tudo o mais nos espaços de trabalho do Azure Synapse Analytics Studio. Você precisa criar pelo menos um ponto de extremidade de link privado deste tipo.
@@ -99,9 +99,9 @@ Na guia **recurso** :
 Para acessar o armazenamento vinculado com o Gerenciador de armazenamento no espaço de trabalho do Azure Synapse Analytics Studio, você deve criar um ponto de extremidade privado. As etapas para isso são semelhantes às da etapa 3. 
 
 Na guia **recurso** :
-* Para **tipo de recurso** , selecione **Microsoft. Synapse/storageAccounts**.
-* Para **recurso** , selecione o nome da conta de armazenamento que você criou anteriormente.
-* Para o **subrecurso de destino** , selecione o tipo de ponto de extremidade:
+* Para **tipo de recurso**, selecione **Microsoft. Synapse/storageAccounts**.
+* Para **recurso**, selecione o nome da conta de armazenamento que você criou anteriormente.
+* Para o **subrecurso de destino**, selecione o tipo de ponto de extremidade:
   * o **blob** é para o armazenamento de BLOBs do Azure.
   * o **DFS** é para Azure data Lake Storage Gen2.
 

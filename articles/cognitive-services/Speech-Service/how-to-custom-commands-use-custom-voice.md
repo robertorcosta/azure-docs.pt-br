@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: sausin
-ms.openlocfilehash: b1e488653f210089ee5ed6757fb2f3d1e4fb0fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5c14909606dcb862fcf53d99bc5bc00fba63bd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293953"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025677"
 ---
 # <a name="use-custom-commands-with-custom-voice"></a>Usar Comandos Personalizados com Voz Personalizada
 
@@ -26,13 +26,13 @@ Neste artigo, você aprenderá a selecionar uma voz de saída personalizada para
 1. Em seu aplicativo de comandos personalizados, selecione **configurações** no painel esquerdo.
 1. Selecione **voz personalizada** no painel central.
 1. Selecione a voz pública ou personalizada desejada da tabela.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!div class="mx-imgBorder"]
 > ![Sentenças de exemplo com parâmetros](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Para **vozes públicas**, os **tipos neurais** estão disponíveis somente para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neural por região/ponto de extremidade](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Para **vozes públicas**, os **tipos neurais** estão disponíveis somente para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neural por região/ponto de extremidade](./regions.md#standard-and-neural-voices).
 > - Para **vozes personalizadas**, elas podem ser criadas na página projeto de voz personalizado. Consulte [introdução à voz personalizada](./how-to-custom-voice.md).
 
 Agora, o aplicativo responderá na voz selecionada, em vez da voz padrão.

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 40d3ff736194c4634b949af52ee7b09db20dd06d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576352"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026124"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Criar um disco gerenciado com base em uma versão de imagem
 
@@ -33,9 +33,9 @@ az sig image-version list \
    -o table
 ```
 
-Defina a `source` variável como a ID da versão da imagem e, em seguida, use [AZ Disk Create](//cli/azure/disk#az_disk_create) para criar o disco gerenciado. 
+Defina a `source` variável como a ID da versão da imagem e, em seguida, use [AZ Disk Create](/cli/azure/disk?view=azure-cli-latest#az_disk_create) para criar o disco gerenciado. 
 
-Neste exemplo, exportamos o disco do sistema operacional da versão da imagem para criar um disco gerenciado chamado *myManagedOSDisk* , na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
+Neste exemplo, exportamos o disco do sistema operacional da versão da imagem para criar um disco gerenciado chamado *myManagedOSDisk*, na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -47,7 +47,7 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 Se você quiser exportar um disco de dados da versão da imagem, adicione `--gallery-image-reference-lun` para especificar o local do LUN do disco de dados a ser exportado. 
 
-Neste exemplo, exportamos o disco de dados localizado no LUN 0 da versão da imagem para criar um disco gerenciado chamado *myManagedDataDisk* , na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
+Neste exemplo, exportamos o disco de dados localizado no LUN 0 da versão da imagem para criar um disco gerenciado chamado *myManagedDataDisk*, na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -77,7 +77,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 Depois de definir a `source` variável como a ID da versão da imagem, use [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) para criar uma configuração de disco e [New-AzDisk](/powershell/module/az.compute/new-azdisk) para criar o disco. 
 
-Neste exemplo, exportamos o disco do sistema operacional da versão da imagem para criar um disco gerenciado chamado *myManagedOSDisk* , na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
+Neste exemplo, exportamos o disco do sistema operacional da versão da imagem para criar um disco gerenciado chamado *myManagedOSDisk*, na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
 
 Crie uma configuração de disco.
 ```azurepowershell-interactive
@@ -97,7 +97,7 @@ New-AzDisk -Disk $diskConfig `
 
 Se você quiser exportar um disco de dados na versão da imagem, adicione uma ID de LUN à configuração de disco para especificar o local do LUN de dados a ser exportado. 
 
-Neste exemplo, exportamos o disco de dados localizado no LUN 0 da versão da imagem para criar um disco gerenciado chamado *myManagedDataDisk* , na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
+Neste exemplo, exportamos o disco de dados localizado no LUN 0 da versão da imagem para criar um disco gerenciado chamado *myManagedDataDisk*, na região *eastus* , em um grupo de recursos chamado *MyResource* Group. 
 
 Crie uma configuração de disco.
 ```azurepowershell-interactive

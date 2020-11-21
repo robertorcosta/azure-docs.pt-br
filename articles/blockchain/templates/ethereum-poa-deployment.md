@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987058"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024391"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 
@@ -48,7 +48,9 @@ Cada implantação de membro do consórcio inclui:
 * Azure Monitor para agregar logs e estatísticas de desempenho
 * Gateway de rede virtual para permitir conexões VPN entre redes virtuais privadas (opcional)
 
-Por padrão, o RPC e pontos de extremidade de emparelhamento são acessíveis pela IP público para permitir a conectividade simplificada entre assinaturas e nuvens. Para controles de acesso de nível de aplicativo, você pode usar contratos de permissão de paridade. As redes implantadas atrás de VPNs, que aproveitam gateways de VNet para conectividade entre assinaturas, têm suporte. Como as implantações de VPN e VNet são mais complexas, talvez você queira começar com um modelo de IP público ao fazer um protótipo de uma solução.
+Por padrão, os pontos de extremidade RPC e de emparelhamento são acessíveis por IP público para permitir conectividade simplificada entre
+
+assinaturas e nuvens. Para controles de acesso de nível de aplicativo, você pode usar [contratos de permissão de paridade](https://openethereum.github.io/Permissioning.html). As redes implantadas atrás de VPNs, que aproveitam gateways de VNet para conectividade entre assinaturas, têm suporte. Como as implantações de VPN e VNet são mais complexas, talvez você queira começar com um modelo de IP público ao fazer um protótipo de uma solução.
 
 Os contêineres do Docker são usados para confiabilidade e modularidade. O registro de contêiner do Azure é usado para hospedar e fornecer imagens com versão como parte de cada implantação. As imagens de contêiner consistem em:
 
@@ -685,7 +687,7 @@ Agora que o seu contrato inteligente está implantado, você pode enviar uma tra
 
 ## <a name="webassembly-wasm-support"></a>Suporte de WebAssembly (WASM)
 
-O Suporte de WebAssembly já está habilitado para você em redes de PoA implantados recentemente. Ele permite desenvolvimento inteligente contrato em qualquer linguagem que transpila ao Assembly de Web (Rust, C, C++). Para obter mais informações, consulte [tutorial da tecnologia de paridade](https://github.com/paritytech/pwasm-tutorial).
+O Suporte de WebAssembly já está habilitado para você em redes de PoA implantados recentemente. Ele permite desenvolvimento inteligente contrato em qualquer linguagem que transpila ao Assembly de Web (Rust, C, C++). Para obter mais informações, consulte: [visão geral de paridade do Webassembly](https://openethereum.github.io/WebAssembly-Home.html) e [tutorial da tecnologia de paridade](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Perguntas frequentes
 

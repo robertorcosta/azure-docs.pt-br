@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555814"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025660"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Fala Personalizada
 
 Implemente treinamento automatizado, teste e gerenciamento de liberações para habilitar a melhoria contínua de modelos de Fala Personalizada ao aplicar atualizações a dados de treinamento e teste. Por meio da implementação efetiva de fluxos de trabalho de CI/CD, você pode garantir que o ponto de extremidade para o melhor desempenho Fala Personalizada modelo esteja sempre disponível.
 
-A CI ( [integração contínua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) ) é a prática de engenharia de confirmar atualizações com frequência em um repositório compartilhado e executar uma compilação automatizada nela. Os fluxos de trabalho de CI para Fala Personalizada treinam um novo modelo de suas fontes de dados e executam testes automatizados no novo modelo para garantir que ele tenha um desempenho melhor do que o modelo anterior.
+A CI ( [integração contínua](/azure/devops/learn/what-is-continuous-integration) ) é a prática de engenharia de confirmar atualizações com frequência em um repositório compartilhado e executar uma compilação automatizada nela. Os fluxos de trabalho de CI para Fala Personalizada treinam um novo modelo de suas fontes de dados e executam testes automatizados no novo modelo para garantir que ele tenha um desempenho melhor do que o modelo anterior.
 
-A [entrega contínua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) usa modelos do processo de CI e cria um ponto de extremidade para cada modelo de fala personalizada aprimorado. O CD torna os pontos de extremidade facilmente disponíveis para serem integrados em soluções.
+A [entrega contínua](/azure/devops/learn/what-is-continuous-delivery) (CD) usa modelos do processo de CI e cria um ponto de extremidade para cada modelo de fala personalizada aprimorado. O CD torna os pontos de extremidade facilmente disponíveis para serem integrados em soluções.
 
 As soluções personalizadas de CI/CD são possíveis, mas para uma solução robusta e predefinida, use o [repositório de modelos Speech DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), que executa fluxos de trabalho de CI/CD usando ações do github.
 
@@ -73,7 +73,7 @@ A maioria das equipes exige um processo manual de revisão e aprovação para a 
 
 Use as seguintes ferramentas para fluxos de trabalho de automação de CI/CD para Fala Personalizada:
 
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) criar uma autenticação de entidade de serviço do Azure, consultar assinaturas do Azure e armazenar resultados de teste no blob do Azure.
+- [CLI do Azure](/cli/azure/?view=azure-cli-latest) criar uma autenticação de entidade de serviço do Azure, consultar assinaturas do Azure e armazenar resultados de teste no blob do Azure.
 - A [CLI de fala do Azure](spx-overview.md) para interagir com o serviço de fala a partir da linha de comando ou de um fluxo de trabalho automatizado.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>Solução DevOps para Fala Personalizada usando ações do GitHub
@@ -84,7 +84,7 @@ O [repositório de modelos de fala DevOps](https://github.com/Azure-Samples/Spee
 
 - Copie o repositório de modelos para sua conta do GitHub e, em seguida, crie recursos do Azure e uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho de CI/CD de ações do github.
 - Percorra o "[loop interno de desenvolvimento](https://mitchdenny.com/the-inner-loop/)". Atualize os dados de treinamento e teste de um Branch de recurso, teste as alterações com um modelo de desenvolvimento temporário e gere uma solicitação de pull para propor e revisar as alterações.
-- Quando os dados de treinamento são atualizados em uma solicitação de pull para o *mestre* , treine modelos com o fluxo de trabalho de CI de ações do github.
+- Quando os dados de treinamento são atualizados em uma solicitação de pull para o *mestre*, treine modelos com o fluxo de trabalho de CI de ações do github.
 - Execute o teste de precisão automatizado para estabelecer a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) do modelo (WER). Armazene os resultados de teste no blob do Azure.
 - Execute o fluxo de trabalho do CD para criar um ponto de extremidade quando o WER melhorar.
 

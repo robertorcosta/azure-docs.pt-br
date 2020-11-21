@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330930"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024952"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de criação de conteúdo de áudio
 
@@ -33,13 +33,13 @@ A criação de conteúdo de áudio é uma ferramenta gratuita, mas você pagará
 
 ### <a name="step-1---create-an-azure-account"></a>Etapa 1-criar uma conta do Azure
 
-Para trabalhar com a criação de conteúdo de áudio, você precisa ter um [conta Microsoft](https://account.microsoft.com/account) e uma [conta do Azure](https://azure.microsoft.com/free/ai/). Siga estas instruções para [Configurar a conta](get-started.md#new-resource). 
+Para trabalhar com a criação de conteúdo de áudio, você precisa ter um [conta Microsoft](https://account.microsoft.com/account) e uma [conta do Azure](https://azure.microsoft.com/free/ai/). Siga estas instruções para [Configurar a conta](./overview.md#try-the-speech-service-for-free). 
 
 [Portal do Azure](https://portal.azure.com/) é o local centralizado para gerenciar sua conta do Azure. Você pode criar o recurso de fala, gerenciar o acesso ao produto e monitorar tudo, desde aplicativos Web simples até implantações de nuvem complexas. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Etapa 2 – criar um recurso de fala
 
-Depois de se inscrever na conta do Azure, você precisará criar um recurso de fala em sua conta do Azure para acessar os serviços de fala. Veja as instruções sobre [como criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+Depois de se inscrever na conta do Azure, você precisará criar um recurso de fala em sua conta do Azure para acessar os serviços de fala. Veja as instruções sobre [como criar um recurso de fala](./overview.md#create-the-azure-resource). 
 
 São necessários alguns instantes para a implantação do novo recurso de Fala. Depois que a implantação for concluída, você poderá iniciar a jornada de criação de conteúdo de áudio. 
 
@@ -63,7 +63,7 @@ Este diagrama mostra as etapas necessárias para ajustar as saídas de conversã
 2. [Crie um arquivo de ajuste de áudio](#create-an-audio-tuning-file) usando texto sem formatação ou scripts de SSML. Digite ou carregue seu conteúdo na criação de conteúdo de áudio.
 3. Escolha a voz e o idioma para o conteúdo do script. A criação de conteúdo de áudio inclui todas as [vozes de texto em fala da Microsoft](language-support.md#text-to-speech). Você pode usar o padrão, neural ou sua própria voz personalizada.
    >[!NOTE]
-   > O acesso restrito está disponível para vozes neurais personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para obter mais detalhes, consulte o [processo de retenção](https://aka.ms/ignite2019/speech/ethics).
+   > O acesso restrito está disponível para vozes neurais personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para obter mais detalhes, consulte o [processo de retenção](./text-to-speech.md).
 
 4. Clique no ícone de **reprodução** (um triângulo) para visualizar a saída de síntese padrão. Em seguida, aumente a saída ajustando pronúncia, quebra, pitch, taxa, intonation, estilo de voz e muito mais. Para obter uma lista completa de opções, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md). Aqui está um [vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para mostrar como ajustar a saída de fala com a criação de conteúdo de áudio. 
 5. Salve e [exporte seu áudio ajustado](#export-tuned-audio). Ao salvar a faixa de ajuste no sistema, você pode continuar a trabalhar e iterar na saída. Quando estiver satisfeito com a saída, você poderá criar uma tarefa de criação de áudio com o recurso exportar. Você pode observar o status da tarefa de exportação e baixar a saída para uso com seus aplicativos e produtos.
@@ -140,7 +140,7 @@ Siga estas etapas para adicionar um usuário a um recurso de fala para que eles 
 
     :::image source="media/audio-content-creation/add-role-first.png" alt-text="Caixa de diálogo Adicionar função":::
 
-1. Os usuários que você adicionar receberão um email de convite. Depois que eles clicarem em **aceitar convite**  >  **Accept para ingressar no Azure** , eles poderão usar a [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
+1. Os usuários que você adicionar receberão um email de convite. Depois que eles clicarem em **aceitar convite**  >  **Accept para ingressar no Azure**, eles poderão usar a [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
 
 Os usuários que estão no mesmo recurso de fala verão o trabalho deles no estúdio de criação de conteúdo de áudio. Se você quiser que cada usuário individual tenha um local de trabalho exclusivo e privado na criação de conteúdo de áudio, [crie um novo recurso de fala](#step-2---create-a-speech-resource) para cada usuário e dê a cada usuário o acesso exclusivo ao recurso de fala. 
 
@@ -160,7 +160,7 @@ Se você quiser que um dos usuários forneça acesso a outros usuários, será n
 
 ## <a name="see-also"></a>Confira também
 
-* [API de áudio longo](https://aka.ms/long-audio-api)
+* [API de áudio longo](./long-audio-api.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

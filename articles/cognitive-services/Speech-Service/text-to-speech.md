@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de texto em fala
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357447"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024510"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -31,7 +31,7 @@ Nesta visão geral, você aprenderá sobre os benefícios e capacidades do servi
 
 ## <a name="core-features"></a>Principais recursos
 
-* Síntese de fala – use o [SDK de fala](quickstarts/text-to-speech-audio-file.md) ou a [API REST](rest-text-to-speech.md) para converter conversão de texto em fala usando vozes padrão, neural ou personalizadas.
+* Síntese de fala – use o [SDK de fala](./get-started-text-to-speech.md) ou a [API REST](rest-text-to-speech.md) para converter conversão de texto em fala usando vozes padrão, neural ou personalizadas.
 
 * Síntese assíncrona de longo áudio – Use a [API de áudio longo](long-audio-api.md) para sintetizar de forma assíncrona arquivos de texto para fala por mais de 10 minutos (por exemplo, livros de áudio ou palestras). Ao contrário da síntese executada usando o SDK de fala ou a API REST de fala em texto, as respostas não são retornadas em tempo real. A expectativa é que as solicitações sejam enviadas de forma assíncrona, que as respostas sejam sondadas e que o áudio sintetizado seja baixado quando disponibilizado a partir do serviço. Há suporte apenas para vozes neurais personalizadas.
 

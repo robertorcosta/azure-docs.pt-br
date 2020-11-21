@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410769"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024782"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: o que há de novo no docs
 
@@ -38,17 +38,17 @@ Se você quiser saber mais sobre as atualizações para o serviço de fala, o SD
 
 * [Sobre a API do fluxo de entrada de áudio do SDK de fala](how-to-use-audio-input-streams.md) – amostras permitidas atualizadas por segundo.
 * [Detecção automática de idioma para instruções do](how-to-automatic-language-detection.md) Objective-C de fala a texto adicionadas à documentação.
-* [Escolha um modo de reconhecimento de fala](how-to-choose-recognition-mode.md) – foram adicionadas instruções de JavaScript à documentação.
+* [Escolha um modo de reconhecimento de fala](./get-started-speech-to-text.md) – foram adicionadas instruções de JavaScript à documentação.
 * [Configurar o RHEL/CentOS 7 para o SDK de fala](how-to-configure-rhel-centos-7.md) -instruções de configuração aprimoradas.
-* [Listas de frases para instruções JavaScript de fala para texto](how-to-phrase-lists.md) adicionadas à documentação.
-* [Início rápido: síntese assíncrona para áudio de formato longo em Python (versão prévia)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) – atualizado com suporte para vozes neurais públicas e parâmetros associados.
-* [Início rápido: reconhecer a fala de um arquivo de áudio](quickstarts/speech-to-text-from-file.md) – instruções JavaScript adicionadas à documentação.
-* [Início rápido: reconhecer a fala de uma](quickstarts/speech-to-text-from-microphone.md ) instrução Go e JavaScript adicionadas ao microfone à documentação.
+* [Listas de frases para instruções JavaScript de fala para texto](./get-started-speech-to-text.md) adicionadas à documentação.
+* [Início rápido: síntese assíncrona para áudio de formato longo em Python (versão prévia)](./long-audio-api.md) – atualizado com suporte para vozes neurais públicas e parâmetros associados.
+* [Início rápido: reconhecer a fala de um arquivo de áudio](./get-started-speech-to-text.md) – instruções JavaScript adicionadas à documentação.
+* [Início rápido: reconhecer a fala de uma](./get-started-speech-to-text.md) instrução Go e JavaScript adicionadas ao microfone à documentação.
 * [Início rápido: reconhecer a fala armazenada no armazenamento de BLOBs](quickstarts/from-blob.md) – instruções JavaScript adicionadas à documentação.
 * [Início rápido: reconhecer fala, intenções e entidades com Reconhecimento vocal (LUIS)](quickstarts/intent-recognition.md)
 * [Início rápido: configurar o ambiente de desenvolvimento](quickstarts/setup-platform.md) – instruções JavaScript adicionadas à documentação.
-* [Início rápido: sintetizar a fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md) – instruções JavaScript adicionadas à documentação.
-* [Início rápido: sintetizar a fala para um palestrante](quickstarts/text-to-speech.md) – instruções JavaScript adicionadas à documentação.
+* [Início rápido: sintetizar a fala em um arquivo de áudio](./get-started-text-to-speech.md) – instruções JavaScript adicionadas à documentação.
+* [Início rápido: sintetizar a fala para um palestrante](./get-started-text-to-speech.md) – instruções JavaScript adicionadas à documentação.
 * [O que é uma palavra-chave?](custom-keyword-overview.md) -Conteúdo e links de introdução atualizados.
 * [Especifique o idioma de origem para](how-to-specify-source-language.md) as instruções JavaScript e Objective-C adicionadas a fala a texto para a documentação.
 
@@ -58,7 +58,7 @@ Esses problemas foram abertos em maio. Esta tabela lista o usuário que abriu o 
 
 Esta tabela é atualizada mensalmente e só reflete os problemas abertos em maio.  
 
-|ID|Usuário|Descrição|Aberto|Estado|Tipo|
+|ID|Usuário|Description|Aberto|Estado|Tipo|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Atividade descartada porque o ponto de extremidade do bot está ausente|2020-05-31|Fechadas|Problema|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Etapas de bot de publicação erradas|2020-05-31|Aberto|Problema|

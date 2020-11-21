@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: a4670da5f5e89a4e020e26d1d704f172b8ab0864
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968308"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025269"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -185,16 +185,18 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Descrição |
+| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Description |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Logs do Web Server |
 | AppServiceEnvironmentPlatformLogs | Sim | N/D | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
 | AppServiceAuditLogs | Sim | Sim | Sim | Sim | Atividade de logon via FTP e kudu |
 | AppServiceFileAuditLogs | Sim | Sim | TBA | TBA | Alterações de arquivo feitas no conteúdo do site; disponível somente para a camada Premium e acima |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & imagens privilegiado Tomcat | Java SE & imagens privilegiado Tomcat | Logs de aplicativo |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & as imagens privilegiado Tomcat <sup>1</sup> | Java SE & as imagens privilegiado Tomcat <sup>1</sup> | Logs de aplicativo |
 | AppServiceIPSecAuditLogs  | Sim | Sim | Sim | Sim | Solicitações de regras de IP |
 | AppServicePlatformLogs  | TBA | Sim | Sim | Sim | Logs de operação do contêiner |
+
+<sup>1</sup> para aplicativos Java se, adicione "$website _AZMON_PREVIEW_ENABLED" às configurações do aplicativo e defina-o como 1 ou como true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
 * [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

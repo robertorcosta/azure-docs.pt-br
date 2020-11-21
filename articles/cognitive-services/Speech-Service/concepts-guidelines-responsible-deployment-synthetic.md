@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d80ffb575c6aa15695279584b58288cbc16be43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836773"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024969"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Diretrizes para a implantação responsável da tecnologia de voz sintética
 Aqui estão as diretrizes de design geral da Microsoft para o uso da tecnologia de voz sintética. Elas foram desenvolvidas em estudos que a Microsoft realizou com talento de voz, consumidores, bem como indivíduos com autoimunes de fala para guiar o desenvolvimento responsável da voz sintética.
@@ -39,7 +39,7 @@ Em cenários ambíguos e transacionais (por exemplo, um Call Center de suporte),
 Ao trabalhar com talento de voz, como atores de voz, para criar vozes sintéticas, a diretriz abaixo se aplica.
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>Obtenha um consentimento significativo do talento de voz
-O talento de voz espera ter controle sobre sua fonte de voz (como e onde será usado) e ser compensado sempre que for usado. Portanto, os proprietários do sistema devem obter permissão explícita por escrito do talento de voz e ter especificações contratuais claras sobre casos de uso, duração de uso, compensação e assim por diante. Alguns talentos de voz não sabem dos possíveis usos mal-intencionados da tecnologia e devem ser instruídos por proprietários do sistema sobre os recursos da tecnologia. Para saber mais sobre talento e consentimento de voz, leia nossa [divulgação de talento de voz](https://aka.ms/disclosure-voice-talent).
+O talento de voz espera ter controle sobre sua fonte de voz (como e onde será usado) e ser compensado sempre que for usado. Portanto, os proprietários do sistema devem obter permissão explícita por escrito do talento de voz e ter especificações contratuais claras sobre casos de uso, duração de uso, compensação e assim por diante. Alguns talentos de voz não sabem dos possíveis usos mal-intencionados da tecnologia e devem ser instruídos por proprietários do sistema sobre os recursos da tecnologia. Para saber mais sobre talento e consentimento de voz, leia nossa [divulgação de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent).
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>Considerações para aqueles com autoimunes de fala
@@ -57,13 +57,13 @@ Indivíduos com autoimunes de fala para fazer atualizações em sua voz sintéti
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Visão geral da retenção](concepts-gating-overview.md)
 * [Como divulgar](concepts-disclosure-guidelines.md)
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Como divulgar](concepts-disclosure-guidelines.md)
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)

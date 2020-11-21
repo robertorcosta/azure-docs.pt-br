@@ -12,19 +12,19 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f7536034eeac8548304f6a7f861910a99cd72a27
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447582"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024663"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configurar o módulo de proxy de API para seu cenário de hierarquia de gateway (versão prévia)
 
 O módulo proxy de API permite que IoT Edge dispositivos enviem solicitações HTTP por meio de gateways em vez de fazer conexões diretas com os serviços de nuvem. Este artigo percorre as opções de configuração para que você possa personalizar o módulo para dar suporte aos requisitos de hierarquia do gateway.
 
 >[!NOTE]
->Este recurso requer IoT Edge versão 1,2, que está em visualização pública, executando contêineres do Linux.
+>Este recurso exige o IoT Edge versão 1.2, que está em versão prévia pública, que execute contêineres do Linux.
 
 Em algumas arquiteturas de rede, IoT Edge dispositivos por trás de gateways não têm acesso direto à nuvem. Todos os módulos que tentarem se conectar aos serviços de nuvem falharão. O módulo proxy de API dá suporte a dispositivos downstream IoT Edge nessa configuração, redirecionando as conexões do módulo para percorrer as camadas de uma hierarquia de gateway, em vez disso. Ele fornece uma maneira segura para que os clientes se comuniquem com vários serviços via HTTPS sem túnel, mas encerrando as conexões em cada camada. O módulo de proxy de API atua como um módulo de proxy entre os dispositivos IoT Edge em uma hierarquia de gateway até que eles atinjam o dispositivo IoT Edge na camada superior. Nesse ponto, os serviços em execução na camada superior IoT Edge dispositivo lidam com essas solicitações e o módulo de proxy de API executa um proxy de todo o tráfego HTTP dos serviços locais para a nuvem por meio de uma única porta.
 
@@ -113,7 +113,7 @@ Esse cenário requer que os dispositivos de IoT Edge downstream apontem para o n
 
 Esse caso de uso é demonstrado no tutorial [criar uma hierarquia de dispositivos IOT Edge usando gateways](tutorial-nested-iot-edge.md).
 
-Configure os seguintes módulos na **camada superior** :
+Configure os seguintes módulos na **camada superior**:
 
 * Um módulo de registro do Docker
   * Configure o módulo com um nome fácil de memorização como o *registro* e expor uma porta no módulo para receber solicitações.
@@ -121,7 +121,7 @@ Configure os seguintes módulos na **camada superior** :
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `DOCKER_REQUEST_ROUTE_ADDRESS` | O nome do módulo do registro e a porta aberta. Por exemplo, `registry:5000`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
@@ -147,7 +147,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
 
@@ -173,13 +173,13 @@ Outro caso de uso para o módulo de proxy de API é habilitar IoT Edge dispositi
 
 Esse cenário usa o [armazenamento de BLOBs do Azure no módulo IOT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) na camada superior para lidar com a criação e o carregamento de BLOBs.
 
-Configure os seguintes módulos na **camada superior** :
+Configure os seguintes módulos na **camada superior**:
 
 * Um armazenamento de BLOBs do Azure no módulo IoT Edge.
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `BLOB_UPLOAD_ROUTE_ADDRESS` | O nome do módulo de armazenamento de BLOBs e a porta aberta. Por exemplo, `azureblobstorageoniotedge:1102`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
@@ -205,7 +205,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
 
@@ -263,7 +263,7 @@ Quando o módulo de proxy de API analisa uma configuração de proxy, ele primei
 
 Para atualizar a configuração de proxy dinamicamente, use as seguintes etapas:
 
-1. Escreva o arquivo de configuração. Você pode usar este modelo padrão como uma referência: [nginx_default_config. conf](hhttps://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Escreva o arquivo de configuração. Você pode usar este modelo padrão como uma referência: [nginx_default_config. conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Copie o texto do arquivo de configuração e converta-o em base64.
 1. Cole o arquivo de configuração codificado como o valor da `proxy_config` propriedade desejada no módulo "copiar".
 

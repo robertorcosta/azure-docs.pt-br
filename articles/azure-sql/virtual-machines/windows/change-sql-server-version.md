@@ -14,12 +14,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556447"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025371"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Alteração in-loco da versão SQL Server na VM do Azure
 
@@ -66,7 +66,7 @@ Para atualizar a versão do SQL Server, obtenha a mídia de instalação do SQL 
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Seleção para atualizar a versão do SQL Server":::
 
-1. Na página **chave do produto (Product Key** ), selecione uma opção para indicar se você está atualizando para uma edição gratuita do SQL Server ou se você tem uma chave de PID para uma versão de produção do produto. Para obter mais informações, consulte [edições e recursos com suporte do SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-155) e [atualizações de versão e edição com suporte (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
+1. Na página **chave do produto (Product Key** ), selecione uma opção para indicar se você está atualizando para uma edição gratuita do SQL Server ou se você tem uma chave de PID para uma versão de produção do produto. Para obter mais informações, consulte [edições e recursos com suporte do SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15) e [atualizações de versão e edição com suporte (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
 1. Selecione **Avançar** até chegar à página **pronto para atualizar** e, em seguida, selecione **Atualizar**. A janela de instalação pode parar de responder por vários minutos, enquanto a alteração está sendo efetivada. Uma página **completa** confirmará que a atualização foi concluída. Para obter um procedimento passo a passo para atualizar, consulte [o procedimento completo](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Página completa":::

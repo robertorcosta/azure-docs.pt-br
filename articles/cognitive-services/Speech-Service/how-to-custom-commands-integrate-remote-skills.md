@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565731"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025867"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exportar o aplicativo de comandos personalizados como uma habilidade remota
 
@@ -23,9 +23,9 @@ Neste artigo, você aprenderá a exportar um aplicativo de comandos personalizad
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class="checklist"]
-> * [Noções básicas sobre habilidade do bot Framework](https://aka.ms/speech/cc-skill-overview)
+> * [Noções básicas sobre habilidade do bot Framework](/azure/bot-service/skills-conceptual)
 > * [Noções básicas sobre o manifesto de habilidades](https://aka.ms/speech/cc-skill-manifest)
-> * [Como invocar uma habilidade de um bot do bot Framework](https://aka.ms/speech/cc-skill-consumer)
+> * [Como invocar uma habilidade de um bot do bot Framework](/azure/bot-service/skills-about-skill-consumers)
 > * Um aplicativo de comandos personalizados existente. Caso você não tenha nenhum aplicativo de comandos personalizados, experimente com- [QuickStart: criar um assistente de voz usando comandos personalizados](quickstart-custom-commands-application.md)
 
 ## <a name="custom-commands-as-remote-skills"></a>Comandos personalizados como habilidades remotas

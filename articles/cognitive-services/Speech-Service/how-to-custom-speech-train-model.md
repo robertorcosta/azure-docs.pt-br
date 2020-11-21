@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9193da2f3841bb94aa395399c31d7fe826c395e0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555780"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025592"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Treinar e implantar um modelo de Fala Personalizada
 
@@ -33,7 +33,7 @@ Se você estiver encontrando problemas de reconhecimento com um modelo base, o u
 
 ## <a name="train-and-evaluate-a-model"></a>Treinar e avaliar um modelo
 
-A primeira etapa para treinar um modelo é carregar dados de treinamento. Use [preparar e testar seus dados](how-to-custom-speech-test-data.md) para obter instruções passo a passo para preparar transcrições com rótulo humano e texto relacionado (declarações e pronúncias). Depois de carregar os dados de treinamento, siga estas instruções para começar a treinar seu modelo:
+A primeira etapa para treinar um modelo é carregar dados de treinamento. Use [preparar e testar seus dados](./how-to-custom-speech-test-and-train.md) para obter instruções passo a passo para preparar transcrições com rótulo humano e texto relacionado (declarações e pronúncias). Depois de carregar os dados de treinamento, siga estas instruções para começar a treinar seu modelo:
 
 1. Entre no portal de [fala personalizada](https://speech.microsoft.com/customspeech).
 2. Navegue até **conversão de fala em texto > Fala Personalizada > [nome do projeto] > treinamento**.
@@ -61,7 +61,7 @@ Em seguida, selecione **Adicionar ponto de extremidade** e insira um **nome** e 
 > [!NOTE]
 > Não se esqueça de aceitar os termos de uso e os detalhes de preços.
 
-Em seguida, selecione **Criar**. Essa ação retorna para a página de **implantação** . A tabela agora inclui uma entrada que corresponde ao seu ponto de extremidade personalizado. O status do ponto de extremidade mostra seu estado atual. Pode levar até 30 minutos para criar uma instância de um novo ponto de extremidade usando seus modelos personalizados. Quando o status da implantação for alterado para **concluído** , o ponto de extremidade estará pronto para uso.
+Em seguida, selecione **Criar**. Essa ação retorna para a página de **implantação** . A tabela agora inclui uma entrada que corresponde ao seu ponto de extremidade personalizado. O status do ponto de extremidade mostra seu estado atual. Pode levar até 30 minutos para criar uma instância de um novo ponto de extremidade usando seus modelos personalizados. Quando o status da implantação for alterado para **concluído**, o ponto de extremidade estará pronto para uso.
 
 Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade aparecerá como um link. Clique no link para exibir informações específicas para seu ponto de extremidade, como a chave do ponto de extremidade, a URL do ponto de extremidade e o código de exemplo.
 
@@ -77,6 +77,6 @@ Os dados de log estão disponíveis para download em **detalhes do ponto de extr
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
+- [Preparar e testar seus dados](./how-to-custom-speech-test-and-train.md)
 - [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 - [Avalie seus dados](how-to-custom-speech-evaluate-data.md)

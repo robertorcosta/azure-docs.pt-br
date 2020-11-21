@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921411"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025167"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é conversa com vários dispositivos (versão prévia)?
 
@@ -72,7 +72,7 @@ Cada cliente pode enviar áudio ou mensagens instantâneas. O serviço usará o 
 
 ## <a name="overview-of-conversation-host-and-participant"></a>Visão geral da conversa, do host e do participante
 
-Uma **conversa** é uma sessão que um usuário inicia para os outros usuários participantes ingressarem. Todos os clientes se conectam à conversa usando o **código de conversa**de cinco letras.
+Uma **conversa** é uma sessão que um usuário inicia para os outros usuários participantes ingressarem. Todos os clientes se conectam à conversa usando o **código de conversa** de cinco letras.
 
 Cada conversa cria metadados que incluem:
 -    Carimbos de data/hora de quando a conversa foi iniciada e encerrada
@@ -105,7 +105,7 @@ Ao criar ou ingressar em uma conversa, cada usuário deve escolher um **idioma p
 Há dois tipos de idiomas: somente de **fala a texto** e **texto**:
 - Se o usuário escolher uma linguagem de **fala para texto** como seu idioma principal, ele poderá usar a fala e a entrada de texto na conversa.
 
-- Se o usuário escolher uma linguagem **somente texto** , será possível usar apenas a entrada de texto e enviar mensagens instantâneas na conversa. As linguagens somente texto são os idiomas com suporte para tradução de texto, mas não de conversão de fala em texto. Você pode ver os idiomas disponíveis na página de [suporte ao idioma](supported-languages.md) .
+- Se o usuário escolher uma linguagem **somente texto** , será possível usar apenas a entrada de texto e enviar mensagens instantâneas na conversa. As linguagens somente texto são os idiomas com suporte para tradução de texto, mas não de conversão de fala em texto. Você pode ver os idiomas disponíveis na página de [suporte ao idioma](./language-support.md) .
 
 Além do idioma principal, cada participante também pode especificar idiomas adicionais para a tradução da conversa.
 
@@ -119,7 +119,7 @@ Abaixo está um resumo do que o usuário poderá fazer em uma conversa com vári
 | Traduza a conversa | ✔️ | ✔️ |
 
 > [!NOTE]
-> Para obter listas de idiomas de conversão de fala em texto e de texto disponíveis, consulte [idiomas com suporte](supported-languages.md).
+> Para obter listas de idiomas de conversão de fala em texto e de texto disponíveis, consulte [idiomas com suporte](./language-support.md).
 
 
 

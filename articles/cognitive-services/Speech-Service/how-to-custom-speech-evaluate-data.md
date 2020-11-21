@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555797"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025643"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e melhorar a precisão de Fala Personalizada
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e aprimorar a precisão da Fala Personalizada
 
 Neste artigo, você aprenderá a medir de forma quantitativa e melhorar a precisão dos modelos de fala-para-texto da Microsoft ou seus próprios modelos personalizados. Áudio e dados de transcrição com rótulo humano são necessários para testar a precisão e 30 minutos a 5 horas de áudio representativo devem ser fornecidos.
 
@@ -62,7 +62,7 @@ Depois que o teste tiver sido criado com êxito, você poderá comparar os resul
 
 ### <a name="side-by-side-comparison"></a>Comparação lado a lado
 
-Depois que o teste for concluído, indicado pela alteração do status para *êxito* , você encontrará um número do WER para ambos os modelos incluídos no teste. Clique no nome do teste para exibir a página de detalhes de teste. Essa página de detalhes lista todos os declarações no conjunto de seus conjuntos de anotações, indicando os resultados de reconhecimento dos dois modelos junto com a transcrição do conjunto de resultados enviado. Para ajudar a inspecionar a comparação lado a lado, você pode alternar vários tipos de erro, incluindo inserção, exclusão e substituição. Ao ouvir o áudio e comparar os resultados de reconhecimento em cada coluna, que mostra a transcrição de rótulo humano e os resultados de dois modelos de fala em texto, você pode decidir qual modelo atende às suas necessidades e onde são necessários treinamentos e aprimoramentos adicionais.
+Depois que o teste for concluído, indicado pela alteração do status para *êxito*, você encontrará um número do WER para ambos os modelos incluídos no teste. Clique no nome do teste para exibir a página de detalhes de teste. Essa página de detalhes lista todos os declarações no conjunto de seus conjuntos de anotações, indicando os resultados de reconhecimento dos dois modelos junto com a transcrição do conjunto de resultados enviado. Para ajudar a inspecionar a comparação lado a lado, você pode alternar vários tipos de erro, incluindo inserção, exclusão e substituição. Ao ouvir o áudio e comparar os resultados de reconhecimento em cada coluna, que mostra a transcrição de rótulo humano e os resultados de dois modelos de fala em texto, você pode decidir qual modelo atende às suas necessidades e onde são necessários treinamentos e aprimoramentos adicionais.
 
 ## <a name="improve-custom-speech-accuracy"></a>Aprimorar a precisão da Fala Personalizada
 
@@ -114,7 +114,7 @@ Considere estes detalhes:
 
 ### <a name="add-new-words-with-pronunciation"></a>Adicionar novas palavras com pronúncia
 
-As palavras que são feitas ou altamente especializadas podem ter pronúncias exclusivas. Essas palavras podem ser reconhecidas se a palavra puder ser dividida em palavras menores para pronuncia-la. Por exemplo, para reconhecer o **Xbox** , pronuncia-se como **X Box**. Essa abordagem não aumentará a precisão geral, mas pode aumentar o reconhecimento dessas palavras-chave.
+As palavras que são feitas ou altamente especializadas podem ter pronúncias exclusivas. Essas palavras podem ser reconhecidas se a palavra puder ser dividida em palavras menores para pronuncia-la. Por exemplo, para reconhecer o **Xbox**, pronuncia-se como **X Box**. Essa abordagem não aumentará a precisão geral, mas pode aumentar o reconhecimento dessas palavras-chave.
 
 > [!NOTE]
 > Essa técnica só está disponível para alguns idiomas no momento. Consulte personalização de pronúncia na [tabela de conversão de fala em texto](language-support.md) para obter detalhes.
@@ -136,5 +136,5 @@ A tabela a seguir mostra cenários de reconhecimento de voz e lista os materiais
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
+* [Preparar e testar seus dados](./how-to-custom-speech-test-and-train.md)
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)

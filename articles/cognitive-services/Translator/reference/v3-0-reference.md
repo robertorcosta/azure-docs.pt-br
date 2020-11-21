@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121010"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024493"
 ---
 # <a name="translator-v30"></a>Tradutor v 3.0
 
@@ -41,7 +41,7 @@ As solicitações para o Microsoft Translator estão na maioria dos casos manipu
 
 Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade regional desejado:
 
-|Descrição|Geografia do Azure|URL base|
+|Description|Geografia do Azure|URL base|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
@@ -147,7 +147,7 @@ Um token de autenticação é válido por 10 minutos. O token deve ser reutiliza
 
 ## <a name="virtual-network-support"></a>Suporte para Rede Virtual
 
-O serviço do tradutor agora está disponível com recursos de rede virtual (VNET) em todas as regiões da nuvem pública do Azure. Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço do tradutor agora está disponível com recursos de rede virtual (VNET) em todas as regiões da nuvem pública do Azure. Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Depois de ativar esse recurso, você deve usar o ponto de extremidade personalizado para chamar o tradutor. Você não pode usar o ponto de extremidade do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
 
@@ -230,13 +230,13 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, informe-o com data / hora do erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
-As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Métricas do Tradutor](../media/translatormetrics.png)
 
 Esta tabela lista as métricas disponíveis com a descrição de como elas são usadas para monitorar chamadas à API de tradução.
 
-| Métricas | Descrição |
+| Métricas | Description |
 |:----|:-----|
 | TotalCalls| Número total de chamadas de API.|
 | TotalTokenCalls| Número total de chamadas à API por meio do serviço de token usando o token de autenticação.|

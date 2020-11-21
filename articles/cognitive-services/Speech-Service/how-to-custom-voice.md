@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056679"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025071"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -42,7 +42,7 @@ O diagrama a seguir realça as etapas para criar um modelo de voz personalizado 
 O recurso de personalização de voz neural está atualmente em visualização pública, limitado aos clientes selecionados. Preencha este [formulário de aplicativo](https://go.microsoft.com/fwlink/?linkid=2108737) para começar.
 
 > [!NOTE]
-> Como parte do compromisso da Microsoft em projetar a AI responsável, nossa intenção é proteger os direitos de indivíduos e sociedade e promover interações transparentes de computadores humanos. Por esse motivo, a voz neural personalizada não está geralmente disponível para todos os clientes. Você pode obter acesso à tecnologia somente depois que seus aplicativos são revisados e você se compromete a usá-los em alinhamento com nossos princípios de ética. Saiba mais sobre o [processo de retenção](https://aka.ms/custom-neural-gating-overview)de nosso aplicativo.
+> Como parte do compromisso da Microsoft em projetar a AI responsável, nossa intenção é proteger os direitos de indivíduos e sociedade e promover interações transparentes de computadores humanos. Por esse motivo, a voz neural personalizada não está geralmente disponível para todos os clientes. Você pode obter acesso à tecnologia somente depois que seus aplicativos são revisados e você se compromete a usá-los em alinhamento com nossos princípios de ética. Saiba mais sobre o [processo de retenção](./concepts-gating-overview.md)de nosso aplicativo.
 
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
@@ -62,7 +62,7 @@ Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você p
 
 Conteúdo como dados, modelos, testes e pontos de extremidade são organizados em **projetos** no portal de voz personalizado. Cada projeto é específico de um país/idioma e do sexo da voz que você deseja criar. Por exemplo, você pode criar um projeto para uma voz fêmea para os bots de bate-papo do seu Call Center que usam o inglês no Estados Unidos (en-US).
 
-Para criar seu primeiro projeto, selecione a guia **conversão de texto em fala/voz personalizada** e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você verá quatro guias: **dados**, **treinamento**, **teste**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
+Para criar seu primeiro projeto, selecione a guia **conversão de texto em fala/voz personalizada** e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você verá quatro guias: **dados**, **treinamento**, **teste** e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
 > [!IMPORTANT]
 > O [portal de voz personalizado](https://aka.ms/custom-voice) foi atualizado recentemente! Se você criou dados, modelos, testes e pontos de extremidade publicados anteriores no portal do CRIS.ai ou com APIs, você precisa criar um novo projeto no novo portal para se conectar a essas entidades antigas.

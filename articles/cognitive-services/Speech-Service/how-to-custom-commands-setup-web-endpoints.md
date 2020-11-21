@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566241"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025884"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos de extremidade da Web
 
@@ -49,19 +49,19 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
    | Cabeçalhos | Chave: aplicativo; valor: use os oito primeiros dígitos da applicationId | Os parâmetros de cabeçalho a serem incluídos no cabeçalho da solicitação.|
 
     > [!NOTE]
-    > - O exemplo de ponto de extremidade da Web criado por meio da [Função do Azure](https://docs.microsoft.com/azure/azure-functions/), que se conecta ao banco de dados que salva o estado do dispositivo da TV e do ventilador
+    > - O exemplo de ponto de extremidade da Web criado por meio da [Função do Azure](../../azure-functions/index.yml), que se conecta ao banco de dados que salva o estado do dispositivo da TV e do ventilador
     > - O cabeçalho sugerido só é necessário para o exemplo de ponto de extremidade
     > - Para garantir que o valor do cabeçalho seja exclusivo no exemplo de ponto de extremidade, use os oito primeiros dígitos da applicationId
-    > - No mundo real, o ponto de extremidade da Web pode ser o ponto de extremidade do [Hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que gerencia seus dispositivos
+    > - No mundo real, o ponto de extremidade da Web pode ser o ponto de extremidade do [Hub IoT](../../iot-hub/about-iot-hub.md) que gerencia seus dispositivos
 
 1. Clique em **Salvar**.
 
 ## <a name="call-web-endpoints"></a>Chamar pontos de extremidade da Web
 
-1. Acesse o comando **TurnOnOff** , selecione **ConfirmationResponse** em regra de conclusão e escolha **Adicionar uma ação**.
-1. Em **Novo Tipo de Ação** , selecione **Chamar ponto de extremidade da Web**
-1. Em **Editar Ação – Pontos de Extremidade** , selecione **UpdateDeviceState** , que é o ponto de extremidade da Web que criamos.  
-1. Em **Configuração** , coloque os seguintes valores: 
+1. Acesse o comando **TurnOnOff**, selecione **ConfirmationResponse** em regra de conclusão e escolha **Adicionar uma ação**.
+1. Em **Novo Tipo de Ação**, selecione **Chamar ponto de extremidade da Web**
+1. Em **Editar Ação – Pontos de Extremidade**, selecione **UpdateDeviceState**, que é o ponto de extremidade da Web que criamos.  
+1. Em **Configuração**, coloque os seguintes valores: 
    > [!div class="mx-imgBorder"]
    > ![Chamar parâmetros de ação dos pontos de extremidade da Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -74,9 +74,9 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
     > [!NOTE]
     > - Os parâmetros de consulta sugeridos só são necessários para o exemplo de ponto de extremidade
 
-1. Em **Em Caso de Êxito – Ação a ser executada** , selecione **Enviar resposta de fala**.
+1. Em **Em Caso de Êxito – Ação a ser executada**, selecione **Enviar resposta de fala**.
     
-    No **Editor simples** , insira `{SubjectDevice} is {OnOff}`.
+    No **Editor simples**, insira `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
    > ![Captura de tela que mostra o em ação de sucesso a ser executada.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -88,9 +88,9 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
    > [!NOTE]
    > - Acesse também diretamente os campos na resposta HTTP usando `{YourWebEndpointName.FieldName}`. Por exemplo: `{UpdateDeviceState.TV}`
 
-1. Em **Em Caso de Falha – Ação a ser executada** , selecione **Enviar resposta de fala**
+1. Em **Em Caso de Falha – Ação a ser executada**, selecione **Enviar resposta de fala**
 
-    No **Editor simples** , insira `Sorry, {WebEndpointErrorMessage}`.
+    No **Editor simples**, insira `Sorry, {WebEndpointErrorMessage}`.
 
    > [!div class="mx-imgBorder"]
    > ![Chamar ação dos pontos de extremidade da Web em Caso de Falha](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
@@ -120,8 +120,8 @@ No entanto, na maioria dos casos, você só deseja enviar a atividade para o apl
 
 1. Exclua a ação **Enviar atividade para o cliente** adicionada anteriormente.
 1. Editar o ponto de extremidade da Web de chamada: 
-    1. Em **Configuração** , verifique se a opção **Parâmetros de Consulta** é `item={SubjectDevice}&&value={OnOff}`
-    1. Em **Em Caso de Êxito** , altere **Ação a ser executada** para **Enviar atividade para o cliente**
+    1. Em **Configuração**, verifique se a opção **Parâmetros de Consulta** é `item={SubjectDevice}&&value={OnOff}`
+    1. Em **Em Caso de Êxito**, altere **Ação a ser executada** para **Enviar atividade para o cliente**
     1. Copie o JSON abaixo para **Conteúdo da Atividade**
    ```json
    {
