@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305866"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021942"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introdução à Palavra-chave Personalizada
 
@@ -39,7 +39,7 @@ Antes de usar uma palavra-chave personalizada, você precisa criar uma palavra-c
 
 1. Na página de [palavra-chave personalizada](https://aka.ms/sdsdk-wakewordportal) , crie um **novo projeto**. 
 
-1. Insira um **nome** , uma **Descrição** opcional, e selecione o idioma. Você precisa de um projeto por idioma e o suporte está atualmente limitado ao `en-US` idioma.
+1. Insira um **nome**, uma **Descrição** opcional, e selecione o idioma. Você precisa de um projeto por idioma e o suporte está atualmente limitado ao `en-US` idioma.
 
     ![Descrever seu projeto de palavra-chave](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ Antes de usar uma palavra-chave personalizada, você precisa criar uma palavra-c
 
 1. Para criar um novo modelo de palavra-chave, clique em **treinar modelo**.
 
-1. Insira um **nome** para o modelo, uma **Descrição** opcional e a **palavra-chave** de sua escolha e clique em **Avançar**. Consulte as [diretrizes](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sobre como escolher uma palavra-chave efetiva.
+1. Insira um **nome** para o modelo, uma **Descrição** opcional e a **palavra-chave** de sua escolha e clique em **Avançar**. Consulte as [diretrizes](./custom-keyword-overview.md#choose-an-effective-keyword) sobre como escolher uma palavra-chave efetiva.
 
     ![Insira sua palavra-chave](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -79,4 +79,4 @@ Antes de usar uma palavra-chave personalizada, você precisa criar uma palavra-c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Teste sua palavra-chave personalizada com o guia de [início rápido do SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart).
+Teste sua palavra-chave personalizada com o guia de [início rápido do SDK de dispositivos de fala](./speech-devices-sdk-quickstart.md?pivots=platform-android).

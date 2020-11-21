@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839241"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021823"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Implantação contínua com o Azure DevOps
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a configurar a implantação contínua para seus 
 > [!div class = "checklist"]
 > * Um aplicativo de comandos personalizados para desenvolvimento (desenvolvimento)
 > * Um aplicativo de comandos personalizados para produção (PROD)
-> * Inscreva-se para [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Inscreva-se para [Azure pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 ## <a name="exportimportpublish"></a>Exportar/importar/publicar
 
@@ -99,7 +99,7 @@ Os scripts são hospedados em [Serviços cognitivas assistente de voz-comandos p
 
 ## <a name="deploy-from-source-code"></a>Implantar do código-fonte
 
-Caso você queira manter a definição do seu aplicativo em um repositório, fornecemos os scripts para implantações do código-fonte. Como os scripts estão em bash, se você estiver usando o Windows, precisará instalar o [subsistema do Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Caso você queira manter a definição do seu aplicativo em um repositório, fornecemos os scripts para implantações do código-fonte. Como os scripts estão em bash, se você estiver usando o Windows, precisará instalar o [subsistema do Linux](/windows/wsl/install-win10).
 
 Os scripts são hospedados em [Serviços cognitivas assistente de voz-comandos personalizados](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clone os scripts no diretório bash para seu repositório. Certifique-se de manter o mesmo caminho.
 

@@ -6,18 +6,18 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653699"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020752"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série temporal
 
 Este artigo descreve as variáveis de modelo de série temporal que especificam fórmulas e regras de computação em eventos.
 
-Cada variável pode ser um dos três tipos: *numeric*, *categórico*e *Aggregate*.
+Cada variável pode ser um dos três tipos: *numeric*, *categórico* e *Aggregate*.
 
 * Tipos **numéricos** funcionam com valores numéricos contínuos.
 * Os tipos **categóricos** funcionam com um conjunto definido de valores discretos.
@@ -29,12 +29,12 @@ A tabela a seguir exibe quais propriedades são relevantes para cada tipo de var
 
 ## <a name="numeric-variables"></a>Variáveis numéricas
 
-| Propriedade Variable | Descrição |
+| Propriedade Variable | Description |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou sensores ou transformados usando expressões de série temporal. Variáveis de tipo numérico devem ser do tipo *Double*.|
 | Interpolação de variável | Interpolação especifica como reconstruir um sinal usando dados existentes. As opções de interpolação de *etapa* e *linear* estão disponíveis para variáveis numéricas. |
-| Agregação de variáveis | Execute computações por meio das [funções de agregação com suporte para tipos de variáveis numéricas](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Agregação de variáveis | Execute computações por meio das [funções de agregação com suporte para tipos de variáveis numéricas](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
@@ -59,7 +59,7 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 ## <a name="categorical-variables"></a>Variáveis categóricas
 
-| Propriedade Variable | Descrição |
+| Propriedade Variable | Description |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser *longas* ou de *cadeia de caracteres*. |
@@ -99,10 +99,10 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 ## <a name="aggregate-variables"></a>Variáveis de agregação
 
-| Propriedade Variable | Descrição |
+| Propriedade Variable | Description |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
-| Agregação de variáveis | Execute computações por meio das [funções de agregação com suporte para tipos de variáveis de agregação](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Agregação de variáveis | Execute computações por meio das [funções de agregação com suporte para tipos de variáveis de agregação](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 As variáveis estão em conformidade com o seguinte exemplo de JSON:
 

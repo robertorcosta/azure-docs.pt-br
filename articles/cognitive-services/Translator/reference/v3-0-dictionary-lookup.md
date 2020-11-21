@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ada9c06f0befbea4b9aa85f95651e96dec595b7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83584732"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021279"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Tradutor 3,0: pesquisa de dicionário
 
 Fornece as traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções reversas. As traduções reversas possibilitam que um usuário entenda a tradução no contexto. A operação [Exemplo de Dicionário](./v3-0-dictionary-examples.md) permite mais detalhamento para ver os usos de exemplo de cada par de tradução.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
-| Parâmetro de consulta  | Descrição |
+| Parâmetro de consulta  | Description |
 | ------ | ----------- |
 | api-version <img width=200/>   | **Parâmetro obrigatório**.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0` |
 | de | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`. |
@@ -44,7 +44,7 @@ Os cabeçalhos de solicitação incluem:
 
 | Cabeçalhos  | Descrição |
 | ------ | ----------- |
-| Cabeçalhos de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Cabeçalhos de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
 | Content-Length   | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação. |
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. É possível omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`. |
@@ -80,7 +80,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `posTag`: uma cadeia de caracteres associando esse termo a uma marcação de parte da fala.
 
-        | Nome da marca | Descrição  |
+        | Nome da marca | Description  |
         |----------|--------------|
         | ADJ      | Adjetivos   |
         | ADV      | Advérbios      |
@@ -91,7 +91,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
         | PREP     | Preposições |
         | PRON     | Pronomes     |
         | VERBO     | Verbos        |
-        | OUTROS    | Outros        |
+        | OUTROS    | Outro        |
 
         Como uma observação de implementação, essas marcas foram determinadas por marcação de parte de fala no lado em inglês e, em seguida, pegando a marca mais frequente para cada par de origem/destino. Assim, se as pessoas costumam traduzir uma palavra em espanhol para uma marcação de parte da fala diferente em inglês, as marcações podem acabar ficando incorretas (com relação à palavra em espanhol).
 

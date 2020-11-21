@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461797"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021432"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -126,7 +126,6 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Aplicativos gerenciados  | Não | Não | Não |  |
 |Mapas  | Não | Não | Não |  |
 |Serviços de mídia | Sim | Sim | Não |  |
-|Microsoft Flow | Não | Não | Não |  |
 |Área de Trabalho Gerenciada da Microsoft | Não | Não | Não |  |
 |Microsoft PowerApps | Não | Não | Não |  |
 |Engajamento social da Microsoft | Não | Não | Não |  |
@@ -137,6 +136,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Hubs de Notificação | Sim | Não | Não |  |
 |Conjuntos de dados em aberto | Não | Não | Não |  |
 |Política | Não | Não | Não |  |
+|Power Automate | Não | Não | Não |  |
 |Power BI Embedded | Sim | Sim | Não |  |
 |Link Privado | Não | Não | Não |  |
 |Plataforma de comunicação do spool do projeto | Não | Não | Não |  |

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307405"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020939"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Adicionar modelos de geração de linguagem para respostas de fala
 
@@ -34,7 +34,7 @@ Você deve ter concluído as etapas nos seguintes artigos:
 
 ## <a name="language-generation-templates-overview"></a>Visão geral dos modelos de geração de linguagem
 
-Os modelos de comandos personalizados são baseados nos [modelos de LG](https://aka.ms/speech/cc-lg-format)do BotFramework. Como os comandos personalizados criam um novo modelo LG quando necessário (ou seja, para respostas de fala em parâmetros ou ações), não é necessário especificar o nome do modelo LG. Então, em vez de definir seu modelo como:
+Os modelos de comandos personalizados são baseados nos [modelos de LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)do BotFramework. Como os comandos personalizados criam um novo modelo LG quando necessário (ou seja, para respostas de fala em parâmetros ou ações), não é necessário especificar o nome do modelo LG. Então, em vez de definir seu modelo como:
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ Você só precisa definir o corpo do modelo sem o nome, da seguinte maneira.
 
 Essa alteração introduz a variação para as respostas de fala que estão sendo enviadas ao cliente. Portanto, para o mesmo expressão, a resposta de fala correspondente seria separada aleatoriamente das opções fornecidas.
 
-Aproveitar os modelos LG também permite que você defina respostas complexas de fala para comandos usando expressões adaptáveis. Você pode consultar o [formato de modelos LG](https://aka.ms/speech/cc-lg-format) para obter mais detalhes. Por padrão, os comandos personalizados dão suporte a todos os recursos com as seguintes diferenças secundárias:
+Aproveitar os modelos LG também permite que você defina respostas complexas de fala para comandos usando expressões adaptáveis. Você pode consultar o [formato de modelos LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) para obter mais detalhes. Por padrão, os comandos personalizados dão suporte a todos os recursos com as seguintes diferenças secundárias:
 
 * Nas entidades de modelos LG são representadas como $ {EntityName}. Em comandos personalizados, não usamos entidades, mas parâmetros podem ser usados como variáveis com qualquer uma dessas representações $ {parameterName} ou {parameterName}
 * Não há suporte para composição e expansão de modelo em comandos personalizados. Isso ocorre porque você nunca edita o `.lg` arquivo diretamente, mas apenas as respostas de modelos criados automaticamente.
@@ -64,7 +64,7 @@ Modifique o comando **TurnOnOff** para adicionar um novo parâmetro com a seguin
 
 | Configuração            | Valor sugerido       | 
 | ------------------ | --------------------- | 
-| Nome               | `SubjectContext`         | 
+| Name               | `SubjectContext`         | 
 | É global          | unchecked             | 
 | Obrigatório           | unchecked               | 
 | Type               | String                |
@@ -104,13 +104,13 @@ Outra maneira de personalizar respostas de comandos personalizados é selecionar
 1. Em seu aplicativo de comandos personalizados, selecione **configurações** no painel esquerdo.
 1. Selecione **voz personalizada** no painel central.
 1. Selecione a voz pública ou personalizada desejada da tabela.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!div class="mx-imgBorder"]
 > ![Sentenças de exemplo com parâmetros](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Para **vozes públicas**, os **tipos neurais** estão disponíveis somente para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neural por região/ponto de extremidade](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Para **vozes públicas**, os **tipos neurais** estão disponíveis somente para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neural por região/ponto de extremidade](./regions.md#standard-and-neural-voices).
 > - Para **vozes personalizadas**, elas podem ser criadas na página projeto de voz personalizado. Consulte [introdução à voz personalizada](./how-to-custom-voice.md).
 
 Agora, o aplicativo responderá na voz selecionada, em vez da voz padrão.

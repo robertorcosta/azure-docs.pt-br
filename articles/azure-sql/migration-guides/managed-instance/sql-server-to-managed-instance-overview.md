@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 211ad590ab01d0be26d799064e1227accc619585
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496585"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023711"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Algumas diretrizes gerais para ajudá-lo a escolher a camada de serviço e as ca
 Você pode escolher recursos de computação e armazenamento durante a implantação e, em seguida, alterá-los depois de usar o [portal do Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para seu aplicativo. 
 
 > [!IMPORTANT]
-> Qualquer discrepância nos requisitos de [rede virtual de instância gerenciada](/../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novas instâncias ou usar aquelas existentes. Saiba mais sobre como [criar novas](/../../managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   e [configurar redes existentes](/../../managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)   . 
+> Qualquer discrepância nos requisitos de [rede virtual de instância gerenciada](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) pode impedi-lo de criar novas instâncias ou usar aquelas existentes. Saiba mais sobre como [criar novas](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   e [configurar redes existentes](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)   . 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa de VM SQL Server
 

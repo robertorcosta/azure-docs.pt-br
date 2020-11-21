@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653767"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020769"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados de Azure Time Series Insights no Power BI
 
@@ -32,7 +32,7 @@ Lembre-se de inscrever-se para uma [assinatura gratuita do Azure](https://azure.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Baixe e instale a versão mais recente do [Power bi desktop](https://powerbi.microsoft.com/downloads/)
-* Ter ou criar um [ambiente de Gen2 de Azure Time Series insights](time-series-insights-update-how-to-manage.md)
+* Ter ou criar um [ambiente de Gen2 de Azure Time Series insights](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
@@ -130,7 +130,7 @@ Depois de criar o relatório, você poderá publicá-lo no Power BI Reporting Se
 
 ## <a name="advanced-editing"></a>Edição avançada
 
-Se você já carregou um conjunto de dados em Power BI mas deseja modificar a consulta (como os parâmetros de ID de ambiente ou de data/hora ou), você pode fazer isso por meio da funcionalidade de Editor Avançado do Power BI. Consulte a [documentação do Power bi](https://docs.microsoft.com/power-bi/desktop-query-overview) para saber mais.
+Se você já carregou um conjunto de dados em Power BI mas deseja modificar a consulta (como os parâmetros de ID de ambiente ou de data/hora ou), você pode fazer isso por meio da funcionalidade de Editor Avançado do Power BI. Consulte a [documentação do Power bi](/power-bi/desktop-query-overview) para saber mais.
 
 Como uma visão geral:
 
@@ -146,6 +146,6 @@ Agora, a interface refletirá as alterações desejadas que você aplicou.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia sobre os [conceitos do conector de Power bi](https://docs.microsoft.com/power-bi/desktop-query-overview) para Azure Time Series insights.
+* Leia sobre os [conceitos do conector de Power bi](/power-bi/desktop-query-overview) para Azure Time Series insights.
 
-* Saiba mais sobre o [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Saiba mais sobre o [Power bi desktop](/power-bi/desktop-query-overview).

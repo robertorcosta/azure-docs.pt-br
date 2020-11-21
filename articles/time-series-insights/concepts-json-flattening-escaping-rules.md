@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460859"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023302"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Nivelamento, escape e matriz de JSON
 
@@ -22,18 +22,18 @@ Seu ambiente de Azure Time Series Insights Gen2 criará dinamicamente as colunas
 
 > [!IMPORTANT]
 >
-> * Examine as regras abaixo antes de selecionar uma [Propriedade ID da série temporal](time-series-insights-update-how-to-id.md) e/ou o carimbo de data/hora de origem do evento [(s) apropriado](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Se a ID do TS ou o carimbo de data/hora estiver dentro de um objeto aninhado ou se tiver um ou mais dos caracteres especiais abaixo, é importante garantir que o nome da propriedade que você fornece corresponda ao nome da coluna *depois* que as regras de ingestão tiverem sido aplicadas. Consulte o exemplo [B](concepts-json-flattening-escaping-rules.md#example-b) abaixo.
+> * Examine as regras abaixo antes de selecionar uma [Propriedade ID da série temporal](./how-to-select-tsid.md) e/ou o carimbo de data/hora de origem do evento [(s) apropriado](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Se a ID do TS ou o carimbo de data/hora estiver dentro de um objeto aninhado ou se tiver um ou mais dos caracteres especiais abaixo, é importante garantir que o nome da propriedade que você fornece corresponda ao nome da coluna *depois* que as regras de ingestão tiverem sido aplicadas. Consulte o exemplo [B](concepts-json-flattening-escaping-rules.md#example-b) abaixo.
 
-| Regra | JSON de exemplo | [Sintaxe de expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em parquet
+| Regra | JSON de exemplo | [Sintaxe de expressão de série temporal](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em parquet
 |---|---|---|---|
 | O tipo de dados Azure Time Series Insights Gen2 é acrescentado ao final do nome da coluna como "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | A propriedade de [carimbo de data/hora](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de origem do evento será salva em Azure Time Series insights Gen2 como "timestamp" no armazenamento e o valor armazenado em UTC. Você pode personalizar sua propriedade de carimbo de data/hora de origem do evento para atender às necessidades da sua solução, mas o nome da coluna em armazenamento quente e frio é "timestamp". Outras propriedades JSON de DateTime que não são o carimbo de data/hora da origem do evento serão salvas com "_datetime" no nome da coluna, conforme mencionado na regra acima.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | Nomes de propriedades JSON que incluem os caracteres especiais. [\ e ' têm escape usando [' e ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | Em [' e '] há escape adicional de aspas simples e barras invertidas. Uma aspa simples será escrita como \ ' e uma barra invertida será escrita como \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Objetos JSON aninhados são achatados com um ponto como separador. Há suporte para o aninhamento de até 10 níveis. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` ou `$event.series['value'].Long` |  `series.value_long` |
-| Matrizes de tipos primitivos são armazenadas como o tipo dinâmico |  ```"values": [154, 149, 147]``` | Tipos dinâmicos só podem ser recuperados por meio da API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Matrizes de tipos primitivos são armazenadas como o tipo dinâmico |  ```"values": [154, 149, 147]``` | Tipos dinâmicos só podem ser recuperados por meio da API [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | As matrizes que contêm objetos têm dois comportamentos, dependendo do conteúdo do objeto: se a (s) Propriedade (ões) ou (es) do carimbo de data/hora estiver dentro dos objetos em uma matriz, a matriz será desregistrada de forma que o conteúdo JSON inicial produza vários eventos. Isso permite que você lote vários eventos em uma estrutura JSON. Todas as propriedades de nível superior que são pares da matriz serão salvas com cada objeto não registrado. Se suas IDs de TS e carimbo de data/hora *não* estiverem dentro da matriz, ele será salvo como o tipo dinâmico. | Veja os exemplos [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b)e [C](concepts-json-flattening-escaping-rules.md#example-c) abaixo
-| Matrizes contendo elementos mistos não são achatadas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Tipos dinâmicos só podem ser recuperados por meio da API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Matrizes contendo elementos mistos não são achatadas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Tipos dinâmicos só podem ser recuperados por meio da API [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | 512 caracteres é o limite de nome da propriedade JSON. Se o nome exceder 512 caracteres, ele será truncado para 512 e ' _< ' hashCode ' > ' será acrescentado. **Observe** que isso também se aplica a nomes de propriedade que foram concatenados do objeto achatado, denotando um caminho de objeto aninhado. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Compreendendo o comportamento dual para matrizes
@@ -44,7 +44,7 @@ No entanto, em alguns casos, as matrizes que contêm objetos só são significat
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Como saber se minha matriz de objetos produzirá vários eventos
 
-Se uma ou mais de sua ID de série temporal estiver aninhada dentro de objetos em uma matriz *ou* se a propriedade de carimbo de data/hora de origem do evento estiver aninhada, o mecanismo de ingestão irá dividi-lo para criar vários eventos. Os nomes de propriedade que você forneceu para suas IDs de TS e/ou carimbo de data/hora devem seguir as regras de mesclagem acima e, portanto, indicarão a forma do JSON. Consulte os exemplos abaixo e confira o guia sobre como [selecionar uma propriedade ID da série temporal.](time-series-insights-update-how-to-id.md)
+Se uma ou mais de sua ID de série temporal estiver aninhada dentro de objetos em uma matriz *ou* se a propriedade de carimbo de data/hora de origem do evento estiver aninhada, o mecanismo de ingestão irá dividi-lo para criar vários eventos. Os nomes de propriedade que você forneceu para suas IDs de TS e/ou carimbo de data/hora devem seguir as regras de mesclagem acima e, portanto, indicarão a forma do JSON. Consulte os exemplos abaixo e confira o guia sobre como [selecionar uma propriedade ID da série temporal.](./how-to-select-tsid.md)
 
 ### <a name="example-a"></a>Exemplo A
 

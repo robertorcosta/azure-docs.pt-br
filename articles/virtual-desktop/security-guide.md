@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842627"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023149"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -62,7 +62,7 @@ Para saber mais, consulte [Integrar sua assinatura do Azure ao Centro de Seguran
 
 ### <a name="improve-your-secure-score"></a>Aprimorar sua classificação de segurança
 
-A classificação segura fornece recomendações e conselhos de melhores práticas para melhorar sua segurança geral. Essas recomendações são priorizadas para ajudar você a escolher quais são as mais importantes, e as opções de Correção Rápida ajudam você a resolver vulnerabilidades potenciais rapidamente. Essas recomendações também são atualizadas com o passar do tempo, mantendo você atualizado sobre as melhores formas de manter a segurança do seu ambiente. Para saber mais, consulte [Melhorar sua classificação de segurança na Central de Segurança do Azure](../security-center/security-center-secure-score.md).
+A classificação segura fornece recomendações e conselhos de melhores práticas para melhorar sua segurança geral. Essas recomendações são priorizadas para ajudar você a escolher quais são as mais importantes, e as opções de Correção Rápida ajudam você a resolver vulnerabilidades potenciais rapidamente. Essas recomendações também são atualizadas com o passar do tempo, mantendo você atualizado sobre as melhores formas de manter a segurança do seu ambiente. Para saber mais, consulte [Melhorar sua classificação de segurança na Central de Segurança do Azure](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Melhores práticas de segurança da Área de Trabalho Virtual do Windows
 
@@ -74,13 +74,13 @@ Exigir a autenticação multifator para todos os usuários e administradores na 
 
 ### <a name="enable-conditional-access"></a>Habilitar o Acesso Condicional
 
-Habilitar o [Acesso Condicional](../active-directory/conditional-access/best-practices.md) permite que você gerencie os riscos antes de conceder acesso ao seu ambiente de Área de Trabalho Virtual do Windows. Ao decidir a quais usuários conceder acesso, recomendamos que você também considere quem é o usuário, como eles se conectam e qual dispositivo ele está usando.
+Habilitar o [Acesso Condicional](../active-directory/conditional-access/overview.md) permite que você gerencie os riscos antes de conceder acesso ao seu ambiente de Área de Trabalho Virtual do Windows. Ao decidir a quais usuários conceder acesso, recomendamos que você também considere quem é o usuário, como eles se conectam e qual dispositivo ele está usando.
 
 ### <a name="collect-audit-logs"></a>Coletar logs de auditoria
 
 Habilitar a coleta de log de auditoria permite exibir a atividade de usuário e de administrador relacionada à Área de Trabalho Virtual do Windows. Alguns exemplos de logs de auditoria de chave são:
 
--   [Log de atividades do Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Log de atividades do Azure](../azure-monitor/platform/activity-log.md)
 -   [Log de atividades do Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Hosts de sessão](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Ao escolher um modelo de implantação, você pode fornecer aos usuários remoto
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Monitorar o uso com o Azure Monitor
 
-Monitore o uso e a disponibilidade do serviço de Área de Trabalho Virtual do Windows com o [Azure Monitor](https://azure.microsoft.com/services/monitor/). Cogite criar [alertas de integridade do serviço](../service-health/alerts-activity-log-service-notifications.md) para o serviço de Área de Trabalho Virtual do Windows para receber notificações sempre que houver um evento de impacto no serviço.
+Monitore o uso e a disponibilidade do serviço de Área de Trabalho Virtual do Windows com o [Azure Monitor](https://azure.microsoft.com/services/monitor/). Cogite criar [alertas de integridade do serviço](../service-health/alerts-activity-log-service-notifications-portal.md) para o serviço de Área de Trabalho Virtual do Windows para receber notificações sempre que houver um evento de impacto no serviço.
 
 ## <a name="session-host-security-best-practices"></a>Melhores práticas de segurança do host da sessão
 

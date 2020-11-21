@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394944"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021007"
 ---
 # <a name="securing-azure-sql-edge"></a>Protegendo o Azure SQL Edge
 
@@ -34,14 +34,14 @@ A implementação da segurança da plataforma começa com a manutenção de usu�
 - Especificando e restringindo as portas de host que estão usando para o Azure SQL Edge
 - Garantir que o controle de acesso adequado seja aplicado a todos os volumes de dados que hospedam dados do Azure SQL Edge. 
 
-Para obter mais informações sobre protocolos de rede do Azure SQL Edge e pontos de extremidade TDS, consulte [protocolos de rede e pontos de extremidade TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Para obter mais informações sobre protocolos de rede do Azure SQL Edge e pontos de extremidade TDS, consulte [protocolos de rede e pontos de extremidade TDS](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização 
 
 ### <a name="authentication"></a>Autenticação  
 A autenticação é o processo de provar que o usuário é quem diz ser. O Azure SQL Edge atualmente dá suporte apenas ao `SQL Authentication` mecanismo.
 
-- *Autenticação do SQL* :
+- *Autenticação do SQL*:
 
     A autenticação do SQL refere-se à autenticação de um usuário ao se conectar ao Azure SQL Edge usando o nome de usuário e a senha. A senha de logon **SA** do SQL deve ser especificada durante a implantação do SQL Edge. Depois disso, os usuários e logons do SQL adicionais podem ser criados pelo administrador do servidor, que permite que os usuários se conectem usando nome de usuário e senha.
 

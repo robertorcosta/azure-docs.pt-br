@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875097"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023166"
 ---
 # <a name="safe-url-list"></a>Lista de URL segura
 
@@ -34,7 +34,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal do Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto de extremidade do serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
 >Agora, a Área de Trabalho Virtual do Windows dá suporte à marca FQDN. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -56,7 +56,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Suporte do portal do Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto de extremidade do serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do Azure podem ter acesso:
 

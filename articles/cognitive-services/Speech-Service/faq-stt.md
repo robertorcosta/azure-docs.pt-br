@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397752"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024320"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
-Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](support.md).
+Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Geral
 
@@ -29,7 +29,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 **P: Por onde começar se eu quiser usar um modelo de linha de base?**
 
-**R**: Primeiro, obtenha uma [chave de assinatura](overview.md#try-the-speech-service-for-free). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](rest-apis.md). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
+**R**: Primeiro, obtenha uma [chave de assinatura](overview.md#try-the-speech-service-for-free). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](./overview.md#reference-docs). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
 
 **P: Preciso sempre criar um modelo de fala personalizado?**
 
