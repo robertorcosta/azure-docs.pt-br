@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 650c239423db23bcd4329ab38080b82809fa4f09
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cff5c68803d0930bbf3310a385ffa0132bcbb3b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842168"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95017019"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -50,7 +50,7 @@ Backup mensal/anual| Não tem suporte durante o backup com a extensão de VM do 
 Ajuste automático de relógio | Sem suporte.<br/><br/> O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de uma VM.<br/><br/>  Modifique a política manualmente, se necessário.
 [Recursos de segurança para backups híbridos](./backup-azure-security-feature.md) |Não há suporte para desabilitar recursos de segurança.
 Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup dessa VM, no entanto, mesmo que a alteração de tempo seja revertida, o backup bem-sucedido não será garantido.
-VMs do Azure em [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) | Há suporte para backup e restauração em VMs com o [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) definido como 3. <br><br>Não há suporte para conjuntos de disponibilidade.
+VMs do Azure em [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) |Não há suporte para conjuntos de disponibilidade.
 
 ## <a name="operating-system-support-windows"></a>Suporte do sistema operacional (Windows)
 
@@ -140,7 +140,7 @@ Restaurar a VM em uma rede virtual diferente |Com suporte.<br/><br/> As rede vir
 Tamanho da VM |Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM.<br/><br/> [Saiba mais.](../virtual-machines/sizes.md)
 Backup de VMs em [conjuntos de disponibilidade](../virtual-machines/availability.md#availability-sets) | Com suporte.<br/><br/> Você não pode restaurar uma VM em um conjunto disponível usando a opção para criar rapidamente uma VM. Em vez disso, ao restaurar a VM, restaure o disco e use-o para implantar uma VM ou restaure um disco e use-o para substituir um disco existente.
 Fazer backup de VMs implantadas com [HUB (Benefício de uso híbrido)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Com suporte.
-Fazer backup de VMs implantadas em um [conjunto de dimensionamento](../virtual-machine-scale-sets/overview.md) |Com suporte. O [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md) deve ser definido como 2 para o domínio de falha. Não há suporte para o conjunto de disponibilidade.
+Fazer backup de VMs implantadas em um [conjunto de dimensionamento](../virtual-machine-scale-sets/overview.md) |Com suporte. Não há suporte para o conjunto de disponibilidade.
 Fazer backup de VMs implantadas do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado pela Microsoft, produtos de terceiros) |Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior). Não restauramos as VMs do Azure Marketplace apoiadas como VMs, pois elas precisam de informações de compra. Eles são restaurados somente como discos.
 Fazer backup de VMs implantadas de uma imagem personalizada (terceiros) |Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs migradas para o Azure| Com suporte.<br/><br/> Para fazer backup da VM, o agente da VM deve estar instalado no computador migrado.

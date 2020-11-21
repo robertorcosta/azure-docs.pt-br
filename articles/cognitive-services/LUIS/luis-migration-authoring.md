@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455c7d66748740ae6e2cc11c6a44bbf30c1cbced
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536029"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018830"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -40,7 +40,7 @@ A migração deve ser feita no portal do LUIS. Se você criar as chaves de cria�
 * Os proprietários são solicitados a enviar emails aos colaboradores para informá-los sobre a migração.
 * Os aplicativos não serão migrados com você se você for um colaborador no aplicativo.
 * Não há nenhuma maneira de um proprietário saber que os colaboradores migraram.
-* A migração não coleta automaticamente colaboradores e move-os ou adiciona-os ao recurso de criação do Azure. O proprietário do aplicativo é aquele que precisa concluir esta etapa após a migração. Esta etapa requer [permissões para o recurso de criação do Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
+* A migração não coleta automaticamente colaboradores e move-os ou adiciona-os ao recurso de criação do Azure. O proprietário do aplicativo é aquele que precisa concluir esta etapa após a migração. Esta etapa requer [permissões para o recurso de criação do Azure](./luis-how-to-collaborate.md).
 * Após os colaboradores serem atribuídos ao recurso do Azure, eles precisam migrar para acessar aplicativos. Caso contrário, eles não terão acesso para criar os aplicativos.
 * Um usuário migrado não pode ser adicionado como um colaborador do aplicativo.
 * Se você tiver chaves de previsão que são atribuídas a aplicativos pertencentes a outro usuário, isso bloqueará a migração para o proprietário e os colaboradores. Consulte as recomendações mais adiante neste artigo.
@@ -174,7 +174,7 @@ Se você planeja editar seus aplicativos programaticamente, precisará dos valor
 
 Saiba [como adicionar colaboradores](luis-how-to-collaborate.md) em seu recurso de criação. Os colaboradores terão acesso a todos os aplicativos sob esse recurso.
 
-Você pode adicionar colaboradores ao recurso de criação do portal do Azure, na página de controle de **acesso (iam)** para esse recurso. Para obter mais informações, consulte [Adicionar acesso de colaborador](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
+Você pode adicionar colaboradores ao recurso de criação do portal do Azure, na página de controle de **acesso (iam)** para esse recurso. Para obter mais informações, consulte [Adicionar colaboradores ao seu aplicativo](luis-how-to-collaborate.md).
 
 > [!Note]
 > Se o proprietário do aplicativo LUIS migrou e adicionou o colaborador como um colaborador no recurso do Azure, o colaborador ainda não terá acesso ao aplicativo, a menos que eles também migrem.
@@ -229,7 +229,7 @@ Quando você tenta migrar, mas não consegue encontrar sua assinatura do Azure n
 * Verifique se você está no locatário adequado associado à sua assinatura válida. Você pode alternar locatários do avatar para a esquerda de suas iniciais nesta barra de ferramentas: ![ barra de ferramentas onde você pode alternar locatários](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Se você tiver um recurso de criação existente, mas não conseguir encontrá-lo quando selecionar a opção **usar recurso de criação existente** :
-* O recurso foi provavelmente criado em um local diferente do portal em que você está conectado. Verifique as [regiões de criação do Luis e portais](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
+* O recurso foi provavelmente criado em um local diferente do portal em que você está conectado. Verifique as [regiões de criação do Luis e portais](./luis-reference-regions.md#luis-authoring-regions).
 * Em vez disso, crie um novo recurso no portal do LUIS.
 
 Se você selecionar a opção **criar novo recurso de criação** e a migração falhar com a mensagem de erro "falha ao recuperar as informações do usuário do Azure, tente novamente mais tarde":

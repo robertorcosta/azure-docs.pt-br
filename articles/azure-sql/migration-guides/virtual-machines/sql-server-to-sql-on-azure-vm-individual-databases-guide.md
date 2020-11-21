@@ -10,17 +10,17 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c7a62bb3ed07ffbd8cfef520e5d504c810d11e5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496520"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019442"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs do Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-Este guia de migração ensina a **descobrir** , **avaliar** e **migrar** seus bancos de dados de usuário de SQL Server para uma instância do SQL Server em VMS (máquinas virtuais) do Azure usando o backup e restauração e o envio de logs utilizando o [DMA (banco de dados assistente de migração)](/sql/dma/dma-overview) para avaliação. 
+Este guia de migração ensina a **descobrir**, **avaliar** e **migrar** seus bancos de dados de usuário de SQL Server para uma instância do SQL Server em VMS (máquinas virtuais) do Azure usando o backup e restauração e o envio de logs utilizando o [DMA (banco de dados assistente de migração)](/sql/dma/dma-overview) para avaliação. 
 
 Você pode migrar SQL Server em execução no local ou em:
 
@@ -40,7 +40,7 @@ Migrar para o SQL Server em VMs do Azure requer o seguinte:
 - [Assistente de migração de banco de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 - Um [projeto de migrações para Azure](/azure/migrate/create-manage-projects).
 - Um SQL Server de destino preparado [na VM do Azure](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) que é da mesma versão ou posterior à do SQL Server de origem.
-- [Conectividade entre o Azure e o local](/architecture/reference-architectures/hybrid-networking).
+- [Conectividade entre o Azure e o local](/azure/architecture/reference-architectures/hybrid-networking).
 - [Escolhendo uma estratégia de migração apropriada](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
 ## <a name="pre-migration"></a>Pré-migração
@@ -59,7 +59,7 @@ Para obter ferramentas de descoberta adicionais, consulte [serviços e ferrament
 
 ### <a name="assess"></a>Avaliar
 
-Depois de descobrir todas as fontes de dados, use o [Assistente de migração de dados (DMA)](/dma/dma-overview) para avaliar SQL Server instância (s) local migrando para uma instância do SQL Server na VM do Azure para entender as lacunas entre as instâncias de origem e de destino. 
+Depois de descobrir todas as fontes de dados, use o [Assistente de migração de dados (DMA)](/sql/dma/dma-overview) para avaliar SQL Server instância (s) local migrando para uma instância do SQL Server na VM do Azure para entender as lacunas entre as instâncias de origem e de destino. 
 
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Para executar uma migração padrão usando backup e restauração, siga estas e
 1. Pausar/parar qualquer aplicativo que esteja usando bancos de dados destinados à migração. 
 1. Verifique se os bancos de dados do usuário estão inativos usando o [modo de usuário único](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Execute um backup de banco de dados completo para um caminho local.
-1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> de 2 TB backups recomendados).
+1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/azure/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> de 2 TB backups recomendados).
 1. Restaure backups completos de banco de dados para o SQL Server na VM do Azure.
 
 ### <a name="log-shipping--minimize-downtime"></a>Envio de logs (minimizar tempo de inatividade)
@@ -133,7 +133,7 @@ Para executar uma migração de tempo de inatividade mínima usando backup, rest
 1. Configure a conectividade com o SQL Server de destino na VM do Azure, com base em suas necessidades. Consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure (Gerenciador de Recursos)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Verifique se os bancos de dados do usuário local a serem migrados estão em um modelo de recuperação completa ou bulk-logged.
 1. Execute um backup de banco de dados completo em uma localização local e modifique quaisquer trabalhos de backup de banco de dados completos existentes para usar [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) palavra-chave para preservar a cadeia de logs.
-1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 TB backups recomendados).
+1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/azure/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 TB backups recomendados).
 1. Restaure backups completos de banco de dados no SQL Server na VM do Azure.
 1. Configure o [envio de logs](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) entre o banco de dados local e o SQL Server de destino na VM do Azure. Certifique-se de não reinicializar os bancos de dados, pois isso já foi concluído nas etapas anteriores.
 1. **Recortar** para o servidor de destino. 

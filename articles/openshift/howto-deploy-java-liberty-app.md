@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, Jacarta, Java, microperfil, Open-Liberty, WebSphere-Liberty, aro, openshift, Red Hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414297"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018385"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implantar um aplicativo Java com o Liberty/WebSphere Liberty aberto em um cluster do Azure Red Hat OpenShift 4
 
@@ -38,7 +38,7 @@ Conclua os seguintes pré-requisitos para percorrer com êxito este guia.
 
    Embora a etapa "obter um segredo de pull do Red Hat" seja rotulada como opcional, **ela é necessária para este artigo**.  O segredo de pull permite que o cluster do Azure Red Hat OpenShift encontre o operador Open Liberty.
 
-   Se você planeja executar aplicativos com uso intensivo de memória no cluster, especifique o tamanho adequado da máquina virtual para os nós de trabalho usando o `--worker-vm-size` parâmetro. Por exemplo, `Standard_E4s_v3` é o tamanho mínimo da máquina virtual para instalar o operador Elasticsearch em um cluster. Para obter mais informações, confira:
+   Se você planeja executar aplicativos com uso intensivo de memória no cluster, especifique o tamanho adequado da máquina virtual para os nós de trabalho usando o `--worker-vm-size` parâmetro. Por exemplo, `Standard_E4s_v3` é o tamanho mínimo da máquina virtual para instalar o operador Elasticsearch em um cluster. Para obter mais informações, consulte:
 
    * [CLI do Azure criar um cluster](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
    * [Tamanhos de máquina virtual com suporte para memória otimizada](/azure/openshift/support-policies-v4#memory-optimized)
@@ -65,7 +65,7 @@ Observe esses itens à medida que você concluir as etapas para habilitar o regi
 
 1. Entre no console Web do OpenShift no seu navegador usando as `kubeadmin` credenciais.
 2. Navegue até **Administração**  >  **namespaces**  >  **criar namespace**.
-3. Preencha `open-liberty-demo` para **nome** e selecione **criar** , conforme mostrado a seguir.
+3. Preencha `open-liberty-demo` para **nome** e selecione **criar**, conforme mostrado a seguir.
 
    ![criar namespace](./media/howto-deploy-java-liberty-app/create-namespace.png)
 
@@ -98,7 +98,7 @@ Depois de criar e conectar-se ao cluster, instale o operador Open Liberty.  A p�
 2. Navegue até **operadores**  >  **OperatorHub** e pesquise o **operador Open Liberty**.
 3. Selecione **abrir operador de Liberty** nos resultados da pesquisa.
 4. Selecione **Instalar**.
-5. Na assinatura do **operador criar** pop-up, verifique **todos os namespaces no cluster (padrão)** para o **modo de instalação** , **beta** para o **canal de atualização** e a **estratégia de aprovação** **automática** :
+5. Na assinatura do **operador criar** pop-up, verifique **todos os namespaces no cluster (padrão)** para o **modo de instalação**, **beta** para o **canal de atualização** e a **estratégia de aprovação** **automática** :
 
    ![criar assinatura do operador para o operador Open Liberty](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Selecione **assinar** e aguarde um minuto ou dois até que o operador abrir o Liberty seja exibido.
@@ -126,7 +126,7 @@ Para executar o aplicativo no Liberty aberto, você precisa criar um arquivo de 
    [INFO] Source compilation was successful.
    ```
 
-1. Abra [http://localhost:9080/](http://localhost:9080/) o no navegador para visitar o home page do aplicativo. O aplicativo será semelhante à imagem a seguir:
+1. Abra `http://localhost:9080/` o no navegador para visitar o home page do aplicativo. O aplicativo será semelhante à imagem a seguir:
 
    ![Interface do usuário da Web de cafe do Java](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Pressione **Control-C** para interromper o aplicativo e abrir o servidor do Liberty.
@@ -164,7 +164,7 @@ Antes de implantar o aplicativo em contêiner em um cluster remoto, execute com 
 
 1. Execute `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` no console do.
 2. Aguarde até que o servidor do Liberty seja iniciado e o aplicativo seja implantado com êxito.
-3. Abra [http://localhost:9080/](http://localhost:9080/) o no navegador para visitar o home page do aplicativo.
+3. Abra `http://localhost:9080/` o no navegador para visitar o home page do aplicativo.
 4. Pressione **Control-C** para interromper o aplicativo e o servidor do Liberty.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Enviar a imagem por push para o registro de imagem de contêiner
@@ -230,10 +230,10 @@ Agora você pode implantar o aplicativo de exemplo Liberty no cluster do Azure R
 
 ### <a name="deploy-the-application-from-the-web-console"></a>Implantar o aplicativo do console Web
 
-Como usamos o operador Open Liberty para gerenciar aplicativos do Liberty, precisamos criar uma instância de sua definição de *recurso Personalizada* , do tipo "OpenLibertyApplication". O operador cuidará de todos os aspectos do gerenciamento dos recursos de OpenShift necessários para a implantação.
+Como usamos o operador Open Liberty para gerenciar aplicativos do Liberty, precisamos criar uma instância de sua definição de *recurso Personalizada*, do tipo "OpenLibertyApplication". O operador cuidará de todos os aspectos do gerenciamento dos recursos de OpenShift necessários para a implantação.
 
 1. Entre no console Web do OpenShift do seu navegador usando as credenciais do usuário do Azure AD.
-1. Expanda **início** , selecione **projetos**  >  **Open-Liberty-demo**.
+1. Expanda **início**, selecione **projetos**  >  **Open-Liberty-demo**.
 1. Navegue até **operadores**  >  **instalados operadores**.
 1. No meio da página, selecione **abrir operador de Liberty**.
 1. No meio da página, selecione **abrir aplicativo do Liberty**.  A navegação de itens na interface do usuário espelha a hierarquia de confinamento real de tecnologias em uso.
@@ -312,7 +312,7 @@ Exclua o aplicativo da CLI executando este comando.
 oc delete -f openlibertyapplication.yaml
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Exclua o cluster toa seguindo as etapas em [tutorial: excluir um cluster do Azure Red Hat OpenShift 4](/azure/openshift/tutorial-delete-cluster)
 
