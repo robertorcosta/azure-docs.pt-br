@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988554"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015351"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -30,7 +30,7 @@ Antes de usar a API REST de fala em texto, considere o seguinte:
 Se o envio de áudio mais longo for um requisito para seu aplicativo, considere usar o [SDK de fala](speech-sdk.md) ou uma API REST baseada em arquivo, como a [transcrição do lote](batch-transcription.md).
 
 > [!TIP]
-> Consulte a [documentação](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) do Azure governamental para pontos de extremidade de nuvem do governo (FairFax).
+> Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do Azure governamental para pontos de extremidade de nuvem do governo (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -307,5 +307,5 @@ Uma resposta típica para reconhecimento com avaliação de pronúncia:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de linguagem](how-to-customize-language-model.md)
+- [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
+- [Personalizar modelos de linguagem](./how-to-custom-speech-train-model.md)

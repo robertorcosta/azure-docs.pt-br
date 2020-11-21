@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538743"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013751"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -138,7 +138,7 @@ Comece a usar os [guias de início rápido do SDK de OCR pesquisa Visual computa
 ## <a name="supported-languages-for-print-text"></a>Idiomas com suporte para imprimir texto
 A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso nos idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês.
 
-Consulte os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) para obter a lista completa de idiomas com suporte para OCR.
+Consulte os [idiomas com suporte](./language-support.md#optical-character-recognition-ocr) para obter a lista completa de idiomas com suporte para OCR.
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Leia 3,2 visualização adiciona chinês simplificado e japonês
 A [Visualização pública da API de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado e japonês. Se o seu cenário exigir suporte a mais idiomas, consulte a seção [API de OCR](#ocr-api) . 
@@ -150,7 +150,7 @@ Atualmente, a operação de leitura dá suporte à extração de texto manuscrit
 A [API REST de leitura 3. x](./QuickStarts/CSharp-hand-text.md) é a opção preferida para a maioria dos clientes devido à facilidade de integração e produtividade rápida pronta para uso. O Azure e o serviço de Pesquisa Visual Computacional tratam das necessidades de escala, desempenho, segurança de dados e conformidade enquanto você se concentra em atender às necessidades dos seus clientes.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Implantar no local com contêineres do Docker
-O [contêiner do Docker de leitura (versão prévia)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.
+O [contêiner do Docker de leitura (versão prévia)](./computer-vision-how-to-install-containers.md) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.
 
 ## <a name="example-outputs"></a>Saídas de exemplo
 
@@ -186,7 +186,7 @@ A API de leitura dá suporte a imagens e documentos que contêm várias linguage
 
 ## <a name="ocr-api"></a>API DE OCR
 
-A [API de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa um modelo de reconhecimento mais antigo, dá suporte apenas a imagens e é executada de forma síncrona, retornando imediatamente com o texto detectado. Consulte os [idiomas com suporte para OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) e, em seguida, ler API.
+A [API de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa um modelo de reconhecimento mais antigo, dá suporte apenas a imagens e é executada de forma síncrona, retornando imediatamente com o texto detectado. Consulte os [idiomas com suporte para OCR](./language-support.md#optical-character-recognition-ocr) e, em seguida, ler API.
 
 ## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
 

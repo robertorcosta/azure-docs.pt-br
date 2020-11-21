@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104233"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014213"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em logs de Azure Monitor
 Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](./data-platform-logs.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de colunas. Muitos tipos de dados terão colunas padrão comuns em vários tipos. Este artigo descreve essas colunas e fornece exemplos de como você pode usá-las em consultas.
@@ -48,7 +48,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-A coluna de tempo de ** \_ recebimento** contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure. Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso no envio dos dados por um agente. Confira [Tempo de ingestão de dados de log no Azure Monitor](data-ingestion-time.md) para obter mais detalhes.
+A coluna de tempo de **\_ recebimento** contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure. Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso no envio dos dados por um agente. Confira [Tempo de ingestão de dados de log no Azure Monitor](data-ingestion-time.md) para obter mais detalhes.
 
 A consulta a seguir fornece a latência média por hora para registros de eventos de um agente. Isso inclui o tempo do agente para a nuvem e o tempo total para que o registro esteja disponível para consultas de log.
 
@@ -74,11 +74,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-A coluna ** \_ ItemId** contém um identificador exclusivo para o registro.
+A coluna **\_ ItemId** contém um identificador exclusivo para o registro.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-A coluna ** \_ ResourceId** contém um identificador exclusivo para o recurso ao qual o registro está associado. Isso lhe dá uma coluna padrão a ser usada para fazer o escopo da consulta somente para registros de um recurso específico ou para unir dados relacionados em várias tabelas.
+A coluna **\_ ResourceId** contém um identificador exclusivo para o recurso ao qual o registro está associado. Isso lhe dá uma coluna padrão a ser usada para fazer o escopo da consulta somente para registros de um recurso específico ou para unir dados relacionados em várias tabelas.
 
 Para recursos do Azure, o valor de **_ResourceId** é a [URL de ID de recurso do Azure](../../azure-resource-manager/templates/template-functions-resource.md). A coluna está atualmente limitada aos recursos do Azure, mas será estendida para recursos fora do Azure, como computadores locais.
 
@@ -124,7 +124,7 @@ union withsource = tt *
 Use estas consultas `union withsource = tt *` com moderação como verificações em tipos de dados que são caros para executar.
 
 ## <a name="_isbillable"></a>\_IsBillable
-A ** \_ coluna** iscobrável especifica se os dados ingeridos são faturáveis. Dados com **\_IsBillable** igual a `false` são coletados de graça e não são cobrados da sua conta do Azure.
+A **\_ coluna** iscobrável especifica se os dados ingeridos são faturáveis. Dados com **\_IsBillable** igual a `false` são coletados de graça e não são cobrados da sua conta do Azure.
 
 ### <a name="examples"></a>Exemplos
 Para obter uma lista de computadores que estão enviando os tipos de dados cobrados, use a seguinte consulta:
@@ -151,7 +151,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-A coluna ** \_ BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se ** \_ isbillble** for true.
+A coluna **\_ BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se **\_ isbillble** for true.
 
 
 ### <a name="examples"></a>Exemplos
@@ -211,4 +211,4 @@ union withsource = tt *
 
 - Leia mais sobre como os [dados de log do Azure Monitor são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre como [escrever consultas de log](../log-query/get-started-queries.md).
-- Obtenha uma lição sobre como [unir tabelas em consultas de log](../log-query/joins.md).
+- Obtenha uma lição sobre como [unir tabelas em consultas de log](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167752"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015406"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (visualização)
 
@@ -27,7 +27,7 @@ Benefícios adicionais da API de áudio longa:
 * Não é necessário implantar um ponto de extremidade de voz, pois ele sintetiza vozes em nenhum modo de lote em tempo real.
 
 > [!NOTE]
-> A API de áudio longa agora dá suporte a [vozes neurais públicas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) e a [vozes neurais personalizadas](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> A API de áudio longa agora dá suporte a [vozes neurais públicas](./language-support.md#neural-voices) e a [vozes neurais personalizadas](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -44,7 +44,7 @@ Ao preparar seu arquivo de texto, verifique se:
 * É texto sem formatação (. txt) ou o texto SSML (. txt)
 * É codificado como [UTF-8 com marca de ordem de byte (bom)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * É um arquivo único, não um zip
-* Contém mais de 400 caracteres para texto sem formatação ou 400 [caracteres cobráveis](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) para texto de SSML e menos de 10.000 parágrafos
+* Contém mais de 400 caracteres para texto sem formatação ou 400 [caracteres cobráveis](./text-to-speech.md#pricing-note) para texto de SSML e menos de 10.000 parágrafos
   * Para texto sem formatação, cada parágrafo é separado ao pressionar o exemplo **Inserir/retornar** -exibir [entrada de texto sem formatação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Para o texto SSML, cada parte da SSML é considerada um parágrafo. As partes de SSML devem ser separadas por parágrafos diferentes – exibir [exemplo de entrada de texto de SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
@@ -114,7 +114,7 @@ Se o parâmetro **PublicVoice** for **true**, a voz será uma voz neural públic
 Prepare um arquivo de texto de entrada, em texto sem formatação ou de SSML, e adicione o seguinte código a `voice_synthesis_client.py` :
 
 > [!NOTE]
-> ' concatenateResult ' é um parâmetro opcional. Se esse parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Você também pode concatenar os áudios em 1 saída definindo o parâmetro. Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre as saídas de áudio com suporte, consulte [formatos de saída de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> ' concatenateResult ' é um parâmetro opcional. Se esse parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Você também pode concatenar os áudios em 1 saída definindo o parâmetro. Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre as saídas de áudio com suporte, consulte [formatos de saída de áudio](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -277,7 +277,7 @@ A tabela a seguir detalha os códigos de resposta HTTP e as mensagens da API RES
 |        | 400 | O arquivo de entrada deve ter mais de 400 caracteres. | Verifique se o arquivo de entrada excede 400 caracteres. |
 |        | 404 | O modelo declarado na definição de síntese de voz não pode ser encontrado: {ModelId}. | Verifique se {ModelId} está correto. |
 |        | 429 | Excede o limite de síntese de voz ativo. Aguarde até que algumas solicitações sejam concluídas. | O servidor tem permissão para executar e enfileirar até 120 solicitações para cada conta do Azure. Aguarde e evite enviar novas solicitações até que algumas solicitações sejam concluídas. |
-| Todos       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
+| Tudo       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
 | Excluir    | 400 | A tarefa de síntese de voz ainda está em uso. | Você só pode excluir solicitações **concluídas** ou **com falha**. |
 | GetByID   | 404 | A entidade especificada não pode ser encontrada. | Verifique se a ID de síntese está correta. |
 

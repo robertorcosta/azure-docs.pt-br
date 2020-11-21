@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357089"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014553"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como implantar um aplicativo Web de contagem de pessoas
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Noções básicas sobre Azure IoT Edge configurações de implantação e um [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/)
+* Noções básicas sobre Azure IoT Edge configurações de implantação e um [Hub IOT do Azure](../../iot-hub/index.yml)
 * Um [computador host](spatial-analysis-container.md)configurado.
 
 ## <a name="deploy-the-spatial-analysis-container"></a>Implantar o contêiner de análise espacial
@@ -65,7 +65,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 Implante o contêiner de análise espacial como um módulo IoT no computador host, usando o CLI do Azure. O processo de implantação requer um arquivo de manifesto de implantação que descreve os contêineres, as variáveis e as configurações necessárias para sua implantação. Você pode encontrar um [manifesto de implantação específico do Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , bem como um [manifesto de implantação específico de borda não Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) no GitHub, que inclui uma configuração de implantação básica para o contêiner de *análise espacial* . 
 
-Como alternativa, você pode usar as extensões do Azure IoT para Visual Studio Code para executar operações com o Hub IoT. Vá para [implantar módulos de Azure IOT Edge de Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) para saber mais.
+Como alternativa, você pode usar as extensões do Azure IoT para Visual Studio Code para executar operações com o Hub IoT. Vá para [implantar módulos de Azure IOT Edge de Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) para saber mais.
 
 > [!NOTE] 
 > Os contêineres *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* são opcionais. Você pode decidir removê-los do *DeploymentManifest.jsno* arquivo. Para obter mais informações, consulte o artigo [telemetria e solução de problemas](./spatial-analysis-logging.md) . Você pode encontrar dois *DeploymentManifest.jsde exemplo em* arquivos no GitHub, para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)

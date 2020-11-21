@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357106"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014587"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalar e executar o contêiner de análise espacial (versão prévia)
 
@@ -34,7 +34,7 @@ Para executar o contêiner de análise espacial, você precisa de um dispositivo
 
 #### <a name="azure-stack-edge-device"></a>[Azure Stack dispositivo do Edge](#tab/azure-stack-edge)
 
-O Azure Stack Edge é uma solução de hardware como serviço e um dispositivo de computação de borda habilitado para ia com recursos de transferência de dados de rede. Para obter instruções de preparação e configuração detalhadas, consulte a [documentação do Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep).
+O Azure Stack Edge é uma solução de hardware como serviço e um dispositivo de computação de borda habilitado para ia com recursos de transferência de dados de rede. Para obter instruções de preparação e configuração detalhadas, consulte a [documentação do Azure Stack Edge](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### <a name="desktop-machine"></a>[Computador desktop](#tab/desktop-machine)
 
@@ -59,7 +59,7 @@ Neste artigo, você baixará e instalará os seguintes pacotes de software. O co
 * [Drivers gráficos NVIDIA](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) e [Kit de ferramentas NVIDIA CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Configurações para [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (serviço de vários processos).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) e [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* Tempo de execução de [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) .
+* Tempo de execução de [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) .
 
 ---
 
@@ -93,7 +93,7 @@ Você não poderá executar o contêiner se sua assinatura do Azure não tiver s
  
 A análise espacial usa os recursos de computação do Azure Stack Edge para executar uma solução de ia. Para habilitar os recursos de computação, verifique se: 
 
-* Você [conectou e ativou](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) seu Azure Stack dispositivo de borda. 
+* Você [conectou e ativou](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) seu Azure Stack dispositivo de borda. 
 * Você tem um sistema cliente Windows executando o PowerShell 5,0 ou posterior para acessar o dispositivo.  
 * Para implantar um cluster kubernetes, você precisa configurar o dispositivo de borda Azure Stack por meio da **interface do usuário local** na [portal do Azure](https://portal.azure.com/): 
   1. Habilite o recurso de computação em seu dispositivo Azure Stack Edge. Para habilitar a computação, vá para a página **computação** na interface da Web do seu dispositivo. 
@@ -117,7 +117,7 @@ Quando a função de computação de borda está configurada no dispositivo de b
 
 > [!NOTE]
 > * Atualmente, apenas a plataforma Linux tem suporte para dispositivos IoT Edge. Para obter ajuda para solucionar problemas do dispositivo Azure Stack Edge, consulte o artigo [registro em log e solução de problemas](spatial-analysis-logging.md) .
-> * Para saber mais sobre como configurar um dispositivo de IoT Edge para se comunicar por meio de um servidor proxy, consulte [configurar um dispositivo de IOT Edge para se comunicar por meio de um servidor proxy](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * Para saber mais sobre como configurar um dispositivo de IoT Edge para se comunicar por meio de um servidor proxy, consulte [configurar um dispositivo de IOT Edge para se comunicar por meio de um servidor proxy](../../iot-edge/how-to-configure-proxy-support.md#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Habilitar MPS no Azure Stack Edge 
 
@@ -129,7 +129,7 @@ Quando a função de computação de borda está configurada no dispositivo de b
     winrm quickconfig
     ```
     
-    Se você vir avisos sobre uma exceção de firewall, verifique o tipo de conexão de rede e veja a documentação do [gerenciamento remoto do Windows](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) .
+    Se você vir avisos sobre uma exceção de firewall, verifique o tipo de conexão de rede e veja a documentação do [gerenciamento remoto do Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) .
 
 3. Atribua uma variável ao endereço IP do dispositivo. 
     
@@ -246,7 +246,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Configurar Azure IoT Edge no computador host
 
-Para implantar o contêiner de análise espacial no computador host, crie uma instância de um serviço de [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) usando o tipo de preço Standard (S1) ou Free (F0). Se o computador host for um Azure Stack Edge, use a mesma assinatura e grupo de recursos que é usado pelo recurso de borda do Azure Stack.
+Para implantar o contêiner de análise espacial no computador host, crie uma instância de um serviço de [Hub IOT do Azure](../../iot-hub/iot-hub-create-through-portal.md) usando o tipo de preço Standard (S1) ou Free (F0). Se o computador host for um Azure Stack Edge, use a mesma assinatura e grupo de recursos que é usado pelo recurso de borda do Azure Stack.
 
 Use o CLI do Azure para criar uma instância do Hub IoT do Azure. Substitua os parâmetros quando apropriado. Como alternativa, você pode criar o Hub IoT do Azure no [portal do Azure](https://portal.azure.com/).
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se o computador host não for um dispositivo Azure Stack Edge, será necessário instalar [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) versão 1.0.9. Siga estas etapas para baixar a versão correta:
+Se o computador host não for um dispositivo Azure Stack Edge, será necessário instalar [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versão 1.0.9. Siga estas etapas para baixar a versão correta:
 
 Ubuntu Server 18, 4:
 ```bash
@@ -292,7 +292,7 @@ Instale a versão 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Em seguida, registre o computador host como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+Em seguida, registre o computador host como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 Você precisa conectar o dispositivo IoT Edge ao Hub IoT do Azure. Você precisa copiar a cadeia de conexão do dispositivo IoT Edge criado anteriormente. Como alternativa, você pode executar o comando abaixo na CLI do Azure.
 
@@ -306,7 +306,7 @@ No computador host, abra  `/etc/iotedge/config.yaml` para edição. Substituir `
 sudo systemctl restart iotedge
 ```
 
-Implante o contêiner de análise espacial como um módulo IoT no computador host, seja da [portal do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) ou [CLI do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Se você estiver usando o portal, defina o URI da imagem para o local do registro de contêiner do Azure. 
+Implante o contêiner de análise espacial como um módulo IoT no computador host, seja da [portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [CLI do Azure](../../iot-edge/how-to-deploy-modules-cli.md). Se você estiver usando o portal, defina o URI da imagem para o local do registro de contêiner do Azure. 
 
 Use as etapas a seguir para implantar o contêiner usando o CLI do Azure.
 
@@ -335,7 +335,7 @@ A tabela a seguir mostra as várias variáveis de ambiente usadas pelo módulo I
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
-Depois de atualizar o manifesto de implantação para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou [um computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) com suas próprias configurações e seleção de operações, você pode usar o comando a seguir [CLI do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) para implantar o contêiner no computador host, como um módulo IOT Edge.
+Depois de atualizar o manifesto de implantação para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou [um computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) com suas próprias configurações e seleção de operações, você pode usar o comando a seguir [CLI do Azure](../../iot-edge/how-to-deploy-modules-cli.md) para implantar o contêiner no computador host, como um módulo IOT Edge.
 
 ```azurecli
 az login
@@ -366,14 +366,14 @@ Você precisará usar [operações de análise espacial](spatial-analysis-operat
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Reimplantar ou excluir a implantação
 
-Se precisar atualizar a implantação, você precisará verificar se as implantações anteriores foram implantadas com êxito ou se precisa excluir IoT Edge implantações de dispositivo que não foram concluídas. Caso contrário, essas implantações continuarão, deixando o sistema em um estado inadequado. Você pode usar o portal do Azure ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Se precisar atualizar a implantação, você precisará verificar se as implantações anteriores foram implantadas com êxito ou se precisa excluir IoT Edge implantações de dispositivo que não foram concluídas. Caso contrário, essas implantações continuarão, deixando o sistema em um estado inadequado. Você pode usar o portal do Azure ou o [CLI do Azure](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Usar a saída gerada pelo contêiner
 
 Se você quiser começar a consumir a saída gerada pelo contêiner, consulte os seguintes artigos:
 
-*   Use o SDK do hub de eventos do Azure para a linguagem de programação escolhida para se conectar ao ponto de extremidade do Hub IoT do Azure e receber os eventos. Consulte [ler mensagens do dispositivo para a nuvem do ponto de extremidade interno](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) para obter mais informações. 
-*   Configure o roteamento de mensagens no Hub IoT do Azure para enviar os eventos a outros pontos de extremidade ou salvar os eventos no armazenamento de BLOBs do Azure, etc. Consulte [Roteamento de mensagens do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) para obter mais informações. 
+*   Use o SDK do hub de eventos do Azure para a linguagem de programação escolhida para se conectar ao ponto de extremidade do Hub IoT do Azure e receber os eventos. Consulte [ler mensagens do dispositivo para a nuvem do ponto de extremidade interno](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) para obter mais informações. 
+*   Configure o roteamento de mensagens no Hub IoT do Azure para enviar os eventos a outros pontos de extremidade ou salvar os eventos no armazenamento de BLOBs do Azure, etc. Consulte [Roteamento de mensagens do Hub IOT](../../iot-hub/iot-hub-devguide-messages-d2c.md) para obter mais informações. 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Executando análise espacial com um arquivo de vídeo gravado
 

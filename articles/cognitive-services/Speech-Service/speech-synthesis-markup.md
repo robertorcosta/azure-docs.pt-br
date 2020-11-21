@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9ed4e47cf946827e2e4b9aaeb14d9668e96aeaa5
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: e76612c6c1b83ddb7e88377824902fe6290e7aaf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873770"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015232"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -383,7 +383,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Segurança                      | Descrição |
+| Segurança                      | Description |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -587,7 +587,7 @@ Você também pode fornecer diretamente o esperado `alias` para o acrônimo ou o
 
 Para obter mais informações sobre o arquivo léxico personalizado, consulte [pls (especificação de léxico de pronúncia) versão 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
 
-Em seguida, publique seu arquivo léxico personalizado. Embora não tenhamos restrições sobre onde esse arquivo pode ser armazenado, recomendamos o uso [do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Em seguida, publique seu arquivo léxico personalizado. Embora não tenhamos restrições sobre onde esse arquivo pode ser armazenado, recomendamos o uso [do armazenamento de BLOBs do Azure](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 Depois de publicar o léxico personalizado, você pode referenciá-lo de seu SSML.
 
@@ -657,12 +657,12 @@ Como os valores de atributo prosódico podem variar em um intervalo maior, o rec
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `pitch` | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, `<prosody pitch="600Hz">some text</prosody>`.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>`. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alto</li><li>padrão</li></ul></li></ul> | Opcional |
+| `pitch` | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, `<prosody pitch="600Hz">some text</prosody>`.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>`. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul> | Opcional |
 | `contour` |A delimitação agora dá suporte às vozes neural e Standard. A delimitação representa as alterações em pitch. Essas alterações são representadas como uma matriz de destinos em posições de tempo especificadas na saída de fala. Cada destino é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros Especifica o local da alteração de timbre como uma porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir a densidade, usando um valor relativo ou um valor de enumeração para pitch (consulte `pitch` ). | Opcional |
 | `range` | Um valor que representa o intervalo de timbre do texto. Você pode expressar `range` usando os mesmos valores absolutos, valores relativos ou valores de enumeração usados para descrever `pitch` . | Opcional |
-| `rate` | Indica a taxa de fala do texto. Você pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta em uma metade da taxa. Um valor de *3* resulta em uma viagem da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>padrão</li></ul></li></ul> | Opcional |
+| `rate` | Indica a taxa de fala do texto. Você pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta em uma metade da taxa. Um valor de *3* resulta em uma viagem da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>default</li></ul></li></ul> | Opcional |
 | `duration` | O período de tempo que deve decorrer enquanto o serviço de síntese de fala (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. A duração dá suporte apenas a vozes padrão.| Opcional |
-| `volume` | Indica o nível de volume da voz de fala. Você pode expressar o volume como:<ul><li>Um valor absoluto, expresso como um número no intervalo de 0,0 a 100,0, do mais *baixo* para o mais *alto*. Por exemplo, 75. O padrão é 100,0.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" que especifica um valor para alterar o volume. Por exemplo, + 10 ou-5,5.</li><li>Um valor constante:<ul><li>silent</li><li>x-Soft</li><li>pessoais</li><li>média</li><li>alto</li><li>x-alto</li><li>padrão</li></ul></li></ul> | Opcional |
+| `volume` | Indica o nível de volume da voz de fala. Você pode expressar o volume como:<ul><li>Um valor absoluto, expresso como um número no intervalo de 0,0 a 100,0, do mais *baixo* para o mais *alto*. Por exemplo, 75. O padrão é 100,0.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" que especifica um valor para alterar o volume. Por exemplo, + 10 ou-5,5.</li><li>Um valor constante:<ul><li>silent</li><li>x-Soft</li><li>pessoais</li><li>média</li><li>alto</li><li>x-alto</li><li>default</li></ul></li></ul> | Opcional |
 
 ### <a name="change-speaking-rate"></a>Alterar taxa de fala
 

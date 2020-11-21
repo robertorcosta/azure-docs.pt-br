@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8841c55d8f276f048db53a531bd2e9218e498b34
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566578"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016489"
 ---
 # <a name="request-limits-for-translator"></a>Limites de solicitação para o tradutor
 
@@ -52,19 +52,19 @@ Se você atingir ou ultrapassar esses limites, ou enviar um grande número de um
 | S3/C3 | 120 milhões de caracteres por hora |
 | S4/C4 | 200 milhões de caracteres por hora |
 
-Os limites para [assinaturas de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) são os mesmos da camada S1.
+Os limites para [assinaturas de vários serviços](./reference/v3-0-reference.md#authentication) são os mesmos da camada S1.
 
 Esses limites são restritos aos modelos de tradução padrão da Microsoft. Os modelos de tradução personalizados que usam o tradutor personalizado são limitados a 1.800 caracteres por segundo.
 
 ## <a name="latency"></a>Latency
 
-O tradutor tem uma latência máxima de 15 segundos usando modelos padrão e 120 segundos ao usar modelos personalizados. Normalmente, as respostas *de texto dentro de 100 caracteres* são retornadas em 150 milissegundos a 300 milissegundos. Os modelos de Tradutor personalizados têm características de latência semelhantes na taxa de solicitação sustentada e podem ter uma latência mais alta quando a taxa de solicitação é intermitente. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique seu código, sua conexão de rede e tente novamente. 
+O tradutor tem uma latência máxima de 15 segundos usando modelos padrão e 120 segundos ao usar modelos personalizados. Normalmente, as respostas *de texto dentro de 100 caracteres* são retornadas em 150 milissegundos a 300 milissegundos. Os modelos de Tradutor personalizados têm características de latência semelhantes na taxa de solicitação sustentada e podem ter uma latência mais alta quando a taxa de solicitação é intermitente. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](./reference/v3-0-reference.md#errors) dentro desse período, verifique seu código, sua conexão de rede e tente novamente. 
 
 ## <a name="sentence-length-limits"></a>Limites de duração de sentença
 
-Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
+Ao usar a função [BreakSentence](./reference/v3-0-break-sentence.md), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| Linguagem | Código | Limite de caracteres |
+| Idioma | Código | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 166 |
 | Alemão | de | 800 |
@@ -81,4 +81,4 @@ Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-se
 
 * [Preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Disponibilidade regional](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [Referência do Tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [Referência do Tradutor v3](./reference/v3-0-reference.md)

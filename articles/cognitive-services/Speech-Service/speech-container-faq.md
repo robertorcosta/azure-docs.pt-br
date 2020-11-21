@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6c899b4f0dd7a3b91521c6d78b531d1c804ac105
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653531"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015300"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
@@ -292,7 +292,7 @@ Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais f
 
 | Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Yes      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto de extremidade do WebSocket interativo de serviços cognitivas local v1  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | O ponto de extremidade do WebSocket v1 da conversa local de serviços cognitivas |     |          |
@@ -324,7 +324,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>Qual modo devo usar para vários arquivos de áudio?</b>
 </summary>
 
-**Resposta:** Aqui está um guia de [início rápido usando o Python](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python). Você pode encontrar os outros idiomas vinculados ao site docs.
+**Resposta:** Aqui está um guia de [início rápido usando o Python](./get-started-speech-to-text.md?pivots=programming-language-python). Você pode encontrar os outros idiomas vinculados ao site docs.
 
 Apenas para esclarecer o assunto interativo, a conversa e o ditado; Essa é uma maneira avançada de especificar a maneira específica em que nosso serviço tratará a solicitação de fala. Infelizmente, para os contêineres locais, precisamos especificar o URI completo (já que ele inclui o computador local), portanto, essas informações vazaram da abstração. Estamos trabalhando com a equipe do SDK para tornar isso mais utilizável no futuro.
 

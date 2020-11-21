@@ -1,18 +1,18 @@
 ---
 title: Formato do Common Data Model
 description: Transformar dados usando o sistema de metadados do Common Data Service
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636401"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015164"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de modelo de dados comuns no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,10 +35,10 @@ O Common Data Service está disponível como um [conjunto de dados embutido](dat
 
 A tabela abaixo lista as propriedades com suporte por uma fonte CDM. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
-| Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Sim | `'manifest'` ou `'model'` | manifestatype |
+| Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Yes | `'manifest'` ou `'model'` | manifestatype |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
 | Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
 | Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | String | entityPath |
@@ -52,7 +52,11 @@ A tabela abaixo lista as propriedades com suporte por uma fonte CDM. Você pode 
 | Entidade Corpus | Caminho para referência de entidade | sim | String | entidade |
 | Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
 
-Se a definição de entidade que você deseja usar na transformação de origem estiver localizada no mesmo diretório que a pasta de dados, você poderá cancelar a seleção de "usar entidade de corpus" e simplesmente digitar a entidade da entidade que deseja usar como referência de entidade.
+Ao selecionar "referência de entidade" nas transformações de origem e de coletor, você pode selecionar dentre essas três opções para o local da referência de sua entidade:
+
+* Local usa a entidade definida no arquivo de manifesto que já está sendo usada pelo ADF
+* Personalizado pedirá que você aponte para um arquivo de manifesto de entidade diferente do arquivo de manifesto que o ADF está usando
+* Standard usará uma referência de entidade da biblioteca padrão de entidades CDM mantidas no ```Github``` .
 
 ### <a name="sink-settings"></a>Configurações do coletor
 
@@ -114,7 +118,7 @@ source(output(
 
 A tabela abaixo lista as propriedades com suporte de um coletor CDM. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |

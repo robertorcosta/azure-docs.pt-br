@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409783"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014757"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -108,16 +108,16 @@ Uma parte importante da estratégia de BCDR de sua organização é descobrir co
 
 Recuperação de Site:
 
-* **Simplifica sua estratégia de BCDR** : o Site Recovery facilita lidar com a replicação, o failover e a recuperação de várias cargas de trabalho e aplicativos de negócios em um só local. O Site Recovery orquestra a replicação e o failover, mas não intercepta os dados do aplicativo nem mantém informações sobre ele.
-* **Fornece uma replicação flexível** : usando o Site Recovery, você pode replicar cargas de trabalho em execução em máquinas virtuais do Hyper-V e do VMware e em servidores físicos do Windows/Linux.
-* **Dá suporte a failover e recuperação** : o Site Recovery fornece failovers de teste para dar suporte a simulações de recuperação de desastre sem afetar os ambientes de produção. Você também pode executar failovers planejados sem perder qualquer dado durante interrupções esperadas, ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. Após o failover, faça failback para os sites primários. A Recuperação de Site fornece planos de recuperação que podem incluir scripts e pastas de trabalho de automação do Azure, para que você possa personalizar o failover e a recuperação de aplicativos de várias camadas.
-* **Elimina datacenters secundários** : você pode fazer a replicação para um site local secundário ou para o Azure. Usar o Azure como um destino de recuperação de desastres elimina o custo e a complexidade de manter um site secundário. Os dados replicados são colocados no Armazenamento do Azure.
-* **Integra-se às tecnologias de BCDR existentes** : o Site Recovery faz uma parceria com outros recursos de BCDR dos aplicativos. Por exemplo, você pode usar o Site Recovery para ajudar a proteger o back-end do SQL Server de cargas de trabalho corporativas. Isso inclui o suporte nativo ao SQL Server Always On para gerenciar o failover de grupos de disponibilidade.
+* **Simplifica sua estratégia de BCDR**: o Site Recovery facilita lidar com a replicação, o failover e a recuperação de várias cargas de trabalho e aplicativos de negócios em um só local. O Site Recovery orquestra a replicação e o failover, mas não intercepta os dados do aplicativo nem mantém informações sobre ele.
+* **Fornece uma replicação flexível**: usando o Site Recovery, você pode replicar cargas de trabalho em execução em máquinas virtuais do Hyper-V e do VMware e em servidores físicos do Windows/Linux.
+* **Dá suporte a failover e recuperação**: o Site Recovery fornece failovers de teste para dar suporte a simulações de recuperação de desastre sem afetar os ambientes de produção. Você também pode executar failovers planejados sem perder qualquer dado durante interrupções esperadas, ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. Após o failover, faça failback para os sites primários. A Recuperação de Site fornece planos de recuperação que podem incluir scripts e pastas de trabalho de automação do Azure, para que você possa personalizar o failover e a recuperação de aplicativos de várias camadas.
+* **Elimina datacenters secundários**: você pode fazer a replicação para um site local secundário ou para o Azure. Usar o Azure como um destino de recuperação de desastres elimina o custo e a complexidade de manter um site secundário. Os dados replicados são colocados no Armazenamento do Azure.
+* **Integra-se às tecnologias de BCDR existentes**: o Site Recovery faz uma parceria com outros recursos de BCDR dos aplicativos. Por exemplo, você pode usar o Site Recovery para ajudar a proteger o back-end do SQL Server de cargas de trabalho corporativas. Isso inclui o suporte nativo ao SQL Server Always On para gerenciar o failover de grupos de disponibilidade.
 
 Saiba mais:
 
 * [O que é Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [Como funciona Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Como funciona Azure Site Recovery?](/azure/site-recovery/azure-to-azure-architecture)
 * [Quais cargas de trabalho são protegidas por Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Rede Virtual

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d399507499a320116ff1c732a1ffc0ad84b5731
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110351"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015435"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Perguntas frequentes sobre assistentes de voz
 
-Se você não encontrar respostas para suas perguntas neste documento, confira [outras opções de suporte](support.md).
+Se você não encontrar respostas para suas perguntas neste documento, confira [outras opções de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Geral
 
@@ -35,9 +35,9 @@ Se você não encontrar respostas para suas perguntas neste documento, confira [
 
 **R:** A melhor maneira de começar a criar um aplicativo de comandos personalizados (versão prévia) ou bot de estrutura de bot básico.
 
-- [Criar um aplicativo de comandos personalizados (versão prévia)](quickstart-custom-speech-commands-create-new.md)
-- [Criar um bot de estrutura de bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-- [Conectar um bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Criar um aplicativo de comandos personalizados (versão prévia)](./quickstart-custom-commands-application.md)
+- [Criar um bot de estrutura de bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Conectar um bot ao canal de fala de linha direta](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Depuração
 
@@ -62,7 +62,7 @@ Para obter um guia mais detalhado, consulte a [seção do tutorial](tutorial-voi
 **R:** Esse erro indica um problema de comunicação entre o assistente e o serviço de assistente de voz.
 
 - Para comandos personalizados (versão prévia), verifique se o aplicativo de comandos personalizados (versão prévia) foi publicado
-- Para a fala de linha direta, verifique se você [conectou o bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [adicionou suporte de protocolo de streaming](https://aka.ms/botframework/addstreamingprotocolsupport) ao bot (com o suporte de soquete da Web relacionado) e, em seguida, verifique se o bot está respondendo às solicitações de entrada do canal.
+- Para a fala de linha direta, verifique se você [conectou o bot ao canal de fala de linha direta](/azure/bot-service/bot-service-channel-connect-directlinespeech), [adicionou suporte de protocolo de streaming](/azure/bot-service/directline-speech-bot) ao bot (com o suporte de soquete da Web relacionado) e, em seguida, verifique se o bot está respondendo às solicitações de entrada do canal.
 
 **P: esse código ainda não funciona e/ou estou recebendo um erro diferente ao usar um `DialogServiceConnector` . O que devo fazer?**
 

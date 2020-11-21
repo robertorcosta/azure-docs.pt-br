@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629447"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016268"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
@@ -60,7 +60,7 @@ Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Fornecer acesso de convidado de outro locatário do Azure AD
 
-A `Guest` função não é uma função de gerenciamento. É um termo usado para uma conta que é convidada de um locatário para outro. Depois que a conta de convidado é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado a ela, como qualquer outra conta. Você pode conceder acesso de gerenciamento a um ambiente de Azure Time Series Insights usando a folha de controle de acesso (IAM). Ou pode permitir acesso aos dados no ambiente por meio da folha Políticas de Acesso a Dados. Para obter mais informações sobre o acesso de convidado de locatário do Azure AD (Azure Active Directory), leia [Adicionar usuários de colaboração B2B do Azure Active Directory no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+A `Guest` função não é uma função de gerenciamento. É um termo usado para uma conta que é convidada de um locatário para outro. Depois que a conta de convidado é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado a ela, como qualquer outra conta. Você pode conceder acesso de gerenciamento a um ambiente de Azure Time Series Insights usando a folha de controle de acesso (IAM). Ou pode permitir acesso aos dados no ambiente por meio da folha Políticas de Acesso a Dados. Para obter mais informações sobre o acesso de convidado de locatário do Azure AD (Azure Active Directory), leia [Adicionar usuários de colaboração B2B do Azure Active Directory no portal do Azure](../active-directory/external-identities/add-users-administrator.md).
 
 Siga estas etapas para conceder acesso de convidado a um ambiente de Azure Time Series Insights para um usuário do Azure AD de outro locatário.
 
@@ -124,4 +124,4 @@ Siga estas etapas para conceder acesso de convidado a um ambiente de Azure Time 
 
 * Leia [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para Azure Active Directory etapas de registro do aplicativo.
 
-* Exiba [seu ambiente no Azure Time Series insights Explorer](./time-series-insights-update-explorer.md).
+* Exiba [seu ambiente no Azure Time Series insights Explorer](./concepts-ux-panels.md).

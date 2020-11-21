@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 089c59c041110209e55cc3fb10b1c5adf54bd13e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6d85498b0e76997a1f0f989f4ea0f30acc0e8443
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538267"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013730"
 ---
 # <a name="face-detection-with-computer-vision"></a>Detecção facial com Pesquisa Visual Computacional
 
 A Pesquisa Visual Computacional pode detectar rostos humanos em uma imagem e gerar a idade, o sexo e um retângulo para cada rosto detectado. 
 
 > [!NOTE]
-> Esse recurso também é oferecido pelo serviço Azure [Face](/azure/cognitive-services/face/). Consulte essa alternativa para obter uma análise de rosto mais detalhada, incluindo identificação de face e detecção de pose. 
+> Esse recurso também é oferecido pelo serviço Azure [Face](../face/index.yml). Consulte essa alternativa para obter uma análise de rosto mais detalhada, incluindo identificação de face e detecção de pose. 
 
 ## <a name="face-detection-examples"></a>Exemplos de detecção facial
 

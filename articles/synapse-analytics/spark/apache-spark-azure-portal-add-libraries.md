@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313537"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016251"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics
 
@@ -92,9 +92,9 @@ Para instalar uma biblioteca em um pool do Spark (versão prévia) diretamente d
 Para verificar se as versões corretas das bibliotecas corretas estão instaladas, execute o código a seguir
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### <a name="update-python-packages"></a>Atualizar pacotes do Python
 Os pacotes podem ser adicionados ou modificados a qualquer momento entre as sessões. Quando um novo arquivo de configuração de pacote for carregado, isso substituirá os pacotes e as versões existentes.  
@@ -112,7 +112,7 @@ Para atualizar ou desinstalar uma biblioteca:
    
 
 > [!IMPORTANT]
-> Ao selecionar a opção para **forçar novas configurações** , você encerrará todas as sessões atuais para o pool do Spark selecionado. Depois que as sessões forem encerradas, você precisará aguardar até que o pool seja reiniciado. 
+> Ao selecionar a opção para **forçar novas configurações**, você encerrará todas as sessões atuais para o pool do Spark selecionado. Depois que as sessões forem encerradas, você precisará aguardar até que o pool seja reiniciado. 
 >
 > Se essa configuração estiver desmarcada, você precisará aguardar a sessão atual do Spark terminar ou interrompê-la manualmente. Depois que a sessão for encerrada, você precisará permitir que o pool seja reiniciado. 
 

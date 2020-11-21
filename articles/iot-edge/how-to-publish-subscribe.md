@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629641"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015656"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e assinar com Azure IoT Edge
 
@@ -209,7 +209,7 @@ Agora que você entende como se conectar ao agente do IoT Edge MQTT, vamos ver c
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>Publicar e assinar tópicos definidos pelo usuário
 
-Neste artigo, você usará um cliente chamado **sub_client** que assina um tópico e outro cliente chamado **pub_client** que é publicado em um tópico. Usaremos a autenticação de [chave simétrica](how-to-authenticate-downstream-device.md#symmetric-key-authentication) , mas o mesmo pode ser feito com a [autenticação autoassinada x. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) ou a [autenticação autoassinada x. 509](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+Neste artigo, você usará um cliente chamado **sub_client** que assina um tópico e outro cliente chamado **pub_client** que é publicado em um tópico. Usaremos a autenticação de [chave simétrica](how-to-authenticate-downstream-device.md#symmetric-key-authentication) , mas o mesmo pode ser feito com a autenticação [autoassinada x. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) ou a [autenticação assinada por AC x. 509](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### <a name="create-publisher-and-subscriber-clients"></a>Criar clientes do Publicador e do assinante
 

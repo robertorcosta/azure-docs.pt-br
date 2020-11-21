@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 35ed275419cc4319e7edfed608340853c986a927
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d00ffb1cb9b9fd6231322d4ef5bfebfbe242eac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515618"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014230"
 ---
 # <a name="azure-monitor-logs-overview"></a>Visão geral dos logs de Azure Monitor
 Os logs de Azure Monitor são um recurso de Azure Monitor que coleta e organiza dados de log e de desempenho de [recursos monitorados](../monitor-reference.md). Dados de fontes diferentes, como [logs de plataforma](platform-logs-overview.md) de serviços do Azure, dados de log e de desempenho de [agentes de máquinas virtuais](agents-overview.md)e dados de uso e desempenho de [aplicativos](../app/app-insights-overview.md) podem ser consolidados em um único espaço de trabalho para que possam ser analisados juntos usando uma linguagem de consulta sofisticada capaz de analisar rapidamente milhões de registros. Você pode executar uma consulta simples que recupera apenas um conjunto específico de registros ou executar uma análise de dados sofisticada para identificar padrões críticos em seus dados de monitoramento. Trabalhe com consultas de log e seus resultados interativamente usando Log Analytics, use-as em uma regra de alerta para br notificado proativamente sobre problemas ou visualize seus resultados em uma pasta de trabalho ou painel.
@@ -75,8 +75,8 @@ Os dados são recuperados de um espaço de trabalho Log Analytics usando uma con
 ## <a name="log-analytics"></a>Log Analytics
 Use Log Analytics, que é uma ferramenta na portal do Azure, para editar e executar consultas de log e analisar interativamente seus resultados. Você pode usar as consultas que você cria para dar suporte a outros recursos no Azure Monitor, como alertas de consulta de log e pastas de trabalho. Acesse Log Analytics na opção **logs** no menu Azure monitor ou na maioria dos outros serviços no portal do Azure.
 
-- Consulte [visão geral de log Analytics no Azure monitor](/log-query/log-analytics-overview.md) para obter uma descrição de log Analytics. 
-- Consulte [log Analytics tutorial](/log-query/log-analytics-tutorial.md) para percorrer o uso de recursos log Analytics para criar uma consulta de log simples e analisar seus resultados.
+- Consulte [visão geral de log Analytics no Azure monitor](/azure/azure-monitor/log-query/log-analytics-overview) para obter uma descrição de log Analytics. 
+- Consulte [log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial) para percorrer o uso de recursos log Analytics para criar uma consulta de log simples e analisar seus resultados.
 
 
 

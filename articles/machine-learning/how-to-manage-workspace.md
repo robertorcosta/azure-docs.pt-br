@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873379"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012951"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
 
@@ -27,6 +27,10 @@ Conforme suas necessidades mudam ou os requisitos para aumentar a automação, v
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * Se estiver usando o SDK do Python, [Instale o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+
+## <a name="limitations"></a>Limitações
+
+* Ao criar um novo espaço de trabalho, você pode permitir que o espaço de trabalho crie os serviços do Azure que ele requer automaticamente ou fornecer os serviços existentes. Ao fornecer serviços existentes, todos esses serviços devem estar na mesma assinatura do Azure que o espaço de trabalho.
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
@@ -128,8 +132,8 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
    Campo|Descrição 
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
-   Assinatura |Selecione a assinatura do Azure que você deseja usar.
-   Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
+   Subscription |Selecione a assinatura do Azure que você deseja usar.
+   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
    Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
    | Conta de armazenamento | A conta de armazenamento padrão para o espaço de trabalho. Por padrão, um novo é criado. |
    | Key Vault | O Azure Key Vault usado pelo espaço de trabalho. Por padrão, um novo é criado. |
@@ -359,7 +363,7 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

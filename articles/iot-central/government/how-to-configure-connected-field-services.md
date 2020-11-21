@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 702de11abc274d1f4001df5b28498928fde71109
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127209"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014451"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Criar uma solução de ponta a ponta com o Azure IoT Central e o Serviço de Campo do Dynamics 365 
 
@@ -21,7 +21,7 @@ ms.locfileid: "92127209"
 Como um construtor, você pode habilitar a integração do seu aplicativo Azure IoT Central a outros sistemas de negócios. 
 
 
-Por exemplo, em uma solução de gerenciamento de resíduos conectada, você pode otimizar a expedição de caminhões de coleta de lixo. A otimização pode ser feita com base nos dados de sensores IoT de compartimentos de lixo conectados. Em seu [IOT central aplicativo de gerenciamento de resíduos conectado](./tutorial-connected-waste-management.md) , você pode configurar regras e ações e defini-lo para disparar a criação de alertas no serviço de campo do Dynamics. Esse cenário é realizado com o Microsoft Flow, que será configurado diretamente no IoT Central para automatizar fluxos de trabalho entre aplicativos e serviços. Além disso, com base nas atividades de serviço no Serviço de Campo, as informações podem ser enviadas de volta ao Azure IoT Central. 
+Por exemplo, em uma solução de gerenciamento de resíduos conectada, você pode otimizar a expedição de caminhões de coleta de lixo. A otimização pode ser feita com base nos dados de sensores IoT de compartimentos de lixo conectados. Em seu [IOT central aplicativo de gerenciamento de resíduos conectado](./tutorial-connected-waste-management.md) , você pode configurar regras e ações e defini-lo para disparar a criação de alertas no serviço de campo do Dynamics. Esse cenário é realizado com o uso da energia automatizada, que será configurada diretamente no IoT Central para automatizar fluxos de trabalho entre aplicativos e serviços. Além disso, com base nas atividades de serviço no Serviço de Campo, as informações podem ser enviadas de volta ao Azure IoT Central. 
 
 ## <a name="how-to-connect-your-azure-iot-central-application-with-dynamics-365-field-services"></a>Como conectar seu aplicativo do Azure IoT Central com os Serviços de Campo do Dynamics 365 
 
