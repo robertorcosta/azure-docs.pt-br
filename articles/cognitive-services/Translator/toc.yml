@@ -4,7 +4,7 @@
   items:
     - name: O que é o Tradutor?
       href: translator-info-overview.md
-    - name: Guia de Início Rápido
+    - name: Início Rápido
       href: quickstart-translator.md
     - name: Suporte ao idioma
       href: language-support.md
@@ -23,7 +23,7 @@
     - name: Guias de instruções
       items:
         - name: Inscrever-se no Tradutor
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrar para a API de texto V3
           href: migrate-to-v3.md
         - name: Adicionar filtragem de baixo calão
