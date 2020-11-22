@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591727"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253551"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
 Azure NetApp Files dá suporte à criação de instantâneos sob demanda e ao uso de políticas de instantâneo para agendar a criação automática de instantâneos. Você também pode restaurar um instantâneo para um novo volume, restaurar um único arquivo usando um cliente ou reverter um volume existente usando um instantâneo.
+
+> [!NOTE] 
+> Para obter considerações sobre o gerenciamento de instantâneos na replicação entre regiões, consulte [requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md).
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo sob demanda para um volume
 
@@ -77,7 +80,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
 2.  Na janela política de instantâneo, defina estado da política como **habilitado**. 
 
-3.  Clique na guia por **hora** , **dia** , **semana** ou **mês** para criar políticas de instantâneo por hora, diárias, semanais ou mensais. Especifique o **número de instantâneos a serem mantidos**.  
+3.  Clique na guia por **hora**, **dia**, **semana** ou **mês** para criar políticas de instantâneo por hora, diárias, semanais ou mensais. Especifique o **número de instantâneos a serem mantidos**.  
 
     Consulte [limites de recursos para Azure NetApp files](azure-netapp-files-resource-limits.md) sobre o número máximo de instantâneos permitidos para um volume. 
 
@@ -114,7 +117,7 @@ Não é possível aplicar uma política de instantâneo a um volume de destino n
 
     ![Menu com o botão direito em volumes](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.  Na janela Editar, em **política de instantâneo** , selecione uma política a ser usada para o volume.  Clique em **OK** para aplicar a política.  
+2.  Na janela Editar, em **política de instantâneo**, selecione uma política a ser usada para o volume.  Clique em **OK** para aplicar a política.  
 
     ![Edição de política de instantâneo](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
@@ -226,13 +229,13 @@ Se você não vir o diretório de instantâneo, ele poderá estar oculto porque 
 
     ![Colar arquivo a ser restaurado](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. Você também pode clicar com o botão direito do mouse no diretório pai, selecionar **Propriedades** , clicar na guia **versões anteriores** para ver a lista de instantâneos e selecionar **restaurar** para restaurar um arquivo.  
+4. Você também pode clicar com o botão direito do mouse no diretório pai, selecionar **Propriedades**, clicar na guia **versões anteriores** para ver a lista de instantâneos e selecionar **restaurar** para restaurar um arquivo.  
 
     ![Propriedades versões anteriores](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 
 ## <a name="revert-a-volume-using-snapshot-revert"></a>Reverter um volume usando a reversão de instantâneo
 
-A funcionalidade de reversão de instantâneo permite que você reverta rapidamente um volume para o estado em que ele estava quando um determinado instantâneo foi tirado. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar arquivos individuais de um instantâneo para o sistema de arquivos ativo. Também é mais eficiente em comparação com a restauração de um instantâneo para um novo volume. 
+A funcionalidade de reversão de instantâneo permite que você reverta rapidamente um volume para o estado em que ele estava quando um determinado instantâneo foi tomado. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar arquivos individuais de um instantâneo para o sistema de arquivos ativo. Também é mais eficiente em termos de espaço em comparação com a restauração de um instantâneo para um novo volume. 
 
 Você pode encontrar a opção reverter volume no menu instantâneos de um volume. Depois de selecionar um instantâneo para a reversão, Azure NetApp Files reverte o volume para os dados e os carimbos de data/hora que ele continha quando o instantâneo selecionado foi tirado. 
 

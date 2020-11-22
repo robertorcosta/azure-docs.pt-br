@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265462"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247227"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
 
@@ -74,7 +74,7 @@ Há duas etapas para configurar Azure Active Directory para emitir nomes de grup
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adicionar declarações de grupo a tokens para aplicativos SAML usando a configuração de SSO
 
-Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra **aplicativos empresariais**, clique no aplicativo na lista, selecione **configuração de logon único**e, em seguida, selecione **atributos de usuário & declarações**.
+Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra **aplicativos empresariais**, clique no aplicativo na lista, selecione **configuração de logon único** e, em seguida, selecione **atributos de usuário & declarações**.
 
 Clique em **Adicionar uma declaração de grupo**  
 
@@ -144,8 +144,9 @@ Os valores válidos são:
 |----------|-------------|
 | **Os** | Emite grupos de segurança, listas de distribuição e funções |
 | **“SecurityGroup”** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
-| **"DirectoryRole** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
-| **"The Application** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
+| **“DirectoryRole”** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
+| **ApplicationGroup** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
+| **None** | Nenhum grupo é retornado. (Não diferencia maiúsculas de minúsculas, isso não funciona bem e pode ser definido diretamente no manifesto do aplicativo.) |
 
    Por exemplo:
 

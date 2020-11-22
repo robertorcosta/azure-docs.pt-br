@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745676"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239543"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Solucionar problemas de replicação entre regiões
 
@@ -50,6 +50,12 @@ Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo 
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Valide se a replicação foi quebrada ou se ela não foi inicializada e está ociosa (inicialização com falha).    |
 |     `Cannot delete   source replication`    |     Não é permitido excluir a replicação do lado da origem. Certifique-se de que você está excluindo a replicação do lado de destino.    |
+
+## <a name="errors-deleting-volume"></a>Erros ao excluir o volume
+
+|     Mensagem de erro    |     Resolução    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Exclua a replicação antes de excluir o volume. Consulte [excluir replicações](cross-region-replication-delete.md). Esta operação requer que você interrompa o emparelhamento antes de excluir a replicação para o volume. |
 | `Volume with replication cannot be deleted`  |  Exclua a replicação antes de excluir o volume. Consulte [excluir replicações](cross-region-replication-delete.md). Esta operação requer que você interrompa o emparelhamento antes de excluir a replicação para o volume. 
 
 ## <a name="errors-resyncing-volume"></a>Erros ao ressincronizar o volume
@@ -69,7 +75,7 @@ Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo 
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Criar um emparelhamento de replicação](cross-region-replication-create-peering.md)
+* [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)

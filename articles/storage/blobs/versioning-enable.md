@@ -10,12 +10,12 @@ ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a52b736efaabdca8b08427f293ebf0cda5f22e44
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 64ab86836989030c36ad2e8ad054c364b382af0b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695870"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95248009"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
 
@@ -27,7 +27,7 @@ Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB p
 
 ## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para habilitar o controle de versão de blob no portal do Azure:
 
@@ -77,7 +77,7 @@ O exemplo de código a seguir mostra como disparar a criação de uma nova vers�
 
 O exemplo cria um blob de blocos e, em seguida, atualiza os metadados do blob. Atualizar os metadados do blob dispara a criação de uma nova versão. O exemplo recupera a versão inicial e a versão atual e mostra que apenas a versão atual inclui os metadados.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_TriggerNewBlobVersion":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
 
 ## <a name="list-blob-versions"></a>Listar versões de BLOB
 

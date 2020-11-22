@@ -6,23 +6,22 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423900"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246377"
 ---
 # <a name="key-value-revisions"></a>Revisões de chave-valor
 
-versão da API: 1,0
+Uma *revisão de chave-valor* define a representação histórica de um recurso de chave-valor. As revisões expiram após 7 dias para lojas de camada gratuita ou 30 dias para repositórios de camada Standard. As revisões dão suporte à `List` operação.
 
-Uma **revisão de chave-valor** define a representação histórica de um recurso de chave-valor. As revisões expiram após 7 dias para lojas de camada gratuita ou 30 dias para repositórios de camada Standard. As revisões oferecem suporte às seguintes operações:
+Para todas as operações, ``key`` é um parâmetro opcional. Se omitido, ele implica qualquer chave.
 
-- Lista
+Para todas as operações, ``label`` é um parâmetro opcional. Se omitido, ele implica qualquer rótulo.
 
-Para todas as operações, ``key`` é um parâmetro opcional. Se omitido, ele implica **qualquer** chave.
-Para todas as operações, ``label`` é um parâmetro opcional. Se omitido, ele implica **qualquer** rótulo.
+Este artigo se aplica à versão de API 1,0.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Paginação
 
-O resultado será paginado se o número de itens retornados exceder o limite de resposta. Siga o ``Link`` cabeçalho de resposta opcional e use ``rel="next"`` para navegação.  Como alternativa, o conteúdo fornece um link seguinte na forma da ``@nextLink`` propriedade.
+O resultado será paginado se o número de itens retornados exceder o limite de resposta. Siga o ``Link`` cabeçalho de resposta opcional e use ``rel="next"`` para navegação. Como alternativa, o conteúdo fornece um link a seguir na forma da ``@nextLink`` propriedade.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Listar subconjunto de revisões
 
-Use o `Range` cabeçalho da solicitação. A resposta conterá um `Content-Range` cabeçalho. Se o servidor não puder atender ao intervalo solicitado, ele responderá com HTTP `416` (RangeNotSatisfiable)
+Use o `Range` cabeçalho da solicitação. A resposta contém um cabeçalho `Content-Range`. Se o servidor não puder atender ao intervalo solicitado, ele responderá com HTTP `416` ( `RangeNotSatisfiable` ).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,9 +134,11 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Caracteres reservados
 
+Os caracteres reservados são:
+
 `*`, `\`, `,`
 
-Se um caractere reservado fizer parte do valor, ele deverá ter um escape usando `\{Reserved Character}` . Caracteres não reservados também podem ser ignorados.
+Se um caractere reservado fizer parte do valor, ele deverá ser ignorado com o uso de `\{Reserved Character}` . Caracteres não reservados também podem ser ignorados.
 
 ### <a name="filter-validation"></a>Validação de filtro
 
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>Exemplos
 
-- Tudo
+- Todos:
 
     ```http
     GET /revisions
     ```
 
-- Itens em que o nome da chave começa com **ABC**
+- Itens em que o nome da chave começa com **ABC**:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Itens em que o nome da chave é **ABC** ou **XYZ** e os rótulos contêm **prod**
+- Itens em que o nome da chave é **ABC** ou **XYZ**, e os rótulos contêm **prod**:
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -180,15 +181,15 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## <a name="request-specific-fields"></a>Campos específicos da solicitação
 
-Use o parâmetro opcional de `$select` cadeia de caracteres de consulta e forneça a lista separada por vírgulas dos campos solicitados. Se o `$select` parâmetro for omitido, a resposta conterá o conjunto padrão.
+Use o parâmetro opcional de `$select` cadeia de caracteres de consulta e forneça uma lista separada por vírgulas dos campos solicitados. Se o `$select` parâmetro for omitido, a resposta conterá o conjunto padrão.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Acesso Time-Based
+## <a name="time-based-access"></a>Acesso baseado em tempo
 
-Obtenha uma representação do resultado como estava em um momento anterior. Consulte a seção [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Obtenha uma representação do resultado como estava em um momento anterior. Para obter mais informações, consulte [estrutura http para acesso Time-Based a Estados de recursos--lembrança](https://tools.ietf.org/html/rfc7089#section-2.1), seção 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

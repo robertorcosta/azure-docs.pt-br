@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916858"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254656"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -38,7 +38,7 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 
 ### <a name="pool-lifetime-and-billing"></a>Tempo de vida e cobrança do pool
 
-O tempo de vida do pool pode variar de acordo com o método de alocação e as opções aplicadas à configuração do pool. Os pools podem ter um tempo de vida arbitrário e um número variável de nós de computação no pool a qualquer momento. É sua responsabilidade gerenciar os nós de computação no pool, explicitamente ou por meio de recursos fornecidos pelo serviço (dimensionamento ou pool automático).
+O tempo de vida do pool pode variar de acordo com o método de alocação e as opções aplicadas à configuração do pool. Os pools podem ter um tempo de vida arbitrário e um número variável de nós de computação no pool a qualquer momento. É sua responsabilidade gerenciar os nós de computação no pool explicitamente ou por meio de recursos fornecidos pelo serviço ([autoescala](nodes-and-pools.md#automatic-scaling-policy) ou [autopool](nodes-and-pools.md#autopools)).
 
 - **Mantenha os pools atualizados.**
     Redimensione seus pools para zero a cada poucos meses para garantir que você obtenha as [atualizações e correções de bug mais recentes do agente de nó](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes).
@@ -93,7 +93,7 @@ As [tarefas](jobs-and-tasks.md#tasks) são unidades individuais de trabalho que 
 
 ### <a name="save-task-data"></a>Salvar dados da tarefa
 
-Os nós de computação são, por sua natureza, efêmeros. Há muitos recursos no Lote, como o pool automático e o dimensionamento automático, que facilitam o desaparecimento dos nós. Quando os nós deixam o pool (devido a um redimensionamento ou a uma exclusão de pool), todos os arquivos nesses nós também são excluídos. Por isso, uma tarefa deve mover sua saída do nó em execução e para um repositório durável antes de ser concluída. Da mesma forma, se uma tarefa falhar, ela deverá mover os logs necessários para diagnosticar a falha em um repositório durável.
+Os nós de computação são, por sua natureza, efêmeros. Há muitos recursos em lote, como o [autopool](nodes-and-pools.md#autopools) e o [dimensionamento automático](nodes-and-pools.md#automatic-scaling-policy) , que podem facilitar para os nós desaparecerem. Quando os nós deixam um pool (devido a um redimensionamento ou a uma exclusão de pool), todos os arquivos nesses nós também são excluídos. Por isso, uma tarefa deve mover sua saída do nó em execução e para um repositório durável antes de ser concluída. Da mesma forma, se uma tarefa falhar, ela deverá mover os logs necessários para diagnosticar a falha em um repositório durável.
 
 O Lote tem suporte integrado ao Armazenamento do Azure para carregar dados por meio de [OutputFiles](batch-task-output-files.md), bem como uma variedade de sistemas de arquivos compartilhados, ou você pode executar o upload por conta própria em suas tarefas.
 

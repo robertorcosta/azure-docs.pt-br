@@ -2,17 +2,17 @@
 title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537604"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243062"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
-Em um fluxo de trabalho do Lote do Azure, um *nó de computação* (ou *nó* ) é uma máquina virtual que processa uma parte da carga de trabalho do aplicativo. Um *pool* é uma coleção desses nós para execução do aplicativo. Este artigo explica melhor nós e pools, juntamente com considerações ao criá-los e usá-los em um fluxo de trabalho do Lote do Azure.
+Em um fluxo de trabalho do Lote do Azure, um *nó de computação* (ou *nó*) é uma máquina virtual que processa uma parte da carga de trabalho do aplicativo. Um *pool* é uma coleção desses nós para execução do aplicativo. Este artigo explica melhor nós e pools, juntamente com considerações ao criá-los e usá-los em um fluxo de trabalho do Lote do Azure.
 
 ## <a name="nodes"></a>Nós
 
@@ -40,7 +40,7 @@ Todos os nós adicionados a um pool recebem um nome e um endereço IP exclusivos
 
 Um pool pode ser usado somente pela conta do Lote na qual foi criado. Uma conta do Lote pode criar vários pools para atender aos requisitos de recursos dos aplicativos que serão executados.
 
-O pool pode ser criado manualmente ou automaticamente pelo serviço de Lote quando você especifica o trabalho a ser feito. Ao criar um pool, você pode especificar os seguintes atributos:
+O pool pode ser criado manualmente ou [automaticamente pelo serviço de lote](#autopools) quando você especifica o trabalho a ser feito. Ao criar um pool, você pode especificar os seguintes atributos:
 
 - [Sistema operacional e versão do nó](#operating-system-and-version)
 - [Tipo de nó e número de nós de destino](#node-type-and-target)
@@ -148,7 +148,7 @@ Você também pode especificar um *tipo de preenchimento* que determina se o Lot
 
 Na maioria dos cenários, as tarefas operam de forma independente e não precisam comunicar-se umas com as outras. No entanto, há alguns aplicativos em que as tarefas precisam se comunicar, como os [cenários MPI](batch-mpi.md).
 
-Você pode configurar um pool para permitir a  **comunicação entre os nós** , de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
+Você pode configurar um pool para permitir a  **comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
 
 Habilitar a comunicação entre nós também afeta a colocação dos nós nos clusters e pode limitar o número máximo de nós em um pool devido às restrições da implantação. Se seu aplicativo não precisar da comunicação entre os nós, o serviço de Lote poderá alocar um número potencialmente grande de nós para o pool a partir de vários clusters e data centers diferentes para permitir uma capacidade maior do processamento paralelo.
 
@@ -184,6 +184,10 @@ Em uma extremidade do espectro, você pode criar um pool para cada trabalho envi
 Por outro lado, se ter os trabalhos iniciados imediatamente for a prioridade mais alta, você poderá criar um pool antecipadamente e tornar seus nós disponíveis antes dos trabalhos serem enviados. Nesse cenário, as tarefas podem começar imediatamente, mas os nós poderão ficar ociosos enquanto aguardam a atribuição delas.
 
 Uma abordagem combinada normalmente é usada para lidar com uma carga variável, mas em andamento. Você pode ter um pool no qual vários trabalhos são enviados e pode aumentar ou diminuir o número de nós de acordo com a carga de trabalho. Isso pode ser feito de maneira reativa, com base na carga atual, ou proativamente, se a carga puder ser prevista. Para obter mais informações, veja [Política de dimensionamento automático](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Pools
+
+Um [autopool](/rest/api/batchservice/job/add#autopoolspecification) é um pool criado pelo serviço de lote quando um trabalho é enviado, em vez de ser criado antes dos trabalhos que serão executados no pool. O serviço de lote gerenciará o tempo de vida de um pool autoagrupado de acordo com as características que você especificar. Geralmente, esses pools também são definidos para serem excluídos automaticamente depois que seus trabalhos são concluídos.
 
 ## <a name="security-with-certificates"></a>Segurança com certificados
 

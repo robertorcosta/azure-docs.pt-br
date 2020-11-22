@@ -1,38 +1,38 @@
 ---
 title: API REST de configuração de Azure App-autenticação HMAC
-description: Usar HMAC para autenticar na configuração de Azure App usando a API REST
+description: Usar HMAC para autenticar na configuração do Azure App usando a API REST
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 236670cb59a98ee097baaeb35174489d66e6e786
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423873"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253347"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC – referência da API REST
 
-As solicitações HTTP podem ser autenticadas usando o esquema de autenticação **HMAC-SHA256** . Essas solicitações devem ser transmitidas por TLS.
+Você pode autenticar solicitações HTTP usando o esquema de autenticação HMAC-SHA256. (HMAC refere-se ao código de autenticação de mensagens baseado em hash.) Essas solicitações devem ser transmitidas por TLS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Provedores** - \<Access Key ID\>
 - **Secret** -valor da chave de acesso decodificado em base64. ``base64_decode(<Access Key Value>)``
 
-Os valores da credencial (também chamado ' ID ') e o segredo (também chamado de ' valor ') devem ser obtidos na instância de configuração do Azure App, o que pode ser feito usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+Os valores de Credential (também chamado `id` ) e Secret (também chamado `value` ) devem ser obtidos na instância do Azure app configuração. Você pode fazer isso usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
 
 Forneça cada solicitação com todos os cabeçalhos HTTP necessários para autenticação. O mínimo necessário são:
 
 |  Cabeçalho da solicitação | Descrição  |
 | --------------- | ------------ |
-| **Host** | Número da porta e do host da Internet. Consulte a seção  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2) |
-| **Data** | Data e hora em que a solicitação foi originada. Não pode ter mais de 15 minutos a partir do GMT atual. O valor é uma data HTTP, conforme descrito na seção [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)
-| **x-ms-date** | O mesmo que ```Date``` acima. Ele pode ser usado em vez disso, quando o agente não pode acessar diretamente o ```Date``` cabeçalho de solicitação ou um proxy o modifica. Se ```x-ms-date``` e ```Date``` forem ambos fornecidos, ```x-ms-date``` terá precedência. |
+| **Host** | Número da porta e do host da Internet. Para obter mais informações, consulte a seção  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
+| **Data** | Data e hora em que a solicitação foi originada. Ele não pode ter mais de 15 minutos de desconto do tempo universal coordenado atual (hora de Greenwich). O valor é uma data HTTP, conforme descrito na seção [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
+| **x-ms-date** | O mesmo que ```Date``` acima. Você pode usá-lo em vez disso, quando o agente não puder acessar diretamente o ```Date``` cabeçalho da solicitação ou se um proxy o modificar. Se ```x-ms-date``` e ```Date``` forem ambos fornecidos, ```x-ms-date``` terá precedência. |
 | **x-MS-Content-SHA256** | hash SHA256 codificado em base64 do corpo da solicitação. Ele deve ser fornecido mesmo se não houver corpo. ```base64_encode(SHA256(body))```|
-| **Autorização** | Informações de autenticação exigidas pelo esquema **HMAC-SHA256** . O formato e os detalhes são explicados abaixo. |
+| **Autorização** | Informações de autenticação exigidas pelo esquema HMAC-SHA256. O formato e os detalhes são explicados posteriormente neste artigo. |
 
 **Exemplo:**
 
@@ -45,24 +45,24 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>Cabeçalho de autorização
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
 |  Argumento | Descrição  |
 | ------ | ------ |
-| **HMAC-SHA256** | Esquema _de autorização (obrigatório)_ |
+| **HMAC-SHA256** | Esquema de autorização. _necessária_ |
 | **Credencial** | A ID da chave de acesso usada para computar a assinatura. _necessária_ |
 | **SignedHeaders** | Cabeçalhos de solicitação HTTP adicionados à assinatura. _necessária_ |
-| **Signature** | HMACSHA256 codificado na base64 da **cadeia de caracteres a assinar**. _necessária_|
+| **Signature** | HMACSHA256 codificado na base64 da cadeia de caracteres a assinar. _necessária_|
 
 ### <a name="credential"></a>Credencial
 
-ID da chave de acesso usada para computar a **assinatura**.
+ID da chave de acesso usada para computar a assinatura.
 
 ### <a name="signed-headers"></a>Cabeçalhos assinados
 
-Nomes de cabeçalho de solicitação HTTP separados por ponto e vírgula necessários para assinar a solicitação. Esses cabeçalhos HTTP também devem ser fornecidos corretamente com a solicitação. **Não use espaços em branco**.
+Nomes de cabeçalho de solicitação HTTP, separados por ponto e vírgula, necessários para assinar a solicitação. Esses cabeçalhos HTTP também devem ser fornecidos corretamente com a solicitação. Não use espaços em branco.
 
 ### <a name="required-http-request-headers"></a>Cabeçalhos de solicitação HTTP necessários
 
@@ -76,7 +76,7 @@ x-MS-Date; host; x-MS-Content-SHA256; ```Content-Type``` ;```Accept```
 
 ### <a name="signature"></a>Assinatura
 
-Hash HMACSHA256 codificado na base64 da **cadeia de caracteres para assinar** usando a chave de acesso identificada por `Credential` .
+Hash HMACSHA256 codificado na base64 da cadeia de caracteres a assinar. Ele usa a chave de acesso identificada por `Credential` .
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### <a name="string-to-sign"></a>Cadeia de caracteres a assinar
@@ -89,9 +89,9 @@ _Cadeia de caracteres a assinar =_
 
 |  Argumento | Descrição  |
 | ------ | ------ |
-| **HTTP_METHOD** | Nome do método HTTP em letras maiúsculas usado com a solicitação. Consulte a [seção 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) |
-|**path_and_query** | Concatenação de caminho de URI absoluto de solicitação e cadeia de caracteres de consulta. Consulte a [seção 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
-| **signed_headers_values** | Valores separados por ponto e vírgula de todos os cabeçalhos de solicitação HTTP listados em **SignedHeaders**. O formato segue a semântica **SignedHeaders** . |
+| **HTTP_METHOD** | Nome do método HTTP maiúsculo usado com a solicitação. Para obter mais informações, consulte a [seção 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
+|**path_and_query** | Concatenação de caminho de URI absoluto de solicitação e cadeia de caracteres de consulta. Para obter mais informações, consulte a [seção 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
+| **signed_headers_values** | Valores separados por ponto e vírgula de todos os cabeçalhos de solicitação HTTP listados em `SignedHeaders` . O formato segue a `SignedHeaders` semântica. |
 
 **Exemplo:**
 
@@ -111,15 +111,17 @@ WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
 **Motivo:** O cabeçalho de solicitação de autorização com o esquema HMAC-SHA256 não foi fornecido.
-**Solução:** Fornecer um ```Authorization``` cabeçalho de solicitação HTTP válido
+
+**Solução:** Forneça um ```Authorization``` cabeçalho de solicitação HTTP válido.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The access token has expired", Bearer
 ```
 
-**Motivo:** ```Date``` ou ```x-ms-date``` o cabeçalho de solicitação tem mais de 15 minutos de desconto do horário GMT atual.
-**Solução:** Fornecer data e hora corretas
+**Motivo:** ```Date``` ou ```x-ms-date``` o cabeçalho de solicitação tem mais de 15 minutos de desconto do tempo universal coordenado atual (hora de Greenwich).
+
+**Solução:** Forneça a data e a hora corretas.
 
 
 ```http
@@ -127,14 +129,14 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**Motivo:** ```Date```Cabeçalho de solicitação ausente ou inválido ```x-ms-date```
+**Motivo:** Cabeçalho de solicitação ausente ou inválido ```Date``` ```x-ms-date``` .
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**Motivo:** Falta um parâmetro necessário do ```Authorization``` cabeçalho de solicitação
+**Motivo:** Falta um parâmetro necessário no ```Authorization``` cabeçalho da solicitação.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -142,7 +144,8 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid C
 ```
 
 **Motivo:** A [ ```Host``` ]/[ID de chave de acesso] fornecida não foi encontrada.
-**Solução:** Verifique o ```Credential``` parâmetro do ```Authorization``` cabeçalho da solicitação e verifique se ele é uma ID de chave de acesso válida. Verifique se o ```Host``` cabeçalho aponta para a conta registrada.
+
+**Solução:** Verifique o ```Credential``` parâmetro do ```Authorization``` cabeçalho da solicitação. Certifique-se de que seja uma ID de chave de acesso válida e verifique se o ```Host``` cabeçalho aponta para a conta registrada.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -150,15 +153,17 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **Motivo:** O ```Signature``` fornecido não corresponde ao que o servidor espera.
-**Solução:** Verifique se o ```String-To-Sign``` está correto. Verifique se o ```Secret``` está correto e corretamente usado (Base64 decodificado antes de usar). Consulte a seção de **exemplos** .
+
+**Solução:** Verifique se o ```String-To-Sign``` está correto. Verifique se o ```Secret``` está correto e corretamente usado (Base64 decodificado antes de usar).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**Motivo:** Cabeçalho de solicitação ausente exigido pelo ```SignedHeaders``` parâmetro no ```Authorization``` cabeçalho.
-**Solução:** Forneça o cabeçalho necessário com o valor correto.
+**Motivo:** Cabeçalho de solicitação ausente exigido pelo ```SignedHeaders``` parâmetro no  ```Authorization``` cabeçalho.
+
+**Solução:** Forneça o cabeçalho necessário, com o valor correto.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -166,13 +171,14 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **Motivo:** Parâmetro ausente em ```SignedHeaders``` .
-**Solução:** Verifique os requisitos mínimos dos **cabeçalhos assinados** .
+
+**Solução:** Verifique os requisitos mínimos dos cabeçalhos assinados.
 
 ## <a name="code-snippets"></a>Snippets de código
 
 ### <a name="javascript"></a>JavaScript
 
-*Pré-requisitos* : [crypto-js](https://code.google.com/archive/p/crypto-js/)
+*Pré-requisitos*: [crypto-js](https://code.google.com/archive/p/crypto-js/)
 
 ```js
 function signRequest(host, 
@@ -362,7 +368,7 @@ import (
     "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
     method := req.Method
     host := req.URL.Host
@@ -537,7 +543,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 
 ### <a name="bash"></a>Bash
 
-*Pré-requisitos* :
+*Pré-requisitos*:
 
 | Pré-requisito | Comando | Versões testadas |
 | ------------ | ------- | --------------- |
