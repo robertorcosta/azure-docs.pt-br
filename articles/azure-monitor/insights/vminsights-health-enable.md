@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686617"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318126"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitar Azure Monitor para VMs integridade de convidado (versão prévia)
 Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
@@ -24,12 +24,18 @@ Azure Monitor para VMs integridade de convidado tem as seguintes limitações na
   - Ubuntu 16, 4 LTS, Ubuntu 18, 4 LTS
   - Windows Server 2012 ou posterior
 - A máquina virtual deve estar localizada em uma das seguintes regiões:
+  - Leste da Austrália
   - Australia Southeast
+  - Índia Central
   - Centro dos EUA
   - Leste dos EUA
   - Leste dos EUA 2
   - Leste dos EUA 2 EUAP
+  - Centro-Oeste da Alemanha
+  - Japan East
+  - Centro-Norte dos EUA
   - Norte da Europa
+  - Centro-Sul dos Estados Unidos
   - Sudeste Asiático
   - Sul do Reino Unido
   - Europa Ocidental
