@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cff5c68803d0930bbf3310a385ffa0132bcbb3b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2c38af9a2e1c4c71bb2d5661758f663efe13a946
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95017019"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95414072"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -160,7 +160,7 @@ Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e 
 Tipo de armazenamento | HDD Standard, SSD Standard e SSD Premium.
 Discos gerenciados | Com suporte.
 Discos criptografados | Com suporte.<br/><br/> É possível fazer o backup das VMs do Azure habilitadas com o Azure Disk Encryption (com ou sem o aplicativo Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar a VM inteira.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidos pelo Backup do Azure.
-Discos com o Acelerador de Gravação habilitado | Sem suporte.<br/><br/> O backup do Azure exclui automaticamente os discos com Acelerador de Gravação (WA) habilitados durante o backup. Como não é feito backup, você não pode restaurar esses discos de pontos de recuperação da VM. <br><br> **Observação importante**: as máquinas virtuais com discos de WA precisam de conectividade com a Internet para um backup bem-sucedido (embora esses discos sejam excluídos do backup).
+Discos com o Acelerador de Gravação habilitado | A partir de 23 de novembro de 2020, com suporte nas regiões da Coreia central (KRC) e da África do Sul (SAN).<br/><br/> O backup do Azure fará backup das máquinas virtuais que têm discos que são Accelarted de gravação (WA) habilitados durante o backup.  
 Fazer backup e restaurar VMs/discos com eliminação de duplicação | O backup do Azure não dá suporte à eliminação de duplicação. Para obter mais informações, confira este [artigo](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -O backup do Azure não elimina a duplicação entre VMs no cofre dos serviços de recuperação <br/> <br/>  -Se houver VMs no estado de eliminação de duplicação durante a restauração, os arquivos não poderão ser restaurados porque o cofre não entende o formato. No entanto, você pode executar com êxito a restauração completa da VM.
 Adicionar o disco à VM protegida | Com suporte.
 Redimensionar o disco em uma VM protegida | Com suporte.
