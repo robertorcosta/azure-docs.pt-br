@@ -96,7 +96,7 @@
       href: app-attach.md
     - name: Usar o Microsoft Teams
       href: teams-on-wvd.md
-    - name: Configurar a Autenticação Multifator do Azure
+    - name: Configurar a Autenticação Multifator do Azure AD
       href: set-up-mfa.md
     - name: Configurar atualizações automáticas
       href: configure-automatic-updates.md

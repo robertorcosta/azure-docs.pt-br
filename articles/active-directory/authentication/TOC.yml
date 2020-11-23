@@ -9,7 +9,7 @@
   items:
     - name: Habilitar a redefinição de senha por autoatendimento
       href: tutorial-enable-sspr.md
-    - name: Habilitar a Autenticação Multifator do Microsoft Azure
+    - name: Habilitar a Autenticação Multifator do Azure AD
       href: tutorial-enable-azure-mfa.md
     - name: Habilitar o write-back de senha para local
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR para clientes do Windows
           href: howto-sspr-windows.md
-    - name: Autenticação Multifator do Azure
+    - name: Autenticação Multifator do Azure AD
       items:
         - name: Guia de implantação
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Configuração avançada de extensão do NPS
               href: howto-mfa-nps-extension-advanced.md
-            - name: VPN do Azure e MFA do Azure
+            - name: VPN do Azure e MFA do Azure AD
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway de Área de Trabalho Remota
               href: howto-mfa-nps-extension-rdg.md

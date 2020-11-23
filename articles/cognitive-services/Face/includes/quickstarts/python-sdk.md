@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7141ebe4e7894c975ba2ee6fb39d5bfd4483ed41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523693"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816804"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -164,6 +164,9 @@ O código a seguir classifica as imagens pelo respectivo prefixo, detecta os ros
 Depois de atribuir os rostos, você precisa treinar o **PersonGroup** para que ele possa identificar as características visuais associadas a cada um dos objetos **Person** nele contidos. O código a seguir chama o método **train** assíncrono e sonda o resultado, imprimindo o status no console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
+
+> [!TIP]
+> A API de Detecção Facial é executada em um conjunto de modelos predefinidos que estão estáticos por natureza (o desempenho do modelo não regredirá nem será aprimorado conforme o serviço for executado). Os resultados que o modelo produz poderão ser alterados se a Microsoft atualizar o back-end do modelo sem fazer a migração para uma versão totalmente nova do modelo. Para aproveitar uma versão mais recente de um modelo, você pode treinar novamente seu **PersonGroup**, especificando o modelo mais recente como um parâmetro com as mesmas imagens de registro.
 
 ## <a name="identify-a-face"></a>Identificar um rosto
 

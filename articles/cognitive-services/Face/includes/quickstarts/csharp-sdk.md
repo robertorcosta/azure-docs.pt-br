@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 44c1e55d60fb35ba510d99535c50c7919b29253e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918651"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816549"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -46,7 +46,7 @@ Usando o Visual Studio, crie um aplicativo .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes 
 
-Depois de criar um projeto, instale a biblioteca de clientes clicando com o botão direito do mouse na solução do projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar** , marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Vision.Face`. Selecione a versão `2.6.0-preview.1` e, em seguida, **Instalar**. 
+Depois de criar um projeto, instale a biblioteca de clientes clicando com o botão direito do mouse na solução do projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar**, marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Vision.Face`. Selecione a versão `2.6.0-preview.1` e, em seguida, **Instalar**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -135,11 +135,11 @@ Em um novo método, instancie um cliente com o ponto de extremidade e a chave. C
 
 ### <a name="declare-helper-fields"></a>Declarar campos auxiliares
 
-Os campos a seguir são necessários para várias das operações de Face que você adicionará posteriormente. Na raiz de sua classe **Program** , defina a cadeia de caracteres de URL a seguir. Essa URL aponta para uma pasta de imagens de exemplo.
+Os campos a seguir são necessários para várias das operações de Face que você adicionará posteriormente. Na raiz de sua classe **Program**, defina a cadeia de caracteres de URL a seguir. Essa URL aponta para uma pasta de imagens de exemplo.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
-No método **Main** , defina cadeias de caracteres para apontar para os diferentes tipos de modelo de reconhecimento. Posteriormente, você poderá especificar qual modelo de reconhecimento você deseja usar para detecção facial. Confira [Especificar um modelo de reconhecimento](../../Face-API-How-to-Topics/specify-recognition-model.md) para obter informações sobre essas opções.
+No método **Main**, defina cadeias de caracteres para apontar para os diferentes tipos de modelo de reconhecimento. Posteriormente, você poderá especificar qual modelo de reconhecimento você deseja usar para detecção facial. Confira [Especificar um modelo de reconhecimento](../../Face-API-How-to-Topics/specify-recognition-model.md) para obter informações sobre essas opções.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
@@ -184,7 +184,7 @@ O código a seguir imprime os detalhes de correspondência no console:
 
 ## <a name="identify-a-face"></a>Identificar um rosto
 
-A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup** , um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas. Para fazer a operação de identificação, primeiro você precisa criar e treinar um **PersonGroup**
+A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup**, um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas. Para fazer a operação de identificação, primeiro você precisa criar e treinar um **PersonGroup**
 
 ### <a name="create-a-person-group"></a>Criar um grupo de pessoas
 
@@ -209,9 +209,12 @@ Em seguida, adicione o seguinte código para criar um objeto **Person** para cad
 
 ### <a name="train-the-persongroup"></a>Treinar o PersonGroup
 
-Após ter extraído dados de rosto de suas imagens e os ter classificado em diferentes objetos **Person** , você deverá treinar o **PersonGroup** para identificar os recursos associados a cada um de seus objetos **Person**. O código a seguir chama o método **train** assíncrono e sonda os resultados, imprimindo o status no console.
+Após ter extraído dados de rosto de suas imagens e os ter classificado em diferentes objetos **Person**, você deverá treinar o **PersonGroup** para identificar os recursos associados a cada um de seus objetos **Person**. O código a seguir chama o método **train** assíncrono e sonda os resultados, imprimindo o status no console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
+
+> [!TIP]
+> A API de Detecção Facial é executada em um conjunto de modelos predefinidos que estão estáticos por natureza (o desempenho do modelo não regredirá nem será aprimorado conforme o serviço for executado). Os resultados que o modelo produz poderão ser alterados se a Microsoft atualizar o back-end do modelo sem fazer a migração para uma versão totalmente nova do modelo. Para aproveitar uma versão mais recente de um modelo, você pode treinar novamente seu **PersonGroup**, especificando o modelo mais recente como um parâmetro com as mesmas imagens de registro.
 
 Esse grupo **Person** e seus objetos **Person** associados agora estão prontos para serem usados nas operações Verificar, Identificar ou Agrupar.
 

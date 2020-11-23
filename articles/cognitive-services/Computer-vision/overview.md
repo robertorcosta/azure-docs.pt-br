@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90907071"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629743"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -27,19 +27,19 @@ ms.locfileid: "90907071"
 
 O serviço de Pesquisa Visual Computacional do Azure fornece acesso a algoritmos avançados que processam imagens e retornam informações com base nos recursos visuais de seu interesse. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo para adulto, localizar marcas ou objetos específicos ou encontrar rostos humanos.
 
-Crie a aplicativos de Pesquisa Visual Computacional por meio de um SDK da biblioteca de clientes ou chamando a API REST diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
+Você pode criar aplicativos da Pesquisa Visual Computacional por meio de um [SDK da biblioteca de clientes](./quickstarts-sdk/client-library.md) ou chamando a [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
+
+## <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
+
+A Pesquisa Visual Computacional inclui funcionalidades de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md). Você pode usar a nova API de leitura para extrair texto impresso e manuscrito de imagens e documentos. Ela usa os modelos mais recentes e trabalha com texto em uma variedade de superfícies e telas de fundo. Eles incluem recibos, cartazes, cartões de visita, cartas e quadros de comunicação. As duas APIs de OCR dão suporte à extração de textos impressos em [vários idiomas](./language-support.md). Siga nosso [início rápido](./quickstarts-sdk/client-library.md) para começar.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Pesquisa Visual Computacional para gerenciamento de ativo digital
 
 A Pesquisa Visual Computacional pode viabilizar muitos cenários de gerenciamento de ativos digitais (DAM). O DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar permissões e direitos digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos visíveis, rostos, objetos, cores e assim por diante. Ou é possível que você queira [gerar legendas para imagens](./Tutorials/storage-lab-tutorial.md) automaticamente e vincular palavras-chave que possam ser pesquisadas. Para ter uma solução completa de DAM usando os Serviços Cognitivos, a Pesquisa Cognitiva do Azure e os relatórios inteligentes, confira o [Guia do Acelerador de Solução de Mineração de Conhecimento](https://github.com/Azure-Samples/azure-search-knowledge-mining) no GitHub. Para ter outros exemplos de DAM, confira o repositório [Modelos de Solução de Pesquisa Visual Computacional](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates).
 
-## <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
-
-A Pesquisa Visual Computacional inclui funcionalidades de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md). Você pode usar a nova API de leitura para extrair texto impresso e manuscrito de imagens e documentos. Ela usa os modelos mais recentes e trabalha com texto em uma variedade de superfícies e telas de fundo. Eles incluem recibos, cartazes, cartões de visita, cartas e quadros de comunicação. As duas APIs de OCR dão suporte à extração de textos impressos em [vários idiomas](./language-support.md). Siga nosso [início rápido](#next-steps) para começar.
-
 ## <a name="analyze-images-for-insight"></a>Analisar imagens quanto a insights
 
-Analise imagens para fornecer insights sobre os recursos visuais e as características. Todos os recursos na tabela a seguir são fornecidos pela API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Siga nosso [início rápido](#next-steps) para começar.
+Analise imagens para fornecer insights sobre os recursos visuais e as características. Todos os recursos na tabela a seguir são fornecidos pela API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Siga nosso [início rápido](./quickstarts-sdk/client-library.md) para começar.
 
 
 ### <a name="tag-visual-features"></a>Marcar recursos visuais
@@ -113,8 +113,6 @@ Assim como ocorre com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Introdução à Pesquisa Visual Computacional seguindo o guia de início rápido:
+Comece a usar a Pesquisa Visual Computacional seguindo o guia de início rápido na linguagem de desenvolvimento de sua preferência:
 
-- [Início Rápido: biblioteca de clientes do .NET para a Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Início Rápido: biblioteca de clientes do Python para a Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Início Rápido: biblioteca de clientes do Java para a Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md)

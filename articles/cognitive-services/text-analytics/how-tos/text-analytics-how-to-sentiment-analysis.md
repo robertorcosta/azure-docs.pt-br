@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366750"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518168"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
@@ -40,7 +40,7 @@ A Análise de Sentimento dá suporte a uma ampla variedade de idiomas, com mais 
 
 A Análise de Sentimento na v3 aplica rótulos de sentimento a um texto, que são retornados em um nível da frase e do documento, com uma pontuação de confiança para cada um. 
 
-Os rótulos são *positivos* , *negativos* e *neutros*. No nível do documento, o rótulo de sentimento *misto* também pode ser retornado. O sentimento do documento é determinado abaixo:
+Os rótulos são *positivos*, *negativos* e *neutros*. No nível do documento, o rótulo de sentimento *misto* também pode ser retornado. O sentimento do documento é determinado abaixo:
 
 | Sentimento da frase                                                                            | Rótulo do documento retornado |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -78,9 +78,9 @@ O tamanho do documento deve ser inferior a 5.120 caracteres. Você pode ter até
 
 Crie uma solicitação POST. Você pode [usar o Postman](text-analytics-how-to-call-api.md) ou o **console de teste da API** nos links de referência a seguir para estruturar e enviar uma rapidamente. 
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versão 3.1-preview.2](#tab/version-3-1)
 
-[Referência da Análise de Sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Referência da Análise de Sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recu
 > [!NOTE]
 > Você pode encontrar sua chave e ponto de extremidade para o recurso da Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versão 3.1-preview.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 Para obter os resultados da mineração de opinião, inclua o parâmetro `opinionMining=true`. Por exemplo:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 Esse parâmetro é definido como `false` por padrão. 
 
@@ -142,7 +142,7 @@ A análise de sentimento retorna um rótulo de sentimento e uma pontuação de c
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local. Em seguida, importe a saída para um aplicativo que você possa usar para classificar, pesquisar e manipular os dados. Devido ao suporte multilíngue e a emojis, a resposta pode conter deslocamentos de texto. Confira [como processar deslocamentos](../concepts/text-offsets.md) para obter mais informações.
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versão 3.1-preview.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>Exemplo de resposta da Análise de Sentimento v3.1
 
