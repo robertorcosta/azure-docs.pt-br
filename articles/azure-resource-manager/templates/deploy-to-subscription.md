@@ -2,13 +2,13 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668881"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519856"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implantações de assinatura com modelos ARM
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para o comando de implantação do PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment** . O exemplo a seguir implanta um modelo para criar um grupo de recursos:
+Para o comando de implantação do PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment**. O exemplo a seguir implanta um modelo para criar um grupo de recursos:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -131,20 +131,28 @@ Para obter informações mais detalhadas sobre os comandos de implantação e op
 Ao implantar em uma assinatura, você pode implantar recursos em:
 
 * a assinatura de destino da operação
-* grupos de recursos dentro da assinatura
+* qualquer assinatura no locatário
+* grupos de recursos dentro da assinatura ou outras assinaturas
+* o locatário para a assinatura
 * os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
 
-Não é possível implantar em uma assinatura diferente da assinatura de destino. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 
 Esta seção mostra como especificar escopos diferentes. Você pode combinar esses escopos diferentes em um único modelo.
 
-### <a name="scope-to-subscription"></a>Escopo da assinatura
+### <a name="scope-to-target-subscription"></a>Escopo para assinatura de destino
 
 Para implantar recursos na assinatura de destino, adicione esses recursos à seção de recursos do modelo.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Para obter exemplos de implantação na assinatura, consulte [criar grupos de recursos](#create-resource-groups) e [atribuir definição de política](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Escopo para outra assinatura
+
+Para implantar recursos em uma assinatura que seja diferente da assinatura da operação, adicione uma implantação aninhada. Defina a `subscriptionId` propriedade como a ID da assinatura na qual você deseja implantar. Defina a `location` propriedade para a implantação aninhada.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Escopo para o grupo de recursos
 
@@ -154,11 +162,23 @@ Para implantar recursos em um grupo de recursos dentro da assinatura, adicione u
 
 Para obter um exemplo de implantação em um grupo de recursos, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources).
 
+### <a name="scope-to-tenant"></a>Escopo para o locatário
+
+Você pode criar recursos no locatário definindo o `scope` conjunto como `/` . O usuário que está implantando o modelo deve ter o [acesso necessário para implantar no locatário](deploy-to-tenant.md#required-access).
+
+Você pode usar uma implantação aninhada com o `scope` e o `location` set.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Ou, você pode definir o escopo como `/` para alguns tipos de recursos, como grupos de gerenciamento.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
 ## <a name="deployment-location-and-name"></a>Nome e local da implantação
 
 Para implantações no nível da assinatura, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
 
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy** .
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
 O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 

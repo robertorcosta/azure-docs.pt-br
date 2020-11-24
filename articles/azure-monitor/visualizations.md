@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983606"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522661"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -49,7 +49,7 @@ Aqui está uma explicação em vídeo sobre como criar painéis.
 - Integração profunda no Azure. As visualizações podem ser fixadas em painéis a partir de várias páginas do Azure, incluindo o Metrics Explorer, o Log Analytics e o Application Insights.
 - Suporta métricas e logs.
 - Combine dados de várias origens, incluindo a saída do [Metrics Explorer](platform/metrics-charts.md), das [consultas de log](log-query/log-query-overview.md) e dos [mapas](app/app-map.md), e a disponibilidade no Application Insights.
-- Opção para os painéis de pessoais ou compartilhadas. Integrado com a autenticação baseada em função do Azure [(RBAC)](../role-based-access-control/overview.md).
+- Opção para os painéis de pessoais ou compartilhadas. Integrado com o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md).
 - Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os logs são atualizados a cada hora, com uma opção de atualização manual sob demanda clicando no ícone “atualizar” em uma determinada visualização ou atualizando o painel completo.
 - Painéis de métricas parametrizadas com carimbo de data/hora e parâmetros personalizados.
 - Opções de layout flexível.

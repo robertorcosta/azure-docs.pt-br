@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837610"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520655"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -26,7 +26,9 @@ Os clientes expressou preocupações sobre o atraso entre quando as condições 
 
 A resposta oportuna a violações de política ou problemas de segurança realmente requer uma "conversa" entre o emissor do token, como o Azure AD e a terceira parte confiável, como o Exchange Online. Essa conversa bidirecional nos dá dois recursos importantes. A terceira parte confiável pode observar quando as coisas foram alteradas, como um cliente proveniente de um novo local e informam ao emissor do token. Ele também fornece ao emissor do token uma maneira de dizer à terceira parte confiável para parar de respeitar os tokens de um determinado usuário devido a comprometimento da conta, à desabilitação ou a outras preocupações. O mecanismo para essa conversa é a Continuous Access Evaluation (CAE). O objetivo é que a resposta seja quase em tempo real, mas, em alguns casos, a latência de até 15 minutos pode ser observada devido ao tempo de propagação do evento.
 
-A implementação inicial da avaliação de acesso contínuo se concentra no Exchange, nas equipes e no SharePoint Online. 
+A implementação inicial da avaliação de acesso contínuo se concentra no Exchange, nas equipes e no SharePoint Online.
+
+Para preparar seus aplicativos para usar o CAE, consulte [como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Principais benefícios
 
@@ -144,7 +146,7 @@ Para CAE, só temos informações sobre locais nomeados baseados em IP nomeados.
 
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 
-O provedor de identidade e os provedores de recursos podem ver endereços IP diferentes. Essa incompatibilidade pode ocorrer devido a implementações de proxy de rede em sua organização ou configurações de IPv4/IPv6 incorretas entre o provedor de identidade e o provedor de recursos. Por exemplo:
+O provedor de identidade e os provedores de recursos podem ver endereços IP diferentes. Essa incompatibilidade pode ocorrer devido a implementações de proxy de rede em sua organização ou configurações de IPv4/IPv6 incorretas entre o provedor de identidade e o provedor de recursos. Por exemplo: 
 
 - Seu provedor de identidade vê um endereço IP do cliente.
 - O provedor de recursos vê um endereço IP diferente do cliente depois de passar por um proxy.

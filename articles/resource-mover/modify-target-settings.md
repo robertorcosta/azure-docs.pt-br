@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604471"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533048"
 ---
 # <a name="modify-target-settings"></a>Modificar configurações de destino
 
@@ -41,8 +41,8 @@ As definições de configuração que você pode modificar são resumidas na tab
 **SKU da VM** | O [tipo de VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponível na região de destino) que será usado para a VM de destino.<br/><br/> A VM de destino selecionada não deve ser menor que a VM de origem.
 **Recursos de rede** | Opções para redes virtuais (VNets)/Network grupos de segurança/interfaces de rede:<br/><br/> -Crie um novo recurso com o mesmo nome na região de destino.<br/><br/> -Crie um novo recurso com um nome diferente na região de destino.<br/><br/> -Use um recurso de rede existente na região de destino.<br/><br/> Se você criar um novo recurso de destino, com exceção das configurações que você modificar, ele receberá as mesmas configurações que o recurso de origem.
 **Nome do endereço IP público** | Especifique o nome.
-**SKU do endereço IP público** | Especifique a [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Zona de endereço IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
+**SKU do endereço IP público** | Especifique a [SKU](../virtual-network/public-ip-addresses.md#sku).
+**Zona de endereço IP público** | Especifique a [zona](../virtual-network/public-ip-addresses.md#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
 **Nome do balanceador de carga** | Especifique o nome.
 **SKU do balanceador de carga** | Básico ou Padrão. É recomendável usar Standard.
 **Zona do balanceador de carga** | Especifique uma zona para o balanceador de carga. <br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.

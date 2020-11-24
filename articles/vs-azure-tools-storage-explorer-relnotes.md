@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828771"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520995"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas sobre a versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -86,7 +86,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * Os recursos de disco gerenciado não têm suporte no Azure Stack.
 * Se um upload ou uma colagem do disco falhar e um novo disco tiver sido criado antes da falha, Gerenciador de Armazenamento não excluirá o disco para você.
 * Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -97,7 +97,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
    * ADLS Gen2
@@ -108,7 +108,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="previous-releases"></a>Versões anteriores
 
@@ -176,7 +176,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
   * Criar um instantâneo de um disco
 
 O carregamento, o download e a cópia entre regiões de discos são alimentados por AzCopy v10.
-* Agora, o Gerenciador de Armazenamento pode ser instalado por meio do armazenamento de snap no Linux. Quando você instala o por meio do repositório de snap, todas as dependências são instaladas para você, incluindo o .NET Core! Atualmente, verificamos se Gerenciador de Armazenamento é executado bem no Ubuntu e no CentOS. Se você encontrar problemas ao instalar do repositório de snap em outros distribuições do Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação do repositório de snap, consulte nosso [Guia de introdução](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
+* Agora, o Gerenciador de Armazenamento pode ser instalado por meio do armazenamento de snap no Linux. Quando você instala o por meio do repositório de snap, todas as dependências são instaladas para você, incluindo o .NET Core! Atualmente, verificamos se Gerenciador de Armazenamento é executado bem no Ubuntu e no CentOS. Se você encontrar problemas ao instalar do repositório de snap em outros distribuições do Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação do repositório de snap, consulte nosso [Guia de introdução](./vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux). #68
 * Duas alterações importantes foram feitas para anexar com Azure Active Directory (Azure AD), que se destinam a tornar o recurso mais útil para ADLS Gen2 usuários:
   * Agora você seleciona o locatário no qual está anexando o recurso. Isso significa que você não precisa mais ter acesso de RBAC à assinatura do recurso.
   * Se você estiver anexando um contêiner de blob ADLS Gen2, agora você poderá anexar a um caminho específico no contêiner.
@@ -202,7 +202,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
 * Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -213,7 +213,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
    * ADLS Gen2
@@ -224,7 +224,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 
 ## <a name="version-1100"></a>1.10.0 da versão
@@ -250,7 +250,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     * Criar um instantâneo de um disco
 
     O carregamento, o download e a cópia entre regiões de discos são alimentados por AzCopy v10.
-* Agora, o Gerenciador de Armazenamento pode ser instalado por meio do armazenamento de snap no Linux. Quando você instala o por meio do repositório de snap, todas as dependências são instaladas para você, incluindo o .NET Core! Atualmente, verificamos se Gerenciador de Armazenamento é executado bem no Ubuntu e no CentOS. Se você encontrar problemas ao instalar do repositório de snap em outros distribuições do Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação do repositório de snap, consulte nosso [Guia de introdução](https://aka.ms/storageexplorer/snapinformation). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Agora, o Gerenciador de Armazenamento pode ser instalado por meio do armazenamento de snap no Linux. Quando você instala o por meio do repositório de snap, todas as dependências são instaladas para você, incluindo o .NET Core! Atualmente, verificamos se Gerenciador de Armazenamento é executado bem no Ubuntu e no CentOS. Se você encontrar problemas ao instalar do repositório de snap em outros distribuições do Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação do repositório de snap, consulte nosso [Guia de introdução](./vs-azure-tools-storage-manage-with-storage-explorer.md). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
 * Duas alterações importantes foram feitas para anexar com Azure Active Directory (Azure AD), que são destinadas a tornar o recurso mais útil para ADLS Gen2 usuários: * agora você seleciona o locatário no qual está anexando o recurso. Isso significa que você não precisa mais ter acesso de RBAC à assinatura do recurso.
         * Se você estiver anexando um contêiner de blob ADLS Gen2, agora você pode anexar a um caminho específico no contêiner.
 * Ao gerenciar ACLs para ADLS Gen2 arquivos e pastas, Gerenciador de Armazenamento agora mostrará os nomes amigáveis para entidades na ACL. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
@@ -276,7 +276,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se um upload ou uma colagem do disco falhar e um novo disco tiver sido criado antes da falha, Gerenciador de Armazenamento não excluirá o disco para você.
 * Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração personalizada do AAD, talvez não consiga entrar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -287,7 +287,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
    * ADLS Gen2
@@ -298,7 +298,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="version-190"></a>1.9.0 da versão
 7/1/2019
@@ -334,7 +334,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 ### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
@@ -346,7 +346,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
    * ADLS Gen2
@@ -356,7 +356,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="version-181"></a>1.8.1 da versão
 5/13/2019
@@ -391,7 +391,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 ### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
@@ -403,7 +403,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
    * ADLS Gen2
@@ -413,7 +413,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="version-180"></a>1.8.0 da versão
 5/1/2019
@@ -443,7 +443,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 ### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
@@ -455,7 +455,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
    * ADLS Gen2
@@ -465,7 +465,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="version-170"></a>Versão 1.7.0
 3/5/2019
@@ -499,7 +499,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
@@ -512,7 +512,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
@@ -559,7 +559,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
         
 ### <a name="new"></a>Novo
 
-* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
   * Criar e excluir contêiner
   * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
@@ -584,7 +584,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
@@ -628,7 +628,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
         
 ### <a name="new"></a>Novo
 
-* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
   * Criar e excluir contêiner
   * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
@@ -653,7 +653,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
@@ -683,7 +683,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 
 ### <a name="new"></a>Novo
 
-* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
   * Criar e excluir contêiner
   * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
@@ -708,7 +708,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
@@ -772,7 +772,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
@@ -1057,7 +1057,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * O Azure Stack não é compatível com os seguintes recursos, e tentar usá-los enquanto estiver trabalhando com o Azure Stack poderá resultar em erros inesperados:
-   * Compartilhamentos de arquivo
+   * Compartilhamentos de arquivos
    * Níveis de acesso
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
@@ -1144,7 +1144,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 ### <a name="new"></a>Novo
 * Agora o Gerenciador de Armazenamento é compatível com o uso de Azurite. Observação: a conexão com o Azurite é fixa para os pontos de extremidade de desenvolvimento padrão.
-* Agora o Gerenciador de Armazenamento é compatível com Camadas de Acesso para Contas de armazenamento GPV2 e de Blobs apenas. Saiba mais sobre as camadas de acesso [aqui](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+* Agora o Gerenciador de Armazenamento é compatível com Camadas de Acesso para Contas de armazenamento GPV2 e de Blobs apenas. Saiba mais sobre as camadas de acesso [aqui](./storage/blobs/storage-blob-storage-tiers.md).
 * Uma hora de início não é mais necessária ao gerar uma SAS.
 
 ### <a name="fixes"></a>Correções
@@ -1204,7 +1204,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão de comentários na parte inferior esquerda ou acessando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
 * Se você estiver executando problemas de certificado TLS/SSL e não conseguir localizar o certificado transgressor, agora poderá iniciar o Gerenciador de Armazenamento na linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, Gerenciador de Armazenamento ignorará os erros de certificado TLS/SSL.
 * Agora há uma opção de 'Download' no menu de contexto para itens de arquivo e blob.
-* Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
+* Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](./vs-azure-tools-storage-explorer-accessibility.md) para obter mais informações.
 * O Gerenciador de Armazenamento agora usa o Electron 1.8.3
 
 ### <a name="breaking-changes"></a>Alterações de quebra

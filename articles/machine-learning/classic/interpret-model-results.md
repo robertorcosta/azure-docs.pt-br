@@ -8,17 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74210475cc8c0efd274d6e80c3f1c89b5206a97d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322546"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509503"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Este tópico explica como Visualizar e interpretar os resultados de previsão em Azure Machine Learning Studio (clássico). Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
@@ -247,7 +246,7 @@ Figura 20. Teste do sistema de recomendação
 
 **Prever as classificações de um determinado usuário e item**
 
-Ao selecionar **Previsão de Classificação** em **Tipo de previsão de recomendação** , você pede que o sistema de recomendação preveja a classificação de um determinado usuário e item. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 21.
+Ao selecionar **Previsão de Classificação** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação preveja a classificação de um determinado usuário e item. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 21.
 
 ![Resultado da pontuação do sistema de recomendação - previsão de classificação](./media/interpret-model-results/21.png)
 
@@ -257,7 +256,7 @@ As duas primeiras colunas são pares de item de usuário fornecidos pelos dados 
 
 **Itens recomendados a um determinado usuário**
 
-Ao selecionar **Recomendação de Item** em **Tipo de previsão de recomendação** , você pede que o sistema de recomendação recomende itens a um determinado usuário. O último parâmetro a ser escolhido é *Seleção de item recomendado*. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De Todos os Itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 22.
+Ao selecionar **Recomendação de Item** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação recomende itens a um determinado usuário. O último parâmetro a ser escolhido é *Seleção de item recomendado*. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De Todos os Itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 22.
 
 ![Resultado da pontuação do sistema de recomendação - recomendação de item](./media/interpret-model-results/22.png)
 
@@ -267,7 +266,7 @@ A primeira das seis colunas representa as IDs de usuário fornecidas para as qua
 
 **Localizar usuários relacionados a um determinado usuário**
 
-Ao selecionar **Usuários Relacionados** em **Tipo de previsão de recomendação** , você pede que o sistema de recomendação encontre usuários relacionados a um determinado usuário. Os usuários relacionados são os usuários que têm preferências semelhantes. O último parâmetro a ser escolhido é *Seleção de usuário relacionado*. A opção **de usuários que classificaram itens (para avaliação de modelo)** é principalmente para avaliação de modelo durante o processo de treinamento. Escolha **De Todos os Usuários** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 23.
+Ao selecionar **Usuários Relacionados** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação encontre usuários relacionados a um determinado usuário. Os usuários relacionados são os usuários que têm preferências semelhantes. O último parâmetro a ser escolhido é *Seleção de usuário relacionado*. A opção **de usuários que classificaram itens (para avaliação de modelo)** é principalmente para avaliação de modelo durante o processo de treinamento. Escolha **De Todos os Usuários** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 23.
 
 ![Resultado da pontuação do sistema de recomendação - usuários relacionados](./media/interpret-model-results/23.png)
 
@@ -277,7 +276,7 @@ A primeira das seis colunas mostra as IDs de usuário fornecidas necessárias pa
 
 **Localizar itens relacionados a um determinado item**
 
-Ao selecionar **Itens Relacionados** em **Tipo de previsão de recomendação** , você pede que o sistema de recomendação encontre usuários relacionados a um determinado usuário. Itens relacionados são os itens com maior probabilidade de interessarem ao mesmo usuário. O último parâmetro a ser escolhido é *Seleção de item relacionado*. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De todos os itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 24.
+Ao selecionar **Itens Relacionados** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação encontre usuários relacionados a um determinado usuário. Itens relacionados são os itens com maior probabilidade de interessarem ao mesmo usuário. O último parâmetro a ser escolhido é *Seleção de item relacionado*. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De todos os itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 24.
 
 ![Resultado da pontuação do sistema de recomendação - itens relacionados](./media/interpret-model-results/24.png)
 

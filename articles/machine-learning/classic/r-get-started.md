@@ -9,17 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325024"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507209"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introdução ao Azure Machine Learning Studio (clássico) em R
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 <!-- Stephen F Elston, Ph.D. -->
 Neste tutorial, você aprenderá a usar o Azure Machine Learning Studio (clássico) para criar, testar e executar o código R. No final, você terá uma solução de previsão completa.
@@ -122,9 +121,9 @@ Se você não entender a última linha do código no momento, continue lendo. No
 
 RStudio é um IDE amplamente usado para R. Usaremos o RStudio para editar, testar e depurar parte do código R usado neste guia. Depois que o código R é testado e pronto, você pode recortar e colar do editor RStudio em um módulo de [execução de script R][execute-r-script] Machine Learning Studio (clássico).
 
-Se você não tiver a linguagem de programação R instalada em seu computador desktop, faça isso agora. Downloads gratuitos de linguagem R de software livre estão disponíveis na [Cran (rede de arquivos de r) abrangente](https://www.r-project.org/). Os downloads estão disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, o CRAN contém muitos pacotes úteis de análise e manipulação de dados.
+Se você não tiver a linguagem de programação R instalada em seu computador desktop, faça isso agora. Downloads gratuitos de linguagem R de software livre estão disponíveis na [Cran (rede de arquivos de r) abrangente](https://www.r-project.org/). Os downloads estão disponíveis para Windows, macOS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, o CRAN contém muitos pacotes úteis de análise e manipulação de dados.
 
-Se você for novo no RStudio, baixe e instale a versão da área de trabalho. Você pode encontrar os downloads do RStudio para Windows, Mac OS e Linux/UNIX em [RStudio](http://www.rstudio.com/products/RStudio/). Siga as instruções fornecidas para instalar o RStudio em seu computador desktop.
+Se você for novo no RStudio, baixe e instale a versão da área de trabalho. Você pode encontrar os downloads do RStudio para Windows, macOS e Linux/UNIX em [RStudio](http://www.rstudio.com/products/RStudio/). Siga as instruções fornecidas para instalar o RStudio em seu computador desktop.
 
 Um tutorial de introdução ao RStudio está disponível em [usando o IDE do RStudio](https://support.rstudio.com/hc/sections/200107586-Using-RStudio).
 
@@ -159,7 +158,7 @@ Agora que temos alguns dados em Machine Learning Studio (clássico), precisamos 
 1. Arraste **csdairydata.csv DataSet** para o experimento.
 1. Na caixa **Pesquisar itens de teste** na parte superior do painel esquerdo, digite [Executar script R][execute-r-script]. O módulo aparece na lista de pesquisa.
 1. Arraste o módulo [Executar script R][execute-r-script] para o seu palete.
-1. Conecte a saída do **conjunto** de dadoscsdairydata.csv à entrada mais à esquerda ( **dataSet1** ) de [Executar script R][execute-r-script].
+1. Conecte a saída do **conjunto** de dadoscsdairydata.csv à entrada mais à esquerda (**dataSet1**) de [Executar script R][execute-r-script].
 1. Selecione **Salvar**.
 
 Neste ponto, seu experimento deve ser semelhante a este exemplo.
@@ -1276,9 +1275,9 @@ Com base nesses resultados, podemos ver que a adição dos fatores sazonais ao m
 
 RStudio está bem documentado. Aqui estão alguns links para as seções principais da documentação do RStudio para ajudá-lo a começar.
 
-* **Criar projetos** : você pode organizar e gerenciar seu código R em projetos usando o RStudio. Para obter mais informações, consulte [usando projetos](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Siga estas instruções e crie um projeto para os exemplos de código R neste artigo.
-* **Editar e executar o código r** : o RStudio fornece um ambiente integrado para edição e execução do código r. Para obter mais informações, consulte [editando e executando código](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
-* **Debug** : o RStudio inclui recursos avançados de depuração. Para obter mais informações sobre esses recursos, consulte [Depurando com RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Para obter informações sobre os recursos de solução de problemas de ponto de interrupção, consulte [pontos de solução de problemas](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)
+* **Criar projetos**: você pode organizar e gerenciar seu código R em projetos usando o RStudio. Para obter mais informações, consulte [usando projetos](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Siga estas instruções e crie um projeto para os exemplos de código R neste artigo.
+* **Editar e executar o código r**: o RStudio fornece um ambiente integrado para edição e execução do código r. Para obter mais informações, consulte [editando e executando código](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
+* **Debug**: o RStudio inclui recursos avançados de depuração. Para obter mais informações sobre esses recursos, consulte [Depurando com RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Para obter informações sobre os recursos de solução de problemas de ponto de interrupção, consulte [pontos de solução de problemas](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)
 
 ## <a name="further-reading"></a><a id="appendixb"></a>Leitura adicional
 
