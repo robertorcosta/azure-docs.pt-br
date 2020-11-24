@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630002"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537383"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -25,6 +25,48 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 - Correções de bug
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+Estas foram as alterações de outubro de 2020:
+
+### <a name="improved-performance"></a>desempenho aprimorado
+
+- Otimizamos o desempenho reduzindo a latência de conexão nas seguintes regiões geográficas do Azure:
+    - Suíça
+    - Canadá
+
+Agora você pode usar o [avaliador de experiência](https://azure.microsoft.com/services/virtual-desktop/assessment/) para estimar a qualidade da experiência do usuário nessas áreas.
+
+### <a name="azure-government-cloud-availability"></a>Disponibilidade da Nuvem do Azure Government
+
+A Nuvem do Azure Government já está em disponibilidade geral. Saiba mais em [nossa postagem no blog](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Atualizações da Área de Trabalho Virtual do Windows no portal do Azure
+
+Fizemos algumas atualizações na Área de Trabalho Virtual do Windows no portal do Azure:
+
+- Correção de um erro de resourceID que impedia os usuários de abrir a guia "Sessões".
+- Simplificação da interface do usuário na guia "Hosts da sessão".
+- Correção das configurações "Padrões", "Usabilidade" e "Restaurar padrões" em Propriedades de RDP.
+- Padronização das funções "Remover" e "Excluir" em todas as guias.
+- O portal agora valida os nomes de aplicativos no fluxo de trabalho "Adicionar um aplicativo".
+- Correção de um problema em que os dados de exportação do host da sessão não estavam alinhados nas colunas.
+- Correção de um problema em que o portal não podia recuperar as sessões de usuário.
+- Correção de um problema na recuperação do host da sessão que ocorria quando a máquina virtual era criada em outro grupo de recursos.
+- Atualização da guia "Host da sessão" para listar as sessões ativas e desconectadas.
+- A guia "Aplicativos" agora tem páginas.
+- Correção de um problema em que o texto "exige a linha de comando" não era exibido corretamente na guia "Lista de aplicativos".
+- Correção de um problema em que o portal não podia implantar pools de host nem máquinas virtuais durante o uso da versão no idioma alemão da Galeria de Imagens Compartilhadas.
+
+### <a name="client-updates-for-october-2020"></a>Atualizações do cliente em outubro de 2020
+
+Lançamos novas versões dos clientes. Confira estes artigos para saber mais:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+Para obter mais informações sobre os outros clientes, confira [Atualizações do cliente](#client-updates).
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -68,7 +110,7 @@ Estas foram as alterações de agosto de 2020:
 
 - O Assistente do Azure agora faz parte da Área de Trabalho Virtual do Windows. Ao acessar a Área de Trabalho Virtual do Windows por meio do portal do Azure, você poderá ver recomendações para otimizar o ambiente da Área de Trabalho Virtual do Windows. Saiba mais em [Assistente do Azure](azure-advisor.md).
 
-- A CLI do Azure agora dá suporte à Área de Trabalho Virtual do Windows (`az desktopvirtualization`) para ajudar você a automatizar suas implantações da Área de Trabalho Virtual do Windows. Confira [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) para obter uma lista de comandos de extensão.
+- A CLI do Azure agora dá suporte à Área de Trabalho Virtual do Windows (`az desktopvirtualization`) para ajudar você a automatizar suas implantações da Área de Trabalho Virtual do Windows. Confira [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) para obter uma lista de comandos de extensão.
 
 - Atualizamos nossos modelos de implantação para torná-los totalmente compatíveis com as interfaces do Azure Resource Manager na Área de Trabalho Virtual do Windows. Encontre os modelos no [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -140,7 +182,7 @@ Adicionamos novos cmdlets AzWvd ao módulo AZ do Azure PowerShell com essa atual
 
 Para instalar o módulo, siga as instruções em [Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows](powershell-module.md).
 
-Você também pode ver uma lista de comandos disponíveis na [referência do PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+Você também pode ver uma lista de comandos disponíveis na [referência do PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 Para obter mais informações sobre os novos recursos, confira [nossa postagem no blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

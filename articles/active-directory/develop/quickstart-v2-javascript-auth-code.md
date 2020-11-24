@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216650"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533184"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um SPA JavaScript usando o fluxo de código de autenticação
 
-Neste início rápido, você aprenderá a executar um exemplo de código que demonstra como um SPA (aplicativo de página única) JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante usando o fluxo de código de autorização. O exemplo de código também demonstra como obter um token de acesso para chamar uma API Web, nesse caso, a API do Microsoft Graph. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um SPA (aplicativo de página única) JavaScript pode conectar usuários e chamar o Microsoft Graph usando o fluxo de código de autorização. O exemplo de código demonstra como obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este início rápido usa o MSAL.js 2.0 com o fluxo de código de autorização. Para ver um início rápido semelhante que usa o MSAL.js 1.0 com o fluxo implícito, confira [Início rápido: Conectar usuários em aplicativos de página única JavaScript](./quickstart-v2-javascript.md).
 
@@ -200,4 +202,4 @@ npm install @azure/msal-browser
 Para obter um guia passo a passo mais detalhado sobre como criar o aplicativo usado neste início rápido, confira o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial para entrar no MS Graph e chamá-lo >](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial para entrar e chamar o MS Graph](./tutorial-v2-javascript-auth-code.md)

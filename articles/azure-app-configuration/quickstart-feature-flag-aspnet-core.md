@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074440"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554811"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Com a alteração anterior, o [provedor de configuração da Configuração de Aplicativos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) foi registrado com a API de Configuração do .NET Core.
+    Com a alteração anterior, o [provedor de configuração da Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664) foi registrado com a API de Configuração do .NET Core.
 
 1. Em *Startup.cs*, adicione uma referência ao gerenciador de recursos do .NET Core:
 
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     O código anterior permite que o Auxiliar de Marcação do `<feature>` seja usado nos arquivos *.cshtml* do projeto.
 
-1. Em *Views/Shared/_Layout.cshtml*, substitua o código de barras `<nav>` em `<body>` > `<header>` pela seguinte marcação:
+1. Abra *_Layout.cshtml* no diretório *Exibições*\\*Compartilhado*. Localize o código de barras `<nav>` em `<body>` > `<header>`. Insira uma nova marca `<feature>` entre os itens de barra de navegação *Página Inicial* e *Privacidade*, conforme mostrado nas linhas realçadas abaixo.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    Na marcação anterior, observe o Auxiliar de Marcação `<feature>` ao redor do item de lista *Beta*.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Crie um diretório *Views/Beta* e um arquivo *Index.cshtml* que contém a seguinte marcação:
 
@@ -246,13 +219,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
-1. Selecione **Gerenciador de recursos** e altere o estado da chave *Beta* para **Ativado**.
+1. Selecione **Gerenciador de Recursos**. 
+
+1. Habilite o sinalizador *Beta* marcando a caixa de seleção em **Habilitado**.
 
 1. Retorne para o shell de comando. Cancele o processo `dotnet` em execução pressionando <kbd>Ctrl+C</kbd>. Reinicie o aplicativo usando `dotnet run`.
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Aplicativo de início rápido local antes da alteração" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Aplicativo de início rápido local após a alteração" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -260,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um novo repositório de Configuração de Aplicativos e o usou para gerenciar recursos em um aplicativo Web ASP.NET Core por meio das [bibliotecas do Gerenciamento de Recursos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+Neste início rápido, você criou um novo repositório de Configuração de Aplicativos e o usou para gerenciar recursos em um aplicativo Web ASP.NET Core por meio das [bibliotecas do Gerenciamento de Recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 
 * Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md).
 * [Gerenciar sinalizadores de recursos](./manage-feature-flags.md).

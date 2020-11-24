@@ -18,22 +18,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a483bc6097c4dd76ed67e93e4313ad8c25cbc08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91295933"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542347"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: diagnosticar um problema de filtro de tráfego de rede de máquina virtual – CLI do Azure
 
 Neste início rápido você implanta uma VM (máquina virtual ) e, em seguida, verifica a comunicação com um endereço IP e uma URL e de um endereço IP. Você determina a causa de uma falha de comunicação e como resolvê-la.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI do Azure, execute `az login` para criar uma conexão com o Azure. Os comandos da CLI do Azure neste guia de início rápido são formatados para serem executados em um shell Bash.
+- Este guia de início rápido exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
+
+- Os comandos da CLI do Azure neste guia de início rápido são formatados para serem executados em um shell Bash.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
@@ -134,7 +136,7 @@ az network nic list-effective-nsg \
 
 A saída retornada inclui o seguinte texto para a regra **AllowInternetOutbound** que permitiu o acesso de saída a www.bing.com em um passo anterior em [Usar verificação do fluxo IP](#use-ip-flow-verify):
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -175,7 +177,7 @@ Você pode ver na saída anterior que **DestinationAddressPrefix** é **Internet
 
 Quando você executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Usar verificação de fluxo de IP](#use-ip-flow-verify), a saída informou que a regra **DefaultOutboundDenyAll** negou a comunicação. A regra **DefaultOutboundDenyAll** é equivalente à regra **DenyAllOutBound** listada na seguinte saída do comando `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +210,7 @@ A regra lista **0.0.0.0/0** como o **DestinationAddressPrefix**. A regra nega a 
 
 Quando você executou o comando `az network watcher test-ip-flow` em [Usar verificação de fluxo IP](#use-ip-flow-verify) para testar a comunicação de entrada de 172.131.0.100, a saída informou que a regra **DefaultInboundDenyAll** negou a comunicação. A regra **DefaultInboundDenyAll** é equivalente à regra **DenyAllInBound** listada na seguinte saída do comando `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},

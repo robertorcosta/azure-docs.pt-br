@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure Machine Learning
-description: Visão geral do Azure Machine Learning – uma solução integrada de ciência de dados de ponta a ponta para cientistas de dados profissionais desenvolver, experimentar e implantar aplicativos de análise avançada em escala de nuvem.
+description: O Azure Machine Learning é uma solução integrada de ciência de dados para que os cientistas de dados e o MLops modelem e implantem aplicativos ML em escala de nuvem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4dcc1d755f4fe11dda69f84466d3e958ca981ddf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: af38f68a9709b21989ba787fb5b2c623e07dc440
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316288"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541276"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -111,10 +111,10 @@ Para começar a usar o Azure Machine Learning, confira [Próximas etapas](#next-
 
 O Azure Machine Learning trabalha com outros serviços na plataforma do Azure e também se integra a ferramentas de software livre, como Git e MLFlow.
 
-+ Destinos de computação, como __Serviço de Kubernetes do Azure__ , __Instâncias de Contêiner do Azure__ , __Azure Databricks__ , __Azure Data Lake Analytics__ e __Azure HDInsight__. Para obter mais informações sobre destinos de computação, confira [O que são destinos de computação?](concept-compute-target.md).
++ Destinos de computação, como __Serviço de Kubernetes do Azure__, __Instâncias de Contêiner do Azure__, __Azure Databricks__, __Azure Data Lake Analytics__ e __Azure HDInsight__. Para obter mais informações sobre destinos de computação, confira [O que são destinos de computação?](concept-compute-target.md).
 + __Grade de Eventos do Azure__. Para obter mais informações, confira [Consumir eventos do Azure Machine Learning](./how-to-use-event-grid.md).
 + __Azure Monitor__. Para obter mais informações, confira [Monitoramento do Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Os armazenamentos de dados, como __contas de Armazenamento do Azure__ , __Azure Data Lake Storage__ , __Banco de Dados SQL do Azure__ , __Banco de Dados do Azure para PostgreSQL__ e __Azure Open Datasets__. Para obter mais informações, confira [Acessar dados nos serviços de armazenamento do Azure](how-to-access-data.md) e [Criar conjuntos de dados com os Azure Open Datasets](how-to-create-register-datasets.md).
++ Os armazenamentos de dados, como __contas de Armazenamento do Azure__, __Azure Data Lake Storage__, __Banco de Dados SQL do Azure__, __Banco de Dados do Azure para PostgreSQL__ e __Azure Open Datasets__. Para obter mais informações, confira [Acessar dados nos serviços de armazenamento do Azure](how-to-access-data.md) e [Criar conjuntos de dados com os Azure Open Datasets](how-to-create-register-datasets.md).
 + __Redes Virtuais do Azure__. Para obter mais informações, confira [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md).
 + __Azure Pipelines__. Para obter mais informações, confira [Treinar e implantar modelos de machine learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Logs do repositório Git__. Para obter mais informações, confira [Integração do Git](concept-train-model-git-integration.md).

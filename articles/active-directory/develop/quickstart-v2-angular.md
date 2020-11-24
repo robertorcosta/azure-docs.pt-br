@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 643e3bcd50258e2b5e7f52646f231485f950d677
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613417"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515538"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 
-Neste início rápido, você usará um exemplo de código para saber como um SPA (aplicativo de página única) Angular pode conectar usuários que têm contas pessoais, contas corporativas ou de estudante Microsoft. Um SPA Angular também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um SPA (aplicativo de página única) Angular pode conectar usuários e chamar o Microsoft Graph. O exemplo de código demonstra como obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

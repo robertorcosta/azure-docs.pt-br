@@ -5,17 +5,72 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 07/08/2020
-ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/11/2020
+ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487985"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555610"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais são as novidades da documentação do Azure Monitor?
 
 Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram atualizados de maneira significativa. Ele será atualizado na primeira semana de cada mês para incluir as atualizações de artigos do mês anterior.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="general"></a>Geral
+- [Desativação da API do Azure Monitor](platform/operationalinsights-api-retirement.md) – Novo artigo.
+
+### <a name="agents"></a>Agentes
+- [O que é monitorado pelo Azure Monitor](monitor-reference.md) – Adição de uma seção sobre os agentes.
+
+### <a name="alerts"></a>Alertas
+- [Criar e gerenciar grupos de ações no portal do Azure](platform/action-groups.md) – Adição de uma seção sobre a marca de serviço.
+- [Exemplos de modelo do Resource Manager para alertas de métrica](samples/resource-manager-alerts-metric.md) – Adição de localizações de teste e parâmetro de correspondência de conteúdo.
+- [Solução de problemas de alertas de métrica do Azure](platform/alerts-troubleshoot-metric.md) – Adição de melhor prática de configuração de regras.
+
+### <a name="application-insights"></a>Application Insights
+- [Plug-in do Angular para o SDK do JavaScript do Application Insights](app/javascript-angular-plugin.md) – Novo artigo.
+- [Azure Application Insights para aplicativos ASP.NET Core](app/asp-net-core.md) – Adição de perguntas frequentes sobre os logs do ILogger.
+- [Configurar o monitoramento do ASP.NET com o Azure Application Insights](app/asp-net.md) – Reescrita do artigo.
+- [Métricas baseadas em log e pré-agregadas no Azure Application Insights](app/pre-aggregated-metrics-log-metrics.md) – Adição de tabelas com métricas pré-agregadas.
+- [Monitorar a disponibilidade e a capacidade de resposta de qualquer site](app/monitor-web-app-availability.md) – Adição de uma seção sobre marcas de preenchimento de localização.
+- [Monitorar aplicativos Java em qualquer lugar – Azure Monitor Application Insights](app/java-standalone-config.md) – Adição de um exemplo de configuração.
+- [Monitorar aplicativos Java em qualquer lugar – Azure Monitor Application Insights](app/java-standalone-telemetry-processors.md) – Novo artigo.
+- [Usar a Análise de Alterações de Aplicativo no Azure Monitor para encontrar problemas de aplicativo Web](app/change-analysis.md) – Adição de seções sobre máquinas virtuais e o log de atividades.
+  
+### <a name="autoscale"></a>Autoscale
+- [Introdução ao dimensionamento automático no Azure](platform/autoscale-get-started.md) – Adição de uma seção sobre a migração do dimensionamento automático para outra região.
+
+### <a name="containers"></a>Contêineres
+- [Configurar o monitoramento de PV com o Azure Monitor para contêineres](insights/container-insights-persistent-volumes.md) – Novo artigo.
+- [Como gerenciar o Azure Monitor para o agente de contêineres](insights/container-insights-manage-agent.md) – Adição de suporte para o cluster do Kubernetes habilitado para o Azure Arc.
+- [Alertas de métrica do Azure Monitor para contêineres](insights/container-insights-metric-alerts.md) – Adição de suporte para o cluster do Kubernetes habilitado para o Azure Arc.
+
+### <a name="insights-and-solutions"></a>Insights e soluções
+- [Conector de Gerenciamento de Serviços de TI – Exportação Segura no Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) – Adição de uma seção sobre o ServiceNow.
+
+### <a name="logs"></a>Logs
+- [Arquivar dados do workspace do Log Analytics para o armazenamento do Azure usando um Aplicativo Lógico](platform/logs-export-logic-app.md) – Novo artigo.
+- [Exportação de dados de um workspace do Log Analytics no Azure Monitor (versão prévia)](platform/logs-data-export.md) – Adição de exemplo de corpo para a solicitação REST do hub de eventos.
+- [Gerenciar o uso e os custos dos logs do Azure Monitor](platform/manage-cost-storage.md) – Adição de informações sobre a relação entre os logs do Azure Monitor e a cobrança da Central de Segurança do Azure. Adição de uma consulta para contagens de nós durante o uso do tipo de preço Por Nó. 
+- [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](platform/monitor-workspace.md) – Novo artigo.
+- [Consultar dados no Azure Monitor usando o Azure Data Explorer (versão prévia)](platform/azure-data-explorer-monitor-proxy.md) – Novo artigo.
+- [Consultar os dados exportados do Azure Monitor usando o Azure Data Explorer (versão prévia)](platform/azure-data-explorer-query-storage.md) – Novo artigo.
+
+### <a name="networks"></a>Redes
+- [Versão prévia do Azure Monitor para Redes](insights/network-insights-overview.md) – Adição de uma seção de solução de problemas. Adição de uma seção sobre conectividade.
+
+### <a name="platform-logs"></a>Logs de plataforma
+- [Esquema de eventos do log de atividades do Azure](platform/activity-log-schema.md) – Adição de descrição dos níveis de severidade.
+
+### <a name="virtual-machines"></a>Máquinas virtuais
+- [Análise de Alterações no Azure Monitor para VMs](insights/vminsights-change-analysis.md) – Novo artigo.
+- [Visão geral da habilitação do Azure Monitor para VMs](insights/vminsights-enable-overview.md) – Adição das regiões com suporte.
+- [Como atualizar o Azure Monitor para contêineres para métricas](insights/container-insights-update-metrics.md) – Adição de suporte para o cluster do Kubernetes habilitado para o Azure Arc.
+
+
 
 ## <a name="september-2020"></a>Setembro de 2020
 

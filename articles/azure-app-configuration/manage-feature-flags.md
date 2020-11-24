@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209947"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554692"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Gerenciar sinalizadores de recurso na Configuração de Aplicativos do Azure
 
@@ -56,6 +56,7 @@ Para adicionar um novo sinalizador de recurso:
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100%} |
     | Microsoft.TimeWindow | {"Start": horário UTC, "End": horário UTC} |
+    | Microsoft.Targeting | { "Audience": blob JSON que define usuários, grupos e percentuais de distribuição. Veja um exemplo no elemento `EnabledFor` [deste arquivo de configurações](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtro de sinalizador de recurso](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +66,7 @@ Para alterar o valor de estado de um sinalizador de recursos:
 
 1. Selecione **Gerenciador de Recursos**.
 
-1. À direita de um sinalizador de recursos que você deseja modificar, selecione as reticências ( **...** ) e, em seguida, selecione **Editar**.
+1. À direita de um sinalizador de recursos que você deseja modificar, selecione as reticências (**...**) e, em seguida, selecione **Editar**.
 
 1. Defina um novo estado para o sinalizador de recurso.
 

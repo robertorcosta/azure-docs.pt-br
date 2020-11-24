@@ -1,6 +1,6 @@
 ---
-title: Criar o Azure Data Factory usando o SDK do .NET
-description: Crie um pipeline e Azure Data Factory usando o SDK do .NET para copiar dados de uma localização em um Armazenamento de Blobs do Azure para outra localização.
+title: Criar um Azure Data Factory usando o SDK do .NET
+description: Crie um pipeline e um Azure Data Factory usando o SDK do .NET para copiar dados de uma localização em um Armazenamento de Blobs do Azure para outra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d564b96807574dd7a275d6959aea085ad16e9e2e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565935"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 

@@ -1,7 +1,7 @@
 ---
 title: Pipelines de exemplo e conjuntos de dados para o designer
 titleSuffix: Azure Machine Learning
-description: Use amostras no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de aprendizado de máquina.
+description: Saiba como usar exemplos no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074593"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555491"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning
 

@@ -3,17 +3,17 @@ title: Azure Defender para SQL – Benefícios e recursos
 description: Saiba mais sobre os benefícios e os recursos do Azure Defender para SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372517"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693453"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para SQL
 
@@ -25,7 +25,7 @@ O Azure defender para SQL inclui dois planos do Azure Defender que estendem o [p
 |----|:----|
 |Estado da versão:|**Azure Defender para Servidores de Banco de Dados SQL do Azure** – GA (Disponibilidade Geral)<br>**Azure Defender para SQL Servers em Computadores** – Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|Os dois planos que formam o **Azure Defender para SQL** são cobrados conforme mostrado na [página de preços](security-center-pricing.md)|
-|Versões do SQL protegidas:|Banco de Dados SQL do Azure <br>Instância Gerenciada do Azure SQL<br>Azure Synapse Analytics (antigo SQL DW)<br>SQL Server (todas as versões compatíveis)|
+|Versões do SQL protegidas:|Banco de Dados SQL do Azure <br>Instância Gerenciada do Azure SQL<br>Pool de SQL dedicado no Azure Synapse (anteriormente conhecido como SQL DW)<br>SQL Server (todas as versões compatíveis)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China Gov, outros Gov|
 |||
 
@@ -36,7 +36,7 @@ O Azure defender para SQL inclui dois planos do Azure Defender que estendem o [p
 - O **Azure Defender para Servidores de Banco de Dados SQL do Azure** protege:
   - [Banco de Dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md)
   - [Instância Gerenciada do SQL do Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Pool de SQL dedicado no Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - O **Azure Defender para SQL Servers em Computadores (versão prévia)** estende as proteções para seus SQL Servers nativos do Azure a fim de oferecer suporte total a ambientes híbridos e proteger os SQL Servers (todas as versões compatíveis) hospedados no Azure, outros ambientes de nuvem e até mesmo computadores locais
 

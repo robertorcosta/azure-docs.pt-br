@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure Machine Learning Studio?
-description: O estúdio do Azure Machine Learning é um portal da Web para workspaces do Azure Machine Learning. O estúdio combina experiências sem código e code first para criar uma plataforma de ciência de dados inclusiva.
+description: O estúdio é um portal da Web para workspaces do Azure Machine Learning. O estúdio combina experiências sem código e code first para obter uma plataforma de ciência de dados inclusiva.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310169"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565901"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 
@@ -74,7 +74,7 @@ O **Azure Machine Learning** é um serviço separado e modernizado que fornece u
 
 **O estúdio do Azure Machine Learning** é um portal da Web *no* Azure Machine Learning que contém opções de código baixo e sem código para criação de projetos e gerenciamento de ativos. 
 
-Recomendamos que novos usuários escolham o **Azure Machine Learning** , em vez do ML Studio (clássico), para o intervalo mais recente de ferramentas de ciência de dados.
+Recomendamos que novos usuários escolham o **Azure Machine Learning**, em vez do ML Studio (clássico), para o intervalo mais recente de ferramentas de ciência de dados.
 
 ### <a name="feature-comparison"></a>Comparação de recursos
 
@@ -103,3 +103,4 @@ Visite o [estúdio](https://ml.azure.com) ou explore as diferentes opções de c
   + [Use blocos de anotações do Jupyter em uma instância de computação para treinar e implantar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Usar o machine learning automatizado para treinar e implantar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Usar o designer para treinar e implantar modelos](tutorial-designer-automobile-price-train-score.md)
+  + [Usar o estúdio em uma rede virtual segura](how-to-enable-studio-virtual-network.md)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660195"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734346"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
 
@@ -21,7 +21,7 @@ A Central de Segurança pode monitorar a postura de segurança dos computadores 
 
 Você pode conectar seus computadores não Azure de qualquer uma das seguintes maneiras:
 
-- Usando [servidores habilitados para o Azure Arc (**recomendado**)
+- Usando servidores habilitados para o Azure Arc (**recomendado**)
 - Nas páginas da Central de Segurança no portal do Azure (**Introdução** e **Inventário**)
 
 Cada uma delas é descrita nesta página.

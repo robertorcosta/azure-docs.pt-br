@@ -1,6 +1,6 @@
 ---
 title: Copiar dados de maneira incremental usando o Controle de Alterações usando o portal do Azure
-description: Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta com base em informações de controle de alterações no banco de dados de origem no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta com base em informações de controle de alterações no banco de dados de origem do Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542012"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561124"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregar dados de maneira incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações usando o portal do Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta com base em informações de **controle de alterações** no banco de dados de origem no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.  
+Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta com base em informações de **controle de alterações** no banco de dados de origem do Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.  
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -164,14 +164,14 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 
      ![Página de novo data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory precisa ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 
    *O nome do data factory “ADFTutorialDataFactory” não está disponível*
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
 
-      - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
-      - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+      - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
+      - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2 (Versão Prévia)** para a **versão**.
@@ -386,7 +386,7 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
        ```
 
       ![A captura de tela mostra uma consulta adicionada à guia Configurações na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
-7. Na caixa de ferramentas **Atividades**, expanda **Fluxo de dados**e arraste e solte a atividade **Cópia** para a superfície do designer de pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão de controle de alterações e a versão atual de controle de alterações para o armazenamento de dados de destino.
+7. Na caixa de ferramentas **Atividades**, expanda **Fluxo de dados** e arraste e solte a atividade **Cópia** para a superfície do designer de pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão de controle de alterações e a versão atual de controle de alterações para o armazenamento de dados de destino.
 
     ![Atividade de cópia - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Alterne para a guia **Fonte** na janela **Propriedades** e execute as seguintes etapas:

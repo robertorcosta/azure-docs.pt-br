@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 786f566b121d5f0d5d64e7b8b269c7cdfab9e4a6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6874794dcf33d77d0b03f2a5713bdf42a40d6891
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825069"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560903"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 
-Neste início rápido, você expõe uma API Web e a protege para que somente usuários autenticados possam acessá-la. Este artigo mostra como expor uma ASP.NET Web API para que ela possa aceitar tokens emitidos por contas pessoais, como o outlook.com ou o live.com, bem como contas corporativas ou de estudante de qualquer empresa ou organização integrada à plataforma de identidade da Microsoft.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como proteger uma ASP.NET Web API restringindo o acesso aos recursos dela somente às contas autorizadas. O exemplo dá suporte à autorização de contas Microsoft pessoais e contas em qualquer organização do Azure AD (Azure Active Directory).
 
 O artigo também usa um aplicativo do WPF (Windows Presentation Foundation) para demonstrar como você pode solicitar um token de acesso para acessar uma API Web.
 
