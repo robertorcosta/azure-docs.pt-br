@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663403"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503186"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Logon único baseado em cabeçalho para aplicativos locais com Aplicativo Azure AD proxy (versão prévia)
 
@@ -85,7 +85,7 @@ Antes de começar a usar o logon único para aplicativos baseados em cabeçalho,
 ## <a name="test-your-app"></a>Testar seu aplicativo 
 
 Quando você concluir todas essas etapas, seu aplicativo deverá estar em execução e disponível. Para testar o aplicativo: 
-1. Abra um navegador e navegue até a **URL externa**   nas configurações de proxy de aplicativo. 
+1. Abra um novo navegador ou janela particular do navegador para garantir que os cabeçalhos armazenados em cache anteriormente sejam apagados. Em seguida, navegue até a **URL externa**   nas configurações de proxy de aplicativo.
 2. Entre com a conta de teste que você atribuiu ao aplicativo. Se você puder carregar e entrar no aplicativo usando o SSO, você estará bom! 
 
 

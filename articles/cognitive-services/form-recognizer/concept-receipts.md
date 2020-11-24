@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913187"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492203"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
@@ -57,6 +57,13 @@ A API de recebimento também retorna as seguintes informações:
 * Texto bruto de OCR (saída de texto extraído por OCR para o recebimento inteiro)
 * Caixa delimitadora para cada valor, linha e palavra
 
+## <a name="try-it-out"></a>Experimente
+
+Para experimentar o serviço de recebimento do reconhecedor de formulário, vá para a ferramenta de interface do usuário de exemplo online:
+
+> [!div class="nextstepaction"]
+> [Experimente modelos predefinidos](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ A API de recebimento também retorna as seguintes informações:
 ## <a name="supported-locales"></a>Localidades com suporte 
 
 * O recebimento predefinido **v 2.0** (GA) dá suporte a recibos de vendas na localidade en-US
-* **Recebimento predefinido v 2.1-Preview. 1** (visualização pública) adiciona suporte adicional para as seguintes localidades de recebimento: 
+* **Recebimento predefinido v 2.1-Preview. 2** (visualização pública) adiciona suporte adicional para as seguintes localidades de recebimento: 
   * EN-AU 
   * EN-AC 
   * EN-GB 
@@ -73,12 +80,12 @@ A API de recebimento também retorna as seguintes informações:
   > [!NOTE]
   > Entrada de idioma 
   >
-  > Confirmação predefinida v 2.1-Preview. 1 tem um parâmetro de solicitação opcional para especificar uma localidade de recebimento de outros mercados em inglês. Para recibos de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), você pode especificar a localidade para obter resultados aprimorados. Se nenhuma localidade for especificada em v 2.1-Preview. 1, o modelo usará como padrão o modelo EN-US.
+  > Confirmação predefinida v 2.1-Preview. 2 tem um parâmetro de solicitação opcional para especificar uma localidade de recebimento de outros mercados em inglês. Para recibos de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), você pode especificar a localidade para obter resultados aprimorados. Se nenhuma localidade for especificada em v 2.1-Preview. 2, o modelo usará como padrão o modelo EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>A operação de análise de recebimento
 
-A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) usa uma imagem ou um PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
+A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) usa uma imagem ou um PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
@@ -86,7 +93,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>A operação obter resultado da confirmação de análise
 
-A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
 |Campo| Type | Valores possíveis |
 |:-----|:----:|:----|

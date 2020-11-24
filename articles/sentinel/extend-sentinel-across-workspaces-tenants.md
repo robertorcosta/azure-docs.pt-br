@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658937"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95483906"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 
@@ -34,7 +34,7 @@ Você pode obter o benefício completo da experiência do Azure Sentinel ao usar
 | A soberania e conformidade regulatória | Um workspace está vinculado a uma região específica. Se os dados precisarem ser mantidos em [geografias diferentes do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para atender aos requisitos regulatórios, eles deverão ser divididos em espaços de trabalho separados. |  |
 | Propriedade dos dados | Os limites de propriedade de dados, por exemplo, por subsidiárias ou empresas afiliadas, são melhores delineados usando espaços de trabalho separados. |  |
 | Vários locatários do Azure | O Azure Sentinel dá suporte à coleta de dados dos recursos Microsoft e SaaS do Azure somente dentro de seu próprio limite de locatário do Azure Active Directory (AD do Azure). Portanto, cada locatário do Azure AD requer um workspace separado. |  |
-| Controle de acesso a dados granular | Uma organização pode precisar permitir que diferentes grupos, dentro ou fora da organização, acessem alguns dos dados coletados pelo Azure Sentinel. Por exemplo:<br><ul><li>O acesso dos proprietários de recursos aos dados pertencentes aos seus recursos</li><li>Acesso regional ou subsidiário SOCs aos dados relevantes para suas partes da organização</li></ul> | Usar RBAC de [recurso](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou [RBAC de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Controle de acesso a dados granular | Uma organização pode precisar permitir que diferentes grupos, dentro ou fora da organização, acessem alguns dos dados coletados pelo Azure Sentinel. Por exemplo: <br><ul><li>O acesso dos proprietários de recursos aos dados pertencentes aos seus recursos</li><li>Acesso regional ou subsidiário SOCs aos dados relevantes para suas partes da organização</li></ul> | Usar [recurso do Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou do Azure [RBAC de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Configurações de retenção granulares | Historicamente, vários espaços de trabalho eram a única maneira de definir diferentes períodos de retenção para diferentes tipos de dados. Isso não é mais necessário em muitos casos, graças à introdução das configurações de retenção de nível de tabela. | Usar [as configurações de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatizar a [exclusão de dados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Cobrança dividida | Ao colocar espaços de trabalho em assinaturas separadas, eles podem ser cobrados por partes diferentes. | Relatório de uso e cobrança cruzada |
 | Arquitetura herdada | O uso de vários espaços de trabalho pode ser proveniente de um design histórico que levava em consideração as limitações ou as práticas recomendadas que não são mais verdadeiras. Também pode ser uma opção de design arbitrária que pode ser modificada para acomodar melhor o Azure Sentinel.<br><br>Os exemplos incluem:<br><ul><li>Usando um espaço de trabalho padrão por assinatura ao implantar a central de segurança do Azure</li><li>A necessidade de controle de acesso granular ou configurações de retenção, as soluções para as quais são relativamente novas</li></ul> | Rearquitetar workspaces |

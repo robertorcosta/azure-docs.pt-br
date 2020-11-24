@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445295"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495416"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
@@ -40,13 +40,13 @@ Vá para [versões do Azure IOT Explorer](https://github.com/Azure/azure-iot-exp
 
 ## <a name="use-azure-iot-explorer"></a>Usar o Azure IoT Explorer
 
-Para um dispositivo, você pode conectar seu próprio dispositivo ou usar um dos dispositivos simulados de exemplo. Para alguns exemplos de dispositivos simulados escritos em linguagens diferentes, consulte o [aplicativo conectar um exemplo de dispositivo IoT plug and Play ao Hub IOT](quickstart-connect-device-node.md) .
+Para um dispositivo, você pode conectar seu próprio dispositivo ou usar um dos dispositivos simulados de exemplo. Para alguns exemplos de dispositivos simulados escritos em linguagens diferentes, consulte o início rápido [conectar um aplicativo de dispositivo de plug and Play IOT para o Hub IOT](quickstart-connect-device.md) .
 
 ### <a name="connect-to-your-hub"></a>Conectar-se ao seu hub
 
 Na primeira vez que você executar o Azure IoT Explorer, sua cadeia de conexão do Hub IoT será solicitada. Depois de adicionar a cadeia de conexão, selecione **conectar**. Você pode usar as configurações da ferramenta para alternar para outro hub IoT atualizando a cadeia de conexão.
 
-A definição de modelo para um dispositivo de Plug and Play IoT é armazenada no repositório público, no dispositivo conectado ou em uma pasta local. Por padrão, a ferramenta procura a definição do modelo no repositório público e no dispositivo conectado. Você pode adicionar e remover fontes ou configurar a prioridade das fontes em **configurações** :
+A definição de modelo para um dispositivo de Plug and Play IoT é armazenada no repositório público, no dispositivo conectado ou em uma pasta local. Por padrão, a ferramenta procura a definição do modelo no repositório público e no dispositivo conectado. Você pode adicionar e remover fontes ou configurar a prioridade das fontes em **configurações**:
 
 Para adicionar uma fonte:
 
@@ -78,7 +78,7 @@ Na página lista de **dispositivos** , selecione um valor na coluna **ID do disp
 
 ### <a name="device"></a>Dispositivo
 
-Esta seção inclui a **identidade do dispositivo** ,  **dispositivos de dispositivo** , **telemetria** , **método direto** , **mensagem da nuvem para o dispositivo** , guias de identidade do **módulo**  .
+Esta seção inclui a **identidade do dispositivo**,  **dispositivos de dispositivo**, **telemetria**, **método direto**, **mensagem da nuvem para o dispositivo**, guias de identidade do **módulo**  .
 
 - Você pode exibir e atualizar as informações de [identidade do dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) na guia **identidade do dispositivo** .
 - Você pode acessar as informações de FileUp do [dispositivo](../iot-hub/iot-hub-devguide-device-twins.md) na guia de **dispositivo de entrelaçamento** .
@@ -89,7 +89,7 @@ Esta seção inclui a **identidade do dispositivo** ,  **dispositivos de disposi
 
 ### <a name="iot-plug-and-play-components"></a>Componentes de Plug and Play de IoT
 
-Se o dispositivo estiver conectado ao Hub usando uma **ID de modelo** , a ferramenta mostrará a guia **componentes de plug and Play IOT** , onde você poderá ver a **ID do modelo**.
+Se o dispositivo estiver conectado ao Hub usando uma **ID de modelo**, a ferramenta mostrará a guia **componentes de plug and Play IOT** , onde você poderá ver a **ID do modelo**.
 
 Se a **ID do modelo** estiver disponível em uma das fontes configuradas-repositório público ou pasta local, a lista de componentes será exibida. A seleção de um componente mostra as propriedades, os comandos e a telemetria disponíveis.
 
@@ -109,7 +109,7 @@ Você pode exibir as propriedades somente leitura definidas em uma interface na 
 1. Visualize o conteúdo a ser enviado para o dispositivo.
 1. Envie a alteração.
 
-Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização** , **êxito** ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade relatada** . Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
+Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização**, **êxito** ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade relatada** . Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
 
 #### <a name="commands"></a>Comandos
 

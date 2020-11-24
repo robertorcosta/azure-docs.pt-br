@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360778"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488140"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -20,7 +20,7 @@ Você pode usar Gerenciamento de Atualizações na automação do Azure para ger
 > Você não pode usar um computador configurado com o Gerenciamento de Atualizações para executar scripts personalizados da Automação do Azure. Este computador só pode executar o script de atualização assinado pela Microsoft.
 
 > [!NOTE]
-> Neste momento, não há suporte para habilitar Gerenciamento de Atualizações diretamente de um servidor habilitado para Arc. Consulte [habilitar gerenciamento de atualizações de sua conta de automação](../../automation/update-management/enable-from-automation-account.md) para entender os requisitos e como habilitar o para o seu servidor.
+> Neste momento, não há suporte para habilitar o Gerenciamento de Atualizações diretamente de um servidor habilitado para Arc. Confira [Habilitar o Gerenciamento de Atualizações em sua conta de automação](../../automation/update-management/enable-from-automation-account.md) para entender os requisitos e como habilitá-los para o servidor.
 
 Para baixar e instalar os patches *críticos* e de *segurança* disponíveis automaticamente em sua VM do Azure, examine [aplicação automática de patches de convidado de VM](../../virtual-machines/windows/automatic-vm-guest-patching.md) para VMs do Windows.
 
@@ -132,7 +132,7 @@ O Gerenciamento de Atualizações usa os recursos descritos nesta seção. Esses
 
 Depois que você habilita o Gerenciamento de Atualizações, qualquer computador com Windows conectado diretamente a seu workspace do Log Analytics é automaticamente configurado como um Hybrid Runbook Worker para dar suporte aos runbooks compatíveis com o Gerenciamento de Atualizações.
 
-Cada computador com Windows que é gerenciado pelo Gerenciamento de Atualizações é listado no painel de grupos do Hybrid Worker como um grupo do Hybrid Worker do sistema para a conta de Automação. Os grupos usam a convenção de nomenclatura `Hostname FQDN_GUID`. Não é possível direcionar esses grupos com runbooks em sua conta. Se você tentar fazê-lo, a tentativa falhará. Esses grupos são destinados a dar suporte somente ao Gerenciamento de Atualizações. Para saber mais sobre como exibir a lista de computadores Windows configurados como um Hybrid Runbook Worker, consulte [Exibir Hybrid runbook Workers](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
+Cada computador com Windows que é gerenciado pelo Gerenciamento de Atualizações é listado no painel de grupos do Hybrid Worker como um grupo do Hybrid Worker do sistema para a conta de Automação. Os grupos usam a convenção de nomenclatura `Hostname FQDN_GUID`. Não é possível direcionar esses grupos com runbooks em sua conta. Se você tentar fazê-lo, a tentativa falhará. Esses grupos são destinados a dar suporte somente ao Gerenciamento de Atualizações. Para saber mais sobre como exibir a lista de computadores Windows configurados como um Hybrid Runbook Worker, consulte [Exibir Hybrid runbook Workers](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 Você pode adicionar o computador com Windows a um grupo do Hybrid Runbook Worker em sua conta de Automação para dar suporte a runbooks de Automação se você usar a mesma conta para o Gerenciamento de Atualizações e para a associação de grupo do Hybrid Runbook Worker. Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 

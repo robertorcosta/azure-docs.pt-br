@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718808"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486510"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Fazer backup e recuperar seus modelos de reconhecedor de formulário
 
@@ -41,7 +41,7 @@ O processo para copiar um modelo personalizado consiste nas seguintes etapas:
 1. Você usará suas credenciais de recurso de origem para consultar a URL de progresso até que a operação seja bem-sucedida. Você também pode consultar a nova ID do modelo no recurso de destino para obter o status do novo modelo.
 
 > [!CAUTION]
-> Atualmente, a API de cópia não dá suporte a IDs de modelo para [modelos personalizados compostos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). A composição de modelo é um recurso de visualização na versão prévia de v 2.1-Preview. 1. 
+> Atualmente, a API de cópia não dá suporte a IDs de modelo para [modelos personalizados compostos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). A composição de modelo é um recurso de visualização na visualização v 2.1-Preview. 2. 
 
 ## <a name="generate-copy-authorization-request"></a>Gerar solicitação de autorização de cópia
 
@@ -91,7 +91,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Erro do|Resolução|
+|Erro|Resolução|
 |:--|:--|
 | 400/solicitação inadequada com `"code:" "1002"` | Indica erro de validação ou solicitação de cópia mal formada. Problemas comuns incluem: a) carga inválida ou modificada `copyAuthorization` . b) valor expirado para o `expirationDateTimeTicks` token (a `copyAuhtorization` carga é válida por 24 horas). c) inválido ou sem suporte `targetResourceRegion` . d) cadeia de caracteres inválida ou malformada `targetResourceId` .
 |
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Erro do|Resolução|
+|Erro|Resolução|
 |:--|:--|
 |"Errors": [{"Code": "AuthorizationError",<br>"mensagem": "falha de autorização devido a <br>declarações de autorização ausentes ou inválidas. "}]   | Ocorre quando a `copyAuthorization` carga ou o conteúdo é modificado a partir do que foi retornado pela `copyAuthorization` API. Verifique se a carga tem o mesmo conteúdo exato que foi retornado da chamada anterior `copyAuthorization` .|
 |"Errors": [{"Code": "AuthorizationError",<br>"Message": "não foi possível recuperar a autorização <br>los. Se esse problema persistir, use outro <br>modelo de destino para copiar em. "}] | Indica que a `copyAuthorization` carga está sendo reutilizada com uma solicitação de cópia. Uma solicitação de cópia com sucesso não permitirá nenhuma solicitação adicional que use a mesma `copyAuthorization` carga. Se você gerar um erro separado (como aqueles indicados abaixo) e depois tentar novamente a cópia com a mesma carga de autorização, esse erro será gerado. A resolução é gerar uma nova `copyAuthorization` carga e, em seguida, emitir novamente a solicitação de cópia.|

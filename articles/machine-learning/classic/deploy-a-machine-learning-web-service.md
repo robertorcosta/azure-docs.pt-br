@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322831"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495195"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implantar um serviço Web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (clássico) permite que você crie e teste uma solução analítica preditiva. Em seguida, é possível implantar a solução como um serviço Web.
@@ -35,7 +35,7 @@ A entrada para BES é como os dados de entrada que RRS usa. A principal diferen�
 Em um ponto de exibição de alto nível, implante seu modelo em três etapas:
 
 * **[Criar um teste de treinamento]** -no estúdio (clássico), você pode treinar e testar um modelo de análise preditiva usando dados de treinamento fornecidos por você, usando um grande conjunto de algoritmos de aprendizado de máquina internos.
-* **[Convertê-lo em um teste preditivo]** : depois que o modelo tiver sido treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de previsões.
+* **[Convertê-lo em um teste preditivo]**: depois que o modelo tiver sido treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de previsões.
 * **Implante-o** como um **[novo serviço Web]** ou um **[serviço Web clássico]** – Quando você implanta seu teste preditivo como um serviço Web do Azure, os usuários podem enviar dados para seu modelo e receber previsões dele.
 
 ## <a name="create-a-training-experiment"></a>Criar um teste de treinamento
@@ -67,7 +67,7 @@ O processo de conversão de um teste de treinamento em um teste preditivo envolv
 ![Converter para o teste de pontuação](./media/publish-a-machine-learning-web-service/figure-1.png)
 
 ### <a name="set-up-web-service-button"></a>Botão Configurar Serviço Web
-Depois de executar o teste (clique em **EXECUTAR** na parte inferior da tela do teste), clique no botão **Configurar Serviço Web** (selecione a opção **Serviço Web Preditivo** ). **Configurar Serviço Web** executa para você as três etapas de conversão do teste de treinamento em um teste preditivo:
+Depois de executar o teste (clique em **EXECUTAR** na parte inferior da tela do teste), clique no botão **Configurar Serviço Web** (selecione a opção **Serviço Web Preditivo**). **Configurar Serviço Web** executa para você as três etapas de conversão do teste de treinamento em um teste preditivo:
 
 1. Ele salva o modelo treinado na seção **Modelos Treinados** da paleta de módulos (à esquerda da tela do teste). Ele substitui o algoritmo do Machine Learning e os módulos [Treinar Modelo][train-model] pelo modelo treinado salvo.
 2. Ele analisa o seu teste e remove os módulos que foram claramente usados apenas para treinamento e não são mais necessários.
@@ -89,11 +89,11 @@ Ao converter esse teste de treinamento em um teste preditivo, alguns desses mód
   
     Por exemplo, nesse exemplo, o conjunto de dados de exemplo pode ter valores ausentes, portanto, um módulo [Limpar Dados Ausentes][clean-missing-data] foi incluído para lidar com eles. Além disso, o conjunto de dados de exemplo inclui colunas que não são necessárias para treinar o modelo. Desse modo, o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] foi incluído para excluir essas colunas extras do fluxo de dados. Se souber que os dados que serão enviados para pontuação por meio do serviço Web não terão valores ausentes, você poderá remover o módulo [Limpar Dados Ausentes][clean-missing-data]. No entanto, uma vez que o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] ajuda a definir as colunas de dados esperadas pelo modelo treinado, esse módulo precisa permanecer.
 
-* **Treinar** – esses módulos são usados para treinar o modelo. Quando você clica em **Configurar Serviço Web** , esses módulos são substituídos por um único módulo que contém o modelo treinado. Esse novo módulo é salvo na seção **Modelos Treinados** da paleta do módulo.
+* **Treinar** – esses módulos são usados para treinar o modelo. Quando você clica em **Configurar Serviço Web**, esses módulos são substituídos por um único módulo que contém o modelo treinado. Esse novo módulo é salvo na seção **Modelos Treinados** da paleta do módulo.
 
 * **Pontuação** – nesse exemplo, o módulo [Dividir Dados][split] é usado para dividir o fluxo de dados em dados de teste e de treinamento. No teste preditivo, não estamos mais treinando, de modo que [Dividir Dados][split] pode ser removido. Da mesma forma, o segundo módulo [Pontuar Modelo][score-model] e o módulo [Avaliar Modelo][evaluate-model] são usados para comparar os resultados dos dados de teste; portanto, esses módulos não são necessários no teste preditivo. O módulo [Modelo de Pontuação][score-model] restante, contudo, é necessário para retornar um resultado de pontuação por meio do serviço Web.
 
-Veja como fica nosso exemplo depois do clique em **Configurar Serviço Web** :
+Veja como fica nosso exemplo depois do clique em **Configurar Serviço Web**:
 
 ![Teste preditivo convertido](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -148,8 +148,8 @@ Para implantar o teste preditivo, clique em **Executar** na parte inferior da te
 Na página de teste de implantação, insira um nome para o serviço Web.
 Selecione um plano de preços. Se você tiver um plano de preços existente, selecione-o, caso contrário, você deverá criar um novo plano de preços para o serviço.
 
-1. Na lista suspensa **Plano de Preços** , selecione um plano existente ou selecione a opção **Selecione novo plano**.
-2. Em **Nome do Plano** , digite um nome que identificará o plano na sua conta.
+1. Na lista suspensa **Plano de Preços**, selecione um plano existente ou selecione a opção **Selecione novo plano**.
+2. Em **Nome do Plano**, digite um nome que identificará o plano na sua conta.
 3. Selecione uma dos **Níveis de Planos Mensais**. As camadas do plano usam como padrão os planos da região padrão e o serviço Web é implantado nessa região.
 
 Clique em **Implantar** e na página **Início Rápido** para abrir seu serviço Web.
@@ -180,7 +180,7 @@ Clique em **Testar**. O status de seu trabalho de execução de lote é exibido 
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
-Na página **CONFIGURAÇÃO** , você pode alterar a descrição, o título, atualizar a chave da conta de armazenamento e habilitar dados de exemplo para o serviço Web.
+Na página **CONFIGURAÇÃO**, você pode alterar a descrição, o título, atualizar a chave da conta de armazenamento e habilitar dados de exemplo para o serviço Web.
 
 ![Configurar seu serviço Web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
@@ -211,7 +211,7 @@ O preço é específico de cada região, então é necessário definir um plano 
 5. No menu suspenso **Região** , selecione uma região para o novo plano. As opções de plano para a região selecionada serão exibidas na seção **Opções de Plano** da página.
 6. No menu suspenso **Grupo de Recursos** , selecione um grupo de recursos para o plano. Em mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. Em **Nome do Plano** , digite o nome do plano.
-8. Em **Opções do Plano** , clique no nível de cobrança para o novo plano.
+8. Em **Opções do Plano**, clique no nível de cobrança para o novo plano.
 9. Clique em **Criar**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Implantar o serviço Web em outra região
@@ -219,8 +219,8 @@ O preço é específico de cada região, então é necessário definir um plano 
 1. Na página de Serviços Web do Microsoft Azure Machine Learning, clique na opção de menu **Serviços Web**.
 2. Selecione o serviço Web que você está implantando em uma nova região.
 3. Clique em **Copiar**.
-4. Em **Nome do Serviço Web** , digite um novo nome para o serviço Web.
-5. Em **Descrição do serviço Web** , digite uma descrição para o serviço Web.
+4. Em **Nome do Serviço Web**, digite um novo nome para o serviço Web.
+5. Em **Descrição do serviço Web**, digite uma descrição para o serviço Web.
 6. No menu suspenso **Assinatura** , selecione a assinatura na qual o novo serviço Web residirá.
 7. No menu suspenso **Grupo de Recursos** , selecione um grupo de recursos para o serviço Web. Em mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. No menu suspenso **Região** , selecione a região na qual implantar o serviço Web.
@@ -250,7 +250,7 @@ Para testar o serviço de execução em lote, clique no link de visualização d
 
 Na página **CONFIGURAÇÃO** , você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no [Portal do Azure](https://portal.azure.com/), no qual você gerencia seus serviços Web.
 
-Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA** , **OUTPUT SCHEMA** , e **Web SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web.
+Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA**, **OUTPUT SCHEMA**, e **Web SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web.
 
 Você pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo quando o serviço Web for acessado. Para obter mais informações, consulte [habilitar o registro em log para serviços web Machine Learning Studio (clássico)](web-services-logging.md).
 
@@ -277,7 +277,7 @@ Você pode fazer alterações ao serviço Web, como atualizar o modelo com dados
 
 Para atualizar o serviço Web, abra o teste preditivo original que você usou para implantar o serviço Web original e faça uma cópia editável clicando em **SALVAR COMO**. Faça as alterações e clique em **Implantar Serviço Web**.
 
-Como você já implantou esse teste antes, será solicitado se deseja substituir (Serviço Web clássico) ou atualizar (Novo serviço Web) o serviço existente. Se você clicar em **SIM** ou **Atualizar** , o serviço Web existente será interrompido e o novo teste preditivo será implantado em seu lugar.
+Como você já implantou esse teste antes, será solicitado se deseja substituir (Serviço Web clássico) ou atualizar (Novo serviço Web) o serviço existente. Se você clicar em **SIM** ou **Atualizar**, o serviço Web existente será interrompido e o novo teste preditivo será implantado em seu lugar.
 
 > [!NOTE]
 > Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.

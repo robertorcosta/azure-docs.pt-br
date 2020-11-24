@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046461"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495314"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Entender os gêmeos digitais de IoT Plug and Play
 
@@ -307,7 +307,7 @@ Os trechos de código a seguir mostram a representação JSON lado a lado do `th
 
 ## <a name="digital-twin-apis"></a>APIs de entrelaçamento digital
 
-O Azure digital gêmeos vem equipado com **Get digital**up, **Update digital de atualização**, **comando Invoke Component** e **comando Invoke** para gerenciar o dispositivo digital. Você pode usar as [APIs REST](/rest/api/iothub/service/digitaltwin) diretamente ou por meio de um [SDK de serviço](../iot-pnp/libraries-sdks.md).
+O Azure digital gêmeos vem equipado com **Get digital** up, **Update digital de atualização**, **comando Invoke Component** e **comando Invoke** para gerenciar o dispositivo digital. Você pode usar as [APIs REST](/rest/api/iothub/service/digitaltwin) diretamente ou por meio de um [SDK de serviço](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Eventos de alteração de gêmeo digital
 
@@ -382,6 +382,6 @@ content-encoding:utf-8
 Agora que você aprendeu sobre o digital gêmeos, aqui estão alguns recursos adicionais:
 
 - [Como usar as APIs de Plug and Play do IoT digital](howto-manage-digital-twin.md)
-- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service.md)
 - [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

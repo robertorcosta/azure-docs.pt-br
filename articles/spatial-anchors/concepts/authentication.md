@@ -1,20 +1,20 @@
 ---
 title: Autenticação e autorização
 description: Saiba mais sobre as várias maneiras pelas quais um aplicativo ou serviço pode se autenticar para âncoras espaciais do Azure e os níveis de controle que você precisa para portar o acesso a âncoras espaciais.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 10/08/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3d88c8d5d42e3dec2142df1ede7a9ee50898e92
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242340"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484603"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para Âncoras Espaciais do Azure
 
@@ -97,28 +97,28 @@ Para aplicativos direcionados Azure Active Directory usuários, recomendamos que
 **No portal do Azure**
 1.    Registre seu aplicativo no Azure AD como um aplicativo nativo. Como parte do registro, você precisará determinar se seu aplicativo deve ser multilocatário. Você também precisará fornecer as URLs de redirecionamento permitidas para seu aplicativo.
 1.  Vá para a guia **permissões de API** .
-2.  Selecione **Adicionar uma permissão** .
+2.  Selecione **Adicionar uma permissão**.
     1.  Selecione **provedor de recursos de realidade misturada** na guia **APIs que minha organização usa** .
-    2.  Selecione **Permissões delegadas** .
-    3.  Selecione **mixedreality. Signe** em **mixedreality** .
-    4.  Escolha **Adicionar permissões** .
-3.  Selecione **conceder consentimento do administrador** .
+    2.  Selecione **Permissões delegadas**.
+    3.  Selecione **mixedreality. Signe** em **mixedreality**.
+    4.  Selecione **Adicionar Permissões**.
+3.  Selecione **conceder consentimento do administrador**.
 
 2. Conceda ao seu aplicativo ou usuários acesso ao seu recurso:
    1.    Vá para o recurso âncoras espaciais no portal do Azure.
    2.    Vá para a guia **controle de acesso (iam)** .
-   3.    Selecione **Adicionar atribuição de função** .
+   3.    Selecione **Adicionar atribuição de função**.
    1.    [Selecione uma função](#azure-role-based-access-control).
    2.    Na caixa **selecionar** , insira os nomes dos usuários, grupos e/ou aplicativos aos quais você deseja atribuir acesso.
-   3.    Clique em **Salvar** .
+   3.    Selecione **Salvar**.
 
 **Em seu código**
 1.    Certifique-se de usar a ID do aplicativo e o URI de redirecionamento do seu próprio aplicativo do Azure AD para os parâmetros **ID do cliente** e **RedirectUri** em MSAL.
 2.    Defina as informações do locatário:
-        1.    Se seu aplicativo der suporte **apenas à minha organização** , substitua esse valor pela sua **ID de locatário** ou nome do **locatário** . Por exemplo, contoso.microsoft.com.
-        2.    Se seu aplicativo oferecer suporte a **contas em qualquer diretório organizacional** , substitua esse valor pelas **organizações** .
-        3.    Se seu aplicativo der suporte a **todos os conta Microsoft usuários** , substitua esse valor por **comum** .
-3.    Em sua solicitação de token, defina o **escopo** como **" `https://sts.<account-domain>//.default` "** , em que `<account-domain>` é substituído pelo **domínio da conta** para sua conta de âncoras espaciais do Azure. Um exemplo de escopo para uma conta de âncoras espaciais do Azure no domínio da conta leste dos EUA 2 é **" `https://sts.mixedreality.azure.com//.default` "** . Esse escopo indicará ao Azure AD que seu aplicativo está solicitando um token para o STS (serviço de token de segurança) da realidade misturada.
+        1.    Se seu aplicativo der suporte **apenas à minha organização**, substitua esse valor pela sua **ID de locatário** ou nome do **locatário**. Por exemplo, contoso.microsoft.com.
+        2.    Se seu aplicativo oferecer suporte a **contas em qualquer diretório organizacional**, substitua esse valor pelas **organizações**.
+        3.    Se seu aplicativo der suporte a **todos os conta Microsoft usuários**, substitua esse valor por **comum**.
+3.    Em sua solicitação de token, defina o **escopo** como **" `https://sts.<account-domain>//.default` "**, em que `<account-domain>` é substituído pelo **domínio da conta** para sua conta de âncoras espaciais do Azure. Um exemplo de escopo para uma conta de âncoras espaciais do Azure no domínio da conta leste dos EUA 2 é **" `https://sts.mixedreality.azure.com//.default` "**. Esse escopo indicará ao Azure AD que seu aplicativo está solicitando um token para o STS (serviço de token de segurança) da realidade misturada.
 
 Depois de concluir essas etapas, seu aplicativo deverá ser capaz de obter do MSAL um token do Azure AD. Você pode definir esse token do Azure AD como o `authenticationToken` em seu objeto de configuração de sessão de nuvem:
 
@@ -174,30 +174,30 @@ O token de acesso do AD do Azure é recuperado por meio do [MSAL](../../active-d
 
 **No portal do Azure**
 1.    Registrar seu aplicativo no Azure AD:
-        1.    Na portal do Azure, selecione **Azure Active Directory** e, em seguida, selecione **registros de aplicativo** .
-        2.    Selecione **Novo registro** .
-        3.    Insira o nome do seu aplicativo, selecione **aplicativo Web/API** como o tipo de aplicativo e insira a URL de autenticação para seu serviço. Selecione **Criar** .
-2.    No aplicativo, selecione **configurações** e, em seguida, selecione a guia **certificados e segredos** . Crie um novo segredo do cliente, selecione uma duração e, em seguida, selecione **Adicionar** . Lembre-se de salvar o valor secreto. Você precisará incluí-lo no código do serviço Web.
+        1.    Na portal do Azure, selecione **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
+        2.    Selecione **Novo registro**.
+        3.    Insira o nome do seu aplicativo, selecione **aplicativo Web/API** como o tipo de aplicativo e insira a URL de autenticação para seu serviço. Selecione **Criar**.
+2.    No aplicativo, selecione **configurações** e, em seguida, selecione a guia **certificados e segredos** . Crie um novo segredo do cliente, selecione uma duração e, em seguida, selecione **Adicionar**. Lembre-se de salvar o valor secreto. Você precisará incluí-lo no código do serviço Web.
 3.    Conceda ao seu aplicativo e/ou usuários acesso ao seu recurso:
         1.    Vá para o recurso âncoras espaciais no portal do Azure.
         2.    Vá para a guia **controle de acesso (iam)** .
-        3.    Selecione **Adicionar atribuição de função** .
+        3.    Selecione **Adicionar atribuição de função**.
         4.    [Selecione uma função](#azure-role-based-access-control).
         5.    Na caixa **selecionar** , insira o nome ou os nomes dos aplicativos aos quais você deseja atribuir acesso. Se você quiser que os usuários do aplicativo tenham funções diferentes em relação à conta de âncoras espaciais, registre vários aplicativos no Azure AD e atribua uma função separada a cada um. Em seguida, implemente sua lógica de autorização para usar a função certa para seus usuários.
 
               > [!NOTE]
-              > No painel **Adicionar atribuição de função** , em **atribuir acesso a** , selecione **usuário, grupo ou entidade de serviço do Azure ad** .
+              > No painel **Adicionar atribuição de função** , em **atribuir acesso a**, selecione **usuário, grupo ou entidade de serviço do Azure ad**.
 
-        6.    Clique em **Salvar** .
+        6.    Selecione **Salvar**.
 
 **Em seu código**
 
 >[!NOTE]
 > Você pode usar o exemplo de serviço disponível no GitHub.
 
-1.    Certifique-se de usar a ID do aplicativo, o segredo do aplicativo e o URI de redirecionamento do seu próprio aplicativo do Azure AD como a **ID do cliente** , o **segredo** e os parâmetros **RedirectUri** em MSAL.
+1.    Certifique-se de usar a ID do aplicativo, o segredo do aplicativo e o URI de redirecionamento do seu próprio aplicativo do Azure AD como a **ID do cliente**, o **segredo** e os parâmetros **RedirectUri** em MSAL.
 2.    Defina a ID de locatário para sua própria ID de locatário do Azure AD no parâmetro **Authority** em MSAL.
-3.    Em sua solicitação de token, defina o **escopo** como **" `https://sts.<account-domain>//.default` "** , em que `<account-domain>` é substituído pelo **domínio da conta** para sua conta de âncoras espaciais do Azure. Um exemplo de escopo para uma conta de âncoras espaciais do Azure no domínio da conta leste dos EUA 2 é **" `https://sts.mixedreality.azure.com//.default` "** .
+3.    Em sua solicitação de token, defina o **escopo** como **" `https://sts.<account-domain>//.default` "**, em que `<account-domain>` é substituído pelo **domínio da conta** para sua conta de âncoras espaciais do Azure. Um exemplo de escopo para uma conta de âncoras espaciais do Azure no domínio da conta leste dos EUA 2 é **" `https://sts.mixedreality.azure.com//.default` "**.
 
 Depois de concluir essas etapas, o serviço de back-end pode recuperar um token do Azure AD. Em seguida, ele pode alterá-lo para um token MR que ele retornará ao cliente. Usar um token do Azure AD para recuperar um token MR é feito por meio de uma chamada REST. Aqui está um exemplo de chamada:
 
@@ -266,9 +266,9 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 Para ajudá-lo a controlar o nível de acesso concedido a aplicativos, serviços ou usuários do Azure AD do seu serviço, você pode atribuir essas funções preexistentes conforme necessário em relação às suas contas de âncoras espaciais do Azure:
 
-- **Proprietário da conta de âncoras espaciais** . Os aplicativos ou usuários que têm essa função podem criar âncoras espaciais, consultá-los e excluí-los. Quando você se autentica em sua conta usando chaves de conta, a função de proprietário da conta de âncoras espaciais é atribuída à entidade de segurança autenticada.
-- **Colaborador de conta de âncoras espaciais** . Os aplicativos ou usuários que têm essa função podem criar âncoras espaciais e consultá-los, mas não podem excluí-los.
-- **Leitor de conta de âncoras espaciais** . Os aplicativos ou usuários que têm essa função só podem consultar âncoras espaciais. Eles não podem criar novos, excluir os existentes ou atualizar os metadados neles. Essa função é normalmente usada para aplicativos em que alguns usuários organizadam o ambiente, mas outros podem apenas recuperar âncoras previamente colocadas no ambiente.
+- **Proprietário da conta de âncoras espaciais**. Os aplicativos ou usuários que têm essa função podem criar âncoras espaciais, consultá-los e excluí-los. Quando você se autentica em sua conta usando chaves de conta, a função de proprietário da conta de âncoras espaciais é atribuída à entidade de segurança autenticada.
+- **Colaborador de conta de âncoras espaciais**. Os aplicativos ou usuários que têm essa função podem criar âncoras espaciais e consultá-los, mas não podem excluí-los.
+- **Leitor de conta de âncoras espaciais**. Os aplicativos ou usuários que têm essa função só podem consultar âncoras espaciais. Eles não podem criar novos, excluir os existentes ou atualizar os metadados neles. Essa função é normalmente usada para aplicativos em que alguns usuários organizadam o ambiente, mas outros podem apenas recuperar âncoras previamente colocadas no ambiente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
