@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: cf051d96651161658796689639b5d268230d4b5a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082234"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559756"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -44,4 +44,4 @@ ms.locfileid: "92082234"
 <sup>7</sup>Certificados de autoridade de certificação não têm suporte no nível de Consumo.<br/>
 <sup>8</sup>Esse limite aplica-se apenas ao nível de Consumo. Não há nenhum limite nessas categorias para outros níveis.<br/>
 <sup>9</sup>Aplica-se apenas ao nível de Consumo. Inclui uma cadeia de caracteres de consulta de até 2048 bytes de comprimento.<br/>
-<sup>10</sup>Os gateways auto-hospedados têm suporte apenas nos níveis Desenvolvedor e Premium. O limite se aplica ao número de [recursos de gateway auto-hospedados](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Para aumentar esse limite, entre em contato com o [suporte](https://azure.microsoft.com/support/options/). Observe que o número de nós (ou réplicas) associado a um recurso de gateway auto-hospedado é ilimitado no nível Premium e é limitado em um nó no nível Desenvolvedor.
+<sup>10</sup>Os gateways auto-hospedados têm suporte apenas nos níveis Desenvolvedor e Premium. O limite se aplica ao número de [recursos de gateway auto-hospedados](/rest/api/apimanagement/2019-12-01/gateway). Para aumentar esse limite, entre em contato com o [suporte](https://azure.microsoft.com/support/options/). Observe que o número de nós (ou réplicas) associado a um recurso de gateway auto-hospedado é ilimitado no nível Premium e é limitado em um nó no nível Desenvolvedor.

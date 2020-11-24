@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391461"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558353"
 ---
 | Recurso |[Plano de Consumo](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plano dedicado](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ ms.locfileid: "85391461"
 | Tamanho máximo da solicitação (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Depende do cluster |
 | Comprimento máximo da cadeia de caracteres de consulta<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Depende do cluster |
 | Comprimento máximo da URL de solicitação<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depende do cluster |
-|[ACU](../articles/virtual-machines/windows/acu.md) por instância | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Preços do AKS](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) por instância | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Preços do AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Memória máxima (GB por instância) | 1.5 | 3,5-14 | 1,75-14 | 3,5-14 | Todos os nós são compatíveis |
 | Aplicativos de funções por plano |100 |100 |não associado<sup>4</sup> | não associado | não associado |
 | [Planos do Serviço de Aplicativo](../articles/app-service/overview-hosting-plans.md) | 100 por [região](https://azure.microsoft.com/global-infrastructure/regions/) |100 por grupo de recursos |100 por grupo de recursos | - | - |

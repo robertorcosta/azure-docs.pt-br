@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 5ac49491d8cb8fc81fe01d6f3d0d85456b190ed9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 42dfa499e0a44d0b468d3a234e9dc88904c361b0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329464"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558490"
 ---
 Aqui estão as restrições de uso e outros limites de serviço para o serviço Microsoft Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Aqui estão as restrições de uso e outros limites de serviço para o serviço 
 | Painel de acesso |Não há nenhum limite para o número de aplicativos que podem ser vistos no Painel de Acesso por usuário, independentemente das licenças atribuídas.  |
 | Relatórios | Um máximo de 1.000 linhas podem ser exibidas ou baixadas em qualquer relatório. Todos os dados adicionais serão truncados. |
 | Unidades administrativas | Um recurso do Azure AD pode ser um membro de até 30 unidades administrativas. |
-| Funções e permissões do Azure AD | <ul><li>No máximo 30 [funções personalizadas do Azure AD](https://docs.microsoft.com/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure/active-directory/users-groups-roles/context/ugr-context) podem ser criadas em uma organização do Azure AD.</li><li>Um grupo não pode ser adicionado como um [proprietário de grupo](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>A capacidade dos usuários de ler informações de locatário de outros usuários pode ser restrita apenas por um comutador de toda a organização do Azure AD para desabilitar o acesso de todos os usuários não administradores a todas as informações de locatário (não recomendado). Para obter mais informações, confira [Restringir as permissões padrão para usuários membros](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pode levar até 15 minutos ou sair do serviço/entrar novamente para que as adições e as revogações de associação de função de administrador entrem em vigor.</li></ul> |
+| Funções e permissões do Azure AD | <ul><li>No máximo 30 [funções personalizadas do Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context) podem ser criadas em uma organização do Azure AD.</li><li>Um grupo não pode ser adicionado como um [proprietário de grupo](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#object-ownership).</li><li>A capacidade dos usuários de ler informações de locatário de outros usuários pode ser restrita apenas por um comutador de toda a organização do Azure AD para desabilitar o acesso de todos os usuários não administradores a todas as informações de locatário (não recomendado). Para obter mais informações, confira [Restringir as permissões padrão para usuários membros](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#restrict-member-users-default-permissions).</li><li>Pode levar até 15 minutos ou sair do serviço/entrar novamente para que as adições e as revogações de associação de função de administrador entrem em vigor.</li></ul> |

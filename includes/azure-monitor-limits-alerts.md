@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 33d701fe8dc19b3deaa05cf6f10643bdb1059aa1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 1e4ae81c85d8de22bc87f22538c85cdc4c15b79c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505726"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560140"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Alertas de métrica (clássicos) |100 regras de alerta ativas por assinatura. | Contate o suporte |
-| Alertas de métricas |5\.000 regras de alerta ativas por assinatura no Azure público, no Azure China 21Vianet e nas nuvens do Azure Government. Se estiver atingindo esse limite, veja se pode usar [alertas de vários recursos do mesmo tipo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).   | Contate o suporte. |
+| Alertas de métricas |5\.000 regras de alerta ativas por assinatura no Azure público, no Azure China 21Vianet e nas nuvens do Azure Government. Se estiver atingindo esse limite, veja se pode usar [alertas de vários recursos do mesmo tipo](../articles/azure-monitor/platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).   | Contate o suporte. |
 | Alertas do log de atividades | 100 regras de alerta ativas por assinatura. | Igual ao padrão |
 | Alertas de registro | 512 regras de alerta ativas por assinatura. 200 regras de alerta ativas por recurso. | Contate o suporte |
 | Grupos de ação |2\.000 grupos de ação por assinatura. | Contate o suporte |

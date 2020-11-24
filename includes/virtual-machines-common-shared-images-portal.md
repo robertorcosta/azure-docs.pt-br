@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82788971"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561172"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
@@ -35,7 +35,7 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a imagem da galeria é denominada *myImageDefinition*.
 
@@ -43,7 +43,7 @@ Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a 
 1. Em **Adicionar nova definição de imagem à galeria de imagens compartilhadas**, para **região**, selecione *leste dos EUA*.
 1. Para **nome da definição da imagem**, digite *myImageDefinition*.
 1. Para **sistema operacional**, selecione a opção correta com base em sua VM de origem.  
-1. Para **geração de VM**, selecione a opção com base na VM de origem. Na maioria dos casos, essa será a *Gen 1*. Para obter mais informações, consulte [suporte para VMs de geração 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. Para **geração de VM**, selecione a opção com base na VM de origem. Na maioria dos casos, essa será a *Gen 1*. Para obter mais informações, consulte [suporte para VMs de geração 2](../articles/virtual-machines/generation-2.md).
 1. Para **estado do sistema operacional**, selecione a opção com base na VM de origem. Para obter mais informações, consulte [generalizado e especializado](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. Para o **Publicador**, digite *mypublisher*. 
 1. Para **oferta**, digite *myoffer*.
@@ -104,4 +104,3 @@ Recomendamos que você compartilhe o acesso no nível da galeria de imagens. O s
 1. Se o usuário estiver fora de sua organização, você verá a mensagem **este usuário receberá um email que permite colaborar com a Microsoft.** Selecione o usuário com o endereço de email e clique em **salvar**.
 
 Se o usuário estiver fora de sua organização, ele receberá um convite por email para ingressar na organização. O usuário precisa aceitar o convite, então ele poderá ver a galeria e todas as definições e versões de imagem na lista de recursos.
-

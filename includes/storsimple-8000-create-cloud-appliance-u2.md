@@ -4,19 +4,19 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b827a80059cecadd7b76263f13dd4a0d141fc7a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376270"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558312"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Para criar um dispositivo de nuvem
 
 1. No Portal do Azure, vá até o serviço **StorSimple Device Manager** .
 2. Acesse a folha **Dispositivos**. Na barra de comandos na folha de resumo do serviço, clique em **Criar dispositivo de nuvem**.
     ![Criar dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
-3. Na folha **Criar dispositivo de nuvem** , especifique os detalhes a seguir.
+3. Na folha **Criar dispositivo de nuvem**, especifique os detalhes a seguir.
    
     ![Criar dispositivo de nuvem do StorSimple 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
@@ -33,8 +33,7 @@ ms.locfileid: "93376270"
    7. Marque a caixa de seleção para indicar que você entende que os dados armazenados no dispositivo de nuvem serão hospedados em um datacenter da Microsoft.
        * Quando você usa apenas um dispositivo físico, sua chave de criptografia é mantida com seu dispositivo; portanto, a Microsoft não pode descriptografá-la.
 
-       * Quando você usa um dispositivo de nuvem, a chave de criptografia e a chave de descriptografia são armazenadas no Microsoft Azure. Para saber mais, consulte [Considerações de segurança para usar um dispositivo de nuvem](../articles/storsimple/storsimple-security.md).
+       * Quando você usa um dispositivo de nuvem, a chave de criptografia e a chave de descriptografia são armazenadas no Microsoft Azure. Para saber mais, consulte [Considerações de segurança para usar um dispositivo de nuvem](../articles/storsimple/storsimple-8000-security.md).
    8. Clique em **Criar** para provisionar o dispositivo de nuvem. O dispositivo pode levar cerca de 30 minutos para ser provisionado. Você receberá uma notificação quando dispositivo de nuvem for criado com êxito. Acesse a folha Dispositivos, e a lista de dispositivos será atualizada para exibir o dispositivo de nuvem. O status do dispositivo é **Pronto para configurar**.
       
       ![Pronto para configurar o Dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-
