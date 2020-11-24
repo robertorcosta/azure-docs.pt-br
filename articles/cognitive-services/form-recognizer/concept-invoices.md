@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 366826e591ed131ca63dc94eae994773217438d1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511396"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736656"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
 
@@ -107,7 +107,8 @@ O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Experimente suas próprias faturas e exemplos na [interface do usuário de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/).
-- Ou então, siga o início rápido [extrair dados da nota fiscal](./QuickStarts/python-invoices.md) para implementar a extração de dados da nota fiscal usando o Python e a API REST.
+- Preencha um guia de [início rápido da biblioteca de cliente do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de faturas com o reconhecedor de formulário no idioma de sua escolha.
+- Ou então, siga o início rápido [extrair dados da nota fiscal](./quickstarts/python-invoices.md) para implementar a extração de dados da nota fiscal usando o Python e a API REST.
 ## <a name="see-also"></a>Confira também
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)

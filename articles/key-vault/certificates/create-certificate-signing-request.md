@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289615"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658954"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criando e mesclando CSR no Key Vault
 
@@ -25,7 +25,15 @@ Para obter mais informações gerais sobre certificados, confira [Certificados d
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Adição de certificado no Key Vault emitido por uma autoridade de certificação não confiável
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Adição de certificado no Key Vault emitido por uma AC com parceria
+Parceiros do Key Vault com as duas autoridades de certificação a seguir para simplificar a criação de certificados. 
+
+|Provedor|Tipo de certificado|Configuração  
+|--------------|----------------------|------------------|  
+|DigiCert|O Key Vault oferece certificados SSL OV ou EV com DigiCert| [Guia de integração](./how-to-integrate-certificate-authority.md)
+|GlobalSign|O Key Vault oferece certificados SSL OV ou EV com GlobalSign| [Guia de integração](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Adição de certificado no Key Vault emitido por uma AC sem parceria
 
 As etapas a seguir ajudarão você a criar um certificado de autoridades de certificação que não tem parceria com o Key Vault (por exemplo, GoDaddy não é uma AC confiável do cofre de chaves) 
 

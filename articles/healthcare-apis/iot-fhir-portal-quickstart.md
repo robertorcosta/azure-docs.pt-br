@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394502"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630559"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Início Rápido: Implantar o Conector IoT do Azure para FHIR (versão prévia) usando o portal do Azure
 
-O Conector IoT do Azure para FHIR* é um recurso opcional da API do Azure para FHIR que fornece a capacidade de ingerir dados de dispositivos IoMT (Internet das Coisas Médicas). Durante a fase de versão prévia, o recurso Conector IoT do Azure para FHIR fica disponível gratuitamente. Neste início rápido, você aprenderá a:
+O Conector IoT do Azure para FHIR (Fast Healthcare Interoperability Resources&#174;)* é um recurso opcional da API do Azure para FHIR que fornece a capacidade de ingerir dados de dispositivos IoMT (Internet das Coisas Médicas). Durante a fase de versão prévia, o recurso Conector IoT do Azure para FHIR fica disponível gratuitamente. Neste início rápido, você aprenderá a:
 - Implantar e configurar o Conector IoT do Azure para FHIR usando o portal do Azure
 - Usar um dispositivo simulado para enviar dados ao Conector IoT do Azure para FHIR
 - Exibir recursos criados pelo Conector IoT do Azure para FHIR na API do Azure para FHIR
@@ -71,11 +71,11 @@ Para carregar modelos de mapeamento, clique no Conector IoT do Azure para FHIR r
 
 #### <a name="device-mapping"></a>Mapeamento de dispositivo
 
-O modelo de mapeamento de dispositivo transforma os dados do dispositivo em um esquema normalizado. Na página **Conector IoT** , clique no botão **Configurar mapeamento de dispositivo** para acessar a página **Mapeamento de dispositivo**. 
+O modelo de mapeamento de dispositivo transforma os dados do dispositivo em um esquema normalizado. Na página **Conector IoT**, clique no botão **Configurar mapeamento de dispositivo** para acessar a página **Mapeamento de dispositivo**. 
 
 [![Clique no Conector IoT e Configurar mapeamento de dispositivo](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg#lightbox)
 
-Na página **Mapeamento de dispositivo** , adicione o script a seguir ao editor de JSON e clique em **Salvar**.
+Na página **Mapeamento de dispositivo**, adicione o script a seguir ao editor de JSON e clique em **Salvar**.
 
 ```json
 {
@@ -104,11 +104,11 @@ Na página **Mapeamento de dispositivo** , adicione o script a seguir ao editor 
 
 #### <a name="fhir-mapping"></a>Mapeamento FHIR
 
-O modelo de mapeamento FHIR transforma uma mensagem normalizada em um recurso de Observação baseado no FHIR. Na página **Conector IoT** , clique no botão **Configurar mapeamento FHIR** para acessar a página **Mapeamento FHIR**.  
+O modelo de mapeamento FHIR transforma uma mensagem normalizada em um recurso de Observação baseado no FHIR. Na página **Conector IoT**, clique no botão **Configurar mapeamento FHIR** para acessar a página **Mapeamento FHIR**.  
 
 [![Clique no Conector IoT e Configurar mapeamento FHIR](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg#lightbox)
 
-Na página **Mapeamento FHIR** , adicione o script a seguir ao editor de JSON e clique em **Salvar**.
+Na página **Mapeamento FHIR**, adicione o script a seguir ao editor de JSON e clique em **Salvar**.
 
 ```json
 {
@@ -145,7 +145,7 @@ O dispositivo IoMT precisa de uma cadeia de conexão para se conectar e enviar m
 
 [![Clique no Conector IoT e Gerenciar conexões de cliente](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
-Na página **Conexões** , clique no botão **Adicionar** para criar uma conexão. 
+Na página **Conexões**, clique no botão **Adicionar** para criar uma conexão. 
 
 [![Conexões do Conector IoT](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg#lightbox)
 
@@ -207,6 +207,4 @@ Saiba como configurar o Conector IoT usando modelos de mapeamento FHIR e do disp
 >[!div class="nextstepaction"]
 >[Modelos de mapeamento do Conector IoT do Azure para FHIR](iot-mapping-templates.md)
 
-*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
-
-FHIR é uma marca registrada da HL7, usada com permissão da HL7.
+*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia). FHIR é uma marca registrada da HL7, usada com permissão da HL7.

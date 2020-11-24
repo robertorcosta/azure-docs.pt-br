@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613332"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592695"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web do Python
 
-Neste início rápido, você aprenderá a integrar um aplicativo Web do Python à plataforma de identidade da Microsoft. Seu aplicativo conectará um usuário, obterá um token de acesso para chamar a API do Microsoft Graph e fará uma solicitação para a API do Microsoft Graph.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Web Python pode conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph. Os usuários com uma conta Microsoft pessoal ou uma conta em qualquer organização do Azure AD (Azure Active Directory) podem entrar no aplicativo.
 
-Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras) e contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

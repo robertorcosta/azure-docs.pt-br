@@ -3,12 +3,12 @@ title: Controles de amostra de blueprint da carga de trabalho do ASE/SQL da ISO 
 description: Mapeamento de controle da amostra de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 para o Azure Policy e o Azure RBAC.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420403"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842542"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint de carga de trabalho do ASE/SQL ISO 27001
 
@@ -82,7 +82,7 @@ O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azur
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de logon seguro
 
-Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
+Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure AD fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura

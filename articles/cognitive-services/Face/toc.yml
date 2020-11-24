@@ -71,6 +71,16 @@
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
         - name: Documentação sobre contêineres dos Serviços Cognitivos
           href: ../containers/index.yml
+- name: Cenário de aprofundamento
+  items:
+    - name: Registro facial
+      items:
+        - name: Visão geral
+          href: enrollment-overview.md
+        - name: Guias de instruções
+          items:
+            - name: Criar um aplicativo de registro com o React
+              href: build-enrollment-app.md
 - name: Referência
   items:
     - name: API de Detecção Facial

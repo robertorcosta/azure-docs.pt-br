@@ -3,12 +3,12 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396868"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736707"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -42,7 +42,7 @@ O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que outras e
 
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, bem como a transferência bidirecional de mensagens para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
-A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
+A fonte mais autoritativa para saber mais sobre como o AMQP funciona é a [especificação do AMQP 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), mas a especificação foi escrita para orientar a implementação com precisão e não ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 
@@ -67,7 +67,7 @@ As sessões têm um modelo de controle de fluxo baseado na janela; quando uma se
 
 Esse modelo baseado em janela é quase análogo ao conceito TCP de controle de fluxo baseado em janela, mas no nível da sessão dentro do soquete. O conceito do protocolo de permitir várias sessões simultâneas existe para que o tráfego de alta prioridade possa ser acelerado em relação ao tráfego normal limitado, como se estivesse em uma pista expressa de rodovia.
 
-Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para cada conexão. O tamanho máximo de quadro do Barramento de Serviço é de 262.144 bytes (256 KB) para o Barramento de Serviço Standard e os Hubs de Eventos. Ele é de 1.048.576 (1 MB) para o Barramento de Serviço Premium. O Barramento de Serviço não impõe as janelas de limitação de nível de sessão específicas, mas redefine a janela regularmente como parte do controle de fluxo de nível de vinculação (veja [a próxima seção](#links)).
+Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para cada conexão. O tamanho máximo do quadro do barramento de serviço é 262.144 bytes (256-K bytes) para o padrão do barramento de serviço. É 1.048.576 (1 MB) para o barramento de serviço Premium e hubs de eventos. O Barramento de Serviço não impõe as janelas de limitação de nível de sessão específicas, mas redefine a janela regularmente como parte do controle de fluxo de nível de vinculação (veja [a próxima seção](#links)).
 
 As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente for recolhida,as conexões, o túnel TLS, o contexto de autorização SASL e as sessões deverão ser restabelecidas.
 
@@ -360,7 +360,7 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 | Chave | Opcional | Tipo do Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | operation |Não |string |**put-token** |
-| tipo |Não |string |O tipo do token colocado. |
+| type |Não |string |O tipo do token colocado. |
 | name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim | timestamp |A hora de expiração do token. |
 

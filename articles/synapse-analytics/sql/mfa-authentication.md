@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a430bb41f88bfec1299d52d8237c9534b28acc5d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093371"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843291"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Usar a Autenticação multifator do AAD com o SQL do Synapse (suporte do SSMS à MFA)
 
@@ -40,11 +40,11 @@ Também há dois modelos de autenticação não interativos, que podem ser usado
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-O método interativo que também é compatível com a MFA (Autenticação Multifator do Azure) é:
+O método interativo que também é compatível com a MFA (Autenticação Multifator) do Azure AD é:
 
 - `Active Directory - Universal with MFA`
 
-O Azure MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
+A MFA do Azure AD ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo em que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
 
 Para encontrar uma descrição da Autenticação Multifator, consulte [Autenticação Multifator](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

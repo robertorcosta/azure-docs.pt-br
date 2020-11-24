@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f0a91a4d3b479d1243907951481e5a10f7085bbc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145244"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837423"
 ---
 # <a name="what-is-conditional-access"></a>O que é Acesso Condicional?
 
@@ -80,7 +80,7 @@ Muitas organizações têm [preocupações comuns sobre o acesso, com as quais a
 - Exigir a autenticação multifator para usuários com funções administrativas
 - Exigir a autenticação multifator para tarefas de gerenciamento do Azure
 - Bloquear entradas de usuários que tentam usar protocolos de autenticação herdados
-- Exigir localizações confiáveis para o registro da Autenticação Multifator do Azure
+- Exigir localizações confiáveis para o registro da Autenticação Multifator do Azure AD
 - Bloquear ou permitir acesso em localizações específicas
 - Bloquear comportamentos de entrada de risco
 - Exigir dispositivos gerenciados pela organização para aplicativos específicos

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6503955c69b8ca64678efbc0c01cea7f78509f8d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91257734"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592712"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console Python usando a identidade do aplicativo
 
-Neste início rápido, escreva um aplicativo Python que obtém um token de acesso usando a identidade do aplicativo e, em seguida, chame a API do Microsoft Graph para exibir uma [lista de usuários](/graph/api/user-list) no diretório. Esse cenário é útil para situações em que o trabalho autônomo e sem periféricos, ou um serviço de janela, precisa ser executado com uma identidade do aplicativo em vez de uma identidade de usuário.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Python pode obter um token de acesso usando a identidade do aplicativo para chamar a API do Microsoft Graph e exibir uma [lista de usuários](/graph/api/user-list) no diretório. O exemplo de código demonstra como um trabalho autônomo ou um serviço Windows pode ser executado com uma identidade de aplicativo, em vez de uma identidade do usuário. 
 
 > [!div renderon="docs"]
 > ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
@@ -80,7 +80,7 @@ Para executar este exemplo, você precisa de:
 > [!div renderon="docs"]
 > [Baixe o projeto do daemon do Python](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

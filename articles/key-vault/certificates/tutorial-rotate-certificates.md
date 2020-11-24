@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289742"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844481"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar a rotação automática do certificado no Key Vault
 
@@ -41,7 +41,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-Crie um cofre de chaves ou selecione seu cofre existente para executar operações (confira [Etapas para criar um cofre de chaves](../secrets/quick-create-portal.md)). No exemplo, o nome do cofre de chaves é **Example-Vault**.
+Crie um Azure Key Vault usando o [portal do Azure](../general/quick-create-portal.md), a [CLI do Azure](../general/quick-create-cli.md) ou o [Azure PowerShell](../general/quick-create-powershell.md). No exemplo, o nome do cofre de chaves é **Example-Vault**.
 
 ![Saída após a conclusão da criação do cofre de chaves](../media/certificates/tutorial-import-cert/vault-properties.png)
 

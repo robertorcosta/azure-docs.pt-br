@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d3bedfae88544d0b0ebd07868438559305279fed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a4380ae7fdb523f8b2f5bc14fefa094b6d96e547
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530107"
+ms.locfileid: "95750511"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar o workspace do Log Analytics para o Azure Monitor para VMs
 Azure Monitor para VMs coleta seus dados de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes de realizar a integração de agentes, você deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e para configurá-lo para Azure Monitor para VMs.
@@ -80,7 +80,7 @@ Antes que um espaço de trabalho Log Analytics possa ser usado com Azure Monitor
 ### <a name="azure-portal"></a>Portal do Azure
 Há três opções para configurar um espaço de trabalho existente usando o portal do Azure. Cada um deles é descrito abaixo.
 
-Para configurar um único espaço de trabalho, selecione as **outras opções de integração** e, em seguida, **Configure um espaço de trabalho**. Selecione uma assinatura e um espaço de trabalho e clique em **Configurar**.
+Para configurar um único espaço de trabalho, vá para a opção **máquinas virtuais** no menu **Azure monitor** , selecione as **outras opções de integração** e, em seguida, **Configure um espaço de trabalho**. Selecione uma assinatura e um espaço de trabalho e clique em **Configurar**.
 
 [![Configurar o workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 

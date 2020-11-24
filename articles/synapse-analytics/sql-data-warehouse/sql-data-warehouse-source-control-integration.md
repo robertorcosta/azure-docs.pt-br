@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313295"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700990"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração do controle do código-fonte para o pool de SQL dedicado no Azure Synapse Analytics
 
@@ -85,7 +85,7 @@ Para obter mais informações sobre como conectar projetos usando o Visual Studi
 
    ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificar alterações")
 
-4. ( **Opcional** ) Use a Comparação de Esquemas e atualize as alterações de seu data warehouse de destino usando o SSDT para garantir que as definições de objeto no repositório Azure Repo e no repositório local reflitam seu data warehouse.
+4. (**Opcional**) Use a Comparação de Esquemas e atualize as alterações de seu data warehouse de destino usando o SSDT para garantir que as definições de objeto no repositório Azure Repo e no repositório local reflitam seu data warehouse.
 
 ## <a name="next-steps"></a>Próximas etapas
 

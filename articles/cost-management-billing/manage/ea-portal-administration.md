@@ -3,18 +3,18 @@ title: Administração do Portal do EA do Azure
 description: Este artigo explica as tarefas comuns que um administrador realiza no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411007"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683638"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -135,28 +135,20 @@ Para confirmar a propriedade da conta:
    O status deve mudar de **Pendente** para **Data de Início/Término**. A Data de Início/Término é a data em que o usuário se conectou pela primeira vez e a data de término do contrato.
 1. Quando a mensagem de **Aviso** aparecer, o proprietário de conta precisará selecionar **Continuar** para ativar a conta na primeira vez que entrar no Azure Enterprise Portal.
 
-## <a name="change-account-owner"></a>Alterar proprietário da conta
+## <a name="change-azure-subscription-or-account-ownership"></a>Alterar a propriedade da conta ou da assinatura do Azure
 
-Os administradores corporativos podem usar o Azure Enterprise Portal para transferir a propriedade da conta de assinatura em um registro. A ação move todas as assinaturas de uma conta de usuário de origem para uma conta de usuário de destino.
+Os administradores corporativos podem usar o Azure Enterprise Portal para transferir a propriedade da conta de assinaturas selecionadas ou de todas as assinaturas de um registro.
 
-Esteja atento a essas informações importantes ao transferir contas:
+Quando você conclui a transferência de propriedade de uma conta ou uma assinatura, a Microsoft atualiza o proprietário da conta.
 
-- Você pode fazer essas transferências:
-  - De uma conta corporativa ou de estudante para outra conta corporativa ou de estudante.
-  - De uma conta Microsoft para uma conta corporativa ou de estudante.
-  - De uma conta Microsoft para outra conta Microsoft.
+Antes de realizar a transferência de propriedade, obtenha noções básicas sobre estas políticas do RBAC do Azure (controle de acesso baseado em função do Azure):
 
-    A conta de destino deve ser uma conta válida do Azure Commerce para ser um destino válido para transferências. Para novas contas, você será solicitado a criar uma conta do Azure Commerce ao entrar no Azure Enterprise Portal. Para contas existentes, você deve primeiro criar uma nova assinatura do Azure antes que a conta seja considerada qualificada.
-
-- Você não pode fazer uma transferência de uma conta corporativa ou de estudante para uma conta Microsoft.
-
-- Quando você conclui uma transferência de assinatura, a Microsoft atualiza o proprietário da conta.
-
-Entenda estas políticas de RBAC (controle de acesso baseado em função):
-
-- Quando você executa transferências de assinatura entre duas IDs organizacionais no mesmo locatário, as políticas de RBAC e as funções de administrador de serviços e de coadministrador existentes são preservadas.
-- Outras transferências de assinatura resultam na perda de suas políticas de RBAC e das atribuições de função.
+- Ao realizar transferências de propriedade de conta ou de assinatura entre duas IDs organizacionais no mesmo locatário, as políticas do RBAC do Azure e as funções de administrador de serviços e de coadministrador existentes são preservadas.
+- As transferências de propriedade de conta ou de assinatura entre locatários resultam na perda das políticas e das atribuições de função do RBAC do Azure.
 - Políticas e funções de administrador não são transferidas entre diretórios diferentes. Os administradores de serviços são atualizados para o proprietário da conta de destino.
+- Para evitar a perda de políticas RBAC e atribuições de função ao transferir a assinatura entre locatários, mantenha **desmarcada** a caixa de seleção **Mover as assinaturas para o locatário do Azure AD do destinatário**. Isso manterá os serviços, as funções RBAC e as políticas no locatário atual do Azure AD e transferirá apenas a propriedade da cobrança referente à conta.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem mostrando a caixa de seleção desmarcada para mover assinaturas para o locatário do Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Antes de alterar um proprietário da conta:
 
@@ -168,26 +160,25 @@ Para transferir a propriedade da conta para todas as assinaturas:
 1. Entre no Azure Enterprise Portal.
 1. Na área de navegação esquerda, selecione **Gerenciar**.
 1. Selecione a guia **Conta** e passe o mouse sobre uma conta.
-1. Selecione o ícone de mudar o proprietário da conta à direita. O ícone se assemelha a uma pessoa.
-1. Escolha uma conta qualificada e, em seguida, selecione **Avançar**.
+1. Selecione o ícone de mudar o proprietário da conta à direita. O ícone se assemelha a uma pessoa.  
+    ![Imagem mostrando o símbolo Alterar Proprietário da Conta](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Escolha a conta de destino para a qual será feita a transferência e selecione **Avançar**.
+1. Caso deseje transferir a propriedade da conta entre locatários do Azure AD, marque a caixa de seleção **Mover as assinaturas para o locatário do Azure AD do destinatário**.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem mostrando a caixa de seleção selecionada para mover assinaturas para o locatário do Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirme a transferência e selecione **Enviar**.
-
-![Imagem mostrando o símbolo Alterar Proprietário da Conta](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Para transferir a propriedade da conta para uma assinatura única:
 
 1. Entre no Azure Enterprise Portal.
 1. Na área de navegação esquerda, selecione **Gerenciar**.
 1. Selecione a guia **Conta** e passe o mouse sobre uma conta.
-1. Selecione o ícone de transferir assinaturas à direita. O ícone se assemelha a uma página.
-1. Escolha uma assinatura qualificada e selecione **Avançar**.
+1. Selecione o ícone de transferir assinaturas à direita. O ícone se assemelha a uma página.  
+    ![Imagem mostrando o símbolo Transferir Assinaturas](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Escolha a conta de destino para transferir a assinatura e selecione **Avançar**.
+1. Caso deseje transferir a propriedade da assinatura entre locatários do Azure AD, marque a caixa de seleção **Mover as assinaturas para o locatário do Azure AD do destinatário**.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem mostrando a caixa de seleção selecionada para mover assinaturas para o locatário do Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirme a transferência e, em seguida, selecione **Enviar**.
 
-![Imagem mostrando o símbolo Transferir Assinaturas](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-Assista a este vídeo para ver o gerenciamento de usuários do Azure Enterprise Portal:
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Associar uma conta a um departamento
 

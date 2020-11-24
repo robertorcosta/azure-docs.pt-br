@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308955"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744418"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma assinatura do Azure desabilitada
 
@@ -54,6 +54,10 @@ Se você for o Administrador da Conta e tiver cancelado por engano uma assinatur
     ![Captura de tela que mostra links reativados no painel à direita](./media/subscription-disabled/reactivate-sub.png)
 
 Para outros tipos de assinatura, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para reativar sua assinatura.
+
+## <a name="after-reactivation"></a>Após a reativação
+
+Depois que sua assinatura for reativada, poderá haver um atraso na criação ou no gerenciamento de recursos. Se o atraso exceder 30 minutos, entre em contato com o [Suporte de Cobrança do Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para obter assistência. A maioria dos recursos do Azure é reiniciada automaticamente e não requer nenhuma ação. No entanto, recomendamos que você verifique os recursos de serviço do Azure e reinicie os que não forem retomados automaticamente.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

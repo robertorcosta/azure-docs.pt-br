@@ -1,15 +1,15 @@
 ---
 title: Detalhes da Conformidade Regulatória para o HIPAA HITRUST 9.2
 description: Detalhes da iniciativa interna de Conformidade Regulatória do HIPAA HITRUST 9.2. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 499ecccd6d9a98b69e9e36f72fbf87d65d242f6d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c177abaea8dd6d38814e39aef7cdfd63981a6856
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310644"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694252"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do HIPAA HITRUST 9.2
 
@@ -86,7 +86,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-facilitates-information-sharing-by-enabling-authorized-users-to-determine-a-business-partners-access-when-discretion-is-allowed-as-defined-by-the-organization-and-by-employing-manual-processes-or-automated-mechanisms-to-assist-users-in-making-information-sharingcollaboration-decisions"></a>A organização facilita o compartilhamento de informações, permitindo que os usuários autorizados determinem o acesso de um parceiro de negócios quando o critério é permitido, conforme definido pela organização, e empregando processos manuais ou mecanismos automatizados para ajudar os usuários a tomar decisões de compartilhamento/colaboração de informações.
 
-**ID**: 1149.01c2System.9 – 01.c **Propriedade**: Não Aplicável
+**ID**: 1149.01c2System.9 – 01.c **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -94,7 +94,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-access-control-system-for-the-system-components-storing-processing-or-transmitting-covered-information-is-set-with-a-default-quotdeny-allquot-setting"></a>O sistema de controle de acesso para os componentes do sistema que armazenam, processam ou transmitem informações sigilosas é definido com uma configuração &quot;negar tudo&quot; padrão.
 
-**ID**: 1150.01c2System.10 – 01.c **Propriedade**: Não Aplicável
+**ID**: 1150.01c2System.10 – 01.c **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -144,7 +144,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="remote-access-by-vendors-and-business-partners-eg-for-remote-maintenance-is-disableddeactivated-when-not-in-use"></a>O acesso remoto por fornecedores e parceiros de negócios (por exemplo, para manutenção remota) é desabilitado/desativado quando não está em uso.
 
-**ID**: 1117.01j1Organizational.23 – 01.j **Propriedade**: Não Aplicável
+**ID**: 1117.01j1Organizational.23 – 01.j **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -160,7 +160,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="network-equipment-is-checked-for-unanticipated-dial-up-capabilities"></a>O equipamento de rede é verificado quanto a funcionalidades de conexão discada inesperada.
 
-**ID**: 1119.01j2Organizational.3 – 01.j **Propriedade**: Não Aplicável
+**ID**: 1119.01j2Organizational.3 – 01.j **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -176,7 +176,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="if-encryption-is-not-used-for-dial-up-connections-the-cio-or-hisher-designated-representative-provides-specific-written-authorization"></a>Se a criptografia não for usada para conexões discadas, o CIO ou o representante designado dele fornecerá uma autorização por escrito específica.
 
-**ID**: 1173.01j1Organizational.6 – 01.j **Propriedade**: Não Aplicável
+**ID**: 1173.01j1Organizational.6 – 01.j **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-protects-wireless-access-to-systems-containing-sensitive-information-by-authenticating-both-users-and-devices"></a>A organização protege o acesso sem fio a sistemas que contêm informações confidenciais autenticando usuários e dispositivos.
 
-**ID**: 1174.01j1Organizational.7 – 01.j **Propriedade**: Não Aplicável
+**ID**: 1174.01j1Organizational.7 – 01.j **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -200,7 +200,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-requires-a-callback-capability-with-re-authentication-to-verify-dial-up-connections-from-authorized-locations"></a>A organização exige uma funcionalidade de retorno de chamada com uma nova autenticação para verificar conexões discadas de localizações autorizadas.
 
-**ID**: 1176.01j2Organizational.5 – 01.j **Propriedade**: Não Aplicável
+**ID**: 1176.01j2Organizational.5 – 01.j **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="networks-are-segregated-from-production-level-networks-when-migrating-physical-servers-applications-or-data-to-virtualized-servers"></a>As redes são separadas das redes de nível de produção durante a migração de servidores físicos, aplicativos ou dados para servidores virtualizados.
 
-**ID**: 0894.01m2Organizational.7 – 01.m **Propriedade**: Não Aplicável
+**ID**: 0894.01m2Organizational.7 – 01.m **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="non-organizational-users-all-information-system-users-other-than-organizational-users-such-as-patients-customers-contractors-or-foreign-nationals-or-processes-acting-on-behalf-of-non-organizational-users-determined-to-need-access-to-information-residing-on-the-organizations-information-systems-are-uniquely-identified-and-authenticated"></a>Usuários não organizacionais (todos os usuários de sistema de informações que não são usuários organizacionais, como pacientes, clientes, prestadores de serviço ou estrangeiros), ou processos que atuam em nome de usuários não organizacionais, determinados a precisar de acesso às informações que residem nos sistemas de informações da organização, são exclusivamente identificados e autenticados.
 
-**ID**: 11110.01q1Organizational.6 – 01.q **Propriedade**: Não Aplicável
+**ID**: 11110.01q1Organizational.6 – 01.q **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -483,7 +483,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-requires-that-electronic-signatures-unique-to-one-individual-cannot-be-reused-by-or-reassigned-to-anyone-else"></a>A organização exige que as assinaturas eletrônicas, exclusivas de um indivíduo, não possam ser reutilizadas por outras pessoas nem transferidas para ninguém.
 
-**ID**: 11208.01q1Organizational.8 – 01.q **Propriedade**: Não Aplicável
+**ID**: 11208.01q1Organizational.8 – 01.q **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -491,7 +491,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="electronic-signatures-and-handwritten-signatures-executed-to-electronic-records-shall-be-linked-to-their-respective-electronic-records"></a>As assinaturas eletrônicas e as assinaturas manuscritas executadas em registros eletrônicos devem estar vinculadas aos respectivos registros eletrônicos.
 
-**ID**: 11210.01q2Organizational.10 – 01.q **Propriedade**: Não Aplicável
+**ID**: 11210.01q2Organizational.10 – 01.q **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -499,7 +499,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="signed-electronic-records-shall-contain-information-associated-with-the-signing-in-human-readable-format"></a>Os registros eletrônicos assinados devem conter informações associadas à assinatura em formato legível.
 
-**ID**: 11211.01q2Organizational.11 – 01.q **Propriedade**: Não Aplicável
+**ID**: 11211.01q2Organizational.11 – 01.q **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -541,7 +541,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="remote-access-connections-between-the-organization-and-external-parties-are-encrypted"></a>As conexões de acesso remoto entre a organização e as partes externas são criptografadas.
 
-**ID**: 1402.05i1Organizational.45 – 05.i **Propriedade**: Não Aplicável
+**ID**: 1402.05i1Organizational.45 – 05.i **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -591,7 +591,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="a-secure-audit-record-is-created-for-all-activities-on-the-system-create-read-update-delete-involving-covered-information"></a>Um registro de auditoria seguro é criado para todas as atividades no sistema (criação, leitura, atualização, exclusão) que envolvem informações sigilosas.
 
-**ID**: 1202.09aa1System.1 – 09.aa **Propriedade**: Não Aplicável
+**ID**: 1202.09aa1System.1 – 09.aa **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -658,7 +658,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="all-disclosures-of-covered-information-within-or-outside-of-the-organization-are-logged-including-type-of-disclosure-datetime-of-the-event-recipient-and-sender"></a>Todas as divulgações de informações sigilosas dentro ou fora da organização são registradas, incluindo o tipo de divulgação, a data/hora do evento, o destinatário e o remetente.
 
-**ID**: 1210.09aa3System.3 – 09.aa **Propriedade**: Não Aplicável
+**ID**: 1210.09aa3System.3 – 09.aa **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -667,7 +667,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-verifies-every-ninety-90-days-for-each-extract-of-covered-information-recorded-that-the-data-is-erased-or-its-use-is-still-required"></a>A organização verifica a cada 90 (noventa) dias em cada extrato de informações sigilosas registradas se os dados foram apagados ou se o uso deles ainda é necessário.
 
-**ID**: 1211.09aa3System.4 – 09.aa **Propriedade**: Não Aplicável
+**ID**: 1211.09aa3System.4 – 09.aa **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -891,7 +891,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="when-the-backup-service-is-delivered-by-the-third-party-the-service-level-agreement-includes-the-detailed-protections-to-control-confidentiality-integrity-and-availability-of-the-backup-information"></a>Quando o serviço de backup é fornecido por terceiros, o SLA inclui as proteções detalhadas para controlar a confidencialidade, a integridade e a disponibilidade das informações de backup.
 
-**ID**: 1620.09l1Organizational.8 – 09.l **Propriedade**: Não Aplicável
+**ID**: 1620.09l1Organizational.8 – 09.l **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -915,7 +915,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="covered-information-is-backed-up-in-an-encrypted-format-to-ensure-confidentiality"></a>As informações sigilosas são copiadas em backup em um formato criptografado para garantir a confidencialidade.
 
-**ID**: 1623.09l2Organizational.4 – 09.l **Propriedade**: Não Aplicável
+**ID**: 1623.09l2Organizational.4 – 09.l **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -939,7 +939,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-ensures-a-current-retrievable-copy-of-covered-information-is-available-before-movement-of-servers"></a>A organização garante que uma cópia atual e recuperável das informações sigilosas esteja disponível antes da movimentação de servidores.
 
-**ID**: 1626.09l3Organizational.5 – 09.l **Propriedade**: Não Aplicável
+**ID**: 1626.09l3Organizational.5 – 09.l **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -955,7 +955,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="workforce-members-roles-and-responsibilities-in-the-data-backup-process-are-identified-and-communicated-to-the-workforce-in-particular-bring-your-own-device-byod-users-are-required-to-perform-backups-of-organizational-andor-client-data-on-their-devices"></a>As funções e as responsabilidades dos membros da força de trabalho no processo de backup de dados são identificadas e comunicadas à força de trabalho; em particular, os usuários BYOD (Traga seu próprio dispositivo) devem executar backups de dados organizacionais e/ou do cliente nos próprios dispositivos.
 
-**ID**: 1699.09l1Organizational.10 – 09.l **Propriedade**: Não Aplicável
+**ID**: 1699.09l1Organizational.10 – 09.l **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1009,7 +1009,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-builds-a-firewall-configuration-that-restricts-connections-between-un-trusted-networks-and-any-system-components-in-the-covered-information-environment-and-any-changes-to-the-firewall-configuration-are-updated-in-the-network-diagram"></a>A organização cria uma configuração de firewall que restringe as conexões entre redes não confiáveis e os componentes do sistema no ambiente das informações sigilosas; além disso, todas as alterações na configuração do firewall são atualizadas no diagrama de rede.
 
-**ID**: 0863.09m2Organizational.910 – 09.m **Propriedade**: Não Aplicável
+**ID**: 0863.09m2Organizational.910 – 09.m **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1017,7 +1017,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="usage-restrictions-and-implementation-guidance-are-formally-defined-for-voip-including-the-authorization-and-monitoring-of-the-service"></a>As diretrizes de implementação e as restrições de uso são formalmente definidas para VoIP, incluindo a autorização e o monitoramento do serviço.
 
-**ID**: 0864.09m2Organizational.12 – 09.m **Propriedade**: Não Aplicável
+**ID**: 0864.09m2Organizational.12 – 09.m **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1025,7 +1025,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-i-authorizes-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-through-the-use-of-interconnection-security-agreements-or-other-formal-agreement-ii-documents-each-connection-the-interface-characteristics-security-requirements-and-the-nature-of-the-information-communicated-iii-employs-a-deny-all-permit-by-exception-policy-for-allowing-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-and-iv-applies-a-default-deny-rule-that-drops-all-traffic-via-host-based-firewalls-or-port-filtering-tools-on-its-endpoints-workstations-servers-etc-except-those-services-and-ports-that-are-explicitly-allowed"></a>A organização (i) autoriza conexões do sistema de informações com outros sistemas de informações fora da organização por meio do uso de contratos de segurança de interconexão ou outro contrato formal; (ii) documenta cada conexão, as características da interface, os requisitos de segurança e a natureza das informações comunicadas; (iii) emprega uma política "negar tudo", "permitir por exceção" para permitir conexões do sistema de informações com outros sistemas de informações fora da organização; e (iv) aplica uma regra "negar por padrão" que descarta todo o tráfego por meio de firewalls baseados em host ou ferramentas de filtragem de porta nos pontos de extremidade (estações de trabalho, servidores etc.), exceto os serviços e as portas com permissão explícita.
 
-**ID**: 0865.09m2Organizational.13 – 09.m **Propriedade**: Não Aplicável
+**ID**: 0865.09m2Organizational.13 – 09.m **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="wireless-access-points-are-placed-in-secure-areas-and-shut-down-when-not-in-use-eg-nights-weekends"></a>Os pontos de acesso sem fio são colocados em áreas seguras e são desligados quando não estão em uso (por exemplo, à noite e nos fins de semana).
 
-**ID**: 0867.09m3Organizational.17 – 09.m **Propriedade**: Não Aplicável
+**ID**: 0867.09m3Organizational.17 – 09.m **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1049,7 +1049,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-builds-a-firewall-configuration-to-restrict-inbound-and-outbound-traffic-to-that-which-is-necessary-for-the-covered-data-environment"></a>A organização cria uma configuração de firewall para restringir o tráfego de entrada e saída a ela que é necessário para o ambiente de dados sigilosos.
 
-**ID**: 0868.09m3Organizational.18 – 09.m **Propriedade**: Não Aplicável
+**ID**: 0868.09m3Organizational.18 – 09.m **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1108,7 +1108,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-reviews-and-updates-the-interconnection-security-agreements-on-an-ongoing-basis-verifying-enforcement-of-security-requirements"></a>A organização examina e atualiza os contratos de segurança de interconexão continuamente verificando a imposição de requisitos de segurança.
 
-**ID**: 0885.09n2Organizational.3 – 09.n **Propriedade**: Não Aplicável
+**ID**: 0885.09n2Organizational.3 – 09.n **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1132,7 +1132,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-contract-with-the-externaloutsourced-service-provider-includes-the-specification-that-the-service-provider-is-responsible-for-the-protection-of-covered-information-shared"></a>O contrato com o provedor de serviços externo/terceirizado inclui a especificação de que o provedor de serviços é responsável pela proteção das informações sigilosas compartilhadas.
 
-**ID**: 0888.09n2Organizational.6 – 09.n **Propriedade**: Não Aplicável
+**ID**: 0888.09n2Organizational.6 – 09.n **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1142,7 +1142,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-based-on-the-data-classification-level-registers-media-including-laptops-prior-to-use-places-reasonable-restrictions-on-how-such-media-be-used-and-provides-an-appropriate-level-of-physical-and-logical-protection-including-encryption-for-media-containing-covered-information-until-properly-destroyed-or-sanitized"></a>A organização, com base no nível de classificação de dados, registra mídias (incluindo laptops) antes do uso, coloca restrições cabíveis na maneira como essas mídias devem ser usadas e fornece um nível apropriado de proteção física e lógica (incluindo criptografia) para mídia que contenha informações sigilosas até que seja corretamente destruída ou limpa.
 
-**ID**: 0301.09o1Organizational.123 – 09.o **Propriedade**: Não Aplicável
+**ID**: 0301.09o1Organizational.123 – 09.o **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1150,7 +1150,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>A organização protege e controla a mídia que contém informações confidenciais durante o transporte fora de áreas controladas.
 
-**ID**: 0302.09o2Organizational.1 – 09.o **Propriedade**: Não Aplicável
+**ID**: 0302.09o2Organizational.1 – 09.o **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1158,7 +1158,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="digital-and-non-digital-media-requiring-restricted-use-and-the-specific-safeguards-used-to-restrict-their-use-are-identified"></a>Mídia digital e não digital que exige o uso restrito e as garantias específicas usadas para restringir o uso delas são identificadas.
 
-**ID**: 0303.09o2Organizational.2 – 09.o **Propriedade**: Não Aplicável
+**ID**: 0303.09o2Organizational.2 – 09.o **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1166,7 +1166,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-restricts-the-use-of-writable-removable-media-and-personally-owned-removable-media-in-organizational-systems"></a>A organização restringe o uso de mídia removível gravável e mídia removível de propriedade pessoal em sistemas organizacionais.
 
-**ID**: 0304.09o3Organizational.1 – 09.o **Propriedade**: Não Aplicável
+**ID**: 0304.09o3Organizational.1 – 09.o **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1234,7 +1234,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-limits-the-use-of-organization-controlled-portable-storage-media-by-authorized-individuals-on-external-information-systems"></a>A organização limita o uso de mídias de armazenamento portátil controlados por indivíduos autorizados em sistemas de informações externas.
 
-**ID**: 0915.09s2Organizational.2 – 09.s **Propriedade**: Não Aplicável
+**ID**: 0915.09s2Organizational.2 – 09.s **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1242,7 +1242,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-information-system-prohibits-remote-activation-of-collaborative-computing-devices-and-provides-an-explicit-indication-of-use-to-users-physically-present-at-the-devices"></a>O sistema de informações proíbe a ativação remota de dispositivos de computação colaborativos e fornece uma indicação explícita de uso para usuários fisicamente presentes nos dispositivos.
 
-**ID**: 0916.09s2Organizational.4 – 09.s **Propriedade**: Não Aplicável
+**ID**: 0916.09s2Organizational.4 – 09.s **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1268,7 +1268,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="data-involved-in-electronic-commerce-and-online-transactions-is-checked-to-determine-if-it-contains-covered-information"></a>Os dados envolvidos em comércio eletrônico e transações online são verificados para determinar se eles contêm informações sigilosas.
 
-**ID**: 0943.09y1Organizational.1 – 09.y **Propriedade**: Não Aplicável
+**ID**: 0943.09y1Organizational.1 – 09.y **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1276,7 +1276,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="protocols-used-to-communicate-between-all-involved-parties-are-secured-using-cryptographic-techniques-eg-ssl"></a>Os protocolos usados para comunicação entre todas as partes envolvidas são protegidos por meio de técnicas de criptografia (por exemplo, SSL).
 
-**ID**: 0945.09y1Organizational.3 – 09.y **Propriedade**: Não Aplicável
+**ID**: 0945.09y1Organizational.3 – 09.y **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-requires-the-use-of-encryption-between-and-the-use-of-electronic-signatures-by-each-of-the-parties-involved-in-the-transaction"></a>A organização exige o uso de criptografia entre cada uma das partes envolvidas na transação e o uso de assinaturas eletrônicas pelas partes.
 
-**ID**: 0946.09y2Organizational.14 – 09.y **Propriedade**: Não Aplicável
+**ID**: 0946.09y2Organizational.14 – 09.y **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1292,7 +1292,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-organization-ensures-the-storage-of-the-transaction-details-are-located-outside-of-any-publicly-accessible-environments-eg-on-a-storage-platform-existing-on-the-organizations-intranet-and-not-retained-and-exposed-on-a-storage-medium-directly-accessible-from-the-internet"></a>A organização garante que o armazenamento dos detalhes da transação esteja localizado fora de qualquer ambiente publicamente acessível (por exemplo, em uma plataforma de armazenamento existente na intranet da organização) e não seja mantido nem exposto em um meio de armazenamento diretamente acessível pela Internet.
 
-**ID**: 0947.09y2Organizational.2 – 09.y **Propriedade**: Não Aplicável
+**ID**: 0947.09y2Organizational.2 – 09.y **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1300,7 +1300,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="where-a-trusted-authority-is-used-eg-for-the-purposes-of-issuing-and-maintaining-digital-signatures-andor-digital-certificates-security-is-integrated-and-embedded-throughout-the-entire-end-to-end-certificatesignature-management-process"></a>Quando uma autoridade confiável é usada (por exemplo, para a emissão e manutenção de assinaturas digitais e/ou certificados digitais), a segurança é integrada e incorporada a todo o processo de gerenciamento de certificados/assinaturas de ponta a ponta.
 
-**ID**: 0948.09y2Organizational.3 – 09.y **Propriedade**: Não Aplicável
+**ID**: 0948.09y2Organizational.3 – 09.y **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1308,7 +1308,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="the-protocols-used-for-communications-are-enhanced-to-address-any-new-vulnerability-and-the-updated-versions-of-the-protocols-are-adopted-as-soon-as-possible"></a>Os protocolos usados para comunicações são aprimorados para resolver qualquer nova vulnerabilidade, e as versões atualizadas dos protocolos são adotadas assim que possível.
 
-**ID**: 0949.09y2Organizational.5 – 09.y **Propriedade**: Não Aplicável
+**ID**: 0949.09y2Organizational.5 – 09.y **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1392,7 +1392,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 ### <a name="where-development-is-outsourced-change-control-procedures-to-address-security-are-included-in-the-contracts-and-specifically-require-the-developer-to-track-security-flaws-and-flaw-resolution-within-the-system-component-or-service-and-report-findings-to-organization-defined-personnel-or-roles"></a>Quando o desenvolvimento é terceirizado, os procedimentos de controle de alterações usados para lidar com a segurança são incluídos nos contratos e, especificamente, exigem que o desenvolvedor acompanhe as falhas de segurança e a resolução das falhas dentro do sistema, do componente ou do serviço e relate as descobertas à equipe ou às funções definidas pela organização.
 
-**ID**: 0640.10k2Organizational.1012 – 10.k **Propriedade**: Não Aplicável
+**ID**: 0640.10k2Organizational.1012 – 10.k **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1442,7 +1442,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 |[As vulnerabilidades nas configurações de segurança do contêiner devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Audite vulnerabilidades na configuração de segurança em computadores com o Docker instalado e exiba como recomendações na Central de Segurança do Azure. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Os servidores que não atenderem à linha de base configurada serão monitorados pela Central de Segurança do Azure como recomendações |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Faça a auditoria das vulnerabilidades do SO nos seus conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ataques. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[As vulnerabilidades nos bancos de dados SQL devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitore os resultados da verificação da avaliação de vulnerabilidade e as recomendações sobre como corrigir vulnerabilidades do banco de dados. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[As vulnerabilidades nos bancos de dados SQL devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitore os resultados da verificação da avaliação de vulnerabilidade e as recomendações sobre como corrigir vulnerabilidades do banco de dados. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Monitora as vulnerabilidades detectadas pela solução de Avaliação de Vulnerabilidade e VMs sem uma solução de Avaliação de Vulnerabilidade na Central de Segurança do Azure como recomendações. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 |[A avaliação de vulnerabilidades deve estar habilitada na Instância Gerenciada de SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Audite cada Instância Gerenciada de SQL que não tem verificações recorrentes de avaliação de vulnerabilidade habilitadas. A avaliação de vulnerabilidades pode descobrir, acompanhar e ajudar a corrigir possíveis vulnerabilidades do banco de dados. |AuditIfNotExists, desabilitado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Audite servidores SQL do Azure que não têm verificações recorrentes de avaliação de vulnerabilidade ativadas. A avaliação de vulnerabilidades pode descobrir, acompanhar e ajudar a corrigir possíveis vulnerabilidades do banco de dados. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
@@ -1502,7 +1502,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[As vulnerabilidades nos bancos de dados SQL devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitore os resultados da verificação da avaliação de vulnerabilidade e as recomendações sobre como corrigir vulnerabilidades do banco de dados. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[As vulnerabilidades nos bancos de dados SQL devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitore os resultados da verificação da avaliação de vulnerabilidade e as recomendações sobre como corrigir vulnerabilidades do banco de dados. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ### <a name="vulnerability-scanning-tools-include-the-capability-to-readily-update-the-information-system-vulnerabilities-scanned"></a>As ferramentas de verificação de vulnerabilidade incluem a capacidade de atualizar imediatamente as vulnerabilidades do sistema de informações verificadas.
 
@@ -1544,7 +1544,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Os objetos do Key Vault devem ser recuperáveis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Essa política audita se os objetos do cofre de chaves não são recuperáveis. O recurso de exclusão reversível ajuda a efetivamente manter os recursos por um período de retenção especificado (90 dias) mesmo após a operação EXCLUIR, ao mesmo tempo aparentando ter excluído o objeto. Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Esses cofres e objetos ainda podem ser recuperados, garantindo aos clientes que a política de retenção será seguida. |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[O cofre de chaves deve ter a proteção de limpeza habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |A exclusão mal-intencionada de um cofre de chaves pode levar à perda permanente de dados. Um invasor mal-intencionado em sua organização pode potencialmente conseguir obter acesso para excluir e limpar cofres de chaves. A proteção de limpeza protege você contra ataques de invasores impondo um período de retenção obrigatório para cofres de chaves de exclusão temporária. Ninguém dentro de sua organização nem a Microsoft poderá limpar os cofres de chaves durante o período de retenção de exclusão temporária. |Audit, Deny, desabilitado |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>A análise de impacto nos negócios é usada para avaliar as consequências de desastres, falhas de segurança, perda de serviço e disponibilidade do serviço.
 

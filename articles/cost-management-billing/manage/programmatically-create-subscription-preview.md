@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043302"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844326"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Criar assinaturas do Azure de maneira programática com APIs em versão prévia
 
-Este artigo ajuda você a criar assinaturas do Azure de maneira programática usando nossa API em versão prévia mais antiga. Nós lançamos uma [versão mais recente da API](programmatically-create-subscription.md). Use as informações neste artigo se não quiser usar a versão mais recente. Neste artigo, você aprenderá a criar assinaturas programaticamente usando o Azure Resource Manager.
+Este artigo ajuda você a criar assinaturas do Azure de maneira programática usando nossa API em versão prévia mais antiga. Neste artigo, você aprenderá a criar assinaturas programaticamente usando o Azure Resource Manager.
+
+Temos novos artigos para a versão mais recente da API para uso com diferentes tipos de assinatura do contrato do Azure:
+
+- [Criar assinaturas do EA de modo programático com a API mais recente](programmatically-create-subscription-enterprise-agreement.md)
+- [Criar assinaturas do MCA de modo programático com a API mais recente](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Criar assinaturas do MPA de modo programático com a API mais recente](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+No entanto, você ainda pode usar as informações deste artigo se não quiser usar a versão mais recente da API.
 
 Os clientes do Azure com uma conta de cobrança dos seguintes tipos de contrato poderão criar assinaturas de modo programático:
 
-- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [MCA (Contrato de Cliente da Microsoft)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [MPA (Contrato de Parceiro da Microsoft)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Contrato Enterprise
+- MCA (Contrato de Cliente da Microsoft)
+- MPA (Contrato de Parceiro da Microsoft)
 
 Quando você cria uma assinatura do Azure de maneira programática, essa assinatura é regida pelo contrato sob o qual você obteve os serviços Azure da Microsoft ou de um revendedor autorizado. Para obter mais informações, confira [Informações Legais do Microsoft Azure](https://azure.microsoft.com/support/legal/).
 

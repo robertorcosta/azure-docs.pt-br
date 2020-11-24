@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Pipelines de ML para pontuação do lote'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você cria um pipeline de aprendizado de máquina para realizar a pontuação de lote em um modelo de classificação de imagens. O Azure Machine Learning permite que você se concentre no aprendizado de máquina em vez de na infraestrutura e na automação.
+description: Neste tutorial, você criará um pipeline de machine learning para realizar a pontuação de lote. Concentre-se no machine learning em vez da infraestrutura e da automação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309462"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629624"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 

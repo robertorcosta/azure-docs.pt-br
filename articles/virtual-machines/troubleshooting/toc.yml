@@ -260,6 +260,8 @@
       href: install-vm-agent-offline.md
     - name: Solucionar problemas do agente de VM do Windows
       href: windows-azure-guest-agent.md
+    - name: Solucionar problemas do agente de VM Linux
+      href: linux-azure-guest-agent.md
 - name: Backup e restauração
   items:
     - name: Solucionar problemas de falhas de backup na VM do Azure

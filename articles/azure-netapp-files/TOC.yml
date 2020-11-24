@@ -97,13 +97,13 @@
       href: dynamic-change-volume-service-level.md
     - name: Gerenciar a replicação entre regiões
       items:
-        - name: Criar um emparelhamento de replicação
+        - name: Criar replicação de volume
           href: cross-region-replication-create-peering.md
         - name: Exibir o status de integridade da relação de replicação
           href: cross-region-replication-display-health-status.md
         - name: Gerenciar recuperação de desastre
           href: cross-region-replication-manage-disaster-recovery.md
-        - name: Excluir replicações
+        - name: Excluir volumes ou replicações de volume
           href: cross-region-replication-delete.md
     - name: Desenvolver
       items:

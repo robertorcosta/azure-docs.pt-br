@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f2a01c4e4d364494d271fa676bca5bfac2677395
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613315"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592740"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início Rápido: Conectar usuários e obter um token de acesso em um JavaScript SPA
 
-Neste início rápido, você usará um exemplo de código para aprender como um SPA (aplicativo de página única) do JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante. Um SPA JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um SPA (aplicativo de página única) JavaScript pode conectar usuários e chamar o Microsoft Graph. O exemplo de código também demonstra como obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,10 +76,10 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 > [!div renderon="docs"]
 > Para executar o projeto com um servidor Web usando Node.js, [baixe os arquivos de projeto de núcleo](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Executar o projeto com um servidor Web usando o Node.js
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
@@ -102,7 +104,7 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 >
 >```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 

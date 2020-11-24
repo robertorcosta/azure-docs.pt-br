@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424617"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635544"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função Java no Azure da linha de comando
 
@@ -163,11 +163,23 @@ Um aplicativo de funções e os recursos relacionados são criados no Azure quan
 > [!TIP]
 > Para criar um aplicativo de funções para execução no Linux em vez do Windows, altere o elemento `runtime.os` no arquivo pom.xml de `windows` para `linux`. A execução do Linux em um plano de consumo é compatível com [essas regiões](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Você não pode ter aplicativos que são executados no Linux e aplicativos que são executados no Windows no mesmo grupo de recursos.
 
-1. Para fazer a implantação, use o comando [az login](/cli/azure/authenticate-azure-cli) da CLI do Azure para entrar em sua assinatura do Azure. 
+1. Para fazer a implantação, entre na sua assinatura do Azure usando a CLI do Azure ou o Azure PowerShell. 
 
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    O comando [az login](/cli/azure/reference-index#az-login) conecta você à conta do Azure.
+
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    O cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) conecta você à conta do Azure.
+
+    ---
 
 1. Use o comando a seguir para implantar o projeto em um novo aplicativo de funções.
 

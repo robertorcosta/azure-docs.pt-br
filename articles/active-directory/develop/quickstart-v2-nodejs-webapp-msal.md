@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335240"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594225"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo Web Node usando o fluxo de código de autenticação
 
-Neste início rápido, você aprenderá a executar um exemplo de código que demonstra como um aplicativo Web Node.js pode conectar usuários de contas pessoais, contas corporativas e de estudante usando o fluxo de código de autorização. O exemplo de código também demonstra como obter um token de acesso para chamar uma API Web, nesse caso, a API do Microsoft Graph. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como um aplicativo Web Node.js pode conectar usuários usando o fluxo de código de autorização. O exemplo de código também demonstra como obter um token de acesso para chamar a API do Microsoft Graph. 
+
+Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este guia de início rápido usa a biblioteca de autenticação da Microsoft para Node.js (nó MSAL) com o fluxo de código de autorização.
 
@@ -44,11 +46,11 @@ Este guia de início rápido usa a biblioteca de autenticação da Microsoft par
 > 1. Selecione [Registros do Aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Selecione **Novo registro**.
 > 1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
-> 1. Em **Tipos de conta com suporte** , selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
+> 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Defina o valor do **URI de Redirecionamento** como `http://localhost:3000/redirect`.
 > 1. Selecione **Registrar**. 
 > 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
-> 1. Em **Certificados e segredos** , selecione **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e clique em **Adicionar**.
+> 1. Em **Certificados e segredos**, selecione **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e clique em **Adicionar**.
 > 1. Observe o **Valor** do **Segredo do cliente** para uso posterior.
 
 #### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto

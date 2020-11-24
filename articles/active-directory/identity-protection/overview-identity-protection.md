@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783174"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835740"
 ---
 # <a name="what-is-identity-protection"></a>O que é proteção de identidade?
 
@@ -39,9 +39,9 @@ Em sua [postagem no blog em outubro de 2018](https://techcommunity.microsoft.com
 >
 > No Ignite do ano passado, falei sobre os três principais ataques em nossos sistemas de identidade. Este é o volume recente desses ataques
 >   
->   - **Repetição de violação** : 4,6 bilhões de ataques detectados em maio de 2018
->   - **Pulverização de senha** : 350 mil em abril de 2018
->   - **Phishing** : é difícil quantificar exatamente, mas vimos 23 milhões de eventos de risco em março de 2018, sendo que muitos deles estão relacionados a phishing
+>   - **Repetição de violação**: 4,6 bilhões de ataques detectados em maio de 2018
+>   - **Pulverização de senha**: 350 mil em abril de 2018
+>   - **Phishing**: é difícil quantificar exatamente, mas vimos 23 milhões de eventos de risco em março de 2018, sendo que muitos deles estão relacionados a phishing
 
 ## <a name="risk-detection-and-remediation"></a>Detecção e correção de riscos
 
@@ -59,7 +59,7 @@ O Identity Protection identifica riscos nas seguintes classificações:
 
 Mais detalhes sobre esses riscos e como/quando são calculados podem ser encontrados no artigo, [O que é risco](concept-identity-protection-risks.md).
 
-Os sinais de risco podem disparar esforços de remediação, como exigir que os usuários: executem a Autenticação Multifator do Azure, redefinam sua senha usando a redefinição de senha por autoatendimento ou bloqueiem até que um administrador executa uma ação.
+Os sinais de risco podem disparar esforços de remediação, como exigir que os usuários: executem a Autenticação Multifator do Azure AD, redefinam sua senha usando a redefinição de senha por autoatendimento ou bloqueiem até que um administrador executa uma ação.
 
 ## <a name="risk-investigation"></a>Investigação de riscos
 

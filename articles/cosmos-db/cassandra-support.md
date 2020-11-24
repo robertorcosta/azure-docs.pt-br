@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073091"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636955"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -86,17 +86,24 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
 | writetime | Sim |
 | Conversão | Não |
 
-\* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, `WHERE token(pk) > 1024` tem suporte, mas `WHERE token(pk) > token(100)` não.
+> [!NOTE]
+> \* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, há suporte para `WHERE token(pk) > 1024`, mas **não** para `WHERE token(pk) > token(100)`.
+
 
 
 Funções de agregação:
 
 |Comando  |Com suporte |
 |---------|---------|
-| Min | Sim |
-| max | Sim |
 | avg | Sim |
 | count | Sim |
+| Min | Sim |
+| max | Sim |
+| Sum | Sim |
+
+> [!NOTE]
+> As funções de agregação funcionam em colunas regulares, mas **não** há suporte para agregações em colunas de clustering.
+
 
 Funções de conversão de blob:
  
@@ -260,7 +267,7 @@ A API do Cassandra do Azure Cosmos DB fornece a opção de consistência para op
 
 ## <a name="permission-and-role-management"></a>Gerenciamento de funções e de permissões
 
-O Azure Cosmos DB dá suporte ao controle de acesso baseado em função (RBAC) para provisionamento, revezamento de chaves, visualização de métricas e senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB não dá suporte a funções para atividades CRUD.
+O Azure Cosmos DB dá suporte ao RBAC do Azure (controle de acesso baseado em função do Azure) para provisionamento, rotação de chaves, exibição de métricas e senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB não dá suporte a funções para atividades CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opções de tabela e de keyspace
 

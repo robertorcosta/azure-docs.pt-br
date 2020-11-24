@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95506571"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736588"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -38,13 +38,13 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
   > [Saiba mais sobre extração de layout](concept-layout.md)
 
 - **Novo idioma com suporte: Japonês** -os novos idiomas a seguir agora têm suporte: para `AnalyzeLayout` e `AnalyzeCustomForm` : Japonês ( `ja` ). [Suporte ao idioma](language-support.md)
-- **Indicação de estilo de linha de texto (manuscrito/impressão) (somente idiomas latinos)** – o reconhecedor de formulário agora gera um `appearance` objeto que classifica se cada linha de texto está no estilo manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
+- **Indicação de estilo de linha de texto (manuscrito/outro) (somente idiomas latinos)** – o reconhecedor de formulário agora gera um `appearance` objeto que classifica se cada linha de texto está no estilo manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
 - **Melhorias de qualidade** -melhorias de extração, incluindo melhorias de extração de dígito único.
 - **Novo recurso Try-it-out na ferramenta de rotulamento de exemplo do reconhecedor** – capacidade de experimentar modelos de cartão de visita, recebimento e fatura pré-criados e a API de layout usando a ferramenta de rotulagem de amostra do reconhecedor de formulário. Veja como seus dados serão extraídos sem escrever nenhum código.
 
   > [Experimente a ferramenta de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/)
 
-  ![Exemplo de FOTT](./media/fott-preview.jpg)
+  ![Exemplo de FOTT](./media/ui-preview.jpg)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -85,7 +85,7 @@ o **v 2.0** inclui a seguinte atualização:
 * **Suporte a moeda** – detecção e extração de símbolos de moeda global.
 * O reconhecimento de formulários **do Azure gov** agora também está disponível no Azure gov.
 * **Recursos de segurança aprimorados**: 
-   * **Traga seu próprio** reconhecedor de formulário de chave criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
+   * **Traga seu próprio** reconhecedor de formulário de chave criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente, também conhecidas como BYOK (traga sua própria chave)](./form-recognizer-encryption-of-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
    * **Pontos de extremidade privados** – permite que você em uma rede virtual (VNet) [acesse dados com segurança por meio de um link privado.](../../private-link/private-link-overview.md)
 
 

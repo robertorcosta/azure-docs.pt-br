@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460675"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744231"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
@@ -25,7 +25,7 @@ Se você tiver reservas existentes, elas deixarão de ser aplicadas depois que v
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir assinaturas EA para um parceiro CSP
 
-Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços Gerenciados (MSP) Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) podem solicitar a transferência de assinaturas do Azure para seus clientes que têm um EA (Contrato Enterprise) direto. Transferências de assinatura são permitidas somente para clientes que aceitaram um MCA (Contrato de Cliente da Microsoft) e compraram um plano do Azure.
+Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços Gerenciados (MSP) Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) podem solicitar a transferência de assinaturas do Azure para seus clientes que têm um EA (Contrato Enterprise) direto. Transferências de assinatura são permitidas somente para clientes que aceitaram um MCA (Contrato de Cliente da Microsoft) e compraram um plano do Azure com o Programa CSP.
 
 Quando a solicitação é aprovada, o CSP pode fornecer uma fatura combinada para seus clientes. Para saber mais sobre a transferência de assinaturas por CSPs, confira [Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA](mpa-request-ownership.md).
 

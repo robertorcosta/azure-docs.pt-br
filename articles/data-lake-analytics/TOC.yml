@@ -139,7 +139,7 @@
           href: understand-spark-code-concepts.md
     - name: Solucionar problemas de trabalhos do U-SQL
       items:
-        - name: Solucionar falhas de runtime do U-SQL
+        - name: Solucionar falhas de runtime do U-SQL e problemas conhecidos
           href: runtime-troubleshoot.md
         - name: Solucionar problemas de uma atualização do .NET
           href: dotnet-upgrade-troubleshoot.md

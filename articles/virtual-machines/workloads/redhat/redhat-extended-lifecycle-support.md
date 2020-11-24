@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 71ff00dbf32ef32ead85be60cdbe53f23c8e35c7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957564"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95744034"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) suporte ao ciclo de vida estendido
 Este artigo fornece informações sobre o suporte ao ciclo de vida estendido para as imagens do Red Hat Enterprise:
@@ -22,6 +22,14 @@ Este artigo fornece informações sobre o suporte ao ciclo de vida estendido par
 ## <a name="red-hat-enterprise-linux-6-lifecycle"></a>Ciclo de vida do Red Hat Enterprise Linux 6
 A partir de 30 de novembro de 2020, o Red Hat Enterprise Linux 6 atingirá o fim da fase de manutenção. A fase de manutenção é seguida pela fase de vida estendida. Como Red Hat Enterprise Linux 6 transições das fases completa/de manutenção, é altamente recomendável atualizar para o Red Hat Enterprise Linux 7 ou 8. Se os clientes tiverem que permanecer em Red Hat Enterprise Linux 6, é recomendável adicionar o complemento Red Hat Enterprise Linux ELS (suporte ao ciclo de vida estendido).
 
+## <a name="steps-to-add-extended-lifecycle-support-on-marketplace-pay-as-you-go-vms"></a>Etapas para adicionar suporte ao ciclo de vida estendido em VMs pagas conforme o uso do Marketplace
+1. Preencha o [formulário Els disponível aqui](https://aka.ms/els-form) com os detalhes de contato e as informações de assinatura das VMs às quais você deseja adicionar o suporte do ELS. Os detalhes de preços do complemento também estão disponíveis no formulário.
+1. A equipe de Red Hat Enterprise Linux do Azure entrará em contato com você com a lista de VMs para suporte ao ELS adicionar em 1-2 dias úteis. Examine a lista e responda a concordar com os preços do complemento.
+1. A equipe de Red Hat Enterprise Linux do Azure compartilhará as etapas para adicionar o pacote de cliente do ELS às VMs. Siga as etapas, que serão fornecidas no email, para continuar a receber manutenção de software (correções de bugs e de segurança) e suporte para o Red Hat Enterprise Linux 6.
+
+> [!Note]
+> Não compartilhe as etapas para usar o ELS do RHEL no complemento com qualquer pessoa fora da sua organização. Entre em contato com para AzureRedHatELS@microsoft.com obter suporte ou para outras perguntas.
+
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 #### <a name="im-running-red-hat-enterprise-linux-6-and-cant-migrate-to-a-later-version-at-this-time-what-options-do-i-have"></a>Estou executando o Red Hat Enterprise Linux 6 e não é possível migrar para uma versão posterior no momento. Quais as opções disponíveis?
@@ -29,19 +37,8 @@ A partir de 30 de novembro de 2020, o Red Hat Enterprise Linux 6 atingirá o fim
 * Migre para o Red Hat Enterprise Linux 7 ou 8 assim que possível.
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Qual é o custo adicional para usar Red Hat Enterprise Linux complemento de suporte ao ciclo de vida estendida (ELS)?
+Os custos relacionados ao suporte ao ciclo de vida estendido podem ser encontrados com o [formulário Els](https://aka.ms/els-form)
 
-|Tamanho da VM|Período de tempo de cobrança adicional|Valor de dólar adicional (USD)| Observações|
-|---|---|---|---|
-| Pequeno convidado virtual (<= 4 núcleos) | Custo adicional por hora | TBC | |
-|  | Custo adicional mensal | TBC | Para instâncias reservadas |
-|  | Custo adicional anual | TBC | Para instâncias reservadas |
-| Grande convidado virtual (>4 núcleos) | Custo adicional por hora | TBC | |
-|  | Custo adicional mensal | TBC | Para instâncias reservadas |
-|  | Custo adicional anual | TBC | Para instâncias reservadas |
-
-#### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>Qual é o processo para adicionar repositórios de ELS (suporte ao ciclo de vida estendida) para continuar a receber manutenção de software (correções de bugs e de segurança) e suporte para o Red Hat Enterprise Linux 6?
-
-O processo de ponta a ponta de se inscrever no ELS estará disponível em breve (mais recente em 30 de novembro de 2020).
 
 ## <a name="next-steps"></a>Próximas etapas
 

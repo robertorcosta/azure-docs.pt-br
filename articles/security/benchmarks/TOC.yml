@@ -69,8 +69,12 @@
       href: ../../automation/security-baseline.md
     - name: Linha de base de segurança do Assistente do Azure
       href: ../../advisor/security-baseline.md
+    - name: Linha de base de segurança da Configuração de Aplicativos do Azure
+      href: ../../azure-app-configuration/security-baseline.md
     - name: Linha de base de segurança do Backup do Azure
       href: ../../backup/security-baseline.md
+    - name: Linha de base de segurança do Azure Bastion
+      href: ../../bastion/security-baseline.md
     - name: Linha de base de segurança do Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Linha de base de segurança do Azure Cognitive Search
@@ -81,6 +85,8 @@
       href: /azure/data-explorer/security-baseline
     - name: Linha de base de segurança do Azure Data Factory
       href: ../../data-factory/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Share
+      href: ../../data-share/security-baseline.md
     - name: Linha de base de segurança do Banco de Dados do Azure para MySQL
       href: ../../mysql/security-baseline.md
     - name: Linha de base de segurança do Banco de Dados do Azure para MariaDB
@@ -91,6 +97,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Linha de base de segurança do Azure Databricks
       href: /azure/databricks/scenarios/security-baseline
+    - name: Linha de base de segurança do Azure Defender para IoT
+      href: ../../defender-for-iot/security-baseline.md
     - name: Linha de base de segurança do DNS do Azure
       href: ../../dns/security-baseline.md
     - name: Linha de base de segurança do Azure DevTest Labs
@@ -101,18 +109,24 @@
       href: ../../frontdoor/security-baseline.md
     - name: Linha de base de segurança do Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Linha de base de segurança do Azure HPC Cache
+      href: ../../hpc-cache/security-baseline.md
     - name: Linha de base de segurança da Proteção de Informações do Azure
       href: /azure/information-protection/security-baseline
     - name: Linha de base de segurança do Hub IoT do Azure
       href: ../../iot-hub/security-baseline.md
     - name: Linha de base de segurança do Serviço de Kubernetes do Azure
       href: ../../aks/security-baseline.md
+    - name: Linha de base de segurança do Azure Lighthouse
+      href: ../../lighthouse/security-baseline.md
     - name: Linha de base de segurança do Azure Load Balancer
       href: ../../load-balancer/security-baseline.md
     - name: Linha de base de segurança do Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Linha de base de segurança do Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Linha de base de segurança de aprendizado das Migrações para Azure
+      href: ../../migrate/security-baseline.md
     - name: Linha de base de segurança do Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Linha de base de segurança do Link Privado do Azure
@@ -191,5 +205,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Linha de base de segurança da Rede Virtual
       href: ../../virtual-network/security-baseline.md
+    - name: Linha de base de segurança da NAT da Rede Virtual
+      href: ../../virtual-network/nat-security-baseline.md
     - name: Linha de base de segurança do Gateway de VPN
       href: ../../vpn-gateway/security-baseline.md

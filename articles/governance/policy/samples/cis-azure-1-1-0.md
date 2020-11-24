@@ -1,23 +1,23 @@
 ---
 title: Detalhes de Conformidade Regulatória para CIS Microsoft Azure Foundations Benchmark
 description: Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f9379427be69ecf8a07000744f0410c9b34f13c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320600"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696924"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark
 
 O artigo a seguir fornece detalhes sobre como a definição da iniciativa interna de Conformidade Regulatória do Azure Policy é mapeada para **domínios de conformidade** e **controles** no CIS Microsoft Azure Foundations Benchmark.
-Para saber mais sobre esse padrão de conformidade, confira [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Para entender a _Propriedade_ , confira [Definição de política do Azure Policy](../concepts/definition-structure.md#type) e [Responsabilidade compartilhada na nuvem](../../../security/fundamentals/shared-responsibility.md).
+Para saber mais sobre esse padrão de conformidade, confira [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Para entender a _Propriedade_, confira [Definição de política do Azure Policy](../concepts/definition-structure.md#type) e [Responsabilidade compartilhada na nuvem](../../../security/fundamentals/shared-responsibility.md).
 
-Os mapeamentos a seguir são para as recomendações do **CIS Microsoft Azure Foundations Benchmark** . Use a navegação no lado direito para ir diretamente para um **domínio de conformidade** específico. Muitos dos controles são implementados com uma definição de iniciativa do [Azure Policy](../overview.md). Para examinar a definição da iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições** .
-Em seguida, encontre e selecione a definição da iniciativa interna de Conformidade Regulatória do **CIS Microsoft Azure Foundations Benchmark 1.1.0** .
+Os mapeamentos a seguir são para as recomendações do **CIS Microsoft Azure Foundations Benchmark**. Use a navegação no lado direito para ir diretamente para um **domínio de conformidade** específico. Muitos dos controles são implementados com uma definição de iniciativa do [Azure Policy](../overview.md). Para examinar a definição da iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**.
+Em seguida, encontre e selecione a definição da iniciativa interna de Conformidade Regulatória do **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
 
 Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -29,7 +29,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>Garantir que a autenticação multifator esteja habilitada para todos os usuários privilegiados
 
-**ID** : CIS Azure 1.1 **Propriedade** : Cliente
+**ID**: CIS Azure 1.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>Garantir que a autenticação multifator esteja habilitada para todos os usuários não privilegiados
 
-**ID** : CIS Azure 1.2 **Propriedade** : Cliente
+**ID**: CIS Azure 1.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>Garantir que não haja usuários convidados
 
-**ID** : CIS Azure 1.3 **Propriedade** : Cliente
+**ID**: CIS Azure 1.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Garantir que nenhuma função personalizada de proprietário de assinatura seja criada
 
-**ID** : CIS Azure 1.23 **Propriedade** : Cliente
+**ID**: CIS Azure 1.23 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Verificar se 'Provisionamento automático do agente de monitoramento' está definido como 'Ativo'
 
-**ID** : CIS Azure 2.2 **Propriedade** : Cliente
+**ID**: CIS Azure 2.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar Atualizações do Sistema" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.3 **Propriedade** : Cliente
+**ID**: CIS Azure 2.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar Vulnerabilidades do SO" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.4 **Propriedade** : Cliente
+**ID**: CIS Azure 2.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -90,7 +90,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar a Proteção do Ponto de Extremidade" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.5 **Propriedade** : Cliente
+**ID**: CIS Azure 2.5 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -98,7 +98,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar Criptografia de Disco" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.6 **Propriedade** : Cliente
+**ID**: CIS Azure 2.6 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,7 +106,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Garantir que a configuração de política padrão do ASC "Monitorar Grupos de Segurança de Rede" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.7 **Propriedade** : Cliente
+**ID**: CIS Azure 2.7 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -114,7 +114,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>Garantir que a configuração de política padrão do ASC "Habilitar Monitoramento de NGFW (Firewall de Próxima Geração)" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.9 **Propriedade** : Cliente
+**ID**: CIS Azure 2.9 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -123,7 +123,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar Avaliação de Vulnerabilidade" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.10 **Propriedade** : Cliente
+**ID**: CIS Azure 2.10 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar o Acesso à Rede JIT" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.12 **Propriedade** : Cliente
+**ID**: CIS Azure 2.12 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -139,7 +139,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar a Inclusão de Aplicativos Adaptáveis à Lista de Permissões" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.13 **Propriedade** : Cliente
+**ID**: CIS Azure 2.13 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar a Auditoria do SQL" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.14 **Propriedade** : Cliente
+**ID**: CIS Azure 2.14 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -155,7 +155,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar a Criptografia do SQL" não esteja "Desabilitada"
 
-**ID** : CIS Azure 2.15 **Propriedade** : Cliente
+**ID**: CIS Azure 2.15 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>Garantir que a opção 'Emails de contato de segurança' esteja definida
 
-**ID** : CIS Azure 2.16 **Propriedade** : Cliente
+**ID**: CIS Azure 2.16 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>Garantir que a opção 'Número de telefone de contato de segurança' esteja definida
 
-**ID** : CIS Azure 2.17 **Propriedade** : Cliente
+**ID**: CIS Azure 2.17 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -179,7 +179,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Garantir que a opção 'Enviar notificação por email para alertas de severidade alta' seja definida como 'Ativado'
 
-**ID** : CIS Azure 2.18 **Propriedade** : Cliente
+**ID**: CIS Azure 2.18 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>Garantir que a opção 'Enviar email também para proprietários de assinatura' seja definida como 'Ativado'
 
-**ID** : CIS Azure 2.19 **Propriedade** : Cliente
+**ID**: CIS Azure 2.19 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -197,7 +197,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Garantir que "Transferência segura necessária" esteja definida como "Habilitado"
 
-**ID** : CIS Azure 3.1 **Propriedade** : Cliente
+**ID**: CIS Azure 3.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Garantir que a regra de acesso de rede padrão para Contas de Armazenamento estejam definidas como negar
 
-**ID** : CIS Azure 3.7 **Propriedade** : Cliente
+**ID**: CIS Azure 3.7 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>Garantir que a opção 'Serviços Confiáveis da Microsoft' esteja habilitada para acesso à conta de armazenamento
 
-**ID** : CIS Azure 3.8 **Propriedade** : Cliente
+**ID**: CIS Azure 3.8 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Garantir que "Auditoria" esteja definida como "Ativado"
 
-**ID** : CIS Azure 4.1 **Propriedade** : Cliente
+**ID**: CIS Azure 4.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>Garantir que "AuditActionGroups" na política de "auditoria" de um SQL Server esteja definido corretamente
 
-**ID** : CIS Azure 4.2 **Propriedade** : Cliente
+**ID**: CIS Azure 4.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Garantir que a retenção de "Auditoria" seja "maior que 90 dias"
 
-**ID** : CIS Azure 4.3 **Propriedade** : Cliente
+**ID**: CIS Azure 4.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Garantir que a "Segurança de Dados Avançada" em um SQL Server esteja definida como "Ativado"
 
-**ID** : CIS Azure 4.4 **Propriedade** : Cliente
+**ID**: CIS Azure 4.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -256,7 +256,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Garantir que o administrador do Azure Active Directory esteja configurado
 
-**ID** : CIS Azure 4.8 **Propriedade** : Cliente
+**ID**: CIS Azure 4.8 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -264,7 +264,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Garantir que a 'Criptografia de Dados' esteja definida como 'Ativado' em um Banco de Dados SQL
 
-**ID** : CIS Azure 4.9 **Propriedade** : Cliente
+**ID**: CIS Azure 4.9 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -272,7 +272,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>Garantir que o protetor de TDE do SQL Server seja criptografado com BYOK (Bring Your Own Key)
 
-**ID** : CIS Azure 4.10 **Propriedade** : Cliente
+**ID**: CIS Azure 4.10 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -281,7 +281,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Garantir que a opção 'Impor conexão SSL' esteja definida para 'HABILITADO' para o servidor de banco de dados MySQL
 
-**ID** : CIS Azure 4.11 **Propriedade** : Cliente
+**ID**: CIS Azure 4.11 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -289,7 +289,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Garantir que o parâmetro de servidor 'log_checkpoints' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
 
-**ID** : CIS Azure 4.12 **Propriedade** : Cliente
+**ID**: CIS Azure 4.12 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -297,7 +297,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Garantir que a opção 'Impor conexão SSL' esteja definida para 'HABILITADO' para o servidor de banco de dados PostgreSQL
 
-**ID** : CIS Azure 4.13 **Propriedade** : Cliente
+**ID**: CIS Azure 4.13 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Garantir que o parâmetro de servidor 'log_connections' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
 
-**ID** : CIS Azure 4.14 **Propriedade** : Cliente
+**ID**: CIS Azure 4.14 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -313,7 +313,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Garantir que o parâmetro de servidor 'log_disconnections' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
 
-**ID** : CIS Azure 4.15 **Propriedade** : Cliente
+**ID**: CIS Azure 4.15 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -321,7 +321,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Garantir que o parâmetro de servidor 'connection_throttling' seja definido como 'ON' para o servidor de banco de dados PostgreSQL
 
-**ID** : CIS Azure 4.17 **Propriedade** : Cliente
+**ID**: CIS Azure 4.17 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -331,7 +331,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-a-log-profile-exists"></a>Garantir que exista um perfil de log
 
-**ID** : CIS Azure 5.1.1 **Propriedade** : Cliente
+**ID**: CIS Azure 5.1.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -339,7 +339,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Garantir que a retenção do log de atividades esteja definida para 365 dias ou mais
 
-**ID** : CIS Azure 5.1.2 **Propriedade** : Cliente
+**ID**: CIS Azure 5.1.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -347,7 +347,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-audit-profile-captures-all-the-activities"></a>Garantir que o perfil de auditoria capture todas as atividades
 
-**ID** : CIS Azure 5.1.3 **Propriedade** : Cliente
+**ID**: CIS Azure 5.1.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -355,7 +355,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>Garantir que o perfil de log capture logs de atividade para todas as regiões, incluindo global
 
-**ID** : CIS Azure 5.1.4 **Propriedade** : Cliente
+**ID**: CIS Azure 5.1.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Garanta que a conta de armazenamento que tem o contêiner com logs de atividades seja criptografada com BYOK (Bring Your Own Key)
 
-**ID** : CIS Azure 5.1.6 **Propriedade** : Cliente
+**ID**: CIS Azure 5.1.6 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Garantir que o log do Azure Key Vault esteja 'Habilitado'
 
-**ID** : CIS Azure 5.1.7 **Propriedade** : Cliente
+**ID**: CIS Azure 5.1.7 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -379,15 +379,15 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Verifique se o alerta do log de atividades existe para criar atribuição de política
 
-**ID** : CIS Azure 5.2.1 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Um alerta do log de atividades deve existir para Operações de política específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Essa política audita Operações de política específicas sem alertas do log de atividades configurados. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[Um alerta do log de atividades deve existir para Operações de política específicas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Essa política audita Operações de política específicas sem alertas do log de atividades configurados. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Verifique se o alerta do log de atividades existe para criar ou atualizar o Grupo de Segurança de Rede
 
-**ID** : CIS Azure 5.2.2 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Verifique se o alerta do log de atividades existe para excluir o grupo de segurança de rede
 
-**ID** : CIS Azure 5.2.3 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Verifique se o alerta do log de atividades existe para criar ou atualizar a regra do grupo de segurança de rede
 
-**ID** : CIS Azure 5.2.4 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Verifique se o alerta do log de atividades existe para excluir a regra do grupo de segurança de rede
 
-**ID** : CIS Azure 5.2.5 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.5 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Verifique se o alerta do log de atividades existe para criar ou atualizar a solução de segurança
 
-**ID** : CIS Azure 5.2.6 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.6 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Verifique se o alerta do log de atividades existe para excluir a solução de segurança
 
-**ID** : CIS Azure 5.2.7 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.7 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Verifique se o alerta do log de atividades existe para criar ou atualizar ou excluir a regra de firewall do SQL Server
 
-**ID** : CIS Azure 5.2.8 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.8 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Verifique se o alerta do log de atividades existe para atualizar a política de segurança
 
-**ID** : CIS Azure 5.2.9 **Propriedade** : Cliente
+**ID**: CIS Azure 5.2.9 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -453,7 +453,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Verifique se o acesso SSH está restrito da Internet
 
-**ID** : CIS Azure 6.1 **Propriedade** : Cliente
+**ID**: CIS Azure 6.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -461,7 +461,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>Garantir que o acesso SSH seja restrito da Internet
 
-**ID** : CIS Azure 6.2 **Propriedade** : Cliente
+**ID**: CIS Azure 6.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -469,7 +469,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-network-watcher-is-enabled"></a>Garantir que o Observador de Rede esteja 'Habilitado'
 
-**ID** : CIS Azure 6.5 **Propriedade** : Cliente
+**ID**: CIS Azure 6.5 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -479,7 +479,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Garantir que o 'Disco do SO' seja criptografado
 
-**ID** : CIS Azure 7.1 **Propriedade** : Cliente
+**ID**: CIS Azure 7.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -487,7 +487,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Garantir que os 'Discos de dados' sejam criptografados
 
-**ID** : CIS Azure 7.2 **Propriedade** : Cliente
+**ID**: CIS Azure 7.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -495,7 +495,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Garantir que os 'Discos não anexados' sejam criptografados
 
-**ID** : CIS Azure 7.3 **Propriedade** : Cliente
+**ID**: CIS Azure 7.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>Garantir que apenas as extensões aprovadas sejam instaladas
 
-**ID** : CIS Azure 7.4 **Propriedade** : Cliente
+**ID**: CIS Azure 7.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -511,7 +511,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>Garantir que os Patches de SO mais recentes para todas as máquinas virtuais sejam aplicados
 
-**ID** : CIS Azure 7.5 **Propriedade** : Cliente
+**ID**: CIS Azure 7.5 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -519,7 +519,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Garantir que a proteção de ponto de extremidade para todas as máquinas virtuais esteja instalada
 
-**ID** : CIS Azure 7.6 **Propriedade** : Cliente
+**ID**: CIS Azure 7.6 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,15 +529,15 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Garantir que o cofre de chaves seja recuperável
 
-**ID** : CIS Azure 8.4 **Propriedade** : Cliente
+**ID**: CIS Azure 8.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Os objetos do Key Vault devem ser recuperáveis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Essa política audita se os objetos do cofre de chaves não são recuperáveis. O recurso de exclusão reversível ajuda a efetivamente manter os recursos por um período de retenção especificado (90 dias) mesmo após a operação EXCLUIR, ao mesmo tempo aparentando ter excluído o objeto. Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Esses cofres e objetos ainda podem ser recuperados, garantindo aos clientes que a política de retenção será seguida. |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[O cofre de chaves deve ter a proteção de limpeza habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |A exclusão mal-intencionada de um cofre de chaves pode levar à perda permanente de dados. Um invasor mal-intencionado em sua organização pode potencialmente conseguir obter acesso para excluir e limpar cofres de chaves. A proteção de limpeza protege você contra ataques de invasores impondo um período de retenção obrigatório para cofres de chaves de exclusão temporária. Ninguém dentro de sua organização nem a Microsoft poderá limpar os cofres de chaves durante o período de retenção de exclusão temporária. |Audit, Deny, desabilitado |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Habilitar o RBAC (controle de acesso baseado em função) nos Serviços de Kubernetes do Azure
 
-**ID** : CIS Azure 8.5 **Propriedade** : Cliente
+**ID**: CIS Azure 8.5 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,7 +547,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-app-service-authentication-is-set-on-azure-app-service"></a>Garantir que a autenticação do serviço de aplicativo esteja definida no Serviço de Aplicativo do Azure
 
-**ID** : CIS Azure 9.1 **Propriedade** : Cliente
+**ID**: CIS Azure 9.1 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -557,7 +557,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>Garantir que o aplicativo Web redirecione todo o tráfego HTTP para HTTPS no Serviço de Aplicativo do Azure
 
-**ID** : CIS Azure 9.2 **Propriedade** : Cliente
+**ID**: CIS Azure 9.2 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -565,7 +565,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>Garantir que o aplicativo Web esteja usando a última versão da criptografia TLS
 
-**ID** : CIS Azure 9.3 **Propriedade** : Cliente
+**ID**: CIS Azure 9.3 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -575,7 +575,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>Garantir que o aplicativo Web tenha a opção 'Certificados de Cliente (Certificados de cliente de entrada)' definida como 'Ativado'
 
-**ID** : CIS Azure 9.4 **Propriedade** : Cliente
+**ID**: CIS Azure 9.4 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +585,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>Garantir que o Registro com o Azure Active Directory esteja habilitado no Serviço de Aplicativo
 
-**ID** : CIS Azure 9.5 **Propriedade** : Cliente
+**ID**: CIS Azure 9.5 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -595,7 +595,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Garantir que a 'versão do PHP' seja a última, se usada para executar o aplicativo Web
 
-**ID** : CIS Azure 9.7 **Propriedade** : Cliente
+**ID**: CIS Azure 9.7 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -604,7 +604,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>Garantir que a 'versão do Python' seja a última, se usada para executar o aplicativo Web
 
-**ID** : CIS Azure 9.8 **Propriedade** : Cliente
+**ID**: CIS Azure 9.8 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -614,7 +614,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>Garantir que a 'versão do Java' seja a última, se usada para executar o aplicativo Web
 
-**ID** : CIS Azure 9.9 **Propriedade** : Cliente
+**ID**: CIS Azure 9.9 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -624,7 +624,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 ### <a name="ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>Garantir que a "Versão do HTTP" seja a última, se usada para executar o aplicativo Web
 
-**ID** : CIS Azure 9.10 **Propriedade** : Cliente
+**ID**: CIS Azure 9.10 **Propriedade**: Cliente
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

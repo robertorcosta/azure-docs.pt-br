@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167178"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681543"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
 
@@ -26,11 +26,11 @@ Para começar, conclua o início rápido do AKS [no portal do Azure][aks-portal]
 
 ## <a name="access-security-and-monitoring"></a>Acesso, segurança e monitoramento
 
-Para maior segurança e gerenciamento, o AKS permite fazer a integração com o Azure Active Directory e usar o RBAC (controle de acesso baseado em função) do Kubernetes. Você também pode monitorar a integridade do cluster e dos recursos.
+Para maior segurança e gerenciamento, o AKS permite fazer a integração ao Azure Active Directory e usar o RBAC do Kubernetes (controle de acesso baseado em função do Kubernetes). Você também pode monitorar a integridade do cluster e dos recursos.
 
 ### <a name="identity-and-security-management"></a>Gerenciamento de segurança e identidade
 
-Para limitar o acesso aos recursos de cluster, o AKS dá suporte ao [RBAC (controle de acesso baseado em função) do Kubernetes][kubernetes-rbac]. O RBAC permite que você controle o acesso a namespaces e recursos do Kubernetes e as permissões para esses recursos. Você também pode configurar um cluster do AKS para se integrar ao Azure AD (Active Directory). Com a integração do Azure AD, o acesso do Kubernetes pode ser configurado com base em identidade e associação de grupo existentes. Seus usuários e grupos existentes do Azure AD podem receber acesso a recursos do AKS e com uma experiência de logon integrada.
+Para limitar o acesso aos recursos de cluster, o AKS dá suporte ao [RBAC do Kubernetes (controle de acesso baseado em função do Kubernetes)][kubernetes-rbac]. Com o RBAC do Kubernetes, você pode controlar o acesso aos namespaces e aos recursos do Kubernetes e às permissões a esses recursos. Você também pode configurar um cluster do AKS para se integrar ao Azure AD (Active Directory). Com a integração do Azure AD, o acesso do Kubernetes pode ser configurado com base em identidade e associação de grupo existentes. Seus usuários e grupos existentes do Azure AD podem receber acesso a recursos do AKS e com uma experiência de logon integrada.
 
 Para obter mais informações sobre identidade, confira [Opções de acesso e identidade do AKS][concepts-identity].
 
@@ -146,7 +146,7 @@ Saiba mais sobre como implantar e gerenciar o AKS com os tutoriais de início r�
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

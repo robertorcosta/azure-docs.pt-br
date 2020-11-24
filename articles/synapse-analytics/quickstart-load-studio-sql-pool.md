@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 05/06/2020
+ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a4740699d70601591645aa0d3183531a6687be6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324932"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660076"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Início Rápido: Carregar em massa com o SQL do Synapse
 
@@ -39,7 +39,8 @@ Agora você pode realizar com facilidade o carregamento em massa de dados usando
 
 ### <a name="steps"></a>Etapas
 
-1. No painel Local de armazenamento de origem, selecione a conta de armazenamento e o arquivo ou a pasta da qual você está carregando: ![Selecionar localização de origem](./sql/media/bulk-load/bulk-load-source-location.png)
+1. No painel Local de armazenamento de origem, selecione a conta de armazenamento e o arquivo ou a pasta da qual você está carregando. O assistente tentará detectar automaticamente os arquivos Parquet. Se o tipo de arquivo Parquet não puder ser confirmado, o texto delimitado (CSV) será usado por padrão. 
+   ![Selecionar localização de origem](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Selecione as configurações do formato de arquivo, incluindo a conta de armazenamento em que você deseja escrever linhas rejeitadas (arquivo de erro). No momento, há suporte somente a arquivos CSV e Parquet.
 
@@ -47,9 +48,14 @@ Agora você pode realizar com facilidade o carregamento em massa de dados usando
 
 3. Selecione "Visualizar dados" para ver como a instrução COPY analisará o arquivo para ajudar você a definir as configurações de formato de arquivo. Clique em "Visualizar dados" toda vez que você alterar uma configuração de formato de arquivo para ver como a instrução COPY analisará o arquivo com a configuração atualizada: ![Visualizar dados](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
+> [!NOTE]  
+>
+> - Não há suporte para a visualização dos dados com terminadores de campo de vários caracteres no assistente de carregamento em massa. O assistente de carregamento em massa visualizará os dados em uma só coluna quando um terminador de campo de vários caracteres for especificado. 
+> - Há suporte para a especificação de terminadores de linha de vários caracteres na instrução COPY; no entanto, não há suporte para ela no assistente de carregamento em massa, em que um erro será gerado.
+
 4. Selecione o pool de SQL dedicado que você está usando para carregar, incluindo se a carga será para uma tabela nova ou existente: ![Selecionar localização de destino](./sql/media/bulk-load/bulk-load-target-location.png)
 
-5. Clique em "Configurar mapeamento de coluna" para verificar se você tem o mapeamento de coluna apropriado. Para novas tabelas, configurar o mapeamento de coluna é crítico para atualizar os tipos de dados da coluna de destino: ![Configurar o mapeamento de coluna](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Clique em "Configurar mapeamento de coluna" para verificar se você tem o mapeamento de coluna apropriado. Observação: os nomes de colunas serão detectados automaticamente se a opção "Inferir nomes de colunas" estiver habilitada. Para novas tabelas, configurar o mapeamento de coluna é crítico para atualizar os tipos de dados da coluna de destino: ![Configurar o mapeamento de coluna](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
 
 6. Clique em "Abrir script" e um script T-SQL será gerado com a instrução COPY a ser carregada do data lake: ![Abrir o script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 

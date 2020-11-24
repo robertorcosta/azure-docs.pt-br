@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257451"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659413"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Execute as seguintes etapas se estiver devolvendo o dispositivo nos EUA ou Canad
     - Se o número de controle não está entre aspas, o serviço de no-break exigirá que você pague um encargo adicional durante a retirada.
     - Em vez de agendar a retirada, você também pode descartar o Data Box Disk no local mais próximo de redistribuição.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Execute as seguintes etapas se estiver devolvendo o dispositivo na Europa.
+### <a name="europe-or-uk"></a>[Europa ou Reino Unido](#tab/in-europe-or-uk)
+
+Execute as etapas a seguir se estiver devolvendo o dispositivo na Europa ou no Reino Unido.
 
 1. Use a etiqueta de remessa de devolução que tem a capa de plástico transparente afixada à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
     - Acesse **Visão Geral > Baixar etiqueta de remessa** e baixe uma etiqueta de remessa de devolução.
     - Afixe o rótulo ao dispositivo.
 
 2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
-3. Se você estiver devolvendo o dispositivo na Europa com a DHL, solicite a retirada da DHL visitando o site e especificando o número da carta de porte aéreo.
-4. Acesse o site da DHL Express do país/região e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**.
-5. Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.
+3. Acesse o site da DHL Express do país/da região e selecione **Agendar uma Retirada**. Em **Você precisa de uma etiqueta de remessa?** , selecione **Não** > **Tenho um número de carta de porte da DHL**.
+4. Especifique o número da carta de porte e clique em **Agendar Retirada** para organizar a retirada.
 
 ### <a name="australia"></a>[Austrália](#tab/in-australia)
 

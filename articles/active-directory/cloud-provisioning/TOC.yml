@@ -62,10 +62,12 @@
           href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
 - name: Referência
   items:
-    - name: Histórico de versões do agente de provisionamento em nuvem do Azure AD Connect
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    - name: Histórico de versões do agente de sincronização de nuvem do Azure AD Connect
+      href: reference-version-history.md
     - name: Perguntas frequentes sobre o provisionamento em nuvem do Azure AD Connect
       href: reference-cloud-provisioning-faq.md
+    - name: Módulo AADCloudSyncTools do PowerShell
+      href: reference-powershell.md
     - name: Atributos sincronizados
       href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Ambiente básico do Azure Active Directory e do Azure AD

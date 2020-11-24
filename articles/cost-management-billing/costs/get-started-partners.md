@@ -3,18 +3,18 @@ title: Introdução ao Gerenciamento de Custos do Azure para parceiros
 description: Este artigo explica como os parceiros usam os recursos do Gerenciamento de Custos do Azure e como eles habilitam o acesso do Gerenciamento de Custos para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827585"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657305"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -126,7 +126,7 @@ Independentemente da política, os administradores globais e os agentes de admin
 
 Você precisa ser membro do grupo do **agente de administração** para ver e atualizar a política. Use as informações a seguir para habilitar a política e permitir que os clientes vejam os preços de uso do Azure.
 
-No portal do Azure, entre no locatário do parceiro e selecione **Gerenciamento de Custos + Cobrança**. Selecione o escopo do orçamento relevante na área Escopo do Orçamento e escolha **Clientes**. A lista de clientes está associada à conta de cobrança.
+No portal do Azure, entre no *locatário do parceiro* e selecione **Gerenciamento de Custos e Cobrança**. Selecione o escopo do orçamento relevante na área Escopo do Orçamento e escolha **Clientes**. A lista de clientes está associada à conta de cobrança. *Se você entrar por engano no locatário do cliente, não verá a lista **Clientes**.*
 
 Na lista de clientes, selecione o cliente que deseja permitir para ver os custos.
 
@@ -188,7 +188,7 @@ Os campos de dados a seguir são encontrados em arquivos de detalhes de uso e na
 | costCenter | Centro de custo associado à assinatura. | N/D |
 | billingPeriodStartDate | Data de início do período de cobrança, conforme mostrado na fatura. | N/D |
 | billingPeriodEndDate | Data de término do período de cobrança, conforme mostrado na fatura. | N/D |
-| servicePeriodStartDate | Data de início do período de classificação em que a utilização do serviço foi classificada para cobranças. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Partner Center. Data de início do ciclo de cobrança, exceto ao apresentar datas de dados de uso latente anteriormente não cobrados (do ciclo de cobrança anterior). A hora sempre é o início do dia, 0h00. |
+| servicePeriodStartDate | Data de início do período de classificação em que a utilização do serviço foi classificada para cobranças. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Partner Center.  Data de início do ciclo de cobrança, exceto ao apresentar datas de dados de uso latente anteriormente não cobrados (do ciclo de cobrança anterior). A hora sempre é o início do dia, 0h00. |
 | servicePeriodEndDate | Data de término do período em que a utilização do serviço foi classificada para cobranças. Os preços dos serviços do Azure são determinados com base no período de classificação. | N/D |
 | date | Para os dados de consumo do Azure, ele mostra a data de uso como classificado. Para a instância reservada, ele mostra a data de compra. Para os preços recorrentes e os preços avulsos, como Marketplace e suporte, ele mostra a data da compra. | N/D |
 | productID | Identificador do produto que tem preços acumulados por consumo ou compra. É a chave concatenada de productID e SKuID, conforme mostrado no Partner Center. | A ID do produto. |

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540613"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736469"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -44,7 +44,7 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 Um grupo de sincronização tem as seguintes propriedades:
 
 - O **Esquema de Sincronização** descreve quais dados estão sendo sincronizados.
-- A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro* ou *membro para Hub* , ou ambos.
+- A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro* ou *membro para Hub*, ou ambos.
 - O **Intervalo de Sincronização** descreve a frequência com a qual ocorre a sincronização.
 - A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha*.
 
@@ -73,15 +73,15 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 - **Controle de alterações de dados:** A Sincronização de Dados controla alterações usando os gatilhos inserir, atualizar e excluir. As alterações são registradas em uma tabela secundária do banco de dados do usuário. Observe que BULK INSERT não dispara gatilhos por padrão. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção será executado. Adicionar a opção de FIRE_TRIGGERS para a Sincronização de dados rastrear essas inserções. 
 - **Sincronizando dados:** A sincronização de dados é projetada em um modelo de Hub e spoke. O Hub é sincronizado com cada membro individualmente. As alterações do hub são baixadas para o membro e, em seguida, as alterações do membro são carregadas no Hub.
 - **Resolução de conflitos:** A Sincronização de Dados fornece duas opções para a resolução de conflito, *Hub ganha* ou *Membro ganha*.
-  - Se você selecionar *Hub ganha* , as alterações no hub sempre substituem as alterações no membro.
-  - Se você selecionar *Membro ganha* , as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
+  - Se você selecionar *Hub ganha*, as alterações no hub sempre substituem as alterações no membro.
+  - Se você selecionar *Membro ganha*, as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
 
 ## <a name="compare-with-transactional-replication"></a>Comparar com a replicação transacional
 
 | | Sincronização de Dados | Replicação transacional |
 |---|---|---|
 | **Vantagens** | – Suporte ativo-ativo<br/>– Bidirecional entre o Banco de Dados SQL do Azure e o local | – Menor latência<br/>– Consistência transacional<br/>– Reutilização da topologia existente após a migração <br/>-Suporte do Azure SQL Instância Gerenciada |
-| **Desvantagens** | -5 min mínimo de frequência entre sincronizações<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
+| **Desvantagens** | – Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
 
 ## <a name="get-started"></a>Introdução 
 
@@ -166,7 +166,6 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas em uma tabela em um grupo de sincronização                              | 1000                   |                             |
 | Tamanho da linha de dados em uma tabela                                        | 24 Mb                  |                             |
-| Intervalo de frequência de sincronização mínima (desde o início da sincronização anterior)     | 5 Minutos              |                             |
 
 > [!NOTE]
 > Pode haver até 30 pontos de extremidade em um único grupo de sincronização, se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se um banco de dados pertencer a vários grupos de sincronização, ele será contado como vários pontos de extremidade, não um.

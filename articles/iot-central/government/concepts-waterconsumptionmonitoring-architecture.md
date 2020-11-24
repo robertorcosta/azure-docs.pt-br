@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 57dfec33beef6a9b5a6a3cd8edc43cae32d62e33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: df402064f2aa26e29ef72c0f73f8f5aa761506e2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123004"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873552"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitetura da referência de monitoramento do consumo de água 
 
@@ -41,10 +41,10 @@ O Azure IoT Central é uma plataforma de aplicativo IoT que deixa você pronto p
 Depois de conectar seus dispositivos inteligentes de água ao IoT Central, você obtém o comando e o controle do dispositivo, assim como o monitoramento e alertas, e também a interface do usuário com o RBAC interno, dashboards de insight configuráveis e opções de extensibilidade. 
 
 
-## <a name="extensibility-and-integrations"></a>Extensibilidade e integrações 
+## <a name="extensibility-and-integrations"></a>Extensibilidade e integrações
 Você pode estender seu aplicativo de IoT no IoT Central e, opcionalmente:
 * Transformar e integrar seus dados de IoT para análise avançada, por exemplo, modelos de aprendizado de máquina de treinamento, por meio de exportação de dados contínua do aplicativo do IoT Central
-* automatizar fluxos de trabalho em outros sistemas disparando ações por meio do Microsoft Flow ou de webhooks no aplicativo IoT Central
+* automatizar fluxos de trabalho em outros sistemas disparando ações por meio do Power Automate ou de webhooks no aplicativo IoT Central
 * Acessar seu aplicativo de IoT de forma programática no IoT Central por meio de APIs do IoT Central
 
 ## <a name="business-applications"></a>Aplicativos de negócios 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337739"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701748"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como usar o OPENROWSET usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -156,7 +156,7 @@ A cláusula WITH permite que você especifique as colunas que deseja ler dos arq
     > Os nomes de coluna nos arquivos Parquet diferenciam maiúsculas de minúsculas. Se você especificar o nome da coluna com as configurações de maiúsculas e minúsculas diferentes do nome da coluna no arquivo Parquet, valores nulos serão retornados para essa coluna.
 
 
-column_name = nome da coluna de saída. Se for fornecido, esse nome substituirá o nome da coluna no arquivo de origem.
+column_name = nome da coluna de saída. Se fornecido, esse nome substitui o nome da coluna no arquivo de origem e o nome da coluna fornecido no caminho JSON, se houver um. Se json_path não for fornecido, ele será adicionado automaticamente como '$.column_name'. Verifique o argumento json_path para ver o comportamento.
 
 column_type = tipo de dados da coluna de saída. A conversão de tipo de dados implícita ocorrerá aqui.
 
@@ -170,6 +170,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = [expressão do caminho JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para a coluna ou propriedade aninhada. O [modo de caminho](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) padrão é incerto.
+
+> [!NOTE]
+> Em modo estrito, a consulta falhará com erro se o caminho fornecido não existir. No modo incerto, a consulta será bem-sucedida e a expressão de caminho JSON for avaliada como NULL.
 
 **\<bulk_options>**
 
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Especificar colunas usando caminhos JSON
+
+O seguinte exemplo mostra como você pode usar [expressões de caminho JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) na cláusula WITH e demonstra a diferença entre os modos de caminho estrito e incerto: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358602"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886321"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 
@@ -39,7 +39,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 * Conclua o [tutorial de instalação](tutorial-1st-experiment-sdk-setup.md) caso ainda não tenha uma máquina virtual de notebook ou um Workspace do Azure Machine Learning.
 * Depois de concluir o tutorial de instalação, abra o notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* usando o mesmo servidor de notebook.
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) caso você deseje executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) caso você deseje executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Para obter os pacotes necessários, 
+* [Instale o cliente `automl` completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Execute `pip install azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
 
 ## <a name="download-and-prepare-data"></a>Baixar e preparar dados
 

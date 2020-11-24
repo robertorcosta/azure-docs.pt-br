@@ -1,15 +1,15 @@
 ---
 title: Organizar seus recursos com grupos de gerenciamento – Governança do Azure
 description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699586"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gerenciamento do Azure?
 
@@ -150,7 +150,7 @@ As definições de função são um escopo atribuível em qualquer lugar dentro 
 
 Por exemplo, vamos examinar uma pequena seção de uma hierarquia para um visual.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de uma hierarquia de grupo de gerenciamento de exemplo." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de um subconjunto da hierarquia de grupo de gerenciamento de exemplo." border="false":::
    O diagrama se concentra no grupo de gerenciamento raiz com os grupos de gerenciamento filho de TI e Marketing. O grupo de gerenciamento de TI tem um grupo de gerenciamento filho chamado Produção. Já o grupo de gerenciamento de Marketing tem duas assinaturas filho de Avaliação Gratuita.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Há limitações ao usar funções personalizadas em grupos de gerenciamento.
  - Você só pode definir um grupo de gerenciamento nos escopos atribuíveis de uma nova função. Essa limitação está em vigor para reduzir o número de situações em que as definições de função e as atribuições de função são desconectadas. Essa situação ocorre quando uma assinatura ou um grupo de gerenciamento com uma atribuição de função é movido para um pai diferente que não tem uma definição de função.  
  - As ações do plano de dados do provedor de recursos não podem ser definidas nas funções personalizadas do grupo de gerenciamento. Essa restrição está em vigor, pois há um problema de latência com a atualização dos provedores de recursos do plano de dados.
    Esse problema de latência está sendo resolvido e essas ações serão desabilitadas da definição de função para reduzir os riscos.
- - O Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função. Se houver uma ID de grupo de gerenciamento de digitação ou incorreta listada, a definição de função ainda será criada.  
+ - O Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função. Se houver uma ID de grupo de gerenciamento de digitação ou incorreta listada, a definição de função ainda será criada.
+
+> [!IMPORTANT]
+> A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção.
+> Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Como mover grupos de gerenciamento e assinaturas 
 
@@ -194,7 +198,7 @@ Se a função de proprietário na assinatura for herdada do grupo de gerenciamen
 
 Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode pesquisar todos os eventos que ocorrem para um grupo de gerenciamento no mesmo local central que os outros recursos do Azure. Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagrama de uma hierarquia de grupo de gerenciamento de exemplo." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Captura de tela de Logs de Atividades e operações relacionados ao grupo de gerenciamento selecionado." border="false":::
 
 Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o escopo de destino dos grupos de gerenciamento é semelhante a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Gerenciar máquinas virtuais com a CLI
-description: Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e marcas.
+description: Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar máquinas virtuais do Azure aplicando o Azure RBAC e políticas, bloqueios e marcas do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 565315ad78a2994f44973c4fdcd4519ab9e03ea8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517947"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831762"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Tutorial: Saiba mais sobre o gerenciamento de máquinas virtuais do Linux com a CLI do Azure
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location "East US"
 
 Atualmente, o grupo de recursos está vazio.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
 Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. [O Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
 

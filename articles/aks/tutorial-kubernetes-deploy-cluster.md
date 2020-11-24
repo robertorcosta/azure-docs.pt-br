@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 55af44f498492136b2ae03c7e23fce3676aa8e22
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e034ebede39a3fd9046ced9716323d0c7d874df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747080"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684063"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implantar um cluster do AKS (Serviço de Kubernetes do Azure)
 
@@ -31,9 +31,9 @@ Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Ex
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 
-Os cluster AKS podem usar o RBAC (controle de acesso baseado em função) do Kubernetes. Esses controles permitem que você defina o acesso a recursos com base em funções atribuídas aos usuários. As permissões são combinadas se um usuário recebe várias funções e podem ter o escopo definido para um único namespace ou todo o cluster. Por padrão, a CLI do Azure habilita o RBAC automaticamente quando você cria um cluster AKS.
+Os clusters do AKS podem usar o RBAC (controle de acesso baseado em função) do Kubernetes. Esses controles permitem que você defina o acesso a recursos com base em funções atribuídas aos usuários. As permissões são combinadas se um usuário recebe várias funções e podem ter o escopo definido para um único namespace ou todo o cluster. Por padrão, a CLI do Azure habilita o RBAC do Kubernetes automaticamente quando você cria um cluster do AKS.
 
-Crie um cluster AKS usando [az aks create][]. O exemplo abaixo cria um cluster chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup* . Esse grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *eastus* . O exemplo a seguir não especifica uma região para que o cluster do AKS também seja criado na região *eastus* . Confira [Cotas, restrições de tamanho da máquina virtual e disponibilidade da região no AKS (Serviço de Kubernetes do Azure)][quotas-skus-regions] para obter mais informações sobre limites de recurso e disponibilidade de região para o AKS.
+Crie um cluster AKS usando [az aks create][]. O exemplo abaixo cria um cluster chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup*. Esse grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *eastus*. O exemplo a seguir não especifica uma região para que o cluster do AKS também seja criado na região *eastus*. Confira [Cotas, restrições de tamanho da máquina virtual e disponibilidade da região no AKS (Serviço de Kubernetes do Azure)][quotas-skus-regions] para obter mais informações sobre limites de recurso e disponibilidade de região para o AKS.
 
 Para permitir a interação de um cluster AKS com outros recursos do Azure, uma entidade de serviço do Azure Active Directory é criada automaticamente, já que você não especificou uma. Aqui, a essa entidade de serviço é [concedido o direito de efetuar pull de imagens][container-registry-integration] da instância do ACR (Registro de Contêiner do Azure) que você criou no tutorial anterior. Observe que você pode usar uma [identidade gerenciada](use-managed-identity.md) em vez de uma entidade de serviço para facilitar o gerenciamento.
 
@@ -65,7 +65,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Conectar-se ao cluster usando o kubectl
 
-Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials][]. O seguinte exemplo obtém as credenciais para o cluster do AKS chamado *myAKSCluster* no *myResourceGroup* :
+Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials][]. O seguinte exemplo obtém as credenciais para o cluster do AKS chamado *myAKSCluster* no *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

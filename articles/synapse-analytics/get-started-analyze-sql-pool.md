@@ -9,22 +9,22 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/17/2020
+ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147560"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843903"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com pools de SQL dedicados
 
 O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de SQL dedicado. Neste tutorial, você usará os dados de táxis de Nova York para explorar as funcionalidades do pool de SQL dedicado.
 
-## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carregar os Dados de Táxi de Nova York no SQLDB1
+## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carregar os dados de Táxi de Nova York no SQLPOOL1
 
 1. No Synapse Studio, navegue até o hub **Desenvolver** e crie um script de SQL
-1. Selecione o pool 'SQLDB1' (pool criado na [ETAPA 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na seção 'Conectar-se a' do script.
+1. Selecione o pool 'SQLPOOL1' (pool criado na [ETAPA 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na seção 'Conectar-se a' do script.
 1. Insira o seguinte código:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -71,15 +71,15 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. Esse script levará cerca de um minuto para ser executado. Ele carrega 2 milhões linhas de dados de Táxi de Nova York em uma tabela chamada **dbo.Trip**
+1. Esse script será concluído em cerca de 60 segundos. Ele carrega 2 milhões linhas de dados de Táxi de Nova York em uma tabela chamada **dbo.Trip**
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorar os dados de táxis de Nova York no pool de SQL dedicado
 
-1. No Synapse Studio, acesse o hub **Dados** .
-1. Acesse **SQLDB1** > **Tabelas** . Você verá várias tabelas carregadas.
-1. Clique com o botão direito do mouse na tabela **dbo.Trip** e selecione **Novo Script de SQL** > **Selecionar as Primeiras 100 Linhas** .
+1. No Synapse Studio, acesse o hub **Dados**.
+1. Acesse **SQLPOOL1** > **Tabelas**. Você verá várias tabelas carregadas.
+1. Clique com o botão direito do mouse na tabela **dbo.Trip** e selecione **Novo Script de SQL** > **Selecionar as Primeiras 100 Linhas**.
 1. Aguarde enquanto um novo script SQL é criado e executado.
-1. Observe na parte superior do script de SQL que **Conectar ao** é automaticamente definido como o pool de SQL chamado **SQLDB1** .
+1. Observe na parte superior do script de SQL que **Conectar-se ao** é automaticamente definido como o pool de SQL chamado **SQLPOOL1**.
 1. Substitua o texto do script de SQL por esse código e execute-o.
 
     ```sql

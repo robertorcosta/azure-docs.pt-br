@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422664"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579463"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
 Conheça o que há de novo no serviço. Marque esta página para manter-se atualizado quanto ao serviço.
 
+## <a name="november-2020"></a>Novembro de 2020
+
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
+|------------------------------|----------|-------------|---------------|
+|[criptografia de chave gerenciada pelo cliente em indexadores, fontes de dados e conjuntos de habilidades](search-security-manage-encryption-keys.md) | Segurança | Essa adição estende a criptografia gerenciada pelo cliente para toda a gama de ativos criados e gerenciados por um serviço de pesquisa. Lembre-se de que o suporte à CMK adiciona uma camada de criptografia extra, além da criptografia base executada e gerenciada pela Microsoft. | Em disponibilidade geral com a REST api-version=2020-06-30 |  
+
 ## <a name="september-2020"></a>Setembro de 2020
 
 Crie uma identidade para um serviço de pesquisa no Azure Active Directory e use as permissões de RBAC para conceder permissões somente leitura de identidade a fontes de dados do Azure. Opcionalmente, escolha a funcionalidade [exceção de serviço confiável](search-indexer-howto-access-trusted-service-exception.md) se as regras de IP não forem uma opção.
-
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |------------------------------|----------|-------------|---------------|

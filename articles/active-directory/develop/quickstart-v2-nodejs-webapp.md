@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613298"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594242"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Início Rápido: Adicionar entrada usando o OpenID Connect para um aplicativo Web do Node.js
 
-Neste início rápido, você aprenderá a configurar a autenticação do OpenID Connect em um aplicativo Web criado usando o Node.js com o Express. O exemplo foi projetado para ser executado em qualquer plataforma.
+Neste guia de início rápido, você baixará e executará um exemplo de código que demonstra como configurar a autenticação do OpenID Connect em um aplicativo Web criado usando o Node.js com o Express. O exemplo foi projetado para ser executado em qualquer plataforma.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

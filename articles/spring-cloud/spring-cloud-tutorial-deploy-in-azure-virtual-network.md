@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e0fc50647e926ea919f70b888f3efc303713fe1e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631182"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737236"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implantar o Azure Spring Cloud na rede virtual do Azure (injeção de VNet)
 
@@ -27,22 +27,23 @@ A implantação permite:
 * Autorização de clientes para controlar comunicações de rede de entrada e saída para o Azure Spring Cloud
 
 ## <a name="prerequisites"></a>Prerequisites
-Você deve registrar o provedor de recursos `Microsoft.AppPlatform` do Azure Spring Cloud de acordo com as instruções em [Registrar Provedor de Recursos no portal do Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) ou executando o seguinte comando az da CLI:
+Você precisa registrar o provedor de recursos *Microsoft.AppPlatform* e *Microsoft.ContainerService* do Azure Spring Cloud de acordo com as instruções em [Registrar Provedor de Recursos no portal do Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) ou executando o seguinte comando az da CLI:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## <a name="virtual-network-requirements"></a>Requisitos de rede virtual
 A rede virtual na qual você implanta sua instância de serviço do Azure Spring Cloud deve atender aos seguintes requisitos:
 
-* **Localização** : a rede virtual deve residir na mesma localização que a instância do serviço do Azure Spring Cloud.
-* **Assinatura** : a rede virtual deve estar na mesma assinatura que a instância de serviço do Azure Spring Cloud.
-* **sub-redes** : a rede virtual deve incluir duas sub-redes dedicadas a uma instância de serviço do Azure Spring Cloud: 
+* **Localização**: a rede virtual deve residir na mesma localização que a instância do serviço do Azure Spring Cloud.
+* **Assinatura**: a rede virtual deve estar na mesma assinatura que a instância de serviço do Azure Spring Cloud.
+* **sub-redes**: a rede virtual deve incluir duas sub-redes dedicadas a uma instância de serviço do Azure Spring Cloud: 
     * Uma do Runtime de Serviço
     * Um para seus Aplicativos de Microsserviço do Spring Boot. 
     * Há uma relação um-para-um entre essas sub-redes e uma instância de serviço do Azure Spring Cloud. Você deve usar uma nova sub-rede para cada instância de serviço implantada e cada sub-rede pode incluir apenas uma única instância de serviço.
-* **Espaço de endereço** : Um bloco CIDR de até /28 para a sub-rede do Runtime de Serviço e outro bloco CIDR de até /24 para a sub-rede de Aplicativos de Microsserviço do Spring Boot.
-* **Tabela de rotas** : as sub-redes não devem ter uma tabela de rotas existente associada.
+* **Espaço de endereço**: Um bloco CIDR de até /28 para a sub-rede do Runtime de Serviço e outro bloco CIDR de até /24 para a sub-rede de Aplicativos de Microsserviço do Spring Boot.
+* **Tabela de rotas**: as sub-redes não devem ter uma tabela de rotas existente associada.
 
 Os procedimentos a seguir descrevem a configuração da rede virtual para conter a instância do Azure Spring Cloud.
 
@@ -51,7 +52,7 @@ Se você já tiver uma rede virtual para hospedar a instância de serviço do Az
 
 1. No menu do portal do Azure, selecione **Criar um recurso**. No Azure Marketplace, selecione **rede** > **rede virtual**.
 
-1. Na caixa de diálogo **Criar rede virtual** , insira ou selecione as seguintes informações:
+1. Na caixa de diálogo **Criar rede virtual**, insira ou selecione as seguintes informações:
 
     |Configuração          |Valor                                             |
     |-----------------|--------------------------------------------------|
@@ -66,7 +67,7 @@ Se você já tiver uma rede virtual para hospedar a instância de serviço do Az
 
 1. Selecione **Adicionar sub-rede** e insira *service-runtime-subnet* para **Nome da sub-rede** e 10.1.0.0/24 para **Intervalo de endereços de sub-rede**. Clique em **Adicionar**.
 
-1. Selecione **Adicionar sub-rede** novamente e insira **Nome da sub-rede** para **Intervalo de endereços da sub-rede** , por exemplo, *apps-subnet* e 10.1.1.0/24.  Clique em **Adicionar**.
+1. Selecione **Adicionar sub-rede** novamente e insira **Nome da sub-rede** para **Intervalo de endereços da sub-rede**, por exemplo, *apps-subnet* e 10.1.1.0/24.  Clique em **Adicionar**.
 
 1. Clique em **Revisar + Criar**. Mantenha o restante com os padrões e clique em **Criar**.
 
@@ -78,7 +79,7 @@ Selecione a rede virtual *azure-spring-cloud-vnet* que você criou anteriormente
 
     ![Controle de acesso para v-net](./media/spring-cloud-v-net-injection/access-control.png)
 
-2. Na caixa de diálogo **Adicionar atribuição de função** , insira ou selecione estas informações:
+2. Na caixa de diálogo **Adicionar atribuição de função**, insira ou selecione estas informações:
 
     |Configuração  |Valor                                             |
     |---------|--------------------------------------------------|
@@ -110,13 +111,13 @@ az role assignment create \
 
 1. Na caixa de pesquisa superior, pesquise **Azure Spring Cloud** e selecione **Azure Spring Cloud** no resultado.
 
-1. Na página do **Azure Spring Cloud** , clique em **+ Adicionar**.
+1. Na página do **Azure Spring Cloud**, clique em **+ Adicionar**.
 
 1. Preencha o formulário na página **Criar** do Azure Spring Cloud. 
 
 1. Selecione o mesmo grupo de recursos e região que a rede virtual.
 
-1. Para **Nome** em **Detalhes do Serviço** , selecione *azure-spring-cloud-vnet*.
+1. Para **Nome** em **Detalhes do Serviço**, selecione *azure-spring-cloud-vnet*.
 
 1. Selecione **Rede** e selecione o seguinte:
 

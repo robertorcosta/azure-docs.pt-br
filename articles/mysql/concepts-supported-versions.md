@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: ed767055c1227d39fc29ac77a44c96b19030ad28
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535853"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751021"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões com suporte do servidor de Banco de Dados do Azure para MySQL
 
@@ -46,9 +46,9 @@ Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/n
 ## <a name="managing-updates-and-upgrades"></a>Gerenciar atualizações e upgrades
 O serviço gerencia automaticamente a aplicação de patch para atualizações de versão de correção de bug. Por exemplo, 5.7.20 a 5.7.21.  
 
-Atualmente, não há suporte para atualizações de versão principal e secundária. Por exemplo, não há suporte para a atualização do MySQL 5.6 para o MySQL 5.7. Caso deseje atualizar da versão 5.6 para a 5.7, faça um [despejo e restaure-a](./concepts-migrate-dump-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
+A atualização de versão principal tem suporte no momento pelo serviço para atualizações do MySQL v 5.6 para v 5.7. Para obter mais detalhes, consulte [como executar atualizações de versão principais](how-to-major-version-upgrade.md). Se você quiser atualizar de 5,7 para 8,0, recomendamos que você execute [despejo e restauração](./concepts-migrate-dump-restore.md) em um servidor que foi criado com a nova versão do mecanismo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter detalhes sobre a política de controle de versão do banco de dados do Azure para MySQL, consulte [este documento](concepts-version-policy.md).
-- Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço** , consulte [camadas de serviço](./concepts-pricing-tiers.md)
+- Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-pricing-tiers.md)

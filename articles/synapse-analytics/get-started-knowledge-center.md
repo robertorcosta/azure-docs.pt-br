@@ -9,15 +9,15 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/16/2020
+ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331950"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685419"
 ---
-# <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento do Azure Synapse
+# <a name="explore-the-synapse-knowledge-center"></a>Explorar o Centro de Conhecimento do Azure Synapse
 
 Neste tutorial, você aprenderá a usar o Centro de Conhecimento do Synapse Studio.
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a usar o Centro de Conhecimento do Synapse Stud
 
 Há duas maneiras de localizar o Centro de Conhecimento no Synapse Studio:
 
-  1. No hub Início, em Links úteis, clique no primeiro link chamado **Centro de Conhecimento**.
+  1. No hub inicial, ao lado da parte superior da página, clique em **Learn**.
   2. Na barra de menus na parte superior, clique em **?** e, em seguida,  em **Centro de Conhecimento**.
 
 Escolha um dos métodos e abra o **Centro de Conhecimento**.
@@ -39,7 +39,7 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Como explorar o armazenamento de blobs com o pool de SQL sem servidor
 
-1. Acesse o **Centro de Conhecimento** e clique em **Usar exemplos imediatamente**
+1. Acesse o **Centro de Conhecimento**, clique em **Usar exemplos imediatamente**
 1. Selecione **Consultar dados com SQL** 
 1. Clique em **Usar amostras imediatamente**
 1. Isso criará um novo script SQL.

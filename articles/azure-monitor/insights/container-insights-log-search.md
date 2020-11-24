@@ -3,12 +3,12 @@ title: Como consultar logs de Azure Monitor para contêineres | Microsoft Docs
 description: Azure Monitor para contêineres coleta dados de log e métricas e este artigo descreve os registros e inclui exemplos de consultas.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994023"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747672"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar logs de Azure Monitor para contêineres
 
@@ -16,7 +16,7 @@ Azure Monitor para contêineres coleta métricas de desempenho, dados de invent�
 
 ## <a name="container-records"></a>Registros de contêiner
 
-Na tabela a seguir, são fornecidos os detalhes dos registros coletados por Azure Monitor para contêineres. 
+Na tabela a seguir, são fornecidos detalhes dos registros coletados por Azure Monitor para contêineres. Para obter uma lista das descrições de coluna, consulte a referência para as tabelas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Dados | Fonte de dados | Tipo de dados | Campos |
 |------|-------------|-----------|--------|

@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01751caba2b14f899588deba083a8c59c41d13ba
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92ac495381f63e01d64c9a3d02777dca37ebb343
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964002"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837984"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Active Directory?
 
 Um dos principais recursos de uma plataforma de identidade é verificar ou *autenticar* as credenciais quando um usuário entra em um dispositivo, um aplicativo ou um serviço. No Azure AD (Azure Active Directory), a autenticação envolve mais do que apenas a verificação de um nome de usuário e uma senha. Para aprimorar a segurança e reduzir a necessidade de suporte técnico, a autenticação do Azure AD inclui os seguintes componentes:
 
 * Redefinição de senha de autoatendimento
-* Autenticação Multifator do Azure
+* Autenticação multifator do Azure AD
 * Integração híbrida para o write-back de alterações de senha no ambiente local
 * Integração híbrida para imposição de políticas de proteção de senha em um ambiente local
 * Autenticação sem senha
@@ -32,7 +32,7 @@ Um dos principais recursos de uma plataforma de identidade é verificar ou *aute
 
 O Azure AD ajuda a proteger a identidade de um usuário e a simplificar a experiência de conexão dele. Recursos como redefinição de senha por autoatendimento permitem que os usuários atualizem ou alterem as respectivas senhas usando um navegador da Web em qualquer dispositivo. Esse recurso é especialmente útil quando o usuário esquece a senha ou a conta é bloqueada. Sem esperar que um suporte técnico ou um administrador forneça suporte, um usuário pode desbloquear a si mesmo e continuar trabalhando.
 
-A Autenticação Multifator do Azure permite que os usuários escolham uma forma adicional de autenticação durante a conexão, como uma chamada telefônica ou uma notificação de aplicativo móvel. Essa capacidade reduz o requisito de uma só forma fixa de autenticação secundária, como um token de hardware. Se, atualmente, o usuário não tiver uma forma de autenticação adicional, ele poderá escolher outro método e continuar funcionando.
+A Autenticação Multifator do Azure AD permite que os usuários escolham uma forma adicional de autenticação durante a conexão, como uma chamada telefônica ou uma notificação de aplicativo móvel. Essa capacidade reduz o requisito de uma só forma fixa de autenticação secundária, como um token de hardware. Se, atualmente, o usuário não tiver uma forma de autenticação adicional, ele poderá escolher outro método e continuar funcionando.
 
 ![Métodos de autenticação em uso na tela de login](media/concept-authentication-methods/overview-login.png)
 
@@ -50,7 +50,7 @@ A redefinição de senha por autoatendimento funciona nos seguintes cenários:
 
 Quando um usuário atualiza ou redefine a senha usando a redefinição de senha por autoatendimento, também pode ser feito o write-back dessa senha em um ambiente local do Active Directory. O write-back de senha garante que um usuário possa usar imediatamente as credenciais atualizadas com dispositivos e aplicativos locais.
 
-## <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
+## <a name="azure-ad-multi-factor-authentication"></a>Autenticação multifator do Azure AD
 
 A autenticação multifator é um processo em que um usuário é solicitado durante o processo de conexão para obter uma forma adicional de identificação, como inserir um código no celular ou fornecer uma verificação de impressão digital.
 
@@ -58,13 +58,13 @@ Se você usar apenas uma senha para autenticar um usuário, isso deixará um vet
 
 ![Imagem conceitual das diferentes formas de autenticação multifator](./media/concept-mfa-howitworks/methods.png)
 
-A Autenticação Multifator do Azure funciona exigindo dois ou mais dos seguintes métodos de autenticação:
+A Autenticação Multifator do Azure AD funciona exigindo dois ou mais dos seguintes métodos de autenticação:
 
 * Algo que você sabe, normalmente, uma senha.
 * Algo que você tem, como um dispositivo confiável que não seja facilmente duplicado, como um telefone ou uma chave de hardware.
 * Algo que você é: uma biometria, como uma impressão digital ou uma verificação facial.
 
-Os usuários podem se registrar na redefinição de senha por autoatendimento e na Autenticação Multifator do Azure em uma só etapa para simplificar a experiência de integração. Os administradores podem definir quais formas de autenticação secundária podem ser usadas. A Autenticação Multifator do Azure também pode ser necessária quando os usuários executam uma redefinição de senha por autoatendimento para proteger ainda mais esse processo.
+Os usuários podem se registrar na redefinição de senha por autoatendimento e na Autenticação Multifator do Azure AD em uma etapa para simplificar a experiência de integração. Os administradores podem definir quais formas de autenticação secundária podem ser usadas. A Autenticação Multifator do Azure AD também pode ser necessária quando os usuários executam uma redefinição de senha por autoatendimento para proteger ainda mais esse processo.
 
 ## <a name="password-protection"></a>Proteção por senha
 
@@ -76,7 +76,7 @@ Para a segurança híbrida, você pode integrar a proteção de senha do Azure A
 
 ## <a name="passwordless-authentication"></a>Autenticação sem senha
 
-A meta final para muitos ambientes é remover o uso de senhas como parte dos eventos de conexão. Recursos como a proteção de senha do Azure ou a Autenticação Multifator do Azure ajudam a aprimorar a segurança, mas um nome de usuário e uma senha permanecem sendo uma forma fraca de autenticação que pode ser exposta ou atacada por força bruta.
+A meta final para muitos ambientes é remover o uso de senhas como parte dos eventos de conexão. Recursos como a proteção por senha do Azure ou a Autenticação Multifator do Azure AD ajudam a aprimorar a segurança, mas um nome de usuário e uma senha permanecem sendo uma forma fraca de autenticação que pode ser exposta ou atacada por força bruta.
 
 ![Segurança versus conveniência com o processo de autenticação que leva à eliminação de senhas](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
@@ -86,11 +86,11 @@ O Azure AD fornece maneiras de se autenticar nativamente usando métodos sem sen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, confira o [tutorial da SSPR (redefinição de senha por autoatendimento)][tutorial-sspr] e a [Autenticação Multifator do Azure][tutorial-azure-mfa].
+Para começar, confira o [tutorial da SSPR (redefinição de senha por autoatendimento)][tutorial-sspr] e a [Autenticação Multifator do Azure AD][tutorial-azure-mfa].
 
 Para saber mais sobre os conceitos de redefinição de senha por autoatendimento, confira [Como funciona a redefinição de senha por autoatendimento do Azure AD][concept-sspr].
 
-Para saber mais sobre os conceitos da autenticação multifator, confira [Como funciona a Autenticação Multifator do Azure][concept-mfa].
+Para saber mais sobre os conceitos da autenticação multifator, confira [Como funciona a Autenticação Multifator do Azure AD][concept-mfa].
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

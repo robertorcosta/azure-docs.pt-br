@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424618"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637142"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função C# no Azure da linha de comando
 
@@ -28,6 +28,8 @@ Há também uma [versão baseada no Visual Studio Code](create-first-function-vs
 Antes de começar, você deverá ter o seguinte:
 
 + Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ O [SDK do .NET Core 3.1](https://www.microsoft.com/net/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2), versão 3.x.
 
@@ -49,6 +51,8 @@ Verifique os pré-requisitos, que dependem se você está usando a CLI do Azure 
 
 + Execute `az login` para entrar no Azure e verifique se a assinatura está ativa.
 
++ Execute `dotnet --list-sdks` para verificar se o SDK do .NET Core versão 3.1.x está instalado
+
 # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
 
 + Em um terminal ou uma janela Comando, execute `func --version` para verificar se a versão do Azure Functions Core Tools é a 3.x.
@@ -56,6 +60,8 @@ Verifique os pré-requisitos, que dependem se você está usando a CLI do Azure 
 + Execute `(Get-Module -ListAvailable Az).Version` e verifique se é a versão 5.0 ou posterior. 
 
 + Execute `Connect-AzAccount` para entrar no Azure e verifique se a assinatura está ativa.
+
++ Execute `dotnet --list-sdks` para verificar se o SDK do .NET Core versão 3.1.x está instalado
 
 ---
 

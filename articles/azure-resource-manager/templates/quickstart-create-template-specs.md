@@ -2,15 +2,15 @@
 title: Criar e implantar especificação de modelo
 description: Saiba como criar uma especificação usando um modelo do ARM. Implante a especificação de modelo em um grupo de recursos em sua assinatura.
 author: tfitzmac
-ms.date: 11/10/2020
+ms.date: 11/17/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506355"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747495"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Início Rápido: Criar e implantar especificação de modelo (versão prévia)
 
@@ -21,9 +21,7 @@ Este início rápido mostra como empacotar um modelo do ARM (Azure Resource Mana
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> As especificações de modelo estão atualmente em versão prévia. Para usá-las, você deve [inscrever-se na lista de espera](https://aka.ms/templateSpecOnboarding).
->
-> Depois de ser aprovado na lista de espera, você obterá instruções para a instalação dos módulos em versão prévia do PowerShell e da CLI.
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você precisa instalar a versão mais recente do PowerShell ou da CLI do Azure. Para o Azure PowerShell, use a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para a CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Criar especificação de modelo
 

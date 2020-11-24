@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: aea5f0428fe55c0dae3734e196008cbc26a974b9
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597882"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576206"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de Chaves do Azure
 
@@ -23,7 +23,7 @@ O Cofre de Chaves do Azure tem várias camadas de redundância, a fim de garanti
 > [!NOTE]
 > Este guia se aplica aos cofres. Os pools do HSM gerenciado usam um modelo diferente de alta disponibilidade e recuperação de desastre. Confira o [Guia de recuperação de desastre do HSM gerenciado](../managed-hsm/disaster-recovery-guide.md) para obter mais informações.
 
-O conteúdo de seu cofre de chaves é replicado na região e em uma região secundária a pelo menos 150 milhas de distância, mas na mesma região geográfica, para manter alta durabilidade de suas chaves e segredos. Consulte o documento [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md) para obter detalhes sobre pares de regiões específicos.
+O conteúdo do seu cofre de chaves é replicado na região e em uma região secundária a, pelo menos, 150 milhas de distância, mas na mesma geografia, para manter alta durabilidade das chaves e dos segredos. Para obter detalhes sobre pares de regiões específicas, confira [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md). A exceção ao modelo de regiões emparelhadas é o Sul do Brasil, que permite apenas a opção de manter os dados residentes no Sul do Brasil. O Sul do Brasil usa o LRS (armazenamento com redundância local) para replicar seus dados três vezes na única localização/região.   
 
 Se os componentes individuais dentro do serviço de cofre de chaves falharem, os componentes alternativos dentro da região interferirão para atender à sua solicitação, de modo a garantir que não haja degradação da funcionalidade. Você não precisa realizar nenhuma ação para iniciar esse processo, ele ocorre automaticamente e será transparente para você.
 

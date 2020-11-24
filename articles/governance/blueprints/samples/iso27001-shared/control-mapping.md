@@ -3,12 +3,12 @@ title: Controles da amostra de blueprint dos Serviços Compartilhados ISO 27001
 description: Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: bb1cfbc09e8a6209b9e6d0cb2970dc66ee05ba6d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: c79159fca9d619b727ef651bf42044182144ab35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420335"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842508"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001
 
@@ -82,7 +82,7 @@ O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-a
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de logon seguro
 
-Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
+Esse blueprint atribui três definições do Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A Autenticação Multifator do Azure AD fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte. Monitorando as contas sem a autenticação multifator habilitada, você pode identificar as contas que têm mais probabilidade de serem comprometidas.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - O MFA deve ser habilitado em contas com permissões de leitura em sua assinatura

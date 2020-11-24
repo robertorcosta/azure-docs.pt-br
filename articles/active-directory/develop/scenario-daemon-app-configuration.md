@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444156"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748641"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
@@ -36,9 +36,9 @@ Essas bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
 
 Os aplicativos daemon usam permissões de aplicativo em vez de permissões delegadas. Portanto, o tipo de conta com suporte não pode ser uma conta em nenhum diretório organizacional ou qualquer conta Microsoft pessoal (por exemplo, Skype, Xbox, Outlook.com). Não há nenhum administrador de locatários para conceder consentimento a um aplicativo daemon para uma conta pessoal da Microsoft. Você precisará escolher *contas em minha organização* ou *contas em qualquer organização*.
 
-Portanto, a autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
+A autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
 
-Se você for um ISV e quiser fornecer uma ferramenta multilocatário, poderá usar o `organizations` . Mas tenha em mente que você também precisará explicar aos seus clientes como conceder o consentimento do administrador. Para obter detalhes, consulte [solicitando consentimento para um locatário inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Além disso, atualmente há uma limitação no MSAL: `organizations` é permitido somente quando as credenciais do cliente são um segredo do aplicativo (não um certificado).
+Mesmo que queira fornecer uma ferramenta multilocatário, você deve usar uma ID de locatário ou um nome de domínio, e **não** `common` ou `organizations` com esse fluxo, porque o serviço não pode inferir de maneira confiável qual locatário deve ser usado.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurar e instanciar o aplicativo
 

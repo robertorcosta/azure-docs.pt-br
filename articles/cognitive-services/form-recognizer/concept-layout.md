@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c2e691d673b385d597957cf5a4ce3c3f18ba466
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511393"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741722"
 ---
 # <a name="form-recognizer-layout-service"></a>Serviço de layout do reconhecedor de formulário
 
@@ -86,11 +86,10 @@ O layout extrai tabelas de documentos (PDF, TIFF) e imagens (jpg, png, BMP). Os 
 
 O layout também extrai marcas de seleção de documentos. As marcas de seleção extraídas incluem a caixa delimitadora, a confiança e o estado (selecionado/não selecionado). As informações de marca de seleção são extraídas na `"readResults"` seção da saída JSON. 
 
-Exemplos de <<< adicionar marcas de seleção>>>
-
 ## <a name="next-steps"></a>Próximas etapas
 
 - Experimente sua própria extração de layout usando a [interface do usuário de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/)
+- Preencha um guia de [início rápido da biblioteca de cliente do reconhecedor de formulário](quickstarts/client-library.md) para começar a extrair layouts no idioma de sua escolha.
 - Ou siga o guia de início rápido [extrair dados de layout](./QuickStarts/python-layout.md) para implementar a extração de dados de layout usando o Python e a API REST.
 
 ## <a name="see-also"></a>Confira também

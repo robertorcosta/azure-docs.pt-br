@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ab71a7fa3d3f92ecf3e1f73835e41fa7170130e6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408135"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636598"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -24,7 +24,7 @@ Este artigo mostra as etapas necessárias para transferir a propriedade da cobra
 
 Se desejar manter a propriedade da cobrança, mas alterar o tipo de assinatura, confira [Mudar sua assinatura do Azure para outra oferta](switch-azure-offer.md). Para controlar quem pode acessar recursos na assinatura, confira [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
-Se você for cliente EA (Contrato Enterprise), seus administradores corporativos poderão transferir a propriedade da cobrança de suas assinaturas entre contas. Para obter mais informações, confira [Alterar o proprietário da conta](ea-portal-administration.md#change-account-owner).
+Se você for cliente EA (Contrato Enterprise), seus administradores corporativos poderão transferir a propriedade da cobrança de suas assinaturas entre contas. Para obter mais informações, confira [Alterar a propriedade de assinatura ou de conta do Azure](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 Somente o administrador de cobrança de uma conta pode transferir a propriedade de uma assinatura.
 
