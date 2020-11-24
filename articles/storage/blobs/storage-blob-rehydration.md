@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035137"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545918"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados de blob da camada de arquivos
 
 Enquanto um blob estiver na camada de acesso aos arquivos, ele será considerado offline e não poderá ser lido nem alterado. Os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob e as propriedades dele. A leitura e a alteração de dados de blob estão disponíveis somente com camadas online, como a quente ou a fria. Há duas opções para recuperar e acessar os dados armazenados na camada de acesso aos arquivos.
 
-1. [Reidratar um blob arquivado em uma camada online](#rehydrate-an-archived-blob-to-an-online-tier): reidrate um blob de arquivos na camada quente ou na fria alterando a camada dele usando a operação [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier).
-2. [Copiar um blob arquivado em uma camada online](#copy-an-archived-blob-to-an-online-tier): crie uma cópia de um blob de arquivos usando a operação [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Especifique um nome de blob diferente e uma camada de destino quente ou fria.
+1. [Reidratar um blob arquivado em uma camada online](#rehydrate-an-archived-blob-to-an-online-tier): reidrate um blob de arquivos na camada quente ou na fria alterando a camada dele usando a operação [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
+2. [Copiar um blob arquivado em uma camada online](#copy-an-archived-blob-to-an-online-tier): crie uma cópia de um blob de arquivos usando a operação [Copy Blob](/rest/api/storageservices/copy-blob). Especifique um nome de blob diferente e uma camada de destino quente ou fria.
 
  Para obter mais informações sobre as camadas, confira [Armazenamento de Blobs do Azure: camadas de acesso quente, frio e aos arquivos](storage-blob-storage-tiers.md).
 
@@ -31,7 +31,7 @@ Enquanto um blob estiver na camada de acesso aos arquivos, ele será considerado
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar um blob arquivado em uma camada online
 
-Caso não deseje reidratar o blob de arquivos, você pode optar por realizar uma operação [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). O blob original permanecerá inalterado em arquivos enquanto um blob for criado na camada online quente ou fria para você trabalhar. Na operação Copy Blob, também é possível definir a propriedade opcional *x-ms-rehydrate-priority* como Padrão ou Alta para especificar a prioridade sob a qual você deseja que a cópia de blob seja criada.
+Caso não deseje reidratar o blob de arquivos, você pode optar por realizar uma operação [Copy Blob](/rest/api/storageservices/copy-blob). O blob original permanecerá inalterado em arquivos enquanto um blob for criado na camada online quente ou fria para você trabalhar. Na operação Copy Blob, também é possível definir a propriedade opcional *x-ms-rehydrate-priority* como Padrão ou Alta para especificar a prioridade sob a qual você deseja que a cópia de blob seja criada.
 
 A cópia de um blob de arquivos pode levar horas para ser concluída, dependendo da prioridade de reidratação selecionada. Nos bastidores, a operação **Copy Blob** lê o blob de arquivos de origem para criar um blob online na camada de destino selecionada. É possível que o novo blob fique visível ao você listar os blobs. No entanto, os dados estão indisponíveis até que a leitura do blob de arquivos de origem seja concluída e que os dados sejam gravados no novo blob de destino online. O novo blob é uma cópia independente. Nenhuma modificação nem exclusão feita a ele afeta o blob de arquivos de origem.
 

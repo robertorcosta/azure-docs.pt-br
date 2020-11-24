@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684424"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564378"
 ---
 Os discos compartilhados do Azure são um novo recurso para discos gerenciados do Azure que permite anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure.
 
@@ -41,7 +41,7 @@ Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte 
 
 ### <a name="windows"></a>Windows
 
-Os discos compartilhados do Azure têm suporte no Windows Server 2008 e mais recentes. A maioria dos clusters baseados em Windows se baseia no WSFC, que lida com toda a infraestrutura básica para comunicação de nó de cluster, permitindo que seus aplicativos aproveitem os padrões de acesso paralelo. O WSFC permite opções de CSV e não baseadas em CSV, dependendo da sua versão do Windows Server. Para obter mais detalhes, consulte [Criar um cluster de failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Os discos compartilhados do Azure têm suporte no Windows Server 2008 e mais recentes. A maioria dos clusters baseados em Windows se baseia no WSFC, que lida com toda a infraestrutura básica para comunicação de nó de cluster, permitindo que seus aplicativos aproveitem os padrões de acesso paralelo. O WSFC permite opções de CSV e não baseadas em CSV, dependendo da sua versão do Windows Server. Para obter mais detalhes, consulte [Criar um cluster de failover](/windows-server/failover-clustering/create-failover-cluster).
 
 Alguns aplicativos populares em execução no WSFC incluem:
 
