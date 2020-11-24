@@ -1,20 +1,19 @@
 ---
-title: Referência de sintaxe sqlruleaction no barramento de serviço do Azure
-description: Este artigo fornece uma referência para a sintaxe sqlruleaction. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem orientada.
+title: Sintaxe da ação SQL da regra de assinatura do barramento de serviço do Azure | Microsoft Docs
+description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são gravadas na sintaxe baseada em linguagem SQL que é executada em uma mensagem.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341584"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808840"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe sqlruleaction para o barramento de serviço do Azure
+# <a name="subscription-rule-sql-action-syntax"></a>Sintaxe da ação SQL da regra de assinatura
 
-Um *SqlRuleAction* é uma instância da classe [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações gravadas na sintaxe baseada na linguagem SQL executada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+Uma *ação SQL* é usada para manipular metadados de mensagem depois que uma mensagem é selecionada por um filtro de uma regra de assinatura. É uma expressão de texto que se baseia em um subconjunto do padrão SQL-92. As expressões de ação são usadas com o `sqlExpression` elemento da propriedade ' action ' de um barramento de serviço `Rule` em um [modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento de CLI do Azure `az servicebus topic subscription rule create` comando [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) e várias funções de SDK que permitem o gerenciamento de regras de assinatura.
   
-Este artigo lista os detalhes sobre a gramática de ação de regras do SQL.  
   
 ```  
 <statements> ::=
@@ -211,5 +210,9 @@ A função `property(name)` retorna o valor da propriedade referenciada por `nam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [Classe sqlruleaction (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Classe sqlruleaction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [Classe sqlruleaction (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [Sqlruleaction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [regra de assinatura do tópico AZ ServiceBus](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

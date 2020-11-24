@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3ffa781e046a89b2e363d6edc9b9bf99116aac07
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991971"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808848"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -113,6 +113,9 @@ SUSE Linux Enterprise Server 11 | SP3<br/><br/> Não há suporte para atualizaç
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
 
+> [!NOTE]
+> Verifique se há versões do Linux, Azure Site Recovery não oferece suporte a imagens de sistema operacional personalizadas. Somente os kernels de ações que fazem parte do lançamento/atualização da versão secundária de distribuição têm suporte.
+
 * * Observação: para dar suporte aos kernels do Linux mais recentes dentro de 15 dias do lançamento, Azure Site Recovery distribui o patch do Hot Fix sobre a versão mais recente do agente de mobilidade. Essa correção é distribuída entre duas versões de versão principais. Para atualizar para a versão mais recente do agente de mobilidade (incluindo patch de Hot Fix), siga as etapas mencionadas neste [artigo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Esse patch é lançado atualmente para agentes de mobilidade usados no cenário de recuperação de desastre do Azure para Azure.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões com suporte do kernel Ubuntu para máquinas virtuais do Azure
@@ -172,7 +175,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | [9,34](https://support.microsoft.com/
 * Gerenciador de volume: LVM2
 
 > [!NOTE]
-> Não há suporte para o software de vários caminhos. 
+> Não há suporte para o software de vários caminhos.
 
 
 ## <a name="replicated-machines---compute-settings"></a>Máquinas replicadas - configurações de computação

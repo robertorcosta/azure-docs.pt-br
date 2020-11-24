@@ -2,13 +2,13 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 54d4c096fab09bf31e121a7aae0eed3d2462e0c4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/24/2020
+ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519873"
+ms.locfileid: "95798599"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -106,6 +106,14 @@ Para obter informações mais detalhadas sobre os comandos de implantação e op
 * [Usar um botão de implantação para implantar modelos do repositório GitHub](deploy-to-azure-button.md)
 * [Implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Nome e local da implantação
+
+Para implantações no nível do grupo de gerenciamento, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação. As implantações de [assinatura](deploy-to-subscription.md) e [locatário](deploy-to-tenant.md) também exigem um local. Para implantações de [grupo de recursos](deploy-to-resource-group.md) , o local do grupo de recursos é usado para armazenar os dados de implantação.
+
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+
+O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Por exemplo, se você criar uma implantação de grupo de gerenciamento com o nome **deployment1** em **centralus**, não será possível criar outra implantação mais tarde com o nome **deployment1** , mas um local de **westus**. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+
 ## <a name="deployment-scopes"></a>Escopos de implantação
 
 Ao implantar em um grupo de gerenciamento, você pode implantar recursos em:
@@ -131,7 +139,7 @@ Os recursos definidos na seção de recursos do modelo são aplicados ao grupo d
 
 Para direcionar outro grupo de gerenciamento, adicione uma implantação aninhada e especifique a `scope` propriedade. Defina a `scope` propriedade como um valor no formato `Microsoft.Management/managementGroups/<mg-name>` .
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Escopo da assinatura
 
@@ -139,7 +147,7 @@ Você também pode direcionar as assinaturas dentro de um grupo de gerenciamento
 
 Para direcionar uma assinatura dentro do grupo de gerenciamento, use uma implantação aninhada e a `subscriptionId` propriedade.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Escopo para o grupo de recursos
 
@@ -162,14 +170,6 @@ Você pode usar uma implantação aninhada com o `scope` e o `location` set.
 Ou, você pode definir o escopo como `/` para alguns tipos de recursos, como grupos de gerenciamento.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
-
-## <a name="deployment-location-and-name"></a>Nome e local da implantação
-
-Para implantações no nível do grupo de gerenciamento, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
-
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
-
-O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
 ## <a name="azure-policy"></a>Azure Policy
 

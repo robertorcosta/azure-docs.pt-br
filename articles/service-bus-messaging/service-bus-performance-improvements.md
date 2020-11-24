@@ -4,12 +4,12 @@ description: Descreve como usar o Barramento de Serviço para otimizar o desempe
 ms.topic: article
 ms.date: 11/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9104c5f4a01459c00327da1b60ad811787b7e22f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 12de7edd5dec42b01c46307febbef7d739d0495d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541259"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811662"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -274,15 +274,15 @@ A pré-busca não afeta o número de operações de mensagens faturáveis e est�
 
 Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedades:
 
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK do WindowsAzure. ServiceBus](#tab/net-framework-sdk)
 
 Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedades:
 
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 
@@ -311,7 +311,7 @@ Se uma única fila ou tópico não puder lidar com o esperado, use várias entid
 > [!NOTE]
 > Esta seção se aplica somente ao SDK do WindowsAzure. ServiceBus, pois o SDK do Microsoft. Azure. ServiceBus não expõe essa funcionalidade.
 
-O barramento de serviço tem um recurso, usado especificamente para desenvolvimento, que **nunca deve ser usado em configurações de produção** : [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
+O barramento de serviço tem um recurso, usado especificamente para desenvolvimento, que **nunca deve ser usado em configurações de produção**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
 
 Quando novas regras ou filtros são adicionados ao tópico, você pode usar [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] o para verificar se a nova expressão de filtro está funcionando conforme o esperado.
 

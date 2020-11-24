@@ -2,13 +2,13 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519856"
+ms.locfileid: "95807700"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implantações de assinatura com modelos ARM
 
@@ -126,6 +126,14 @@ Para obter informações mais detalhadas sobre os comandos de implantação e op
 * [Usar um botão de implantação para implantar modelos do repositório GitHub](deploy-to-azure-button.md)
 * [Implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Nome e local da implantação
+
+Para implantações no nível da assinatura, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação. O [grupo de gerenciamento](deploy-to-management-group.md) e as implantações de [locatário](deploy-to-tenant.md) também exigem um local. Para implantações de [grupo de recursos](deploy-to-resource-group.md) , o local do grupo de recursos é usado para armazenar os dados de implantação.
+
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+
+O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Por exemplo, se você criar uma implantação de assinatura com o nome **deployment1** em **centralus**, não será possível criar outra implantação mais tarde com o nome **deployment1** , mas um local de **westus**. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+
 ## <a name="deployment-scopes"></a>Escopos de implantação
 
 Ao implantar em uma assinatura, você pode implantar recursos em:
@@ -173,14 +181,6 @@ Você pode usar uma implantação aninhada com o `scope` e o `location` set.
 Ou, você pode definir o escopo como `/` para alguns tipos de recursos, como grupos de gerenciamento.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
-
-## <a name="deployment-location-and-name"></a>Nome e local da implantação
-
-Para implantações no nível da assinatura, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
-
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
-
-O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

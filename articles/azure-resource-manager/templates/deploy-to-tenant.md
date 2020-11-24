@@ -2,13 +2,13 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242654"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807645"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de locatário com modelos ARM
 
@@ -129,6 +129,14 @@ Para obter informações mais detalhadas sobre os comandos de implantação e op
 * [Usar um botão de implantação para implantar modelos do repositório GitHub](deploy-to-azure-button.md)
 * [Implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Nome e local da implantação
+
+Para implantações no nível do locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação. As implantações de [assinatura](deploy-to-subscription.md) e [grupo de gerenciamento](deploy-to-management-group.md) também exigem um local. Para implantações de [grupo de recursos](deploy-to-resource-group.md) , o local do grupo de recursos é usado para armazenar os dados de implantação.
+
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+
+O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Por exemplo, se você criar uma implantação de locatário com o nome **deployment1** em **centralus**, não será possível criar outra implantação mais tarde com o nome **deployment1** , mas um local de **westus**. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+
 ## <a name="deployment-scopes"></a>Escopos de implantação
 
 Ao implantar em um locatário, você pode implantar recursos em:
@@ -153,7 +161,7 @@ Os recursos definidos na seção de recursos do modelo são aplicados ao locatá
 
 Para direcionar um grupo de gerenciamento dentro do locatário, adicione uma implantação aninhada e especifique a `scope` propriedade.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Escopo da assinatura
 
@@ -161,7 +169,7 @@ Você também pode direcionar as assinaturas dentro do locatário. O usuário qu
 
 Para direcionar uma assinatura no locatário, use uma implantação aninhada e a `subscriptionId` propriedade.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Escopo para o grupo de recursos
 
@@ -170,14 +178,6 @@ Você também pode direcionar grupos de recursos dentro do locatário. O usuári
 Para direcionar um grupo de recursos dentro do locatário, use uma implantação aninhada. Definir as propriedades `subscriptionId` e `resourceGroup`. Não defina um local para a implantação aninhada porque ela é implantada no local do grupo de recursos.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
-
-## <a name="deployment-location-and-name"></a>Nome e local da implantação
-
-Para implantações no nível do locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
-
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
-
-O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
 ## <a name="create-management-group"></a>Criar grupo de gerenciamento
 

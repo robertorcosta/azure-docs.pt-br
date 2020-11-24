@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 1b76413bb78baa211fee3aebe37075188ec8c69e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f9a828b78dc5ba6bdbc77e22daa75be4182015f0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531943"
+ms.locfileid: "95805707"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
 
@@ -31,7 +31,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 - [Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com/)
 
-- [Conectar-se a uma conta de armazenamento do Azure ou serviço](//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Conectar-se a uma conta de armazenamento do Azure ou serviço](/azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
 
@@ -47,7 +47,7 @@ As etapas a seguir ilustram como criar um compartilhamento de arquivos no Gerenc
 
     ![Criar o compartilhamento de arquivos](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. Uma caixa de texto será exibida abaixo da pasta **Compartilhamentos de Arquivos** . Insira o nome do compartilhamento de arquivo. Confira a seção [Regras de nomenclatura do compartilhamento](//azure/storage/storage-dotnet-how-to-use-blobs) para obter uma lista de regras e restrições sobre como nomear os compartilhamentos de arquivos.
+1. Uma caixa de texto será exibida abaixo da pasta **Compartilhamentos de Arquivos** . Insira o nome do compartilhamento de arquivo. Confira a seção [Regras de nomenclatura do compartilhamento](/azure/storage/storage-dotnet-how-to-use-blobs) para obter uma lista de regras e restrições sobre como nomear os compartilhamentos de arquivos.
 
     ![Nomeação do compartilhamento](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de ar
 
 ## <a name="delete-a-file-share"></a>Excluir um compartilhamento de arquivos
 
-Os compartilhamentos de arquivos podem ser criados e excluídos facilmente conforme a necessidade. (Para saber como excluir arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Os compartilhamentos de arquivos podem ser criados e excluídos facilmente conforme a necessidade. (Para saber como excluir arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 As etapas a seguir ilustram como excluir um compartilhamento de arquivos no Gerenciador de Armazenamento:
 
@@ -97,7 +97,7 @@ As etapas a seguir ilustram como excluir um compartilhamento de arquivos no Gere
 
 ## <a name="copy-a-file-share"></a>Copiar um compartilhamento de arquivos
 
-O Gerenciador de Armazenamento permite que você copie um compartilhamento de arquivos na área de transferência e cole esse compartilhamento de arquivos em outra conta de armazenamento. (Para saber como copiar arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+O Gerenciador de Armazenamento permite que você copie um compartilhamento de arquivos na área de transferência e cole esse compartilhamento de arquivos em outra conta de armazenamento. (Para saber como copiar arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma conta de armazenamento para outra.
 
@@ -117,7 +117,7 @@ As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma c
 
 ## <a name="get-the-sas-for-a-file-share"></a>Obter a SAS para um compartilhamento de arquivos
 
-Uma [SAS (assinatura de acesso compartilhado)](//azure/storage/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos em sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
+Uma [SAS (assinatura de acesso compartilhado)](/azure/storage/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos em sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
 
 As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arquivos:+
 

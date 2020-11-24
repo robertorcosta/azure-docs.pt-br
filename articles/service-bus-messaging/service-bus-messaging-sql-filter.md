@@ -1,22 +1,23 @@
 ---
-title: Referência da sintaxe SQLFilter do Barramento de Serviços do Azure | Microsoft Docs
-description: Este artigo fornece detalhes sobre a gramática do sqlfilter. Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.
+title: Sintaxe de filtro SQL da regra de assinatura do barramento de serviço do Azure | Microsoft Docs
+description: Este artigo fornece detalhes sobre a gramática do filtro SQL. Um filtro SQL dá suporte a um subconjunto do padrão SQL-92.
 ms.topic: article
-ms.date: 11/17/2020
-ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 11/24/2020
+ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888463"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95805626"
 ---
-# <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
+# <a name="subscription-rule-sql-filter-syntax"></a>Sintaxe de filtro SQL de regra de assinatura
 
-Um objeto *sqlfilter* é uma instância da [classe sqlfilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)e representa uma expressão de filtro baseada em linguagem SQL, que é avaliada em um [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.  
+Um *filtro SQL* é um dos tipos de filtro disponíveis para assinaturas de tópico do barramento de serviço. É uma expressão de texto que se baseia em um subconjunto do padrão SQL-92. Expressões de filtro são usadas com o `sqlExpression` elemento da propriedade ' sqlfilter ' de um barramento de serviço `Rule` em um [modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento de CLI do Azure `az servicebus topic subscription rule create` comando [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) e várias funções de SDK que permitem o gerenciamento de regras de assinatura.
+
+O barramento de serviço Premium também dá suporte à [sintaxe de seletor de mensagem SQL JMS](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) por meio da API JMS 2,0.
+
   
- Este tópico lista detalhes sobre a gramática de SqlFilter.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -324,4 +325,7 @@ Para obter um exemplo em C#, consulte o [tópico filtros de exemplo no GitHub](h
 
 - [Classe SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Classe sqlfilter (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [regra de assinatura do tópico AZ ServiceBus](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

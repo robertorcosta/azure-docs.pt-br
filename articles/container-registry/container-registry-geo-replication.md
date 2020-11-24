@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486865"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810056"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -18,9 +18,9 @@ As empresas que desejam ter uma presença local ou um backup dinâmico optam por
 
 Um Registro com replicação geográfica oferece os seguintes benefícios:
 
-* Nomes de marca/imagem/registro únicos podem ser usados em várias regiões
-* Acesso ao Registro perto da rede das implantações regionais
-* Nenhuma taxa de saída adicional, uma vez que o pull das imagens são efetuadas de um registro replicado local na mesma região que seu host de contêiner
+* Nomes únicos de registro, imagem e marca podem ser usados em várias regiões
+* Melhorar o desempenho e a confiabilidade de implantações regionais com acesso ao registro de fechamento de rede
+* Reduza os custos de transferência de dados ao extrair as camadas de imagem de um registro local replicado na mesma região ou em um lado próximo do host do contêiner
 * Gerenciamento único de um Registro entre várias regiões
 
 > [!NOTE]
@@ -56,8 +56,9 @@ Os desafios comuns de vários Registros incluem:
 Usando o recurso de replicação geográfica do Registro de Contêiner do Azure, estes benefícios são realizados:
 
 * Gerenciar um único Registro em todas as regiões:`contoso.azurecr.io`
-* Gerenciar uma única configuração de implantações de imagem, porque todas as regiões usavam a mesma URL de imagem:`contoso.azurecr.io/public/products/web:1.2`
-* Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. Você pode configurar [webhooks](container-registry-webhook.md) regionais para receber notificações sobre eventos em réplicas específicas.
+* Gerencie uma única configuração de implantações de imagem, pois todas as regiões usam a mesma URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
+* Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. O ACR só Replica camadas exclusivas, reduzindo a transferência de dados entre regiões. 
+* Configure [WebHooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
 
 ## <a name="configure-geo-replication"></a>Configurar a replicação geográfica
 

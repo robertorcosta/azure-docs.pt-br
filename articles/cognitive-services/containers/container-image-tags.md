@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 90ac4891dbca34ff2d9bdb9653e27ad2a495b317
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09a83c28d07540b8ecd813e7ab2f10ceee891d7a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021245"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792982"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Marcas de imagem e notas de versão do contêiner de serviços cognitivas do Azure
 
@@ -52,6 +52,17 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis. Você também po
 
 # <a name="latest-version"></a>[Última versão](#tab/current)
 
+Notas de versão para `3.2-preview.1` :
+
+* Novo contêiner v 3.2
+
+| Marcas de imagem                    | Observações |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.2-preview.1` |  |
+
+# <a name="previous-versions"></a>[Versões anteriores](#tab/previous)
+
 Notas de versão para `v2.0.013250001-amd64-preview` :
 
 * Diminuir ainda mais o uso de memória para o contêiner.
@@ -59,13 +70,6 @@ Notas de versão para `v2.0.013250001-amd64-preview` :
 * Correção de resultados ausentes quando o cache Redis está configurado e `ResultExpirationPeriod` definido como 0.
 * Remova a limitação do tamanho do corpo da solicitação de 26MB. O contêiner agora pode aceitar >arquivos 26MB.
 * Adicione carimbo de data/hora e versão de compilação ao log do console.
-
-| Marcas de imagem                    | Observações |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `2.0.013250001-amd64-preview` |  |
-
-# <a name="previous-versions"></a>[Versões anteriores](#tab/previous)
 
 Notas de versão do `1.1.013050001-amd64-preview`
 
@@ -88,6 +92,7 @@ Notas de versão do `1.1.013050001-amd64-preview`
 
 | Marcas de imagem                    | Observações |
 |-------------------------------|:------|
+| `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |

@@ -3,12 +3,12 @@ title: Como habilitar o recurso de solução do Azure VMware
 description: Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais hosts em sua nuvem privada da solução Azure VMware existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967356"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794725"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como habilitar o recurso da solução Azure VMware
 Saiba como enviar uma solicitação de suporte para habilitar o recurso de [solução do Azure VMware](introduction.md) . Você também pode solicitar mais hosts em sua nuvem privada da solução Azure VMware existente.
@@ -64,7 +64,7 @@ Antes de criar o recurso de solução do Azure VMware, você precisará enviar u
 Os CSPs devem usar [o Microsoft Partner Center](https://partner.microsoft.com) para habilitar a solução Azure VMware para seus clientes. 
 
    >[!IMPORTANT] 
-   >O serviço de solução do Azure VMware não fornece um ambiente multilocatário e, portanto, os parceiros de hospedagem ainda não têm suporte. 
+   >O serviço de solução do Azure VMware não fornece uma exigência de multilocação. Não há suporte para parceiros de hospedagem que exigem isso. 
 
 1. No **Partner Center**, selecione **CSP** para acessar a área **clientes** .
 
@@ -113,13 +113,16 @@ Depois de configurar o plano do Azure e as permissões de RBAC vSphere necessár
    >[!IMPORTANT] 
    >Se você já tiver uma solução existente do Azure VMware e estiver solicitando hosts adicionais, observe que precisamos de cinco dias úteis para alocar os hosts. 
 
-1. Depois de adicionado ao plano do Azure e com a cota habilitada, o cliente ou o administrador do parceiro pode implantar uma nuvem privada da solução Azure VMware por meio do portal do Azure. Antes de poder provisionar seus hosts, certifique-se de registrar o provedor de recursos **Microsoft. AVS** no portal do Azure.  
+1. Se a assinatura for gerenciada pelo provedor de serviços, sua equipe de Administração deverá acessar portal do Azure usando o procedimento **administrador novamente em nome do** (Aobo) do Partner Center. Um no portal do Azure iniciar uma instância de [Cloud Shell](../cloud-shell/overview.md) e registrar o provedor de recursos **Microsoft. AVS** e prosseguir com a implantação da nuvem privada da solução Azure VMware.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    Para conhecer outras maneiras de registrar o provedor de recursos, confira [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. Se a assinatura for gerenciada diretamente pelo cliente, o registro do provedor de recursos **Microsoft. AVS** deverá ser feito por um usuário com permissões suficientes na assinatura, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) para obter mais detalhes e maneiras de registrar o provedor de recursos. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

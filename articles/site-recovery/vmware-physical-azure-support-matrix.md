@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369311"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800269"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -93,7 +93,8 @@ SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://s
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
-> Para cada uma das versões do Windows, Azure Site Recovery dá suporte apenas a compilações de [LTSC (canal de manutenção em longo prazo)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Versões de [canal semianuais](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) atualmente não têm suporte no momento.
+>- Para cada uma das versões do Windows, Azure Site Recovery dá suporte apenas a compilações de [LTSC (canal de manutenção em longo prazo)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Versões de [canal semianuais](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) atualmente não têm suporte no momento.
+>- Verifique se há versões do Linux, Azure Site Recovery não oferece suporte a imagens de sistema operacional personalizadas. Somente os kernels de ações que fazem parte do lançamento/atualização da versão secundária de distribuição têm suporte.
 
 ### <a name="ubuntu-kernel-versions"></a>Versões de kernel do Ubuntu
 
@@ -196,43 +197,43 @@ Acesso de link privado ao serviço de Site Recovery | Sim. [Saiba mais](hybrid-h
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | Sim
-ILB | Sim
-ELB | Sim
-Gerenciador de Tráfego do Azure | Sim
-NIC múltipla | Sim
-Endereço IP Reservado | Sim
-IPv4 | Sim
-Manter endereço IP de origem | Sim
-Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Gerenciador de Tráfego do Azure | Yes
+NIC múltipla | Yes
+Endereço IP Reservado | Yes
+IPv4 | Yes
+Manter endereço IP de origem | Yes
+Pontos de extremidade de serviço de rede virtual do Azure<br/> | Yes
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Com suporte**
 --- | ---
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
-Configuração de disco do Docker | Não
+Configuração de disco do Docker | No
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | Sim
+Host SAN iSCSI/FC) | Yes
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | Sim
-Disco de cluster compartilhado do convidado/servidor | Não
-Disco criptografado do convidado/servidor | Não
-NFS do convidado/servidor | Não
+VMDK do convidado/servidor | Yes
+Disco de cluster compartilhado do convidado/servidor | No
+Disco criptografado do convidado/servidor | No
+NFS do convidado/servidor | No
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
-SMB 3.0 do convidado/servidor | Não
-RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
+SMB 3.0 do convidado/servidor | No
+RDM do convidado/servidor | Yes<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
-Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
-Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
-Volume do convidado/servidor com discos distribuídos >4 TB | Sim
+Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | No
+Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | No
+Volume do convidado/servidor com discos distribuídos >4 TB | Yes
 Gerenciamento de volumes lógicos (LVM)| Provisionamento espesso-Sim <br></br> Provisionamento dinâmico-não
-Convidado/servidor - espaços de armazenamento | Não
-Adicionar/remover disco a quente por convidado/servidor | Não
-Convidado/servidor - excluir disco | Sim
-MPIO (Múltiplos caminhos) de convidado/servidor | Não
+Convidado/servidor - espaços de armazenamento | No
+Adicionar/remover disco a quente por convidado/servidor | No
+Convidado/servidor - excluir disco | Yes
+MPIO (Múltiplos caminhos) de convidado/servidor | No
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
 Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
@@ -241,26 +242,26 @@ Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [
 
 |**Tipo de replicação**   |**Com suporte**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       Não  |
-|Propagação offline        |   Não      |
-| Azure Data Box | Não
+|Transferências de dados descarregadas (ODX)    |       No  |
+|Propagação offline        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | Sim
-Armazenamento com redundância geográfica | Sim
-Armazenamento com redundância geográfica com acesso de leitura | Sim
-Armazenamento frio | Não
-Armazenamento quente| Não
-Blobs de bloco | Não
-Criptografia em repouso (SSE)| Sim
+Armazenamento com redundância local | Yes
+Armazenamento com redundância geográfica | Yes
+Armazenamento com redundância geográfica com acesso de leitura | Yes
+Armazenamento frio | No
+Armazenamento quente| No
+Blobs de bloco | No
+Criptografia em repouso (SSE)| Yes
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
-Armazenamento Premium | Sim
-Opção de transferência segura | Sim
-Serviço de importação/exportação | Não
+Armazenamento Premium | Yes
+Opção de transferência segura | Yes
+Serviço de importação/exportação | No
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)
 
@@ -268,10 +269,10 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | Sim
-Zonas de disponibilidade | Não
-HUB | Sim
-Discos gerenciados | Sim
+Conjuntos de disponibilidade | Yes
+Zonas de disponibilidade | No
+HUB | Yes
+Discos gerenciados | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -325,10 +326,10 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 
 **Ação** | **Com suporte**
 --- | ---
-Mover cofre entre grupos de recursos | Não
-Mover o cofre dentro e entre assinaturas | Não
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos | Não
-Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | Não
+Mover cofre entre grupos de recursos | No
+Mover o cofre dentro e entre assinaturas | No
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos | No
+Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | No
 
 
 ## <a name="obtain-latest-components"></a>Obter os componentes mais recentes
