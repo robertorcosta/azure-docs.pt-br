@@ -3,18 +3,18 @@ title: Criar um novo recurso baseado em espaço de trabalho do Azure Monitor App
 description: Saiba mais sobre as etapas necessárias para habilitar os novos recursos baseados em espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945406"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536907"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos baseados em workspace do Application Insights
 
 Os recursos baseados em espaço de trabalho dão suporte à integração completa entre Application Insights e Log Analytics. Agora você pode optar por enviar sua telemetria do Application Insights para um espaço de trabalho comum do Log Analytics, que permite acesso completo a todos os recursos do Log Analytics mantendo os logs de aplicativos, infraestrutura e plataforma em um único local consolidado.
 
-Isso também permite o RBAC (Controle de Acesso Baseado em Função) comum em seus recursos e elimina a necessidade de consultas entre aplicativos/espaço de trabalhos.
+Isso também permite o controle de acesso baseado em função (RBAC) comum do Azure em seus recursos e elimina a necessidade de consultas entre aplicativos/espaços de trabalho.
 
 > [!NOTE]
 > A ingestão de dados e a retenção de recursos do Application Insights baseados em espaço de trabalho são cobradas por meio do espaço de trabalho do Log Analytics onde ficam os dados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a cobrança de recursos do Application Insights baseados em espaço de trabalho.
@@ -207,7 +207,7 @@ A funcionalidade de exportação contínua herdada não tem suporte para recurso
 
 > [!NOTE]
 > Não há encargos adicionais para a exportação de telemetria no momento. As informações de preço para esse recurso estarão disponíveis na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da cobrança, as notificações serão enviadas. Se você optar por continuar usando <feature name> após o período de aviso, você será cobrado na taxa aplicável. 
- 
+ 
 
 ## <a name="next-steps"></a>Próximas etapas
 

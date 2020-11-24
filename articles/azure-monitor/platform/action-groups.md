@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746356"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536312"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -149,6 +149,10 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 É possível ter um número limitado de ações de aplicativo lógico em um grupo de ações.
 
 ### <a name="secure-webhook"></a>Webhook Seguro
+
+> [!NOTE]
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+
 A ação de webhook dos grupos de ações permite que você aproveite o Azure Active Directory para proteger a conexão entre o grupo de ações e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, confira a [Visão geral da plataforma de identidade da Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
 1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte [API Web protegida: registro de aplicativo](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -259,6 +263,10 @@ Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limi
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
+
+> [!NOTE]
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+
 WebHooks são processados usando as seguintes regras
 - Uma chamada de webhook é tentada no máximo três vezes.
 - A chamada será repetida se uma resposta não for recebida dentro do período de tempo limite ou se um dos seguintes códigos de status HTTP for retornado: 408, 429, 503 ou 504.

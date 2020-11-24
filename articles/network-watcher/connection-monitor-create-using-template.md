@@ -1,5 +1,5 @@
 ---
-title: Criar monitor de conexão (visualização)-modelo de ARM
+title: Criar monitor de conexão-modelo de ARM
 titleSuffix: Azure Network Watcher
 description: Saiba como criar um monitor de conexão usando o ARMClient.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984219"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543996"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Criar um monitor de conexão usando o modelo ARM
 
 Saiba como criar um monitor de conexão para monitorar a comunicação entre seus recursos usando o ARMClient. Ele dá suporte a implantações de nuvem híbridas e do Azure.
 
-> [!IMPORTANT]
-> O monitor de conexão está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de começar 
 

@@ -1,5 +1,5 @@
 ---
-title: Criar monitor de conexão (versão prévia) – PowerShell
+title: Criar monitor de conexão-PowerShell
 titleSuffix: Azure Network Watcher
 description: Saiba como criar um monitor de conexão usando o PowerShell.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984236"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545526"
 ---
-# <a name="create-a-connection-monitor-preview-using-powershell"></a>Criar um monitor de conexão (versão prévia) usando o PowerShell
+# <a name="create-a-connection-monitor-using-powershell"></a>Criar um monitor de conexão usando o PowerShell
 
 Saiba como criar um monitor de conexão para monitorar a comunicação entre seus recursos usando o PowerShell.
 
-> [!IMPORTANT]
-> O monitor de conexão está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de começar 
 

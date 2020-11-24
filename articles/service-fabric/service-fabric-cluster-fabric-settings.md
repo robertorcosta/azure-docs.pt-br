@@ -3,12 +3,12 @@ title: Alterar configurações de cluster do Azure Service Fabric
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648218"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542636"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -141,6 +141,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |IsEnabled|bool, o padrão é FALSE|Estático|Habilita/desabilita DnsService. O DnsService está desativado por padrão e essa configuração precisa ser definida para ativá-lo. |
 |PartitionPrefix|string, o padrão é "--"|Estático|Controla o valor da cadeia de caracteres do prefixo da partição em consultas DNS para serviços particionados. O valor: <ul><li>Deve ser compatível com RFC, pois fará parte de uma consulta DNS.</li><li>Não deve conter um ponto, '.', Pois o ponto interfere no comportamento do sufixo DNS.</li><li>Não deve ter mais que 5 caracteres.</li><li>Não pode ser uma cadeia de caracteres vazia.</li><li>Se a configuração PartitionPrefix for substituída, o PartitionSuffix deverá ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|cadeia de caracteres, o padrão é ""|Estático|Controla o valor da sequência do sufixo da partição em consultas DNS para serviços particionados. O valor: <ul><li>Deve ser compatível com RFC, pois fará parte de uma consulta DNS.</li><li>Não deve conter um ponto, '.', Pois o ponto interfere no comportamento do sufixo DNS.</li><li>Não deve ter mais que 5 caracteres.</li><li>Se a configuração PartitionPrefix for substituída, o PartitionSuffix deverá ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md). |
+|RetryTransientFabricErrors|Bool, o padrão é true|Estático|A configuração controla os recursos de repetição ao chamar Service Fabric APIs de DnsService. Quando habilitado, ele tenta novamente até três vezes se ocorre um erro transitório.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |AzureStorageMaxConnections | Int, o padrão é 5000 |Dinâmico|O número máximo de conexões simultâneas para o armazenamento do Azure. |
 |AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmico|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, o padrão é 6000 |Dinâmico|Especifique o intervalo de tempo em segundos. Tempo limite para a operação xstore ser concluída. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSE |Dinâmico|Habilita ou desabilita a limpeza automática de pacote de aplicativo em provisão com êxito.<br/> *A prática recomendada é usar o `true` .*
+|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é true |Dinâmico|Habilita ou desabilita a limpeza automática de pacote de aplicativo em provisão com êxito.
 |CleanupUnusedApplicationTypes|Bool, o padrão é FALSE |Dinâmico|Essa configuração, se habilitada, permite cancelar automaticamente o registro de versões de tipo de aplicativo não utilizadas, ignorando as três versões não utilizadas mais recentes e reduzindo o espaço em disco ocupado pelo repositório de imagens. A limpeza automática será disparada no final do provisionamento bem-sucedido para esse tipo de aplicativo específico e também será executada periodicamente uma vez por dia para todos os tipos de aplicativos. O número de versões não utilizadas a serem ignoradas pode ser configurado com o parâmetro "MaxUnusedAppTypeVersionsToKeep". <br/> *A prática recomendada é usar o `true` .*
 |DisableChecksumValidation | Bool, o padrão é false |Estático| Essa configuração permite habilitar ou desabilitar a validação de soma de verificação durante o provisionamento de aplicativo. |
 |DisableServerSideCopy | Bool, o padrão é false |Estático|Essa configuração habilita ou desabilita a cópia do lado do servidor do pacote de aplicativos no ImageStore durante o provisionamento de aplicativo. |
@@ -520,6 +521,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |AutoDetectAvailableResources|bool, o padrão é TRUE|Estático|Essa configuração disparará a detecção automática de recursos disponíveis no nó (CPU e memória) quando essa configuração for definida como true – leremos capacidades reais e as corrigiremos se o usuário tiver especificado capacidades de nó incorretas ou não as tiver definido. Se essa configuração for definida como false – rastrearemos um aviso de que o usuário especificou capacidades de nó incorretas, mas não as corrigiremos; isso significa que o usuário deseja ter as capacidades especificadas como maiores do que o nó realmente tem ou, se as capacidades estão indefinidas, ela assumirá capacidade ilimitada |
 |BalancingDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos. Não inicie atividades de balanceamento nesse período depois de adicionar um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, o padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos. Não inicie atividades de balanceamento nesse período depois de um evento de nó inativo. |
+|BlockNodeInUpgradeConstraintPriority | Int, o padrão é 0 |Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar  |
 |CapacityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: Rígida; 1: Flexível; negativa: Ignorar. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes consecutivas que os movimentos emitidos por ResourceBalancer são soltos antes que o diagnóstico seja realizado e os avisos de integridade sejam emitidos. Negativo: Nenhum aviso emitido sob essa condição. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmico| Especifique o intervalo de tempo em segundos. Não corrija as violações de restrições FaultDomain e UpgradeDomain nesse período depois de adicionar um novo nó. |

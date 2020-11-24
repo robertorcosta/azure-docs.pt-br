@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628774"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542279"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
 
@@ -67,7 +67,7 @@ Seu perfil de editor inclui o nome da sua empresa e a ID do MPN. Se você ainda 
 
     Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo.
 
-1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações** (ícone de engrenagem) no canto superior direito > programas de **configurações do desenvolvedor**  >  **Programs**.
+1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações** (ícone de engrenagem) no canto superior direito > **configurações de conta**  >  **programas**.
 
 Agora você criou uma conta do Marketplace comercial no Partner Center. Continue a [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,7 +91,7 @@ Quando você usa sua conta de Microsoft Partner Network, ela vincula o domínio 
 > Você deve ter um **administrador de conta** ou uma função de **administrador global** para entrar no Microsoft Partner Network.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/) com sua conta de Microsoft Partner Network.
-1. Selecione **configurações** configurações do  >  **desenvolvedor**  >  **programas** de  >  **introdução**.
+1. Selecione **configurações** configurações de  >  **conta**  >  **programas**  >  **introdução**.
 
    Microsoft Partner Network detecta sua assinatura e exibe o painel de **perfil do Publicador** .
 
@@ -103,7 +103,7 @@ Quando você usa sua conta de Microsoft Partner Network, ela vincula o domínio 
 
     Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo.
 
-1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do desenvolvedor**  >  **programas**.
+1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **conta configurações**  >  **programas**.
 
 Agora você criou uma conta do Marketplace comercial no Partner Center. Continue a [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -119,7 +119,7 @@ Agora você criou uma conta do Marketplace comercial no Partner Center. Continue
 Ao se registrar no programa do Marketplace comercial com a mesma conta do programa de desenvolvedor, você poderá ver todos os registros do programa existente no painel esquerdo do Partner Center.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/) com sua conta existente.
-1. Selecione **configurações**  >  **configurações do desenvolvedor**  >  **programas** de  >  **introdução** e insira seu endereço de email de trabalho.
+1. Selecione **configurações** configurações de  >  **conta**  >  **programas** de  >  **introdução** e insira seu endereço de email comercial.
 1. Preencha os detalhes na página de **perfil do Publicador** .
 2. Leia os termos e condições no [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
 
@@ -128,7 +128,7 @@ Ao se registrar no programa do Marketplace comercial com a mesma conta do progra
 
     Depois de estar registrado, você será levado para a página Visão geral do Marketplace comercial. A conta do Marketplace comercial é exibida no painel esquerdo.
 
-1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do desenvolvedor**  >  **programas**.
+1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **conta configurações**  >  **programas**.
 
 Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter ajuda com a adição de publicadores, continue a [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ O contrato de publicação e as informações de perfil da empresa se transforma
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicionar novos Publicadores ao programa comercial Marketplace
 
-Uma organização pode ter vários Publicadores associados a uma conta comercial do Marketplace. Um usuário existente pode adicionar mais Publicadores depois de entrar no Partner Center selecionando **configurações**  >  **configurações do desenvolvedor**  >  **Editor**  >  **Adicionar Publicador**.
+Uma organização pode ter vários Publicadores associados a uma conta comercial do Marketplace. Um usuário existente pode adicionar mais Publicadores depois de entrar no Partner Center selecionando **configurações**  >  **configurações de conta**  >  identificadores de **perfil da organização**  >  **Identifiers**  >  **Adicionar Publicador**.
 
 >[!NOTE]
 >Antes de adicionar um novo Publicador, examine sua lista de Publicadores existentes entrando no Partner Center e selecionando **configurações de conta**  >  **Publicadores**.
@@ -155,9 +155,9 @@ Usuários adicionais do mesmo locatário Azure Active Directory podem usar as et
 4. Escolha a ID de MPN que você deseja associar ao Publicador.
 5. Atualize os **detalhes do Publicador** no formulário.
 
-   * **Nome do editor** : o nome que é exibido no Marketplace comercial com a oferta.  
-   * **PublisherID** : um identificador que é usado pelo Partner Center para identificar exclusivamente o Publicador. O valor padrão desse campo é mapeado para uma ID de Publicador existente e exclusiva no sistema. Como a ID do Publicador não pode ser reutilizada, esse campo precisa ser atualizado.  
-   * **Informações de contato** : Atualize as informações de contato quando necessário.
+   * **Nome do editor**: o nome que é exibido no Marketplace comercial com a oferta.  
+   * **PublisherID**: um identificador que é usado pelo Partner Center para identificar exclusivamente o Publicador. O valor padrão desse campo é mapeado para uma ID de Publicador existente e exclusiva no sistema. Como a ID do Publicador não pode ser reutilizada, esse campo precisa ser atualizado.  
+   * **Informações de contato**: Atualize as informações de contato quando necessário.
 
 Depois que esse processo for concluído, vá para a conta do Marketplace comercial listada no painel esquerdo para gerenciar o Publicador recém-criado. Se você não vir a conta do Marketplace comercial, atualize a página. O novo Publicador aparecerá na lista **editores** .
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734371"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544370"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do ponto de extremidade privado do Azure
 
@@ -125,7 +125,7 @@ Esse modelo pode ser estendido para várias redes virtuais emparelhadas que est�
 > [!IMPORTANT]
 > Se você estiver usando um ponto de extremidade privado em um modelo de Hub e spoke de uma assinatura diferente, reutilize a mesma zona DNS privada no Hub.
 
-Nesse cenário, há uma topologia de rede [Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) com as redes spoke que compartilham um ponto de extremidade privado comum e todas as redes virtuais spoke estão vinculadas à mesma zona DNS privada. 
+Nesse cenário, há uma topologia de rede [Hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) com as redes spoke que compartilham um ponto de extremidade privado comum e todas as redes virtuais spoke estão vinculadas à mesma zona DNS privada. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub e spoke com DNS fornecido pelo Azure":::
 
@@ -141,7 +141,7 @@ O cenário a seguir é apropriado para uma rede local que tenha um encaminhador 
 Para configurar corretamente, você precisa dos seguintes recursos:
 
 - Rede local
-- Rede virtual [conectada ao local](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rede virtual [conectada ao local](/azure/architecture/reference-architectures/hybrid-networking/)
 - Encaminhador de DNS implantado no Azure 
 - Zonas de DNS privado [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md) com [um registro de tipo A](../dns/dns-zones-records.md#record-types)
 - Informações particulares do ponto de extremidade (nome do registro FQDN e endereço IP privado)
@@ -158,7 +158,7 @@ Essa configuração pode ser estendida para uma rede local que já tenha uma sol
 Para configurar corretamente, você precisa dos seguintes recursos:
 
 - Rede local com uma solução de DNS personalizada em vigor 
-- Rede virtual [conectada ao local](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rede virtual [conectada ao local](/azure/architecture/reference-architectures/hybrid-networking/)
 - Encaminhador de DNS implantado no Azure
 - Zonas de DNS privado [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  com [um registro de tipo A](../dns/dns-zones-records.md#record-types)
 - Informações particulares do ponto de extremidade (nome do registro FQDN e endereço IP privado)
@@ -187,7 +187,7 @@ Esse encaminhador DNS é responsável por resolver todas as consultas DNS por me
 Para configurar corretamente, você precisa dos seguintes recursos:
 
 - Rede local
-- Rede virtual [conectada ao local](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rede virtual [conectada ao local](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Rede virtual emparelhada](../virtual-network/virtual-network-peering-overview.md) 
 - Encaminhador de DNS implantado no Azure
 - Zonas de DNS privado [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  com [um registro de tipo A](../dns/dns-zones-records.md#record-types)

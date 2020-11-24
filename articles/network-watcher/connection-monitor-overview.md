@@ -1,5 +1,5 @@
 ---
-title: Monitor de conexão (versão prévia) no Azure | Microsoft Docs
+title: Monitor de conexão no Azure | Microsoft Docs
 description: Saiba como usar o monitor de conexão para monitorar a comunicação de rede em um ambiente distribuído.
 services: network-watcher
 documentationcenter: na
@@ -12,24 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984355"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544880"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade de rede com o monitor de conexão (versão prévia)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
 
 O monitor de conexão fornece monitoramento de conexão de ponta a ponta unificado no observador de rede do Azure. O recurso de monitor de conexão dá suporte a implantações de nuvem híbridas e do Azure. O observador de rede fornece ferramentas para monitorar, diagnosticar e exibir métricas relacionadas à conectividade para suas implantações do Azure.
 
-> [!IMPORTANT]
-> O monitor de conexão está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Aqui estão alguns casos de uso para o monitor de conexão:
+Aqui estão alguns casos de uso para o monitor de conexão:
 
 - A VM do servidor Web front-end se comunica com uma VM do servidor de banco de dados em um aplicativo de várias camadas. Você deseja verificar a conectividade de rede entre as duas VMs.
 - Você deseja que as VMs na região leste dos EUA executem ping nas VMs na região EUA Central e você deseja comparar as latências de rede entre regiões.
@@ -274,11 +271,11 @@ Nos monitores de conexão que foram criados antes da experiência do monitor de 
 
 Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome de exibição | Unidade | Tipo de agregação | Description | Dimensões |
+| Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | Porcentagem de investigações com falha | Percentual | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
+| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
-| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Percentual | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 | RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Média | RTT para cheques enviados entre a origem e o destino. Esse valor não é médio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas baseados em métrica para o monitor de conexão

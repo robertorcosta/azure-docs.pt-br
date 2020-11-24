@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630287"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537128"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV Connect do Microsoft Business Applications
 
@@ -38,7 +38,7 @@ A participação neste programa exige que você examine e aceite o [adendo Busin
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para assinar contratos legais.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **configurações** (ícone de engrenagem) e, em seguida, **configurações do desenvolvedor**.
+1. Selecione **configurações** (ícone de engrenagem) > **configurações de conta**.
 1. Selecione **contratos**.
 1. Selecione o link de versão e exiba o contrato.
 1. Para concordar e aceitar o contrato, selecione **aceitar contrato**.
@@ -51,8 +51,8 @@ Configure as informações de cobrança para o Business Applications programa IS
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para atualizar as informações de cobrança.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **configurações** (ícone de engrenagem) e, em seguida, **configurações do desenvolvedor**.
-1. Em **configurações da conta** , selecione **perfil de cobrança**.
+1. Selecione **configurações** (ícone de engrenagem) > **configurações de conta**.
+1. Em **perfil da organização**, selecione **perfil de cobrança** e, em seguida, a guia **desenvolvedor** .
 1. Examine as informações de contato principal e cobrança preenchidas em sua entidade legal.
 1. Para fazer alterações, selecione **Atualizar**.
 1. Se aplicável, forneça as configurações de ID do imposto/ID do IVA.

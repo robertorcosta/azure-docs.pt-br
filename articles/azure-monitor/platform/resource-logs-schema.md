@@ -4,12 +4,12 @@ description: Entenda os serviços com suporte e o esquema de eventos para logs d
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2a66f90043e0f544dd86d2ab1245a3d8cbaff3d5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543403"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534561"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para logs de recursos do Azure
 
@@ -28,14 +28,14 @@ Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e 
 | time | Obrigatório | O carimbo de data/hora (UTC) do evento. |
 | resourceId | Obrigatório | A ID do recurso que emitiu o evento. Para serviços de locatário, isso é o /tenants/tenant-id/providers/provider-name do formulário. |
 | tenantId | Necessário para os logs de locatário | A ID de locatário do que esse evento está vinculado ao locatário do Active Directory. Essa propriedade só é usada para logs de nível de locatário, ele não aparece nos logs de nível do recurso. |
-| operationName | Obrigatório | O nome da operação representada por esse evento. Se o evento representar uma operação RBAC, esse será o nome da operação RBAC (por exemplo, Microsoft. Storage/storageAccounts/blobservices/BLOBs/Read). Normalmente modeladas na forma de uma operação do Resource Manager, mesmo que não sejam as operações do Resource Manager documentadas reais (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Obrigatório | O nome da operação representada por esse evento. Se o evento representar uma operação RBAC do Azure, esse será o nome da operação RBAC do Azure (por exemplo, Microsoft. Storage/storageAccounts/blobservices/BLOBs/Read). Normalmente modeladas na forma de uma operação do Resource Manager, mesmo que não sejam as operações do Resource Manager documentadas reais (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A versão de API associada à operação, se a operationName tiver sido executada usando uma API (por exemplo, `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Se não houver nenhuma API que corresponde a essa operação, a versão representará a versão dessa operação, caso as propriedades associadas à operação sejam alteradas no futuro. |
 | category | Obrigatório | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar os logs em determinado recurso. As propriedades exibidas no blob de propriedades de um evento são as mesmas em uma categoria de log e um tipo de recurso específicos. As categorias de log típicas são "auditoria" "operacional" "execução" e "solicitação". |
 | resultType | Opcional | O status do evento. Os valores típicos incluem Iniciado, Em Andamento, Com Êxito, Com Falha, Ativo e Resolvido. |
 | resultSignature | Opcional | O substatus do evento. Se essa operação corresponder a uma chamada à API REST, esse campo será o código de status HTTP da chamada REST correspondente. |
 | resultDescription | Opcional | A descrição de texto estático dessa operação, por exemplo, "obter arquivo de armazenamento". |
 | durationMs | Opcional | A duração da operação em milissegundos. |
-| callerIpAddress | Opcional | O endereço IP do chamador, se a operação corresponder a uma chamada à API que venha de uma entidade com um endereço IP disponível publicamente. |
+| callerIpAddress | Opcional | O endereço IP do chamador, caso a operação corresponda a uma chamada à API proveniente de uma entidade com um endereço IP disponível publicamente. |
 | correlationId | Opcional | Um GUID usado para agrupar um conjunto de eventos relacionados. Normalmente, se dois eventos tiverem a mesma operationName, mas dois status diferentes (por exemplo, "iniciado" e "êxito"), eles compartilharão a mesma ID de correlação. Isso também pode representar outras relações entre os eventos. |
 | identidade | Opcional | Um blob JSON que descreve a identidade do usuário ou do aplicativo que realizou a operação. Normalmente, esse campo inclui a autorização e o token de declarações/JWT do Active Directory. |
 | Nível | Opcional | O nível de severidade do evento. Precisa ser Informativo, Aviso, Erro ou Crítico. |
@@ -89,7 +89,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 
 
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * [Consulte as categorias de log de recursos que você pode coletar](resource-logs-categories.md)
 * [Saiba mais sobre os logs de recursos](./platform-logs-overview.md)

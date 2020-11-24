@@ -4,12 +4,12 @@ description: Visão geral de alertas no Azure. Alertas, alertas clássicos e a i
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108789"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536040"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -102,7 +102,7 @@ Você pode filtrar essa exibição selecionando valores nos menus suspensos na p
 
 | Coluna | Descrição |
 |:---|:---|
-| Assinatura | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
+| Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
 | Resource group | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 | Intervalo de horas | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
@@ -148,7 +148,7 @@ Você pode filtrar a exibição selecionando os seguintes valores nos menus susp
 
 | Coluna | Descrição |
 |:---|:---|
-| Assinatura | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
+| Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
 | Resource group | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 | Tipo de recurso | Selecione um ou mais tipos de recurso. Somente alertas com destinos do tipo selecionado são incluídos na exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
 | Recurso | Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Essa coluna somente estará disponível depois que um tipo de recurso for especificado. |
@@ -171,11 +171,11 @@ A página detalhes do alerta inclui as seguintes seções:
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Lista cada ação realizada pelo alerta e todas as alterações feitas no alerta. Atualmente limitado a alterações de estado. |
-| Diagnóstico | Informações sobre o grupo inteligente no qual o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, seja qual for o filtro de tempo na página de lista de alertas. Selecione um alerta para exibir os detalhes. |
+| Diagnósticos | Informações sobre o grupo inteligente no qual o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, seja qual for o filtro de tempo na página de lista de alertas. Selecione um alerta para exibir os detalhes. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>RBAC (controle de acesso baseado em função) para suas instâncias de alerta
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>Controle de acesso baseado em função do Azure (RBAC do Azure) para suas instâncias de alerta
 
-O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções internas do Azure de [monitoramento de colaborador](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para a máquina virtual `ContosoVM1` , esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1` .
+O consumo e o gerenciamento das instâncias de alerta exigem que o usuário tenha as funções internas do Azure de [colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader). Essas funções têm suporte em qualquer escopo do Azure Resource Manager, do nível de assinatura até atribuições granulares no nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para a máquina virtual `ContosoVM1` , esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie suas instâncias de alerta programaticamente
 

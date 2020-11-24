@@ -1,5 +1,5 @@
 ---
-title: Migrar para o monitor de conexão (versão prévia) do Monitor de Desempenho de Rede
+title: Migrar para o monitor de conexão do Monitor de Desempenho de Rede
 titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o monitor de conexão do Monitor de Desempenho de Rede.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 38ea682b4f3894f373d16908b942b4fa578741c4
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: cd0d4c2dc550beef1b5fceb373a4cb96ed75a172
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985800"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544489"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-network-performance-monitor"></a>Migrar para o monitor de conexão (versão prévia) do Monitor de Desempenho de Rede
+# <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o monitor de conexão do Monitor de Desempenho de Rede
 
 Você pode migrar testes de Monitor de Desempenho de Rede (NPM) para um monitor de conexão novo e aprimorado com um único clique e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão](./connection-monitor-overview.md).
 
-> [!IMPORTANT]
-> O monitor de conexão está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
 > Somente testes do monitor de conectividade de serviço podem ser migrados para o monitor de conexão.

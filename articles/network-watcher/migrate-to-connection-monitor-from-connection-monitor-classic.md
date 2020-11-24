@@ -1,5 +1,5 @@
 ---
-title: Migrar para o monitor de conexão (versão prévia) do monitor de conexão
+title: Migrar para o monitor de conexão do monitor de conexão
 titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o monitor de conexão do monitor de conexão.
 services: network-watcher
@@ -10,22 +10,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985783"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522935"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Migrar para o monitor de conexão (visualização) do monitor de conexão (clássico)
+# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o monitor de conexão do monitor de conexão (clássico)
 
-É possível migrar os monitores de conexão existentes para um monitor de conexão novo e aprimorado (versão prévia) com apenas alguns cliques e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão](./connection-monitor-overview.md).
-
-> [!IMPORTANT]
-> O monitor de conexão está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Você pode migrar os monitores de conexão existentes para um novo monitor de conexão aprimorado com apenas alguns cliques e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão](./connection-monitor-overview.md).
 
 ## <a name="key-points-to-note"></a>Pontos-chave a serem observados
 
@@ -33,7 +29,7 @@ A migração ajuda a produzir os seguintes resultados:
 
 * Os agentes e as configurações de firewall funcionam como estão. Nenhuma alteração é necessária. 
 * Os monitores de conexão existentes são mapeados para o monitor de conexão > grupo de teste > formato de teste. Ao selecionar **Editar**, você pode exibir e modificar as propriedades do novo monitor de conexão, baixar um modelo para fazer alterações no monitor de conexão e enviá-lo por meio de Azure Resource Manager. 
-* As máquinas virtuais do Azure com a extensão do observador de rede enviam dados para o espaço de trabalho e para as métricas. O monitor de conexão torna os dados disponíveis por meio das novas métricas (ChecksFailedPercent [visualização] e RoundTripTimeMs [Preview]) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
+* As máquinas virtuais do Azure com a extensão do observador de rede enviam dados para o espaço de trabalho e para as métricas. O monitor de conexão torna os dados disponíveis por meio das novas métricas (ChecksFailedPercent e RoundTripTimeMs) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
 * Monitoramento de dados:
    * **Alertas**: migrados automaticamente para as novas métricas.
    * **Painéis e integrações**: requer a edição manual do conjunto de métricas. 

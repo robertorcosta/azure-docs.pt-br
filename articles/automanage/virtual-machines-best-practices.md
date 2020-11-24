@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b8009d6d571a9daf7163d2126b6d52edfc4bfdd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 001721ac0fdbbaaf808b962a79353369ab1dddb5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521077"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521947"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Práticas recomendadas do Azure Manage para máquinas virtuais
 
@@ -33,6 +33,7 @@ Para todos esses serviços, faremos a integração automática, configuração a
 |Microsoft Antimalware    |O Microsoft Antimalware para Azure é uma proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Ele gera alertas quando um software mal-intencionado ou indesejado conhecido tenta se instalar ou executar nos sistemas do Azure. Saiba [mais](../security/fundamentals/antimalware.md). |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Sim    |
 |Gerenciamento de atualizações    |Você pode usar Gerenciamento de Atualizações na automação do Azure para gerenciar atualizações do sistema operacional para suas máquinas virtuais. Você pode rapidamente avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar o processo de instalação das atualizações necessárias para os servidores. Saiba [mais](../automation/update-management/update-mgmt-overview.md).    |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Não    |
 |Controle de Alterações inventário de &    |O Controle de Alterações e Inventário combinam as funções de controle de alterações e inventário para permitir que você rastreie as alterações de infraestrutura de máquina virtual e de servidor. O serviço dá suporte ao controle de alterações entre serviços, software de daemons, registro e arquivos em seu ambiente para ajudá-lo a diagnosticar alterações indesejadas e gerar alertas. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração.  Saiba [mais](../automation/change-tracking/overview.md).    |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Não    |
+|Configuração de convidado do Azure    | A política de configuração de convidado é usada para monitorar a configuração e o relatório sobre a conformidade do computador. O serviço de autogerenciamento instalará as [linhas de base de segurança do Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) usando a extensão de configuração de convidado. Saiba [mais](../governance/policy/concepts/guest-configuration.md).    |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Não    |
 |Conta de Automação do Azure    |A Automação do Azure dá suporte ao gerenciamento durante todo o ciclo de vida de sua infraestrutura e de seus aplicativos. Saiba [mais](../automation/automation-intro.md).    |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Não    |
 |Workspace do Log Analytics    |O Azure Monitor armazena dados de log em um espaço de trabalho Log Analytics, que é um recurso do Azure e um contêiner em que os dados são coletados, agregados e servem como um limite administrativo. Saiba [mais](../azure-monitor/platform/design-logs-deployment.md).    |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Não    |
 

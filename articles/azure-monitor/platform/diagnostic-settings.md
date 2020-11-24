@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842423"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535785"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
@@ -52,7 +52,7 @@ Os logs e as métricas da plataforma podem ser enviados para os destinos na tabe
 
 ### <a name="destination-requirements"></a>Requisitos de destino
 
-Todos os destinos para a configuração de diagnóstico devem ser criados antes da criação das configurações de diagnóstico. O destino não precisa estar na mesma assinatura que o recurso que envia os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas. A tabela a seguir fornece requisitos exclusivos para cada destino, incluindo quaisquer restrições regionais.
+Todos os destinos para a configuração de diagnóstico devem ser criados antes da criação das configurações de diagnóstico. O destino não precisa estar na mesma assinatura que o recurso que envia os logs, contanto que o usuário que define a configuração tenha o acesso RBAC do Azure apropriado a ambas as assinaturas. A tabela a seguir fornece requisitos exclusivos para cada destino, incluindo quaisquer restrições regionais.
 
 | Destino | Requisitos |
 |:---|:---|

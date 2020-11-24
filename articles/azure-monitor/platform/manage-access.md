@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104131"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536669"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
@@ -23,7 +23,7 @@ Este artigo explica como gerenciar o acesso aos logs e administrar os espaços d
 * Usuários que precisam de acesso a dados de log de recursos específicos usando o controle de acesso baseado em função do Azure (RBAC do Azure), também conhecido como [contexto de recurso](design-logs-deployment.md#access-mode)
 * Usuários que precisam de acesso a dados de log em uma tabela específica no espaço de trabalho usando o RBAC do Azure.
 
-Para entender os conceitos de logs sobre o RBAC e as estratégias de acesso, leia [criando sua implantação de logs de Azure monitor](design-logs-deployment.md)
+Para entender os conceitos de logs em relação às estratégias de acesso e RBAC do Azure, leia [criando sua implantação de logs de Azure monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configurar o modo de controle de acesso
 
@@ -48,7 +48,7 @@ Você pode alterar essa configuração na página **Propriedades** do espaço de
 
 ![Alterar modo de acesso do espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 Use o seguinte comando para examinar o modo de controle de acesso para todos os espaços de trabalho na assinatura:
 
@@ -134,7 +134,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| Tipo    | Permissão | Descrição |
+| Type    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
@@ -194,9 +194,9 @@ Quando os usuários consultam logs de um espaço de trabalho usando acesso de co
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de exibir todos os dados de log para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de definir a configuração de diagnóstico para permitir a configuração de logs para este recurso. |
 
-`/read`Normalmente, a permissão é concedida de uma função que inclui _ \* /Read ou_ _\*_ permissões, como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
+`/read`Normalmente, a permissão é concedida de uma função que inclui _\* /Read ou_ _\*_ permissões, como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
 
-Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo se você quiser criar um controle de acesso diferente para tabelas diferentes.
+Consulte [definindo o controle de acesso por tabela](#table-level-azure-rbac) abaixo se você quiser criar um controle de acesso diferente para tabelas diferentes.
 
 ## <a name="custom-role-examples"></a>Exemplos de função personalizada
 
@@ -239,15 +239,15 @@ Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo s
 
     * Conceda aos usuários as seguintes permissões para seus recursos: `*/read` , atribuído à função leitor ou `Microsoft.Insights/logs/*/read` . 
 
-## <a name="table-level-rbac"></a>RBAC de nível de tabela
+## <a name="table-level-azure-rbac"></a>RBAC do Azure no nível de tabela
 
-O **RBAC em nível de tabela** permite que você defina um controle mais granular para dados em um espaço de trabalho log Analytics além das outras permissões. Esse controle permite que você defina tipos de dados específicos que são acessíveis somente para um conjunto específico de usuários.
+O **Azure RBAC de nível de tabela** permite que você defina um controle mais granular para dados em um espaço de trabalho log Analytics além das outras permissões. Esse controle permite que você defina tipos de dados específicos que são acessíveis somente para um conjunto específico de usuários.
 
 Você implementa o controle de acesso de tabela com as [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [tabelas](./data-platform-logs.md) específicas no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho com o contexto do espaço de trabalho ou os [modos de controle de acesso](design-logs-deployment.md#access-control-mode) de contexto de recurso, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do usuário.
 
 Crie uma [função personalizada](../../role-based-access-control/custom-roles.md) com as ações a seguir para definir o acesso ao controle de acesso à tabela.
 
-* Para conceder acesso a uma tabela, inclua-a na seção **ações** da definição de função. Para subtrair o acesso das **ações**permitidas, inclua-o na seção não- **ações** .
+* Para conceder acesso a uma tabela, inclua-a na seção **ações** da definição de função. Para subtrair o acesso das **ações** permitidas, inclua-o na seção não- **ações** .
 * Use Microsoft. OperationalInsights/Workspaces/Query/* para especificar todas as tabelas.
 
 Por exemplo, para criar uma função com acesso às tabelas _Heartbeat_ e _AzureActivity_ , crie uma função personalizada usando as seguintes ações:
@@ -302,7 +302,7 @@ Uma abordagem alternativa para gerenciar o acesso a logs personalizados é atrib
 
 ### <a name="considerations"></a>Considerações
 
-* Se um usuário receber permissão de leitura global com as funções leitor padrão ou colaborador que incluem a ação _ \* /Read_ , ele substituirá o controle de acesso por tabela e dará acesso a todos os dados de log.
+* Se um usuário receber permissão de leitura global com as funções leitor padrão ou colaborador que incluem a ação _\* /Read_ , ele substituirá o controle de acesso por tabela e dará acesso a todos os dados de log.
 * Se um usuário receber acesso por tabela, mas nenhuma outra permissão, ele poderá acessar dados de log da API, mas não do portal do Azure. Para fornecer acesso do portal do Azure, use o leitor de Log Analytics como sua função base.
 * Os administradores e os proprietários da assinatura terão acesso a todos os tipos de dados, independentemente de quaisquer outras configurações de permissão.
 * Os proprietários do espaço de trabalho são tratados como qualquer outro usuário para o controle de acesso por tabela.

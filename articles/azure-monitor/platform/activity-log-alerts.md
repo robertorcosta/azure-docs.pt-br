@@ -4,12 +4,12 @@ description: Seja notificado por SMS, webhook, email e mais quando ocorrerem det
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86516117"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536074"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
@@ -40,7 +40,7 @@ Os alertas do log de atividades têm algumas opções comuns:
     - Nível de assinatura: por exemplo, todas as máquinas virtuais em uma assinatura (ou) todos os recursos em uma assinatura
 - **Grupo de recursos**: por padrão, a regra de alerta é salva no mesmo grupo de recursos como no destino definido no escopo. O usuário também pode definir o grupo de recursos no qual a regra de alerta deve ser armazenada.
 - **Tipo de recurso**: o Resource Manager definido pelo namespace para o destino do alerta.
-- **Nome da operação**: o nome da [operação de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado para Role-Based controle de acesso. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
+- **Nome da operação**: o nome da [operação do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para o controle de acesso baseado em função do Azure. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
 - **Nível**: o nível de severidade do evento (informativo, aviso, erro ou crítico).
 - **Status**: o status do evento, normalmente Iniciado, Falha ou Êxito.
 - **Evento iniciado por**: também conhecido como "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
@@ -60,5 +60,5 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 
 - Obtenha uma [visão geral dos alertas](alerts-overview.md).
 - Saiba mais sobre [criar e modificar alertas do log de atividades](alerts-activity-log.md).
-- Examine o [esquema de webhook de alerta do log de atividades](activity-log-alerts-webhook.md).
+- Examine o [esquema do webhook de alertas de log de atividades](activity-log-alerts-webhook.md).
 - Saiba mais sobre as [notificações de integridade do serviço](../../service-health/service-notifications.md).

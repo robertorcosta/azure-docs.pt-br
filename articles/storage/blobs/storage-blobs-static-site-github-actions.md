@@ -9,19 +9,19 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3adbc0a2d55a2adc2ab7c1f82b0a358542eefc2a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842440"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543095"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurar um fluxo de trabalho de ações do GitHub para implantar seu site estático no armazenamento do Azure
 
 Introdução às [ações do GitHub](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar um site estático em uma conta de armazenamento do Azure. Depois de configurar um fluxo de trabalho de ações do GitHub, você poderá implantar automaticamente seu site no Azure do GitHub quando fizer alterações no código do site.
 
 > [!NOTE]
-> Se você estiver usando [aplicativos Web estáticos do Azure](https://docs.microsoft.com/azure/static-web-apps/), não será necessário configurar manualmente um fluxo de trabalho de ações do github.
+> Se você estiver usando [aplicativos Web estáticos do Azure](../../static-web-apps/index.yml), não será necessário configurar manualmente um fluxo de trabalho de ações do github.
 > Os aplicativos Web estáticos do Azure criam automaticamente um fluxo de trabalho de ações do GitHub para você. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -187,4 +187,4 @@ Quando seu site estático e o repositório do GitHub não forem mais necessário
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os aplicativos Web estáticos do Azure](https://docs.microsoft.com/azure/static-web-apps/)
+> [Saiba mais sobre os aplicativos Web estáticos do Azure](../../static-web-apps/index.yml)

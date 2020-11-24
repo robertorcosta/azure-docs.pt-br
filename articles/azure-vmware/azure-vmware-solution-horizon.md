@@ -3,12 +3,12 @@ title: Implantar o horizonte na solução VMware do Azure
 description: Saiba como implantar o VMware horizonte na solução VMware do Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423089"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537434"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implantar o horizonte na solução VMware do Azure 
 
@@ -139,22 +139,6 @@ As tabelas mostram as cargas de trabalho comuns para as cargas de trabalho do tr
 #### <a name="power-worker-workloads"></a>Cargas de trabalho do Power Worker
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabela de perfis de VDI comuns para VMware horizonte para cargas de trabalho do Power Worker de logon VSI" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Instância do host da solução Azure VMware
-
-* Servidor PowerEdge R640-DSS restrito
-
-* 36 núcleos \@ 2.3 GHz
-
-* 576 GB DE RAM
-
-* Controlador HBA SAS de 12 Gbps HBA330 (não RAID)
-
-* a combinação de SATA SSD de 1,92 TB usa 6 Gbps 512 2,5 na unidade AG Hot-plug, 3 DWPD, 10512 TBW
-
-* Intel 1,6 TB, NVMe, misto de uso expresso flash, unidade 2,5 SFF, U. 2, P4600 com operadora
-
-* 2 grupos de discos vSAN: 1,6 x 4 (1.92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>Entradas de dimensionamento de horizonte
 

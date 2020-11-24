@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89670266"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543843"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Mover recursos entre regiões no PowerShell
 
@@ -25,7 +25,7 @@ Saiba como mover os recursos do Azure para uma região diferente usando o PowerS
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Sua assinatura do Azure deve ter acesso ao Resource mover e você deve ter permissões de [administrador de acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura.
+- Sua assinatura do Azure deve ter acesso ao Resource mover e você deve ter permissões de [administrador de acesso de usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) ou [proprietário](../role-based-access-control/built-in-roles.md#owner) para a assinatura.
 - O movimentador de recursos não controla alterações e atualizações, portanto, faça as alterações necessárias nos recursos, antes de começar a movê-las.
 - Ao mover recursos com o PowerShell, não é possível editar atualmente as configurações de região de destino. Modifique essas configurações diretamente no Portal.
 - Quando você adiciona recursos a uma coleção de movimentação, na preparação para movê-los para outra região, os metadados sobre a movimentação são armazenados em um grupo de recursos criado para fins de finalidade. Atualmente, esse grupo de recursos pode residir nas regiões leste dos EUA 2 ou Europa Setentrional. Os recursos do Azure podem ser movidos entre todas as regiões públicas usando metadados presentes em qualquer uma dessas regiões.

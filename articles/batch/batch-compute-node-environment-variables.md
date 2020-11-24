@@ -3,12 +3,12 @@ title: Variável de ambiente do runtime de tarefas
 description: Orientações e referência de variável de ambiente do runtime de tarefa para Análise do Lote do Azure.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2cab5011eb04586dc361bf1cec9c1f162d70117
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85960904"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95538522"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente do runtime do Lote do Azure
 
@@ -24,7 +24,7 @@ Para obter o valor atual de uma variável de ambiente, inicie o `cmd.exe` em um 
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 
-`/bin/sh printenv <ENV_VARIABLE_NAME>`
+`/bin/sh -c "printenv <ENV_VARIABLE_NAME>"`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Expansão de linha de comando de variáveis de ambiente
 
@@ -32,7 +32,7 @@ As linhas de comando executadas por tarefas nos nós de computação não são e
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+`/bin/sh -c "MyTaskApplication $MY_ENV_VAR"`
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 

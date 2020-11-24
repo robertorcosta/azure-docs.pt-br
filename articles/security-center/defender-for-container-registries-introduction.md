@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145813"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529971"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
 O ACR (Registro de Contêiner do Azure) é um serviço de registro gerenciado e privado do Docker que armazena e gerencia suas imagens de contêiner para implantações do Azure em um registro central. Ele é baseado no Registro do Docker 2.0 de software livre.
 
 Para proteger todos os registros baseados no Azure Resource Manager da sua assinatura, habilite o **Azure Defender para registros de contêiner** no nível de assinatura. A Central de Segurança examinará as imagens enviadas por push para o registro, importadas para o registro ou todas as imagens extraídas nos últimos 30 dias. Esse recurso é cobrado por imagem.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quais são os benefícios do Azure Defender para registros de contêiner?
 
@@ -43,11 +45,11 @@ Notificando você apenas quando há problemas, a Central de Segurança reduz o p
 
 Há três gatilhos para uma verificação de imagem:
 
-- **No momento do push** : sempre que uma imagem é enviada por push ao registro, a Central de Segurança verifica automaticamente essa imagem. Para disparar a verificação de uma imagem, envie-a por push ao repositório.
+- **No momento do push**: sempre que uma imagem é enviada por push ao registro, a Central de Segurança verifica automaticamente essa imagem. Para disparar a verificação de uma imagem, envie-a por push ao repositório.
 
-- **Recém-extraída** : como novas vulnerabilidades são descobertas todos os dias, o **Azure Defender para registros de contêiner** também verifica qualquer imagem que tenha sido extraída nos últimos 30 dias. Não há nenhum custo adicional para um novo exame; conforme mencionado acima, você é cobrado uma vez por imagem.
+- **Recém-extraída**: como novas vulnerabilidades são descobertas todos os dias, o **Azure Defender para registros de contêiner** também verifica qualquer imagem que tenha sido extraída nos últimos 30 dias. Não há nenhum custo adicional para um novo exame; conforme mencionado acima, você é cobrado uma vez por imagem.
 
-- **No momento da importação** : o Registro de Contêiner do Azure tem ferramentas de importação para levar as imagens do Docker Hub, do Registro de Contêiner da Microsoft ou de outro registro de contêiner do Azure para o seu registro. O **Azure Defender para registros de contêiner** examina as imagens compatíveis importadas. Saiba mais em [Importar imagens de contêiner para um registro de contêiner](../container-registry/container-registry-import-images.md).
+- **No momento da importação**: o Registro de Contêiner do Azure tem ferramentas de importação para levar as imagens do Docker Hub, do Registro de Contêiner da Microsoft ou de outro registro de contêiner do Azure para o seu registro. O **Azure Defender para registros de contêiner** examina as imagens compatíveis importadas. Saiba mais em [Importar imagens de contêiner para um registro de contêiner](../container-registry/container-registry-import-images.md).
  
 Normalmente, a verificação é concluída em 2 minutos, mas pode levar até 15 minutos. As descobertas são disponibilizadas como recomendações da Central de Segurança, como esta:
 

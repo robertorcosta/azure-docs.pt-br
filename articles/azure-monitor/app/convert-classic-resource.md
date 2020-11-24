@@ -3,18 +3,18 @@ title: Migrar um Azure Monitor Application Insights recurso clássico para um re
 description: Saiba mais sobre as etapas necessárias para atualizar seu Azure Monitor Application Insights recurso clássico para o novo modelo baseado em espaço de trabalho.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930570"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536516"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Application Insights baseados em espaço de trabalho
 
 Este guia explicará o processo de migração de um recurso de Application Insights clássico para um recurso baseado em espaço de trabalho. Os recursos baseados em espaço de trabalho dão suporte à integração completa entre Application Insights e Log Analytics. Os recursos baseados em espaço de trabalho enviam Application Insights telemetria para um espaço de trabalho Log Analytics comum, que permite que você acesse [os recursos mais recentes do Azure monitor](#new-capabilities) ao mesmo tempo em que mantém os logs de aplicativos, infraestrutura e plataforma em um único local consolidado.
 
-Os recursos baseados em espaço de trabalho permitem o RBAC (controle de acesso Role-Based comum) em seus recursos e elimina a necessidade de consultas entre aplicativos/espaços de trabalho.
+Recursos baseados em espaço de trabalho habilita o Azure RBAC (controle de acesso baseado em função) comum em seus recursos e elimina a necessidade de consultas entre aplicativos/espaços de trabalho.
 
 **Os recursos baseados em espaço de trabalho estão disponíveis atualmente em todas as regiões comerciais e no governo dos EUA do Azure**
 
@@ -51,7 +51,7 @@ Se você não precisar migrar um recurso existente e, em vez disso, quiser criar
 - A exportação contínua não tem suporte para recursos baseados em espaço de trabalho e deve ser desabilitada.
 Quando a migração for concluída, você poderá usar [as configurações de diagnóstico](../platform/diagnostic-settings.md) para configurar o arquivamento de dados para uma conta de armazenamento ou streaming para o Hub de eventos do Azure.  
 
-- Verifique suas configurações de retenção atuais em uso **geral**  >  e a retenção de dados de**custos estimados**  >  **Data Retention** para seu espaço de trabalho log Analytics. Essa configuração afetará por quanto tempo todos os novos dados ingeridos serão armazenados depois que você migrar o recurso de Application Insights. Se atualmente você armazena dados Application Insights por mais tempo do que o padrão de 90 dias e deseja manter esse período de retenção maior, talvez seja necessário ajustar as configurações de retenção do espaço de trabalho.
+- Verifique suas configurações de retenção atuais em uso **geral**  >  e a retenção de dados de **custos estimados**  >  **Data Retention** para seu espaço de trabalho log Analytics. Essa configuração afetará por quanto tempo todos os novos dados ingeridos serão armazenados depois que você migrar o recurso de Application Insights. Se atualmente você armazena dados Application Insights por mais tempo do que o padrão de 90 dias e deseja manter esse período de retenção maior, talvez seja necessário ajustar as configurações de retenção do espaço de trabalho.
 
 ## <a name="migrate-your-resource"></a>Migrar seu recurso
 
@@ -201,7 +201,7 @@ O `Update-AzApplicationInsights` comando do PowerShell atualmente não dá supor
 
 Depois que um recurso do Application Insights baseado em espaço de trabalho tiver sido criado, você poderá modificar o espaço de trabalho associado do Log Analytics.
 
-No painel de recursos Application insights, selecione **Propriedades**  >  **alterar espaço**de trabalho  >  **log Analytics espaços de trabalho**.
+No painel de recursos Application insights, selecione **Propriedades**  >  **alterar espaço** de trabalho  >  **log Analytics espaços de trabalho**.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -237,7 +237,7 @@ A funcionalidade de exportação contínua herdada não tem suporte para recurso
 
 Você não precisa fazer nenhuma alteração antes da migração, mas essa mensagem é para alertá-lo de que suas configurações atuais de retenção de Application Insights não estão definidas para o período de retenção padrão de 90 dias. Essa mensagem de aviso significa que você pode querer modificar as configurações de retenção para seu espaço de trabalho do Log Analytics antes de migrar e começar a ingerir novos dados. 
 
-Você pode verificar suas configurações de retenção atuais para obter log Analytics em uso **geral**  >  **e custos estimados**  >  de**retenção de dados** de dentro da interface do usuário do log Analytics. Essa configuração afetará por quanto tempo todos os novos dados ingeridos serão armazenados depois que você migrar o recurso de Application Insights.
+Você pode verificar suas configurações de retenção atuais para obter log Analytics em uso **geral**  >  **e custos estimados**  >  de **retenção de dados** de dentro da interface do usuário do log Analytics. Essa configuração afetará por quanto tempo todos os novos dados ingeridos serão armazenados depois que você migrar o recurso de Application Insights.
 
 ## <a name="next-steps"></a>Próximas etapas
 

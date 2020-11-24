@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540783"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542075"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorando a referência de dados do Azure Machine Learning
 
@@ -24,9 +24,9 @@ Saiba mais sobre os dados e recursos coletados por Azure Monitor do seu espaço 
 
 Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Machine Learning. O provedor de recursos para essas métricas é [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
-**Modelar**
+**Deprecia**
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
 | Falha na implantação do modelo | Contagem | O número de implantações de modelo que falharam. |
 | Implantação de modelo iniciada | Contagem | O número de implantações de modelo iniciadas. |
@@ -38,7 +38,7 @@ Esta seção lista todas as métricas de plataforma coletadas automaticamente co
 
 As informações de cota são apenas para Azure Machine Learning computação.
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
 | Núcleos ativos | Contagem | O número de núcleos de computação ativos. |
 | Nós ativos | Contagem | O número de nós ativos. |
@@ -56,7 +56,7 @@ As informações de cota são apenas para Azure Machine Learning computação.
 
 **Recurso**
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
 | CpuUtilization | Porcentagem | Quanto percentual de CPU foi utilizado para um determinado nó durante uma execução/trabalho. Essa métrica é publicada somente quando um trabalho está em execução em um nó. Um trabalho pode usar um ou mais nós. Essa métrica é publicada por nó. |
 | GpuUtilization | Porcentagem | Quanto percentual de GPU foi utilizado para um determinado nó durante uma execução/trabalho. Um nó pode ter uma ou mais GPUs. Essa métrica é publicada por GPU por nó. |
@@ -65,7 +65,7 @@ As informações de cota são apenas para Azure Machine Learning computação.
 
 Informações sobre execuções de treinamento.
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
 | Execuções concluídas | Contagem | O número de execuções concluídas. |
 | Execuções com falha | Contagem | O número de execuções com falha. |
@@ -77,9 +77,9 @@ Para obter mais informações sobre quais dimensões de métrica são, consulte 
 
 Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 
-| Dimensão | Description |
+| Dimensão | Descrição |
 | ---- | ---- |
-| Nome do cluster | O nome da instância de computação. Disponível para todas as métricas de cota. |
+| Nome do cluster | O nome do recurso de cluster de computação. Disponível para todas as métricas de cota. |
 | Nome da família de VMs | O nome da família de VMs usada pelo cluster. Disponível para porcentagem de utilização de cota. |
 | Prioridade da VM | A prioridade da VM. Disponível para porcentagem de utilização de cota.
 | CreatedTime | Disponível somente para CpuUtilization e GpuUtilization. |
@@ -178,7 +178,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Publisher | Editor do tipo de cluster |
+| Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -214,7 +214,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Publisher | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
+| Publicador | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
