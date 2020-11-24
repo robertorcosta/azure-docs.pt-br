@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912320"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757410"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar um aplicativo de processamento de formulários com o AI Builder
 
@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="upload-and-analyze-documents"></a>Carregar e analisar documentos
 
-Na página **Adicionar documentos** , você precisa fornecer documentos de amostra para treinar o seu modelo para o tipo de formulário do qual você deseja extrair informações. Depois de carregar os seus documentos, o AI Builder analisa-os para verificar se são suficientes para treinar um modelo.
+Na página **Adicionar documentos**, você precisa fornecer documentos de amostra para treinar o seu modelo para o tipo de formulário do qual você deseja extrair informações. Depois de carregar os seus documentos, o AI Builder analisa-os para verificar se são suficientes para treinar um modelo.
 
 > [!NOTE]
 > Atualmente, o AI Builder não dá suporte aos seguintes tipos de dados de entrada de processamento de formulários:
@@ -61,7 +61,7 @@ Na página **Adicionar documentos** , você precisa fornecer documentos de amost
 
 ### <a name="upload-your-documents"></a>Carregar os seus documentos
 
-1. Selecione **Adicionar documentos** , selecione no mínimo cinco documentos e, em seguida, selecione **Carregar**.
+1. Selecione **Adicionar documentos**, selecione no mínimo cinco documentos e, em seguida, selecione **Carregar**.
 1. Após a conclusão do upload, selecione **Fechar**.
 1. Em seguida, selecione **Analisar**.
 
@@ -89,8 +89,8 @@ Na página de seleção de campo, você escolhe os campos que são importantes p
 
     Quando você clicar em um campo detectado, as seguintes informações serão exibidas:
 
-    - **Nome do campo** : O nome do rótulo do campo detectado.
-    - **Valor do campo** : O valor do campo detectado.
+    - **Nome do campo**: O nome do rótulo do campo detectado.
+    - **Valor do campo**: O valor do campo detectado.
 
 > [!div class="mx-imgBorder"]
 > ![página de marcação](./media/tutorial-ai-builder/select-fields-page.png)

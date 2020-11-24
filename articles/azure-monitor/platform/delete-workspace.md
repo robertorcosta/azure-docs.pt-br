@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174167"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758873"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Excluir e recuperar um espaço de trabalho do Azure Log Analytics
 
@@ -41,14 +41,16 @@ A operação de exclusão do espaço de trabalho remove o recurso do Resource Ma
 > [!NOTE] 
 > As soluções instaladas e os serviços vinculados, como a conta de Automação do Azure, são removidos permanentemente do espaço de trabalho no momento da exclusão e não podem ser recuperados. Eles devem ser reconfigurados após a operação de recuperação para trazer o espaço de trabalho ao seu estado configurado anteriormente.
 
-Você pode excluir um espaço de trabalho usando o [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), a [API REST](/rest/api/loganalytics/workspaces/delete) ou o [portal do Azure](https://portal.azure.com).
+Você pode excluir um espaço de trabalho usando o [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), a [API REST](/rest/api/loganalytics/workspaces/delete) ou o [portal do Azure](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 3. Na lista de espaço de trabalhos do Log Analytics, selecione um espaço de trabalho e clique em **Excluir** na parte superior do painel central.
-4. Uma página de confirmação é exibida, mostrando a ingestão de dados no espaço de trabalho na última semana. Digite o nome do espaço de trabalho para confirmar e clique em **Excluir**.
+4. Uma página de confirmação é exibida, mostrando a ingestão de dados no espaço de trabalho na última semana. 
+5. Se você quiser excluir permanentemente o espaço de trabalho removendo a opção para recuperá-lo posteriormente, marque a caixa de seleção **excluir o espaço de trabalho permanentemente** .
+6. Digite o nome do espaço de trabalho para confirmar e clique em **Excluir**.
 
    ![Confirmar exclusão do espaço de trabalho](media/delete-workspace/workspace-delete.png)
 
@@ -60,11 +62,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="permanent-workspace-delete"></a>Exclusão permanente do espaço de trabalho
 O método de exclusão reversível pode não se encaixar em alguns cenários, como desenvolvimento e teste, nos quais é necessário repetir uma implantação com as mesmas configurações e nome do espaço de trabalho. Nesses casos, você pode excluir permanentemente o espaço de trabalho e "substituir" o período de exclusão reversível. A operação de exclusão permanente libera o nome do espaço de trabalho, permitindo então que você crie um novo espaço de trabalho usando o mesmo nome.
 
-
 > [!IMPORTANT]
 > Tenha cuidado ao empregar a operação de exclusão permanente, pois ela é irreversível e você não poderá recuperar o espaço de trabalho e seus dados.
 
-Adicione a marca '-ForceDelete ' para excluir permanentemente seu espaço de trabalho. A opção '-ForceDelete ' está disponível no momento com AZ. OperationalInsights 2.3.0 ou superior. 
+Para excluir permanentemente um espaço de trabalho usando o portal do Azure, marque a caixa de seleção **excluir o espaço de trabalho permanentemente** antes de clicar no botão **excluir** .
+
+Para excluir permanentemente um espaço de trabalho usando o PowerShell, adicione a marca '-ForceDelete ' para excluir permanentemente seu espaço de trabalho. A opção '-ForceDelete ' está disponível no momento com AZ. OperationalInsights 2.3.0 ou superior. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
