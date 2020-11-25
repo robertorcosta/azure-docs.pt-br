@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397783"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975625"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -434,9 +434,9 @@ Não, o complemento AGIC é um serviço gerenciado, o que significa que a Micros
 
 O gateway de aplicativo fornece três logs: 
 
-* **ApplicationGatewayAccessLog** : O  log de acesso contém cada solicitação enviada ao front-end do Gateway de Aplicativo. Os dados incluem o IP do chamador, a URL solicitada, latência da resposta, o código de retorno, bytes de entrada e saída. Esse log contém um registro por instância do Gateway de Aplicativo.
-* **ApplicationGatewayPerformanceLog** : O log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
-* **ApplicationGatewayFirewallLog** : Para gateways de aplicativo que você configura com o WAF, o log do firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
+* **ApplicationGatewayAccessLog**: O  log de acesso contém cada solicitação enviada ao front-end do Gateway de Aplicativo. Os dados incluem o IP do chamador, a URL solicitada, latência da resposta, o código de retorno, bytes de entrada e saída. Esse log contém um registro por instância do Gateway de Aplicativo.
+* **ApplicationGatewayPerformanceLog**: O log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
+* **ApplicationGatewayFirewallLog**: Para gateways de aplicativo que você configura com o WAF, o log do firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
 
 O log de acesso é coletado a cada 60 segundos. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
