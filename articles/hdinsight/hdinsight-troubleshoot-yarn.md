@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022659"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN do Apache Hadoop usando o Azure HDInsight
 
@@ -24,11 +24,11 @@ Saiba mais sobre os principais problemas e suas soluções ao trabalhar com carg
 
 Use as etapas a seguir por meio do Ambari para criar uma nova fila do YARN e equilibrar a alocação de capacidade entre todas as filas.
 
-Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são alteradas de 50% da capacidade para 25% da capacidade, o que oferece a nova capacidade de fila de 50% (spark).
+Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alteradas de 50% da capacidade para 25% da capacidade, o que oferece a nova capacidade de fila de 50% (spark).
 
 | Fila | Capacity | Capacidade máxima |
 | --- | --- | --- |
-| padrão | 25% | 50% |
+| default | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
@@ -38,7 +38,7 @@ Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são altera
 2. Selecione a fila **padrão**.
 
     ![Apache Ambari YARN selecionar fila padrão](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. Para a fila **padrão** , altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr** , altere a **capacidade** para 25%.
+3. Para a fila **padrão** , altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr**, altere a **capacidade** para 25%.
 
     ![Alterar a capacidade para 25% para as filas padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Para criar uma nova fila, selecione **Adicionar Fila**.
@@ -129,7 +129,7 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
 
     Este comando cria um arquivo de log chamado containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Leituras adicionais
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Leitura adicional
 
 - [Conectar ao HDInsight (Apache Hadoop) usando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop conceitos e aplicativos do YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

@@ -4,19 +4,19 @@ description: Descreve as propriedades que são fornecidas para eventos de armaze
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87458936"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023952"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento de BLOBs do Azure como uma fonte de grade de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos de armazenamento de blob.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também fornece uma lista de inícios rápidos e tutoriais para usar o armazenamento de BLOBs do Azure como uma fonte de eventos.
+Este artigo fornece as propriedades e o esquema para eventos de armazenamento de blob. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também fornece uma lista de inícios rápidos e tutoriais para usar o armazenamento de BLOBs do Azure como uma fonte de eventos.
 
 
 >[!NOTE]
-> Somente as contas de armazenamento do tipo **StorageV2 (uso geral v2)**, **BlockBlobStorage**e **BlobStorage** oferecem suporte à integração de eventos. O **armazenamento (uso geral v1)** *não oferece* suporte à integração com a grade de eventos.
+> Somente as contas de armazenamento do tipo **StorageV2 (uso geral v2)**, **BlockBlobStorage** e **BlobStorage** oferecem suporte à integração de eventos. O **armazenamento (uso geral v1)** *não oferece* suporte à integração com a grade de eventos.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
@@ -304,19 +304,19 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | api | string | A operação que disparou o evento. |
 | clientRequestId | string | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Consulte [Formato de Log](/rest/api/storageservices/storage-analytics-log-format). |
 | requestId | string | Id da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | O valor que você pode usar para executar operações condicionalmente. |
 | contentType | string | O tipo de conteúdo especificado para o blob. |
-| contentLength | Número inteiro | O tamanho do blob em bytes. |
+| contentLength | inteiro | O tamanho do blob em bytes. |
 | BlobType | string | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
 | contentOffset | número | O deslocamento em bytes de uma operação de gravação realizada no ponto em que o aplicativo de gatilho de evento concluiu a gravação no arquivo. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico.|
 | destinationUrl |string | A URL do arquivo que existirá após a conclusão da operação. Por exemplo, se um arquivo for renomeado, a `destinationUrl` Propriedade conterá a URL do novo nome de arquivo. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico.|
 | sourceUrl |string | A URL do arquivo que existe antes da operação. Por exemplo, se um arquivo for renomeado, o `sourceUrl` contém a URL do nome do arquivo original antes da operação de renomeação. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico. |
-| url | string | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
+| url | string | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: *\<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\>*. <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: *\<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\>*. |
 | recursiva | string | `True` para executar a operação em todos os diretórios filho; caso contrário `False` . <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico. |
 | sequenciador | string | Um valor de cadeia de caracteres opaca que representa a sequência lógica de eventos para qualquer nome específico de blob.  Os usuários podem usar a comparação de cadeia de caracteres padrão para entender a sequência relativa dos dois eventos no mesmo nome de blob. |
 | storageDiagnostics | objeto | Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento do Azure. Quando presente, deve ser ignorado pelos consumidores de evento. |

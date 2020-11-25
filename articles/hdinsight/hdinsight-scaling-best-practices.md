@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535392"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022761"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -125,12 +125,12 @@ Para evitar que seus trabalhos em execução falhem durante uma operação de re
 1. Encerre manualmente os trabalhos.
 1. Reenvie os trabalhos após a operação de dimensionamento ser concluída.
 
-Para ver uma lista de trabalhos pendentes e em execução, você pode usar a interface do usuário do YARN **Resource Manager** , seguindo estas etapas:
+Para ver uma lista de trabalhos pendentes e em execução, você pode usar a interface do usuário do YARN **Resource Manager**, seguindo estas etapas:
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  O cluster abre em uma nova página do portal.
-2. Na exibição principal, navegue até **painéis de cluster**  >  **Ambari página inicial** . Insira suas credenciais de cluster.
+2. Na exibição principal, navegue até **painéis de cluster**  >  **Ambari página inicial**. Insira suas credenciais de cluster.
 3. Na interface do usuário do amAmbari, selecione **yarn** na lista de serviços no menu à esquerda.  
-4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e, em seguida, selecione **interface do usuário do Gerenciador de recursos** .
+4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e, em seguida, selecione **interface do usuário do Gerenciador de recursos**.
 
     ![Interface do usuário do Apache Ambari Quick links Resource Manager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

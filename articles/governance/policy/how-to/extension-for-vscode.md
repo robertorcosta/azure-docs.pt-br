@@ -4,11 +4,11 @@ description: Saiba como usar a extensão de Azure Policy para Visual Studio Code
 ms.date: 10/20/2020
 ms.topic: how-to
 ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317624"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022421"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
 
@@ -64,13 +64,13 @@ Para avaliar os recursos e os aliases de pesquisa, você deve se conectar à sua
 
      Na extensão Azure Policy, selecione **entrar no Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Captura de tela da seleção da entrada da nuvem do Azure da nação para Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Captura de tela de Visual Studio Code e o ícone da extensão de Azure Policy." border="false":::
 
    - Paleta de Comandos
 
-     Na barra de menus, vá para **Exibir**  >  **paleta de comandos**e insira **Azure: entrar**.
+     Na barra de menus, vá para **Exibir**  >  **paleta de comandos** e insira **Azure: entrar**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Captura de tela da seleção da entrada da nuvem do Azure da nação para Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Captura de tela das opções de entrada na nuvem do Azure para Visual Studio Code na paleta de comandos." border="false":::
 
 1. Siga as instruções de entrada para entrar no Azure. Depois que você estiver conectado, o nome da sua conta do Azure será mostrado na barra de status na parte inferior da janela de Visual Studio Code.
 
@@ -82,11 +82,11 @@ Quando você entra pela primeira vez, somente os recursos e as políticas de ass
 
    - Paleta de comandos: 
 
-     Na barra de menus, vá para **Exibir** > **paleta de comandos**e insira **Azure: selecionar assinaturas**.
+     Na barra de menus, vá para **Exibir** > **paleta de comandos** e insira **Azure: selecionar assinaturas**.
 
    - Rodapé da janela
 
-     No rodapé da janela na parte inferior da tela, selecione o segmento que corresponde ao **Azure: \<your account\> **.
+     No rodapé da janela na parte inferior da tela, selecione o segmento que corresponde ao **Azure: \<your account\>**.
 
 1. Use a caixa de filtro para localizar rapidamente as assinaturas por nome. Em seguida, verifique ou remova a verificação de cada assinatura para definir as assinaturas mostradas pela extensão de Azure Policy. Quando terminar de adicionar ou remover assinaturas a serem exibidas, selecione **OK**.
 
@@ -111,7 +111,7 @@ Clientes com centenas ou milhares de recursos em uma única assinatura podem pre
 
    - Paleta de comandos:
 
-     Na barra de menus, vá para **Exibir** > **paleta de comandos**e insira **recursos: pesquisar recursos**.
+     Na barra de menus, vá para **Exibir** > **paleta de comandos** e insira **recursos: pesquisar recursos**.
 
 1. Se mais de uma assinatura for selecionada para exibição, use o filtro para selecionar qual assinatura será pesquisada.
 
@@ -125,7 +125,7 @@ Quando um recurso é selecionado, seja por meio da interface de pesquisa ou sele
 
 Quando um recurso estiver aberto, passar o mouse sobre o nome ou o valor da Propriedade do Resource Manager exibirá o Azure Policy alias, se houver. Neste exemplo, o recurso é um `Microsoft.Compute/virtualMachines` tipo de recurso e a propriedade **Propriedades. StorageProfile. imageReference. offer** é focalizada. Focalizar mostra os aliases correspondentes.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de tela da seleção da entrada da nuvem do Azure da nação para Visual Studio Code." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de tela da extensão de Azure Policy para Visual Studio Code passando uma propriedade para exibir os nomes de alias." border="false":::
 
 > [!NOTE]
 > A extensão VS Code apenas expõe as propriedades do modo Resource Manager e não exibe nenhuma propriedade do [modo de Provedor de Recursos](../concepts/definition-structure.md#mode).
@@ -142,7 +142,7 @@ A extensão Azure Policy lista os tipos de política e as atribuições de polí
 
    - Paleta de comandos:
 
-     Na barra de menus, vá para **Exibir** > **paleta de comandos**e insira **políticas: políticas de pesquisa**.
+     Na barra de menus, vá para **Exibir** > **paleta de comandos** e insira **políticas: políticas de pesquisa**.
 
 1. Se mais de uma assinatura for selecionada para exibição, use o filtro para selecionar qual assinatura será pesquisada.
 
@@ -199,7 +199,7 @@ Os resultados da avaliação fornecem informações sobre a definição de polí
 
 ## <a name="sign-out"></a>Sair
 
-Na barra de menus, vá para **Exibir**  >  **paleta de comandos**e, em seguida, insira **Azure: sair**.
+Na barra de menus, vá para **Exibir**  >  **paleta de comandos** e, em seguida, insira **Azure: sair**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

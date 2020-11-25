@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
 ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339281"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023458"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Início Rápido: Implantar a API do Azure para FHIR usando o portal do Azure
 
@@ -41,7 +41,7 @@ Selecione **Criar** para criar uma conta da API do Azure para FHIR:
 
 ## <a name="enter-account-details"></a>Inserir detalhes da conta
 
-Selecione um grupo de recursos ou crie um, escolha um nome para a conta e, por fim, clique em **Examinar + criar** :
+Selecione um grupo de recursos ou crie um, escolha um nome para a conta e, por fim, clique em **Examinar + criar**:
 
 :::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Novos detalhes da API de saúde":::
 

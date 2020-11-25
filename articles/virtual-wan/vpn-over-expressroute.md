@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023510"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Criptografia do ExpressRoute: IPsec sobre ExpressRoute para WAN virtual
 
@@ -95,7 +95,7 @@ O recurso do site é o mesmo que os sites VPN não ExpressRoute para uma WAN vir
 
    Se o BGP estiver habilitado, ele será aplicado a todas as conexões criadas para este site no Azure. Configurar o BGP em uma WAN virtual é equivalente a configurar o BGP em um gateway de VPN do Azure. 
    
-   Seu endereço de par de BGP local *não deve* ser o mesmo que o endereço IP de sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site de VPN. Use um endereço IP diferente no dispositivo VPN para o IP de par no nível de protocolo BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, ele *não pode* ser um APIPA (169,254.* x*. *x*). Especifique esse endereço no gateway de rede local correspondente que representa o local. Para saber os pré-requisitos do BGP, confira [Sobre o BGP com o Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Seu endereço de par de BGP local *não deve* ser o mesmo que o endereço IP de sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site de VPN. Use um endereço IP diferente no dispositivo VPN para o IP de par no nível de protocolo BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, ele *não pode* ser um APIPA (169,254.*x*. *x*). Especifique esse endereço no gateway de rede local correspondente que representa o local. Para saber os pré-requisitos do BGP, confira [Sobre o BGP com o Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Selecione **Avançar: examinar + criar >** para verificar os valores de configuração e criar o site VPN. Se você selecionou **hubs** para se conectar, a conexão será estabelecida entre a rede local e o gateway de VPN de Hub.
 
@@ -105,17 +105,17 @@ Depois de criar o site VPN e conectar-se ao Hub, use as seguintes etapas para co
 
 1. Volte para a página de recursos de WAN virtual e selecione o recurso de Hub. Ou navegue do site VPN para o Hub conectado.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN no ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Selecione um hub":::
 1. Em **conectividade**, selecione **VPN (site a site)**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN no ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Selecionar VPN (site a site)":::
 1. Selecione as reticências (**...**) no site VPN no ExpressRoute e selecione **Editar conexão VPN para esse Hub**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN no ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Inserir o menu de configuração":::
 1. Para **usar o endereço IP privado do Azure**, selecione **Sim**. A configuração configura o gateway de VPN do hub para usar endereços IP privados dentro do intervalo de endereços do Hub no gateway para essa conexão, em vez dos endereços IP públicos. Isso garantirá que o tráfego da rede local percorra os caminhos de emparelhamento privado do ExpressRoute em vez de usar a Internet pública para essa conexão VPN. A captura de tela a seguir mostra a configuração:
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN no ExpressRoute" border="false":::
-1. Selecione **Salvar**.
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Configuração para usar um endereço IP privado para a conexão VPN" border="false":::
+1. Clique em **Salvar**.
 
 Depois de salvar as alterações, o gateway de VPN de Hub usará os endereços IP privados no gateway de VPN para estabelecer as conexões IPsec/IKE com o dispositivo VPN local no ExpressRoute.
 

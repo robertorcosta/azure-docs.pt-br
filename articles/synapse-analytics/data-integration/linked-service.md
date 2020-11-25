@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359962"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022914"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados
 
@@ -22,8 +22,8 @@ Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com u
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure** : Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure** : Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
+* **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento do Azure**: Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
 
 ![Conta de armazenamento protegida](./media/secure-storage-account.png)
 
@@ -32,12 +32,12 @@ Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com u
 No Azure Synapse Analytics, um serviço vinculado é onde você define as informações de conexão com outros serviços. Nesta seção, você adicionará o Azure Synapse Analytics e o Azure Data Lake Gen 2 como serviços vinculados.
 
 1. Abra o Azure Synapse Studio e vá para a guia **gerenciar** .
-1. Em **Conexões externas** , selecione **Serviços vinculados**.
-1. Para adicionar um serviço vinculado, selecione **novo**.
+1. Em **Conexões externas**, selecione **Serviços vinculados**.
+1. Para adicionar um serviço vinculado, selecione **Novo**.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
 1. Lembre-se de habilitar **Criação Interativa**. Pode levar cerca de um minuto para habilitar essa opção. 
 1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Selecione testar conexão para verificar se suas credenciais estão corretas.
-1. Selecione **testar conexão** , ele deve falhar porque a conta de armazenamento não habilita o acesso a ele sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
+1. Selecione **testar conexão**, ele deve falhar porque a conta de armazenamento não habilita o acesso a ele sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
 1. Selecione **Criar** quando terminar.
 
 ## <a name="create-a-managed-private-endpoint"></a>Criar um ponto de extremidade privado gerenciado

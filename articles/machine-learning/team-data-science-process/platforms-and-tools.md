@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320233"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023798"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -45,7 +45,7 @@ A máquina virtual de ciência de dados, oferecida no Windows e no Linux pela Mi
 - Área de trabalho do Power BI para Windows
 - SQL Server 2016 Developer Edition no Windows/Postgres no Linux
 
-Inclui também **Ferramentas de ML e IA** , como xgboost, mxnet e Vowpal Wabbit.
+Inclui também **Ferramentas de ML e IA**, como xgboost, mxnet e Vowpal Wabbit.
 
 No momento, a DSVM está disponível nos sistemas operacionais **Windows** e **Linux CentOS**. Escolha o tamanho da sua DSVM (número de núcleos de CPU e quantidade de memória) com base nas necessidades dos projetos de ciência de dados que você planeja executar nela. 
 
@@ -60,7 +60,7 @@ O Apache Spark é uma estrutura de processamento paralelo de software livre que 
 
 Quando você cria um cluster do Spark no HDInsight, cria recursos de computação do Azure com o Spark instalado e configurado. Demora cerca de dez minutos para criar um cluster do Spark no HDInsight. Armazene os dados a serem processados no Armazenamento de Blobs do Azure. Para mais informações sobre como usar o Armazenamento de Blobs do Azure com o cluster, consulte [Usar o Armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para saber mais sobre os **clusters do Azure HDInsight Spark** , confira [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
+A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para saber mais sobre os **clusters do Azure HDInsight Spark**, confira [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -101,14 +101,14 @@ Os Serviços de R (no banco de dados) fornecem uma plataforma para desenvolver e
 
 Os Serviços de R (no banco de dados) dão suporte à linguagem R de software livre com um conjunto abrangente de tecnologias e ferramentas do SQL Server. Eles oferecem capacidade de gerenciamento, segurança, confiabilidade e desempenho superiores. Você pode implantar soluções de R usando ferramentas familiares e convenientes. Os aplicativos de produção podem chamar o runtime de R e recuperar previsões e visuais usando Transact-SQL. Você também pode usar as bibliotecas de ScaleR para melhorar a escala e o desempenho de suas soluções de R. Para obter mais informações, confira [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R** , consulte [Passo a passo de ponta a ponta de Ciência de Dados](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores de SQL** , consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R**, consulte [Passo a passo de ponta a ponta de Ciência de Dados](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores de SQL**, consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Apêndice: Ferramentas para configurar projetos de ciência de dados
 
 ### <a name="install-git-credential-manager-on-windows"></a>Instalar o Gerenciador de credenciais do Git no Windows
 
-Se você estiver seguindo o TDSP no **Windows** , você precisará instalar o **GCM (Gerenciador de Credenciais do Git)** para se comunicar com os repositórios do Git. Para instalar o GCM, primeiramente você precisa instalar o **Chocolaty**. Para instalar o Chocolaty e o GCM, execute os seguintes comandos no Windows PowerShell como um **administrador** :  
+Se você estiver seguindo o TDSP no **Windows**, você precisará instalar o **GCM (Gerenciador de Credenciais do Git)** para se comunicar com os repositórios do Git. Para instalar o GCM, primeiramente você precisa instalar o **Chocolaty**. Para instalar o Chocolaty e o GCM, execute os seguintes comandos no Windows PowerShell como um **administrador**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex

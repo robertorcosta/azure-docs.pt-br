@@ -7,11 +7,11 @@ ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743753"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023611"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ Crie um aplicativo de console simples para chamar o serviço de ator.
     > [!NOTE]
     > Um aplicativo de console não é o tipo de aplicativo que você normalmente usaria como cliente no Service Fabric, mas é um exemplo conveniente para depuração e teste com o cluster do Service Fabric local.
 
-3. O aplicativo de console deve ser um aplicativo de 64 bits para manter a compatibilidade com o projeto de interface e outras dependências.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient**e, em seguida, em **Propriedades**.  Na guia **Compilar**, defina o **destino da plataforma** para **x64**.
+3. O aplicativo de console deve ser um aplicativo de 64 bits para manter a compatibilidade com o projeto de interface e outras dependências.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient** e, em seguida, em **Propriedades**.  Na guia **Compilar**, defina o **destino da plataforma** para **x64**.
     
     ![Compilar propriedades][8]
 
@@ -142,7 +142,7 @@ Pressione **F5** para criar, implantar e executar o aplicativo localmente no clu
 
 ![Janela de saída de depuração do Service Fabric][3]
 
-Quando a saída contiver o texto, *O aplicativo está pronto*, será possível testar o serviço usando o aplicativo ActorClient.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient**e, em seguida, clique em **Depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deverá exibir a saída do serviço de ator.
+Quando a saída contiver o texto, *O aplicativo está pronto*, será possível testar o serviço usando o aplicativo ActorClient.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient** e, em seguida, clique em **Depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deverá exibir a saída do serviço de ator.
 
 ![Saída do aplicativo][9]
 

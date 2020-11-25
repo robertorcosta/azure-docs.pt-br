@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/25/2020
+ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331424"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023339"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
 
@@ -109,22 +109,22 @@ Aqui estão os detalhes dos parâmetros e das propriedades do aplicativo:
 
 | Propriedade                                                    | Descrição                                                  | Obrigatório |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada. | Não       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Habilite o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou habilite as credenciais de configuração diretamente no IR de hospedagem interna sem passar pelo Azure Data Factory. Você faz o último usando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de um computador remoto na mesma rede. | Não       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Habilite o acesso remoto ao nó atual quando o nó for executado em um contêiner. | Não       |
-| **DisableRemoteAccess**                                         | Desabilite o acesso remoto ao nó atual. O acesso remoto é necessário para a instalação de vários nós. O cmdlet do PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** ainda funciona mesmo quando o acesso remoto está desabilitado. Esse comportamento é verdadeiro, desde que o cmdlet seja executado no mesmo computador que o nó IR auto-hospedado. | Não       |
-| **Chave** "`<AuthenticationKey>`"                                 | Substituir ou atualizar a chave de autenticação anterior. Tenha cuidado com essa ação. O nó IR auto-hospedado anterior pode ficar offline se a chave for de um tempo de execução de integração novo. | Não       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Gere um arquivo de backup para o nó atual. O arquivo de backup inclui a chave do nó e as credenciais do armazenamento de dados. | Não       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaure o nó de um arquivo de backup.                          | Não       |
-| **Reiniciar**                                                     | Reinicie o serviço de host do Integration Runtime auto-hospedado.   | Não       |
-| **Iniciar**                                                       | Inicie o serviço de host do Integration Runtime auto-hospedado.     | Não       |
-| **Parar**                                                        | Pare o serviço de host do Integration Runtime auto-hospedado.        | Não       |
-| **StartUpgradeService**                                         | Inicie o serviço de atualização do Integration Runtime de hospedagem interna.       | Não       |
-| **StopUpgradeService**                                          | Pare o serviço de atualização do Integration Runtime de hospedagem interna.        | Não       |
-| **TurnOnAutoUpdate**                                            | Ative a atualização automática do Integration Runtime de hospedagem interna.        | Não       |
-| **TurnOffAutoUpdate**                                           | Desative a atualização automática do Integration Runtime de hospedagem interna.       | Não       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Defina DIAHostService para executar como uma nova conta. Use a senha vazia "" para contas de sistema e contas virtuais. | Não       |
+| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada. | No       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Habilite o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou habilite as credenciais de configuração diretamente no IR de hospedagem interna sem passar pelo Azure Data Factory. Você faz o último usando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de um computador remoto na mesma rede. | No       |
+| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Habilite o acesso remoto ao nó atual quando o nó for executado em um contêiner. | No       |
+| **DisableRemoteAccess**                                         | Desabilite o acesso remoto ao nó atual. O acesso remoto é necessário para a instalação de vários nós. O cmdlet do PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** ainda funciona mesmo quando o acesso remoto está desabilitado. Esse comportamento é verdadeiro, desde que o cmdlet seja executado no mesmo computador que o nó IR auto-hospedado. | No       |
+| **Chave** "`<AuthenticationKey>`"                                 | Substituir ou atualizar a chave de autenticação anterior. Tenha cuidado com essa ação. O nó IR auto-hospedado anterior pode ficar offline se a chave for de um tempo de execução de integração novo. | No       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Gere um arquivo de backup para o nó atual. O arquivo de backup inclui a chave do nó e as credenciais do armazenamento de dados. | No       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaure o nó de um arquivo de backup.                          | No       |
+| **Reiniciar**                                                     | Reinicie o serviço de host do Integration Runtime auto-hospedado.   | No       |
+| **Iniciar**                                                       | Inicie o serviço de host do Integration Runtime auto-hospedado.     | No       |
+| **Parar**                                                        | Pare o serviço de host do Integration Runtime auto-hospedado.        | No       |
+| **StartUpgradeService**                                         | Inicie o serviço de atualização do Integration Runtime de hospedagem interna.       | No       |
+| **StopUpgradeService**                                          | Pare o serviço de atualização do Integration Runtime de hospedagem interna.        | No       |
+| **TurnOnAutoUpdate**                                            | Ative a atualização automática do Integration Runtime de hospedagem interna.        | No       |
+| **TurnOffAutoUpdate**                                           | Desative a atualização automática do Integration Runtime de hospedagem interna.       | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Defina DIAHostService para executar como uma nova conta. Use a senha vazia "" para contas de sistema e contas virtuais. | No       |
 
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
@@ -150,7 +150,7 @@ Aqui está um resumo de alto nível das etapas de fluxo de dados para copiar com
 - Use um tempo de execução de integração auto-hospedado para dar suporte à integração de dados em uma rede virtual do Azure.
 - Trate a fonte de dados como uma fonte de dados local protegida por um firewall mesmo quando você usar o Microsoft Azure ExpressRoute. Use o tempo de execução de integração auto-hospedado para conectar o serviço à fonte de dados.
 - Use o tempo de execução de integração auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma máquina virtual de IaaS (infraestrutura como serviço) do Azure.
-- As tarefas podem falhar em um Integration Runtime de hospedagem interna que você instalou em um Windows Server para o qual a criptografia compatível com FIPS está habilitada. Para contornar esse problema, você tem duas opções: armazenar credenciais/valores secretos em um Azure Key Vault ou desabilitar a criptografia em conformidade com FIPS no servidor. Para desabilitar a criptografia compatível com FIPS, altere o valor da subchave do registro a seguir de 1 (habilitado) para 0 (desabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
+- As tarefas podem falhar em um Integration Runtime de hospedagem interna que você instalou em um Windows Server para o qual a criptografia compatível com FIPS está habilitada. Para contornar esse problema, você tem duas opções: armazenar credenciais/valores secretos em um Azure Key Vault ou desabilitar a criptografia em conformidade com FIPS no servidor. Para desabilitar a criptografia compatível com FIPS, altere o valor da subchave do registro a seguir de 1 (habilitado) para 0 (desabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se você usar o [tempo de execução de integração auto-hospedado como um proxy para o tempo de execução de integração do SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), a criptografia compatível com FIPS poderá ser habilitada e será usada ao mover dados do local para o armazenamento de BLOBs do Azure como uma área de preparo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -185,7 +185,7 @@ Você pode instalar o Integration Runtime de hospedagem interna baixando um paco
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalar e registrar um IR auto-hospedado do centro de download da Microsoft
 
 1. Acesse a [página de downloads do Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Selecione **baixar** , selecione a versão de 64 bits e selecione **Avançar**. Não há suporte para a versão de 32 bits.
+1. Selecione **baixar**, selecione a versão de 64 bits e selecione **Avançar**. Não há suporte para a versão de 32 bits.
 1. Execute o arquivo de identidade gerenciado diretamente ou salve-o em seu disco rígido e execute-o.
 1. Na janela de **boas-vindas** , selecione um idioma e selecione **Avançar**.
 1. Aceite os Termos de Licença para Software Microsoft e selecione **Avançar**.
@@ -239,7 +239,7 @@ Aqui estão os requisitos para o certificado TLS/SSL que você usa para proteger
 
 - O certificado deve ser um certificado X509 v3 publicamente confiável. Recomendamos que você use certificados emitidos por uma autoridade de certificação (CA) de parceiro público.
 - Cada nó do runtime de integração deve confiar nesse certificado.
-- Não recomendamos certificados de SAN (nome alternativo da entidade) porque apenas o último item de SAN é usado. Todos os outros itens de SAN são ignorados. Por exemplo, se você tiver um certificado de SAN cujas SANs são **Node1.domain.contoso.com** e **NODE2.domain.contoso.com** , você poderá usar esse certificado somente em um computador cujo FQDN (nome de domínio totalmente qualificado) seja **NODE2.domain.contoso.com**.
+- Não recomendamos certificados de SAN (nome alternativo da entidade) porque apenas o último item de SAN é usado. Todos os outros itens de SAN são ignorados. Por exemplo, se você tiver um certificado de SAN cujas SANs são **Node1.domain.contoso.com** e **NODE2.domain.contoso.com**, você poderá usar esse certificado somente em um computador cujo FQDN (nome de domínio totalmente qualificado) seja **NODE2.domain.contoso.com**.
 - O certificado pode usar qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados TLS/SSL.
 - Não há suporte para certificados que usam chaves CNG.  
 
@@ -264,8 +264,8 @@ Para ver uma introdução e uma demonstração desse recurso, Assista ao vídeo 
 
 ### <a name="terminology"></a>Terminologia
 
-- **Ir compartilhado** : um ir original de hospedagem interna que é executado em uma infraestrutura física.  
-- **Ir vinculado** : um ir que faz referência a outro ir compartilhado. O IR vinculado é um IR lógico e usa a infraestrutura de outro IR de hospedagem interna compartilhada.
+- **Ir compartilhado**: um ir original de hospedagem interna que é executado em uma infraestrutura física.  
+- **Ir vinculado**: um ir que faz referência a outro ir compartilhado. O IR vinculado é um IR lógico e usa a infraestrutura de outro IR de hospedagem interna compartilhada.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Métodos para compartilhar um tempo de execução de integração auto-hospedado
 
@@ -351,9 +351,9 @@ Quando configurado, o Integration Runtime de hospedagem interna usa o servidor p
 
 Há três opções de configuração:
 
-- Não **usar proxy** : o Integration Runtime de hospedagem interna não usa explicitamente nenhum proxy para se conectar aos serviços de nuvem.
-- **Usar o proxy do sistema** : o Integration Runtime de hospedagem interna usa a configuração de proxy configurada em diahost.exe.config e diawp.exe.config. Se esses arquivos não especificarem nenhuma configuração de proxy, o Integration Runtime de hospedagem interna se conectará ao serviço de nuvem diretamente sem passar por um proxy.
-- **Usar proxy personalizado** : defina a configuração de proxy http a ser usada para o tempo de execução de integração auto-hospedado, em vez de usar as configurações em diahost.exe.config e diawp.exe.config. Os valores de **endereço** e **porta** são necessários. Os valores de **nome de usuário** e **senha** são opcionais, dependendo da configuração de autenticação do proxy. Todas as configurações são criptografadas com a DPAPI do Windows no Integration Runtime auto-hospedado e armazenados localmente no computador.
+- Não **usar proxy**: o Integration Runtime de hospedagem interna não usa explicitamente nenhum proxy para se conectar aos serviços de nuvem.
+- **Usar o proxy do sistema**: o Integration Runtime de hospedagem interna usa a configuração de proxy configurada em diahost.exe.config e diawp.exe.config. Se esses arquivos não especificarem nenhuma configuração de proxy, o Integration Runtime de hospedagem interna se conectará ao serviço de nuvem diretamente sem passar por um proxy.
+- **Usar proxy personalizado**: defina a configuração de proxy http a ser usada para o tempo de execução de integração auto-hospedado, em vez de usar as configurações em diahost.exe.config e diawp.exe.config. Os valores de **endereço** e **porta** são necessários. Os valores de **nome de usuário** e **senha** são opcionais, dependendo da configuração de autenticação do proxy. Todas as configurações são criptografadas com a DPAPI do Windows no Integration Runtime auto-hospedado e armazenados localmente no computador.
 
 O serviço de host do Integration Runtime é reiniciado automaticamente depois que você salva as configurações de proxy atualizadas.
 
@@ -361,7 +361,7 @@ Depois de registrar o tempo de execução de integração auto-hospedado, se voc
 
 1. Abra o **Configuration Manager do Microsoft Integration Runtime**.
 1. Selecione a guia **Settings** (Configurações).
-1. Em **proxy http** , selecione o link **alterar** para abrir a caixa de diálogo **Definir proxy http** .
+1. Em **proxy http**, selecione o link **alterar** para abrir a caixa de diálogo **Definir proxy http** .
 1. Selecione **Avançar**. Em seguida, você verá um aviso que solicita sua permissão para salvar a configuração de proxy e reiniciar o serviço de host do Integration Runtime.
 
 Você pode usar a ferramenta Configuration Manager para exibir e atualizar o proxy HTTP.
@@ -416,7 +416,7 @@ Você também precisa ter certeza de que Microsoft Azure está na lista de permi
 Se você vir mensagens de erro como as seguintes, a razão provável é a configuração incorreta do firewall ou do servidor proxy. Essa configuração impede que o tempo de execução de integração auto-hospedado se conecte a Data Factory para se autenticar. Para garantir que seu firewall e servidor proxy estejam configurados corretamente, confira a seção anterior.
 
 * Ao tentar registrar o tempo de execução de integração auto-hospedado, você recebe a seguinte mensagem de erro: "falha ao registrar este Integration Runtime nó! Confirme se a chave de autenticação é válida e se o serviço de host do serviço de integração está em execução neste computador. "
-* Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando**. Ao exibir logs de eventos do Windows, em **Visualizador de eventos**  >  **logs de aplicativos e serviços**  >  **Microsoft Integration Runtime** , você verá mensagens de erro como esta:
+* Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando**. Ao exibir logs de eventos do Windows, em **Visualizador de eventos**  >  **logs de aplicativos e serviços**  >  **Microsoft Integration Runtime**, você verá mensagens de erro como esta:
 
     ```
     Unable to connect to the remote server

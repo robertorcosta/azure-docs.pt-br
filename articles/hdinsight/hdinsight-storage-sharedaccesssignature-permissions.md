@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742056"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022727"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar assinaturas de acesso compartilhado do armazenamento de BLOBs do Azure para restringir o acesso a dados no HDInsight
 
@@ -207,7 +207,7 @@ Talvez seja necessário executar `pip install --upgrade azure-storage` se você 
 
 1. Abra a solução no Visual Studio.
 
-2. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASExample** e selecione **Propriedades** .
+2. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASExample** e selecione **Propriedades**.
 
 3. Escolha **Configurações** e adicione valores às seguintes entradas:
 
@@ -353,29 +353,29 @@ Se você tiver um cluster existente, poderá adicionar a SAS à configuração d
 
 1. Abra a UI da Web do Ambari para seu cluster. O endereço para essa página é `https://YOURCLUSTERNAME.azurehdinsight.net`. Quando solicitado, faça a autenticação no cluster usando o nome do administrador (admin) e a senha usados na criação do cluster.
 
-1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site** .
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
 
-1. Expanda a seção **Core-site personalizada** , role até o final e, em seguida, selecione **Adicionar Propriedade...** . Use os seguintes valores para **chave** e **valor** :
+1. Expanda a seção **Core-site personalizada** , role até o final e, em seguida, selecione **Adicionar Propriedade...**. Use os seguintes valores para **chave** e **valor**:
 
-    * **Chave** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Valor** : a SAS retornada por um dos métodos executados anteriormente.
+    * **Chave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Valor**: a SAS retornada por um dos métodos executados anteriormente.
 
     Substitua `CONTAINERNAME` pelo nome do contêiner usado com o aplicativo do C# ou da SAS. Substitua `STORAGEACCOUNTNAME` pelo nome da conta de armazenamento usado.
 
     Selecione **Adicionar** para salvar esta chave e valor
 
-1. Selecione o botão **salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, selecione **salvar** .
+1. Selecione o botão **salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, selecione **salvar**.
 
     Selecione **OK** quando as alterações forem concluídas.
 
    > [!IMPORTANT]  
    > Você deverá reiniciar vários serviços antes que a alteração entre em vigor.
 
-1. Uma lista suspensa de **reinicialização** será exibida. Selecione **reiniciar todos os afetados** na lista suspensa e __confirme reiniciar tudo__ .
+1. Uma lista suspensa de **reinicialização** será exibida. Selecione **reiniciar todos os afetados** na lista suspensa e __confirme reiniciar tudo__.
 
-    Repita esse processo para **MapReduce2** e **yarn** .
+    Repita esse processo para **MapReduce2** e **yarn**.
 
-1. Depois os serviços tiverem sido reiniciados, selecione cada uma e desabilite o modo de manutenção na lista suspensa **Ações de Serviço** .
+1. Depois os serviços tiverem sido reiniciados, selecione cada uma e desabilite o modo de manutenção na lista suspensa **Ações de Serviço**.
 
 ## <a name="test-restricted-access"></a>Testar o acesso restrito
 
@@ -411,7 +411,7 @@ Use as etapas a seguir para verificar se você só pode ler e listar itens na co
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Esse comando baixa o arquivo para um arquivo local chamado **testfile.txt** .
+    Esse comando baixa o arquivo para um arquivo local chamado **testfile.txt**.
 
 5. Use o comando a seguir para carregar o arquivo local para um novo arquivo chamado **testupload.txt** no armazenamento SAS:
 

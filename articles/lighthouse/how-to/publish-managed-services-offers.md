@@ -4,11 +4,11 @@ description: Saiba como publicar uma oferta de serviço gerenciado que integra o
 ms.date: 08/18/2020
 ms.topic: how-to
 ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974355"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023918"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviço gerenciado no Azure Marketplace
 
@@ -31,10 +31,10 @@ A tabela a seguir pode ajudar a determinar se os clientes devem ser integrados p
 |Requer [conta do Partner Center](../../marketplace/partner-center-portal/create-account.md)   |Sim         |Não        |
 |Requer [nível de competência de plataforma de nuvem prata ou ouro](/partner-center/learn-about-competencies) ou o [especialista do Azure MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Sim         |Não         |
 |Disponível para novos clientes por meio do Azure Marketplace     |Sim     |Não       |
-|Pode limitar a oferta a clientes específicos     |Sim (somente com ofertas privadas, que não podem ser usadas com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem))         |Sim         |
+|Pode limitar a oferta a clientes específicos     |Sim (somente com ofertas privadas, que não podem ser usadas com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem))         |Yes         |
 |Requer a aceitação do cliente no portal do Azure     |Sim     |Não   |
 |Pode usar a automação para carregar várias assinaturas, grupos de recursos ou clientes |Não     |Sim    |
-|Acesso imediato a novas funções internas e recursos do Azure Lighthouse     |Nem sempre (geralmente disponível após algum atraso)         |Sim         |
+|Acesso imediato a novas funções internas e recursos do Azure Lighthouse     |Nem sempre (geralmente disponível após algum atraso)         |Yes         |
 
 ## <a name="create-your-offer"></a>Criar sua oferta
 
