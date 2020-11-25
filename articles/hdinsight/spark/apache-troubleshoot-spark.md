@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022244"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Spark usando o Azure HDInsight
 
@@ -29,27 +29,27 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
     ![Selecione a guia Configurações](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Na lista de configurações, selecione e expanda **personalizado-spark2-padrões** .
+1. Na lista de configurações, selecione e expanda **personalizado-spark2-padrões**.
 
-1. Procure a configuração do valor que você precisa ajustar, como **spark.executor.memory** . Nesse caso, o valor de **9728m** é muito alto.
+1. Procure a configuração do valor que você precisa ajustar, como **spark.executor.memory**. Nesse caso, o valor de **9728m** é muito alto.
 
     ![Selecione custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Defina o valor para a configuração recomendada. O valor de **2048m** é recomendado para essa configuração.
 
-1. Salve o valor e, em seguida, salve a configuração. Selecione **Salvar** .
+1. Salve o valor e, em seguida, salve a configuração. Clique em **Salvar**.
 
     ![Altere o valor para 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Escreva uma observação sobre as alterações de configuração e selecione **Salvar** .
+    Escreva uma observação sobre as alterações de configuração e selecione **Salvar**.
 
     ![Insira uma observação sobre as alterações feitas](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Você será notificado se todas as configurações precisarem de atenção. Observe os itens e, em seguida, selecione **Continuar Assim Mesmo** .
+    Você será notificado se todas as configurações precisarem de atenção. Observe os itens e, em seguida, selecione **Continuar Assim Mesmo**.
 
     ![Selecione Continuar Assim Mesmo](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. Sempre que uma configuração é salva, você é solicitado a reiniciar o serviço. Selecione **Reiniciar** .
+1. Sempre que uma configuração é salva, você é solicitado a reiniciar o serviço. Selecione **Reiniciar**.
 
     ![Selecione reiniciar](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
     ![Examinar processos em execução](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Você pode adicionar configurações. Na lista de configurações, selecione **Custom-spark2-defaults** e, em seguida, selecione **Adicionar Propriedade** .
+1. Você pode adicionar configurações. Na lista de configurações, selecione **Custom-spark2-defaults** e, em seguida, selecione **Adicionar Propriedade**.
 
     ![Selecione adicionar propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Defina uma nova propriedade. Você pode definir uma única propriedade usando uma caixa de diálogo para configurações específicas, como o tipo de dados. Ou você pode definir várias propriedades usando uma definição por linha.
 
-    Neste exemplo, a propriedade **spark.driver.memory** é definida com um valor de **4g** .
+    Neste exemplo, a propriedade **spark.driver.memory** é definida com um valor de **4g**.
 
     ![Definir nova propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -77,7 +77,7 @@ Essas alterações valem para todo o cluster, mas podem ser substituídas quando
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Como fazer para configurar um aplicativo Apache Spark usando um Jupyter Notebook nos clusters?
 
-Na primeira célula do bloco de anotações do Jupyter, após a diretiva **%%configure** , especifique as configurações do Spark em um formato JSON válido. Altere os valores reais conforme necessário:
+Na primeira célula do bloco de anotações do Jupyter, após a diretiva **%%configure**, especifique as configurações do Spark em um formato JSON válido. Altere os valores reais conforme necessário:
 
 ![Adicionar uma configuração](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -113,4 +113,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
