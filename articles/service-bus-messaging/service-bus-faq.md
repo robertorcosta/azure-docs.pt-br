@@ -3,12 +3,12 @@ title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Doc
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899528"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022125"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
@@ -26,7 +26,7 @@ Um [namespace](service-bus-create-namespace-portal.md) fornece um contêiner de 
 A [Fila do Barramento de Serviço](service-bus-queues-topics-subscriptions.md) é uma entidade na qual as mensagens são armazenadas. As filas são úteis quando você tem vários aplicativos ou várias partes de um aplicativo distribuído que precisam se comunicar umas com as outras. A fila é semelhante a um centro de distribuição em que vários produtos (mensagens) são recebidos e então enviados desse local.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>O que são os tópicos e as assinaturas do Barramento de Serviço do Azure?
-Um tópico pode ser visualizado como uma fila e ao usar várias assinaturas, ele se torna um modelo mais abrangente de mensagens; essencialmente, uma ferramenta de comunicação de um-para-muitos. Esse modelo de publicação/assinatura (ou *pub/sub* ) habilita um aplicativo que envia uma mensagem para um tópico com várias assinaturas para fazer com que essa mensagem seja recebida por vários aplicativos.
+Um tópico pode ser visualizado como uma fila e ao usar várias assinaturas, ele se torna um modelo mais abrangente de mensagens; essencialmente, uma ferramenta de comunicação de um-para-muitos. Esse modelo de publicação/assinatura (ou *pub/sub*) habilita um aplicativo que envia uma mensagem para um tópico com várias assinaturas para fazer com que essa mensagem seja recebida por vários aplicativos.
 
 ### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade particionada?
 Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. Com suporte apenas nas camadas de sistema de mensagens básica e Standard, uma [fila particionada ou um tópico](service-bus-partitioning.md) é manipulado por vários agentes de mensagens e armazenados em vários repositórios de mensagens. Esse recurso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não renderiza uma fila ou tópico particionado indisponível.
@@ -53,14 +53,9 @@ Consulte a tabela a seguir para as portas TCP de saída que você precisa abrir 
 
 A porta HTTPS geralmente é necessária para a comunicação de saída também quando AMQP é usado pela porta 5671, porque várias operações de gerenciamento executadas pelos SDKs do cliente e a aquisição de tokens de Azure Active Directory (quando usado) são executadas por HTTPS. 
 
-Os SDKs oficiais do Azure geralmente usam o protocolo AMQP para enviar e receber mensagens do barramento de serviço. A opção de protocolo AMQP-over-WebSockets é executada pela porta TCP 443 assim como a API HTTP, mas, de outra forma, funcionalmente idêntica com AMQP simples. Essa opção tem uma latência de conexão inicial mais alta devido a viagens de ida e volta extra de handshake e um pouco mais de sobrecarga como a compensação para compartilhar a porta HTTPS. Se esse modo estiver selecionado, a porta TCP 443 será suficiente para comunicação. As opções a seguir permitem selecionar o modo de WebSockets AMQP ou AMQP simples:
+Os SDKs oficiais do Azure geralmente usam o protocolo AMQP para enviar e receber mensagens do barramento de serviço. 
 
-| Idioma | Opção   |
-| -------- | ----- |
-| .NET     | Propriedade [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) com [TransportType. AMQP](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) ou [TransportType. AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
-| Java     | [com. Microsoft. Azure. ServiceBus. ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) com com [. Microsoft. Azure. ServiceBus. Primitives. ExportType. AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) ou [com.Microsoft.Azure.ServiceBus.Primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
-| Nó  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) tem um `webSocket` argumento de construtor. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) com [TransportType. AMQP](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) ou [TransportType. AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
 O pacote WindowsAzure. ServiceBus mais antigo para o .NET Framework tem a opção de usar o "protocolo de mensagens do barramento do serviço" (SBMP) herdado, também conhecido como "netmessaging". Esse protocolo usa as portas TCP 9350-9354. O modo padrão para esse pacote é detectar automaticamente se essas portas estão disponíveis para comunicação e mudará para WebSockets com TLS pela porta 443 se esse não for o caso. Você pode substituir essa configuração e forçar esse modo definindo o `Https` [connectivitymode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) na [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) configuração, que se aplica globalmente ao aplicativo.
 
@@ -81,7 +76,7 @@ Se você usar a **redundância de zona** para seu namespace, precisará executar
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na seção **resposta não autoritativa** , que está em um dos seguintes formatos: 
+2. Anote o nome na seção **resposta não autoritativa**, que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.cloudapp.net

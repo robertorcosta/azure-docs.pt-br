@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393049"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021683"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -136,7 +136,7 @@ Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado c
 Nesse cenário, o Gerenciador de Tráfego está conectado a instâncias do gateway de aplicativo (conforme definido nas etapas acima) que residem em diferentes regiões. Agora que os gateways de aplicativo estão configurados, a próxima etapa é conectar-se ao nosso perfil do Gerenciador de Tráfego.
 
 1. Abra o seu perfil do Gerenciador de Tráfego. Para fazer isso, procure no seu grupo de recursos ou procure o nome do perfil do Gerenciador de Tráfego em **Todos os Recursos**.
-2. No painel esquerdo, selecione **Pontos de Extremidade**e, em seguida, clique em **Adicionar** para adicionar um ponto de extremidade.
+2. No painel esquerdo, selecione **Pontos de Extremidade** e, em seguida, clique em **Adicionar** para adicionar um ponto de extremidade.
 
    ![Botão “Adicionar” de Pontos de extremidade do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
@@ -160,7 +160,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 1. No portal do Azure, no painel esquerdo, clique em **criar um recurso**  >  **rede**  >  **balanceador de carga**.
 2. Escolha um nome para o balanceador de carga.
-3. Defina o **tipo** como **interno**e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
+3. Defina o **tipo** como **interno** e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
 4. Em **atribuição de endereço IP**, selecione **dinâmico** ou **estático**.
 5. Em **Grupo de recursos**, escolha o grupo de recursos para o balanceador de carga.
 6. Em **local**, escolha a região apropriada para o balanceador de carga.
@@ -191,9 +191,9 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 #### <a name="configure-the-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
-1. Em **Configurações **do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
+1. Em **Configurações** do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
 2. Insira o **Nome** da regra de balanceamento de carga.
-3. Escolha o **endereço IP de front-end** do balanceador de carga, o **protocolo**e a **porta**.
+3. Escolha o **endereço IP de front-end** do balanceador de carga, o **protocolo** e a **porta**.
 4. Em **porta de back-end**, especifique a porta a ser usada no pool de back-ends.
 5. Selecione o **Pool de back-end** e a **Investigação** criados nas etapas anteriores para aplicar a regra.
 6. Em **persistência da sessão**, escolha como você deseja que as sessões persistam.

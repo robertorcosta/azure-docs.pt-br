@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323676"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020578"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar recursos para os dados em um cluster Hadoop usando as consultas do Hive
 Este documento mostra como criar recursos para os dados armazenados em um cluster Hadoop do Azure HDInsight usando consultas do Hive. Essas consultas de Hive usam UDFs (funções definidas pelo usuário) de Hive incorporadas, Os scripts para eles são fornecidos.
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-Nessa consulta, se o *\<datetime field>* tiver o padrão como *03/26/2015 12:04:39* , o *\<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os usuários podem executar
+Nessa consulta, se o *\<datetime field>* tiver o padrão como *03/26/2015 12:04:39*, o *\<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os usuários podem executar
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcular a distância entre conjuntos de coordenadas de GPS
 A consulta fornecida nesta seção pode ser aplicada diretamente aos Dados de Viagens de Táxi em NYC. A finalidade dessa consulta é mostrar como aplicar uma função matemática inserida no Hive para gerar recursos.
 
-Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas *pickup\_longitude* , *pickup\_latitude* , *dropoff\_longitude* e *dropoff\_latitude*. As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
+Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* e *dropoff\_latitude*. As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
 
 ```hiveql
 set R=3959;
@@ -153,7 +153,7 @@ Uma lista completa de UDFs internas do Hive pode ser encontrada na seção **Fun
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta
 As configurações de parâmetro padrão do cluster de Hive talvez não sejam adequadas para as consultas de Hive e os dados que as consultas estão processando. Esta seção aborda alguns parâmetros que os usuários podem ajustar para melhorar o desempenho das consultas de Hive. Os usuários precisam adicionar as consultas de ajuste de parâmetro antes das consultas de processamento de dados.
 
-1. **Espaço de heap de Java** : para consultas que envolvem o ingresso de grandes conjuntos de dados ou o processamento de registros longos, um dos erros comuns é **ficar sem espaço de heap**. Este erro pode ser evitado configurando os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para os valores desejados. Veja um exemplo:
+1. **Espaço de heap de Java**: para consultas que envolvem o ingresso de grandes conjuntos de dados ou o processamento de registros longos, um dos erros comuns é **ficar sem espaço de heap**. Este erro pode ser evitado configurando os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para os valores desejados. Veja um exemplo:
    
     ```hiveql
     set mapreduce.map.java.opts=-Xmx4096m;
@@ -162,20 +162,20 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
     Esse parâmetro aloca a memória de 4 GB para o espaço de heap de Java e também torna a classificação mais eficiente alocando mais memória para ele. É uma boa ideia explorar essas alocações se houver erros de falha de trabalho relacionados ao espaço de heap.
 
-1. **Tamanho do bloco de DFS** : esse parâmetro define a menor unidade de dados armazenada pelo sistema de arquivos. Como um exemplo, se o tamanho do bloco DFS for de 128 MB, qualquer dado de tamanho inferior a 128 MB será armazenado em um único bloco. Os dados maiores que 128 MB são blocos extras atribuídos. 
+1. **Tamanho do bloco de DFS**: esse parâmetro define a menor unidade de dados armazenada pelo sistema de arquivos. Como um exemplo, se o tamanho do bloco DFS for de 128 MB, qualquer dado de tamanho inferior a 128 MB será armazenado em um único bloco. Os dados maiores que 128 MB são blocos extras atribuídos. 
 2. Escolher um tamanho de bloco muito pequeno causa grandes sobrecargas no Hadoop, pois o nó de nome precisa processar muitas solicitações a mais para localizar o bloco relevante em relação ao arquivo. Uma configuração recomendada ao trabalhar com gigabytes de dados (ou mais ainda) é:
 
     ```hiveql
     set dfs.block.size=128m;
     ```
 
-2. **Otimizar a operação de junção no Hive** : embora as operações de junção na estrutura de mapeamento/redução geralmente ocorram na fase de redução, às vezes, é possível obter enormes ganhos agendando junções na fase de mapeamento (também chamada de “mapjoins”). Defina esta opção:
+2. **Otimizar a operação de junção no Hive**: embora as operações de junção na estrutura de mapeamento/redução geralmente ocorram na fase de redução, às vezes, é possível obter enormes ganhos agendando junções na fase de mapeamento (também chamada de “mapjoins”). Defina esta opção:
    
     ```hiveql
     set hive.auto.convert.join=true;
     ```
 
-3. **Especificar o número de mapeadores para o Hive** : embora o Hadoop permita ao usuário definir o número de redutores, o número de mapeadores não é normalmente definido pelo usuário. Um truque que permite algum grau de controle sobre esse número é escolher as variáveis do Hadoop *mapred. min. Split. Size* e *mapred. Max. Split. Size* , uma vez que o tamanho de cada tarefa de mapa é determinado por:
+3. **Especificar o número de mapeadores para o Hive**: embora o Hadoop permita ao usuário definir o número de redutores, o número de mapeadores não é normalmente definido pelo usuário. Um truque que permite algum grau de controle sobre esse número é escolher as variáveis do Hadoop *mapred. min. Split. Size* e *mapred. Max. Split. Size* , uma vez que o tamanho de cada tarefa de mapa é determinado por:
    
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))

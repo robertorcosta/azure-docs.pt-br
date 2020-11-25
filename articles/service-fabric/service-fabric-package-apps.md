@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012391"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021054"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 
 Este artigo descreve como empacotar um aplicativo do Service Fabric e deixá-lo pronto para implantação.
 
-## <a name="package-layout"></a>Layout do pacote
+## <a name="package-layout"></a>Layout de pacote
 
 O manifesto do aplicativo, um ou mais manifestos do serviço e outros arquivos de pacote necessários devem ser organizados em um layout específico para implantação em um cluster do Service Fabric. Os manifestos de exemplo neste artigo precisariam estar organizados na seguinte estrutura de diretórios:
 

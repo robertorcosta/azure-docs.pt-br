@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321251"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021445"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de Dados Escalonáveis com o Azure Data Lake: um passo a passo de ponta a ponta
 Este passo a passo mostra como usar o Azure Data Lake para exploração de dados e tarefas de classificação binária em uma amostra do conjunto de dados de tarifas e corridas de táxi de Nova York para prever se uma gorjeta será ou não paga por uma tarifa. Ele orienta você pelas etapas do [Processo de Ciência de Dados de Equipe](./index.yml), de ponta a ponta, da aquisição de dados até o treinamento de modelo e, em seguida, para a implantação de um serviço Web que publica o modelo.
@@ -143,7 +143,7 @@ As tarefas de processamento de dados ilustradas nesta seção incluem ingestão,
 
 Os scripts U-SQL são descritos aqui e fornecidos em um arquivo separado. Você pode baixar os **scripts U-SQL** completos do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Para executar o U-SQL, abra o Visual Studio, clique em **Arquivo --> Novo --> Projeto** , escolha **Projeto U-SQL** , nomeie-o e salve-o em uma pasta.
+Para executar o U-SQL, abra o Visual Studio, clique em **Arquivo --> Novo --> Projeto**, escolha **Projeto U-SQL**, nomeie-o e salve-o em uma pasta.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -461,7 +461,7 @@ USING Outputters.Csv();
 ```
 
 ### <a name="run-u-sql-jobs"></a><a name="run"></a>Executar trabalhos com U-SQL
-Depois de editar scripts U-SQL, você pode enviá-los ao servidor usando sua conta de Azure Data Lake Analytics. Clique em **Data Lake** , **Enviar Trabalho** , selecione sua **Conta de Análise** , escolha **Paralelismo** e clique no botão **Enviar**.
+Depois de editar scripts U-SQL, você pode enviá-los ao servidor usando sua conta de Azure Data Lake Analytics. Clique em **Data Lake**, **Enviar Trabalho**, selecione sua **Conta de Análise**, escolha **Paralelismo** e clique no botão **Enviar**.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -671,7 +671,7 @@ Abra o [portal do Azure](https://portal.azure.com) para criar um cluster HDInsig
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Criar tabela de Hive no HDInsight
-Agora, você cria tabelas do hive a serem usadas no Azure Machine Learning Studio (clássico) no cluster HDInsight usando os dados armazenados em Azure Data Lake Storage na etapa anterior. Vá para o cluster HDInsight que você acabou de criar. Clique em **configurações**  -->  **Propriedades**  -->  **cluster AAD identidade**  -->  **ADLS acesso** , verifique se sua conta de Azure data Lake Storage foi adicionada na lista com direitos de leitura, gravação e execução.
+Agora, você cria tabelas do hive a serem usadas no Azure Machine Learning Studio (clássico) no cluster HDInsight usando os dados armazenados em Azure Data Lake Storage na etapa anterior. Vá para o cluster HDInsight que você acabou de criar. Clique em **configurações**  -->  **Propriedades**  -->  **cluster AAD identidade**  -->  **ADLS acesso**, verifique se sua conta de Azure data Lake Storage foi adicionada na lista com direitos de leitura, gravação e execução.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 

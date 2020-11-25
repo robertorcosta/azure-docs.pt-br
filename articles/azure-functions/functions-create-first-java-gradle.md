@@ -7,11 +7,11 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020425"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usar Java e gradle para criar e publicar uma função no Azure
 
@@ -127,7 +127,7 @@ Isso cria os seguintes recursos no Azure, com base nos valores no arquivo Build.
 + Grupo de recursos. Nomeado com o _resourceGroup_ fornecido.
 + Conta de armazenamento. Necessária para o Functions. O nome é gerado aleatoriamente de acordo com os requisitos de nome da conta de armazenamento.
 + Plano do Serviço de Aplicativo. Plano de consumo sem servidor que hospeda para seu aplicativo de funções no _appRegion_ especificado. O nome é gerado aleatoriamente.
-+ Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é o _appName_ , acrescentado a um número gerado aleatoriamente. 
++ Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é o _appName_, acrescentado a um número gerado aleatoriamente. 
 
 A implantação também empacota os arquivos de projeto e implanta-os no novo aplicativo de funções usando [zip deployment](functions-deployment-technologies.md#zip-deploy), com o modo run-from-package habilitado.
 
@@ -142,7 +142,7 @@ Obtenha a URL necessária para disparar a função, com a chave de função, no 
 
 1. Navegue até o [portal do Azure], entre nele, digite o _appName_ do aplicativo de funções em **Pesquisar** na parte superior da página e pressione Enter.
  
-1. Em seu aplicativo de funções, selecione **funções** , escolha sua função e, em seguida, clique em **</> obter URL de função** no canto superior direito. 
+1. Em seu aplicativo de funções, selecione **funções**, escolha sua função e, em seguida, clique em **</> obter URL de função** no canto superior direito. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copiar a URL da função do Portal do Azure":::
 

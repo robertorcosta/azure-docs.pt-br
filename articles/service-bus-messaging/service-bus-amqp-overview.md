@@ -3,12 +3,12 @@ title: Visão geral do AMQP 1,0 no barramento de serviço do Azure
 description: Saiba como o barramento de serviço do Azure dá suporte a Advanced Message Queuing Protocol (AMQP), um protocolo padrão aberto.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: a643869d7d89b287e899b1eab89c5b9ec11856e5
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 85943344fd8f20cf3a73af5d637b65676584f93f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396800"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022160"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
 O serviço de nuvem do barramento de serviço do Azure usa o [protocolo de enfileiramento de mensagens avançado (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) como seus principais meios de comunicação. A Microsoft tem participado de parceiros em todo o setor, clientes e fornecedores de agentes de mensagens concorrentes, desenvolver e evoluir AMQP na última década, com novas extensões sendo desenvolvidas no [comitê técnico de AMQP da Oasis](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 é um padrão ISO e IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -70,20 +70,11 @@ Todas as bibliotecas de cliente do barramento de serviço com suporte disponíve
 - [Módulos do barramento de serviço do Azure para JavaScript e TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
 - [Bibliotecas do barramento de serviço do Azure para Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
 
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
 Além disso, você pode usar o barramento de serviço de qualquer pilha de protocolo compatível com AMQP 1,0:
 
-| Language | Biblioteca |
-| --- | --- |
-| Java | [Apache QPID Proton-J](https://qpid.apache.org/proton/index.html) |
-| C/C++ |[Azure UAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache QPID Proton-C](https://qpid.apache.org/proton/index.html) |
-| Python |[Azure uAMQP para Python](https://github.com/azure/azure-uamqp-python/), [Apache QPID Proton Python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
-| PHP | [UAMQP do Azure para PHP](https://github.com/vsouz4/azure-uamqp-php/) |
-| Ruby | [Apache QPID Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
-| Go | [Azure go AMQP](https://github.com/Azure/go-amqp), [Apache QPID Proton go](https://github.com/apache/qpid-proton/tree/master/go/examples)
-| C#/F #/VB | [AMQP .net Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
-| JavaScript/nó | [Rhea](https://github.com/grs/rhea) |
-
-**Figura 2: Tabela de bibliotecas de cliente do AMQP 1.0**
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## <a name="summary"></a>Resumo
 * O AMQP (Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens aberto e confiável que pode ser usado para criar aplicativos híbridos de mensagens avançados entre plataformas. O AMQP 1.0 é um padrão OASIS.

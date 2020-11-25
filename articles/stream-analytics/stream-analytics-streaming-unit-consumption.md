@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490943"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019864"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Streaming
 
@@ -27,7 +27,7 @@ A métrica de utilização % SU, que varia de 0% a 100%, descreve o consumo de m
 
 2. Na lista de recursos, localize o trabalho do Stream Analytics que você deseja escalar e abra-o. 
 
-3. Na página do trabalho, no título **Configurar** , selecione **Escalar**. O número padrão de SUs é 3 ao criar um trabalho.
+3. Na página do trabalho, no título **Configurar**, selecione **Escalar**. O número padrão de SUs é 3 ao criar um trabalho.
 
     ![Configuração de trabalho do Stream Analytics no Portal do Azure][img.stream.analytics.preview.portal.settings.scale]
     
@@ -140,7 +140,7 @@ Normalmente, um trabalho configurado com uma unidade de streaming é suficiente 
 Para um trabalho com 6 unidades de streaming, talvez seja necessário quatro ou oito partições do Hub de Eventos. No entanto, evite muitas partições desnecessárias uma vez que provoca o uso excessivo de recursos. Por exemplo, um Hub de Eventos com 16 partições ou mais em um trabalho do Stream Analytics que tem 1 unidade de streaming. 
 
 ## <a name="reference-data"></a>Dados de referência 
-Os dados de referência no ASA são carregados na memória para uma pesquisa rápida. Com a implementação atual, cada operação de junção com dados de referência mantém uma cópia dos dados de referência na memória, mesmo se você ingressar com os mesmos dados de referência várias vezes. Para consultas com **PARTITION BY** , cada partição tem uma cópia dos dados de referência, para que as partições fiquem completamente separadas. Com o efeito multiplicador, o uso da memória pode ficar muito alto rapidamente se você ingressar com dados de referência várias vezes e com várias partições.  
+Os dados de referência no ASA são carregados na memória para uma pesquisa rápida. Com a implementação atual, cada operação de junção com dados de referência mantém uma cópia dos dados de referência na memória, mesmo se você ingressar com os mesmos dados de referência várias vezes. Para consultas com **PARTITION BY**, cada partição tem uma cópia dos dados de referência, para que as partições fiquem completamente separadas. Com o efeito multiplicador, o uso da memória pode ficar muito alto rapidamente se você ingressar com dados de referência várias vezes e com várias partições.  
 
 ### <a name="use-of-udf-functions"></a>Uso de funções UDF
 Quando você adiciona uma função UDF, o Azure Stream Analytics carrega o runtime do JavaScript na memória. Isso afetará a % de SU.

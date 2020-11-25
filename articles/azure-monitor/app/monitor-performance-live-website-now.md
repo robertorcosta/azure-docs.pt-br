@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758656"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020918"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -41,7 +41,7 @@ Aqui está um resumo do que você tem com cada rota:
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
 | **Solicitações & exceções** |Sim |Sim |
-| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Yes |
 | **[Diagnóstico de dependência](./asp-net-dependencies.md)** |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
 | **[API para telemetria personalizada][api]** |Sim |Não |
@@ -177,7 +177,7 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 ## <a name="system-requirements"></a>Requisitos do Sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
-* Windows Server 2008
+* Windows Server 2008
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2

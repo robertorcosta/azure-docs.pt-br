@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020969"
 ---
 O [Ponto de Extremidade Privado do Azure](../articles/private-link/private-endpoint-overview.md) é um adaptador de rede que conecta você de maneira privada e segura a um serviço que conta com o Link Privado do Azure.  O Ponto de Extremidade Privado usa um endereço IP privado da rede virtual, colocando efetivamente o serviço na sua rede virtual.
 

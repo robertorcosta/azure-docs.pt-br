@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636173"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020119"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único usando a CLI
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma Rede Virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet* :
+Crie uma Rede Virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -60,7 +60,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Criar a VM 
-Crie uma VM com az vm create. Quando solicitado, forneça uma senha a ser usada como credencial de entrada para a VM. Este exemplo cria uma VM chamada *myVm* : 
+Crie uma VM com az vm create. Quando solicitado, forneça uma senha a ser usada como credencial de entrada para a VM. Este exemplo cria uma VM chamada *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -136,7 +136,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
-1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar** , **Conectar-se à máquina virtual** abre.
+1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
@@ -157,7 +157,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acessar o servidor PostgreSQL de forma privada da VM
 
-1. Na Área de Trabalho Remota do *myVM* , abra o PowerShell.
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
 2. Digite  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -173,7 +173,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. O exemplo a seguir usa o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar a operação.
 
-4. Em **nova conexão** , insira ou selecione estas informações:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
    | Configuração | Valor |
    | ------- | ----- |

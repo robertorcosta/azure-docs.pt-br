@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964993"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021820"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
 
@@ -258,7 +258,7 @@ A seguir está uma lista de outros aplicativos de software usados com o StorSimp
 Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que você revise os seguintes termos e definições.
 
 ### <a name="key-terms-and-definitions"></a>Principais termos e definições
-| Termo (sigla ou abreviação) | Descrição |
+| Termo (sigla ou abreviação) | Description |
 | --- | --- |
 | Registro de controle de acesso (ACR) |Um registro associado a um volume no dispositivo Microsoft Azure StorSimple que determina quais hosts podem se conectar a ele. A determinação se baseia no iSCSI IQN (nome qualificado) dos hosts (contidos no ACR) que estão se conectando ao dispositivo StorSimple. |
 | AES-256 |Um algoritmo de AES (padrão de criptografia avançado) de 256 bits para criptografar dados enquanto eles se movem de e para a nuvem. |

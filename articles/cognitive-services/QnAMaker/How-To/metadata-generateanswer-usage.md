@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375492"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020680"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -46,7 +46,7 @@ Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Mak
 
 Para obter os detalhes do ponto de extremidade:
 1. Entre em [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. Em **minhas bases de dados de conhecimento** , selecione **Exibir código** para sua base de dados de conhecimento.
+1. Em **minhas bases de dados de conhecimento**, selecione **Exibir código** para sua base de dados de conhecimento.
     ![Captura de tela de minhas bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do ponto de extremidade do GenerateAnswer.
 
@@ -54,7 +54,7 @@ Para obter os detalhes do ponto de extremidade:
 
     ![Captura de tela dos detalhes do ponto de extremidade](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-    # <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
     ![Captura de tela de detalhes de ponto de extremidade gerenciados](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 

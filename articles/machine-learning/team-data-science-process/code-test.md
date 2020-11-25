@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312685"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020595"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -89,7 +89,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
       ![Código para verificação dos valores de previsão](./media/code-test/check_prediction_values.PNG)
 
-1. Coloque todas as funções de teste em um script Python chamado **test_funcs.py** :
+1. Coloque todas as funções de teste em um script Python chamado **test_funcs.py**:
 
     ![Script de Python para funções de teste](./media/code-test/create_file_test_func.PNG)
 
@@ -134,7 +134,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e a versão do PowerShell. Escolha **Script Embutido** como o tipo. 
     
-    Na caixa em **Script Embutido** , você pode digitar **python test1.py**. Verifique se a variável do ambiente está configurada corretamente para Python. Se você precisar de uma versão ou kernel diferente do Python, especifique explicitamente o caminho, como mostra a figura: 
+    Na caixa em **Script Embutido**, você pode digitar **python test1.py**. Verifique se a variável do ambiente está configurada corretamente para Python. Se você precisar de uma versão ou kernel diferente do Python, especifique explicitamente o caminho, como mostra a figura: 
     
     ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
 

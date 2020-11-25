@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565629"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020901"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -32,9 +32,9 @@ Você pode usar o painel de filtro na parte superior para reduzir o escopo da li
 
 Para cada recurso, você encontrará a contagem de instâncias atual e o status de dimensionamento automático. O status de dimensionamento automático pode ser:
 
-- **Não configurado** : você ainda não habilitou o dimensionamento automático para este recurso.
-- **Habilitado** : você habilitou o dimensionamento automático para este recurso.
-- **Desabilitado** : você desabilitou o dimensionamento automático para este recurso.
+- **Não configurado**: você ainda não habilitou o dimensionamento automático para este recurso.
+- **Habilitado**: você habilitou o dimensionamento automático para este recurso.
+- **Desabilitado**: você desabilitou o dimensionamento automático para este recurso.
 
 ## <a name="create-your-first-autoscale-setting"></a>Crie sua primeira configuração de dimensionamento automático
 

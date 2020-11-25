@@ -4,11 +4,11 @@ description: Este artigo descreve como gerenciar e monitorar SQL Server bancos d
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021496"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 

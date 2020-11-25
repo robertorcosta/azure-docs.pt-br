@@ -4,11 +4,11 @@ description: Visão geral de como usar Proxies do Azure Functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020391"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -241,7 +241,7 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Gatilhos HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

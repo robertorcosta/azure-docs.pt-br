@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870707"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021972"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -29,7 +29,7 @@ O SDK de fala expõe muitos recursos do serviço de fala, mas não todos eles. O
 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 
-A [conversão de fala em texto](speech-to-text.md) (também conhecida como reconhecimento de *fala*) transcreve fluxos de áudio para o texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use a [tradução de fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [noções básicas de conversão de fala em texto](speech-to-text-basics.md).
+A [conversão de fala em texto](speech-to-text.md) (também conhecida como reconhecimento de *fala*) transcreve fluxos de áudio para o texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use a [tradução de fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [noções básicas de conversão de fala em texto](./get-started-speech-to-text.md).
 
 O **reconhecimento de fala (Sr), a lista de frases, a intenção, a tradução e os contêineres locais** estão disponíveis nas seguintes plataformas:
 
@@ -68,7 +68,7 @@ Os **assistentes de voz** estão disponíveis nas seguintes plataformas:
 
 #### <a name="keyword-spotting"></a>Palavra-chave parando
 
-O conceito de decepções de [palavra-chave](speech-devices-sdk-create-kws.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
+O conceito de decepções de [palavra-chave](./custom-keyword-basics.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
 
 A **palavra-chave (KWs)** está disponível nas seguintes plataformas:
 
@@ -180,4 +180,4 @@ Conversão de texto em fala personalizada, também conhecida como voz personaliz
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Veja como reconhecer fala em C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

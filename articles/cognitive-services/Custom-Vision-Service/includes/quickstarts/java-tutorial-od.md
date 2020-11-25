@@ -5,11 +5,11 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
 ms.openlocfilehash: f0dbe64d6a44d7712d83c018c4db72fac871a838
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625478"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021228"
 ---
 Comece a usar a biblioteca de clientes da Visão Personalizada para Java a fim de criar um modelo de detecção de objeto. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 

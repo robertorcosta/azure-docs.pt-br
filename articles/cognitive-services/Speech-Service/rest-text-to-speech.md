@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534974"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020153"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -34,7 +34,7 @@ Antes de usar essa API, entenda:
 * A API REST de conversão de texto em voz requer um cabeçalho de autorização. Isso significa que você precisa concluir uma troca de tokens para acessar o serviço. Para obter mais informações, consulte [Autenticação](#authentication).
 
 > [!TIP]
-> Consulte a [documentação](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) do Azure governamental para pontos de extremidade de nuvem do governo (FairFax).
+> Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do Azure governamental para pontos de extremidade de nuvem do governo (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -70,7 +70,7 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório/Opcional |
+| Cabeçalho | Description | Obrigatório/Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 
@@ -170,7 +170,7 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório/Opcional |
+| Cabeçalho | Description | Obrigatório/Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
@@ -222,9 +222,9 @@ Authorization: Bearer [Base64 access_token]
 
 Consulte nossos guias de início rápido para obter exemplos específicos de idioma:
 
-* [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.js](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Códigos de status HTTP
 
@@ -245,5 +245,5 @@ Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntese assíncrona para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Síntese assíncrona para áudio de forma longa](./long-audio-api.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

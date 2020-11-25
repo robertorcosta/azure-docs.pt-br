@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537124"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021768"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando o portal do Azure
 As regras de firewall no nível de servidor podem ser usadas para gerenciar o acesso a um banco de dados do Azure para MariaDB Server a partir de um endereço IP especificado ou de um intervalo de endereços IP.
@@ -50,7 +50,7 @@ Para permitir que aplicativos do Azure se conectem ao seu servidor de Banco de D
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Gerenciar as regras de firewall existentes no portal do Azure
 Repita as etapas para gerenciar as regras de firewall.
 * Para adicionar o computador atual, clique em **+ Adicionar Meu IP**. Clique em **Salvar** para salvar as alterações.
-* Para adicionar mais endereços IP, digite o **NOME DA REGRA** , o **IP INICIAL** e o **IP FINAL**. Clique em **Salvar** para salvar as alterações.
+* Para adicionar mais endereços IP, digite o **NOME DA REGRA**, o **IP INICIAL** e o **IP FINAL**. Clique em **Salvar** para salvar as alterações.
 * Para modificar uma regra existente, clique em qualquer um dos campos na regra e modifique-a. Clique em **Salvar** para salvar as alterações.
 * Para excluir uma regra existente, clique nas reticências […] e, em seguida, clique em **Excluir**. Clique em **Salvar** para salvar as alterações.
 

@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887721"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021955"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
 Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).

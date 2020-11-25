@@ -8,11 +8,11 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833547"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021020"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
 
@@ -165,7 +165,7 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB. Em um ASE, 250 GB de armazenamento são adicionados por plano do serviço de aplicativo até o limite de 1 TB. Você pode ter mais planos do serviço de aplicativo do que apenas quatro, mas não há mais armazenamento adicionado além do limite de 1 TB.
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 Você pode integrar seu ASE com Azure Monitor para enviar logs sobre o ASE para o armazenamento do Azure, hubs de eventos do Azure ou Log Analytics. Estes itens estão registrados hoje:
 
@@ -218,7 +218,7 @@ Se você estiver usando https://resources.azure.com o, siga estas etapas para de
 1. Acesse resources.azure.com e entre com sua conta do Azure.
 1. Percorra os recursos para assinaturas nome da \/ \[ assinatura \] \/ resourceGroups nome \/ \[ do grupo de recursos \] \/ provedores \/ Microsoft. Web \/ hostingenvironments \/ \[ ase nome \] .
 1. Selecione **leitura/gravação** na parte superior.
-1. Selecione **Edit** (Editar).
+1. Selecione **Editar**.
 1. Defina **upgradePreference** para qualquer um dos três valores desejados.
 1. Selecione **patch**.
 
