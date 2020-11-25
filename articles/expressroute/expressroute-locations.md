@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/26/2020
+ms.date: 11/25/2020
 ms.author: duau
-ms.openlocfilehash: 30d1fb62b661d898ba06548e5e3a2c7d31b97794
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8b344f38dd5effb34adec7943a444ce51ed513a9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906476"
+ms.locfileid: "96122545"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros de conectividade do ExpressRoute
 
@@ -108,10 +108,11 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Berlim, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Geneva, RAE de Hong Kong, Londres, London2, Los Angeles, los Angeles2, Melbourne, Miami, Milão, Nova York, Osaka, Paris, são Paulo, Seattle, Seul, vale do silício, Cingapura, Estocolmo, Sydney, Tóquio, Toronto, D.c. de Washington, Zurique |
 | **Etisalat UAE** |Com suporte |Com suporte |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Dublin, Frankfurt, Londres |
-| **FarEasTone** |Com suporte |Com suporte |Taipé|
+| **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Com suporte |Com suporte |Taipé|
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Com suporte |Com suporte |Milão|
-| **Fibrenoire** |Com suporte |Com suporte |Montreal|
-| **GÉANT** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Dublin, Frankfurt, Marselha |
+| **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** |Com suporte |Com suporte |Montreal|
+| **[GÉANT](https://www.geant.org/Networks)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Dublin, Frankfurt, Marselha |
+| **[GlobalConnect]()** | Com suporte |Com suporte | Oslo, Stavanger | 
 | **GTT** |Com suporte |Com suporte |London2 |
 | **[Global Cloud Exchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Com suporte| Com suporte | Chennai, Mumbai |
 | **Intelsat** | Com suporte | Com suporte | Washington D.C. 2 |
@@ -167,6 +168,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Telus](https://www.telus.com)** |Com suporte |Com suporte |Montreal, Seattle, Toronto, Vancouver |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Com suporte |Com suporte |Cidade do Cabo, Joanesburgo |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Com suporte | Com suporte | Kuala Lumpur |
+| **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | Com suporte | Com suporte | Osaka, Tokyo2 |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Com suporte |Com suporte |Dallas, Queretaro (México)|
 | **T-Systems** |Com suporte |Com suporte |Frankfurt|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Com suporte |Com suporte |São Paulo |

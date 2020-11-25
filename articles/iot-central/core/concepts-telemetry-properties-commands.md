@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989540"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121756"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
@@ -36,7 +36,7 @@ Cada exemplo mostra um trecho de código do modelo de dispositivo que define o t
 
 O arquivo JSON que define o modelo de dispositivo usa o [DTDL (digital Mydefinition Language) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-Para código de dispositivo de exemplo que mostra algumas dessas cargas em uso, consulte [criar e conectar um aplicativo cliente ao seu aplicativo do azure IOT central (Node.js)](tutorial-connect-device-nodejs.md) e [criar e conectar um aplicativo cliente aos seus tutoriais do Python (aplicativo do Azure IOT central)](tutorial-connect-device-python.md) .
+Para obter um exemplo de código de dispositivo que mostra algumas dessas cargas em uso, consulte o tutorial [criar e conectar um aplicativo cliente ao seu aplicativo do Azure IOT central](tutorial-connect-device.md) .
 
 ## <a name="view-raw-data"></a>Exibir dados brutos
 
@@ -721,8 +721,8 @@ IoT Central espera uma resposta do dispositivo para atualizações de propriedad
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202`  or `'ac': 201` | Pendente | A operação de alteração de propriedade está pendente ou em andamento |
-| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou teve um erro |
-| `'ac': 5xx` | Erro | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
+| `'ac': 4xx` | Erro do | A alteração de propriedade solicitada não era válida ou teve um erro |
+| `'ac': 5xx` | Erro do | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
 
 `av` é o número de versão enviado ao dispositivo.
 

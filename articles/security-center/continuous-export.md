@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289234"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122315"
 ---
-# <a name="continuously-export-security-center-data"></a>Exportar continuamente dados da Central de Segurança
+# <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
 
 A central de segurança do Azure gera recomendações e alertas de segurança detalhados. Você pode exibi-los no portal ou por meio de ferramentas programáticas. Talvez você também precise exportar algumas ou todas essas informações para acompanhamento com outras ferramentas de monitoramento em seu ambiente. 
 
@@ -61,7 +61,11 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
 1. Na barra lateral da central de segurança, selecione **preços & configurações**.
 1. Selecione a assinatura específica para a qual você deseja configurar a exportação de dados.
 1. Na barra lateral da página de configurações dessa assinatura, selecione **exportação contínua**.
-    [ ![ Opções de exportação na central de segurança do Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opções de exportação na central de segurança do Azure":::
+
+    Aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
+
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
 1. Opcionalmente, se sua seleção incluir uma dessas quatro recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
     - As descobertas de avaliação de vulnerabilidade em seus bancos de dados SQL devem ser corrigidas
@@ -74,7 +78,7 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" :::
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="use-the-rest-api"></a>[**Usar a API REST**](#tab/rest-api)
 
@@ -163,7 +167,7 @@ Para exibir os esquemas de eventos dos tipos de dados exportados, visite os [esq
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Exibir alertas exportados e recomendações no Azure Monitor
 
-Em alguns casos, você pode optar por exibir os alertas de segurança exportados e/ou as recomendações em [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
+Você também pode optar por exibir alertas de segurança exportados e/ou recomendações em [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
 
 O Azure Monitor fornece uma experiência de alerta unificada para uma variedade de alertas do Azure, incluindo log de diagnóstico, alertas de métrica e alertas personalizados com base em consultas de espaço de trabalho Log Analytics.
 
@@ -175,9 +179,9 @@ Para exibir alertas e recomendações da central de segurança no Azure Monitor,
 
 1. Na página Criar regra, configure sua nova regra (da mesma maneira que você configurou uma [regra de alerta de log em Azure monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
-    * Para **recurso** , selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
+    * Para **recurso**, selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
 
-    * Para **condição** , selecione **pesquisa de logs personalizada**. Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
+    * Para **condição**, selecione **pesquisa de logs personalizada**. Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
     
     * Opcionalmente, configure o [grupo de ações](../azure-monitor/platform/action-groups.md) que você gostaria de disparar. Os grupos de ações podem disparar envio de email, tíquetes de ITSM, WebHooks e muito mais.
     ![Azure Monitor regra de alerta](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -207,7 +211,7 @@ Saiba mais sobre os [preços do hub de eventos do Azure](https://azure.microsoft
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>A exportação inclui dados sobre o estado atual de todos os recursos?
 
-Não. A exportação contínua foi criada para streaming de **eventos** :
+Não. A exportação contínua foi criada para streaming de **eventos**:
 
 - Os **alertas** recebidos antes de habilitar a exportação não serão exportados.
 - As **recomendações** são enviadas sempre que o estado de conformidade de um recurso é alterado. Por exemplo, quando um recurso muda de íntegro para não íntegro. Portanto, assim como os alertas, as recomendações para recursos que não mudaram de estado desde que você habilitou a exportação não serão exportadas.
