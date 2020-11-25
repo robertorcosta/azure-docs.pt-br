@@ -8,11 +8,11 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: a63a756448f9c7202c79c3b4625fc99d4a90dc52
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682682"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014050"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para autenticação e autorização no Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Este artigo de práticas recomendadas se concentra em como um operador de cluste
 > * Use o Azure RBAC para controlar de forma granular o acesso ao recurso AKS e à API kubernetes em escala, bem como ao kubeconfig.
 > * Usar uma identidade gerenciada para autenticar os pods em si mesmo com outros serviços
 
-## <a name="use-azure-active-directory"></a>Usar o Azure Active Directory
+## <a name="use-azure-active-directory"></a>Use o Azure Active Directory Domain Services
 
 **Orientação sobre práticas recomendadas**: implante clusters do AKS com a integração do Microsoft Azure Active Directory. Usando o Microsoft Azure Active Directory centraliza o componente de gerenciamento de identidade. Qualquer alteração na conta do usuário ou no status do grupo é atualizada automaticamente no acesso ao cluster do AKS. Use Roles ou ClusterRoles e Bindings, conforme discutido na próxima seção, para direcionar usuários ou grupos para a menor quantidade de permissões necessárias.
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013608"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hyper-V?
 
@@ -70,7 +70,7 @@ Você pode limitar a quantidade de largura de banda usada para carregar dados no
 
 
 1. Entre no host do Hyper-V ou no nó do cluster.
-2. Execute **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**para abrir o snap-in MMC do Windows Azure backup.
+2. Execute **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** para abrir o snap-in MMC do Windows Azure backup.
 3. No snap-in, selecione **Alterar as Propriedades**.
 4. Em **limitação**, selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 1.023 Mbps.
 I

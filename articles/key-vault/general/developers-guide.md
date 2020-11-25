@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445125"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013965"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -56,11 +56,11 @@ Key Vault está usando a autenticação do Azure AD que requer que a entidade de
 É recomendável usar a identidade gerenciada para aplicativos implantados no Azure. Se você usar os serviços do Azure, que não dão suporte à identidade gerenciada ou se os aplicativos forem implantados no local, a [entidade de serviço com um certificado](../../active-directory/develop/howto-create-service-principal-portal.md) será uma alternativa possível. Nesse cenário, o certificado deve ser armazenado em Key Vault e girado com frequência. A entidade de serviço com segredo pode ser usada para ambientes de desenvolvimento e teste e localmente ou em Cloud Shell usando a entidade de usuário é recomendada.
 
 Entidades de segurança recomendadas por ambiente:
-- **Ambiente de produção** :
+- **Ambiente de produção**:
   - Identidade gerenciada ou entidade de serviço com um certificado
-- **Ambientes de teste e desenvolvimento** :
+- **Ambientes de teste e desenvolvimento**:
   - Identidade gerenciada, entidade de serviço com certificado ou entidade de serviço com segredo
-- **Desenvolvimento local** :
+- **Desenvolvimento local**:
   - Entidade de usuário ou entidade de serviço com segredo
 
 Os cenários de autenticações acima têm suporte da **biblioteca de clientes de identidade do Azure** e são integrados a SDKs de Key Vault. A biblioteca de identidades do Azure pode ser usada em diferentes ambientes e plataformas sem alterar seu código. A identidade do Azure também recuperará automaticamente o token de autenticação do conectado ao usuário do Azure com CLI do Azure, Visual Studio, Visual Studio Code e outros. 

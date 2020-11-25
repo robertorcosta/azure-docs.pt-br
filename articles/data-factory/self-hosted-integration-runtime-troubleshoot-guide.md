@@ -2,17 +2,17 @@
 title: Solução de problemas do runtime de integração auto-hospedada no Azure Data Factory
 description: Saiba como solucionar problemas do runtime de integração auto-hospedada no Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844026"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013421"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -320,7 +320,7 @@ Se o erro aparecer como acima de *UnauthorizedAccessException*, siga as instruç
         1. Limpar desinstalar o IR auto-hospedado atual.
         1. Instale os bits de IR hospedados internamente.
         1. Siga as instruções abaixo para alterar a conta de serviço: 
-            1. Acesse a pasta de instalação do selfhosted IR, alterne para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Vá para a pasta de instalação do IR auto-hospedado, alterne para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
             1. Inicie uma linha de comando usando privilégios elevados. Substitua *\<user>* e *\<password>* por seu próprio nome de usuário e senha e, em seguida, execute o comando abaixo:
                        
                 ```
@@ -731,7 +731,7 @@ Dois motivos possíveis para esse problema:
 - A AC raiz do certificado do servidor do serviço ADF não é confiável no computador em que o SHIR está instalado. 
 - Você está usando proxy em seu ambiente e o certificado do servidor do serviço ADF é substituído pelo proxy, enquanto o certificado de servidor substituído não é confiável para o computador em que o SHIR está instalado.
 
-#### <a name="solution"></a>Solução
+#### <a name="resolution"></a>Resolução
 
 - Por motivo 1, verifique se o certificado do servidor ADF e sua cadeia de certificados são confiáveis pelo computador em que o SHIR está instalado.
 - Por motivo 2, confie na AC raiz substituída no computador SHIR ou configure o proxy para não substituir o certificado do servidor ADF.
@@ -744,6 +744,7 @@ Estamos distribuindo um novo certificado SSL, que é assinado de DigiCert, verif
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 Caso contrário, baixe-o [aqui](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Compartilhamento do IR auto-hospedado
 

@@ -4,11 +4,11 @@ description: Saiba mais sobre o suporte para migração do Hyper-V com migraçõ
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442309"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014186"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração do Hyper-V
 
@@ -32,7 +32,7 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Espaço livre em disco (disco de retenção)** |  600 GB |
 
 
-## <a name="hyper-v-vms"></a>VMs Hyper-V
+## <a name="hyper-v-vms"></a>VMs do Hyper-V
 
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |

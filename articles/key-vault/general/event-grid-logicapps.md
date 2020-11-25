@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284482"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013982"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 
@@ -45,7 +45,7 @@ Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
  
     ![Designer de Aplicativo Lógico - conexão](../media/eventgrid-logicappdesigner1.png)
 
-1. Na tela **Quando ocorrer um evento de recurso** , faça o seguinte:
+1. Na tela **Quando ocorrer um evento de recurso**, faça o seguinte:
     - Deixe **Assinatura** e **Nome do Recurso** como padrão.
     - Selecione **Microsoft.KeyVault.vaults** para **Tipo de Recurso**.
     - Selecione **Microsoft.KeyVault.SecretNewVersionCreated** para **Item do Tipo de Evento - 1**.
@@ -60,7 +60,7 @@ Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
 
 1. Compile seu modelo de email:
     - **Para:** insira o endereço de email para receber os emails de notificação. Para este tutorial, use uma conta de email que você possa acessar para testes.
-    - **Assunto** e **Corpo** : escreva o texto para o seu email. Selecione as propriedades JSON na ferramenta de seletor para incluir conteúdo dinâmico com base nos dados do evento. Você pode recuperar os dados do evento usando `@{triggerBody()?['Data']}`.
+    - **Assunto** e **Corpo**: escreva o texto para o seu email. Selecione as propriedades JSON na ferramenta de seletor para incluir conteúdo dinâmico com base nos dados do evento. Você pode recuperar os dados do evento usando `@{triggerBody()?['Data']}`.
 
     Seu modelo de email poderá ser semelhante a este exemplo.
 

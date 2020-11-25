@@ -7,14 +7,14 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372601"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014560"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure Defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
 
 Esta página explica como usar o verificador de vulnerabilidades interno para verificar as imagens de contêiner armazenadas em seu registro de contêiner do Azure baseado em Azure Resource Manager.
 
@@ -22,17 +22,7 @@ Quando o **Azure Defender para registros de contêiner** estiver habilitado, as 
 
 Quando o verificador relata vulnerabilidades à central de segurança, a central de segurança apresenta as descobertas e as informações relacionadas como recomendações. Além disso, as descobertas incluem informações relacionadas, como etapas de correção, CVEs relevantes, pontuações de CVSS e muito mais. Você pode exibir as vulnerabilidades identificadas para uma ou mais assinaturas ou para um registro específico.
 
-## <a name="availability"></a>Disponibilidade
-
-|Aspecto|Detalhes|
-|----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
-|Preço:|O **Azure defender para registros de contêiner** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Registros e imagens com suporte:|Imagens do Linux em registros ACR acessíveis da Internet pública com acesso ao shell|
-|Imagens e registros sem suporte:|Imagens do Windows<br>Registros "privados"<br>Registros com acesso limitado com um firewall, ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure<br>Imagens de superplataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional|
-|Funções e permissões necessárias:|**Leitor de segurança** e [função de leitor do registro de contêiner do Azure](../container-registry/container-registry-roles.md)|
-|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) US gov-somente o recurso de verificação por push tem suporte no momento. Saiba mais em [quando as imagens são digitalizadas?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Nenhuma ](./media/icons/no-icon.png) China gov, outros gov|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar as vulnerabilidades em imagens em registros de contêiner do Azure 
@@ -142,7 +132,7 @@ Você pode usar qualquer um dos seguintes critérios:
 
 Para criar uma regra:
 
-1. Na página de detalhes de recomendações para **vulnerabilidades nas imagens do registro de contêiner do Azure devem ser corrigidas** , selecione **desabilitar regra**.
+1. Na página de detalhes de recomendações para **vulnerabilidades nas imagens do registro de contêiner do Azure devem ser corrigidas**, selecione **desabilitar regra**.
 1. Selecione o escopo relevante.
 1. Defina seus critérios.
 1. Selecione **aplicar regra**.

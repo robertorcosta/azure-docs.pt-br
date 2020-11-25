@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269549"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014407"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
 
@@ -102,7 +102,7 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
 
    1. Depois de atualizar suas conexões, na barra de ferramentas do designer, selecione **salvar**.
 
-1. Quando você estiver pronto para ativar seu aplicativo lógico, no menu do aplicativo lógico, selecione **visão geral**e, em seguida, selecione **habilitar**.
+1. Quando você estiver pronto para ativar seu aplicativo lógico, no menu do aplicativo lógico, selecione **visão geral** e, em seguida, selecione **habilitar**.
 
    ![Habilitar aplicativo lógico](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -166,7 +166,7 @@ Se você configurou o Visual Studio com os [pré-requisitos](../logic-apps/quick
 
    Após a conclusão da implantação, seu aplicativo lógico é publicado, mas não é ativado no portal do Azure.
 
-1. Quando estiver pronto para ativar seu aplicativo lógico no portal do Azure, localize e abra seu aplicativo lógico no designer do aplicativo lógico. No menu do aplicativo lógico, selecione **visão geral**e, em seguida, selecione **habilitar**.
+1. Quando estiver pronto para ativar seu aplicativo lógico no portal do Azure, localize e abra seu aplicativo lógico no designer do aplicativo lógico. No menu do aplicativo lógico, selecione **visão geral** e, em seguida, selecione **habilitar**.
 
 1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de desativar ou excluir o fluxo original.
 

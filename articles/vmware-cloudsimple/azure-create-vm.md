@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847156"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014494"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Criar uma máquina virtual no Azure usando modelos de VM na infra-estrutura do VMware
 
@@ -44,8 +44,8 @@ Entre no [portal do Azure](https://portal.azure.com).
     | ------------ | ------------- |
     | Subscription | Assinatura do Azure associada à sua nuvem privada.  |
     | Grupo de recursos | Grupo de recursos ao qual a VM será atribuída. Selecione um grupo existente ou crie um novo. |
-    | Nome | Nome para identificar a VM.  |
-    | Location | Região do Azure na qual essa VM está hospedada.  |
+    | Name | Nome para identificar a VM.  |
+    | Localização | Região do Azure na qual essa VM está hospedada.  |
     | Nuvem privada | CloudSimple nuvem privada em que você deseja criar a máquina virtual. |
     | Pool de recursos | Pool de recursos mapeados para a VM. Selecione entre os pools de recursos disponíveis. |
     | Modelo do vSphere | modelo de vSphere para a VM.  |
@@ -64,7 +64,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
     | Control | Descrição |
     | ------------ | ------------- |
-    | Nome | Insira um nome para identificar o adaptador.  |
+    | Name | Insira um nome para identificar o adaptador.  |
     | Rede | Selecione na lista de grupos de portas distribuídas configuradas em sua nuvem privada vSphere.  |
     | Adaptador | Selecione um adaptador vSphere na lista de tipos disponíveis configurados para a VM. Para obter mais informações, consulte o artigo da base de dados de conhecimento do VMware [escolhendo um adaptador de rede para sua máquina virtual](https://kb.vmware.com/s/article/1001805). |
     | Ligar na inicialização | Escolha se quer habilitar o hardware da NIC quando a VM for inicializada. O padrão é **Habilitar**. |
@@ -73,10 +73,10 @@ Entre no [portal do Azure](https://portal.azure.com).
 
     | Item | Descrição |
     | ------------ | ------------- |
-    | Nome | Insira um nome para identificar o disco.  |
+    | Name | Insira um nome para identificar o disco.  |
     | Tamanho | Selecione um dos tamanhos disponíveis.  |
     | Controlador SCSI | Selecione um controlador SCSI para o disco.  |
-    | Modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> – Persistente independente: todos os dados gravados no disco são gravados permanentemente.<br> – Não persistente independente: as alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual.  O modo independente não persistente permite que você sempre reinicie a máquina virtual no mesmo estado. Saiba mais na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
+    | Mode | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> – Persistente independente: todos os dados gravados no disco são gravados permanentemente.<br> – Não persistente independente: as alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual.  O modo independente não persistente permite que você sempre reinicie a máquina virtual no mesmo estado. Saiba mais na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
 
 7. Após a conclusão da validação, examine as configurações e clique em **criar**. Para fazer alterações, clique nas guias na parte superior ou clique em.
 

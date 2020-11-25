@@ -10,11 +10,11 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013846"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Máquina Virtual de Ciência de Dados
 
@@ -148,7 +148,7 @@ Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qua
 > [!NOTE]
 > A porta 8000 é aberta no firewall por padrão quando a VM é provisionada. 
 
-Empacotamos exemplos de notebooks, um em Python em outro em R. Você pode ver o link para os exemplos na home page do notebook após a autenticação no Jupyter Notebook usando a senha e o nome de usuário Linux locais. Você pode criar um novo notebook selecionando **Novo** e selecionando o kernel de linguagem apropriado. Caso não veja o botão **Novo** , selecione o ícone do **Jupyter** na parte superior esquerda para acessar a home page do servidor de notebook.
+Empacotamos exemplos de notebooks, um em Python em outro em R. Você pode ver o link para os exemplos na home page do notebook após a autenticação no Jupyter Notebook usando a senha e o nome de usuário Linux locais. Você pode criar um novo notebook selecionando **Novo** e selecionando o kernel de linguagem apropriado. Caso não veja o botão **Novo**, selecione o ícone do **Jupyter** na parte superior esquerda para acessar a home page do servidor de notebook.
 
 ## <a name="apache-spark-standalone"></a>Apache Spark autônomo
 
@@ -206,11 +206,11 @@ Para obter mais informações, consulte [SQUIRREL SQL](http://squirrel-sql.sourc
 
 O pacote de driver ODBC do SQL Server também vem com duas ferramentas de linha de comando:
 
-- **bcp** : a ferramenta bcp copia dados em massa entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. Você pode usá-la para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela. Ou você deve entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
+- **bcp**: a ferramenta bcp copia dados em massa entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. Você pode usá-la para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela. Ou você deve entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
 
   Para obter mais informações, consulte [conectando-se com o bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
-- **sqlcmd** : você pode inserir instruções TRANSACT-SQL usando a ferramenta sqlcmd. Você também pode inserir procedimentos do sistema e arquivos de script no prompt de comando. Essa ferramenta usa o ODBC para executar lotes do Transact-SQL.
+- **sqlcmd**: você pode inserir instruções TRANSACT-SQL usando a ferramenta sqlcmd. Você também pode inserir procedimentos do sistema e arquivos de script no prompt de comando. Essa ferramenta usa o ODBC para executar lotes do Transact-SQL.
 
   Para saber mais, confira [Conectando-se com o sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
@@ -228,13 +228,13 @@ As bibliotecas estão disponíveis em R e Python para acesso do banco de dados:
 
 As ferramentas do Azure a seguir são instaladas na VM:
 
-* **CLI do Azure** : você pode usar a interface de linha de comando no Azure para criar e gerenciar recursos do Azure por meio de comandos do Shell. Para abrir as ferramentas do Azure, insira **ajuda do azure**. Para saber mais, confira a [página de documentação da CLI do Azure](/cli/azure/get-started-with-az-cli2).
-* **Gerenciador de armazenamento do Azure** : Gerenciador de armazenamento do Azure é uma ferramenta gráfica que você pode usar para navegar pelos objetos que você armazenou em sua conta de armazenamento do Azure e para carregar e baixar dados de e para BLOBs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você também pode abri-lo em um prompt do shell inserindo **StorageExplorer**. É necessário estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
-* **Bibliotecas do Azure** : Veja a seguir algumas das bibliotecas pré-instaladas.
+* **CLI do Azure**: você pode usar a interface de linha de comando no Azure para criar e gerenciar recursos do Azure por meio de comandos do Shell. Para abrir as ferramentas do Azure, insira **ajuda do azure**. Para saber mais, confira a [página de documentação da CLI do Azure](/cli/azure/get-started-with-az-cli2).
+* **Gerenciador de armazenamento do Azure**: Gerenciador de armazenamento do Azure é uma ferramenta gráfica que você pode usar para navegar pelos objetos que você armazenou em sua conta de armazenamento do Azure e para carregar e baixar dados de e para BLOBs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você também pode abri-lo em um prompt do shell inserindo **StorageExplorer**. É necessário estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
+* **Bibliotecas do Azure**: Veja a seguir algumas das bibliotecas pré-instaladas.
   
-  * **Python** : as bibliotecas relacionadas ao Azure no Python são *Azure* , *azureml* , *pydocumentdb* e *pyodbc*. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC driver for SQL Server), permite o acesso a SQL Server, banco de dados SQL do Azure e análise de Synapse do Azure do Python usando uma interface ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
-  * **R** : as bibliotecas relacionadas ao Azure em R são AZUREML e RODBC.
-  * **Java** : a lista de bibliotecas Java do Azure pode ser encontrada no diretório /dsvm/sdk/AzureSDKJava na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
+  * **Python**: as bibliotecas relacionadas ao Azure no Python são *Azure*, *azureml*, *pydocumentdb* e *pyodbc*. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC driver for SQL Server), permite o acesso a SQL Server, banco de dados SQL do Azure e análise de Synapse do Azure do Python usando uma interface ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
+  * **R**: as bibliotecas relacionadas ao Azure em R são AZUREML e RODBC.
+  * **Java**: a lista de bibliotecas Java do Azure pode ser encontrada no diretório /dsvm/sdk/AzureSDKJava na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
 
 Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Firefox pré-instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
 
@@ -246,21 +246,21 @@ Depois de entrar no Azure Machine Learning Studio, você pode usar uma tela de e
 
 Coloque em operação os modelos de aprendizado de máquina compilados encapsulando-os em uma interface de serviço Web. A operacionalização de modelos de machine learning permite que clientes escritos em qualquer linguagem invoquem previsões desses modelos. Para saber mais, confira a [Documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Você também pode criar seus modelos em R ou Python na VM e, em seguida, implantá-los em produção no Azure Machine Learning. Instalamos bibliotecas em R ( **AzureML** ) e Python ( **azureml** ) para habilitar essa funcionalidade.
+Você também pode criar seus modelos em R ou Python na VM e, em seguida, implantá-los em produção no Azure Machine Learning. Instalamos bibliotecas em R (**AzureML**) e Python (**azureml**) para habilitar essa funcionalidade.
 
 > [!NOTE]
 > Essas instruções foram escritas para a versão do Windows da Máquina Virtual de Ciência de Dados. Mas as informações fornecidas sobre a implantação de modelos para o Azure Machine Learning são aplicáveis à VM Linux.
 
 ## <a name="machine-learning-tools"></a>Ferramentas de Machine Learning
 
-A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Eles incluem:
+A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Elas incluem:
 
-* **Vowpal Wabbit** : um algoritmo de aprendizado rápido online.
-* **xgboost** : uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
-* **Rattle** : uma ferramenta gráfica baseada em R para facilitar a exploração de dados e a modelagem.
-* **Python** : o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
-* **LightGBM** : um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura com base em algoritmos de árvore de decisão.
-* **R** : uma biblioteca avançada de funções de aprendizado de máquina está disponível para R. as bibliotecas pré-instaladas incluem LM, GLM, randomForest e rpart. Você pode instalar outras bibliotecas executando este comando:
+* **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
+* **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
+* **Rattle**: uma ferramenta gráfica baseada em R para facilitar a exploração de dados e a modelagem.
+* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
+* **LightGBM**: um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura com base em algoritmos de árvore de decisão.
+* **R**: uma biblioteca avançada de funções de aprendizado de máquina está disponível para R. as bibliotecas pré-instaladas incluem LM, GLM, randomForest e rpart. Você pode instalar outras bibliotecas executando este comando:
 
     ```r
     install.packages(<lib name>)

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980517"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013574"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
@@ -138,7 +138,7 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 ## <a name="property-reference"></a>Referência de propriedade
 
-|Propriedade      |DESCRIÇÃO      |
+|Propriedade      |Descrição      |
 |--------------|-----------------|
 |`name`        | Especificado na definição do Sugestor, mas também chamado em uma solicitação de AutoCompletar ou de sugestões. |
 |`sourceFields`| Especificado na definição do Sugestor. É uma lista de um ou mais campos no índice que são a origem do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` e `Collection(Edm.String)` . Se um analisador for especificado no campo, ele deverá ser um analisador léxico nomeado [desta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (não um analisador personalizado).<p/> Como prática recomendada, especifique somente os campos que se prestam a uma resposta esperada e apropriada, seja uma cadeia de caracteres completa em uma barra de pesquisa ou uma lista suspensa.<p/>Um nome de Hotel é um bom candidato porque tem precisão. Campos detalhados, como descrições e comentários, são muito densos. Da mesma forma, campos repetitivos, como categorias e marcas, são menos eficazes. Nos exemplos, incluímos "category" de qualquer forma para demonstrar que você pode incluir vários campos. |
