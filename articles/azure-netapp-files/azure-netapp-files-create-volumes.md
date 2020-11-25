@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
 ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006603"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -42,7 +42,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 * Usuário/grupo local e suporte LDAP para NFSv 4.1  
   Atualmente, o NFSv 4.1 dá suporte ao acesso raiz somente a volumes. Consulte [Configurar o domínio padrão do nfsv 4.1 para Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## <a name="best-practice"></a>Melhor prática
+## <a name="best-practice"></a>Prática recomendada
 
 * Verifique se você está usando as instruções de montagem adequadas para o volume.  Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
@@ -56,7 +56,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
     ![Navegar até Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Na janela criar um volume, clique em **criar**e forneça informações para os seguintes campos na guia noções básicas:   
+2.  Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos na guia noções básicas:   
     * **Nome do volume**      
         Especifique o nome para o volume que você está criando.   
 

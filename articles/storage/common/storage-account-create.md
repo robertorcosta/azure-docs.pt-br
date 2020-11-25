@@ -11,11 +11,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005531"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -104,9 +104,9 @@ N/D
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Este artigo mostra como criar um novo grupo de recursos.
+Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Este artigo mostra como criar um grupo de recursos.
 
-Uma conta de armazenamento de **uso geral v2** fornece acesso a todos os serviços de Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. As etapas descritas aqui criam uma conta de armazenamento de uso geral v2, mas as etapas para criar qualquer tipo de conta de armazenamento são semelhantes. Para obter mais informações sobre tipos de contas de armazenamento e outras configurações da conta de armazenamento, confira [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+Uma conta de armazenamento de **uso geral v2** fornece acesso a todos os serviços de armazenamento do Azure: BLOBs, arquivos, filas, tabelas e discos. As etapas descritas aqui criam uma conta de armazenamento de uso geral v2, mas as etapas para a criação de qualquer tipo de conta de armazenamento são semelhantes. Para obter mais informações sobre tipos de contas de armazenamento e outras configurações da conta de armazenamento, confira [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -199,7 +199,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Você pode usar o Azure PowerShell ou CLI do Azure para implantar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo usado neste artigo de instruções é de [Azure Resource Manager modelos de início rápido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar** .
+Você pode usar o Azure PowerShell ou CLI do Azure para implantar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo usado neste artigo de instruções é de [Azure Resource Manager modelos de início rápido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -236,7 +236,7 @@ A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todo
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue até a conta de armazenamento no [portal do Azure](https://portal.azure.com).
-1. Clique em **Excluir** .
+1. Clique em **Excluir**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005377"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -307,7 +307,7 @@ Quando você permite o acesso aos recursos do Azure, é sempre uma prática reco
 
   > **Quando utilizar**: ao gerenciar programaticamente recursos do Azure ou conceder acesso para aplicativos. Para obter mais informações, consulte [Criar entidade de serviço e aplicativo do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Marcas
+#### <a name="tags"></a>Marcações
 
 O Azure Resource Manager permite atribuir marcas personalizadas para recursos individuais. As marcas, que são pares chave-valor, podem ser úteis quando for necessário organizar recursos para cobrança ou monitoramento. As marcas fornecem uma maneira de rastrear recursos em vários grupos de recursos. Você pode atribuir marcas das seguintes maneiras:
 
@@ -315,7 +315,7 @@ O Azure Resource Manager permite atribuir marcas personalizadas para recursos in
 * No modelo de Azure Resource Manager
 * Usando a API REST
 * Usando a CLI do Azure
-* Usando o PowerShell
+* Usar o PowerShell
 
 Além disso, é possível atribuir várias marcas para cada recurso. Para saber mais, consulte [Usando marcas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md).
 

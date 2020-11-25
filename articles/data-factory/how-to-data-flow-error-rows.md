@@ -6,20 +6,28 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254405"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006773"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Manipular linhas de erro de truncamento do SQL no mapeamento de Data Factory fluxos de dados
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Um cenário comum no Data Factory ao usar o mapeamento de fluxos de dados é gravar seus dados transformados em um banco de dado no banco de dados SQL do Azure. Nesse cenário, uma condição de erro comum que deve ser evitada é o truncamento de coluna possível. Siga estas etapas para fornecer o log de colunas que não se ajustarão a uma coluna de cadeia de caracteres de destino, permitindo que o fluxo de dados continue nesses cenários.
+Um cenário comum no Data Factory ao usar o mapeamento de fluxos de dados é gravar seus dados transformados em um banco de dado no banco de dados SQL do Azure. Nesse cenário, uma condição de erro comum que deve ser evitada é o truncamento de coluna possível.
+
+Há dois métodos principais para lidar com erros de identificadores normais ao gravar dados no coletor de banco de dados no ADF:
+
+* Defina a [manipulação de linha de erro](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) do coletor como "continuar se houver erro" ao processar dados do banco de dado. Esse é um método de interceptação automatizada que não requer lógica personalizada em seu fluxo de dados.
+* Como alternativa, siga as etapas abaixo para fornecer o log de colunas que não se ajustarão a uma coluna de cadeia de caracteres de destino, permitindo que o fluxo de dados continue.
+
+> [!NOTE]
+> Ao habilitar a manipulação de linha de erro automática, em oposição ao método abaixo de escrever sua própria lógica de tratamento de erro, haverá uma pequena penalidade de desempenho incorrida pelo e etapa adicional tomada pelo ADF para executar uma operação de duas fases para interceptar erros.
 
 ## <a name="scenario"></a>Cenário
 
@@ -49,6 +57,10 @@ Este vídeo percorre um exemplo de como configurar a lógica de tratamento de li
 4. O fluxo de dados concluído é mostrado abaixo. Agora, podemos dividir as linhas de erro para evitar os erros de truncamento do SQL e colocar essas entradas em um arquivo de log. Enquanto isso, as linhas bem-sucedidas podem continuar a gravar em nosso banco de dados de destino.
 
     ![fluxo de dados completo](media/data-flow/error2.png)
+
+5. Se você escolher a opção de tratamento de linhas de erro na transformação do coletor e definir "linhas de erro de saída", o ADF gerará automaticamente uma saída de arquivo CSV de seus dados de linha junto com as mensagens de erro relatadas pelo driver. Você não precisa adicionar essa lógica manualmente ao fluxo de dados com essa opção alternativa. Haverá uma pequena penalidade de desempenho incorrida com essa opção para que o ADF possa implementar uma metodologia de duas fases para interceptar erros e fazer o log delas.
+
+    ![fluxo de dados completo com linhas de erro](media/data-flow/error-row-3.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

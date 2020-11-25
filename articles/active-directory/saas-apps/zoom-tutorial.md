@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 6b4484b9bb235b24d2b733c329b52ab6b04be183
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519814"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006414"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zoom
 
@@ -47,15 +47,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Zoom com o Azure AD, você precisará adicionar o Zoom da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **Zoom** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Zoom** na caixa de pesquisa.
 1. Selecione **Zoom** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-zoom"></a>Configurar e testar o logon único do Azure AD para o Zoom
 
-Configure e teste o SSO do Azure AD com o Zoom usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zoom.
+Configure e teste o SSO do Azure AD com o Zoom usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zoom.
 
 Para configurar e testar o SSO do Azure AD com o Zoom, conclua os seguintes blocos de construção:
 
@@ -70,15 +70,15 @@ Para configurar e testar o SSO do Azure AD com o Zoom, conclua os seguintes bloc
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zoom** , localize a seção **Gerenciar** e selecione **Logon único** .
-1. Na página **Escolher um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zoom**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `<companyname>.zoom.us`
 
@@ -87,11 +87,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o Zoom** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Zoom**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -105,49 +105,49 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-    1. No campo **Nome** , insira `B.Simon`.  
-    1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-    1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+    1. No campo **Nome**, insira `B.Simon`.  
+    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo acesso ao Zoom.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Zoom** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Zoom**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-zoom-sso"></a>Configurar o SSO do Zoom
 
 1. Em uma janela diferente do navegador da Web, entre em seu site da empresa do Zoom como administrador.
 
-2. Clique na guia **Logon Único** .
+2. Clique na guia **Logon Único**.
 
     ![Guia Logon único](./media/zoom-tutorial/zoom-sso1.png "Logon único")
 
-3. Clique na guia **Controle de segurança** e, em seguida, vá para as configurações de **Logon Único** .
+3. Clique na guia **Controle de segurança** e, em seguida, vá para as configurações de **Logon Único**.
 
 4. Na seção de Configurações de Logon Único, execute as seguintes etapas:
 
     ![Seção Logon único](./media/zoom-tutorial/zoom-sso2.png "Logon único")
 
-    a. Na caixa de texto **URL da página de entrada** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    b. Para o valor de **URL de página de logout** , você precisa acessar o portal do Azure e clicar em **Azure Active Directory** à esquerda e, em seguida, navegar até **Registros de aplicativo** .
+    b. Para o valor de **URL de página de logout**, você precisa acessar o portal do Azure e clicar em **Azure Active Directory** à esquerda e, em seguida, navegar até **Registros de aplicativo**.
 
     ![O botão Azure Active Directory](./media/zoom-tutorial/appreg.png)
 
@@ -155,15 +155,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O botão Ponto de extremidade](./media/zoom-tutorial/endpoint.png)
 
-    d. Copie o **PONTO DE EXTREMIDADE DE SAÍDA DO SAML-P** e cole-o na caixa de texto da **URL de página de saída** .
+    d. Copie o **PONTO DE EXTREMIDADE DE SAÍDA DO SAML-P** e cole-o na caixa de texto da **URL de página de saída**.
 
     ![O botão Copiar ponto de extremidade](./media/zoom-tutorial/endpoint1.png)
 
-    e. Abra o seu certificado codificado em base 64 no bloco de notas, copie o seu conteúdo para a sua área de transferência e cole na caixa de texto **Certificado do provedor de identidade** .
+    e. Abra o seu certificado codificado em base 64 no bloco de notas, copie o seu conteúdo para a sua área de transferência e cole na caixa de texto **Certificado do provedor de identidade**.
 
-    f. Na caixa de texto **Emissor** , cole o valor de **Identificador do Azure AD** , copiado do portal do Azure. 
+    f. Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure. 
 
-    g. Clique em **Salvar Alterações** .
+    g. Clique em **Salvar Alterações**.
 
     > [!NOTE]
     > Para obter mais informações, visite a documentação de zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)

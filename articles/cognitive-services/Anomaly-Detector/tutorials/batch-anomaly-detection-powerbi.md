@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006193"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -54,7 +54,7 @@ Depois que a caixa de diálogo for exibida, navegue até a pasta em que você ba
 
 O Power BI converterá os carimbos de data/hora na primeira coluna em um tipo de dados `Date/Time`. Esses carimbos de data/hora precisam ser convertidos em texto para serem enviados à API do Detector de Anomalias. Se o editor do Power Query não for aberto automaticamente, clique em **Editar Consultas** na guia Página Inicial.
 
-Clique na faixa de opções **Transformar** no Editor do Power Query. No grupo **Qualquer Coluna** , abra o menu suspenso **Tipo de Dados:** e selecione **Texto**.
+Clique na faixa de opções **Transformar** no Editor do Power Query. No grupo **Qualquer Coluna**, abra o menu suspenso **Tipo de Dados:** e selecione **Texto**.
 
 ![Uma imagem do menu suspenso de tipo de dados](../media/tutorials/data-type-drop-down.png)
 
@@ -62,7 +62,7 @@ Quando você receber um aviso sobre a alteração do tipo de coluna, clique em *
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Criar uma função para enviar os dados e formatar a resposta
 
-Para formatar e enviar o arquivo de dados para a API do Detector de Anomalias, invoque uma consulta na tabela criada acima. No Editor do Power Query, na faixa de opções **Página Inicial** , abra o menu suspenso **Nova Fonte** e clique em **Consulta em Branco**.
+Para formatar e enviar o arquivo de dados para a API do Detector de Anomalias, invoque uma consulta na tabela criada acima. No Editor do Power Query, na faixa de opções **Página Inicial**, abra o menu suspenso **Nova Fonte** e clique em **Consulta em Branco**.
 
 Verifique se a nova consulta está selecionada e, em seguida, clique em **Editor Avançado**.
 
@@ -125,7 +125,7 @@ Talvez você receba uma mensagem de aviso quando tentar executar a consulta, poi
 
 ![Uma imagem mostrando um aviso criado pelo Power BI](../media/tutorials/blocked-function.png)
 
-Para corrigir isso, clique em **Arquivo** e **Opções e configurações**. Em seguida, clique em **Opções**. Abaixo de **Arquivo Atual** , selecione **Privacidade** e **Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho**.
+Para corrigir isso, clique em **Arquivo** e **Opções e configurações**. Em seguida, clique em **Opções**. Abaixo de **Arquivo Atual**, selecione **Privacidade** e **Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho**.
 
 Além disso, talvez você receba uma mensagem solicitando que especifique como deseja se conectar à API.
 
@@ -156,7 +156,7 @@ Depois de adicionar os campos, clique no gráfico e redimensione-o para mostrar 
 
 ### <a name="display-anomaly-data-points"></a>Exibir pontos de dados de anomalias
 
-No lado direito da janela do Power BI, abaixo do painel **CAMPOS** , clique com o botão direito do mouse em **Valor** abaixo da **Consulta de Função Invocada** e clique em **Nova medida rápida**.
+No lado direito da janela do Power BI, abaixo do painel **CAMPOS**, clique com o botão direito do mouse em **Valor** abaixo da **Consulta de Função Invocada** e clique em **Nova medida rápida**.
 
 ![Uma imagem da tela da nova medida rápida](../media/tutorials/new-quick-measure.png)
 
@@ -164,7 +164,7 @@ Na tela exibida, selecione **Valor filtrado** como o cálculo. Defina **Valor Ba
 
 ![Uma segunda imagem da tela de nova medida rápida](../media/tutorials/new-quick-measure-2.png)
 
-Depois de clicar em **OK** , você terá um campo `Value for True` na parte inferior da lista de campos. Clique com o botão direito do mouse nele e renomeie-o para **Anomalias**. Adicione-o aos **Valores** do gráfico. Em seguida, selecione a ferramenta **Formato** e defina o tipo do eixo X como **Categórico**.
+Depois de clicar em **OK**, você terá um campo `Value for True` na parte inferior da lista de campos. Clique com o botão direito do mouse nele e renomeie-o para **Anomalias**. Adicione-o aos **Valores** do gráfico. Em seguida, selecione a ferramenta **Formato** e defina o tipo do eixo X como **Categórico**.
 
 ![Uma imagem do eixo x do formato](../media/tutorials/format-x-axis.png)
 
