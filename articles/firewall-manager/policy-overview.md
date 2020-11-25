@@ -5,31 +5,20 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509744"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802021"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Gerenciador de Firewall do Azure
 
 A Política de Firewall é um recurso do Azure que contém coleções de regra de aplicativo, de rede e de NAT, além de configurações de inteligência contra ameaças. É um recurso global que pode ser usado em várias instâncias do Firewall do Azure em hubs virtuais seguros e redes virtuais de hub. As políticas funcionam em regiões e assinaturas diferentes.
 
 ![Política do Gerenciador de Firewall do Azure](media/policy-overview/policy-overview.png)
-
-## <a name="availability"></a>Disponibilidade
-
-A Política de Firewall é um recurso altamente disponível e automaticamente replicado. Se ocorrer um desastre regional raro, as operações da Política de Firewall farão failover para as regiões emparelhadas do Azure. Operações de pós-recuperação farão failover para a região primária do Azure tanto para operações síncronas quanto assíncronas. 
-
-As regiões emparelhadas fornecem vários benefícios, incluindo:
-- isolamento físico separado por pelo menos 300 milhas
-- recuperação mais rápida de um desastre
-- cumprimento dos requisitos de residência de dados exigidos pela geografia
-
-Para saber mais regiões emparelhadas, confira [BCDR (continuidade dos negócios e recuperação de desastres): Regiões Combinadas do Azure](../best-practices-availability-paired-regions.md).
 
 ## <a name="policy-creation-and-association"></a>Criação e associação de política
 
