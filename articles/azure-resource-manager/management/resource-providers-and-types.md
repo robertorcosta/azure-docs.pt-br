@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426452"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972531"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
@@ -61,7 +61,7 @@ Para obter informações para um provedor de recursos específico:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. No menu do portal do Azure, selecione **Todos os serviços**.
-3. Na caixa **Todos os serviços** , digite **gerenciador de recursos** e, em seguida, selecione **Gerenciador de Recursos**.
+3. Na caixa **Todos os serviços**, digite **gerenciador de recursos** e, em seguida, selecione **Gerenciador de Recursos**.
 
     ![selecionar Todos os serviços](./media/resource-providers-and-types/select-resource-explorer.png)
 

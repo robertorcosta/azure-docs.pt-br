@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80234199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972634"
 ---
 ### <a name="standard-and-neural-voices"></a>Vozes padrão e neural
 
@@ -18,7 +18,7 @@ Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por
 | Região | Ponto de extremidade | Vozes padrão | Vozes neurais |
 |--------|----------|-----------------|---------------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 | Centro dos EUA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
 | Leste da Ásia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
@@ -37,6 +37,9 @@ Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 | Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
 | Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
+
+> [!TIP]
+> As [vozes na versão prévia](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) estão disponíveis apenas nestas três regiões: leste dos eua, Europa Ocidental e sudeste asiático.
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
