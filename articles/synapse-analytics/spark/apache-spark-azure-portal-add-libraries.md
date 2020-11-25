@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016251"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917118"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics
 
 As bibliotecas fornecem código reutilizável que você talvez queira incluir em seus programas ou projetos. Para disponibilizar códigos de terceiros ou criados localmente para seus aplicativos, você pode instalar uma biblioteca em um dos pools de Apache Spark sem servidor (versão prévia). Depois que uma biblioteca é instalada para um pool do Spark, ela fica disponível para todas as sessões que usam o mesmo pool. 
 
+## <a name="before-you-begin"></a>Antes de começar
+- Para instalar e atualizar bibliotecas, você deve ter as permissões de proprietário de dados de armazenamento de **blob de armazenamento** ou de **Data blob** na conta de armazenamento Gen2 primária que está vinculada ao espaço de trabalho do Azure Synapse Analytics.
+  
 ## <a name="default-installation"></a>Instalação padrão
 Apache Spark no Azure Synapse Analytics tem uma instalação completa do Anacondas, além de bibliotecas adicionais. A lista de bibliotecas completa pode ser encontrada em [suporte à versão Apache Spark](apache-spark-version-support.md). 
 
@@ -35,6 +38,7 @@ Depois de identificar as bibliotecas que você gostaria de usar para o aplicativ
 > - Se o pacote que você está instalando for grande ou demorar muito para ser instalado, isso afetará o tempo de inicialização da instância do Spark.
 > - Os pacotes que exigem suporte ao compilador no momento da instalação, como GCC, não têm suporte.
 > - Os pacotes não podem ser desatualizados, somente adicionados ou atualizados.
+> - Para instalar bibliotecas, você deve ter as permissões de proprietário de dados de blob de armazenamento ou de dados de blob de armazenamento na conta de armazenamento Gen2 primária vinculada ao espaço de trabalho Synapse.
 
 ### <a name="requirements-format"></a>Formato dos requisitos
 

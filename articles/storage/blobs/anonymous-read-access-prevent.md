@@ -10,12 +10,12 @@ ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930825"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913769"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir acesso de leitura público anônimo a contêineres e blobs
 
@@ -59,7 +59,7 @@ Siga estas etapas para criar uma métrica que rastreia solicitações anônimas:
 
 Depois de configurar a métrica, as solicitações anônimas começarão a aparecer no grafo. A imagem a seguir mostra solicitações anônimas agregadas nos últimos trinta minutos.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de tela mostrando solicitações anônimas agregadas no armazenamento de BLOBs":::
 
 Você também pode configurar uma regra de alerta para notificá-lo quando um determinado número de solicitações anônimas for feito em sua conta de armazenamento. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -67,9 +67,9 @@ Você também pode configurar uma regra de alerta para notificá-lo quando um de
 
 Os logs de armazenamento do Azure capturam detalhes sobre as solicitações feitas na conta de armazenamento, incluindo como uma solicitação foi autorizada. Você pode analisar os logs para determinar quais contêineres estão recebendo solicitações anônimas.
 
-Para registrar solicitações em log para sua conta de armazenamento do Azure para avaliar solicitações anônimas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](../common/monitor-storage.md).
+Para registrar solicitações em log para sua conta de armazenamento do Azure para avaliar solicitações anônimas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](./monitor-blob-storage.md).
 
-O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 > [!NOTE]
 > Há suporte para a visualização do log de armazenamento do Azure no Azure Monitor apenas na nuvem pública do Azure. As nuvens governamentais não dão suporte ao registro em log para o armazenamento do Azure com Azure Monitor.
@@ -88,11 +88,11 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 1. Em **detalhes da categoria**, na seção **log** , escolha quais tipos de solicitações registrar em log. Todas as solicitações anônimas serão solicitações de leitura, portanto, selecione **StorageRead** para capturar solicitações anônimas.
 1. Em **detalhes de destino**, selecione **Enviar para log Analytics**. Selecione sua assinatura e o espaço de trabalho Log Analytics criado anteriormente, conforme mostrado na imagem a seguir.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
 
 Depois de criar a configuração de diagnóstico, as solicitações para a conta de armazenamento são registradas subsequentemente de acordo com essa configuração. Para obter mais informações, consulte [criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](../common/monitor-storage-reference.md#resource-logs-preview).
+Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-anonymous-requests"></a>Logs de consulta para solicitações anônimas
 
@@ -164,7 +164,7 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Verificar a configuração de acesso público para várias contas
 
-Para verificar a configuração de acesso público em um conjunto de contas de armazenamento com o desempenho ideal, você pode usar o Gerenciador de grafo de recursos do Azure no portal do Azure. Para saber mais sobre como usar o Gerenciador de grafo de recursos, consulte [início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure](/azure/governance/resource-graph/first-query-portal).
+Para verificar a configuração de acesso público em um conjunto de contas de armazenamento com o desempenho ideal, você pode usar o Gerenciador de grafo de recursos do Azure no portal do Azure. Para saber mais sobre como usar o Gerenciador de grafo de recursos, consulte [início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure](../../governance/resource-graph/first-query-portal.md).
 
 A execução da consulta a seguir no Gerenciador de grafo de recursos retorna uma lista de contas de armazenamento e exibe a configuração de acesso público para cada conta:
 
@@ -244,7 +244,7 @@ Para exibir o relatório de conformidade no portal do Azure, siga estas etapas:
 1. Filtre os resultados para o nome da atribuição de política que você criou na etapa anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Você pode fazer uma busca detalhada no relatório para obter detalhes adicionais, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de tela mostrando o relatório de conformidade para a política de auditoria para acesso público ao blob":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Usar Azure Policy para impor o acesso autorizado
 
@@ -280,7 +280,7 @@ Depois de criar a política com o efeito de negação e atribuí-la a um escopo,
 
 A imagem a seguir mostra o erro que ocorre se você tentar criar uma conta de armazenamento que permita acesso público (o padrão para uma nova conta) quando uma política com um efeito de negação exigir que o acesso público não seja permitido.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de tela mostrando o erro que ocorre ao criar uma conta de armazenamento em violação de política":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

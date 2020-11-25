@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916132"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -99,25 +99,25 @@ Para obter informações que comparam usuários Membros e usuários convidados, 
 
 Somente o Administrador da Conta pode alterar o Administrador de Serviços de uma assinatura. Por padrão, ao inscrever-se em uma assinatura do Azure, o Administrador de Serviços é o mesmo que o Administrador da Conta. O usuário com a função Administrador da Conta não tem acesso ao portal do Azure. O usuário com a função Administrador de Serviços tem acesso total ao portal do Azure. Se o Administrador da Conta e o Administrador de Serviços forem o mesmo usuário e você alterar o Administrador de Serviços para um usuário diferente, o Administrador da Conta perderá o acesso ao portal do Azure. No entanto, o Administrador da Conta sempre poderá usar o Centro de Contas para alterar o Administrador de Serviços de volta para si mesmo.
 
-Siga estas etapas para alterar o administrador de serviços no **centro de contas**.
-
-### <a name="account-center"></a>Centro de Contas
+Siga estas etapas para alterar o administrador de serviços no portal do Azure.
 
 1. Verifique se o cenário tem suporte verificando as [limitações para alterar o administrador de serviços](#limitations-for-changing-the-service-administrator).
 
-1. Entre no [centro de contas](https://account.windowsazure.com/subscriptions) como o administrador da conta.
+1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
 
-1. Clique em uma assinatura.
+1. Abra [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione a assinatura.
 
-1. No lado direito, clique em **Editar detalhes da assinatura**.
+1. No painel de navegação esquerdo, clique em **Propriedades**.
 
-    ![Captura de tela mostrando o botão Editar assinatura no Centro de Contas](./media/classic-administrators/editsub.png)
+1. Clique em **administrador de serviços**.
 
-1. Na caixa **ADMINISTRADOR DE SERVIÇOS** , insira o endereço de email do novo administrador de serviços.
+    ![Captura de tela mostrando as propriedades da assinatura no portal do Azure](./media/classic-administrators/service-admin.png)
 
-    ![Captura de tela mostrando a caixa para alterar o email do Administrador de Serviços](./media/classic-administrators/change-service-admin.png)
+1. Na página **Editar administrador de serviços** , insira o endereço de email para o novo administrador de serviços.
 
-1. Clique na marca de seleção para salvar a alteração.
+    ![Captura de tela mostrando a página Editar administrador de serviço](./media/classic-administrators/service-admin-edit.png)
+
+1. Clique em **OK** para salvar a alteração.
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitações para alterar o Administrador de Serviços
 
@@ -142,7 +142,7 @@ Siga estas etapas para exibir o Administrador da Conta.
 
 1. Abra [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione a assinatura.
 
-1. Clique em **Propriedades**.
+1. No painel de navegação esquerdo, clique em **Propriedades**.
 
     O administrador da conta da assinatura é exibido na caixa **administrador da conta** .
 
