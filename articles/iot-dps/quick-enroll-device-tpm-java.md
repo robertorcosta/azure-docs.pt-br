@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075918"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966591"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Início Rápido: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do Serviço Java
 
@@ -35,7 +35,7 @@ Neste início rápido, você criará de maneira programática um registro indivi
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Certifique-se de ter o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no computador. 
+1. Certifique-se de ter o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no computador. 
 
 2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se esta for a primeira instalação do Java do seu computador, crie uma variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo até o diretório *jdk1.8.x*. No computador Windows, esse diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\* , e você pode criar ou editar variáveis de ambiente procurando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
 
@@ -100,7 +100,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
             ```
         2. Atribua um nome amigável ao parâmetro *DEVICE_ID* e mantenha o *PROVISIONING_STATUS* como o valor padrão *ENABLED*. 
     
-      - OU, se você optar por não configurar o serviço de provisionamento, certifique-se de comentar ou excluir as seguintes instruções no arquivo _ServiceEnrollmentSample.java_ :
+      - OU, se você optar por não configurar o serviço de provisionamento, certifique-se de comentar ou excluir as seguintes instruções no arquivo _ServiceEnrollmentSample.java_:
           ```Java
           // The following parameters are optional. Remove it if you don't need.
           individualEnrollment.setDeviceId(DEVICE_ID);
@@ -108,7 +108,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
           individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
           ```
 
-   4. Estude o exemplo de código. Ele cria, atualiza, consulta e exclui um registro de dispositivo TPM individual. Para verificar o registro bem-sucedido no portal, comente temporariamente as seguintes linhas de código no fim do arquivo _ServiceEnrollmentSample.java_ :
+   4. Estude o exemplo de código. Ele cria, atualiza, consulta e exclui um registro de dispositivo TPM individual. Para verificar o registro bem-sucedido no portal, comente temporariamente as seguintes linhas de código no fim do arquivo _ServiceEnrollmentSample.java_:
     
        ```Java
        // *********************************** Delete info of individualEnrollment ************************************

@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a7e2240e3f74f82186827ec82bb1aa39a5b93f6c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 028e7f9764cbf75263736471f434e04bc6daca0f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123827"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886814"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidade do Teams
 
@@ -35,9 +35,9 @@ A arquitetura de alto nível para esse caso de uso tem esta aparência:
 
 Embora alguns recursos de reunião do Teams, por exemplo, mão levantada, Modo conferência e salas para sessão de grupo, só estejam disponíveis para os usuários do Teams, seu aplicativo personalizado terá acesso às principais funcionalidades de áudio, vídeo e compartilhamento de tela da reunião.
 
-Quando um usuário dos Serviços de Comunicação participa da reunião do Teams, o nome de exibição fornecido por meio da biblioteca de clientes de Chamada será mostrado aos usuários do Teams. O usuário dos Serviços de Comunicação, de outro modo, será tratado como um usuário anônimo no Teams. Seu aplicativo personalizado deve considerar a autenticação do usuário e outras medidas de segurança para proteger as reuniões do Teams. Lembre-se das implicações de segurança de permitir que usuários anônimos participem das reuniões e use o [guia de segurança do Teams](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar as funcionalidades disponíveis para usuários anônimos.
+Quando um usuário dos Serviços de Comunicação participa da reunião do Teams, o nome de exibição fornecido por meio da biblioteca de clientes de Chamada será mostrado aos usuários do Teams. O usuário dos Serviços de Comunicação, de outro modo, será tratado como um usuário anônimo no Teams. Seu aplicativo personalizado deve considerar a autenticação do usuário e outras medidas de segurança para proteger as reuniões do Teams. Lembre-se das implicações de segurança de permitir que usuários anônimos participem das reuniões e use o [guia de segurança do Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar as funcionalidades disponíveis para usuários anônimos.
 
-Os usuários dos Serviços de Comunicação podem participar das reuniões agendadas do Teams, desde que as participações anônimas estejam habilitadas nas [configurações da reunião](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams).
+Os usuários dos Serviços de Comunicação podem participar das reuniões agendadas do Teams, desde que as participações anônimas estejam habilitadas nas [configurações da reunião](/microsoftteams/meeting-settings-in-teams).
 
 
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128525"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888684"
 ---
 # <a name="communication-services-logs"></a>Logs dos Serviços de Comunicação
 
@@ -22,7 +22,7 @@ Os Serviços de Comunicação do Azure oferecem funcionalidades de log que você
 
 ## <a name="enable-diagnostic-logs-in-your-resource"></a>Habilitar os logs de diagnóstico no seu recurso
 
-O log é desativado por padrão quando um recurso é criado. Para habilitar o log, acesse a folha **Configurações de diagnóstico** no menu de recursos, na seção **Monitoramento** . Depois, clique em **Adicionar configuração de diagnóstico** .
+O log é desativado por padrão quando um recurso é criado. Para habilitar o log, acesse a folha **Configurações de diagnóstico** no menu de recursos, na seção **Monitoramento**. Depois, clique em **Adicionar configuração de diagnóstico**.
 
 Em seguida, selecione o destino de arquivo desejado. Atualmente, damos suporte a contas de armazenamento e ao Log Analytics como destinos de arquivos. Depois de selecionar os tipos de logs que deseja capturar, salve as configurações de diagnóstico.
  
@@ -30,15 +30,15 @@ As novas configurações terão efeito em aproximadamente dez minutos. Os logs c
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opções de configurações de diagnóstico do ACS.":::
 
-Para obter mais informações sobre como configurar um diagnóstico, confira a visão geral dos [logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+Para obter mais informações sobre como configurar um diagnóstico, confira a visão geral dos [logs de recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Categorias de log de recursos
 
 Os Serviços de Comunicação oferecem três tipos de logs que você pode habilitar:
 
-* **Logs de uso** : fornecem dados de uso associados a cada oferta de serviço cobrada
-* **Logs operacionais de chat** : fornecem informações básicas relacionadas ao serviço de chat
-* **Logs operacionais de SMS** : fornecem informações básicas relacionadas ao serviço de SMS
+* **Logs de uso**: fornecem dados de uso associados a cada oferta de serviço cobrada
+* **Logs operacionais de chat**: fornecem informações básicas relacionadas ao serviço de chat
+* **Logs operacionais de SMS**: fornecem informações básicas relacionadas ao serviço de SMS
 
 ### <a name="usage-logs-schema"></a>Esquema de logs de uso
 

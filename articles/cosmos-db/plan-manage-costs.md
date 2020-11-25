@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: c7db48a1df61472de8676192f267493232139b6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030808"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planejar e gerenciar custos para Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,7 +52,7 @@ Se você planeja usar Azure Cosmos DB no modo sem servidor, você precisa estima
 | Executar uma consulta | 10 RUs | Custo médio de uma consulta que aproveita ao máximo a [indexação](index-overview.md) e retorna 100 resultados ou menos |
 
 > [!IMPORTANT] 
-> Preste atenção às anotações da tabela acima. Para obter uma estimativa mais precisa dos custos reais de suas operações, você pode usar o [emulador Cosmos do Azure](local-emulator.md) e [medir o custo de ru exato de suas operações](find-request-unit-charge.md). Embora o emulador Cosmos do Azure não dê suporte a servidor, ele relata um encargo de RU padrão para operações de banco de dados e pode ser usado para essa estimativa.
+> Preste atenção às anotações da tabela acima. Para obter uma estimativa mais precisa dos custos reais de suas operações, você pode usar o [emulador de Azure Cosmos DB](local-emulator.md) e [medir o custo de ru exato de suas operações](find-request-unit-charge.md). Embora o emulador de Azure Cosmos DB não dê suporte a servidor, ele relata um encargo de RU padrão para operações de banco de dados e pode ser usado para essa estimativa.
 
 Depois de calcular o número total de unidades de solicitação e GB de armazenamento que você provavelmente consumirá em um mês, a fórmula a seguir retornará sua estimativa de custo: **([número de unidades de solicitação]/1 milhão * $0.25) + ([GB de armazenamento] * $0.25)**.
 
@@ -83,7 +83,7 @@ Ao usar a análise de custo, você pode exibir os custos de Azure Cosmos DB em g
 
 Para exibir os custos de Azure Cosmos DB na análise de custo:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Abra o escopo no portal do Azure e selecione **análise de custo** no menu. Por exemplo, vá para **assinaturas**, selecione uma assinatura na lista e, em seguida, selecione  **análise de custo** no menu. Selecione o **escopo** para alternar para um escopo diferente na análise de custo.
 

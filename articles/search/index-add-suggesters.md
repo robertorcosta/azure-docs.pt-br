@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013574"
+ms.locfileid: "96030774"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
-No Azure Pesquisa Cognitiva, "Pesquisar conforme o tipo" é habilitado por meio de uma construção de **sugestão** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um Sugestor dá suporte a duas experiências: *preenchimento automático*, que conclui uma entrada parcial para uma consulta de termo inteiro e *sugestões* que o convite clica para uma correspondência específica. O preenchimento automático produz uma consulta. As sugestões produzem um documento correspondente.
+No Azure Pesquisa Cognitiva, "Pesquisar conforme o tipo" é habilitado por meio de um *Sugestor*. Um Sugestor é uma estrutura de dados interna que consiste em uma coleção de campos. Os campos passam por geração de tokens adicionais, gerando sequências de prefixo para dar suporte a correspondências em termos parciais.
+
+Por exemplo, se um Sugestor incluir um campo cidade, as combinações de prefixo resultantes de "Sea", "assento", "assento" e "seattl" seriam criadas para o termo "Seattle". Os prefixos são armazenados em índices invertidos, um para cada campo especificado em uma coleção de campos de sugestão.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Typeahead experiências no Pesquisa Cognitiva
+
+Um Sugestor dá suporte a duas experiências: *preenchimento automático*, que conclui uma entrada parcial para uma consulta de termo inteiro e *sugestões* que o convite clica para uma correspondência específica. O preenchimento automático produz uma consulta. As sugestões produzem um documento correspondente.
 
 A captura de tela a seguir de [criar seu primeiro aplicativo em C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambos. O preenchimento automático prevê um prazo potencial, concluindo "TW" com "in". Sugestões são resultados de mini pesquisa, onde um campo como nome de Hotel representa um documento de pesquisa de Hotel correspondente do índice. Para obter sugestões, você pode retonar qualquer campo que forneça informações descritivas.
 
@@ -31,10 +37,6 @@ Você pode usar esses recursos separadamente ou juntos. Para implementar esses c
 + Chame uma consulta habilitada para sugestão, na forma de uma solicitação de sugestão ou solicitação de preenchimento automático, usando uma das [APIs listadas abaixo](#how-to-use-a-suggester).
 
 O suporte de pesquisa conforme o tipo é habilitado em uma base por campo para campos de cadeia de caracteres. Você pode implementar ambos os comportamentos do typeahead na mesma solução de pesquisa se desejar uma experiência semelhante à indicada na captura de tela. Ambas as solicitações direcionam a coleção de *documentos* de índice e respostas específicas são retornadas depois que um usuário tiver fornecido pelo menos uma cadeia de caracteres de entrada de três caracteres.
-
-## <a name="what-is-a-suggester"></a>O que é um Sugestor?
-
-Um Sugestor é uma estrutura de dados interna que dá suporte a comportamentos de pesquisa conforme o tipo, armazenando prefixos para correspondência em consultas parciais. Assim como ocorre com os termos com token, os prefixos são armazenados em índices invertidos, um para cada campo especificado em uma coleção de campos de sugestão.
 
 ## <a name="how-to-create-a-suggester"></a>Como criar um Sugestor
 
