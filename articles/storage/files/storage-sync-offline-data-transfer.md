@@ -8,11 +8,11 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630219"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017620"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para Sincronização de Arquivos do Azure com o Azure Data Box
 Você pode migrar dados em massa para Sincronização de Arquivos do Azure de duas maneiras:
@@ -54,7 +54,7 @@ Veja como configurar Sincronização de Arquivos do Azure de forma que seja comp
 | ![Etapa 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Solicite o Data Box](../../databox/data-box-deploy-ordered.md). A família de Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Ao receber sua Data Box, siga sua [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esse caminho UNC no Data Box: *\\ \> \<StorageAccountName_AzFile\> \<ShareName\><DeviceIPAddres*. Aqui, *ShareName* é o nome do compartilhamento de preparo. Envie o Data Box para o Azure. |
 | ![Etapa 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os arquivos apareçam nos compartilhamentos de arquivos do Azure que você escolheu como compartilhamentos temporários de preparo. *Não habilite a sincronização para esses compartilhamentos.* |
 | ![Etapa 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Crie um novo compartilhamento vazio para cada compartilhamento de arquivos que Data Box criado para você. Esse novo compartilhamento deve estar na mesma conta de armazenamento que o compartilhamento de Data Box. [Como criar um novo compartilhamento de arquivos do Azure](storage-how-to-create-file-share.md).</li><li>[Crie um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) em um serviço de sincronização de armazenamento. Referencie o compartilhamento vazio como um ponto de extremidade de nuvem. Repita essa etapa para cada compartilhamento de arquivos do Data Box. [Configurar sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md).</li></ul> |
-| ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência aos compartilhamentos de preparo. Você pode habilitar ou desabilitar a disposição em camadas de nuvem conforme necessário. Ao criar um ponto de extremidade do servidor em seu servidor dinâmico, faça referência ao compartilhamento de preparo. Na folha **Adicionar ponto de extremidade do servidor** , em **transferência de dados offline** , selecione **habilitado** e, em seguida, selecione o compartilhamento de preparo que deve estar na mesma conta de armazenamento que o ponto de extremidade da nuvem. Aqui, a lista de compartilhamentos disponíveis é filtrada por conta de armazenamento e compartilhamentos que ainda não estão sincronizando. A captura de tela após esta tabela mostra como referenciar o compartilhamento data box durante a criação do ponto de extremidade do servidor no portal do Azure. |
+| ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência aos compartilhamentos de preparo. Você pode habilitar ou desabilitar a disposição em camadas de nuvem conforme necessário. Ao criar um ponto de extremidade do servidor em seu servidor dinâmico, faça referência ao compartilhamento de preparo. Na folha **Adicionar ponto de extremidade do servidor** , em **transferência de dados offline**, selecione **habilitado** e, em seguida, selecione o compartilhamento de preparo que deve estar na mesma conta de armazenamento que o ponto de extremidade da nuvem. Aqui, a lista de compartilhamentos disponíveis é filtrada por conta de armazenamento e compartilhamentos que ainda não estão sincronizando. A captura de tela após esta tabela mostra como referenciar o compartilhamento data box durante a criação do ponto de extremidade do servidor no portal do Azure. |
 | ![Etapa 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | Depois de adicionar o ponto de extremidade do servidor na etapa anterior, os dados começam a fluir automaticamente da origem correta. A seção [sincronizando o compartilhamento](#syncing-the-share) explica quando os dados fluem do compartilhamento data Box ou do Windows Server |
 | |
 
@@ -81,7 +81,7 @@ Conforme o servidor conclui sua sincronização inicial do namespace, o Data Box
 
 Agora você pode limpar o compartilhamento de preparo para economizar custos:
 
-1. Na folha **Propriedades do ponto de extremidade do servidor** , quando o status for **concluído** , selecione **desabilitar transferência de dados offline**.
+1. Na folha **Propriedades do ponto de extremidade do servidor** , quando o status for **concluído**, selecione **desabilitar transferência de dados offline**.
 2. Considere excluir o compartilhamento de preparo para economizar custos. O compartilhamento de preparo provavelmente não contém ACLs de arquivo e pasta, portanto, é improvável que seja útil. Para fins de backup de ponto no tempo, crie um [instantâneo real da sincronização do compartilhamento de arquivos do Azure](storage-snapshots-files.md). Você pode [Configurar o backup do Azure para tirar instantâneos]( ../../backup/backup-afs.md) de uma agenda.
 
 Desabilite o modo de transferência de dados offline somente quando o estado for **concluído** ou quando desejar cancelar devido a uma configuração incorreta. Se você desabilitar o modo durante uma implantação, os arquivos começarão a ser carregados do servidor, mesmo que o compartilhamento de preparo ainda esteja disponível.
@@ -94,7 +94,7 @@ Desabilite o modo de transferência de dados offline somente quando o estado for
 Se você tiver arquivos propagados em um compartilhamento de arquivos do Azure por outros meios que data Box-por exemplo, via AzCopy, RoboCopy de um backup na nuvem ou qualquer outro método, você ainda deverá seguir o [processo de transferência de dados offline](#process-for-offline-data-transfer) descrito neste artigo. Você só precisa desconsiderar data box como o método que os arquivos movem para a nuvem. No entanto, é fundamental garantir que você ainda esteja seguindo o processo de propagação dos arquivos em um *compartilhamento de preparo* e não no final, sincronização de arquivos do Azure compartilhamento conectado.
 
 > [!WARNING]
-> **Siga o processo de propagação de arquivos em um compartilhamento de preparo, não no final** , sincronização de arquivos do Azure compartilhamento conectado. Se você não fizer isso, poderão ocorrer conflitos de arquivo (as duas versões de arquivo serão armazenadas), assim como os arquivos excluídos no servidor dinâmico poderão voltar, se ainda existirem em seu conjunto de arquivos mais antigo e propagado. Além disso, as alterações de pasta serão mescladas umas com as outras, tornando muito difícil separar o namespace após esse erro.
+> **Siga o processo de propagação de arquivos em um compartilhamento de preparo, não no final**, sincronização de arquivos do Azure compartilhamento conectado. Se você não fizer isso, poderão ocorrer conflitos de arquivo (as duas versões de arquivo serão armazenadas), assim como os arquivos excluídos no servidor dinâmico poderão voltar, se ainda existirem em seu conjunto de arquivos mais antigo e propagado. Além disso, as alterações de pasta serão mescladas umas com as outras, tornando muito difícil separar o namespace após esse erro.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

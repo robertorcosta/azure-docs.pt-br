@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371916"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016311"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implantar o IBM DB2 pureScale no Azure
 
@@ -111,7 +111,7 @@ O repositório do GitHub inclui o DB2server.rsp, um arquivo de resposta (.rsp) q
 
 - Os scripts de configuração usam aliases para os discos iSCSI para que os nomes reais possam ser encontrados facilmente.
 
-- Quando o script de configuração é executado em d0, os valores de ** / dev / dm- \*** podem ser diferentes em d1, cf0 e cf1. A diferença nos valores não afeta a configuração do DB2 pureScale.
+- Quando o script de configuração é executado em d0, os valores de **/ dev / dm- \*** podem ser diferentes em d1, cf0 e cf1. A diferença nos valores não afeta a configuração do DB2 pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Solução de problemas e problemas conhecidos
 

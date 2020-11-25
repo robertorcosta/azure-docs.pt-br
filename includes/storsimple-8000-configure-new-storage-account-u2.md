@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376079"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016855"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Para adicionar uma credencial de conta de armazenamento na mesma assinatura do Azure que o serviço StorSimple Device Manager
 
-1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na seção **Configuração** , clique em **Credenciais da conta de armazenamento**.
+1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na seção **Configuração**, clique em **Credenciais da conta de armazenamento**.
 
     ![Ir para credenciais da conta de armazenamento](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
-2. Na folha **Credenciais da conta de armazenamento** , clique em **+ Adicionar**.
+2. Na folha **Credenciais da conta de armazenamento**, clique em **+ Adicionar**.
 
     ![Adicionar uma credencial de conta de armazenamento](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct2.png)
 
-3. Na folha **Adicionar credencial de uma conta de armazenamento** , execute estas etapas:
+3. Na folha **Adicionar credencial de uma conta de armazenamento**, execute estas etapas:
 
     1. Como você está adicionando uma credencial de conta de armazenamento à mesma assinatura do Azure de seu serviço, certifique-se de que **Atual** esteja selecionado.
 
-    2. Na lista suspensa **conta de armazenamento** , selecione uma conta de armazenamento existente.
+    2. Na lista suspensa **conta de armazenamento**, selecione uma conta de armazenamento existente.
 
     3. Com base na conta de armazenamento selecionada, o **local** será exibido (esmaecido, e não poderá ser alterado aqui).
 

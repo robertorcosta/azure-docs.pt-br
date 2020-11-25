@@ -1,60 +1,27 @@
 ---
-title: Alterar o desempenho dos Azure Managed disks
-description: Saiba mais sobre as camadas de desempenho para discos gerenciados e saiba como alterar as camadas de desempenho para discos gerenciados existentes usando o módulo Azure PowerShell ou o CLI do Azure.
+title: Alterar o desempenho dos Azure Managed disks-CLI/PowerShell
+description: Saiba como alterar as camadas de desempenho para discos gerenciados existentes usando o módulo Azure PowerShell ou o CLI do Azure.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 923c5970183bd192ac1a2f20fb775d96dcc06865
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 8a21a78bf27847b41c0af7bc4361f7c6c8071949
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540630"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96016498"
 ---
-# <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos gerenciados (versão prévia)
+# <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Altere o nível de desempenho usando o módulo Azure PowerShell ou o CLI do Azure
 
-O Armazenamento em Disco do Azure oferece recursos internos de intermitência para fornecer um desempenho mais alto para o tratamento de tráfego inesperado de curto prazo. O SSDs Premium tem a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco. Esse recurso permite que você corresponda às necessidades de desempenho da carga de trabalho e reduza os custos. 
-
-> [!NOTE]
-> Esse recurso está atualmente na visualização. 
-
-Esse recurso é ideal para eventos que exigem temporariamente um nível de desempenho consistentemente mais alto, como compras de feriados, testes de desempenho ou execução de um ambiente de treinamento. Para lidar com esses eventos, você pode usar um nível de desempenho mais alto pelo tempo necessário. Em seguida, você pode retornar à camada original quando não precisar mais do desempenho adicional.
-
-## <a name="how-it-works"></a>Como ele funciona
-
-Quando você implanta ou provisiona um disco pela primeira vez, o nível de desempenho de linha de base desse disco é definido com base no tamanho do disco provisionado. Você pode usar um nível de desempenho mais alto para atender à maior demanda. Quando você não precisar mais desse nível de desempenho, poderá retornar para o nível de desempenho de linha de base inicial.
-
-Sua cobrança muda à medida que sua camada é alterada. Por exemplo, se você provisionar um disco P10 (128 GiB), o nível de desempenho de linha de base será definido como P10 (500 IOPS e 100 MBps). Você será cobrado na taxa de P10. Você pode atualizar a camada para corresponder ao desempenho de p50 (7.500 IOPS e 250 MBps) sem aumentar o tamanho do disco. Durante o tempo da atualização, você será cobrado na taxa de P50. Quando você não precisar mais do melhor desempenho, poderá retornar para a camada P10. O disco será novamente cobrado na taxa de P10.
-
-| Tamanho do disco | Camada de desempenho de linha de base | Pode ser atualizado para |
-|----------------|-----|-------------------------------------|
-| 4 GiB | P1 | P2, P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 8 GiB | P2 | P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 16 GiB | P3 | P4, P6, P10, P15, P20, P30, P40, P50 | 
-| 32 GiB | P4 | P6, P10, P15, P20, P30, P40, P50 |
-| 64 GiB | P6 | P10, P15, P20, P30, P40, P50 |
-| 128 GiB | P10 | P15, P20, P30, P40, P50 |
-| 256 GiB | P15 | P20, P30, P40, P50 |
-| 512 GiB | P20 | P30, P40, P50 |
-| 1 TiB | P30 | P40, P50 |
-| 2 TiB | P40 | P50 |
-| 4 TiB | P50 | Nenhum |
-| 8 TiB | P60 |  P70, P80 |
-| 16 TiB | P70 | P80 |
-| 32 TiB | P80 | Nenhum |
-
-Para obter informações de cobrança, consulte [preços de disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/).
+[!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
 ## <a name="restrictions"></a>Restrições
 
-- Atualmente, esse recurso tem suporte apenas para SSDs Premium.
-- Você deve desalocar sua VM ou desanexar o disco de uma VM em execução antes de poder alterar a camada do disco.
-- O uso dos níveis de desempenho P60, P70 e P80 é restrito a discos de 4.096 GiB ou superior.
-- O nível de desempenho de um disco pode ser rebaixado apenas uma vez a cada 24 horas.
+[!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com uma camada superior à camada de linha de base
 

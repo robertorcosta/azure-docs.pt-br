@@ -4,11 +4,11 @@ description: Este artigo fornece informações sobre como adicionar um ponto de 
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427184"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015564"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure de redes virtuais específicas 
 
@@ -55,7 +55,7 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 
     ![Firewall – opção "Todas as redes" selecionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir o acesso a redes específicas, selecione a opção **redes selecionadas** na parte superior da página, se ela ainda não estiver selecionada.
-2. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente** _. Selecione _ *+ criar nova rede virtual* * se desejar criar uma nova VNet. 
+2. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente** _. Selecione _ *+ criar nova rede virtual** se desejar criar uma nova VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Selecione a rede virtual na lista de redes virtuais e, em seguida, escolha a **sub-rede**. Você precisa habilitar o ponto de extremidade de serviço antes de adicionar a rede virtual à lista. Se o ponto de extremidade de serviço não estiver habilitado, o portal solicitará que você o habilite.

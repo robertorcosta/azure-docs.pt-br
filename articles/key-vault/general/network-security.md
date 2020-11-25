@@ -11,11 +11,11 @@ ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288619"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015546"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
@@ -80,10 +80,10 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando o portal do
 
 1. Navegue até o cofre de chaves que você quer proteger.
 2. Selecione **Rede** e, em seguida, a guia **Firewalls e redes virtuais**.
-3. Em **Permitir acesso de** , clique em **Redes selecionadas**.
+3. Em **Permitir acesso de**, clique em **Redes selecionadas**.
 4. Para adicionar redes virtuais existentes a firewalls e regras da rede virtual, selecione **+ Adicionar redes virtuais existentes**.
 5. Na nova folha que é aberta, selecione a assinatura, as redes virtuais e as sub-redes que você quer permitir acesso a esse cofre de chaves. Se as redes virtuais e sub-redes que você selecionar não tiverem pontos de extremidade de serviço habilitados, confirme que você quer habilitar pontos de extremidade de serviço e, em seguida, selecione **Habilitar**. Pode demorar até 15 minutos para entrar em vigor.
-6. Em **Redes IP** , adicione intervalos de endereços IPv4, digitando intervalos de endereços IPv4 na [notação CIDR (Roteamento Entre Domínios Sem Classe)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
+6. Em **Redes IP**, adicione intervalos de endereços IPv4, digitando intervalos de endereços IPv4 na [notação CIDR (Roteamento Entre Domínios Sem Classe)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
 7. Caso deseje permitir que os Serviços Confiáveis da Microsoft ignorem o Firewall do Key Vault, selecione 'Sim'. Para obter uma lista completa dos Serviços Confiáveis do Key Vault atuais, confira o link a seguir. [Serviços Confiáveis do Azure Key Vault](./overview-vnet-service-endpoints.md#trusted-services)
 7. Clique em **Salvar**.
 

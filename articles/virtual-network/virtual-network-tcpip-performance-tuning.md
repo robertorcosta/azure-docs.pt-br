@@ -16,11 +16,11 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87068513"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017603"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ajuste de desempenho de TCP/IP para VMs do Azure
 
@@ -60,7 +60,7 @@ A fragmentação pode ser vista como uma operação negativa, mas o suporte à f
 
 Em geral, você pode criar uma rede mais eficiente aumentando a MTU. Cada pacote transmitido tem informações de cabeçalho que são adicionadas ao pacote original. Quando a fragmentação cria mais pacotes, há mais sobrecarga de cabeçalho e isso torna a rede menos eficiente.
 
-Veja um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
+Aqui está um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
 
 Tenha em mente que o aumento da MTU não criará, necessariamente, uma rede mais eficiente. Se um aplicativo enviar somente pacotes de 500 bytes, a mesma sobrecarga de cabeçalho existirá se o MTU for 1.500 bytes ou 9.000 bytes. A rede se tornará mais eficiente apenas se usar tamanhos de pacotes maiores que são afetados pela MTU.
 
@@ -221,7 +221,7 @@ Essas são as configurações de TCP efetivas para `AutoTuningLevel` :
 | AutoTuningLevel | Fator de dimensionamento | Multiplicador de dimensionamento | Fórmula para<br/>calcular o tamanho máximo da janela |
 | --------------- | -------------- | ------------------ | -------------------------------------------- |
 |Desabilitado|Nenhum|Nenhum|Tamanho da janela|
-|Restrito|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
+|Restritos|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
 |Altamente restrito|2|2 ^ 2|Tamanho da janela * (2 ^ 2)|
 |Normal|8|2 ^ 8|Tamanho da janela * (2 ^ 8)|
 |Habilitação|14|2 ^ 14|Tamanho da janela * (2 ^ 14)|
@@ -355,7 +355,7 @@ NTttcp é uma ferramenta para testar o desempenho de TCP de uma VM Linux ou Wind
 
 Você pode testar o desempenho de diferentes tipos de VM, rede acelerada e assim por diante, usando uma ferramenta chamada iPerf. o iPerf também está disponível no Linux e no Windows. iPerf pode usar TCP ou UDP para testar a taxa de transferência geral da rede. os testes de taxa de transferência TCP do iPerf são influenciados pelos fatores discutidos neste artigo (como latência e RTT). Portanto, o UDP poderá produzir resultados melhores se você quiser apenas testar a taxa de transferência máxima.
 
-Para obter mais informações, consulte estes artigos:
+Para obter mais informações, confira estes tópicos:
 
 - [Solucionando problemas de desempenho de rede do Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
