@@ -10,11 +10,11 @@ ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317782"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974418"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingerir dados em um pool SQL dedicado
 
@@ -22,17 +22,17 @@ Neste artigo, você aprenderá a incluir dados de uma conta de armazenamento Azu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure** : Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure** : Use Azure data Lake Storage Gen 2 como um armazenamento de dados de *origem* . Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter as etapas para criar uma.
-* **Azure Synapse Analytics** : você usa um pool SQL dedicado como um armazenamento de dados de *coletor* . Se você não tiver uma instância do Azure Synapse Analytics, consulte [criar um pool SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter as etapas para criar uma.
+* **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**: Use Azure data Lake Storage Gen 2 como um armazenamento de dados de *origem* . Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter as etapas para criar uma.
+* **Azure Synapse Analytics**: você usa um pool SQL dedicado como um armazenamento de dados de *coletor* . Se você não tiver uma instância do Azure Synapse Analytics, confira [Criar um pool de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter as etapas de como criar uma.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
 No Azure Synapse Analytics, um serviço vinculado é onde você define as informações de conexão com outros serviços. Nesta seção, você adicionará uma análise de Synapse do Azure e um serviço vinculado do Azure Data Lake Storage Gen2.
 
 1. Abra a UX do Azure Synapse Analytics e vá para a guia **Gerenciar**.
-1. Em **Conexões externas** , selecione **Serviços vinculados**.
-1. Para adicionar um serviço vinculado, selecione **novo**.
+1. Em **Conexões externas**, selecione **Serviços vinculados**.
+1. Para adicionar um serviço vinculado, selecione **Novo**.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
 1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Selecione testar conexão para verificar se suas credenciais estão corretas. Selecione **Criar** quando terminar.
 1. Repita as etapas de 3-5, mas em vez de Azure Data Lake Storage Gen2, selecione o bloco análise de Synapse do Azure e insira as credenciais de conexão correspondentes. Para o Azure Synapse Analytics, a autenticação do SQL, a identidade gerenciada e a entidade de serviço atualmente têm suporte.
@@ -65,10 +65,10 @@ Depois de concluir a configuração do pipeline, você poderá efetuar uma execu
 
 Nesta etapa, você aciona manualmente o pipeline publicado na etapa anterior. 
 
-1. Selecione **Adicionar gatilho** na barra de ferramentas e selecione **Disparar Agora**. Na página **Execução de Pipeline** , selecione **Concluir**.  
+1. Selecione **Adicionar gatilho** na barra de ferramentas e selecione **Disparar Agora**. Na página **Execução de Pipeline**, selecione **Concluir**.  
 1. Vá para a guia **Monitorar** localizada na barra lateral esquerda. Você verá uma execução do pipeline que é disparada por um gatilho manual. Você pode usar os links na coluna **Ações** para exibir detalhes da atividade e executar o pipeline novamente.
 1. Selecione o link **Exibir atividades em execução** na coluna **Ações** para ver a atividade em execução associada à execução do pipeline. Neste exemplo, há apenas uma atividade, então você vê apenas uma entrada na lista. Para obter detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar ao modo de exibição Execuções de Pipeline, selecione **Execuções de Pipeline** na parte superior. Para atualizar a exibição, selecione **Atualizar**.
-1. Verifique se os dados estão gravados corretamente no pool SQL dedicado.
+1. Verifique se os dados estão gravados corretamente no pool de SQL dedicado.
 
 
 ## <a name="next-steps"></a>Próximas etapas

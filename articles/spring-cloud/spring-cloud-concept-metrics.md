@@ -8,11 +8,11 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965044"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974656"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -89,13 +89,13 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
 ### <a name="error"></a>Erro
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. Error | Tomcat. global. Error | Contagem | Número de erros que ocorreram em solicitações processadas |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| System. CPU. Usage | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
 >| Process. CPU. Usage | Percentual de Uso de CPU do Aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
@@ -112,7 +112,7 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 ### <a name="performance-net"></a>Desempenho (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Uso da CPU       | uso da CPU      | Milissegundos | Quantidade de tempo que o processo utilizou a CPU. |
 >| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho usado pelo processo. |
@@ -137,7 +137,7 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 
 ### <a name="request"></a>Solicitação
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. sent | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
 >| Tomcat. global. Received | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
@@ -147,7 +147,7 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 ### <a name="request-net"></a>Solicitação (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Solicitações por segundo | solicitações por segundo | Contagem | Taxa de solicitação. |
 >| Total de solicitações | total-solicitações | Contagem | Número total de solicitações. |
@@ -158,7 +158,7 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
 >| Tomcat. Sessions. Alive. Max | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |

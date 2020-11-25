@@ -13,11 +13,11 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89320946"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973704"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueio da autenticação herdada
  
@@ -33,9 +33,9 @@ Hoje, a maioria de todas as tentativas de entrada comprometentes vêm da autenti
 Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisará entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
 
 1. Navegue até o **portal do Azure** > **Azure Active Directory** > **Entradas**.
-1. Adicione a coluna **aplicativo cliente** se ela não for exibida clicando em **colunas**   >  **aplicativo cliente**.
+1. Adicione a coluna **aplicativo cliente** se ela não for exibida clicando em  **colunas**   >  **aplicativo cliente**.
 1. Filtrar por **aplicativo cliente** > verificar todas as opções de **clientes de autenticação herdadas** apresentadas.
-1. Filtrar por **status**de  >  **êxito**. 
+1. Filtrar por **status** de  >  **êxito**. 
 1. Expanda seu intervalo de datas, se necessário, usando o filtro de **Data** .
 
 A filtragem mostrará apenas as tentativas de entrada bem-sucedidas feitas pelos protocolos de autenticação herdados selecionados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. A coluna aplicativo cliente ou o campo aplicativo cliente na guia informações básicas, depois de selecionar uma linha individual de dados, indicará qual protocolo de autenticação herdado foi usado. Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados para não usar a autenticação herdada, implemente uma política de acesso condicional ou habilite a política de linha de base: bloquear a autenticação herdada somente para esses usuários.

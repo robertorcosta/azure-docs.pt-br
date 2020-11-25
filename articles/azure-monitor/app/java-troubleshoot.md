@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379529"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972854"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solução de problemas e perguntas e respostas para o Application Insights para o SDK do Java
 
@@ -89,7 +89,7 @@ Usando o método XML, você precisa reiniciar o aplicativo ao alterar o valor.
 **Como posso alterar a qual recurso do Azure meu projeto envia dados?**
 
 * [Obtenha a chave de instrumentação do novo recurso.][java]
-* Se você tiver adicionado o Application Insights a seu projeto usando o Kit de Ferramentas do Azure para Eclipse, clique com o botão direito do mouse em seu projeto Web, selecione **Azure** , **Configurar Application Insights** e altere a chave.
+* Se você tiver adicionado o Application Insights a seu projeto usando o Kit de Ferramentas do Azure para Eclipse, clique com o botão direito do mouse em seu projeto Web, selecione **Azure**, **Configurar Application Insights** e altere a chave.
 * Se você configurou a chave de instrumentação como variável de ambiente atualize o valor da variável de ambiente com iKey novo.
 * Caso contrário, atualize a chave em ApplicationInsights.xml na pasta de recursos em seu projeto.
 
