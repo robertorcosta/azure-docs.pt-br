@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241997"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005037"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando o portal
 
@@ -32,74 +32,74 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais** .
-2. Em **Criar rede virtual** , insira ou selecione estas informações:
+1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais**.
+2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Nome | Insira *MyVirtualNetwork* . |
-    | Espaço de endereço | Insira *10.1.0.0/16* . |
+    | Nome | Insira *MyVirtualNetwork*. |
+    | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione **Criar novo** e insira *myResourceGroup* , depois selecione **OK** . |
-    | Localização | Selecione **Europa Ocidental** .|
-    | Sub-rede – Nome | Insira *mysubnet* . |
-    | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24* . |
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Localização | Selecione **Europa Ocidental**.|
+    | Sub-rede – Nome | Insira *mysubnet*. |
+    | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
-3. Deixe o restante com os valores padrão e selecione **Criar** .
+3. Deixe o restante com os valores padrão e selecione **Criar**.
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Computação** > **Máquina Virtual** .
+1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Computação** > **Máquina Virtual**.
 
-2. Em **Criar uma máquina virtual – Noções básicas** , insira ou selecione estas informações:
+2. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup** . Você o criou na seção anterior.  |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
-    | Nome da máquina virtual | Insira *myVm* . |
-    | Região | Selecione **Europa Ocidental** . |
-    | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária** . |
-    | Imagem | Selecione **Windows Server 2019 Datacenter** . |
-    | Tamanho | Deixe o padrão **Standard DS1 v2** . |
+    | Nome da máquina virtual | Insira *myVm*. |
+    | Região | Selecione **Europa Ocidental**. |
+    | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
+    | Imagem | Selecione **Windows Server 2019 Datacenter**. |
+    | Tamanho | Deixe o padrão **Standard DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de Usuário | Insira um nome de usuário de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Senha | Reinsira a senha. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
-    | Porta de entrada públicas | Deixar o padrão **Nenhum** . |
+    | Porta de entrada públicas | Deixar o padrão **Nenhum**. |
     | **ECONOMIZE DINHEIRO** |  |
-    | Já tem uma licença do Windows? | Deixe o padrão **Não** . |
+    | Já tem uma licença do Windows? | Deixe o padrão **Não**. |
     |||
 
-1. Selecione **Avançar: Discos** .
+1. Selecione **Avançar: Discos**.
 
-1. Em **Criar uma máquina virtual – Discos** , mantenha os padrões e selecione **Avançar: Rede** .
+1. Em **Criar uma máquina virtual – Discos**, mantenha os padrões e selecione **Avançar: Rede**.
 
-1. Em **Criar uma máquina virtual – Rede** , selecione estas informações:
+1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Rede virtual | Deixe o padrão **MyVirtualNetwork** .  |
-    | Espaço de endereço | Deixar o padrão **10.1.0.0/24** .|
+    | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
+    | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
     | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)** .|
-    | IP público | Deixe o padrão **(novo) myVm-ip** . |
-    | Porta de entrada públicas | Selecione **Permitir portas selecionadas** . |
-    | Selecione as portas de entrada | Selecione **HTTP** e **RDP** .|
+    | IP público | Deixe o padrão **(novo) myVm-ip**. |
+    | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
+    | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
     |||
 
 
-1. Selecione **Examinar + criar** . Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração.
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração.
 
-1. Quando vir a mensagem **Validação aprovada** , selecione **Criar** .
+1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
 ## <a name="create-an-azure-database-for-mariadb"></a>Criar um Banco de Dados do Azure para MariaDB
 
 Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB no Azure. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos** de  >  **dados do Azure para MariaDB** .
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos** de  >  **dados do Azure para MariaDB**.
 
 1. No **banco de dados do Azure para MariaDB** , forneça estas informações:
 
@@ -107,19 +107,19 @@ Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB 
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup** . Você o criou na seção anterior.|
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **Detalhes do servidor** |  |
-    |Nome do servidor  | Insira *myserver* . Se esse nome já estiver sendo usado, crie um nome exclusivo.|
+    |Nome do servidor  | Insira *myserver*. Se esse nome já estiver sendo usado, crie um nome exclusivo.|
     | Nome de usuário do administrador| Insira um nome de administrador de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure onde você deseja que seu servidor MariaDB resida. |
     |Versão  | Selecione a versão do banco de dados do servidor MariaDB que é necessária.|
-    | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
+    | Computação + Armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
 
-7. Selecione **OK** . 
-8. Selecione **Examinar + criar** . Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração. 
-9. Quando você vir a mensagem validação aprovada, selecione **criar** . 
+7. Selecione **OK**. 
+8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+9. Quando você vir a mensagem validação aprovada, selecione **criar**. 
 10. Quando vir a mensagem Validação aprovada, selecione Criar. 
 
 > [!NOTE]
@@ -130,41 +130,41 @@ Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB 
 
 Nesta seção, você criará um ponto de extremidade privado para o servidor MariaDB. 
 
-1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **rede**  >  **link privado** .
-2. Em **Central de Link Privado – Visão Geral** , na opção **Criar uma conexão privada com um serviço** , selecione **Iniciar** .
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **rede**  >  **link privado**.
+2. Em **Central de Link Privado – Visão Geral**, na opção **Criar uma conexão privada com um serviço**, selecione **Iniciar**.
 
     ![Visão geral do link privado](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. Em **criar um ponto de extremidade privado-noções básicas** , insira ou selecione estas informações:
+1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup** . Você o criou na seção anterior.|
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **Detalhes da instância** |  |
-    | Nome | Insira *myPrivateEndpoint* . Se esse nome já estiver sendo usado, crie um nome exclusivo. |
-    |Região|Selecione **Europa Ocidental** .|
+    | Nome | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
+    |Região|Selecione **Europa Ocidental**.|
     |||
-5. Selecione **Avançar: Recurso** .
-6. Em **Criar um ponto de extremidade privado – Recurso** , insira ou selecione estas informações:
+5. Selecione **Avançar: Recurso**.
+6. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
-    | Tipo de recurso | Selecione **Microsoft. DBforMariaDB/servidores** . |
+    | Tipo de recurso | Selecione **Microsoft. DBforMariaDB/servidores**. |
     | Recurso |Selecione *myServer*|
     |Sub-recurso de destino |Selecionar *mariadbServer*|
     |||
-7. Selecione **Avançar: configuração** .
-8. Em **Criar um ponto de extremidade privado – configuração** , insira ou selecione estas informações:
+7. Selecione **Avançar: configuração**.
+8. Em **Criar um ponto de extremidade privado – configuração**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     |**REDE**| |
-    | Rede virtual| Selecione *MyVirtualNetwork* . |
-    | Sub-rede | Selecione  *mySubnet* . |
+    | Rede virtual| Selecione *MyVirtualNetwork*. |
+    | Sub-rede | Selecione  *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. |
     |Zona DNS privado |Selecione *(novo) privatelink. MariaDB. Database. Azure. com* |
@@ -173,8 +173,8 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
     > [!Note] 
     > Use a zona DNS privada predefinida para seu serviço ou forneça seu nome de zona DNS preferencial. Consulte a [configuração da zona DNS dos serviços do Azure](../private-link/private-endpoint-dns.md) para obter detalhes.
 
-1. Selecione **Examinar + criar** . Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração. 
-2. Quando vir a mensagem **Validação aprovada** , selecione **Criar** . 
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 
     ![Link privado criado](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
@@ -184,32 +184,32 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando a RDP (Área de Trabalho Remota)
 
 
-Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira: 
+Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira: 
 
-1. Na barra de pesquisa do portal, insira *myVm* .
+1. Na barra de pesquisa do portal, insira *myVm*.
 
-1. Selecione o botão **Conectar** . Depois de selecionar o botão **Conectar** , **Conectar-se à máquina virtual** abre.
+1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
-1. Selecione **Baixar Arquivo RDP** . O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
+1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo *downloaded.rdp* .
+1. Abra o arquivo *downloaded.rdp*.
 
-    1. Se solicitado, selecione **Conectar** .
+    1. Se solicitado, selecione **Conectar**.
 
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
         > Talvez seja necessário selecionar **Mais escolhas** > **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar** .
+1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.
 
 ## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Acessar o servidor MariaDB de forma privada da VM
 
-1. Na Área de Trabalho Remota do *myVM* , abra o PowerShell.
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
 2. Insira  `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 
@@ -225,18 +225,18 @@ Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira:
 3. Teste a conexão de link privado para o servidor MariaDB usando qualquer cliente disponível. No exemplo abaixo, usei o [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar a operação.
 
 
-4. Em **nova conexão** , insira ou selecione estas informações:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Tipo de servidor| Selecione **MariaDB** .|
+    | Tipo de servidor| Selecione **MariaDB**.|
     | Nome do servidor| Selecionar *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MariaDB. |
     |Senha |Insira uma senha fornecida durante a criação do servidor MariaDB. |
-    |SSL|Selecione **obrigatório** .|
+    |SSL|Selecione **obrigatório**.|
     ||
 
-5. Selecione **testar conexão** ou **OK** .
+5. Selecione **testar conexão** ou **OK**.
 
 6. Opcionalmente Procurar bancos de dados no menu à esquerda e criar ou consultar informações do banco de MariaDB
 
@@ -246,8 +246,8 @@ Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira:
 Quando você terminar de usar o ponto de extremidade privado, o servidor MariaDB e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira  *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione  *MyResource*   Bedos resultados da pesquisa.
-2. Selecione **Excluir grupo de recursos** .
-3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir** .
+2. Selecione **Excluir grupo de recursos**.
+3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

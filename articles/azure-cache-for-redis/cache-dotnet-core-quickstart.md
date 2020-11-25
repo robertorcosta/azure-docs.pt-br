@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077074"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004289"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Início Rápido: Usar o Cache do Azure para Redis no .NET Core
 
@@ -76,13 +76,13 @@ Execute o seguinte comando para restaurar seus pacotes:
 dotnet restore
 ```
 
-Na janela de comando, execute o seguinte comando para armazenar um novo segredo denominado *CacheConnection* , depois de substituir os espaços reservados (incluindo colchetes) para o nome do cache e a chave de acesso primária:
+Na janela de comando, execute o seguinte comando para armazenar um novo segredo denominado *CacheConnection*, depois de substituir os espaços reservados (incluindo colchetes) para o nome do cache e a chave de acesso primária:
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
 ```
 
-Adicione a seguinte instrução `using` a *Program.cs* :
+Adicione a seguinte instrução `using` a *Program.cs*:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -107,7 +107,7 @@ private static void InitializeConfiguration()
 
 Nesta seção, você configurará o aplicativo de console para usar o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) para .NET.
 
-Na janela de comando, execute o seguinte comando no diretório do projeto *Redistest* :
+Na janela de comando, execute o seguinte comando no diretório do projeto *Redistest*:
 
 ```
 dotnet add package StackExchange.Redis
@@ -118,7 +118,7 @@ Depois que a instalação for concluída, o cliente de cache *StackExchange.Redi
 
 ## <a name="connect-to-the-cache"></a>Conectar-se ao cache
 
-Adicione a seguinte instrução `using` a *Program.cs* :
+Adicione a seguinte instrução `using` a *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -126,7 +126,7 @@ using StackExchange.Redis;
 
 A conexão com o Cache do Azure para Redis é gerenciada pela classe `ConnectionMultiplexer`. Essa classe deve ser compartilhada e reutilizada em todo o seu aplicativo cliente. Não crie uma nova conexão para cada operação. 
 
-Em *Program.cs* , adicione os seguintes membros à classe `Program` do seu aplicativo de console:
+Em *Program.cs*, adicione os seguintes membros à classe `Program` do seu aplicativo de console:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -150,7 +150,7 @@ O valor do segredo *CacheConnection* é acessado usando o provedor de configura�
 
 ## <a name="executing-cache-commands"></a>Executar comandos de cache
 
-No *Program.cs* , adicione o seguinte código para o procedimento `Main` com a classe `Program` para seu aplicativo de console:
+No *Program.cs*, adicione o seguinte código para o procedimento `Main` com a classe `Program` para seu aplicativo de console:
 
 ```csharp
 static void Main(string[] args)
@@ -228,13 +228,13 @@ Execute o seguinte comando para adicionar o pacote *Newtonsoft.json* ao aplicati
 dotnet add package Newtonsoft.json
 ```
 
-Adicione a seguinte instrução `using` à parte superior do *Program.cs* :
+Adicione a seguinte instrução `using` à parte superior do *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Adicione a seguinte definição de classe `Employee` ao *Program.cs* :
+Adicione a seguinte definição de classe `Employee` ao *Program.cs*:
 
 ```csharp
 class Employee

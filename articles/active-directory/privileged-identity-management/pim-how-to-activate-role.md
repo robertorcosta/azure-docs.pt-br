@@ -15,11 +15,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38992c15c23216aa81cda566a333d8e45f90b17e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004680"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar minhas funções do Azure AD no PIM
 
@@ -48,7 +48,7 @@ Quando você precisar assumir uma função do Azure AD, poderá solicitar a ativ
 
 1. Abra **Azure ad Privileged Identity Management**. Para obter informações sobre como adicionar o bloco Privileged Identity Management ao seu painel, consulte [começar a usar o Privileged Identity Management](pim-getting-started.md).
 
-1. Selecione **minhas funções**e, em seguida, selecione **funções do Azure ad** para ver uma lista de suas funções qualificadas do Azure AD.
+1. Selecione **minhas funções** e, em seguida, selecione **funções do Azure ad** para ver uma lista de suas funções qualificadas do Azure AD.
 
     ![Minha página de funções mostrando funções que você pode ativar](./media/pim-how-to-activate-role/my-roles.png)
 

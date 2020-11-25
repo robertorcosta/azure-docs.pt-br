@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 47c8096893742a25904f0f7e688af2fc641166d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004306"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -25,13 +25,13 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
 
  * **Configure sua [configuração de MaxMemory-reservado](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para melhorar a capacidade de resposta do sistema** em condições de pressão de memória.  Uma configuração de reserva suficiente é especialmente importante para cargas de trabalho pesadas de gravação ou se você estiver armazenando valores maiores (100 KB ou mais) em Redis. Você deve começar com 10% do tamanho do seu cache e aumentar essa porcentagem se houver cargas pesadas de gravação.
 
- * O **Redis funciona melhor com valores menores** , portanto, considere a possibilidade de aumentar dados maiores em várias chaves.  Nesta [discussão de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), são listadas algumas considerações que você deve considerar com cuidado.  Leia [este artigo](cache-troubleshoot-client.md#large-request-or-response-size) para obter um problema de exemplo que pode ser causado por valores grandes.
+ * O **Redis funciona melhor com valores menores**, portanto, considere a possibilidade de aumentar dados maiores em várias chaves.  Nesta [discussão de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), são listadas algumas considerações que você deve considerar com cuidado.  Leia [este artigo](cache-troubleshoot-client.md#large-request-or-response-size) para obter um problema de exemplo que pode ser causado por valores grandes.
 
- * **Localize sua instância de cache e seu aplicativo na mesma região.**  Conectar-se a um cache em uma região diferente pode aumentar significativamente a latência e reduzir a confiabilidade.  Embora você possa se conectar de fora do Azure, isso não é recomendado *especialmente ao usar Redis como um cache* .  Se você estiver usando Redis como apenas um repositório de chave/valor, a latência poderá não ser a principal preocupação. 
+ * **Localize sua instância de cache e seu aplicativo na mesma região.**  Conectar-se a um cache em uma região diferente pode aumentar significativamente a latência e reduzir a confiabilidade.  Embora você possa se conectar de fora do Azure, isso não é recomendado *especialmente ao usar Redis como um cache*.  Se você estiver usando Redis como apenas um repositório de chave/valor, a latência poderá não ser a principal preocupação. 
 
  * **Reutilizar conexões.**  A criação de novas conexões é cara e aumenta a latência. portanto, reutilize as conexões o máximo possível. Se você optar por criar novas conexões, certifique-se de fechar as conexões antigas antes de liberá-las (mesmo em linguagens de memória gerenciada como .NET ou Java).
 
- * **Configure sua biblioteca de cliente para usar um *tempo limite de conexão* de, pelo menos, 15 segundos** , dando à hora do sistema a conexão, mesmo sob condições de CPU mais altas.  Um valor de tempo limite de conexão pequeno não garante que a conexão seja estabelecida nesse período de tempo.  Se algo der errado (alta CPU de cliente, alta CPU de servidor e assim por diante), um valor de tempo limite de conexão curto causará falha na tentativa de conexão. Esse comportamento geralmente resulta em uma situação pior.  Em vez de ajudar, tempos limite mais curtos aggravatem o problema ao forçar o sistema a reiniciar o processo de tentativa de reconexão, o que pode levar a um loop de *repetição de falha > de > conexão* . Geralmente, é recomendável deixar o tempo limite de conexão em 15 segundos ou superior. É melhor permitir que sua tentativa de conexão seja bem-sucedida após 15 ou 20 segundos do que fazer com que ela falhe rapidamente apenas para tentar novamente. Esse loop de repetição pode fazer com que a interrupção seja mais longa do que se você deixar que o sistema simplesmente demore mais tempo inicialmente.  
+ * **Configure sua biblioteca de cliente para usar um *tempo limite de conexão* de, pelo menos, 15 segundos**, dando à hora do sistema a conexão, mesmo sob condições de CPU mais altas.  Um valor de tempo limite de conexão pequeno não garante que a conexão seja estabelecida nesse período de tempo.  Se algo der errado (alta CPU de cliente, alta CPU de servidor e assim por diante), um valor de tempo limite de conexão curto causará falha na tentativa de conexão. Esse comportamento geralmente resulta em uma situação pior.  Em vez de ajudar, tempos limite mais curtos aggravatem o problema ao forçar o sistema a reiniciar o processo de tentativa de reconexão, o que pode levar a um loop de *repetição de falha > de > conexão* . Geralmente, é recomendável deixar o tempo limite de conexão em 15 segundos ou superior. É melhor permitir que sua tentativa de conexão seja bem-sucedida após 15 ou 20 segundos do que fazer com que ela falhe rapidamente apenas para tentar novamente. Esse loop de repetição pode fazer com que a interrupção seja mais longa do que se você deixar que o sistema simplesmente demore mais tempo inicialmente.  
      > [!NOTE]
      > Essa diretriz é específica para a *tentativa de conexão* e não está relacionada ao tempo que você deseja aguardar uma *operação* como Get ou Set como concluída.
  
@@ -44,7 +44,7 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
 ## <a name="memory-management"></a>Gerenciamento de memória
 Há várias coisas relacionadas ao uso de memória em sua instância do servidor Redis que você talvez queira considerar.  Aqui estão algumas:
 
- * **Escolha uma [política de remoção](https://redis.io/topics/lru-cache) que funcione para seu aplicativo.**  A política padrão para o Azure Redis é *volátil-LRU* , o que significa que somente as chaves que têm um valor de TTL definido serão elegíveis para remoção.  Se nenhuma chave tiver um valor TTL, o sistema não removerá nenhuma chave.  Se você quiser que o sistema permita que qualquer chave seja removida se estiver sob pressão de memória, convém considerar a política *AllKeys-LRU* .
+ * **Escolha uma [política de remoção](https://redis.io/topics/lru-cache) que funcione para seu aplicativo.**  A política padrão para o Azure Redis é *volátil-LRU*, o que significa que somente as chaves que têm um valor de TTL definido serão elegíveis para remoção.  Se nenhuma chave tiver um valor TTL, o sistema não removerá nenhuma chave.  Se você quiser que o sistema permita que qualquer chave seja removida se estiver sob pressão de memória, convém considerar a política *AllKeys-LRU* .
 
  * **Defina um valor de expiração em suas chaves.**  Uma expiração removerá as chaves proativamente, em vez de aguardar até que haja pressão de memória.  Quando a remoção é acionada devido à pressão de memória, ela pode causar carga adicional no servidor.  Para obter mais informações, consulte a documentação para os comandos [expire](https://redis.io/commands/expire) e [EXPIREAT](https://redis.io/commands/expireat) .
  
@@ -72,20 +72,20 @@ Se você quiser testar como o código funciona em condições de erro, considere
  * **Comece usando `redis-benchmark.exe`** para ter uma ideia de taxa de transferência/latência possível antes de escrever seus próprios testes de desempenho.  A documentação do Redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que Redis-benchmark não dá suporte a TLS, portanto, você precisará [habilitar a porta não TLS por meio do portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com Windows do redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
  * A VM do cliente usada para teste deve estar **na mesma região** que a instância do cache Redis.
  * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
- * Verifique se a VM do cliente que você usa tem * *pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
+ * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
  * **Habilite o VRSS** no computador cliente se você estiver no Windows.  [Consulte aqui para obter detalhes](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Exemplo de script do PowerShell:
      >PowerShell-ExecutionPolicy irrestrito Enable-NetAdapterRSS-Name (Get-netadapter). Nomes 
      
- * **Considere o uso de instâncias de Redis da camada Premium** .  Esses tamanhos de cache terão melhor latência de rede e taxa de transferência, pois estão em execução em hardware melhor para CPU e rede.
+ * **Considere o uso de instâncias de Redis da camada Premium**.  Esses tamanhos de cache terão melhor latência de rede e taxa de transferência, pois estão em execução em hardware melhor para CPU e rede.
  
      > [!NOTE]
      > Nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, de modo que você poderá obter latências e/ou taxa de transferência diferentes se estiver usando a criptografia de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Exemplos de Redis-Benchmark
-**Configuração de pré-teste** : Prepare a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
+**Configuração de pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
 > Redis-benchmark-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t SET-n 10-d 1024 
 
-**Para testar a latência** : teste as solicitações Get usando uma carga de 1K.
+**Para testar a latência**: teste as solicitações Get usando uma carga de 1K.
 > Redis-benchmark-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-d 1024-P 50-c 4
 
 **Para testar a taxa de transferência:** Solicitações GET em pipeline com carga de 1K.
