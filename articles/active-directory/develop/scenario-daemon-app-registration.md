@@ -12,11 +12,11 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443323"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995991"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicativo daemon que chama APIs Web-registro de aplicativo
 
@@ -40,7 +40,7 @@ Um aplicativo daemon pode solicitar permissões de aplicativo somente para APIs 
 ![Permissões do aplicativo e consentimento do administrador](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> A API da Web que você deseja chamar precisa definir *permissões de aplicativo (funções de aplicativo)* , permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [API Web protegida: registro de aplicativo – quando sua API Web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> A API da Web que você deseja chamar precisa definir *permissões de aplicativo (funções de aplicativo)*, permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [API Web protegida: registro de aplicativo – quando sua API Web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
 Os aplicativos daemon exigem que um administrador de locatário consentisse previamente o aplicativo que chama a API da Web. Os administradores de locatários fornecem esse consentimento na mesma página de **permissão de API** selecionando **conceder consentimento de administrador para *nossa organização***
 

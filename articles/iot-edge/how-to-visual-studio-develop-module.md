@@ -9,11 +9,11 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045713"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994512"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -98,7 +98,7 @@ O modelo de projeto do Azure IoT Edge no Visual Studio cria um projeto que pode 
 
    ![Criar um novo projeto](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. Na janela **adicionar IOT Edge aplicativo e módulo** , selecione módulo **C#** ou **módulo C** e, em seguida, especifique o nome do módulo e o repositório de imagens do módulo. O Visual Studio preenche automaticamente o nome do módulo com **localhost:5000/<your module name\>**. Substitua-o pelas informações de seu registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de logon é semelhante a ** _\<registry name\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a ** \<*registry name*\> . azurecr.Io/ _\<your module name\>_ **. O nome do módulo padrão é **IotEdgeModule1**
+1. Na janela **adicionar IOT Edge aplicativo e módulo** , selecione módulo **C#** ou **módulo C** e, em seguida, especifique o nome do módulo e o repositório de imagens do módulo. O Visual Studio preenche automaticamente o nome do módulo com **localhost:5000/<your module name\>**. Substitua-o pelas informações de seu registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de logon é semelhante a **_\<registry name\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a **\<*registry name*\> . azurecr.Io/ _\<your module name\>_**. O nome do módulo padrão é **IotEdgeModule1**
 
    ![Adicionar aplicativo e módulo](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 

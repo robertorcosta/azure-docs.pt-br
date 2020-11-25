@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085728"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995583"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 
@@ -44,7 +44,7 @@ Você pode usar as ferramentas de Data Lake para Visual Studio para enviar topol
 
 1. Na janela **criar um novo projeto** , selecione a caixa Pesquisar e digite `Storm` . Em seguida, escolha **exemplo do Storm** na lista de resultados e selecione **Avançar**.
 
-1. Na janela **configurar seu novo projeto** , insira um **nome de projeto**e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
+1. Na janela **configurar seu novo projeto** , insira um **nome de projeto** e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
 
     ![Configurar sua nova janela de projeto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
@@ -224,9 +224,9 @@ Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes i
 | Resumo do componente | Informações básicas sobre o spout ou o bolt. |
 | Ações de componente | Botões **depurar** e **parar depuração** . |
 | Estatísticas de Spout ou estatísticas de raio | Estatísticas sobre o spout ou o bolt. Para definir o intervalo de tempo para uma entrada nesta seção, selecione seu link na coluna **janela** . |
-| (Somente raio)<br/>Estatísticas*de entrada (período)* | Informações sobre os fluxos de entrada consumidos pelo bolt. |
+| (Somente raio)<br/>Estatísticas *de entrada (período)* | Informações sobre os fluxos de entrada consumidos pelo bolt. |
 | Estatísticas *de saída (período)* | Informações sobre os fluxos emitidos pelo spout ou pelo bolt. |
-| Criação de perfil e depuração | Controles para criação de perfil e depuração dos componentes nesta página. Você pode definir o valor de **status/tempo limite (minutos)** e pode selecionar botões para **JStack**, **reiniciar o trabalho**e **heap**. |
+| Criação de perfil e depuração | Controles para criação de perfil e depuração dos componentes nesta página. Você pode definir o valor de **status/tempo limite (minutos)** e pode selecionar botões para **JStack**, **reiniciar o trabalho** e **heap**. |
 | Executores *(período)* | Informações sobre as instâncias do spout ou bolt. Para exibir um log das informações de diagnóstico produzidas para essa instância, selecione a entrada **porta** para um executor específico. Você também pode ver os recursos de trabalho associados a um executor específico selecionando seu link na coluna **host** . |
 | Errors | Qualquer informação de erro para o spout ou bolt. |
 
@@ -249,7 +249,7 @@ O URI de base para a API REST em clusters HDInsight baseados em Linux está disp
 
 Você pode encontrar o FQDN (nome de domínio totalmente qualificado) para o nó principal do cluster de várias maneiras:
 
-| Método de descoberta de FQDN | Descrição |
+| Método de descoberta de FQDN | Description |
 | --- | --- |
 | Sessão SSH | Use o comando `headnode -f` de uma sessão SSH para o cluster. |
 | Ambari Web | Na página da Web do cluster Ambari ( `https://CLUSTERNAME.azurehdinsight.net` ), selecione **Serviços** na parte superior da página e, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página. |

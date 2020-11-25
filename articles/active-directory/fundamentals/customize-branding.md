@@ -14,11 +14,11 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650216"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996654"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). Suas páginas de entrada são exibidas quando os usuários entram nos aplicativos baseados na Web da sua organização, como Microsoft 365, que usa o Azure AD como seu provedor de identidade.
@@ -113,7 +113,7 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 
 3. Na página **Configurar a identidade visual da empresa**, adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
    Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
@@ -130,7 +130,7 @@ Não é possível alterar o idioma da configuração original do idioma padrão.
 
 3. Na página **Configurar a identidade visual da empresa**, selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
     A página **Contoso – Identidade visual da empresa** é atualizada para mostrar a nova configuração em francês.
 

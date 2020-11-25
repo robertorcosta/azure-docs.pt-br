@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995753"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
@@ -68,7 +68,7 @@ Determinados elementos de seus recursos de dispositivo podem ser editados sem a 
 1. Selecione o modelo de dispositivo que você deseja personalizar.
 1. Escolha a guia **Personalizar** .
 1. Todos os recursos definidos no seu modelo de dispositivo estão listados aqui. Você pode editar, salvar e usar todos esses campos sem a necessidade de versão do seu modelo de dispositivo. Se houver campos que você deseja editar que sejam somente leitura, você deverá fazer a versão do modelo de dispositivo para alterá-los. Selecione um campo que você deseja editar e insira um novo valor.
-1. Selecione **Salvar**. Agora, esses valores substituem tudo o que foi salvo inicialmente em seu modelo de dispositivo e são usados em todo o aplicativo.
+1. Clique em **Salvar**. Agora, esses valores substituem tudo o que foi salvo inicialmente em seu modelo de dispositivo e são usados em todo o aplicativo.
 
 ## <a name="version-a-device-template"></a>Versão um modelo de dispositivo
 

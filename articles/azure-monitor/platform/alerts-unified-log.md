@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995073"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
@@ -74,7 +74,7 @@ A contagem de resultados é a medida padrão. Ideal para trabalhar com eventos c
 
 Os alertas de log funcionam melhor quando você tenta detectar dados no log. Ele funciona menos bem quando você tenta detectar falta de dados nos logs. Por exemplo, alertas na pulsação da máquina virtual.
 
-Para espaços de trabalho e Application Insights, ele é chamado com **base no** **número de resultados da**seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com **linhas da tabela**de seleção.
+Para espaços de trabalho e Application Insights, ele é chamado com **base no** **número de resultados da** seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com **linhas da tabela** de seleção.
 
 > [!NOTE]
 > Como os logs são dados semiestruturados, eles são inerentemente mais latentes do que a métrica, que você pode enfrentar inconvenientes ao tentar detectar a falta de dados nos logs e deve considerar o uso de [alertas de métricas](alerts-metric-overview.md). Você pode enviar dados para o repositório de métricas de logs usando [alertas de métricas para logs](alerts-metric-logs.md).
@@ -98,7 +98,7 @@ Em seguida, as regras de alerta monitoram as solicitações que terminam com o c
 
 #### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Cálculo de medida com base em uma coluna numérica (como o valor do contador de CPU)
 
-Para espaços de trabalho e Application Insights, ele é chamado com **base em** **medição de métrica**de seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com a seleção de qualquer nome de coluna de número.
+Para espaços de trabalho e Application Insights, ele é chamado com **base em** **medição de métrica** de seleção. Em todos os outros tipos de recursos, ele é chamado de **medida** com a seleção de qualquer nome de coluna de número.
 
 ### <a name="aggregation-type"></a>Tipo de agregação
 
@@ -182,7 +182,7 @@ Em espaços de trabalho e Application Insights, ele é chamado de **suprimir ale
 
 Consulte este exemplo de avaliação de alerta:
 
-| Hora    | Avaliação da condição de log | Result 
+| Hora    | Avaliação da condição de log | Resultado 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | O alerta não é acionado. Nenhuma ação chamada.
 | 00:10 | TRUE  | O alerta é acionado e os grupos de ação chamados. Novo estado de alerta ativo.

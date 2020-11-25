@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146749"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994668"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -39,11 +39,11 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Navegue até o serviço de Gerenciamento de API no portal do Azure e selecione **APIs** no menu.
-2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma nova API** .
+2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma nova API**.
 
     ![Especificação de OpenAPI](./media/import-api-from-oas/oas-api.png)
-3. Insira as configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações** . As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#import-and-publish-a-backend-api).
-4. Selecione **Criar** .
+3. Insira as configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#import-and-publish-a-backend-api).
+4. Selecione **Criar**.
 
 > [!NOTE]
 > As limitações de importação da API estão documentadas em [outro artigo](api-management-api-import-restrictions.md).

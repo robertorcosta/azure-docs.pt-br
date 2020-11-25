@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636258"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995277"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
@@ -33,15 +33,15 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
 1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais**.
-2. Em **Criar rede virtual** , insira ou selecione estas informações:
+2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione **Criar novo** e insira *myResourceGroup* , depois selecione **OK**. |
-    | Location | Selecione **Europa Ocidental**.|
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Localização | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mysubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -51,7 +51,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Computação** > **Máquina Virtual**.
 
-2. Em **Criar uma máquina virtual – Noções básicas** , insira ou selecione estas informações:
+2. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -76,9 +76,9 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 1. Selecione **Avançar: Discos**.
 
-1. Em **Criar uma máquina virtual – Discos** , mantenha os padrões e selecione **Avançar: Rede**.
+1. Em **Criar uma máquina virtual – Discos**, mantenha os padrões e selecione **Avançar: Rede**.
 
-1. Em **Criar uma máquina virtual – Rede** , selecione estas informações:
+1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -91,9 +91,9 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     |||
 
 
-1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração.
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração.
 
-1. Quando vir a mensagem **Validação aprovada** , selecione **Criar**.
+1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
 > [!NOTE]
 > Em alguns casos, o Banco de Dados do Azure para PostgreSQL e a sub-rede da VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
@@ -105,7 +105,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
 
 1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **bancos** de  >  **dados do Azure para PostgreSQL**.
 
-1. Na **opção de implantação banco de dados do Azure para PostgreSQL** , selecione **servidor único** e forneça estas informações:
+1. Na **opção de implantação banco de dados do Azure para PostgreSQL**, selecione **servidor único** e forneça estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -122,7 +122,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
     |||
  
 7. Selecione **OK**. 
-8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração. 
+8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
 9. Quando você vir a mensagem validação aprovada, selecione **criar**. 
 10. Quando vir a mensagem Validação aprovada, selecione Criar. 
 
@@ -131,11 +131,11 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
 Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de extremidade privado a ele. 
 
 1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso**  >  **rede**  >  **link privado**.
-2. Em **Central de Link Privado – Visão Geral** , na opção **Criar uma conexão privada com um serviço** , selecione **Iniciar**.
+2. Em **Central de Link Privado – Visão Geral**, na opção **Criar uma conexão privada com um serviço**, selecione **Iniciar**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Visão geral do link privado":::
 
-1. Em **criar um ponto de extremidade privado-noções básicas** , insira ou selecione estas informações:
+1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -147,7 +147,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     |Região|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Avançar: Recurso**.
-6. Em **Criar um ponto de extremidade privado – Recurso** , insira ou selecione estas informações:
+6. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -158,7 +158,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     |Sub-recurso de destino |Selecionar *postgresqlServer*|
     |||
 7. Selecione **Avançar: configuração**.
-8. Em **Criar um ponto de extremidade privado – configuração** , insira ou selecione estas informações:
+8. Em **Criar um ponto de extremidade privado – configuração**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -173,8 +173,8 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     > [!Note] 
     > Use a zona DNS privada predefinida para seu serviço ou forneça seu nome de zona DNS preferencial. Consulte a [configuração da zona DNS dos serviços do Azure](../private-link/private-endpoint-dns.md) para obter detalhes.
 
-1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar** , na qual o Azure valida sua configuração. 
-2. Quando vir a mensagem **Validação aprovada** , selecione **Criar**. 
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Link privado criado":::
 
@@ -184,11 +184,11 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando a RDP (Área de Trabalho Remota)
 
 
-Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira: 
+Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira: 
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
-1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar** , **Conectar-se à máquina virtual** abre.
+1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
@@ -209,7 +209,7 @@ Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acessar o servidor PostgreSQL de forma privada da VM
 
-1. Na Área de Trabalho Remota do *myVM* , abra o PowerShell.
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
 2. Insira  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -224,7 +224,7 @@ Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira:
 
 3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar a operação.
 
-4. Em **nova conexão** , insira ou selecione estas informações:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |

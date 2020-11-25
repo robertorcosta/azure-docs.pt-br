@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630253"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994478"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
-Depois que o vídeo for carregado, Video Indexer (opcionalmente) codificará o vídeo (discutido no artigo). Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, para obter mais informações, consulte [preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/).
+Depois que o vídeo for carregado, Video Indexer (opcionalmente) codificará o vídeo (discutido no artigo). Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados. Para obter mais informações, confira [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 Ao carregar vídeos com a API do Video Indexer, você tem as seguintes opções de upload: 
 
@@ -74,27 +74,7 @@ Este parâmetro permite que você especifique uma ID que será associada ao víd
 
 #### <a name="callbackurl"></a>callbackUrl
 
-Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os eventos a seguir:
-
-- Alteração de estado de indexação: 
-    - Propriedades:    
-    
-        |Name|Descrição|
-        |---|---|
-        |id|A ID do vídeo|
-        |state|O estado do vídeo|  
-    - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&estado = processado
-- Pessoa identificada no vídeo:
-  - Propriedades
-    
-      |Nome|Descrição|
-      |---|---|
-      |id| A ID do vídeo|
-      |faceId|A identificação de face que aparece no índice de vídeo|
-      |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
-      |personName|O nome da pessoa|
-        
-    - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### <a name="other-considerations"></a>Outras considerações
 
@@ -118,7 +98,7 @@ O preço depende da opção de indexação selecionada.
 
 #### <a name="priority"></a>priority
 
-Os vídeos são indexados pelo Video Indexer de acordo com a prioridade. Use o parâmetro **priority** para especificar a prioridade de índice. Os seguintes valores são válidos: **Baixo** , **Normal** (padrão) e **Alto**.
+Os vídeos são indexados pelo Video Indexer de acordo com a prioridade. Use o parâmetro **priority** para especificar a prioridade de índice. Os seguintes valores são válidos: **Baixo**, **Normal** (padrão) e **Alto**.
 
 O parâmetro **priority** tem suporte apenas para contas pagas.
 

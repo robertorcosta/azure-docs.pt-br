@@ -12,11 +12,11 @@ ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322149"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994835"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -80,10 +80,10 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
-  - **stringComparison** : ordinalIgnoreCase
+  - **stringComparison**: ordinalIgnoreCase
 - Resultado: Erro gerado
 
 ## <a name="changecase"></a>ChangeCase
@@ -115,11 +115,11 @@ Use essa transformação de declaração para alterar qualquer ClaimType de cade
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **email** : SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - Parâmetros de entrada:
-    - **toCase** : LOWER
+    - **toCase**: LOWER
 - Declarações de saída:
-  - **email** : someone@contoso.com
+  - **email**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -146,9 +146,9 @@ Use essa transformação de declarações para definir um valor de ClaimType de 
 ### <a name="example"></a>Exemplo
 
 - Parâmetro de entrada:
-    - **value** : termos de serviço da Contoso…
+    - **value**: termos de serviço da Contoso…
 - Declarações de saída:
-    - **createdClaim** : o ClaimType de TOS contém o valor "Termos de serviço da Contoso...".
+    - **createdClaim**: o ClaimType de TOS contém o valor "Termos de serviço da Contoso...".
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ Use essa transformação de declaração para verificar se uma declaração for 
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
-    - **operator** :  NOT EQUAL
-    - **ignoreCase** : true
+    - **operator**:  NOT EQUAL
+    - **ignoreCase**: true
 - Declarações de saída:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ Determina se um valor de declaração é igual ao valor do parâmetro de entrada
 
 ### <a name="example"></a>Exemplo
 - Declarações de entrada:
-    - **inputClaim1** : v1
+    - **inputClaim1**: v1
 - Parâmetros de entrada:
-    - **compareTo** : V1
-    - **operator** : EQUAL
-    - **ignoreCase** : true
+    - **compareTo**: V1
+    - **operator**: EQUAL
+    - **ignoreCase**: true
 - Declarações de saída:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ O exemplo a seguir gera uma ID exclusiva global. Essa transformação de declara
 ### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
-    - **randomGeneratorType** : GUID
+    - **randomGeneratorType**: GUID
 - Declarações de saída:
-    - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 O exemplo a seguir gera um valor de inteiro aleatório entre 0 e 1.000. O valor é formatado para OTP_{valor aleatório}.
 
@@ -282,12 +282,12 @@ O exemplo a seguir gera um valor de inteiro aleatório entre 0 e 1.000. O valor 
 ### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
-    - **randomGeneratorType** : INTEGER
-    - **maximumNumber** : 1000
-    - **stringFormat** : OTP_{0}
-    - **base64** : false
+    - **randomGeneratorType**: INTEGER
+    - **maximumNumber**: 1000
+    - **stringFormat**: OTP_{0}
+    - **base64**: false
 - Declarações de saída:
-    - **outputClaim** : OTP_853
+    - **outputClaim**: OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -319,11 +319,11 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parâmetros de entrada:
-    - **stringFormat** : cpim_{0}@{RelyingPartyTenantId}
+    - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
 - Declarações de saída:
-  - **outputClaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -356,12 +356,12 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim1** : Joe
-    - **inputClaim2** : Fernando
+    - **inputClaim1**: Joe
+    - **inputClaim2**: Fernando
 - Parâmetros de entrada:
-    - **stringFormat** : {0} {1}
+    - **stringFormat**: {0} {1}
 - Declarações de saída:
-    - **outputClaim** : Joe Fernando
+    - **outputClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
@@ -427,10 +427,10 @@ A transformação de declaração define o valor do tipo de declaração *assunt
 ### <a name="example"></a>Exemplo
 
 - Declarações de saída:
-  - **subject** : Código de verificação de email da conta da Contoso
-  - **Mensagem** : Obrigado por verificar sua conta!
-  - **codeIntro** : Seu código é
-  - **signature** : Atenciosamente
+  - **subject**: Código de verificação de email da conta da Contoso
+  - **Mensagem**: Obrigado por verificar sua conta!
+  - **codeIntro**: Seu código é
+  - **signature**: Atenciosamente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -472,9 +472,9 @@ A transformação de declarações procura o texto do item e retorna seu valor. 
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **mapFromClaim** : B2C_V1_90001
+    - **mapFromClaim**: B2C_V1_90001
 - Declarações de saída:
-    - **restrictionValueClaim** : Você não pode entrar porque é menor de idade.
+    - **restrictionValueClaim**: Você não pode entrar porque é menor de idade.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputParameterId** : test.com
+    - **inputParameterId**: test.com
 - Parâmetros de entrada:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : false
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: false
 - Declarações de saída:
-    - **outputClaim** :    c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 Quando o parâmetro de entrada `errorOnFailedLookup` está definido como `true`, a transformação da declaração **LookupValue** é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou um [DisplayConrtol](display-controls.md). Os metadados `LookupNotFound` de um perfil técnico autodeclarado controla a mensagem de erro que é apresentada ao usuário.
 
@@ -544,12 +544,12 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputParameterId** : live.com
+    - **inputParameterId**: live.com
 - Parâmetros de entrada:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : true
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: true
 - Erro:
     - Nenhuma correspondência encontrada para o valor de declaração de entrada na lista de IDs de parâmetro de entrada e errorOnFailedLookup é true.
 
@@ -573,9 +573,9 @@ Use essa transformação de declaração para remover dados desnecessários do r
 ```
 
 - Declarações de entrada:
-    - **outputClaim** : Bem-vindo ao Aplicativo da Contoso. Se você continuar a navegar e usar esse site, você estará concordando em seguir e estará vinculado aos seguintes termos e condições...
+    - **outputClaim**: Bem-vindo ao Aplicativo da Contoso. Se você continuar a navegar e usar esse site, você estará concordando em seguir e estará vinculado aos seguintes termos e condições...
 - Declarações de saída:
-    - **outputClaim** : NULO
+    - **outputClaim**: NULO
 
 ## <a name="parsedomain"></a>ParseDomain
 
@@ -602,9 +602,9 @@ Use essa transformação de declarações para analisar o nome de domínio depoi
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **emailAddress** : joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Declarações de saída:
-    - **domain** : outlook.com
+    - **domain**: outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ Verifica se o número de telefone fornecido é válido, com base no padrão de e
 ```
 
 - Declarações de entrada:
-    - **claimToMatch** : "64854114520"
+    - **claimToMatch**: "64854114520"
 - Parâmetros de entrada:
-    - **matchTo** : "^[0-9]{4,16}$"
-    - **outputClaimIfMatched** :  "isPhone"
+    - **matchTo**: "^[0-9]{4,16}$"
+    - **outputClaimIfMatched**:  "isPhone"
 - Declarações de saída:
-    - **outputClaim** : "isPhone"
-    - **regexCompareResultClaim** : true
+    - **outputClaim**: "isPhone"
+    - **regexCompareResultClaim**: true
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -672,15 +672,15 @@ Verifica se o endereço de email fornecido é válido e retorna o alias de email
 ```
 
 - Declarações de entrada:
-    - **claimToMatch** : "emily@contoso.com"
+    - **claimToMatch**: "emily@contoso.com"
 - Parâmetros de entrada:
-    - **matchTo** : `(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched** :  "isEmail"
-    - **extractGroups** : true
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**:  "isEmail"
+    - **extractGroups**: true
 - Declarações de saída:
-    - **outputClaim** : "isEmail"
-    - **regexCompareResultClaim** : true
-    - **mailAlias** : emily
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ Verifica se uma declaração de cadeia de caracteres e o parâmetro de entrada `
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim** : v1
+    - **inputClaim**: v1
 - Parâmetros de entrada:
-    - **matchTo** : V1
-    - **stringComparison** : ordinalIgnoreCase
-    - **stringMatchMsg** :  B2C_V1_90005
-    - **stringMatchMsgCode** :  O TOS é atualizado para v2
+    - **matchTo**: V1
+    - **stringComparison**: ordinalIgnoreCase
+    - **stringMatchMsg**:  B2C_V1_90005
+    - **stringMatchMsgCode**:  O TOS é atualizado para v2
 - Declarações de saída:
-    - **outputClaim1** : B2C_V1_90005
-    - **outputClaim2** : O TOS é atualizado para v2
-    - **stringCompareResultClaim** : true
+    - **outputClaim1**: B2C_V1_90005
+    - **outputClaim2**: O TOS é atualizado para v2
+    - **stringCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ Por exemplo, a seguinte transformação de declarações verifica se o valor da 
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **claimToMatch** : Secundária
+    - **claimToMatch**: Secundária
 - Parâmetros de entrada:
-    - **matchTo** : Secundária
-    - **stringComparison** : ordinalIgnoreCase
-    - **outputClaimIfMatched** :  B2C_V1_90001
+    - **matchTo**: Secundária
+    - **stringComparison**: ordinalIgnoreCase
+    - **outputClaimIfMatched**:  B2C_V1_90001
 - Declarações de saída:
-    - **isMinorResponseCode** : B2C_V1_90001
-    - **isMinor** : true
+    - **isMinorResponseCode**: B2C_V1_90001
+    - **isMinor**: true
 
 
 ## <a name="stringcontains"></a>StringContains
@@ -807,12 +807,12 @@ Use essa transformação de declaração para verificar se um tipo de declaraç�
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim** : "Admin, Approver, Editor"
+    - **inputClaim**: "Admin, Approver, Editor"
 - Parâmetros de entrada:
-    - **contains** : "admin,"
-    - **ignoreCase** : true
+    - **contains**: "admin,"
+    - **ignoreCase**: true
 - Declarações de saída:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ Por exemplo, obtenha o prefixo do país ou da região do número de telefone.
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim** : "+1644114520"
+    - **inputClaim**: "+1644114520"
 - Parâmetros de entrada:
-    - **startIndex** : 0
-    - **length** :  2
+    - **startIndex**: 0
+    - **length**:  2
 - Declarações de saída:
-    - **outputClaim** : "+1"
+    - **outputClaim**: "+1"
 
 ## <a name="stringreplace"></a>StringReplace
 
@@ -883,12 +883,12 @@ Por exemplo, normalize um número de telefone removendo os caracteres `-`
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim** : "+164-411-452-054"
+    - **inputClaim**: "+164-411-452-054"
 - Parâmetros de entrada:
-    - **oldValue** : "-"
-    - **NewValue** : ""
+    - **oldValue**: "-"
+    - **NewValue**: ""
 - Declarações de saída:
-    - **outputClaim** : "+164411452054"
+    - **outputClaim**: "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
@@ -919,11 +919,11 @@ O exemplo a seguir usa uma coleção de cadeias de caracteres de funções de us
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim** : [ "Admin", "Author", "Reader" ]
+  - **inputClaim**: [ "Admin", "Author", "Reader" ]
 - Parâmetros de entrada:
-  - **delimiter** : ","
+  - **delimiter**: ","
 - Declarações de saída:
-  - **outputClaim** : "Admin,Author,Reader"
+  - **outputClaim**: "Admin,Author,Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ O exemplo a seguir usa uma cadeia de caracteres de funções de usuário que usa
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim** : "Admin,Author,Reader"
+  - **inputClaim**: "Admin,Author,Reader"
 - Parâmetros de entrada:
-  - **delimiter** : ","
+  - **delimiter**: ","
 - Declarações de saída:
-  - **outputClaim** : [ "Admin", "Author", "Reader" ]
+  - **outputClaim**: [ "Admin", "Author", "Reader" ]
 
 ## <a name="string-claim-transformations-expressions"></a>Expressões de transformações de declaração de cadeia de caracteres
 Expressões de transformações de declaração nas políticas personalizadas do Azure AD B2C fornecem informações de contexto sobre a ID do locatário e a ID do perfil técnico.

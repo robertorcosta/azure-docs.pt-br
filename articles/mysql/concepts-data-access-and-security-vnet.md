@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
 ms.openlocfilehash: 225afcbafeaf7213b4f040a07d709d33e46b44f4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996280"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -35,7 +35,7 @@ Você também pode considerar o uso de [link privado](concepts-data-access-secur
 
 **Sub-rede:** uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Nós de computadores que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure a segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de Rede Virtual:** Um [ponto de extremidade de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql** , que faz referência ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também aplica-se aos serviços do Banco de Dados do Azure para MySQL e PostgreSQL. É importante observar que, ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade de serviço de VNet, ela configurará o tráfego do ponto de extremidade de serviço para todos os servidores do Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL e Banco de Dados do Azure para PostgreSQL na sub-rede. 
+**Ponto de extremidade de serviço de Rede Virtual:** Um [ponto de extremidade de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também aplica-se aos serviços do Banco de Dados do Azure para MySQL e PostgreSQL. É importante observar que, ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade de serviço de VNet, ela configurará o tráfego do ponto de extremidade de serviço para todos os servidores do Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL e Banco de Dados do Azure para PostgreSQL na sub-rede. 
 
 **Regra da rede virtual:** uma regra da rede virtual para seu servidor do Banco de Dados do Azure para MySQL é uma sub-rede listada no ACL (lista de controle de acesso) do seu servidor do Banco de Dados do Azure para MySQL. Para estar no ACL do seu servidor do Banco de Dados do Azure para MySQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**.
 

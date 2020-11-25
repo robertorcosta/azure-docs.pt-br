@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235810"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994801"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como: exportar a configuração de provisionamento e reverter para um estado válido conhecido
 
@@ -32,7 +32,7 @@ Para exportar sua configuração:
 
 1. No [portal do Azure](https://portal.azure.com/), no painel de navegação esquerdo, selecione **Azure Active Directory**.
 1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais** e escolha seu aplicativo.
-1. No painel de navegação esquerdo, selecione **provisionamento**. Na página configuração de provisionamento, clique em **mapeamentos de atributo**, em seguida, **Mostrar opções avançadas**e, por fim, **examine o esquema**. Isso o levará para o editor de esquema.
+1. No painel de navegação esquerdo, selecione **provisionamento**. Na página configuração de provisionamento, clique em **mapeamentos de atributo**, em seguida, **Mostrar opções avançadas** e, por fim, **examine o esquema**. Isso o levará para o editor de esquema.
 1. Clique em baixar na barra de comandos na parte superior da página para baixar o esquema.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Recuperação de desastre-reverta para um estado válido conhecido

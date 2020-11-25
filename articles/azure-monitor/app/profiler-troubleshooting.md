@@ -7,11 +7,11 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995345"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -168,7 +168,7 @@ Para verificar as configurações que foram usadas para configurar o Diagnóstic
 
 1. Verifique se o iKey na linha de comando do Profiler está correto. 
 
-1. Usando o caminho encontrado noconfig.jsanterior * no* arquivo, verifique o arquivo de log do criador de perfil, chamado **bootstrapn. log**. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
+1. Usando o caminho encontrado noconfig.jsanterior *no* arquivo, verifique o arquivo de log do criador de perfil, chamado **bootstrapn. log**. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
 
     Para VMs, o arquivo geralmente está aqui:
     ```

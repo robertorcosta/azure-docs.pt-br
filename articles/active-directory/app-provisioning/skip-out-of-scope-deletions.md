@@ -12,25 +12,25 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041166"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995362"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a exclusão de contas de usuário que saem do escopo
 
 Por padrão, o mecanismo de provisionamento do Azure AD exclui ou desabilita usuários que saem do escopo. No entanto, para determinados cenários como o WORKDAY para o provisionamento de entrada do usuário do AD, esse comportamento pode não ser o esperado e talvez você queira substituir esse comportamento padrão.  
 
-Este artigo descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para definir o sinalizador * **SkipOutOfScopeDeletions** _ que controla o processamento de contas que saem do escopo. _ If * **SkipOutOfScopeDeletions** _ é definido como 0 (false), as contas que saem do escopo serão desabilitadas no destino.
-_ If * **SkipOutOfScopeDeletions** _ é definido como 1 (true), as contas que saem do escopo não serão desabilitadas no destino. Esse sinalizador é definido no nível _Provisioning aplicativo * e pode ser configurado usando o API do Graph. 
+Este artigo descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para definir o sinalizador ***SkipOutOfScopeDeletions** _ que controla o processamento de contas que saem do escopo. _ If ***SkipOutOfScopeDeletions** _ é definido como 0 (false), as contas que saem do escopo serão desabilitadas no destino.
+_ If ***SkipOutOfScopeDeletions** _ é definido como 1 (true), as contas que saem do escopo não serão desabilitadas no destino. Esse sinalizador é definido no nível _Provisioning aplicativo * e pode ser configurado usando o API do Graph. 
 
-Como essa configuração é amplamente usada com o *WORKDAY para Active Directory* aplicativo de provisionamento de usuário, as etapas a seguir incluem capturas de tela do aplicativo workday. No entanto, a configuração também pode ser usada com *todos os outros aplicativos* , como ServiceNow, Salesforce e dropbox.
+Como essa configuração é amplamente usada com o *WORKDAY para Active Directory* aplicativo de provisionamento de usuário, as etapas a seguir incluem capturas de tela do aplicativo workday. No entanto, a configuração também pode ser usada com *todos os outros aplicativos*, como ServiceNow, Salesforce e dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Etapa 1: recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
 
 1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo. 
-1. Na seção Propriedades do seu aplicativo de provisionamento, copie o valor GUID associado ao campo *ID de Objeto* . Esse valor também é chamado de **ServicePrincipalId** do seu aplicativo e ele será usado em operações do Graph Explorer.
+1. Na seção Propriedades do seu aplicativo de provisionamento, copie o valor GUID associado ao campo *ID de Objeto*. Esse valor também é chamado de **ServicePrincipalId** do seu aplicativo e ele será usado em operações do Graph Explorer.
 
    ![ID da Entidade de Serviço de Aplicativo do Workday](./media/skip-out-of-scope-deletions/wd_export_01.png)
 
@@ -68,9 +68,9 @@ Aqui está o bloco JSON a ser adicionado ao mapeamento.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Etapa 4: atualizar o ponto de extremidade dos segredos com o sinalizador SkipOutOfScopeDeletions
 
-No explorador do Graph, execute o comando a seguir para atualizar o ponto de extremidade dos segredos com o sinalizador * *_SkipOutOfScopeDeletions_* _. 
+No explorador do Graph, execute o comando a seguir para atualizar o ponto de extremidade dos segredos com o sinalizador **_SkipOutOfScopeDeletions_* _. 
 
-Na URL abaixo, substitua [servicePrincipalName] pelo _ *servicePrincipalName* * extraído da [etapa 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+Na URL abaixo, substitua [servicePrincipalName] pelo _ *servicePrincipalName** extraído da [etapa 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

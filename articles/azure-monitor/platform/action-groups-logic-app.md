@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403119"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995090"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -122,7 +122,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
     Em seguida, pesquise e substitua o \<fields\> por marcas de conteúdo dinâmico de mesmo nome.
 
     > [!NOTE]
-    > Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos à mensagem. Use um no recipiente de propriedades **activityLog** e exclua o outro campo. Passe o cursor sobre o campo ** status ** para ver a referência de campo completa, conforme mostrado na captura de tela a seguir:
+    > Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos à mensagem. Use um no recipiente de propriedades **activityLog** e exclua o outro campo. Passe o cursor sobre o campo **status** para ver a referência de campo completa, conforme mostrado na captura de tela a seguir:
 
     ![Ação do Microsoft Teams: postar uma mensagem](media/action-groups-logic-app/teams-action-post-message.png "Ação do Microsoft Teams: postar uma mensagem")
 
@@ -193,7 +193,7 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
 
       !["Condição de carga de integridade do serviço"](media/action-groups-logic-app/service-health-payload-condition.png "Condição de carga de integridade do serviço")
 
-   1. Na condição **se verdadeiro**, siga as instruções nas etapas de 11 a 13 em [Criar um alerta do registro de atividade ](#create-an-activity-log-alert-administrative) para adicionar a ação da Microsoft Teams.
+   1. Na condição **se verdadeiro**, siga as instruções nas etapas de 11 a 13 em [Criar um alerta do registro de atividade](#create-an-activity-log-alert-administrative) para adicionar a ação da Microsoft Teams.
 
    1. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico. Recorte e cole o conteúdo a seguir no campo **Mensagem**. Substitua os campos `[incidentType]`, `[trackingID]`, `[title]`, e `[communication]` pela marcação de conteúdo dinâmica de mesmo nome:
 

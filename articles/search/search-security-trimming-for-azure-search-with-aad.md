@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994954"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar os resultados de Pesquisa Cognitiva do Azure usando identidades Active Directory
 
@@ -187,7 +187,7 @@ A resposta inclui uma lista filtrada de documentos, que consiste naqueles que o 
 
 Neste tutorial, você aprendeu técnicas para usar entradas do AAD para filtrar documentos nos resultados de Pesquisa Cognitiva do Azure, aparando os resultados de documentos que não correspondem ao filtro fornecido na solicitação.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Controle de acesso baseado em identidade usando filtros de Pesquisa Cognitiva do Azure](search-security-trimming-for-azure-search.md)
 + [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
