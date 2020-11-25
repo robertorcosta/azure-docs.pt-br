@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442014"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003083"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: criar ordem de exportação para Azure Data Box (versão prévia)
 
@@ -80,7 +80,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
    ![Selecione a capacidade de Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. Em **ordem** , especifique os detalhes da ordem **básica** . Insira ou selecione as informações a seguir e selecione **Avançar**.
+6. Em **ordem**, especifique os detalhes da ordem **básica** . Insira ou selecione as seguintes informações.
 
     |Configuração  |Valor  |
     |---------|---------|
@@ -88,21 +88,21 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |Resource group | O grupo de recursos selecionado anteriormente. |
     |Nome da ordem de exportação     |  Forneça um nome amigável para acompanhar o pedido. <br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número.      |
 
-    ![Noções básicas de ordem de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Noções básicas de ordem de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Selecione **Avançar: seleção de dados** para continuar.
 
-7. Em **seleção de dados** , selecione **adicionar conta de armazenamento e tipo de exportação**.
+7. Em **seleção de dados**, selecione **adicionar conta de armazenamento e tipo de exportação**.
 
-    ![Adicionar conta de armazenamento e tipo de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Adicionar conta de armazenamento e tipo de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
-8. Na **opção Selecionar exportação** , especifique os detalhes da opção de exportação. Insira ou selecione as informações a seguir e selecione **Adicionar**.
+8. Na **opção Selecionar exportação**, especifique os detalhes da opção de exportação. Insira ou selecione as informações a seguir e selecione **Adicionar**.
 
     |Configuração  |Valor  |
     |---------|---------|
     |Conta de armazenamento     | A conta de armazenamento do Azure de onde você deseja exportar dados. |
     |Tipo de exportação     | Especifica o tipo de dados a serem exportados de **todos os objetos** e **usam o arquivo XML**.<ul><li> **Todos os objetos** – especifica que o trabalho exporta todos os dados dependendo da sua seleção para **Opções de transferência**.</li><li> **Usar arquivo XML** – especifica um arquivo XML que contém um conjunto de caminhos e prefixos para BLOBs e/ou arquivos a serem exportados da conta de armazenamento. O arquivo XML precisa estar no contêiner da conta de armazenamento selecionada e não há suporte para a seleção de compartilhamentos de arquivos. O arquivo precisa ser um arquivo. xml não vazio.</li></ul>        |
-    |Opções de transferência     |  Especifica as opções de transferência de dados de **selecionar tudo** , **todos os BLOBs** e **todos os arquivos**. <ul><li> **Selecionar tudo** -especifica que todos os BLOBs e arquivos do Azure são exportados. Se você estiver usando uma conta de armazenamento que dá suporte apenas a BLOBs (conta de armazenamento de BLOB), a opção **todos os arquivos** não será selecionável.</li><li> **Todos os BLOBs** -especifica que somente os blobs de bloco e de página são exportados.</li><li> **Todos os arquivos** -especifica que todos os arquivos são exportados, excluindo BLOBs. O tipo de conta de armazenamento que você tem (GPv1 e GPv2, armazenamento Premium ou armazenamento de BLOBs) determina os tipos de dados que você pode exportar. Para obter mais informações, consulte [supported Storage accounts for Export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opções de transferência     |  Especifica as opções de transferência de dados de **selecionar tudo**, **todos os BLOBs** e **todos os arquivos**. <ul><li> **Selecionar tudo** -especifica que todos os BLOBs e arquivos do Azure são exportados. Se você estiver usando uma conta de armazenamento que dá suporte apenas a BLOBs (conta de armazenamento de BLOB), a opção **todos os arquivos** não será selecionável.</li><li> **Todos os BLOBs** -especifica que somente os blobs de bloco e de página são exportados.</li><li> **Todos os arquivos** -especifica que todos os arquivos são exportados, excluindo BLOBs. O tipo de conta de armazenamento que você tem (GPv1 e GPv2, armazenamento Premium ou armazenamento de BLOBs) determina os tipos de dados que você pode exportar. Para obter mais informações, consulte [supported Storage accounts for Export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Incluir log detalhado     | Indica se você deseja um arquivo de log detalhado que contenha uma lista de todos os arquivos que foram exportados com êxito.        |
 
     > [!NOTE]
@@ -115,15 +115,88 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
    Para ver um exemplo da entrada XML, consulte [exemplo de entrada XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Em **seleção de dados** , examine as configurações e selecione **avançar: segurança>**.
+9. Em **seleção de dados**, examine as configurações e selecione **avançar: segurança>** para continuar.
 
    ![Ordem de exportação, seleção de dados](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. Em **Segurança** , caso queira habilitar uma criptografia dupla baseada em software, selecione **Habilitar uma criptografia dupla para o pedido**. 
+    A tela de **segurança** permite que você use sua própria chave de criptografia e opte por usar a criptografia dupla.
+
+    Todas as configurações na tela **Segurança** são opcionais. Se você não alterar nenhuma configuração, as configurações padrão serão aplicadas.
+
+    ![Tela de segurança do assistente para Pedidos de importação do Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Se você quiser usar sua própria chave gerenciada pelo cliente para proteger a chave de acesso de desbloqueio para o novo recurso, expanda **tipo de criptografia**.
+
+    A configuração de uma chave gerenciada pelo cliente para seu Azure Data Box é opcional. Por padrão, o Data Box usa uma chave gerenciada da Microsoft para proteger a chave de acesso de desbloqueio.
+
+    Uma chave gerenciada pelo cliente não afeta como os dados no dispositivo são criptografados. A chave é usada somente para criptografar a chave de acesso de desbloqueio do dispositivo.
+
+    Se você não quiser usar uma chave gerenciada pelo cliente, pule para a etapa 16.
+
+    ![Tela de segurança mostrando configurações de tipo de criptografia](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Selecione **chave gerenciada pelo cliente** como o tipo de chave. Em seguida, selecione **selecionar um cofre de chaves e uma chave**.
+   
+    ![Tela de segurança, configurações para uma chave gerenciada pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. Na tela **selecionar chave de Azure Key Vault** , a assinatura é preenchida automaticamente.
+
+    - Para o **Key Vault**, você pode selecionar um cofre de chaves existente na lista suspensa.
+
+      ![Selecionar chave na tela de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - Você também pode selecionar **criar novo** para criar um novo cofre de chaves. Na tela **criar cofre de chaves** , insira o grupo de recursos e o nome do cofre de chaves. Verifique se a **exclusão reversível** e a **proteção de limpeza** estão habilitadas. Aceite todos os outros padrões e selecione **revisar + criar**.
+
+      ![Criar novas configurações de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Examine as informações do cofre de chaves e selecione **criar**. Aguarde alguns minutos para que a criação do cofre de chaves seja concluída.
+
+      ![Tela nova revisão de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. Na tela **selecionar chave de Azure Key Vault** , você pode selecionar uma chave existente no cofre de chaves.
+
+    ![Selecionar chave existente de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Se você quiser criar uma nova chave, selecione **criar nova**. Você deve usar uma chave RSA. O tamanho pode ser 2048 ou maior. Insira um nome para a nova chave, aceite os outros padrões e selecione **criar**.
+
+      ![Criar uma nova opção de chave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Você será notificado quando a chave tiver sido criada no cofre de chaves.
+
+14. Selecione a **versão** da chave a ser usada e escolha **selecionar**.
+
+      ![Nova chave criada no cofre de chaves](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Se você quiser criar uma nova versão de chave, selecione **criar nova**.
+
+    ![Abrir uma caixa de diálogo para criar uma nova versão de chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    Na tela **criar nova chave** , escolha configurações para a nova versão de chave e selecione **criar**.
+
+    ![Criar uma nova versão da chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    As configurações de **tipo de criptografia** na tela **segurança** mostram o cofre de chaves e a chave.
+
+    ![Chave e Key Vault para uma chave gerenciada pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Selecione uma identidade de usuário que você usará para gerenciar o acesso a esse recurso. Escolha **selecionar uma identidade de usuário**. No painel à direita, selecione a assinatura e a identidade gerenciada a ser usada. Em seguida, escolha **Selecionar**.
+
+    Uma identidade gerenciada atribuída pelo usuário é um recurso autônomo do Azure que pode ser usado para gerenciar vários recursos. Para obter mais informações, consulte [tipos de identidade gerenciados](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Se você precisar criar uma nova identidade gerenciada, siga as orientações em [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Selecionar uma identidade de usuário](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    A identidade do usuário é mostrada em configurações de **tipo de criptografia** .
+
+    Você pode recolher as configurações de **tipo de criptografia** agora.
+
+    ![Uma identidade de usuário selecionada mostrada nas configurações de tipo de criptografia](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Se você quiser habilitar a criptografia dupla baseada em software, expanda **criptografia dupla (para ambientes de alta segurança)** e selecione **habilitar criptografia dupla para o pedido**. 
 
     Uma criptografia baseada em software será executada além da criptografia AES de 256 bits dos dados no Data Box.
 
-   
     > [!NOTE]
     > Habilitar essa opção poderá fazer com que o processamento de pedidos e a cópia de dados demorem mais. Não será possível alterar essa opção depois de criar seu pedido.
 
@@ -131,11 +204,11 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     Selecione **Avançar: Detalhes de contato** para continuar.
 
-11. Nos **detalhes de contato** , selecione **+ Adicionar endereço de envio** para inserir suas informações de envio.
+11. Nos **detalhes de contato**, selecione **+ Adicionar endereço de envio** para inserir suas informações de envio.
 
     ![Adicionar endereço de envio](media/data-box-deploy-export-ordered/azure-data-box-export-order-add-shipping-address.png)
 
-12. Em **Adicionar endereço de envio** , forneça seu nome e sobrenome, nome e endereço postal da empresa e um número de telefone válido. Selecione **Validar**. O serviço valida o endereço de remessa para a disponibilidade do serviço. Se o serviço está disponível para o endereço de remessa especificado, você receberá uma notificação para esse efeito.
+12. Em **Adicionar endereço de envio**, forneça seu nome e sobrenome, nome e endereço postal da empresa e um número de telefone válido. Selecione **Validar**. O serviço valida o endereço de remessa para a disponibilidade do serviço. Se o serviço está disponível para o endereço de remessa especificado, você receberá uma notificação para esse efeito.
 
     ![Validar endereço de envio](media/data-box-deploy-export-ordered/azure-data-box-export-order-validate-shipping-address.png)
 
@@ -143,7 +216,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 13. Selecione **Adicionar endereço de envio** depois que os detalhes de envio tiverem sido validados com êxito.
 
-14. Em **detalhes de contato** , revise seu endereço de envio e endereço de email. O serviço envia as notificações por email em relação a quaisquer atualizações do status do pedido para os endereços de email especificados.
+14. Em **detalhes de contato**, revise seu endereço de envio e endereço de email. O serviço envia as notificações por email em relação a quaisquer atualizações do status do pedido para os endereços de email especificados.
 
     É recomendável usar um email de grupo para que você continue a receber notificações caso um administrador do grupo saia.
 
@@ -157,9 +230,9 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 ## <a name="export-order-using-xml-file"></a>Exportar ordem usando arquivo XML
 
-Se você selecionar **usar arquivo XML** , poderá especificar contêineres e blobs específicos (página e bloco) que deseja exportar. Você precisará seguir as especificações de [tabela de arquivo XML de exemplo](#sample-xml-file) para formatar seu XML. As etapas a seguir mostram como usar um arquivo XML para exportar seus dados:
+Se você selecionar **usar arquivo XML**, poderá especificar contêineres e blobs específicos (página e bloco) que deseja exportar. Você precisará seguir as especificações de [tabela de arquivo XML de exemplo](#sample-xml-file) para formatar seu XML. As etapas a seguir mostram como usar um arquivo XML para exportar seus dados:
 
-1. Para **tipo de exportação** , selecione **usar arquivo XML**. Esse é o arquivo XML que especifica BLOBs específicos e arquivos do Azure que você deseja exportar. Para adicionar o arquivo XML, selecione **clique aqui para selecionar um arquivo XML**.
+1. Para **tipo de exportação**, selecione **usar arquivo XML**. Esse é o arquivo XML que especifica BLOBs específicos e arquivos do Azure que você deseja exportar. Para adicionar o arquivo XML, selecione **clique aqui para selecionar um arquivo XML**.
 
      ![Selecionar opção de exportação, XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-select-xml-option.png)
 
@@ -259,7 +332,7 @@ Alguns pontos importantes em relação aos arquivos XML:
 
 A tabela a seguir mostra exemplos de caminhos de blob válidos:
 
-   | Seletor | Caminho do Blob | Descrição |
+   | Seletor | Caminho do Blob | Description |
    | --- | --- | --- |
    | Começa com |/ |Exporta todos os blobs na conta de armazenamento |
    | Começa com |/$root/ |Exporta todos os blobs no contêiner raiz |

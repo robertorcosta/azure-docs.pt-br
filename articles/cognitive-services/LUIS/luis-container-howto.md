@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: local, Docker, contêiner
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460978"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001789"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalar e executar contêineres do Docker para LUIS
 
@@ -60,7 +60,7 @@ Criando APIs para aplicativos empacotados:
 
 A tabela abaixo lista os valores mínimos e recomendados para o host do contêiner. Seus requisitos podem mudar dependendo do volume de tráfego.
 
-|Contêiner| Mínimo | Recomendadas | TPS<br>(Mínimo, máximo)|
+|Contêiner| Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20, 40|
 
@@ -108,7 +108,7 @@ Coloque o arquivo de pacote em um diretório e faça referência a esse diretór
 
 ### <a name="package-types"></a>Tipos de pacote
 
-O diretório de montagem de entrada pode conter os modelos de **produção**, de **preparo**e com **controle de versão** do aplicativo simultaneamente. Todos os pacotes são montados.
+O diretório de montagem de entrada pode conter os modelos de **produção**, de **preparo** e com **controle de versão** do aplicativo simultaneamente. Todos os pacotes são montados.
 
 |Tipo de pacote|API do ponto de extremidade de consulta|Disponibilidade de consulta|Formato do nome de arquivo do pacote|
 |--|--|--|--|
@@ -259,7 +259,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
-|`query`|cadeia de caracteres|A declaração do usuário.|
+|`query`|string|A declaração do usuário.|
 |`verbose`|booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é false.|
 |`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é false.|
 |`show-all-intents`|booleano|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é false.|
@@ -275,13 +275,13 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
-|`q`|cadeia de caracteres|A declaração do usuário.|
+|`q`|string|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
 |`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
 |`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
 |`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Consultar o aplicativo LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Para fazer consultas ao ambiente de **preparo** , substitua `production` na rota por `staging` :
+Para fazer consultas ao ambiente _ de *preparo**, substitua `production` na rota por `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 O nome da versão tem no máximo 10 caracteres e contém apenas caracteres permitidos em uma URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importar os logs de ponto de extremidade para aprendizado ativo
 
@@ -346,11 +346,11 @@ O local a seguir mostra a estrutura de diretórios aninhados para os arquivos de
 /output/luis/{INSTANCE_ID}/
 ```
 
-No portal do LUIS, selecione seu aplicativo e selecione **Importar logs de ponto de extremidade** para carregá-los.
+No portal do LUIS, selecione seu aplicativo e, em seguida, selecione _ *importar logs de ponto de extremidade** para carregar esses logs.
 
 ![Importar arquivos de log do contêiner para aprendizado ativo](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Depois que o log é carregado, [examine as declarações do ponto de extremidade](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) no portal do LUIS.
+Depois que o log é carregado, [examine as declarações do ponto de extremidade](./luis-concept-review-endpoint-utterances.md) no portal do LUIS.
 
 <!--  ## Validate container is running -->
 

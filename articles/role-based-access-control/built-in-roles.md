@@ -10,11 +10,11 @@ ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
 ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980844"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002724"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Todos
+## <a name="all"></a>Tudo
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |

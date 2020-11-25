@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
 ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002437"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Início Rápido: Usar o Cache do Azure para Redis no .NET Framework
 
@@ -83,7 +83,7 @@ No Visual Studio, abra seu arquivo *App.config* e atualize-o para incluir um atr
 
 No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Adicionar uma referência**. Adicionar uma referência ao assembly **System.Configuration**.
 
-Adicione as instruções `using` a seguir ao *Program.cs* :
+Adicione as instruções `using` a seguir ao *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -94,7 +94,7 @@ A conexão com o Cache do Azure para Redis é gerenciada pela classe `Connection
 
 Nunca armazene credenciais no código-fonte. Para manter essa amostra simples, estou usando apenas um arquivo de configuração de segredos externo. Uma abordagem melhor seria usar o [Azure Key Vault com certificados](/rest/api/keyvault/certificate-scenarios).
 
-Em *Program.cs* , adicione os seguintes membros à classe `Program` do seu aplicativo de console:
+Em *Program.cs*, adicione os seguintes membros à classe `Program` do seu aplicativo de console:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -192,13 +192,13 @@ No Visual Studio, clique em **Ferramentas** > **Gerenciador de Pacotes NuGet** >
 Install-Package Newtonsoft.Json
 ```
 
-Adicione a seguinte instrução `using` à parte superior do *Program.cs* :
+Adicione a seguinte instrução `using` à parte superior do *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Adicione a seguinte definição de classe `Employee` ao *Program.cs* :
+Adicione a seguinte definição de classe `Employee` ao *Program.cs*:
 
 ```csharp
 class Employee

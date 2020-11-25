@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655452"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001976"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -349,10 +349,10 @@ A seguinte definição de JSON mostra como criar um gatilho de agendamento com o
 ### <a name="schema-overview"></a>Visão geral do esquema
 A seguinte tabela fornece uma visão geral de alto nível dos principais elementos de esquema relacionados à recorrência e ao agendamento de um gatilho:
 
-| Propriedade JSON | Descrição |
+| Propriedade JSON | Description |
 |:--- |:--- |
 | **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
-| **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Esta propriedade é opcional.  <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
+| **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional.  <br> Para o fuso horário UTC, o formato é `'yyyy-MM-ddTHH:mm:ssZ'` , para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
 | **Fuso horário** | O fuso horário em que o gatilho é criado. Essa configuração afeta **StartTime**, **EndTime** e **Schedule**. Ver a [lista de fuso horário com suporte](#time-zone-option) |
 | **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência**, **intervalo**, **EndTime**, **contagem** e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
 | **frequência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
@@ -382,13 +382,13 @@ Aqui estão alguns dos fusos horários com suporte para gatilhos de agendamento:
 | Fuso horário | Diferença UTC (salvamento não-verão) | Valor do fuso horário | Observe o horário de verão | Formato de carimbo de data/hora |
 | :--- | :--- | :--- | :--- | :--- |
 | Tempo universal coordenado | 0 | `UTC` | Não | `'yyyy-MM-ddTHH:mm:ssZ'`|
-| Hora do Pacífico (PT) | -8 | `Pacific Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora central (CT) | -6 | `Central Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora do leste (ET) | -5 | `Eastern Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora do Pacífico (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora central (CT) | -6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora do leste (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
 | Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora oficial da Europa Central | +1 | `W. Europe Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora padrão da Índia (IST) | + 5:30 | `India Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
-| Hora oficial da China | + 8 | `China Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora oficial da Europa Central | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora padrão da Índia (IST) | + 5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| Hora oficial da China | + 8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
 Esta lista está incompleta. Para obter uma lista completa das opções de fuso horário, explore na [página de criação de gatilho](#data-factory-ui) do portal data Factory
 
@@ -418,7 +418,7 @@ Se vários elementos **schedule** forem especificados, a ordem de avaliação se
 A seguinte tabela descreve elementos **schedule** em detalhes:
 
 
-| Elemento JSON | Descrição | Valores válidos |
+| Elemento JSON | Description | Valores válidos |
 |:--- |:--- |:--- |
 | **alguns** | Minutos da hora em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul>
 | **duração** | As horas do dia em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul> |

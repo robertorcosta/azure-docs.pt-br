@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320953"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002758"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com um Máquina Virtual de Ciência de Dados do Windows
 
@@ -197,7 +197,7 @@ Depois de executar o comando AzCopy para copiar para um blob do Azure, seu arqui
 Você também pode carregar dados do arquivo local em sua VM usando Gerenciador de Armazenamento do Azure:
 
 * Para carregar dados em um contêiner, selecione o contêiner de destino e selecione o botão **carregar** . ![ Captura de tela do botão carregar no Gerenciador de Armazenamento do Azure](./media/vm-do-ten-things/storage-accounts.png)
-* Selecione as reticências ( **...** ) à direita da caixa **arquivos** , selecione um ou vários arquivos para carregar do sistema de arquivos e selecione **carregar** para começar a carregar os arquivos. ![ Captura de tela da caixa de diálogo carregar arquivos](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Selecione as reticências (**...**) à direita da caixa **arquivos** , selecione um ou vários arquivos para carregar do sistema de arquivos e selecione **carregar** para começar a carregar os arquivos. ![ Captura de tela da caixa de diálogo carregar arquivos](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Ler dados de um blob do Azure: ODBC do Python
 

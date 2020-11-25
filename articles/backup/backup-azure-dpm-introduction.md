@@ -4,11 +4,11 @@ description: Neste artigo, saiba como preparar os backups do System Center Data 
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975455"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002845"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -127,12 +127,12 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 7. O agente do Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se não estiverem instalados) para concluir a instalação.
 8. Depois que o agente for instalado, você pode **Fechar** a janela.
 
-    ![Feche](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrar o servidor DPM no cofre
 
 1. No console do administrador do DPM > **Gerenciamento**, selecione **online**. Selecione **Registrar**. O Assistente do Servidor de Registro será aberto.
-2. Em ** Configuração de Proxy**, especifique as configurações de proxy conforme necessário.
+2. Em **Configuração de Proxy**, especifique as configurações de proxy conforme necessário.
 
     ![Configuração de proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
 3. Em **Cofre de Backup**, procure e selecione o arquivo de credenciais do cofre que você baixou.

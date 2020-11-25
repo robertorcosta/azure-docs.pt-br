@@ -7,11 +7,11 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002418"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
 
@@ -76,7 +76,7 @@ No portal do Azure, efetue push de uma alteração para outro repositório de co
 
 1. Na nova folha que é aberta, especifique a assinatura, o grupo de recursos e o nome do recurso do armazenamento secundário e, em seguida, selecione **aplicar**.
 
-1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **rótulo** com o mesmo valor. Escolha **Aplicar**. Repita isso para todos os rótulos em seu repositório primário.
+1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **rótulo** com o mesmo valor. Selecione **Aplicar**. Repita isso para todos os rótulos em seu repositório primário.
 
 1. Repita as etapas anteriores sempre que a configuração for alterada.
 

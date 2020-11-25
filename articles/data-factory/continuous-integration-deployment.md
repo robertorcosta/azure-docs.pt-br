@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658682"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003966"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -636,6 +636,14 @@ Se você implantar um alocador na produção e perceber que há um bug que preci
 Consulte o vídeo abaixo um tutorial em vídeo detalhado sobre como corrigir seus ambientes. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Controle de exposição e sinalizadores de recurso
+
+Ao trabalhar em uma equipe, há instâncias em que você pode mesclar alterações, mas não quer que elas sejam executadas em ambientes elevados, como PROD e QA. Para lidar com esse cenário, a equipe do ADF recomenda [o conceito de DevOps de uso de sinalizadores de recursos](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). No ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade If Condition](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica com base nesses sinalizadores de ambiente.
+
+Para saber como configurar um sinalizador de recurso, consulte o tutorial de vídeo abaixo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Práticas recomendadas para CI/CD
 

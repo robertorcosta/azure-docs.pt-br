@@ -7,12 +7,12 @@ ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761355"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96004255"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurar seu ambiente para os guias de início rápido e tutoriais do IoT Plug and Play
 
@@ -20,7 +20,7 @@ Antes de concluir qualquer um dos tutoriais e guias de início rápido de IoT Pl
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Para evitar a necessidade de instalar o CLI do Azure localmente, você pode usar o Azure Cloud Shell para configurar os serviços de nuvem.
+Evitar a necessidade de instalar a CLI do Azure localmente. É possível usar o Azure Cloud Shell para configurar serviços de nuvem.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -126,7 +126,7 @@ Os guias de início rápido e os tutoriais usam a ferramenta **Azure IOT Explore
 
 Na primeira vez que você executar a ferramenta, você será solicitado a fornecer a cadeia de conexão do Hub IoT. Use a cadeia de conexão que você anotou anteriormente.
 
-Configure a ferramenta para usar os arquivos de modelo que você baixou anteriormente. Na home page da ferramenta, selecione configurações de **IoT plug and Play**e, em seguida, **+ Adicionar > pasta local**. Selecione a pasta *modelos* que você criou anteriormente. Em seguida, selecione **salvar** para salvar as configurações.
+Configure a ferramenta para usar os arquivos de modelo que você baixou anteriormente. Na home page da ferramenta, selecione configurações de **IoT plug and Play** e, em seguida, **+ Adicionar > pasta local**. Selecione a pasta *modelos* que você criou anteriormente. Em seguida, selecione **salvar** para salvar as configurações.
 
 Para saber mais, confira [Instalar e usar o Azure IoT Explorer](howto-use-iot-explorer.md).
 
@@ -143,4 +143,4 @@ az group delete --name my-pnp-resourcegroup
 Agora que você configurou seu ambiente, pode experimentar um dos guias de início rápido ou tutoriais como:
 
 > [!div class="nextstepaction"]
-> [Conectar um aplicativo de dispositivo de Plug and Play de IoT de exemplo ao Hub IoT (Node.js)](quickstart-connect-device-node.md)
+> [Conectar um aplicativo de dispositivo de Plug and Play de IoT de exemplo ao Hub IoT](quickstart-connect-device.md)

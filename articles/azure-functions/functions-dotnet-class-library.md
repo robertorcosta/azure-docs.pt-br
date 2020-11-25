@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002369"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -163,7 +163,7 @@ O arquivo *function.json* gerado inclui uma propriedade `configurationSource` qu
 
 A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj* , mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
+O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj*, mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
@@ -312,7 +312,7 @@ public static class CancellationTokenExample
 }
 ```
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não use `Console.Write` o para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
 

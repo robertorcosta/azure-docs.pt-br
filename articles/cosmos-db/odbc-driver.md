@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003490"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,24 +52,24 @@ Vamos começar com o driver ODBC.
 
 ## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>Etapa 2: conectar-se ao banco de dados Cosmos do Azure
 
-1. Depois de [Instalar o driver ODBC do Azure Cosmos DB](#install), na janela **Administrador de Fonte de Dados ODBC** , clique em **Adicionar**. Você pode criar um DSN de usuário ou de sistema. Neste exemplo, estamos criando um DSN de usuário.
+1. Depois de [Instalar o driver ODBC do Azure Cosmos DB](#install), na janela **Administrador de Fonte de Dados ODBC**, clique em **Adicionar**. Você pode criar um DSN de usuário ou de sistema. Neste exemplo, estamos criando um DSN de usuário.
 
-1. Na janela **Criar Nova Fonte de Dados** , selecione **Driver ODBC do Microsoft Azure Cosmos DB** e clique em **Concluir**.
+1. Na janela **Criar Nova Fonte de Dados**, selecione **Driver ODBC do Microsoft Azure Cosmos DB** e clique em **Concluir**.
 
-1. Na janela **Instalação de SDN do Driver ODBC do Azure Cosmos DB** , preencha as seguintes informações: 
+1. Na janela **Instalação de SDN do Driver ODBC do Azure Cosmos DB**, preencha as seguintes informações: 
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Janela Configuração de DSN do Driver ODBC do Azure Cosmos DB":::
-    - **Nome da Fonte de Dados** : seu próprio nome amigável para o DSN do ODBC. Esse nome é exclusivo à sua conta do Azure Cosmos DB; portanto, nomeie-a corretamente se você tiver várias contas.
-    - **Descrição** : uma breve descrição da fonte de dados.
-    - **Host** : URI de sua conta do Azure Cosmos DB. Você pode recuperar isso na página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. 
-    - **Chave de Acesso** : a chave primária ou secundária, somente leitura ou gravação da página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. É recomendável que você use a chave somente leitura se o DSN for usado para relatórios e processamento de dados somente leitura.
+    - **Nome da Fonte de Dados**: seu próprio nome amigável para o DSN do ODBC. Esse nome é exclusivo à sua conta do Azure Cosmos DB; portanto, nomeie-a corretamente se você tiver várias contas.
+    - **Descrição**: uma breve descrição da fonte de dados.
+    - **Host**: URI de sua conta do Azure Cosmos DB. Você pode recuperar isso na página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. 
+    - **Chave de Acesso**: a chave primária ou secundária, somente leitura ou gravação da página Chaves do Azure Cosmos DB no portal do Azure, conforme mostra a captura de tela a seguir. É recomendável que você use a chave somente leitura se o DSN for usado para relatórios e processamento de dados somente leitura.
     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Página Chaves do Azure Cosmos DB":::
-    - **Criptografar a Tecla de Acesso para** : selecione a melhor opção com base nos usuários deste computador. 
+    - **Criptografar a Tecla de Acesso para**: selecione a melhor opção com base nos usuários deste computador. 
     
 1. Clique no botão **Testar** para ter certeza de que você pode se conectar à sua conta do Azure Cosmos DB. 
 
 1.  Clique em **Opções Avançadas de** e defina os seguintes valores:
-    *  **Versão da API REST** : selecione a [versão da API REST](/rest/api/cosmos-db/) para suas operações. O padrão 2015-12-16. Se você tiver contêineres com [chaves de partição grandes](large-partition-keys.md) e exigir a versão de API REST 2018-12-31:
+    *  **Versão da API REST**: selecione a [versão da API REST](/rest/api/cosmos-db/) para suas operações. O padrão 2015-12-16. Se você tiver contêineres com [chaves de partição grandes](large-partition-keys.md) e exigir a versão de API REST 2018-12-31:
         - Digite **2018-12-31** para a versão da API REST
         - No menu **Iniciar** , digite "regedit" para localizar e abrir o aplicativo **Editor do registro** .
         - No editor do registro, navegue até o caminho: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -79,14 +79,14 @@ Vamos começar com o driver ODBC.
             - Nome do valor: **IgnoreSessionToken**
             - Dados do valor: **1** 
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="configurações do editor do registro":::
-    - **Consistência de Consulta** : selecione o [nível de consistência](consistency-levels.md) para as operações. O padrão é Sessão.
-    - **Número de tentativas** : insira o número de vezes para tentar novamente uma operação se a solicitação inicial não for concluída devido à limitação de taxa de serviço.
-    - **Arquivo de Esquema** : você tem várias opções aqui.
+    - **Consistência de Consulta**: selecione o [nível de consistência](consistency-levels.md) para as operações. O padrão é Sessão.
+    - **Número de tentativas**: insira o número de vezes para tentar novamente uma operação se a solicitação inicial não for concluída devido à limitação de taxa de serviço.
+    - **Arquivo de Esquema**: você tem várias opções aqui.
         - Por padrão, deixar essa entrada como está (em branco), o driver examina a primeira página de dados de todos os contêineres para determinar o esquema de cada contêiner. Isso é conhecido como mapeamento de contêiner. Sem um arquivo de esquema definido, o driver deve executar o exame para cada sessão de driver e pode resultar em um tempo de inicialização mais alto de um aplicativo usando o DSN. É recomendável sempre associar um arquivo de esquema para um DSN.
-        - Se você já tiver um arquivo de esquema (possivelmente um criado usando o editor de esquema), poderá clicar em **procurar** , navegar até o arquivo, clicar em **salvar** e, em seguida, clicar em **OK**.
+        - Se você já tiver um arquivo de esquema (possivelmente um criado usando o editor de esquema), poderá clicar em **procurar**, navegar até o arquivo, clicar em **salvar** e, em seguida, clicar em **OK**.
         - Se você desejar criar um novo esquema, clique em **OK** e clique em **Editor de Esquema** na janela principal. Em seguida, vá para as informações do Editor de Esquema. Ao criar o novo arquivo de esquema, não se esqueça de voltar para a janela **Opções Avançadas** para incluir o arquivo de esquema recém-criado.
 
-1. Depois de concluir e fechar a janela **Instalação de DSN do Driver ODBC do Azure Cosmos DB** , o novo DSN de Usuário é adicionado à guia DSN de Usuário.
+1. Depois de concluir e fechar a janela **Instalação de DSN do Driver ODBC do Azure Cosmos DB**, o novo DSN de Usuário é adicionado à guia DSN de Usuário.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Novo DSN ODBC do Azure Cosmos DB na guia DSN de Usuário":::
 
@@ -97,17 +97,17 @@ Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de co
 1. Depois de concluir as etapas 1-4 em [conectar-se ao banco de dados Cosmos do Azure](#connect), clique em **Editor de esquema** na janela **instalação de DSN do driver ODBC do Azure Cosmos DB** .
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Botão do editor de esquema na janela Instalação de DSN do Driver ODBC do Azure Cosmos DB":::
-1. Na janela **Editor de Esquema** , clique em **Criar Novo**.
+1. Na janela **Editor de Esquema**, clique em **Criar Novo**.
     A janela **gerar esquema** exibe todos os contêineres na conta Azure Cosmos DB. 
 
 1. Selecione um ou mais contêineres para amostra e, em seguida, clique em **exemplo**. 
 
-1. Na guia **Modo de Exibição de Design** , o banco de dados, o esquema e a tabela são representados. Na exibição de tabela, o exame mostra o conjunto de propriedades associado aos nomes de coluna (Nome SQL, Nome da Fonte etc.).
+1. Na guia **Modo de Exibição de Design**, o banco de dados, o esquema e a tabela são representados. Na exibição de tabela, o exame mostra o conjunto de propriedades associado aos nomes de coluna (Nome SQL, Nome da Fonte etc.).
     Para cada coluna, você pode modificar o nome SQL, o tipo SQL, o comprimento SQL (se aplicável), a escala (se aplicável), a precisão (se aplicável) e o que permite valor nulo da coluna.
     - Você pode definir **Ocultar Coluna** como **true** se deseja excluir a coluna dos resultados da consulta. As colunas marcadas com Ocultar Coluna = true não são retornadas para seleção e projeção, embora ainda façam parte do esquema. Por exemplo, você pode ocultar todas as propriedades obrigatórias do sistema do Azure Cosmos DB que começam com “_”.
     - A coluna **id** é o único campo que não pode ser oculto porque ele é usado como a chave primária no esquema normalizado. 
 
-1. Depois de concluir a definição do esquema, clique em **arquivo**  |  **salvar** , navegue até o diretório para salvar o esquema e, em seguida, clique em **salvar**.
+1. Depois de concluir a definição do esquema, clique em **arquivo**  |  **salvar**, navegue até o diretório para salvar o esquema e, em seguida, clique em **salvar**.
 
 1. Para usar esse esquema com um DSN, abra a **janela instalação de DSN do driver ODBC do Azure Cosmos DB** (por meio do administrador de fonte de dados ODBC), clique em **Opções avançadas** e, em seguida, na caixa **arquivo de esquema** , navegue até o esquema salvo. Salvar um arquivo de esquema em um DSN existente modifica a conexão DSN de escopo para os dados e a estrutura definidos pelo esquema.
 
@@ -119,12 +119,12 @@ As etapas a seguir criam um esquema para os dados em um ou mais contêineres usa
 
 1. Depois de concluir as etapas 1-4 em [conectar-se ao banco de dados Cosmos do Azure](#connect), clique em **Editor de esquema** na janela instalação de DSN do driver ODBC do Azure Cosmos DB.
 
-1. Na janela **Editor de Esquema** , clique em **Criar Novo**.
+1. Na janela **Editor de Esquema**, clique em **Criar Novo**.
     A janela **gerar esquema** exibe todos os contêineres na conta Azure Cosmos DB. 
 
-1. Selecione um contêiner na guia **exibição de exemplo** , na coluna **definição de mapeamento** do contêiner, clique em **Editar**. Em seguida, na janela **Definição do Mapeamento** , selecione o método **Delimitadores de Tabela**. Faremos o seguinte:
+1. Selecione um contêiner na guia **exibição de exemplo** , na coluna **definição de mapeamento** do contêiner, clique em **Editar**. Em seguida, na janela **Definição do Mapeamento**, selecione o método **Delimitadores de Tabela**. Faremos o seguinte:
 
-    a. Na caixa **Atributos** , digite o nome de uma propriedade de delimitador. Esta é uma propriedade do documento para a qual você deseja definir o escopo de amostragem, por exemplo, Cidade, e pressione Enter. 
+    a. Na caixa **Atributos**, digite o nome de uma propriedade de delimitador. Esta é uma propriedade do documento para a qual você deseja definir o escopo de amostragem, por exemplo, Cidade, e pressione Enter. 
 
     b. Se você quiser definir o escopo de amostragem para determinados valores para o atributo inserido acima, selecione o atributo na caixa de seleção, insira um valor na caixa **Valor** ( por exemplo, Seattle) e pressione Enter. Você pode continuar a adicionar vários valores para atributos. Apenas certifique-se de que o atributo correto esteja selecionado quando estiver inserindo valores.
 
@@ -137,9 +137,9 @@ As etapas a seguir criam um esquema para os dados em um ou mais contêineres usa
     - Você pode definir **Ocultar Coluna** como **true** se deseja excluir a coluna dos resultados da consulta. As colunas marcadas com Ocultar Coluna = true não são retornadas para seleção e projeção, embora ainda façam parte do esquema. Por exemplo, você pode ocultar todas as propriedades obrigatórias do sistema do Azure Cosmos DB que começam com `_`.
     - A coluna **id** é o único campo que não pode ser oculto porque ele é usado como a chave primária no esquema normalizado. 
 
-1. Depois de concluir a definição do esquema, clique em **arquivo**  |  **salvar** , navegue até o diretório para salvar o esquema e, em seguida, clique em **salvar**.
+1. Depois de concluir a definição do esquema, clique em **arquivo**  |  **salvar**, navegue até o diretório para salvar o esquema e, em seguida, clique em **salvar**.
 
-1. Na janela **Instalação de DSN do Driver ODBC do Azure Cosmos DB** , clique em **Opções Avançadas**. Em seguida, na caixa **Arquivo de Esquema** , navegue até o arquivo de esquema salvo e clique em **OK**. Clique em **OK** novamente para salvar o DSN. Isso salva o esquema que você criou no DSN. 
+1. Na janela **Instalação de DSN do Driver ODBC do Azure Cosmos DB**, clique em **Opções Avançadas**. Em seguida, na caixa **Arquivo de Esquema**, navegue até o arquivo de esquema salvo e clique em **OK**. Clique em **OK** novamente para salvar o DSN. Isso salva o esquema que você criou no DSN. 
 
 ## <a name="optional-set-up-linked-server-connection"></a>(Opcional) Configurar a conexão de servidor vinculado
 
@@ -201,11 +201,11 @@ Para criar um modo de exibição para seus dados, na janela **Editor de esquema*
 :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Criar um modo de exibição":::
 
 
-Em seguida, na janela **Definições de Exibição** , faça o seguinte:
+Em seguida, na janela **Definições de Exibição**, faça o seguinte:
 
-1. Clique em **Novo** , insira um nome para exibição, por exemplo, EmployeesfromSeattleView e, em seguida, clique em **OK**.
+1. Clique em **Novo**, insira um nome para exibição, por exemplo, EmployeesfromSeattleView e, em seguida, clique em **OK**.
 
-1. Na janela **Editar exibição** , insira uma consulta do Azure Cosmos DB. Ela deve ser uma [consulta SQL do Azure Cosmos DB](./sql-query-getting-started.md), por exemplo, `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`. Depois, clique em **OK**.
+1. Na janela **Editar exibição**, insira uma consulta do Azure Cosmos DB. Ela deve ser uma [consulta SQL do Azure Cosmos DB](./sql-query-getting-started.md), por exemplo, `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`. Depois, clique em **OK**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Adicionar consulta ao criar um modo de exibição":::
 
@@ -222,17 +222,17 @@ Você pode usar o novo DSN para conectar o Azure Cosmos DB com qualquer ferramen
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Obter dados em Power BI Desktop":::
 
-1. Na janela **Obter Dados** , clique em **Outro** | **ODBC** | **Conectar**.
+1. Na janela **Obter Dados**, clique em **Outro** | **ODBC** | **Conectar**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Escolher fonte de dados ODBC em Obter dados do Power BI":::
 
-1. Na janela **Do ODBC** , selecione o nome da fonte de dados que você criou e clique em **OK**. Você pode deixar as entradas de **Opções Avançadas** em branco.
+1. Na janela **Do ODBC**, selecione o nome da fonte de dados que você criou e clique em **OK**. Você pode deixar as entradas de **Opções Avançadas** em branco.
 
    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Escolher o nome da fonte de dados (DSN) em Obter dados do Power BI":::
 
-1. Na janela **Acesse uma fonte de dados usando um driver ODBC** , selecione **Padrão ou Personalizada** e clique em **Conectar**. Você não precisa incluir as **Propriedades de cadeia de conexão de credencial**.
+1. Na janela **Acesse uma fonte de dados usando um driver ODBC**, selecione **Padrão ou Personalizada** e clique em **Conectar**. Você não precisa incluir as **Propriedades de cadeia de conexão de credencial**.
 
-1. Na janela **Navegador** , no painel esquerdo, expanda o banco de dados, o esquema e selecione a tabela. O painel de resultados inclui os dados usando o esquema que você criou.
+1. Na janela **Navegador**, no painel esquerdo, expanda o banco de dados, o esquema e selecione a tabela. O painel de resultados inclui os dados usando o esquema que você criou.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Selecionar a Tabela em Obter dados do Power BI":::
 

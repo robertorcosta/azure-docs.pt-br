@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
 ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004272"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Configurar clusters HDInsight para integração de Active Directory com o Enterprise Security Package
 
@@ -22,7 +22,7 @@ Neste artigo, você aprende a criar e configurar um cluster HDInsight integrado 
 
 Para obter um tutorial sobre como configurar e configurar um domínio no Azure e criar um cluster habilitado para ESP, consulte [criar e configurar clusters de Enterprise Security Package no Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 O Enterprise Security Package (ESP) fornece integração de Active Directory para o Azure HDInsight. Essa integração permite que os usuários de domínio usem suas credenciais de domínio para autenticar com clusters HDInsight e executar trabalhos de Big Data.
 

@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444496"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001874"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
 
@@ -128,7 +128,7 @@ O diagrama a seguir mostra como a modificação de um blob após o controle de v
 
 ## <a name="blob-versioning-and-soft-delete"></a>Controle de versão e exclusão reversível do blob
 
-O controle de versão de BLOB e de exclusão reversível de blob funcionam juntos para fornecer proteção de dados ideal. Ao habilitar a exclusão reversível, você especifica por quanto tempo o armazenamento do Azure deve reter um blob excluído por software. Qualquer versão de blob com exclusão reversível permanece no sistema e pode ser reexcluída dentro do período de retenção de exclusão reversível. Para obter mais informações sobre exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs de armazenamento do Azure](storage-blob-soft-delete.md).
+O controle de versão de BLOB e de exclusão reversível de blob funcionam juntos para fornecer proteção de dados ideal. Ao habilitar a exclusão reversível, você especifica por quanto tempo o armazenamento do Azure deve reter um blob excluído por software. Qualquer versão de blob com exclusão reversível permanece no sistema e pode ser reexcluída dentro do período de retenção de exclusão reversível. Para obter mais informações sobre exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs de armazenamento do Azure](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Excluindo um BLOB ou uma versão
 
@@ -187,7 +187,7 @@ O controle de versão de blob foi projetado para proteger seus dados contra excl
 
 A tabela a seguir mostra quais ações do RBAC do Azure dão suporte à exclusão de um BLOB ou uma versão de BLOB.
 
-| Descrição | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
+| Description | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Excluindo a versão atual do blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de dados de blob de armazenamento |
 | Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/ação** | Proprietário de Dados do Blob de Armazenamento |
@@ -293,8 +293,8 @@ A tabela a seguir descreve o comportamento de cobrança para um blob que é excl
 | Se a exclusão reversível de BLOB e o controle de versão estiverem habilitados | Todas as versões existentes com tamanho de conteúdo completo, independentemente da camada. |
 | Se a exclusão reversível de blob estiver habilitada, mas o controle de versão estiver desabilitado | Todos os instantâneos de exclusão reversível existentes com tamanho de conteúdo completo, independentemente da camada. |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Exclusão reversível para BLOBs de armazenamento do Azure](storage-blob-soft-delete.md)
+- [Exclusão reversível para BLOBs de armazenamento do Azure](./soft-delete-blob-overview.md)

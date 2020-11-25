@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/28/2020
-ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/24/2020
+ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910756"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003932"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
 
@@ -37,6 +37,7 @@ Use a atividade fluxo de dados para transformar e mover dados por meio de fluxos
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -56,12 +57,13 @@ Use a atividade fluxo de dados para transformar e mover dados por meio de fluxos
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Flow | A referência ao fluxo de dados que está sendo executado | DataFlowReference | Sim
-integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado. Se não for especificado, a solução de tempo de execução de integração do Azure será usada automaticamente. | IntegrationRuntimeReference | Não
-Compute. coreCount | O número de núcleos usados no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | 8, 16, 32, 48, 80, 144, 272 | Não
-Compute. computetype | O tipo de computação usado no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
+Flow | A referência ao fluxo de dados que está sendo executado | DataFlowReference | Yes
+integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado. Se não for especificado, a solução de tempo de execução de integração do Azure será usada automaticamente. | IntegrationRuntimeReference | No
+Compute. coreCount | O número de núcleos usados no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | 8, 16, 32, 48, 80, 144, 272 | No
+Compute. computetype | O tipo de computação usado no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | "Geral", "ComputeOptimized", "MemoryOptimized" | No
 preparo. linkedService | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, especifique a conta de armazenamento usada para o preparo do polybase.<br/><br/>Se o armazenamento do Azure estiver configurado com o ponto de extremidade do serviço VNet, você deverá usar a autenticação de identidade gerenciada com "permitir serviço Microsoft confiável" habilitado na conta de armazenamento, consulte o [impacto de usar pontos de extremidade do serviço de VNet com o armazenamento do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Além disso, Aprenda as configurações necessárias para o [blob do Azure](connector-azure-blob-storage.md#managed-identity) e [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) , respectivamente.<br/> | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em uma análise de Synapse do Azure
 preparo. folderPath | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | String | Somente se o fluxo de dados lê ou grava no Azure Synapse Analytics
+traceLevel | Definir o nível de log da sua execução de atividade de fluxo de dados | Bem, grande, nenhum | No
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -87,6 +89,12 @@ Para execuções de pipeline, o cluster é um cluster de trabalho, que leva vár
 ### <a name="polybase"></a>PolyBase
 
 Se você estiver usando uma análise de Synapse do Azure (anteriormente SQL Data Warehouse) como um coletor ou uma fonte, deverá escolher um local de preparo para a carga do lote do polybase. O polybase permite o carregamento em lote em massa, em vez de carregar os dados linha por linha. O polybase reduz drasticamente o tempo de carregamento na análise de Synapse do Azure.
+
+## <a name="logging-level"></a>Nível de log
+
+Se você não precisar de cada execução de pipeline de suas atividades de fluxo de dados para registrar completamente todos os logs de telemetria detalhados, você pode, opcionalmente, definir seu nível de log como "básico" ou "nenhum". Ao executar seus fluxos de dados no modo "detalhado" (padrão), você está solicitando que o ADF Registre totalmente a atividade em cada nível de partição individual durante a transformação dos dados. Isso pode ser uma operação cara, portanto, somente habilitar o modo detalhado ao solucionar problemas pode melhorar o fluxo geral de dados e o desempenho do pipeline. O modo "básico" só registrará as durações de transformação, enquanto "nenhum" fornecerá apenas um resumo das durações.
+
+![Nível de log](media/data-flow/logging.png "Definir nível de log")
 
 ## <a name="parameterizing-data-flows"></a>Parametrizando fluxos de dados
 
@@ -116,7 +124,7 @@ O pipeline de depuração é executado no cluster de depuração ativa, não no 
 
 ## <a name="monitoring-the-data-flow-activity"></a>Monitorando a atividade de fluxo de dados
 
-A atividade de fluxo de dados tem uma experiência de monitoramento especial, na qual você pode exibir informações sobre particionamento, tempo de estágio e linhagem de dados. Abra o painel Monitoramento por meio do ícone óculos em **ações** . Para obter mais informações, consulte [monitorando fluxos de dados](concepts-data-flow-monitoring.md).
+A atividade de fluxo de dados tem uma experiência de monitoramento especial, na qual você pode exibir informações sobre particionamento, tempo de estágio e linhagem de dados. Abra o painel Monitoramento por meio do ícone óculos em **ações**. Para obter mais informações, consulte [monitorando fluxos de dados](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usar resultados de atividade de fluxo de dados em uma atividade subsequente
 

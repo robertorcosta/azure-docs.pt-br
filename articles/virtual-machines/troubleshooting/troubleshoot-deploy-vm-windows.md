@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509113"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002539"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Windows no Azure
 
@@ -70,7 +70,7 @@ Para o Enterprise Agreement:
 
 •   Carregar uma VM personalizada e implantar usando um modelo do Resource Manager ou do Azure PowerShell.
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
  - [Visão geral do benefício de uso híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
