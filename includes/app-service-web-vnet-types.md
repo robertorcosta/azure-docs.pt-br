@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999410"
 ---
 * Os sistemas multilocatários que oferecem suporte a toda a gama de planos de preços, exceto isolados.
 * O Ambiente do Serviço de Aplicativo, que é implantado em sua VNet e dá suporte a aplicativos de plano de preços isolados.
@@ -38,5 +38,5 @@ Gateway-a integração VNet necessária fornece acesso a recursos somente na VNe
 Independentemente da versão usada, a integração VNet dá ao seu aplicativo acesso aos recursos em sua VNet, mas não concede acesso privado de entrada ao seu aplicativo por meio da VNet. Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma VNet do Azure. A integração VNet é apenas para fazer chamadas de saída de seu aplicativo para sua VNet.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

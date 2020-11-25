@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235885"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999411"
 ---
-O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu** . Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console** de ferramentas.
+O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console** de ferramentas.
 
 #### <a name="tools"></a>Ferramentas
-Em aplicativos nativos do Windows, as ferramentas **ping** , **nslookup** e **tracert** não funcionarão no console do devido a restrições de segurança (elas funcionam em [contêineres personalizados do Windows](../articles/app-service/quickstart-custom-container.md)). Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver.exe** . A sintaxe do é:
+Em aplicativos nativos do Windows, as ferramentas **ping**, **nslookup** e **tracert** não funcionarão no console do devido a restrições de segurança (elas funcionam em [contêineres personalizados do Windows](../articles/app-service/quickstart-custom-container.md)). Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver.exe**. A sintaxe do é:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -51,7 +51,7 @@ Se esses itens não responderem a seus problemas, veja primeiro algo como:
 **Integração de VNet necessária ao gateway**
 * É o intervalo de endereços de ponto a site nos intervalos RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * O gateway é mostrado como estando ativo no portal? Se o gateway estiver inativo, ative-o.
-* Os certificados são mostrados como estando em sincronia ou você suspeita de que a configuração de rede foi alterada?  Se os certificados estiverem fora de sincronia ou se você suspeitar que uma alteração foi feita em sua configuração de rede virtual que não foi sincronizada com seus ASPs, selecione **sincronizar rede** .
+* Os certificados são mostrados como estando em sincronia ou você suspeita de que a configuração de rede foi alterada?  Se os certificados estiverem fora de sincronia ou se você suspeitar que uma alteração foi feita em sua configuração de rede virtual que não foi sincronizada com seus ASPs, selecione **sincronizar rede**.
 * Se você estiver entrando em uma VPN, o gateway local será configurado para rotear o tráfego de backup para o Azure? Se você puder acessar pontos de extremidade em sua rede virtual, mas não no local, verifique suas rotas.
 * Você está tentando usar um gateway de coexistência que dá suporte a ponto a site e ExpressRoute? Não há suporte para gateways de coexistência com integração VNet.
 
@@ -68,13 +68,13 @@ Você não sabe qual endereço seu aplicativo realmente usa. Pode ser qualquer e
 
 As etapas de depuração adicionais incluem:
 
-* Conecte-se a uma VM em sua rede virtual e tente acessar a porta do host de recursos: a partir daí. Para testar o acesso TCP, use o comando do PowerShell **test-netconnection** . A sintaxe do é:
+* Conecte-se a uma VM em sua rede virtual e tente acessar a porta do host de recursos: a partir daí. Para testar o acesso TCP, use o comando do PowerShell **test-netconnection**. A sintaxe do é:
 
 ```powershell
 test-netconnection hostname [optional: -Port]
 ```
 
-* Traga um aplicativo em uma VM e teste o acesso ao host e à porta do console a partir do seu aplicativo usando o **tcpping** .
+* Traga um aplicativo em uma VM e teste o acesso ao host e à porta do console a partir do seu aplicativo usando o **tcpping**.
 
 #### <a name="on-premises-resources"></a>Recursos locais ####
 

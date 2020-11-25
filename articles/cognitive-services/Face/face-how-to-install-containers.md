@@ -13,11 +13,11 @@ ms.date: 07/16/2020
 ms.author: aahi
 keywords: local, Docker, contêiner, identificar
 ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461505"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000532"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar contêineres de face (visualização)
 
@@ -48,9 +48,9 @@ Você deve atender aos seguintes pré-requisitos antes de usar os contêineres d
 
 A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memória a ser alocada para cada contêiner de serviço de face.
 
-| Contêiner | Mínimo | Recomendadas | Transações por segundo<br>(Mínimo, máximo)|
+| Contêiner | Mínimo | Recomendado | Transações por segundo<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
+|Detecção Facial | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
 * Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
@@ -63,7 +63,7 @@ As imagens de contêiner para o serviço de face estão disponíveis.
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Detecção Facial | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

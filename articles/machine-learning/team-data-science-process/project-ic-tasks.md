@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321916"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000990"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um contribuidor individual no Processo de Ciência de Dados de Equipe
 
@@ -55,7 +55,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou DSV
 
 Para trabalhar com repositórios localmente e enviar por push suas alterações para os repositórios de equipe e projeto compartilhados, primeiro copie ou *clone* os repositórios em seu computador local. 
 
-1. No Azure DevOps, vá para a página de resumo do projeto da sua equipe em *https: \/ / \<server name> / \<organization name> / \<team name>* , por exemplo, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
+1. No Azure DevOps, vá para a página de resumo do projeto da sua equipe em *https: \/ / \<server name> / \<organization name> / \<team name>*, por exemplo, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Selecione **repositórios** no painel de navegação esquerdo e, na parte superior da página, selecione o repositório que você deseja clonar.
    

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000327"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chamar ou disparar aplicativos lógicos usando o Azure Functions e o barramento de serviço do Azure
 
@@ -42,7 +42,7 @@ Para esse cenário, você tem uma função executando cada aplicativo lógico qu
 
    Com o gatilho de solicitação, você pode opcionalmente inserir um esquema JSON a ser usado com a mensagem da fila. Os esquemas JSON ajudam o designer de aplicativo lógico a entender a estrutura dos dados de entrada e tornar as saídas mais fáceis de usar em seu fluxo de trabalho.
 
-1. Para especificar um esquema, insira o esquema na caixa **Esquema JSON do Corpo da Solicitação** , por exemplo:
+1. Para especificar um esquema, insira o esquema na caixa **Esquema JSON do Corpo da Solicitação**, por exemplo:
 
    ![Especificar o esquema JSON](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
 
@@ -50,7 +50,7 @@ Para esse cenário, você tem uma função executando cada aplicativo lógico qu
 
    1. No gatilho de Solicitação, selecione **Usar o conteúdo de amostra para gerar o esquema**.
 
-   1. Em **Inserir ou colar um exemplo de carga JSON** , insira seu conteúdo de exemplo e, em seguida, selecione **concluído**.
+   1. Em **Inserir ou colar um exemplo de carga JSON**, insira seu conteúdo de exemplo e, em seguida, selecione **concluído**.
 
       ![Inserir o conteúdo de exemplo](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 

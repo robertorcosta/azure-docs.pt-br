@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76900695"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000837"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Introdução ao Azure Quickstart Center
 
@@ -36,7 +36,7 @@ O centro de início rápido do Azure tem três opções de introdução:
 
 1. Selecione **todos os serviços** no menu portal do Azure.
 
-1. Selecione **General**  >  **centro de início rápido**geral.
+1. Selecione **General**  >  **centro de início rápido** geral.
 
 Para obter uma visão aprofundada do que o Azure QuickStart Center pode fazer por você, confira este vídeo:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

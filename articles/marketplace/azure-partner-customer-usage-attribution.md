@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628383"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999868"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
@@ -78,7 +78,7 @@ Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e regi
 
 1. Em **Organization profile**  >  **identificadores** de perfil da organização, selecione **Adicionar GUID de acompanhamento**.
 
-1. Na caixa **GUID** , insira seu GUID de acompanhamento. Insira apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição** , insira o nome ou a descrição da sua oferta.
+1. Na caixa **GUID**, insira seu GUID de acompanhamento. Insira apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição**, insira o nome ou a descrição da sua oferta.
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de Rastreamento** novamente. Caixas adicionais aparecerão na página.
 
@@ -100,7 +100,7 @@ Para adicionar um identificador global exclusivo (GUID), você faz uma única mo
 
 1. Abra o modelo do Resource Manager.
 
-1. Adicione um novo recurso do tipo [Microsoft. Resources/Implantations](/azure/templates/microsoft.resources/deployments) no arquivo de modelo principal. O recurso precisa estar no arquivo **mainTemplate.json** ou **azuredeploy.json** , e não em nenhum modelo aninhado ou vinculado.
+1. Adicione um novo recurso do tipo [Microsoft. Resources/Implantations](/azure/templates/microsoft.resources/deployments) no arquivo de modelo principal. O recurso precisa estar no arquivo **mainTemplate.json** ou **azuredeploy.json**, e não em nenhum modelo aninhado ou vinculado.
 
 1. Insira o valor de GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome do recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
@@ -113,7 +113,7 @@ Para adicionar um identificador global exclusivo (GUID), você faz uma única mo
 ### <a name="sample-resource-manager-template-code"></a>Exemplo de código de modelo do Resource Manager
 
 Para habilitar recursos de acompanhamento para o modelo, você precisará adicionar o recurso adicional a seguir na seção de recursos. Não se esqueça de modificar o exemplo código abaixo com suas próprias entradas ao adicioná-lo ao arquivo de modelo principal.
-O recurso precisa ser adicionado ao arquivo **mainTemplate.json** ou **azuredeploy.json** , e não em nenhum modelo aninhado ou vinculado.
+O recurso precisa ser adicionado ao arquivo **mainTemplate.json** ou **azuredeploy.json**, e não em nenhum modelo aninhado ou vinculado.
 
 ```json
 // Make sure to modify this sample code with your own inputs where applicable
@@ -251,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Você pode encontrar o relatório para atribuição de uso do cliente no painel do Partner Center ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver o relatório, você precisa usar suas credenciais do Partner Center para entrar. Se você encontrar problemas com o relatório ou ao entrar, crie uma solicitação de suporte seguindo a instrução na seção Obter suporte.
-
-Escolha Modelo Controlado na lista suspensa do Tipo de Associação de Parceiro para ver o relatório.
-
-![Relatório da atribuição de uso do cliente](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+Você pode encontrar o relatório para atribuição de uso do cliente no painel do Partner Center ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Para ver o relatório, você precisa usar suas credenciais do Partner Center para entrar. Se você encontrar problemas com o relatório ou entrar, crie uma [solicitação de suporte](#get-support).
 
 ## <a name="notify-your-customers"></a>Notificar os clientes
 

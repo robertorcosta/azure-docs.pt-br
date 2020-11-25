@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321942"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000973"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tarefas do líder de projetos no processo de ciência de dados de equipe
 
@@ -57,7 +57,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou Má
 
 Para criar um repositório de projeto no projeto **myTeam** de sua equipe:
 
-1. Vá para a página de **Resumo** do projeto da sua equipe em *\/ / \<server name> / \<organization name> / \<team name> https:* , por exemplo, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** e selecione **repositórios** na barra de navegação à esquerda. 
+1. Vá para a página de **Resumo** do projeto da sua equipe em *\/ / \<server name> / \<organization name> / \<team name> https:*, por exemplo, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** e selecione **repositórios** na barra de navegação à esquerda. 
    
 1. Selecione o nome do repositório na parte superior da página e, em seguida, selecione **novo repositório** na lista suspensa.
    

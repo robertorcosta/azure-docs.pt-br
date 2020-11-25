@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566258"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96000123"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -95,7 +95,7 @@ Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-
 
 As soluções para esse erro incluem:
 
-* No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->** , altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
+* No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->**, altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
 *  Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 429. Como corrigi-la?
@@ -108,7 +108,7 @@ As soluções incluem:
 
 * Você pode [aumentar seu tipo de preço](luis-how-to-azure-subscription.md#change-the-pricing-tier), se não estiver na camada mais alta.
 * Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
-* Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status.
+* Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de terminal retornou resultados inesperados. O que devo fazer?
 
@@ -274,7 +274,7 @@ Transmita o mesmo enunciado do [ponto de extremidade do LUIS](luis-get-started-c
 
 Se você estiver usando o Serviço de Bot do Azure e o problema for que o **Teste no Webchat** retorna `Sorry, my bot code is having an issue`, verifique os logs:
 
-1. No portal do Azure, na seção **Gerenciamento de bot** , escolha **Compilar** para seu bot.
+1. No portal do Azure, na seção **Gerenciamento de bot**, escolha **Compilar** para seu bot.
 1. Abra o editor de código online.
 1. Na barra de navegação superior azul, escolha o nome do bot (o segundo item à direita).
 1. Na lista suspensa resultante, escolha **Abrir o Console do Kudu**.
@@ -286,7 +286,7 @@ Se você estiver usando o Serviço de Bot do Azure e o problema for que o **Test
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração no computador local com o Bot Framework.
 
-Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrando LUIS
 
@@ -296,7 +296,7 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 ![Região do bot do aplicativo Web de modelo de LUIS](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões de LUIS são compatíveis com a preparação de fala do Bot Framework?
-[Preparação de fala](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) é compatível apenas com aplicativos LUIS na instância central (EUA).
+[Preparação de fala](/bot-framework/bot-service-manage-speech-priming) é compatível apenas com aplicativos LUIS na instância central (EUA).
 
 ## <a name="api-programming-strategies"></a>Estratégias de programação de API
 
@@ -334,4 +334,4 @@ Vídeos:
 
 Para saber mais sobre o LUIS, veja os seguintes recursos:
 * [Perguntas do Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Microsoft Q&uma página de perguntas para o MSDN Reconhecimento vocal Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Microsoft Q&uma página de perguntas para o MSDN Reconhecimento vocal Intelligent Services (LUIS)](/answers/topics/azure-language-understanding.html)

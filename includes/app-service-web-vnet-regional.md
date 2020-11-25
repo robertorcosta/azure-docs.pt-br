@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999409"
 ---
 O uso da integração de VNet regional permite que seu aplicativo acesse:
 
@@ -23,8 +23,8 @@ O uso da integração de VNet regional permite que seu aplicativo acesse:
 
 Ao usar a integração VNet com o VNets na mesma região, você pode usar os seguintes recursos de rede do Azure:
 
-* **NSGs (grupos de segurança de rede)** : você pode bloquear o tráfego de saída com um NSG que é colocado em sua sub-rede de integração. As regras de entrada não se aplicam porque você não pode usar a integração VNet para fornecer acesso de entrada ao seu aplicativo.
-* **UDRs (tabelas de rotas)** : você pode inserir uma tabela de rotas na sub-rede de integração para enviar o tráfego de saída onde desejar.
+* **NSGs (grupos de segurança de rede)**: você pode bloquear o tráfego de saída com um NSG que é colocado em sua sub-rede de integração. As regras de entrada não se aplicam porque você não pode usar a integração VNet para fornecer acesso de entrada ao seu aplicativo.
+* **UDRs (tabelas de rotas)**: você pode inserir uma tabela de rotas na sub-rede de integração para enviar o tráfego de saída onde desejar.
 
 Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se você quiser rotear todo o tráfego de saída para sua VNet, aplique a configuração do aplicativo WEBSITE_VNET_ROUTE_ALL ao seu aplicativo. Para definir a configuração do aplicativo:
 
@@ -34,7 +34,7 @@ Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se v
    ![Fornecer configuração de aplicativo][4]
 
 1. Selecione **OK**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 > [!NOTE]
 > Se você rotear todo o tráfego de saída para sua VNet, ele estará sujeito aos NSGs e UDRs que são aplicados à sua sub-rede de integração. Quando você roteia todo o tráfego de saída para sua VNet, seus endereços de saída ainda são os endereços de saída listados nas propriedades do aplicativo, a menos que você forneça rotas para enviar o tráfego em outro lugar.
@@ -110,5 +110,5 @@ Se desejar fazer chamadas para pontos de extremidade [privados][privateendpoints
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000021"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para o líder de equipe em uma equipe de processo de ciência de dados de equipe
 
@@ -89,9 +89,9 @@ Para criar um projeto separado para sua equipe:
    
    ![Selecionar novo projeto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. Na caixa de diálogo **criar projeto** , insira o nome da equipe, como *myTeam* , em **nome do projeto** e selecione **avançado**. 
+1. Na caixa de diálogo **criar projeto** , insira o nome da equipe, como *myTeam*, em **nome do projeto** e selecione **avançado**. 
    
-1. Em **controle de versão** , selecione **git** e, em processo de **item de trabalho** , selecione **Agile**. Em seguida, selecione **Criar**. 
+1. Em **controle de versão**, selecione **git** e, em processo de **item de trabalho**, selecione **Agile**. Em seguida, selecione **Criar**. 
    
    ![Criar projeto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
@@ -99,7 +99,7 @@ A página **Resumo** do projeto de equipe é aberta, com URL de página *https: 
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Renomeie o repositório padrão myTeam para TeamUtilities
 
-1. Na página **Resumo** do projeto **myTeam** , sob **qual serviço você gostaria de começar?** , selecione **repositórios**. 
+1. Na página **Resumo** do projeto **myTeam** , sob **qual serviço você gostaria de começar?**, selecione **repositórios**. 
    
    ![Selecionar repositórios](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
@@ -148,7 +148,7 @@ Para preencher seus repositórios de equipe com o conteúdo dos repositórios co
    
 1. Na parte superior da página **repositórios** do seu projeto, clique no menu suspenso e selecione o repositório **TeamUtilities** .
    
-1. Repita o processo de importação para importar o conteúdo do repositório de utilitários comuns do grupo, por exemplo, *GroupUtilities* , para seu repositório do **TeamUtilities** . 
+1. Repita o processo de importação para importar o conteúdo do repositório de utilitários comuns do grupo, por exemplo, *GroupUtilities*, para seu repositório do **TeamUtilities** . 
    
 Cada um dos seus repositórios de duas equipes agora contém os arquivos do repositório comum de grupo correspondente. 
 
@@ -188,7 +188,7 @@ Para clonar repositórios:
    
 1. Na página repositório, selecione **clonar** no canto superior direito.
    
-1. Na caixa de diálogo **clonar repositório** , em **linha de comando** , selecione **https** para uma conexão http ou **SSH** para uma conexão SSH e copie a URL de clone para a área de transferência.
+1. Na caixa de diálogo **clonar repositório** , em **linha de comando**, selecione **https** para uma conexão http ou **SSH** para uma conexão SSH e copie a URL de clone para a área de transferência.
    
    ![Copiar URL de clone](./media/team-lead-tasks/clone.png)
    
@@ -296,7 +296,7 @@ Para obter informações sobre como compartilhar outros recursos com sua equipe,
    
 1. Selecione a conta de armazenamento a ser usada ou crie uma nova na assinatura selecionada. Você pode usar caracteres minúsculos, números e hifens para o nome do armazenamento de arquivos do Azure.
    
-1. Para facilitar a montagem e o compartilhamento do armazenamento, pressione Enter ou digite *Y* para salvar as informações de armazenamento de arquivos do Azure em um arquivo de texto no diretório atual. Você pode fazer check-in desse arquivo de texto para seu repositório do **teamtemplate** , idealmente em **Docs\DataDictionaries** , para que todos os projetos em sua equipe possam acessá-lo. Você também precisa das informações do arquivo para montar o armazenamento de arquivos do Azure para seu DSVM do Azure na próxima seção. 
+1. Para facilitar a montagem e o compartilhamento do armazenamento, pressione Enter ou digite *Y* para salvar as informações de armazenamento de arquivos do Azure em um arquivo de texto no diretório atual. Você pode fazer check-in desse arquivo de texto para seu repositório do **teamtemplate** , idealmente em **Docs\DataDictionaries**, para que todos os projetos em sua equipe possam acessá-lo. Você também precisa das informações do arquivo para montar o armazenamento de arquivos do Azure para seu DSVM do Azure na próxima seção. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Montar o armazenamento de arquivos do Azure em seu computador local ou DSVM
 
