@@ -4,12 +4,12 @@ description: Descreve como implantar modelos do Azure Resource Manager usando Gi
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905252"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implantar modelos do Azure Resource Manager usando GitHub Actions
 
@@ -112,7 +112,7 @@ O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -137,10 +137,10 @@ O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de
     A primeira seção do arquivo de fluxo de trabalho inclui:
 
     - **nome**: Nome do fluxo de trabalho.
-    - **Ativado**: o nome dos eventos do GitHub que acionam o fluxo de trabalho. O fluxo de trabalho é acionado quando há um evento no qual efetua-se o push na ramificação mestre, que modifica pelo menos um dos dois arquivos especificados. Os dois arquivos correspondem ao arquivo de fluxo de trabalho e ao arquivo de modelo.
+    - **Ativado**: o nome dos eventos do GitHub que acionam o fluxo de trabalho. O fluxo de trabalho é disparado quando há um evento de push na ramificação principal, que modifica pelo menos um dos dois arquivos especificados. Os dois arquivos correspondem ao arquivo de fluxo de trabalho e ao arquivo de modelo.
 
 1. Selecione **Confirmar início**.
-1. Selecione **Confirmar diretamente na ramificação mestre**.
+1. Selecione **confirmar diretamente na ramificação principal**.
 1. Selecione **Confirmar novo arquivo** (ou **Confirmar alterações**).
 
 Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de fluxo de trabalho ou pelo arquivo de modelo que está sendo atualizado, ele é iniciado logo após você confirmar as alterações.
@@ -151,8 +151,7 @@ Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de flu
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar o ARM implantar** no menu para verificar a implantação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando o grupo de recursos e o repositório não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos e seu repositório GitHub. 
 
 ## <a name="next-steps"></a>Próximas etapas

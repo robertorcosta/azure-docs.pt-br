@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319789"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911627"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -26,6 +26,12 @@ O serviço Log Analytics gerencia seus dados baseados em nuvem com segurança us
 * Gerenciamento de incidentes
 * Conformidade
 * Certificações de padrões de segurança
+
+Você também pode usar recursos de segurança adicionais incorporados em Azure Monitor e Log Analytics. Esses recursos exigem mais gerenciamento de administradores. 
+* Chaves gerenciadas pelo cliente (segurança)
+* Armazenamento privado do Azure
+* Rede do Link Privado 
+* Limites de acesso do suporte do Azure definidos pela Lockbox do Azure
 
 Entre em contato conosco com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo nossas políticas de segurança nas [opções de suporte do Azure](https://azure.microsoft.com/support/options/).
 
@@ -170,6 +176,15 @@ O período de retenção dos dados coletados armazenados no banco de dados depen
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. usar Log Analytics para acessar os dados
 Para acessar seu espaço de trabalho do Log Analytics, entre no portal do Azure usando a conta organizacional ou uma conta da Microsoft configurada anteriormente. Todo o tráfego entre o portal e o Log Analytics no serviço é enviado por um canal HTTPS seguro. Ao usar o portal, uma ID de sessão é gerada no cliente do usuário (navegador da Web) e dados são armazenados em um cache local até que a sessão seja encerrada. Após o encerramento, o cache é excluído. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são removidos automaticamente. Os cookies de sessão são marcados como HTTPOnly e são protegidos. Após um período ocioso predeterminado, a sessão do portal do Azure é encerrada.
+
+
+## <a name="additional-security-features"></a>Recursos de segurança adicionais
+Você pode usar esses recursos de segurança adicionais para proteger ainda mais seu ambiente de Azure Monitor/Log Analytics. Esses recursos exigem mais gerenciamento de administradores. 
+- [Chaves gerenciadas pelo cliente (segurança)](customer-managed-keys.md) -você pode usar chaves gerenciadas pelo cliente para criptografar dados enviados para seus espaços de trabalho do log Analytics. Ele requer o uso de Azure Key Vault. 
+- [Armazenamento gerenciado por cliente/privado](private-storage.md) -Gerencie sua conta de armazenamento criptografado pessoalmente e diga log Analytics para usá-la para armazenar dados de monitoramento 
+- [Rede de link privado](private-link-security.md) – o link privado do Azure permite vincular com segurança os serviços de PaaS do Azure (incluindo Azure monitor) à sua rede virtual usando pontos de extremidade privados. 
+- O [Lockbox do cliente do Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) -Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como coletar dados com o Log Analytics para as VMs do Azure seguindo o [guia de início rápido da VM do Azure](../learn/quick-collect-azurevm.md).  

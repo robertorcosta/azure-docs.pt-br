@@ -1,5 +1,5 @@
 ---
-title: Guia de solução de problemas do atestado do Azure
+title: Guia de solução de problemas do Atestado do Azure
 description: Guia de solução de problemas para os problemas mais observados
 services: attestation
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 46e3521a54f6bfdfbfb25634a09b8c8e0cfdcac0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95891275"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de solução de problemas de atestado Microsoft Azure
 
@@ -45,7 +45,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
-**Etapas para solucionar problemas**
+**Etapas de solução de problemas**
 
 Para exibir políticas de atestado/assinantes de política, um usuário do Azure AD requer a permissão para "ações":
 - Microsoft.Attestation/attestationProviders/attestation/read
@@ -64,7 +64,7 @@ Para verificar as funções no PowerShell, execute abaixo:
 
 a. Inicie o PowerShell e faça logon no Azure por meio do cmdlet "Connect-AzAccount"
 
-b. Verifique as configurações de atribuição de função do RBAC
+b. Verifique as configurações de atribuição de função do Azure
 
 
   ```powershell
@@ -134,7 +134,7 @@ Consulte os [exemplos de política de atestado](/azure/attestation/policy-exampl
 - A cotação especificada era inválida porque o dispositivo no qual a cotação foi gerada não atende aos requisitos de linha de base do Azure
 - A aspa especificada era inválida porque o TCBInfo ou o QEID fornecido pelo serviço de cache PCK era inválido
 
-**Etapas para solucionar problemas**
+**Etapas de solução de problemas**
 
 Microsoft Azure atestado dá suporte ao atestado de citações SGX geradas pelo SDK Intel e pelo Open enclave SDK.
 

@@ -2,17 +2,19 @@
 title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460017"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911423"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Azure Resource Manager
 
 Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager. Você usa saídas quando precisa retornar valores dos recursos implantados.
+
+O formato de cada valor de saída deve corresponder a um dos [tipos de dados](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Definir valores de saída
 

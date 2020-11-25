@@ -1,30 +1,30 @@
 ---
-title: Escolher tamanhos de VM para pools
-description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
+title: Escolher tamanhos e imagens de VM para pools
+description: Como escolher entre os tamanhos de VM disponíveis e as versões de so para nós de computação em pools do lote do Azure
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517048"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895223"
 ---
-# <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
+# <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho e uma imagem da VM para nós de computação em um pool do lote do Azure
 
 Ao selecionar um tamanho de nó para um pool de Lote do Azure, você pode escolher dentre quase todos os tamanhos de VM disponíveis no Azure. O Azure oferece uma variedade de tamanhos para VMs do Linux e do Windows para diferentes cargas de trabalho.
 
-Há algumas exceções e limitações para escolher um tamanho de VM:
-
-* Não há suporte no Lote para algumas séries de VM ou tamanhos de VM.
-* Alguns tamanhos de VM são restritos e precisam ser especificamente habilitados antes de serem alocados.
-
 ## <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
+
+Há algumas exceções e limitações para escolher um tamanho de VM para seu pool do lote:
+
+- Não há suporte no Lote para algumas séries de VM ou tamanhos de VM.
+- Alguns tamanhos de VM são restritos e precisam ser especificamente habilitados antes de serem alocados.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pools na configuração de Máquina Virtual
 
-Os pools de lote na configuração da máquina virtual oferecem suporte a quase todos os tamanhos de VM ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). Veja a tabela a seguir para saber mais sobre tamanhos compatíveis e restrições.
+Os pools do lote na configuração de máquina virtual dão suporte a quase todos os [tamanhos de VM](../virtual-machines/sizes.md). Veja a tabela a seguir para saber mais sobre tamanhos compatíveis e restrições.
 
 | Série da VM  | Tamanhos com suporte |
 |------------|---------|
@@ -71,6 +71,7 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 <sup>2</sup> essas séries de VMs só podem ser usadas com imagens de VM de geração 2.
 
 ### <a name="using-generation-2-vm-images"></a>Usando imagens de VM de geração 2
+
 Algumas séries de VMs, como [Mv2](../virtual-machines/mv2-series.md), só podem ser usadas com [imagens de VM de geração 2](../virtual-machines/generation-2.md). As imagens de VM de geração 2 são especificadas como qualquer imagem de VM, usando a propriedade ' SKU ' da configuração [' imageReference '](/rest/api/batchservice/pool/add#imagereference) ; as cadeias de caracteres ' SKU ' têm um sufixo como "-G2" ou "-Gen2". Para obter uma lista de imagens de VM com suporte pelo lote, incluindo imagens de geração 2, use a API ["listar imagens com suporte"](/rest/api/batchservice/account/listsupportedimages) , o [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage)ou o [CLI do Azure](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools na configuração de Serviço de Nuvem
@@ -84,19 +85,27 @@ Os pools de lote na configuração do Serviço de Nuvem oferecem suporte a todos
 
 ## <a name="size-considerations"></a>Considerações de tamanhos
 
-* **Requisitos do aplicativo** - considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Para [cargas de trabalho de MPI](batch-mpi.md) de instâncias múltiplas ou aplicativos CUDA, considere tamanhos de VM de [HPC](../virtual-machines/sizes-hpc.md) especializado ou [habilitado para GPU](../virtual-machines/sizes-gpu.md), respectivamente. (Confira [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).)
+- **Requisitos do aplicativo** - considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Para [cargas de trabalho de MPI](batch-mpi.md) de instâncias múltiplas ou aplicativos CUDA, considere tamanhos de VM de [HPC](../virtual-machines/sizes-hpc.md) especializado ou [habilitado para GPU](../virtual-machines/sizes-gpu.md), respectivamente. Para obter mais informações, consulte [Usar instâncias habilitadas para RDMA ou habilitadas para GPU em Conjuntos de lotes](batch-pool-compute-intensive-sizes.md).
 
-* **Tarefas por nó** - Geralmente, você seleciona um tamanho de nó supondo que uma tarefa seja executada no nó por vez. No entanto, pode ser vantajoso ter várias tarefas (e, portanto, várias instâncias do aplicativo) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum escolher um tamanho multicore de nó para acomodar a demanda crescente de execução de tarefas paralelas.
+- **Tarefas por nó** - Geralmente, você seleciona um tamanho de nó supondo que uma tarefa seja executada no nó por vez. No entanto, pode ser vantajoso ter várias tarefas (e, portanto, várias instâncias do aplicativo) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum escolher um tamanho multicore de nó para acomodar a demanda crescente de execução de tarefas paralelas.
 
-* **Carregar níveis para tarefas diferentes** - Todos os nós em um pool têm o mesmo tamanho. Se você pretende executar aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável usar pools separados.
+- **Carregar níveis para tarefas diferentes** - Todos os nós em um pool têm o mesmo tamanho. Se você pretende executar aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável usar pools separados.
 
-* **Disponibilidade de região** – Uma série ou tamanho de VM pode não estar disponível nas regiões onde você cria suas contas do Lote. Para verificar se um tamanho está disponível, consulte [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+- **Disponibilidade de região** – Uma série ou tamanho de VM pode não estar disponível nas regiões onde você cria suas contas do Lote. Para verificar se um tamanho está disponível, consulte [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
-* **Cotas** - As [cotas principais](batch-quota-limit.md#resource-quotas) na sua conta do Lote podem limitar o número de nós de um determinado tamanho que você pode adicionar a um pool do Lote. Para solicitar um aumento de cota, consulte [este artigo](batch-quota-limit.md#increase-a-quota). 
+- **Cotas** - As [cotas principais](batch-quota-limit.md#resource-quotas) na sua conta do Lote podem limitar o número de nós de um determinado tamanho que você pode adicionar a um pool do Lote. Quando necessário, você pode [solicitar um aumento de cota](batch-quota-limit.md#increase-a-quota).
 
-* **Configuração do pool** - Em geral, você tem mais opções de tamanho de VM quando você cria um pool na configuração da Máquina Virtual, em comparação com a configuração do serviço de nuvem.
+- **Configuração do pool** - Em geral, você tem mais opções de tamanho de VM quando você cria um pool na configuração da Máquina Virtual, em comparação com a configuração do serviço de nuvem.
+
+## <a name="supported-vm-images"></a>Imagens de VM com suporte
+
+Use uma das APIs a seguir para retornar uma lista de imagens de VM do Windows e Linux com suporte no momento pelo lote, incluindo as IDs de SKU do agente de nó para cada imagem:
+
+- API REST do serviço de lote: [listar imagens com suporte](/rest/api/batchservice/account/listsupportedimages)
+- PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
+- CLI do Azure: [AZ batch pool com suporte-imagens](/cli/azure/batch/pool/supported-images)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
-* Para obter informações sobre tamanhos de VM de computação intensiva, consulte [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).
+- Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
+- Para obter informações sobre tamanhos de VM de computação intensiva, consulte [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 1dfe14d96efd37e3dec7faeae1dfff21122958bc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894194"
 ---
 # <a name="service-configuration"></a>Configuração de serviço
 
@@ -37,7 +37,7 @@ Você pode definir uma configuração individual por meio da lista de configura�
 
 Você precisa **reiniciar** o serviço na página **visão geral** do portal do Azure, quando terminar de fazer alterações.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 As personalizações do serviço de aplicativo não se aplicam ao QnA Maker gerenciado (versão prévia).
 
@@ -47,7 +47,7 @@ As personalizações do serviço de aplicativo não se aplicam ao QnA Maker gere
 
 O serviço de QnA Maker fornece configuração para que os usuários a seguir colaborem em um único serviço de QnA Maker e todas as suas bases de dados de conhecimento.
 
-Saiba [como adicionar colaboradores](./how-to/collaborate-knowledge-base.md) ao seu serviço.
+Saiba [como adicionar colaboradores](./reference-role-based-access-control.md) ao seu serviço.
 
 ## <a name="change-azure-cognitive-search"></a>Alterar Pesquisa Cognitiva do Azure
 
@@ -63,7 +63,7 @@ Saiba [como alterar o texto de suas respostas padrão](How-To/change-default-ans
 
 Application Insights é usado para monitorar a telemetria com QnA Maker GA. Não há definições de configuração específicas para QnA Maker.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Saiba [como adicionar telemetria ao seu serviço QnA Maker gerenciado (versão prévia)](How-To/get-analytics-knowledge-base.md). 
 

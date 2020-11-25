@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 49a89ee90d28c9c7a3f59424b773ee0f221381e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301335"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895631"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Início rápido: criar um endereço IP público usando o portal do Azure
 
@@ -36,7 +36,7 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Nome                    | Insira *myStandardZRPublicIP*          |
+    | Name                    | Insira *myStandardZRPublicIP*          |
     | Atribuição de endereço IP   | Observe que isso será bloqueado como "estático"                                        |
     | Tempo limite de ociosidade (minutos)  | Deixe o valor em 4        |
     | Rótulo do nome DNS          | Deixe o valor em branco    |
@@ -46,31 +46,6 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | Zona de disponibilidade       | Selecione **com redundância de zona** ou selecione uma zona específica (veja a observação abaixo) |
 
 Observe que essas são apenas seleções válidas em regiões com [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (Você também pode selecionar uma zona específica nessas regiões, embora ela não seja resiliente a falhas zonais.)
-
-# <a name="standard-sku---no-zones"></a>[**SKU padrão-sem zonas**](#tab/option-create-public-ip-standard)
-
-Use as etapas a seguir para criar um endereço IP público padrão como um recurso não zonal chamado **myStandardPublicIP**.
-
-1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Criar um recurso**. 
-3. Na caixa de pesquisa, digite *Endereço IP público*.
-4. Nos resultados da pesquisa, selecione **Endereço IP público**. Em seguida, na página **Endereço IP público**, selecione **Criar**.
-5. Na página **criar endereço IP público** , insira ou selecione as seguintes informações: 
-
-    | Configuração                 | Valor                       |
-    | ---                     | ---                         |
-    | Versão IP              | Selecionar IPv4                 |    
-    | SKU                     | Selecione **Standard**         |
-    | Nome                    | Insira *myStandardPublicIP*          |
-    | Atribuição de endereço IP   | Observe que isso será bloqueado como "estático"                                        |
-    | Tempo limite de ociosidade (minutos)  | Deixe o valor em 4        |
-    | Rótulo do nome DNS          | Deixe o valor em branco    |
-    | Subscription            | Selecione sua assinatura.   |
-    | Resource group          | Selecione **criar novo** , insira MyResource e, em seguida, selecione **OK** |
-    | Localização                | Selecione **leste dos EUA 2**      |
-    | Zona de disponibilidade       | Selecione **sem zona** (e veja a observação abaixo) |
-
-Essa seleção é válida em todas as regiões e é a seleção padrão para endereços IP públicos padrão em regiões sem sem [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 
@@ -86,7 +61,7 @@ Use as etapas a seguir para criar um endereço IP público estático básico cha
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Nome                    | Insira *myBasicPublicIP*          |
+    | Name                    | Insira *myBasicPublicIP*          |
     | Atribuição de endereço IP   | Escolha **estático** (veja a observação abaixo)                                     |
     | Tempo limite de ociosidade (minutos)  | Deixe o valor em 4        |
     | Rótulo do nome DNS          | Deixe o valor em branco    |

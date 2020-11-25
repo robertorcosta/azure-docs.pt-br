@@ -3,14 +3,14 @@ title: Implantar um Hybrid Runbook Worker do Windows na Automação do Azure
 description: Este artigo informa como implantar um Hybrid Runbook Worker que você pode usar para executar runbooks em computadores baseados no Windows em seu datacenter local ou ambiente de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb501b954897beb73ae05bfdc7b5ded2221dc114
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95493920"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95906612"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -50,7 +50,7 @@ O recurso Hybrid Runbook Worker dá suporte aos seguintes sistemas operacionais:
 
 Os requisitos mínimos para um sistema Windows e Hybrid Runbook Worker de usuário são:
 
-* Windows PowerShell 5.1 ou posterior ([baixe o WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))
+* Windows PowerShell 5,1 ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616)). Não há suporte para o PowerShell Core.
 * .NET Framework 4.6.2 ou posterior
 * Dois núcleos
 * 4 GB de RAM
@@ -153,7 +153,7 @@ Para instalar e configurar um Hybrid Runbook Worker do Windows, execute as etapa
         
             - O [Portal do Azure](../azure-arc/servers/manage-vm-extensions-portal.md)
             - A [CLI do Azure](../azure-arc/servers/manage-vm-extensions-cli.md)
-            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
+            - [PowerShell do Azure](../azure-arc/servers/manage-vm-extensions-powershell.md)
             - Modelos do Azure [Resource Manager](../azure-arc/servers/manage-vm-extensions-template.md)
         
         - Usando Azure Policy.

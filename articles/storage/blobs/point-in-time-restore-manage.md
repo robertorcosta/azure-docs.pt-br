@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280463"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895716"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Executar uma restauração pontual em dados de blob de blocos
 
@@ -29,14 +29,14 @@ Para saber mais sobre a restauração pontual, consulte [restauração pontual p
 
 Antes de habilitar e configurar a restauração pontual, habilite seus pré-requisitos para a conta de armazenamento: exclusão reversível, feed de alteração e controle de versão de BLOB. Para obter mais informações sobre esses recursos, confira estes artigos:
 
-- [Habilitar exclusão reversível para blobs](soft-delete-enable.md)
+- [Habilitar exclusão reversível para blobs](./soft-delete-blob-enable.md)
 - [Habilitar e desabilitar o feed de alterações](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 
 > [!IMPORTANT]
 > Habilitar a exclusão reversível, o feed de alterações e o controle de versão de blob pode resultar em encargos adicionais. Para obter mais informações, consulte [exclusão reversível para BLOBs](soft-delete-blob-overview.md), [suporte ao feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md)e [controle de versão de blob](versioning-overview.md).
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para configurar a restauração pontual com o portal do Azure, siga estas etapas:
 
@@ -112,17 +112,17 @@ Somente os blobs de blocos são restaurados. Blobs de páginas e blobs de acrés
 
 Você pode restaurar todos os contêineres na conta de armazenamento para retorná-los ao estado anterior em um determinado momento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para restaurar todos os contêineres e blobs na conta de armazenamento com o portal do Azure, siga estas etapas:
 
 1. Navegue até a lista de contêineres para sua conta de armazenamento.
-1. Na barra de ferramentas, escolha **restaurar contêineres**e **restaurar tudo**.
+1. Na barra de ferramentas, escolha **restaurar contêineres** e **restaurar tudo**.
 1. No painel **restaurar todos os contêineres** , especifique o ponto de restauração fornecendo uma data e hora.
 1. Confirme que você deseja continuar marcando a caixa.
 1. Selecione **restaurar** para iniciar a operação de restauração.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Captura de tela mostrando como configurar a restauração pontual no portal do Azure":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Captura de tela mostrando como restaurar todos os contêineres para um ponto de restauração especificado":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -158,30 +158,30 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 Você pode restaurar um ou mais intervalos de lexicográfica de BLOBs dentro de um único contêiner ou em vários contêineres para retornar esses BLOBs para seu estado anterior em um determinado momento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para restaurar um intervalo de BLOBs em um ou mais contêineres com o portal do Azure, siga estas etapas:
 
 1. Navegue até a lista de contêineres para sua conta de armazenamento.
 1. Selecione o contêiner ou contêineres a serem restaurados.
-1. Na barra de ferramentas, escolha **restaurar contêineres**e **restaurar selecionado**.
+1. Na barra de ferramentas, escolha **restaurar contêineres** e **restaurar selecionado**.
 1. No painel **restaurar contêineres selecionados** , especifique o ponto de restauração fornecendo uma data e hora.
 1. Especifique os intervalos a serem restaurados. Use uma barra (/) para delinear o nome do contêiner do prefixo do blob.
 1. Por padrão, o painel **restaurar contêineres selecionados** especifica um intervalo que inclui todos os BLOBs no contêiner. Exclua esse intervalo se você não quiser restaurar todo o contêiner. O intervalo padrão é mostrado na imagem a seguir.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Captura de tela mostrando como configurar a restauração pontual no portal do Azure":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Captura de tela mostrando o intervalo de BLOBs padrão a ser excluído antes de especificar o intervalo personalizado":::
 
 1. Confirme que você deseja continuar marcando a caixa.
 1. Selecione **restaurar** para iniciar a operação de restauração.
 
 A imagem a seguir mostra uma operação de restauração em um conjunto de intervalos.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Captura de tela mostrando como configurar a restauração pontual no portal do Azure":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Captura de tela mostrando como restaurar intervalos de BLOBs em um ou mais contêineres":::
 
 A operação de restauração mostrada na imagem executa as seguintes ações:
 
 - Restaura o conteúdo completo de *Container1*.
-- Restaura os BLOBs no intervalo de lexicográfica *blob1* por meio de *blob5* no *container2*. Esse intervalo restaura os BLOBs com nomes como *blob1*, *blob11*, *blob100*, *blob2*e assim por diante. Como o final do intervalo é exclusivo, ele restaura os BLOBs cujos nomes começam com *blob4*, mas não restaura os BLOBs cujos nomes começam com *blob5*.
+- Restaura os BLOBs no intervalo de lexicográfica *blob1* por meio de *blob5* no *container2*. Esse intervalo restaura os BLOBs com nomes como *blob1*, *blob11*, *blob100*, *blob2* e assim por diante. Como o final do intervalo é exclusivo, ele restaura os BLOBs cujos nomes começam com *blob4*, mas não restaura os BLOBs cujos nomes começam com *blob5*.
 - Restaura todos os BLOBs em *container3* e *Container4*. Como o final do intervalo é exclusivo, esse intervalo não restaura *container5*.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -248,6 +248,6 @@ Para executar a operação de restauração de forma síncrona e bloquear a exec
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md)
-- [Exclusão reversível](soft-delete-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Exclusão reversível](./soft-delete-blob-overview.md)
+- [Feed de alteração](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)

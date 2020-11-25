@@ -1,5 +1,5 @@
 ---
-title: Habilitar o log de diagnóstico na API do Azure para FHIR®
+title: Habilitar o log de diagnóstico na API do Azure para FHIR
 description: Este artigo explica como habilitar o log de diagnóstico na API do Azure para FHIR®
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -9,19 +9,19 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398123"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905167"
 ---
-# <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR®
+# <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR
 
-Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure para FHIR® e poderá examinar algumas consultas de exemplo para esses logs. O acesso aos logs de diagnóstico é essencial para qualquer serviço de saúde em que a conformidade com os requisitos regulatórios (como a HIPAA) é uma necessidade. O recurso na API do Azure para FHIR® que habilita logs de diagnóstico são as [**configurações de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) no portal do Azure. 
+Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure para FHIR e poderá examinar algumas consultas de exemplo para esses logs. O acesso aos logs de diagnóstico é essencial para qualquer serviço de saúde em que a conformidade com os requisitos regulatórios (como a HIPAA) é uma necessidade. O recurso na API do Azure para FHIR que habilita logs de diagnóstico são as [**configurações de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) no portal do Azure. 
 
 ## <a name="enable-audit-logs"></a>Habilitar logs de auditoria
-1. Para habilitar o log de diagnóstico na API do Azure para FHIR®, selecione a API do Azure para o serviço de® do FHIR no portal do Azure 
+1. Para habilitar o log de diagnóstico na API do Azure para FHIR, selecione sua API do Azure para o serviço FHIR no portal do Azure 
 2. Navegue até **configurações de diagnóstico**  
  ![ configurações de diagnóstico](media/diagnostic-logging/diagnostic-settings-screen.png) 
 
@@ -35,9 +35,12 @@ Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure
     2. **Transmita para o Hub de eventos** para ingestão por um serviço de terceiros ou uma solução analítica personalizada. Você precisará criar um namespace do hub de eventos e uma política do hub de eventos antes de configurar esta etapa.
     3. **Transmitir para o** espaço de trabalho Log Analytics no Azure monitor. Você precisará criar seu espaço de trabalho do log Analytics antes de poder selecionar essa opção.
 
-6. Selecione **AuditLogs** e as métricas que você deseja capturar
+6. Selecione **AuditLogs** e as métricas que você deseja capturar. Se você estiver usando o conector do Azure IoT para FHIR, certifique-se de selecionar **erros, tráfego e latência** para métricas. 
 
-7. Clique em Salvar
+   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Connector2 IoT" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+
+7. Selecione **Salvar**
+
 
 > [!Note] 
 > Pode levar até 15 minutos para que os primeiros logs sejam mostrados em Log Analytics.  
@@ -45,7 +48,7 @@ Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure
 Para obter mais informações sobre como trabalhar com logs de diagnóstico, consulte a [documentação do log de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Detalhes do log de auditoria
-Neste momento, a API do Azure para FHIR® serviço retorna os seguintes campos no log de auditoria: 
+Neste momento, a API do Azure para o serviço FHIR retorna os seguintes campos no log de auditoria: 
 
 |Nome do campo  |Type  |Observações  |
 |---------|---------|---------|
@@ -56,11 +59,11 @@ Neste momento, a API do Azure para FHIR® serviço retorna os seguintes campos n
 |CorrelationId|String| ID de Correlação
 |FhirResourceType|String|O tipo de recurso para o qual a operação foi executada
 |LogCategory|String|A categoria de log (atualmente, estamos retornando ' AuditLogs ' LogCategory)
-|Location|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
+|Localização|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
 |OperationDuration|int|O tempo necessário para concluir esta solicitação em segundos
 |OperationName|String| Descreve o tipo de operação (por exemplo, atualização, tipo de pesquisa)
 |RequestUri|String|O URI de solicitação 
-|ResultType|String|Os valores disponíveis atualmente foram **iniciados** , **tiveram êxito** ou **falharam**
+|ResultType|String|Os valores disponíveis atualmente foram **iniciados**, **tiveram êxito** ou **falharam**
 |StatusCode|int|O código de status HTTP. (por exemplo, 200) 
 |TimeGenerated|Datetime|Data e hora do evento|
 |Propriedades|String| Descreve as propriedades do fhirResourceType
@@ -80,7 +83,7 @@ MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Execute esta consulta para agrupar operações por **tipo de recurso FHIR** :
+Execute esta consulta para agrupar operações por **tipo de recurso FHIR**:
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 
@@ -95,12 +98,12 @@ MicrosoftHealthcareApisAuditLogs
 ```
 
 ## <a name="conclusion"></a>Conclusão 
-Ter acesso aos logs de diagnóstico é essencial para monitorar um serviço e fornecer relatórios de conformidade. A API do Azure para FHIR® permite que você execute essas ações por meio de logs de diagnóstico. 
+Ter acesso aos logs de diagnóstico é essencial para monitorar um serviço e fornecer relatórios de conformidade. A API do Azure para FHIR permite que você execute essas ações por meio de logs de diagnóstico. 
  
-FHIR® é a marca registrada de HL7 e é usada com a permissão de HL7.
+FHIR é uma marca registrada da HL7, usada com permissão da HL7.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a habilitar os logs de auditoria para a API do Azure para FHIR®. Em seguida, saiba mais sobre outras configurações adicionais que você pode configurar na API do Azure para FHIR
+Neste artigo, você aprendeu a habilitar os logs de auditoria para a API do Azure para FHIR. Em seguida, saiba mais sobre outras configurações adicionais que você pode configurar na API do Azure para FHIR
  
 >[!div class="nextstepaction"]
 >[Configurações adicionais](azure-api-for-fhir-additional-settings.md)

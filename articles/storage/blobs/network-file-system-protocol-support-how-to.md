@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95901546"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
 
@@ -71,7 +71,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Etapa 3: criar uma rede virtual do Azure (VNet)
 
-Sua conta de armazenamento deve estar contida em uma VNet. Uma VNet permite que os clientes se conectem com segurança à sua conta de armazenamento. Para saber mais sobre VNet e como criar uma, consulte a documentação da [rede virtual](https://docs.microsoft.com/azure/virtual-network/).
+Sua conta de armazenamento deve estar contida em uma VNet. Uma VNet permite que os clientes se conectem com segurança à sua conta de armazenamento. Para saber mais sobre VNet e como criar uma, consulte a documentação da [rede virtual](../../virtual-network/index.yml).
 
 > [!NOTE]
 > Os clientes na mesma VNet podem montar contêineres em sua conta. Você também pode montar um contêiner de um cliente que é executado em uma rede local, mas você precisará primeiro conectar sua rede local à sua VNet. Consulte [conexões de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).
@@ -92,14 +92,14 @@ Ao configurar a conta, escolha estes valores:
 
 |Configuração | Valor|
 |----|---|
-|Location|Uma das seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e Canadá central |
+|Localização|Uma das seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e Canadá central |
 |Desempenho|Premium|
 |Tipo de conta|BlockBlobStorage|
 |Replicação|Armazenamento com redundância local (LRS)|
 |Método de conectividade|Ponto de extremidade público (redes selecionadas) ou ponto de extremidade privado|
 |Transferência segura é necessária|Desabilitado|
-|Namespace hierárquico|Habilitada|
-|NFS V3|Habilitada|
+|Namespace hierárquico|habilitado|
+|NFS V3|habilitado|
 
 Você pode aceitar os valores padrão para todas as outras configurações. 
 
@@ -113,7 +113,7 @@ Crie um contêiner em sua conta de armazenamento usando qualquer uma dessas ferr
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Etapa 7: montar o contêiner
 
@@ -144,7 +144,7 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 
    ![Recurso cliente para sistema de arquivos de rede](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Monte um contêiner usando o comando [Mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) .
+2. Monte um contêiner usando o comando [Mount](/windows-server/administration/windows-commands/mount) .
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -172,13 +172,6 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-
