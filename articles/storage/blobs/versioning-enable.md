@@ -10,12 +10,12 @@ ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64ab86836989030c36ad2e8ad054c364b382af0b
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248009"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993730"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
 
@@ -27,7 +27,7 @@ Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB p
 
 ## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para habilitar o controle de versão de blob no portal do Azure:
 
@@ -90,4 +90,4 @@ O exemplo de código a seguir mostra como listar a versão de BLOBs com a biblio
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Controle de versão de BLOB](versioning-overview.md)
-- [Exclusão reversível para blobs do Armazenamento do Azure ](soft-delete-overview.md)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](./soft-delete-blob-overview.md)

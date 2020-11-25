@@ -4,11 +4,11 @@ description: Linha de base de segurança do Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843189"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993645"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de base de segurança do Azure para Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Para saber mais, confira [Criar configurações de diagnóstico para enviar logs
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: coletar logs de segurança de sistemas operacionais
 **Diretrizes:** Azure DevTest Labs VMs (máquinas virtuais) são criadas e pertencentes ao cliente. Portanto, é responsabilidade da organização monitorá-la. Você pode usar a central de segurança do Azure para monitorar o sistema operacional de computação. Os dados coletados pela central de segurança do sistema operacional incluem o tipo e a versão do so, sistema operacional (logs de eventos do Windows), processos em execução, nome da máquina, endereços IP e usuário conectado. O agente de Log Analytics também coleta arquivos de despejo de memória.
 
-Para obter mais informações, consulte os seguintes artigos: 
+Para obter mais informações, confira os seguintes artigos: 
 
 - [Como coletar logs de host interno da máquina virtual do Azure com Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Entender a coleta de dados da central de segurança do Azure](../security-center/security-center-enable-data-collection.md)
@@ -73,7 +73,7 @@ Para obter mais informações, consulte o seguinte artigo: [como definir parâme
 ### <a name="26-monitor-and-review-logs"></a>2.6: monitorar e revisar logs
 **Diretrizes:** Habilite as configurações de diagnóstico do log de atividades do Azure e envie os logs para um espaço de trabalho Log Analytics. Execute consultas em Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base nos dados do log de atividades que podem ter sido coletados para Azure DevTest Labs.
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 - [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/diagnostic-settings.md)
 - [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
@@ -877,7 +877,7 @@ Monitoramento da central de segurança do Azure: * * * * não aplicável
 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
-**Diretrizes:** Siga as regras de envolvimento da Microsoft para garantir que os testes de penetração não estejam em violação às políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes:** Siga as regras de envolvimento da Microsoft para garantir que os testes de penetração não estejam em violação às políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
 - [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 - [Microsoft Cloud Red Integration](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)

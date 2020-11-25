@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 46c27fa2073ea1178fdf01ea3cbf96fe86954a6a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993935"
 ---
 Este artigo lista as versões e os recursos do agente de provisionamento do Azure Active Directory Connect que foram lançados. A equipe do Azure AD atualiza regularmente o agente de provisionamento com novos recursos e funcionalidades. O agente de provisionamento é atualizado automaticamente quando uma nova versão é liberada. 
 
@@ -14,12 +14,12 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ### <a name="release-status"></a>Status de liberação
 
-XX de novembro de 2020: liberado para download
+23 de novembro de 2020: liberado para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
 * Suporte para [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
-* Suporte para grupos com tamanho de 1500 Membros (durante a sincronização Delta)
+* Suporte para grupos com tamanho inferior a 1500 membros durante o ciclo de sincronização incremental ou Delta. Isso é aplicável ao usar o filtro de escopo de grupo
 * Suporte para grupos grandes com tamanho de membro de até 15 k
 * Melhorias de sincronização inicial
 * Log detalhado avançado

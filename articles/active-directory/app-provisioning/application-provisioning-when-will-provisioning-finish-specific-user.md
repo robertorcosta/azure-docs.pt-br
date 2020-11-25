@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235053"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994002"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -35,7 +35,7 @@ Quando você configura o provisionamento automático pela primeira vez, a seçã
 
 Após a conclusão de um ciclo de provisionamento, a seção **estatísticas até a data** mostra os números cumulativos de usuários e grupos que foram provisionados até a data, junto com a data de conclusão e a duração do último ciclo. A **ID da atividade** identifica exclusivamente o ciclo de provisionamento mais recente. A **ID do trabalho** é um identificador exclusivo para o trabalho de provisionamento e é específica para o aplicativo em seu locatário.
 
-O progresso do provisionamento pode ser exibido na portal do Azure, na guia ** &gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo do Azure Active Directory Enterprise apps** .
+O progresso do provisionamento pode ser exibido na portal do Azure, na guia **&gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo do Azure Active Directory Enterprise apps** .
 
 ![Barra de progresso da página de provisionamento](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 

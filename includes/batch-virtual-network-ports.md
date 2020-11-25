@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f17fbfad1e7e550b3a1e95c93e4b061d0f1c3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507569"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993408"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -69,7 +69,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se
 
 | Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) (se estiver usando a variante regional na mesma região em que sua conta do Lote) | * | Qualquer | 29876-29877 | TCP | Allow |
+| N/D | `BatchNodeManagement` [Marca de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se estiver usando a variante regional na mesma região em que sua conta do Lote) | * | Qualquer | 29876-29877 | TCP | Allow |
 | IPs de origem do usuário para acessar remotamente nós de computação e/ou a sub-rede do nó de computação para tarefas de várias instâncias de Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 > [!WARNING]
@@ -79,7 +79,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se
 
 | Fonte | Portas de origem | Destino | Marca de serviço de destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| Qualquer | * | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (se estiver usando a variante regional na mesma região em que sua conta do Lote) | 443 | TCP | Allow |
+| Qualquer | * | [Marca do serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (se estiver usando a variante regional na mesma região em que sua conta do Lote) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pools na configuração dos Serviços de Nuvem
 

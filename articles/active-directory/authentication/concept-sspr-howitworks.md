@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363667"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994257"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -182,7 +182,7 @@ Considere o seguinte cenário de exemplo:
 
 * Há quatro administradores em um ambiente.
 * *O administrador A* redefine sua senha usando SSPR.
-* Os administradores *B*, *C*e *D* recebem um email alertando-os sobre a redefinição de senha.
+* Os administradores *B*, *C* e *D* recebem um email alertando-os sobre a redefinição de senha.
 
 ## <a name="on-premises-integration"></a>Integração local
 
