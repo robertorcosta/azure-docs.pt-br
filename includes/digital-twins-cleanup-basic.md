@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: ab179c5f0c56a7d6fd2ebd41e13d27a832512b54
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 4c03ef942896dda63f678018cdd257024cfbb6d4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358059"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011230"
 ---
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
 
-Usando o [Azure Cloud Shell](https://shell.azure.com), você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Esse comando removerá o grupo de recursos e a instância dos Gêmeos Digitais do Azure.
+Usando o [Azure Cloud Shell](https://shell.azure.com), você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Esse comando removerá o grupo de recursos e a instância dos Gêmeos Digitais do Azure.
 
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente grupo de recursos ou recursos incorretos.

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
 ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011788"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
@@ -94,7 +94,7 @@ A autenticação é necessária em cada solicitação, em que cada solicitação
 
 Para controlar ainda mais o acesso ao serviço de pesquisa, você pode criar regras de firewall de entrada que permitem o acesso a um endereço IP específico ou a um intervalo de endereços IP. Todas as conexões de cliente devem ser feitas por meio de um endereço IP permitido ou a conexão é negada.
 
-:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagrama ilustrando diferentes tipos de segurança em cada nível de envolvimento de serviço":::
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagrama de arquitetura de exemplo para acesso restrito por IP":::
 
 Você pode usar o portal para [Configurar o acesso de entrada](service-configure-firewall.md).
 
@@ -106,7 +106,7 @@ Um [ponto de extremidade privado](../private-link/private-endpoint-overview.md) 
 
 O ponto de extremidade privado usa um endereço IP do espaço de endereço de rede virtual para conexões com o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Uma VNET permite a comunicação segura entre os recursos, com sua rede local, bem como com a Internet.
 
-:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagrama ilustrando diferentes tipos de segurança em cada nível de envolvimento de serviço":::
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagrama de arquitetura de exemplo para acesso de ponto de extremidade privado":::
 
 Embora essa solução seja a mais segura, usar serviços adicionais é um custo adicional, portanto, certifique-se de ter uma compreensão clara dos benefícios antes de mergulhar no. ou mais informações sobre os custos, consulte a [página de preços](https://azure.microsoft.com/pricing/details/private-link/). Para obter mais informações sobre como esses componentes funcionam em conjunto, Assista ao vídeo na parte superior deste artigo. A cobertura da opção de ponto de extremidade particular começa em 5:48 no vídeo. Para obter instruções sobre como configurar o ponto de extremidade, consulte [criar um ponto de extremidade privado para o Azure pesquisa cognitiva](service-create-private-endpoint.md).
 
@@ -126,7 +126,7 @@ Como um usuário acessa um índice e outros objetos é determinado pelo tipo de 
 
 Se você precisar de controle granular por usuário sobre os resultados da pesquisa, poderá criar filtros de segurança em suas consultas, retornando documentos associados a uma determinada identidade de segurança. Em vez de funções predefinidas e atribuições de função, o controle de acesso baseado em identidade é implementado como um *filtro* que corta os resultados da pesquisa de documentos e conteúdo com base em identidades. A tabela a seguir descreve duas abordagens para cortar resultados da pesquisa com conteúdo não autorizado.
 
-| Abordagem | Descrição |
+| Abordagem | Description |
 |----------|-------------|
 |[Filtragem de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
 |[Filtragem de segurança com base em Identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo se expande no artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AD do Azure), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
@@ -142,7 +142,7 @@ Por outro lado, os direitos de administrador sobre o conteúdo hospedado no serv
 
 ## <a name="certifications-and-compliance"></a>Certificações e conformidade
 
-O Azure Pesquisa Cognitiva foi certificado em conformidade com vários padrões globais, regionais e específicos do setor para a nuvem pública e o Azure governamental. Para obter a lista completa, baixe o [White Paper de **ofertas de conformidade Microsoft Azure** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na página de relatórios oficiais de auditoria.
+O Azure Pesquisa Cognitiva foi certificado em conformidade com vários padrões globais, regionais e específicos do setor para a nuvem pública e o Azure governamental. Para obter a lista completa, baixe o [White Paper de **ofertas de conformidade Microsoft Azure**](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na página de relatórios oficiais de auditoria.
 
 Para fins de conformidade, você pode usar [Azure Policy](../governance/policy/overview.md) para implementar as práticas recomendadas de alta segurança do [benchmark de segurança do Azure](../security/benchmarks/introduction.md). O benchmark de segurança do Azure é uma coleção de recomendações de segurança, codificados em controles de segurança que são mapeados para as principais ações que você deve executar para reduzir as ameaças a serviços e dados. Atualmente, há 11 controles de segurança, incluindo [segurança de rede](../security/benchmarks/security-control-network-security.md), [registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md)e [proteção de dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
 
@@ -150,7 +150,7 @@ Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade
 
 Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Conceitos básicos de segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança do Azure](https://azure.microsoft.com/overview/security)

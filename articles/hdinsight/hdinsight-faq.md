@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547513"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011822"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -272,7 +272,7 @@ Consulte [usar nós de borda vazios em clusters de Apache Hadoop no HDInsight](h
 
 ### <a name="how-can-i-connect-to-an-edge-node"></a>Como posso me conectar a um nó de borda?
 
-Depois de criar um nó de borda, você pode se conectar a ele usando SSH na porta 22. Você pode encontrar o nome do nó de borda no portal do cluster. Os nomes geralmente terminam com *-Ed* .
+Depois de criar um nó de borda, você pode se conectar a ele usando SSH na porta 22. Você pode encontrar o nome do nó de borda no portal do cluster. Os nomes geralmente terminam com *-Ed*.
 
 ### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>Por que os scripts persistentes não são executados automaticamente em nós de borda recém-criados?
 

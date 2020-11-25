@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534678"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011499"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do Hive do Azure HDInsight 3.6 para o HDInsight 4.0
 
@@ -39,7 +39,7 @@ Crie uma nova cópia do seu metastore externo. Se você estiver usando um metast
 ### <a name="3-upgrade-metastore-schema"></a>3. Atualizar esquema de metastore
 Depois que a **cópia** do metastore for concluída, execute um script de atualização de esquema na [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) no cluster existente do HDInsight 3,6 para atualizar o novo metastore para o esquema do hive 3. (Essa etapa não exige que o novo metastore esteja conectado a um cluster.) Isso permite que o banco de dados seja anexado como um metastore do HDInsight 4,0.
 
-Use os valores na tabela abaixo. Substitua pelos `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` valores apropriados para a metastore do hive **cópia** , separados por espaços. Não inclua ". database.windows.net" ao especificar o nome do SQL Server.
+Use os valores na tabela abaixo. Substitua pelos `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` valores apropriados para a metastore do hive **cópia**, separados por espaços. Não inclua ". database.windows.net" ao especificar o nome do SQL Server.
 
 |Propriedade | Valor |
 |---|---|
@@ -117,7 +117,7 @@ Os clusters HDInsight 3,6 e 4,0 devem usar a mesma conta de armazenamento.
 
 1. Conecte-se ao cluster HDInsight 3,6 usando um [cliente Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Na sessão SSH aberta, baixe o arquivo de script a seguir para gerar um arquivo chamado **mytables. HQL** .
+1. Na sessão SSH aberta, baixe o arquivo de script a seguir para gerar um arquivo chamado **mytables. HQL**.
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh

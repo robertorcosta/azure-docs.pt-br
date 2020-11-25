@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264126"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011330"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -1083,7 +1083,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Sessão**: a sessão do usuário. A ID é definida para um valor gerado, que é alterado quando o usuário ficar inativo por um tempo.
 * **Usuário**: informações do usuário.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1110,7 +1110,7 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * *Que exceções podem ser lançadas por chamadas Track_()?*
 
-    Nenhum. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
+    nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
 * *Há uma API REST para obter dados do portal?*
 
     Sim, a [API de acesso a dados](https://dev.applicationinsights.io/). Outras maneiras de extrair dados incluem [exportar do Analytics para o Power BI](./export-power-bi.md) e a [exportação contínua](./export-telemetry.md).

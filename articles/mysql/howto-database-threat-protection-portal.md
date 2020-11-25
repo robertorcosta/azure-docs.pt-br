@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012656"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL
 
@@ -29,10 +29,10 @@ A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avança
 ## <a name="set-up-threat-detection"></a>Configurar detecção de ameaças
 1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com) .
 2. Navegue até a página de configuração do servidor do Banco de Dados do Azure para MySQL que deseja proteger. Nas configurações de segurança, selecione **Proteção Avançada contra Ameaças (versão prévia)**.
-3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)** :
+3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)**:
 
    - Habilite a Proteção Avançada contra Ameaças no servidor.
-   - Em **Configurações de Proteção Avançada contra Ameaças** , na caixa de texto **Enviar alertas para** , forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
+   - Em **Configurações de Proteção Avançada contra Ameaças**, na caixa de texto **Enviar alertas para**, forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurar detecção de ameaças":::
 

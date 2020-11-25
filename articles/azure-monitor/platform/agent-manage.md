@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011873"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciar e manter o agente de Log Analytics para o Windows e Linux
 
@@ -38,7 +38,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho.
 
-4. No espaço de trabalho Log Analytics, selecione **Configurações avançadas**, selecione **fontes conectadas**e, por fim, **Windows Servers**.
+4. No espaço de trabalho Log Analytics, selecione **Configurações avançadas**, selecione **fontes conectadas** e, por fim, **Windows Servers**.
 
 5. Na página **servidores Windows** , selecione a versão de **Download** apropriada do agente do Windows para download, dependendo da arquitetura do processador do sistema operacional Windows.
 

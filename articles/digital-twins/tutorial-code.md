@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011231"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -43,7 +43,7 @@ O que você precisa para começar:
 
 Quando estiver pronto para começar a usar sua instância dos Gêmeos Digitais do Azure, inicie a configuração do projeto de aplicativo cliente. 
 
-Abra um prompt de comando ou outra janela do console no computador e crie um diretório de projeto vazio no qual deseja armazenar seu trabalho durante este tutorial. Nomeie o diretório como desejar (por exemplo, *DigitalTwinsCodeTutorial* ).
+Abra um prompt de comando ou outra janela do console no computador e crie um diretório de projeto vazio no qual deseja armazenar seu trabalho durante este tutorial. Nomeie o diretório como desejar (por exemplo, *DigitalTwinsCodeTutorial*).
 
 Acesse o novo diretório.
 
@@ -53,11 +53,11 @@ Quando estiver no diretório do projeto, **crie um projeto de aplicativo de cons
 dotnet new console
 ```
 
-Isso criará vários arquivos dentro do diretório, incluindo um chamado *Program.cs* , no qual você escreverá a maior parte do código.
+Isso criará vários arquivos dentro do diretório, incluindo um chamado *Program.cs*, no qual você escreverá a maior parte do código.
 
 Mantenha a janela Comando aberta, pois você continuará usando-a em todo o tutorial.
 
-Depois, **adicione duas dependências ao seu projeto** , que serão necessárias para trabalhar com os Gêmeos Digitais do Azure. Você pode usar os links abaixo para navegar até os pacotes no NuGet, onde encontrará os comandos de console (inclusive da CLI do .NET) para adicionar a versão mais recente de cada um ao seu projeto.
+Depois, **adicione duas dependências ao seu projeto**, que serão necessárias para trabalhar com os Gêmeos Digitais do Azure. Você pode usar os links abaixo para navegar até os pacotes no NuGet, onde encontrará os comandos de console (inclusive da CLI do .NET) para adicionar a versão mais recente de cada um ao seu projeto.
 * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca fornece ferramentas para ajudar com a autenticação no Azure.
 
@@ -105,7 +105,7 @@ A primeira coisa que o seu aplicativo precisará fazer é se autenticar no servi
 
 Para se autenticar, você precisa de *hostName* da instância dos Gêmeos Digitais do Azure.
 
-Em *Program.cs* , cole o código a seguir abaixo da linha de cópia impressa "Olá, mundo!" no método `Main`. Defina o valor de `adtInstanceUrl` como o *hostName* da instância dos Gêmeos Digitais do Azure.
+Em *Program.cs*, cole o código a seguir abaixo da linha de cópia impressa "Olá, mundo!" no método `Main`. Defina o valor de `adtInstanceUrl` como o *hostName* da instância dos Gêmeos Digitais do Azure.
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -213,7 +213,7 @@ await foreach (DigitalTwinsModelData md in modelDataList)
 }
 ```
 
-**Antes de executar o programa novamente para testar esse novo código** , lembre-se de que na última vez que você executou o programa, você já tinha carregado o modelo. Os Gêmeos Digitais do Azure não permitem que você carregue o mesmo modelo duas vezes. Sendo assim, se você tentar carregar o mesmo modelo novamente, o programa deverá lançar uma exceção.
+**Antes de executar o programa novamente para testar esse novo código**, lembre-se de que na última vez que você executou o programa, você já tinha carregado o modelo. Os Gêmeos Digitais do Azure não permitem que você carregue o mesmo modelo duas vezes. Sendo assim, se você tentar carregar o mesmo modelo novamente, o programa deverá lançar uma exceção.
 
 Com isso em mente, execute o programa novamente com este comando na janela Comando:
 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Na janela Comando, execute o programa com `dotnet run`. Na saída, procure as mensagens de impressão que indicam que *sampleTwin-0* , *sampleTwin-1* e *sampleTwin-2* foram criados. 
+Na janela Comando, execute o programa com `dotnet run`. Na saída, procure as mensagens de impressão que indicam que *sampleTwin-0*, *sampleTwin-1* e *sampleTwin-2* foram criados. 
 
 Depois, execute o programa novamente. 
 

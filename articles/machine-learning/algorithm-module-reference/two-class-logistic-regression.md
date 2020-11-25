@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2e29a666f4d478e11986f834cff94d9743223f22
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420573"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012639"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística Two-Class
 
@@ -40,13 +40,13 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único** : se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros** : se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
   
-3.  Para a **tolerância de otimização** , especifique um valor de limite a ser usado ao otimizar o modelo. Se a melhoria entre as iterações cair abaixo do limite especificado, o algoritmo será considerado convergido em uma solução e o treinamento será interrompido.  
+3.  Para a **tolerância de otimização**, especifique um valor de limite a ser usado ao otimizar o modelo. Se a melhoria entre as iterações cair abaixo do limite especificado, o algoritmo será considerado convergido em uma solução e o treinamento será interrompido.  
   
-4.  Para peso de **regularização L1** e **peso de regularização L2** , digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.  
+4.  Para peso de **regularização L1** e **peso de regularização L2**, digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.  
      A *regularização* é um método para evitar o superajuste por meio da penalização de modelos com valores de coeficiente extremo. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Assim, um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria penalizado menos.  
   
      As regularizações L1 e L2 têm efeitos e usos diferentes.  
@@ -62,20 +62,20 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
     >
     > Combinações lineares diferentes de termos de L1 e L2 foram desenvolvedas para modelos de regressão logística: por exemplo, [regularização de rede elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que você referencie essas combinações para definir uma combinação linear que seja efetiva em seu modelo.
       
-5.  Para o **tamanho da memória para l-BFGS** , especifique a quantidade de memória a ser usada para a otimização de *l-BFGS* .  
+5.  Para o **tamanho da memória para l-BFGS**, especifique a quantidade de memória a ser usada para a otimização de *l-BFGS* .  
   
      L-BFGS significa "memória limitada Broyden-Fletcher-Goldfarb-Shanno". É um algoritmo de otimização que é conhecido por estimativa de parâmetro. Esse parâmetro indica o número de posições anteriores e gradientes a armazenar o cálculo da próxima etapa.  
   
      Esse parâmetro de otimização limita a quantidade de memória usada para calcular a próxima etapa e direção. Quando você especifica menos memória, o treinamento é mais rápido, mas menos preciso.  
   
-6.  Para **semente de número aleatório** , digite um valor inteiro. Definir um valor de semente é importante se você quiser que os resultados sejam reproduzidos em várias execuções do mesmo pipeline.  
+6.  Para **semente de número aleatório**, digite um valor inteiro. Definir um valor de semente é importante se você quiser que os resultados sejam reproduzidos em várias execuções do mesmo pipeline.  
   
   
 8. Adicione um DataSet rotulado ao pipeline e treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

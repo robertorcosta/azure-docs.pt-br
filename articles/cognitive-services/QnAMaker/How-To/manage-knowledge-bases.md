@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011040"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Criar base de dados de conhecimento e gerenciar configurações
 
@@ -91,7 +91,7 @@ QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornec
 
     ![Usar a barra de fonte de dados do QnA Maker para recolher e expandir perguntas e respostas da fonte de dados](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Pesquisar base de dados**de conhecimento: você pode pesquisar a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da base de dados de conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
+* **Pesquisar base de dados** de conhecimento: você pode pesquisar a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da base de dados de conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
 
     ![Usar a caixa de pesquisa do QnA Maker acima das perguntas e respostas para reduzir a exibição apenas para itens correspondentes ao filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 

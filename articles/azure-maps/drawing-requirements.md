@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895827"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013115"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
 
@@ -50,9 +50,9 @@ Você pode organizar os arquivos DWG de qualquer forma dentro da pasta, mas o ar
 
 ## <a name="dwg-files-requirements"></a>Requisitos para arquivos DWG
 
-Apenas um arquivo DWG é necessário para cada nível da instalação. Os dados do nível devem estar contidos em um único arquivo DWG. Todas as referências externas ( _xrefs_ ) devem estar ligadas ao desenho pai. Além disso, cada arquivo DWG:
+Apenas um arquivo DWG é necessário para cada nível da instalação. Os dados do nível devem estar contidos em um único arquivo DWG. Todas as referências externas (_xrefs_) devem estar ligadas ao desenho pai. Além disso, cada arquivo DWG:
 
-* Deve definir as camadas _Exterior_ e _Unidade_ . Opcionalmente, ele pode definir as seguintes camadas opcionais: _mural_ , _porta_ , _UnitLabel_ , _zona_ e _ZoneLabel_ .
+* Deve definir as camadas _Exterior_ e _Unidade_. Opcionalmente, ele pode definir as seguintes camadas opcionais: _mural_, _porta_, _UnitLabel_, _zona_ e _ZoneLabel_.
 * Não deve conter recursos de vários níveis.
 * Não deve conter recursos de várias instalações.
 
@@ -168,7 +168,7 @@ Você pode ver um exemplo da camada ZoneLabel no pacote de [desenho de exemplo](
 
 ## <a name="manifest-file-requirements"></a>Requisitos do arquivo de manifesto
 
-A pasta zip deve conter um arquivo de manifesto no nível raiz do diretório, e o arquivo deve ser nomeado como **manifest.json** . Ele descreve os arquivos DWG para permitir que o [Serviço de conversão do Azure Mapas](/rest/api/maps/conversion) analise seu conteúdo. Somente os arquivos identificados pelo manifesto são ingeridos. Os arquivos que estão na pasta zip, mas que não estão corretamente listados no manifesto, são ignorados.
+A pasta zip deve conter um arquivo de manifesto no nível raiz do diretório, e o arquivo deve ser nomeado como **manifest.json**. Ele descreve os arquivos DWG para permitir que o [Serviço de conversão do Azure Mapas](/rest/api/maps/conversion) analise seu conteúdo. Somente os arquivos identificados pelo manifesto são ingeridos. Os arquivos que estão na pasta zip, mas que não estão corretamente listados no manifesto, são ignorados.
 
 Os caminhos de arquivo no `buildingLevels` objeto do arquivo de manifesto devem ser relativos à raiz da pasta zip. O nome do arquivo DWG deve corresponder exatamente ao nome do nível da instalação. Por exemplo, um arquivo DWG para o nível "porão" é "porão. dwg". Um arquivo DWG para o nível 2 é nomeado como "level_2. dwg". Use um sublinhado se o nome do seu nível tiver um espaço.
 

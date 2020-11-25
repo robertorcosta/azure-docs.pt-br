@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839785"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010938"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
@@ -43,7 +43,7 @@ As seguintes etapas configuram a política de alocação para o registro do disp
 
     * **Menor latência**: esta política atribui dispositivos ao Hub IoT vinculado que resultará nas comunicações de menor latência entre o dispositivo e o Hub IoT. Essa opção permite que o dispositivo se comunique com o Hub IoT mais próximo no local. 
     
-    * **Distribuição uniformemente ponderada**: esta política distribui os dispositivos entre os Hubs IoT vinculados com base no peso de alocação atribuído a cada Hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Esta é a configuração padrão. 
+    * **Distribuição uniformemente ponderada**: esta política distribui os dispositivos entre os Hubs IoT vinculados com base no peso de alocação atribuído a cada Hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Essa é a configuração padrão. 
     
     * **Configuração estática**: essa política requer que um hub IOT desejado seja listado na entrada de registro de um dispositivo a ser provisionado. Essa política permite que você designe um único Hub IoT específico ao qual deseja atribuir dispositivos.
 

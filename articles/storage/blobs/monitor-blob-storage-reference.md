@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d33c368c271c4d1809834e2eeac8c4b5c0ba0441
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357531"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011108"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do armazenamento de BLOBs do Azure
 
@@ -36,12 +36,12 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 #### <a name="blob-storage"></a>Armazenamento de blob
 
-Esta tabela mostra as [métricas de armazenamento de BLOBs](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
+Esta tabela mostra as [métricas de armazenamento de BLOBs](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
-| BlobCapacity | O total de armazenamento de Blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType** e **BlobTier** ( [Definição](#metrics-dimensions)) |
-| BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType** e **BlobTier** ( [Definição](#metrics-dimensions)) |
+| BlobCapacity | O total de armazenamento de Blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType** e **BlobTier** ([Definição](#metrics-dimensions)) |
+| BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType** e **BlobTier** ([Definição](#metrics-dimensions)) |
 | BlobProvisionedSize | A quantidade de armazenamento provisionada na conta de armazenamento. Essa métrica é aplicável somente a contas de armazenamento Premium. <br/><br/> Unidade: bytes <br/> Tipo de agregação: Média |
 | ContainerCount    | O número de contêineres na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | IndexCapacity     | A quantidade de armazenamento usado pelo Índice ADLS Gen2 Hierárquico <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -66,8 +66,8 @@ O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas
 
 | Nome da dimensão | Descrição |
 | ------------------- | ----------------- |
-| **BlobType** | O tipo de blob somente para métricas de Blob. Os valores com suporte são **BlockBlob** , **PageBlob** e **Azure Data Lake Storage**. Os blobs de acréscimo estão incluídos no **BlockBlob**. |
-| **BlobTier** | O Armazenamento do Azure oferece diferentes camadas de acesso que permitem armazenar dados de objeto Blob da maneira mais econômica. Confira mais informações em [Camada de blob de armazenamento do Microsoft Azure](../blobs/storage-blob-storage-tiers.md). Os valores com suporte incluem: <br/> <li>**Frequente** : Camada frequente</li> <li>**Esporádico** : Camada esporádica</li> <li>**Arquivar** : Camada de arquivo</li> <li>**Premium** : Camada Premium para blob de blocos</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Tipos de camada para o Blob de páginas premium</li> <li>**Standard** : Tipo de camada para o Blob de páginas padrão</li> <li>**Sem camadas** : Tipo de camada de conta de armazenamento v1 de uso geral</li> |
+| **BlobType** | O tipo de blob somente para métricas de Blob. Os valores com suporte são **BlockBlob**, **PageBlob** e **Azure Data Lake Storage**. Os blobs de acréscimo estão incluídos no **BlockBlob**. |
+| **BlobTier** | O Armazenamento do Azure oferece diferentes camadas de acesso que permitem armazenar dados de objeto Blob da maneira mais econômica. Confira mais informações em [Camada de blob de armazenamento do Microsoft Azure](../blobs/storage-blob-storage-tiers.md). Os valores com suporte incluem: <br/> <li>**Frequente**: Camada frequente</li> <li>**Esporádico**: Camada esporádica</li> <li>**Arquivar**: Camada de arquivo</li> <li>**Premium**: Camada Premium para blob de blocos</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de camada para o Blob de páginas premium</li> <li>**Standard**: Tipo de camada para o Blob de páginas padrão</li> <li>**Sem camadas**: Tipo de camada de conta de armazenamento v1 de uso geral</li> |
 
 Para saber as dimensões de métricas com suporte, você precisa especificar o valor da dimensão para exibir os valores correspondentes das métricas. Por exemplo, se você pesquisar o valor de **Transações** para respostas com sucesso, você precisa filtrar a dimensão **ResponseType** por **Sucesso**. Se você examinar o valor de **BlobCount** para blob de blocos, precisará filtrar a dimensão de **BlobType** com **BlockBlob**.
 

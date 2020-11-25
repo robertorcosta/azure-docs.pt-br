@@ -10,11 +10,11 @@ ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
 ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012264"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -797,7 +797,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Descrição  |
+| Ferramenta baseada na Web  |     Description  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1309,7 +1309,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Descrição | 
+| Ferramenta baseada na Web | Description | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 

@@ -9,11 +9,11 @@ ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
 ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959876"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010972"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do Serviço de Provisionamento de Dispositivos do Azure
 Um *registro de dispositivo* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para seu serviço de provisionamento programaticamente usando os SDKs de Serviço de Provisionamento do Azure IoT.  Os SDKs do estão disponíveis no GitHub no mesmo repositório dos SDKs do Azure IoT.

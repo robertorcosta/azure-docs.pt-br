@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: f4e713f54ab4702b21763dc9fc6c7b606f94a945
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965707"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011584"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962869"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012929"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurar um nome de domínio personalizado no serviço de Azure App com a integração do Gerenciador de tráfego
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962869"
 > [!NOTE]
 > Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Quando você usa o [Gerenciador de tráfego do Azure](../traffic-manager/index.yml) para balancear a carga do tráfego para [Azure app serviço](overview.md), o aplicativo do serviço de aplicativo pode ser acessado usando ** \<traffic-manager-endpoint> . trafficmanager.net**. Você pode atribuir um nome de domínio personalizado, como www \. contoso.com, ao seu aplicativo do serviço de aplicativo para fornecer um nome de domínio mais reconhecível para seus usuários.
+Quando você usa o [Gerenciador de tráfego do Azure](../traffic-manager/index.yml) para balancear a carga do tráfego para [Azure app serviço](overview.md), o aplicativo do serviço de aplicativo pode ser acessado usando **\<traffic-manager-endpoint> . trafficmanager.net**. Você pode atribuir um nome de domínio personalizado, como www \. contoso.com, ao seu aplicativo do serviço de aplicativo para fornecer um nome de domínio mais reconhecível para seus usuários.
 
 Este artigo mostra como configurar um nome de domínio personalizado com um aplicativo do serviço de aplicativo que é integrado com o [Gerenciador de tráfego](../traffic-manager/traffic-manager-overview.md).
 

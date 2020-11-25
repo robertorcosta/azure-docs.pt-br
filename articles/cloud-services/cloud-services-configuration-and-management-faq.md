@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144692"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011007"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -113,7 +113,7 @@ Você pode automatizar essa tarefa usando um script de inicialização (lote/cmd
 
 Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](/security-updates/securityadvisories/2018/4092731).
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 - [Como configurar e executar tarefas de inicialização para um serviço de nuvem](./cloud-services-startup-tasks.md)
 - [Tarefas de inicialização comuns do Serviço de Nuvem](./cloud-services-startup-tasks-common.md)
 

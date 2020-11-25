@@ -9,11 +9,11 @@ ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088107"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012911"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Início Rápido: Usar o Cache do Azure para Redis no Java
 
@@ -154,7 +154,7 @@ Caso contrário, se você não for mais usar o aplicativo de exemplo do início 
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-1. Na caixa de texto **Filtrar por nome** , digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources*. Em seu grupo de recursos, na lista de resultados, selecione **...** e então **Excluir grupo de recursos**.
+1. Na caixa de texto **Filtrar por nome**, digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources*. Em seu grupo de recursos, na lista de resultados, selecione **...** e então **Excluir grupo de recursos**.
 
    ![Grupo de recursos do Azure excluído](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
