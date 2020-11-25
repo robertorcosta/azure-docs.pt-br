@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376998"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990857"
 ---
 ## <a name="use-custom-page-content"></a>Usar conteúdo de página personalizado
 
@@ -46,7 +46,7 @@ Em vez de criar o conteúdo da página personalizada do zero, você pode persona
 
 A tabela a seguir lista o conteúdo de página padrão fornecido pelo Azure AD B2C. Baixe os arquivos e use-os como um ponto de partida para criar suas próprias páginas personalizadas.
 
-| Página padrão | Descrição | ID de definição de conteúdo<br/>(somente política personalizada) |
+| Página padrão | Description | ID de definição de conteúdo<br/>(somente política personalizada) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Página Autodeclarada**. Use esse arquivo como um conteúdo de página personalizado para uma página de inscrição de conta social, uma página de inscrição de conta local, uma página de entrada de conta local, redefinição de senha e muito mais. O formulário pode conter diferentes controles de entrada, por exemplo: caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla. | *API. localaccountsignin*, *API. localaccountsignup*, *API. localaccountpasswordreset*, *API. selfasserted* |
@@ -56,7 +56,7 @@ A tabela a seguir lista o conteúdo de página padrão fornecido pelo Azure AD B
 
 ## <a name="hosting-the-page-content"></a>Hospedando o conteúdo da página
 
-Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do usuário, hospede o conteúdo da interface do usuário em qualquer ponto de extremidade HTTPS publicamente disponível que ofereça suporte a CORS. Por exemplo, [armazenamento de BLOBs do Azure](../articles/storage/blobs/storage-blobs-introduction.md), [serviços Azure apps](/azure/app-service/), servidores Web, CDNs, AWS S3 ou sistemas de compartilhamento de arquivos.
+Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do usuário, hospede o conteúdo da interface do usuário em qualquer ponto de extremidade HTTPS publicamente disponível que ofereça suporte a CORS. Por exemplo, [armazenamento de BLOBs do Azure](../articles/storage/blobs/storage-blobs-introduction.md), [serviços Azure apps](../articles/app-service/index.yml), servidores Web, CDNs, AWS S3 ou sistemas de compartilhamento de arquivos.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Diretrizes para usar o conteúdo da página personalizada
 
@@ -135,7 +135,7 @@ Para criar um contêiner público no armazenamento de BLOBs, execute as seguinte
 1. Em **serviço blob** no menu à esquerda, selecione **BLOBs**.
 1. Selecione **+ contêiner**.
 1. Para **nome**, insira *raiz*. O nome pode ser um nome de sua escolha, por exemplo, *contoso*, mas usamos *root* neste exemplo para simplificar.
-1. Para **nível de acesso público**, selecione **blob**e **OK**.
+1. Para **nível de acesso público**, selecione **blob** e **OK**.
 1. Selecione **raiz** para abrir o novo contêiner.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 carregar seus arquivos de conteúdo de página personalizada
@@ -159,7 +159,7 @@ Configure o armazenamento de BLOB para compartilhamento de recursos entre origen
 1. Para **cabeçalhos permitidos**, digite um asterisco (*).
 1. Para **cabeçalhos expostos**, digite um asterisco (*).
 1. Para **Idade máxima de**, insira 200.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 #### <a name="31-test-cors"></a>CORS de teste 3,1
 
