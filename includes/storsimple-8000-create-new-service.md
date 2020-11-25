@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d47cf21e25c89c20a8baa31a80b867b74ada93df
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360660"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025934"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -19,17 +19,17 @@ ms.locfileid: "93360660"
 
     ![Criar Gerenciador de Dispositivo StorSimple](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Como alternativa, na portal do Azure clique em **+** e, em **armazenamento** , clique em **série de dispositivo físico StorSimple**.
+    Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Como alternativa, na portal do Azure clique em **+** e, em **armazenamento**, clique em **série de dispositivo físico StorSimple**.
 
     ![Criar StorSimple Device Manager 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
-3. Na folha **StorSimple Device Manager** , siga estas etapas:
+3. Na folha **StorSimple Device Manager**, siga estas etapas:
 
    1. Forneça um **Nome do recurso** exclusivo para o serviço. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 2 e 50 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.
 
    2. Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo não estará presente se você tiver apenas uma assinatura.
 
-   3. Para **Grupo de recursos** , **Usar existente** ou **Criar novo** grupo. Para obter mais informações, veja [Grupos de recursos do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Para **Grupo de recursos**, **Usar existente** ou **Criar novo** grupo. Para obter mais informações, veja [Grupos de recursos do Azure](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Forneça um **Local** para seu serviço. Em geral, escolha um local próximo à região geográfica onde quer implantar os seus serviços. Você talvez queira considerar o seguinte:
 
