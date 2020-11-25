@@ -7,11 +7,11 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890268"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008139"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -107,7 +107,7 @@ As Ferramentas Principais do Azure Functions permitem executar um projeto do Azu
     > [!NOTE]
     > Confira o [Diagnóstico das Durable Functions](durable-functions-diagnostics.md#debugging) para saber mais sobre a depuração.
 
-1. No painel **Terminal** , copie o ponto de extremidade de URL da sua função disparada por HTTP.
+1. No painel **Terminal**, copie o ponto de extremidade de URL da sua função disparada por HTTP.
 
     ![Saída local do Azure](media/durable-functions-create-first-csharp/functions-vscode-f5.png)
 
@@ -183,13 +183,13 @@ O modelo do Azure Functions cria um projeto que pode ser publicado em um aplicat
 
 1. No Visual Studio, selecione **Novo** > **Projeto** no menu **Arquivo**.
 
-1. Na caixa de diálogo **Criar um projeto** , pesquise por `functions`, escolha o modelo do **Azure Functions** e selecione **Avançar**. 
+1. Na caixa de diálogo **Criar um projeto**, pesquise por `functions`, escolha o modelo do **Azure Functions** e selecione **Avançar**. 
 
     ![Diálogo Novo projeto para criar uma função no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
 1. Digite um **Nome do projeto** e selecione **OK**. O nome do projeto deve ser válido como um namespace do C#, então não use hífens, sublinhados ou outros caracteres não alfanuméricos.
 
-1. Em **Criar um Aplicativo do Azure Functions** , use as configurações especificadas na tabela após a imagem.
+1. Em **Criar um Aplicativo do Azure Functions**, use as configurações especificadas na tabela após a imagem.
 
     ![Caixa de diálogo Criar um Aplicativo do Azure Functions no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
