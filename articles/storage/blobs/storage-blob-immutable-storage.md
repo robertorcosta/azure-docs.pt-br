@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658546"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010054"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob comercialmente críticos com armazenamento imutável
 
@@ -76,7 +76,7 @@ Os seguintes limites se aplicam às políticas de retenção:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Permitir gravações de blobs de acréscimo protegidos
 
-Os blobs de acréscimo são compostos de blocos de dados e otimizados para operações de acréscimo de dados exigidas pelos cenários de auditoria e registro em log. Por design, os blobs de acréscimo permitem apenas a adição de novos blocos ao final do blob. Independentemente da imutabilidade, a modificação ou a exclusão de blocos existentes em um blob de acréscimo não é permitida de maneira fundamental. Para saber mais sobre blobs de acréscimo, confira [sobre blobs de acréscimo](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Os blobs de acréscimo são compostos de blocos de dados e otimizados para operações de acréscimo de dados exigidas pelos cenários de auditoria e registro em log. Por design, os blobs de acréscimo permitem apenas a adição de novos blocos ao final do blob. Independentemente da imutabilidade, a modificação ou a exclusão de blocos existentes em um blob de acréscimo não é permitida de maneira fundamental. Para saber mais sobre blobs de acréscimo, confira [sobre blobs de acréscimo](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Somente as políticas de retenção baseadas em tempo têm uma `allowProtectedAppendWrites` configuração que permite gravar novos blocos em um blob de acréscimo, mantendo a proteção contra imutabilidade e a conformidade. Se essa configuração estiver habilitada, você poderá criar um blob de acréscimo diretamente no contêiner protegido por política e continuar a adicionar novos blocos de dados ao final dos BLOBs de acréscimo existentes usando a API *AppendBlock* . Somente novos blocos podem ser adicionados e os blocos existentes não podem ser modificados ou excluídos. A proteção de imutabilidade de retenção de tempo ainda se aplica, impedindo a exclusão do blob de acréscimo até que o período de retenção efetivo tenha decorrido. A habilitação dessa configuração não afeta o comportamento de imutabilidade de blobs de blocos ou BLOBs de páginas.
 
@@ -103,7 +103,7 @@ Os seguintes limites se aplicam a isenções legais:
 
 ## <a name="scenarios"></a>Cenários
 
-A tabela a seguir mostra os tipos de operações de armazenamento de BLOBs que estão desabilitadas para os diferentes cenários imutáveis. Para obter mais informações, consulte a documentação da [API REST do serviço blob do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
+A tabela a seguir mostra os tipos de operações de armazenamento de BLOBs que estão desabilitadas para os diferentes cenários imutáveis. Para obter mais informações, consulte a documentação da [API REST do serviço blob do Azure](/rest/api/storageservices/blob-service-rest-api) .
 
 | Cenário | Estado do blob | Operações de blob negadas | Proteção de contêiner e conta |
 |--|--|--|--|
@@ -116,7 +116,7 @@ A tabela a seguir mostra os tipos de operações de armazenamento de BLOBs que e
 <sup>2</sup> o bloco Append só é permitido para políticas de retenção baseadas em tempo com a `allowProtectedAppendWrites` Propriedade habilitada. Para obter mais informações, consulte a seção [permitir gravações de blobs de anexação protegidas](#allow-protected-append-blobs-writes) .
 
 > [!IMPORTANT]
-> Algumas cargas de trabalho, como o [backup do SQL para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), criam um blob e, em seguida, adicionam a ele. Se o contêiner tiver uma política de retenção baseada em tempo ativa ou uma suspensão legal em vigor, esse padrão não terá sucesso.
+> Algumas cargas de trabalho, como o [backup do SQL para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), criam um blob e, em seguida, adicionam a ele. Se o contêiner tiver uma política de retenção baseada em tempo ativa ou uma suspensão legal em vigor, esse padrão não terá sucesso.
 
 ## <a name="pricing"></a>Preços
 
@@ -170,11 +170,11 @@ Sim. Quando uma política de retenção baseada em tempo é criada pela primeira
 
 **Posso usar a exclusão reversível juntamente com políticas de blob imutáveis?**
 
-Sim, se os requisitos de conformidade permitirem que a exclusão reversível seja habilitada. A [exclusão reversível para o armazenamento de BLOBs do Azure](storage-blob-soft-delete.md) aplica-se a todos os contêineres em uma conta de armazenamento, independentemente de uma política de retenção baseada em tempo ou em retenção É recomendável habilitar a exclusão reversível para proteção adicional antes de qualquer política de WORM imutável ser aplicada e confirmada.
+Sim, se os requisitos de conformidade permitirem que a exclusão reversível seja habilitada. A [exclusão reversível para o armazenamento de BLOBs do Azure](./soft-delete-blob-overview.md) aplica-se a todos os contêineres em uma conta de armazenamento, independentemente de uma política de retenção baseada em tempo ou em retenção É recomendável habilitar a exclusão reversível para proteção adicional antes de qualquer política de WORM imutável ser aplicada e confirmada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](storage-blob-immutability-policies-manage.md)
 - [Definir regras para camada e exclusão automática de dados de blob com o gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)
-- [Exclusão reversível para blobs do Armazenamento do Azure ](../blobs/storage-blob-soft-delete.md)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](./soft-delete-blob-overview.md)
 - [Proteger assinaturas, grupos de recursos e recursos com bloqueios de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

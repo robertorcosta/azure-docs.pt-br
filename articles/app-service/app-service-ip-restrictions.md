@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576437"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010173"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar Azure App restrições de acesso de serviço
 
@@ -40,7 +40,7 @@ Para adicionar uma regra de restrição de acesso ao seu aplicativo, faça o seg
 
 1. No painel esquerdo, selecione **rede**.
 
-1. No painel **rede** , em **restrições de acesso** , selecione **Configurar restrições de acesso**.
+1. No painel **rede** , em **restrições de acesso**, selecione **Configurar restrições de acesso**.
 
    ![Captura de tela do painel opções de rede do serviço de aplicativo na portal do Azure.](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -58,21 +58,21 @@ As regras são impostas em ordem de prioridade, a partir do número mais baixo n
 
 No painel **Adicionar restrição de IP** , ao criar uma regra, faça o seguinte:
 
-1. Em **ação** , selecione **permitir** ou **negar**.  
+1. Em **ação**, selecione **permitir** ou **negar**.  
 
    ![Captura de tela do painel "Adicionar restrição de IP".](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
    
 1. Opcionalmente, insira um nome e uma descrição da regra.  
 1. Na lista suspensa **tipo** , selecione o tipo de regra.  
 1. Na caixa **prioridade** , insira um valor de prioridade.  
-1. Nas listas suspensas **assinatura** , **rede virtual** e **sub-rede** , selecione o que você deseja restringir o acesso.  
+1. Nas listas suspensas **assinatura**, **rede virtual** e **sub-rede** , selecione o que você deseja restringir o acesso.  
 
 ### <a name="set-an-ip-address-based-rule"></a>Definir uma regra baseada em endereço IP
 
 Siga o procedimento conforme descrito na seção anterior, mas com a seguinte variação:
 * Para a etapa 3, na lista suspensa **tipo** , selecione **IPv4** ou **IPv6**. 
 
-Especifique o endereço IP na notação de roteamento de Inter-Domain sem classe (CIDR) para os endereços IPv4 e IPv6. Para especificar um endereço, você pode usar algo como *1.2.3.4/32* , em que os primeiros quatro octetos representam seu endereço IP e */32* é a máscara. A notação de CIDR de IPv4 para todos os endereços é 0.0.0.0/0. Para saber mais sobre a notação CIDR, consulte [Roteamento de Inter-Domain sem classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Especifique o endereço IP na notação de roteamento de Inter-Domain sem classe (CIDR) para os endereços IPv4 e IPv6. Para especificar um endereço, você pode usar algo como *1.2.3.4/32*, em que os primeiros quatro octetos representam seu endereço IP e */32* é a máscara. A notação de CIDR de IPv4 para todos os endereços é 0.0.0.0/0. Para saber mais sobre a notação CIDR, consulte [Roteamento de Inter-Domain sem classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="use-service-endpoints"></a>Usar pontos de extremidade de serviço
 
@@ -112,7 +112,7 @@ Você pode editar ou excluir uma regra de restrição de acesso existente.
 
 ### <a name="delete-a-rule"></a>Excluir uma regra
 
-Para excluir uma regra, na página **restrições de acesso** , selecione as reticências ( **...** ) ao lado da regra que você deseja excluir e, em seguida, selecione **remover**.
+Para excluir uma regra, na página **restrições de acesso** , selecione as reticências (**...**) ao lado da regra que você deseja excluir e, em seguida, selecione **remover**.
 
 ![Captura de tela da página "restrições de acesso", mostrando as reticências "Remove" ao lado da regra de restrição de acesso a ser excluída.](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -153,7 +153,7 @@ Você também pode definir valores manualmente seguindo um destes procedimentos:
 
 * Use uma operação Put da [API REST do Azure](/rest/api/azure/) na configuração do aplicativo no Azure Resource Manager. O local para essas informações no Azure Resource Manager é:
 
-  management.azure.com/subscriptions/ **subscription ID** /resourceGroups/ **resource groups** /providers/Microsoft.Web/sites/ **web app name** /config/web?api-version=2018-02-01
+  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
 
 * Use um modelo ARM. Por exemplo, você pode usar resources.azure.com e editar o bloco ipSecurityRestrictions para adicionar o JSON necessário.
 

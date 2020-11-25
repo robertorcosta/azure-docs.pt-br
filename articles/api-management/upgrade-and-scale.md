@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078299"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96010207"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
 
@@ -45,9 +45,9 @@ Para executar as etapas deste artigo, é necessário:
 
 ## <a name="upgrade-and-scale"></a>Atualizar e dimensionar  
 
-Você pode escolher entre quatro camadas: **Developer**, **Basic**,  **Standard**e **Premium**. A camada de **Desenvolvedor** deve ser usada para avaliar o serviço; ela não deve ser usada para a produção. A camada de **Desenvolvedor** não tem um SLA e não é possível dimensioná-la (adicionar/remover unidades). 
+Você pode escolher entre quatro camadas: **Developer**, **Basic**,  **Standard** e **Premium**. A camada de **Desenvolvedor** deve ser usada para avaliar o serviço; ela não deve ser usada para a produção. A camada de **Desenvolvedor** não tem um SLA e não é possível dimensioná-la (adicionar/remover unidades). 
 
-**Basic**, **Standard**e **Premium** são as camadas de produção que têm SLA e podem ser dimensionadas. A camada **básica** é a camada mais barata com um SLA e pode ser dimensionada para até duas unidades, a camada **Standard** pode ser dimensionada para até quatro unidades. Você pode adicionar qualquer número de unidades para a camada **Premium**.
+**Basic**, **Standard** e **Premium** são as camadas de produção que têm SLA e podem ser dimensionadas. A camada **básica** é a camada mais barata com um SLA e pode ser dimensionada para até duas unidades, a camada **Standard** pode ser dimensionada para até quatro unidades. Você pode adicionar qualquer número de unidades para a camada **Premium**.
 
 A camada **Premium** permite que você distribua uma única instância de Gerenciamento de API do Azure em qualquer número de regiões do Azure desejadas. Quando você cria inicialmente um serviço de Gerenciamento de API do Azure, a instância contém apenas uma unidade e reside em uma única região do Azure. A região inicial é designada como região **primária**. Regiões adicionais podem ser facilmente incluídas. Ao adicionar uma região, você pode especificar o número de unidades que deseja alocar. Por exemplo, você pode ter uma unidade na região **primária** e cinco unidades em alguma outra região. Você pode personalizar o número de unidades para o tráfego existente em cada região. Para obter mais informações, consulte [Como implantar uma instância do serviço de Gerenciamento de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md).
 
@@ -78,6 +78,10 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. A atualizaçã
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
 Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
+
+## <a name="compute-isolation"></a>Isolamento de computação
+Se seus requisitos de segurança incluírem o [isolamento de computação](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), você poderá usar o tipo de preço **isolado** . Essa camada garante que os recursos de computação de uma instância de serviço de gerenciamento de API consumam todo o host físico e forneçam o nível necessário de isolamento necessário para dar suporte, por exemplo, cargas de trabalho de impacto de nível 5 (IL5) do departamento de defesa dos EUA. Para obter acesso à camada isolada, [crie um tíquete de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

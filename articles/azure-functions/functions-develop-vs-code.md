@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167892"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010433"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver o Azure Functions usando o Visual Studio Code
 
@@ -191,7 +191,7 @@ Veja a seguir exemplos de prompts para definir uma nova associação de saída d
 | -------- | ----- | ----------- |
 | **Selecionar direção de associação** | `out` | A associação é uma associação de saída. |
 | **Selecionar associação com direção** | `Azure Queue Storage` | A associação é uma associação de fila do Armazenamento do Azure. |
-| **O nome usado para identificar essa associação no seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
+| **O nome usado para identificar essa associação em seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
 | **A fila à qual a mensagem será enviada** | `outqueue` | O nome da fila na qual a associação escreve. Quando o *queueName* não existe, a associação o cria no primeiro uso. |
 | **Selecione configuração em "local.settings.js"** | `MyStorageConnection` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A `AzureWebJobsStorage` configuração contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
 
@@ -311,7 +311,7 @@ Esta seção usa a [extensão de armazenamento do Azure para Visual Studio Code]
 
 Para definir a cadeia de conexão da conta de armazenamento:
 
-1. No Visual Studio, abra o **Cloud Explorer**, expanda **conta de armazenamento**  >  **sua conta de armazenamento**e selecione **Propriedades** e copie o valor da **cadeia de conexão primária** .
+1. No Visual Studio, abra o **Cloud Explorer**, expanda **conta de armazenamento**  >  **sua conta de armazenamento** e selecione **Propriedades** e copie o valor da **cadeia de conexão primária** .
 
 2. Em seu projeto, abra o arquivo local.settings.json e defina o valor da chave **AzureWebJobsStorage** na cadeia de conexão que você copiou.
 
