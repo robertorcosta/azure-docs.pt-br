@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 87c28b906b1f810857fee86ba8a94a0834e1de68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563373"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028254"
 ---
 Esta seção descreve os limites do serviço de armazenamento do Azure e as convenções de nomenclatura necessárias para arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço Azure Stack Edge/Gateway do Data Box. Examine os limites de armazenamento com cuidado e siga todas as recomendações.
 

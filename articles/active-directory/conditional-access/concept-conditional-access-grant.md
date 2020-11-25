@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904011"
+ms.locfileid: "96029397"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -108,7 +108,7 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 - Os aplicativos cliente aprovados fornecem suporte ao recurso de gerenciamento de aplicativo móvel Intune.
 - O requisito **Exigir o aplicativo do cliente aprovado**:
    - Fornece suporte apenas para iOS e Android para condição de plataforma de dispositivo.
-   - Um aplicativo de agente é necessário para registrar o dispositivo. No iOS, o aplicativo agente é Microsoft Authenticator e no Android, é Portal da Empresa do Intune aplicativo.
+   - Um aplicativo de agente é necessário para registrar o dispositivo. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o Microsoft Authenticator ou o portal da empresa da Microsoft para dispositivos Android.
 - O acesso condicional não pode considerar o Microsoft Edge no modo InPrivate em um aplicativo cliente aprovado.
 
 Consulte o artigo [como: exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional](app-based-conditional-access.md) para exemplos de configuração.

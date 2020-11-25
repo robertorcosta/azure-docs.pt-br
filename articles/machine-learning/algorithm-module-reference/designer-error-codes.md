@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420828"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030400"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
@@ -281,11 +281,18 @@ Se o modelo tiver sido treinado usando qualquer um dos módulos de treinamento e
 
  Esse erro ocorrerá quando uma coluna contiver um número excessivo de valores exclusivos.  Por exemplo, você poderá ver esse erro se especificar que uma coluna seja tratada como dados categóricos, mas houver um número excessivo de valores exclusivos na coluna para permitir que o processamento seja concluído. Você também poderá ver esse erro se houver uma incompatibilidade entre o número de valores exclusivos em duas entradas.   
 
+O erro de valores exclusivos será maior que o permitido se atender às **duas** condições a seguir:
+
+- Mais de 97% instâncias de uma coluna são valores exclusivos, o que significa que quase todas as categorias são diferentes umas das outras.
+- Uma coluna tem mais de 1000 valores exclusivos.
+
 **Resolução:**
 
 abra o módulo que gerou o erro e identifique as colunas usadas como entradas. Para alguns módulos, você pode clicar com o botão direito do mouse na entrada do conjunto de dados e selecionar **Visualizar** para obter estatísticas em colunas individuais, incluindo o número de valores exclusivos e a distribuição.
 
 Para as colunas que você pretende usar para agrupamento ou categorização, execute as etapas para reduzir o número de valores exclusivos em colunas. Você pode reduzir de maneiras diferentes, dependendo do tipo de dados da coluna. 
+
+Geralmente, nesse cenário, a coluna que está atingindo o erro não faz sentido como um recurso para treinar modelos. Portanto, você pode usar [Editar metadados](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada durante o treinamento de um modelo. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1106,8 +1113,8 @@ Confira os seguintes artigos para obter ajuda com consultas do Hive para machine
  Verifique se a consulta funciona corretamente fora do Azure ML fazendo logon no servidor de banco de dados diretamente e executando a consulta.  
 
  Se houver uma mensagem gerada por SQL informada pela exceção do módulo, execute uma ação com base no erro relatado. Por exemplo, as mensagens de erro às vezes incluem diretrizes específicas sobre o erro provável:
-+ *Nenhuma coluna ou banco de dados ausente* , indicando que você pode ter digitado um nome de coluna errado. Se você tiver certeza de que o nome da coluna está correto, tente usar colchetes ou aspas nos quais incluir o identificador de coluna.
-+ *Erro lógico do SQL \<SQL keyword\> próximo* , indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
++ *Nenhuma coluna ou banco de dados ausente*, indicando que você pode ter digitado um nome de coluna errado. Se você tiver certeza de que o nome da coluna está correto, tente usar colchetes ou aspas nos quais incluir o identificador de coluna.
++ *Erro lógico do SQL \<SQL keyword\> próximo*, indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de Exceção|

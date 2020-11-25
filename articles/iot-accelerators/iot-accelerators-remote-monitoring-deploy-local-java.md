@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998605"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024190"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implantar o acelerador de solução de Monitoramento Remoto localmente – IntelliJ
 
@@ -98,7 +98,7 @@ Se você ainda não criou os recursos do Azure necessários, siga estas etapas:
    O script também adiciona um conjunto de variáveis de ambiente ao computador local. Cada nome de variável tem o prefixo **PCs**. Essas variáveis de ambiente fornecem detalhes que permitem que o monitoramento remoto leia seus valores de configuração de um recurso de Azure Key Vault.
 
    > [!TIP]
-   > Quando o script for concluído, ele salvará as variáveis de ambiente em um arquivo chamado ** \<your home folder\> \\ . PCs \\ \<solution name\> . env**. Você pode usá-los para implantações futuras do Solution-Accelerator. Observe que todas as variáveis de ambiente definidas no computador local substituem os valores no arquivo ** \\ \\ \\ . env dos scripts de serviços** ao executar o **Docker-Compose**.
+   > Quando o script for concluído, ele salvará as variáveis de ambiente em um arquivo chamado **\<your home folder\> \\ . PCs \\ \<solution name\> . env**. Você pode usá-los para implantações futuras do Solution-Accelerator. Observe que todas as variáveis de ambiente definidas no computador local substituem os valores no arquivo **\\ \\ \\ . env dos scripts de serviços** ao executar o **Docker-Compose**.
 
 1. Feche seu ambiente de linha de comando.
 
@@ -109,7 +109,7 @@ Se você já tiver criado os recursos do Azure necessários, defina as variávei
 * **PCS_AAD_APPID**: a ID do aplicativo Azure Active Directory (Azure AD).
 * **PCS_AAD_APPSECRET**: o segredo do aplicativo do Azure AD.
 
-Os valores de configuração serão lidos deste Key Vault recurso. Essas variáveis de ambiente podem ser salvas no arquivo ** \<your home folder\> \\ . PCs \\ \<solution name\> . env** da implantação. Observe que quaisquer variáveis de ambiente definidas em seu computador local substituem os valores no arquivo **serviços\\scripts\\local\\.env** ao executar **docker-compose**.
+Os valores de configuração serão lidos deste Key Vault recurso. Essas variáveis de ambiente podem ser salvas no arquivo **\<your home folder\> \\ . PCs \\ \<solution name\> . env** da implantação. Observe que quaisquer variáveis de ambiente definidas em seu computador local substituem os valores no arquivo **serviços\\scripts\\local\\.env** ao executar **docker-compose**.
 
 Algumas das configurações necessárias para o microserviço são armazenadas em uma instância do Key Vault que foi criada na implantação inicial. As variáveis correspondentes no cofre de chaves devem ser modificadas conforme necessário.
 
@@ -161,7 +161,7 @@ As etapas a seguir mostram como executar os microserviços de monitoramento remo
 
 1. Selecione **executar**  >  **Editar configurações**.
 1. Selecione **Adicionar nova configuração**  >  **SBT tarefa**.
-1. Insira **nome**e, em seguida, insira **tarefas** como **executar**.
+1. Insira **nome** e, em seguida, insira **tarefas** como **executar**.
 1. Selecione o **diretório de trabalho** com base no serviço que você deseja executar.
 1. Selecione **aplicar**  >  **OK** para salvar suas escolhas.
 1. Crie configurações de execução para os seguintes serviços Web:
@@ -177,7 +177,7 @@ Por exemplo, a imagem a seguir mostra como adicionar uma configuração para um 
 #### <a name="create-a-compound-configuration"></a>Criar uma configuração composta
 
 1. Para executar todos os serviços juntos, selecione **Adicionar nova configuração**  >  **composto**.
-1. Insira **nome**e, em seguida, selecione **adicionar tarefas de SBT**.
+1. Insira **nome** e, em seguida, selecione **adicionar tarefas de SBT**.
 1. Selecione **aplicar**  >  **OK** para salvar suas escolhas.
 
 Por exemplo, a imagem a seguir mostra como adicionar todas as tarefas SBT a uma única configuração:
@@ -228,7 +228,7 @@ Para obter mais informações sobre como executar o Nginx, consulte [Nginx for W
 
 Para acessar o painel da solução de monitoramento remoto, vá para `http://localhost:9000` em seu navegador.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para evitar encargos desnecessários, remova os serviços de nuvem da sua assinatura do Azure depois de concluir o teste. Para remover os serviços, vá para o [portal do Azure](https://ms.portal.azure.com)e exclua o grupo de recursos criado pelo script **Start. cmd** .
 

@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449907"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029363"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -42,7 +42,7 @@ Nesse caso, você pode configurar duas organizações conectadas. Você cria uma
 
 A forma como os usuários do diretório do Azure AD ou do domínio se autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
 
-- AD do Azure
+- Azure AD
 - [Federação direta](../external-identities/direct-federation.md)
 - [Senha de uso único](../external-identities/one-time-passcode.md) (domínio)
 
@@ -56,9 +56,9 @@ Para adicionar um diretório ou domínio do Azure AD externo como uma organizaç
 
 **Função de pré-requisito**: administrador *global* ou *administrador de usuário*
 
-1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
+1. Na portal do Azure, selecione **Azure Active Directory** e, em seguida, selecione **governança de identidade**.
 
-1. No painel esquerdo, selecione **organizações conectadas**e, em seguida, selecione **Adicionar organização conectada**.
+1. No painel esquerdo, selecione **organizações conectadas** e, em seguida, selecione **Adicionar organização conectada**.
 
     ![O botão "Adicionar organização conectada"](./media/entitlement-management-organization/connected-organization.png)
 
@@ -107,9 +107,9 @@ Se a organização conectada mudar para um domínio diferente, o nome da organiz
 
 **Função de pré-requisito**: administrador *global* ou *administrador de usuário*
 
-1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
+1. Na portal do Azure, selecione **Azure Active Directory** e, em seguida, selecione **governança de identidade**.
 
-1. No painel esquerdo, selecione **organizações conectadas**e, em seguida, selecione a organização conectada para abri-la.
+1. No painel esquerdo, selecione **organizações conectadas** e, em seguida, selecione a organização conectada para abri-la.
 
 1. No painel Visão geral da organização conectada, selecione **Editar** para alterar o nome da organização, a descrição ou o estado.  
 
@@ -124,9 +124,9 @@ Se você não tiver mais uma relação com um diretório ou domínio do Azure AD
 
 **Função de pré-requisito**: administrador *global* ou *administrador de usuário*
 
-1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
+1. Na portal do Azure, selecione **Azure Active Directory** e, em seguida, selecione **governança de identidade**.
 
-1. No painel esquerdo, selecione **organizações conectadas**e, em seguida, selecione a organização conectada para abri-la.
+1. No painel esquerdo, selecione **organizações conectadas** e, em seguida, selecione a organização conectada para abri-la.
 
 1. No painel Visão geral da organização conectada, selecione **excluir** para excluí-la.
 
@@ -148,9 +148,9 @@ Há dois tipos diferentes de propriedades de estado para organizações conectad
 
 - Uma organização conectada proposta é uma organização conectada que foi criada automaticamente, mas não teve um administrador para criar ou aprovar a organização. Quando um usuário se inscreve em um pacote de acesso fora de uma organização conectada configurada, todas as organizações conectadas criadas automaticamente estarão no estado **proposto** , uma vez que nenhum administrador na configuração de locatário dessa parceria. 
     
-    As organizações conectadas propostas não aparecem nos seletores para organizações conectadas configuradas e não estão no escopo da configuração "todas as organizações conectadas configuradas" em qualquer política. 
+    As organizações conectadas propostas não estão no escopo da configuração "todas as organizações conectadas configuradas" em qualquer política, mas podem ser usadas em políticas somente para políticas voltadas para organizações específicas. 
 
-Somente os usuários de organizações conectadas configuradas podem solicitar pacotes de acesso disponíveis para usuários de todas as organizações configuradas. Os usuários de organizações conectadas propostas têm uma experiência como se não houver uma organização conectada para esse domínio e não terão acesso ao pacote de acesso até que o estado seja alterado por um administrador.
+Somente os usuários de organizações conectadas configuradas podem solicitar pacotes de acesso disponíveis para usuários de todas as organizações configuradas. Os usuários de organizações conectadas propostas têm uma experiência como se não há nenhuma organização conectada para esse domínio; Só pode ver e solicitar pacotes de acesso com escopo para sua organização específica ou com escopo para qualquer usuário.
 
 > [!NOTE]
 > Como parte da distribuição desse novo recurso, todas as organizações conectadas criadas antes de 09/09/20 foram consideradas **configuradas**. Se você tiver um pacote de acesso que permitia que usuários de qualquer organização se inscrevam, examine sua lista de organizações conectadas que foram criadas antes dessa data para garantir que nenhuma seja classificada de forma **incorreta conforme configurada**.  Um administrador pode atualizar a propriedade **State** conforme apropriado. Para obter diretrizes, consulte [atualizar uma organização conectada](#update-a-connected-organization).

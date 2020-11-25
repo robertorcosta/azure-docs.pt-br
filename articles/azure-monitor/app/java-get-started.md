@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
-ms.date: 05/24/2019
-ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 11/22/2020
+ms.openlocfilehash: 1a68cea423678dd8582d65b839d57076e84de940
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029533"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
 
 
-> [!IMPORTANT]
-> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
+> [!CAUTION]
+> A partir de novembro de 2020, para monitorar aplicativos Java, recomendamos a instrumentação automática usando o agente Azure Monitor Application Insights 3,0. Para obter mais informações sobre como começar, consulte [Application insights o agente do Java 3,0](./java-in-process-agent.md).
 
 Neste guia de início rápido, você usa Application Insights SDK para instrumentar solicitação, controlar dependências e coletar contadores de desempenho, diagnosticar problemas de desempenho e exceções e escrever código para controlar o que os usuários fazem com seu aplicativo.
 
@@ -151,7 +151,7 @@ Você também pode [defini-lo no código](./api-custom-events-metrics.md#ikey):
 
 [Instale o agente Java](java-agent.md) para capturar chamadas http de saída, consultas JDBC, log de aplicativo e melhor nomenclatura de operação.
 
-## <a name="run-your-application"></a>Execute seu aplicativo.
+## <a name="run-your-application"></a>Executar seu aplicativo
 Execute-o no modo de depuração no computador de desenvolvimento ou publique em seu servidor.
 
 ## <a name="view-your-telemetry-in-application-insights"></a>Exibir sua telemetria no Application Insights

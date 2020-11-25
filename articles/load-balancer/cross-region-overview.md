@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695054"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029754"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -35,7 +35,7 @@ O Azure Standard Load Balancer dá suporte ao balanceamento de carga entre regi�
 * [Criar uma solução de balanceador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sem curva de aprendizado
 
 > [!IMPORTANT]
-> O balanceador de carga entre regiões está atualmente em visualização e não está disponível para o público geral.  Para acessar a visualização para o balanceador de carga entre regiões, contate: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) . </br> </br>
+> O balanceador de carga entre regiões está atualmente em visualização e oculto no portal de visualização. Entre no **https://preview.portal.azure.com/?feature.globallb=true** para exibir e implantar o recurso.. </br> </br>
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O balanceamento de carga entre regiões oferece os mesmos benefícios de alto desempenho e baixa latência como balanceador de carga Standard regional. 
@@ -149,6 +149,6 @@ O balanceador de carga entre regiões compartilha o [SLA](https://azure.microsof
  
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira como [Criar um Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) para começar a usar um balanceador de carga.
+- Consulte [tutorial: criar um balanceador de carga entre regiões usando o portal do Azure](tutorial-cross-region-portal.md) para criar um balanceador de carga entre regiões.
+- Consulte [criar um balanceador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para criar um balanceador de carga regional padrão.
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
-- [Perguntas frequentes](load-balancer-faqs.md) do balanceador de carga

@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027360"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
 A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 
-| Área | Funcionalidade | Limite padrão | Ajustá? |
+| Área | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | Recursos do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
 | Gêmeos Digitais | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Yes |
@@ -29,7 +29,7 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 | Modelos | Número de modelos em uma única instância de gêmeos digital do Azure | 10.000 | Yes |
 | Modelos | Número de modelos que podem ser carregados em uma única chamada à API | 250 | No |
 | Modelos | Número de itens retornados em uma única página | 100 | No |
-| Consulta | Número de itens retornados em uma única página | 100 | No |
+| Consulta | Número de itens retornados em uma única página | 100 | Sim |
 | Consulta | Número de `AND`  /  `OR` expressões em uma consulta | 50 | Sim |
 | Consulta | Número de itens de matriz em uma `IN`  /  `NOT IN` cláusula | 50 | Sim |
 | Consulta | Número de caracteres em uma consulta | 8,000 | Sim |
@@ -39,7 +39,7 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 
 A tabela a seguir reflete os limites de taxa de APIs diferentes.
 
-| API | Funcionalidade | Limite padrão | Ajustá? |
+| API | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
 | API gêmeos digital | Número de solicitações por segundo | 2.000 | Yes |

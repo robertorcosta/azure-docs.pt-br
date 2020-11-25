@@ -4,16 +4,16 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342120"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029869"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
+# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica do Azure Monitor 
 
 Este artigo aborda problemas comuns em Azure Monitor [alertas de métrica](alerts-metric-overview.md) e como solucioná-los.
 
@@ -44,7 +44,7 @@ Se você acredita que um alerta de métrica deve ter sido acionado, mas não foi
 
 Se você acredita que seu alerta de métrica não deveria ter sido acionado, mas fez isso, as etapas a seguir podem ajudar a resolver o problema.
 
-1. Examine a [lista de alertas acionados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta acionado e clique para exibir seus detalhes. Examine as informações fornecidas sob **por que o alerta foi acionado?** para ver o gráfico de métrica, o **valor de métrica**e o **valor de limite** no momento em que o alerta foi disparado.
+1. Examine a [lista de alertas acionados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta acionado e clique para exibir seus detalhes. Examine as informações fornecidas sob **por que o alerta foi acionado?** para ver o gráfico de métrica, o **valor de métrica** e o **valor de limite** no momento em que o alerta foi disparado.
 
     > [!NOTE] 
     > Se você estiver usando um tipo de condição de limites dinâmicos e considerar que os limites usados não estavam corretos, forneça comentários usando o ícone de rosto triste. Esses comentários afetarão a pesquisa de algoritmos do Machine Learning e ajudarão a melhorar as detecções futuras.
@@ -241,6 +241,8 @@ Considere as seguintes restrições para nomes de regra de alerta de métrica:
 - Os nomes de regra de alerta de métrica não podem conter os seguintes caracteres: * # & +:  < > ? @ % { } \ / 
 - Os nomes de regra de alerta de métrica não podem terminar com um espaço ou um ponto
 
+> [!NOTE] 
+> Se o nome da regra de alerta contiver caracteres que não são alfabéticos ou numéricos (por exemplo: espaços, sinais de pontuação ou símbolos), esses caracteres poderão ser codificados por URL quando forem recuperados por determinados clientes.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrições ao usar dimensões em uma regra de alerta de métrica com várias condições
 

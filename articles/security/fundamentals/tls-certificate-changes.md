@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029686"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
@@ -30,6 +30,7 @@ Detalhes específicos do serviço:
 - O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub) e o [DPS](../../iot-dps/index.yml) permanecerão na AC Baltimore CyberTrust Root, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - O [Armazenamento do Azure](../../storage/index.yml) permanecerá na AC Raiz Baltimore CyberTrust, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - O [cache do Azure para Redis](../../azure-cache-for-redis/index.yml) permanecerá na AC raiz Baltimore Cybertrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](../../azure-cache-for-redis/cache-whats-new.md).
+- O serviço de metadados de instância do Azure permanecerá na AC raiz Baltimore CyberTrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > É possível que os clientes precisem atualizar os respectivos aplicativos após essa alteração para evitar falhas de conectividade durante a tentativa de se conectarem aos serviços do Azure.
@@ -70,11 +71,11 @@ Estas são algumas maneiras de detectar se o seu aplicativo foi afetado:
 - Se você tiver um aplicativo que se integra às APIs do Azure ou a outros serviços do Azure e não tiver certeza se ele usa a anexação de certificado, verifique com o fornecedor do aplicativo.
 
 - Diferentes sistemas operacionais e runtimes de linguagem que se comunicam com os serviços do Azure podem exigir etapas adicionais para a criação correta da cadeia de certificados com estas novas raízes:
-    - **Linux** : muitas distribuições exigem a adição das ACs a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
-    - **Java** : verifique se o repositório de chaves Java contém as ACs listadas acima.
-    - **Windows em execução em ambientes desconectados** : os sistemas em execução em ambientes desconectados precisarão ter raízes adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
-    - **Android** : verifique a documentação do dispositivo e a versão do Android.
-    - **Outros dispositivos de hardware, especialmente IoT** : entre em contato com o fabricante do dispositivo.
+    - **Linux**: muitas distribuições exigem a adição das ACs a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
+    - **Java**: verifique se o repositório de chaves Java contém as ACs listadas acima.
+    - **Windows em execução em ambientes desconectados**: os sistemas em execução em ambientes desconectados precisarão ter raízes adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
+    - **Android**: verifique a documentação do dispositivo e a versão do Android.
+    - **Outros dispositivos de hardware, especialmente IoT**: entre em contato com o fabricante do dispositivo.
 
 - Caso você tenha um ambiente em que as regras de firewall estejam definidas para permitir chamadas de saída somente a localizações específicas de download da CRL (lista de certificados revogados) e/ou de verificação do protocolo OCSP. Você precisará permitir as seguintes URLs da CRL e do OCSP:
 
