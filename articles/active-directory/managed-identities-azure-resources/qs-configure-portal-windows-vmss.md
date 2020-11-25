@@ -16,11 +16,11 @@ ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91329126"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997402"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure
 

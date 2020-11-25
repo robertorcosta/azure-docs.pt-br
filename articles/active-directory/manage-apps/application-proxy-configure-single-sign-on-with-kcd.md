@@ -13,11 +13,11 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
 ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997572"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para SSO (logon único) para seus aplicativos com o proxy de aplicativo
 

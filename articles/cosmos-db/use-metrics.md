@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340449"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996977"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -57,11 +57,11 @@ O código de status de erro mais comum é 429 (limitação/limitação da taxa).
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determine a distribuição da taxa de transferência entre as partições
 
-Ter uma boa cardinalidade de suas chaves de partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição da produtividade de qualquer contêiner particionado dividida por partições, navegue até a **folha Métricas** no [portal do Azure](https://portal.azure.com). Na guia **Taxa de transferência** , a divisão do armazenamento é mostrada no gráfico **Máx. de RUs/segundo consumidas para cada partição física**. O gráfico a seguir ilustra um exemplo de uma má distribuição de dados, conforme mostrado pela partição distorcida na extrema esquerda.
+Ter uma boa cardinalidade de suas chaves de partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição da produtividade de qualquer contêiner particionado dividida por partições, navegue até a **folha Métricas** no [portal do Azure](https://portal.azure.com). Na guia **Taxa de transferência**, a divisão do armazenamento é mostrada no gráfico **Máx. de RUs/segundo consumidas para cada partição física**. O gráfico a seguir ilustra um exemplo de uma má distribuição de dados, conforme mostrado pela partição distorcida na extrema esquerda.
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partição única vendo uso intenso":::
 
-Uma distribuição desigual de taxa de transferência pode causar partições *quentes* , que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
+Uma distribuição desigual de taxa de transferência pode causar partições *quentes*, que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento nas partições
 

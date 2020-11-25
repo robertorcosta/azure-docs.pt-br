@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
-ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edc2ad0f895b8a1bb6448ce1cdf79b1b2ce83951
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80879185"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95997181"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Implantar o contêiner Reconhecimento vocal (LUIS) nas instâncias de contêiner do Azure
 
-Saiba como implantar o contêiner [Luis](luis-container-howto.md) de serviços cognitivas nas [instâncias de contêiner](https://docs.microsoft.com/azure/container-instances/)do Azure. Este procedimento demonstra a criação de um recurso de detector de anomalias. Em seguida, discutimos a extração da imagem de contêiner associada. Por fim, destacamos a capacidade de exercitar a orquestração dos dois em um navegador. O uso de contêineres pode mudar a atenção dos desenvolvedores para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
+Saiba como implantar o contêiner [Luis](luis-container-howto.md) de serviços cognitivas nas [instâncias de contêiner](../../container-instances/index.yml)do Azure. Este procedimento demonstra a criação de um recurso de detector de anomalias. Em seguida, discutimos a extração da imagem de contêiner associada. Por fim, destacamos a capacidade de exercitar a orquestração dos dois em um navegador. O uso de contêineres pode mudar a atenção dos desenvolvedores para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 

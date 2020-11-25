@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678375"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997011"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 
@@ -26,11 +26,11 @@ Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](https:/
 
 ## <a name="view-suggested-questions"></a>Exibir perguntas sugeridas
 
-1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição** e, em seguida, selecione **Mostrar sugestões de aprendizado ativo** .
+1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição** e, em seguida, selecione **Mostrar sugestões de aprendizado ativo**.
 
     [![Na seção editar do portal, selecione Mostrar sugestões para ver as novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões** .
+1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões**.
 
     [![Use a alternância filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -144,7 +144,7 @@ O corpo JSON tem várias configurações:
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
 |`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do usuário. Necessário.|
+|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatórios.|
 |`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:

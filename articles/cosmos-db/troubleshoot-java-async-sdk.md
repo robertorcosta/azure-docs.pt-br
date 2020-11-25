@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: eca64411ccb61e5dcbac5e988f12096550eaaa2c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ec2deaf3149e174cce201d0bbad8a55d156d30f
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100993"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95998321"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Solucionar problemas ao usar o SDK do Java Assíncrono v2 do Azure Cosmos DB com contas de API do SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -181,9 +181,9 @@ Usando `observeOn(customScheduler)`, você libera o thread de E/S Netty e muda p
 ### <a name="request-rate-too-large"></a>Taxa de solicitação grande demais
 Essa falha é uma falha no lado do servidor. Indica que você consumiu sua taxa de transferência provisionada. Tente novamente mais tarde. Se você recebe essa falha com frequência, considere aumentar a taxa de transferência da coleção.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador do Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao conectar-se ao emulador de Azure Cosmos DB
 
-O certificado HTTPS do emulador do Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador do Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+O certificado HTTPS do emulador de Azure Cosmos DB é autoassinado. Para o SDK funcionar com o emulador, importe o certificado do emulador para um Java TrustStore. Para obter mais informações, consulte [Exportar certificados do emulador Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Problemas de conflito de dependência
 

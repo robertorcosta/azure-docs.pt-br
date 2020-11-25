@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651933"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997504"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory
 
