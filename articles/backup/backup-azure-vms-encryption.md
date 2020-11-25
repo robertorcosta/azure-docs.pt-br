@@ -4,11 +4,11 @@ description: Descreve como fazer backup e restaurar VMs do Azure criptografadas 
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173903"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978107"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer backup e restaurar máquinas virtuais do Azure criptografadas
 
@@ -77,7 +77,7 @@ Além disso, há algumas ações que talvez você precise realizar em algumas ci
 
     ![Escolher política de backup](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-1. Se você não quiser usar a política padrão, selecione **criar nova**e [criar uma política personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. Se você não quiser usar a política padrão, selecione **criar nova** e [criar uma política personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Em **Máquinas virtuais**, selecione **Adicionar**.
 
@@ -119,7 +119,7 @@ O backup do Azure precisa de acesso somente leitura para fazer backup das chaves
 
 Para definir permissões:
 
-1. Na portal do Azure, selecione **todos os serviços**e procure por **cofres de chaves**.
+1. Na portal do Azure, selecione **todos os serviços** e procure por **cofres de chaves**.
 1. Selecione o cofre de chaves associado à VM criptografada que você está fazendo backup.
 1. Selecione **políticas de acesso**  >  **Adicionar política de acesso**.
 

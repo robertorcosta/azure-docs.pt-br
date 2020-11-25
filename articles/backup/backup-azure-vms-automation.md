@@ -4,11 +4,11 @@ description: Descreve como fazer backup e recuperar VMs do Azure usando o backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978345"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
