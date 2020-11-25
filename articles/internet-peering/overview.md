@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34d340881e4f612544f4b3d68d3c1f3da598cab3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75908927"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023421"
 ---
 # <a name="internet-peering-overview"></a>Visão geral do emparelhamento pela Internet
 
@@ -53,4 +53,4 @@ Para perguntas frequentes sobre emparelhamento, confira [Emparelhamento de Inter
 
 * Para saber mais sobre as etapas para configurar o emparelhamento direto com a Microsoft, siga o [Passo a passo do emparelhamento direto](walkthrough-direct-all.md)
 * Para saber mais sobre as etapas para configurar o emparelhamento de troca com a Microsoft, siga o [Passo a passo do emparelhamento direto](walkthrough-exchange-all.md)
-* Saiba mais sobre alguns dos outros principais [recursos de rede](https://docs.microsoft.com/azure/networking/networking-overview) do Azure.
+* Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.

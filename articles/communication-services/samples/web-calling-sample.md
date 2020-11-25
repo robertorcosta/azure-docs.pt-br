@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463160"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888956"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introdução ao exemplo de chamada da Web
 
@@ -58,7 +58,7 @@ Agora você está pronto para começar a colocar chamadas usando seu recurso de 
 
 ## <a name="placing-and-receiving-calls"></a>Envio e recebimento de chamadas
 
-O SDK de chamada Web dos Serviços de Comunicação permite chamada **1:1** , **1: N** e **grupo**.
+O SDK de chamada Web dos Serviços de Comunicação permite chamada **1:1**, **1: N** e **grupo**.
 
 Para chamadas de saída 1:1 ou 1:N, você pode especificar várias identidades de usuário de Serviços de Comunicação para chamar usando valores separados por vírgulas. Você também pode especificar números de telefone tradicionais (PSTN) para chamar usando valores separados por vírgulas. 
 
@@ -95,7 +95,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 - Familiarize-se com [usar a biblioteca de clientes de chamada](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../concepts/voice-video-calling/about-call-types.md)
-- Examine os [Documentos de referência de API](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Examine os [Documentos de referência de API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## <a name="additional-reading"></a>Leituras adicionais
 
@@ -103,4 +103,4 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) – Estrutura para criar aplicativos Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) – Estrutura para criar aplicativos Web

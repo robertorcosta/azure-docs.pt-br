@@ -3,12 +3,12 @@ title: 'Início Rápido: criar um blueprint com a CLI do Azure'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a CLI do Azure.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057953"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920552"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Início Rápido: definir e atribuir um Blueprint do Azure com a CLI do Azure
 
@@ -116,7 +116,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
      > [!NOTE]
      > Use o nome de arquivo _blueprint.json_ ao importar suas definições de blueprint.
-     > Esse nome de arquivo é usado ao chamar a [importação de blueprint az](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > Esse nome de arquivo é usado ao chamar a [importação de blueprint az](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      Por padrão, o objeto blueprint é criado na assinatura padrão. Para especificar o grupo de gerenciamento, use o parâmetro **managementgroup**. Para especificar a assinatura, use o parâmetro **subscription**.
 

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233926"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887528"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introdução ao exemplo de destaque de chamadas em grupo
 
@@ -50,9 +50,9 @@ Depois de configurar o nome de exibição e os dispositivos, você pode ingressa
 
 Componentes da tela principal de chamada:
 
-1. **Galeria de Mídia** : a fase principal em que os participantes são mostrados. Se um participante tiver a câmera habilitada, o feed de vídeo dele será mostrado aqui. Cada participante tem um bloco individual que mostra seu nome de exibição e fluxo de vídeo (quando há um)
-2. **Cabeçalho** : É aí que os controles de chamada primários estão localizados para alternar as configurações e a barra lateral do participante, ativar/desativar vídeo e combinação, compartilhar a tela e sair da chamada.
-3. **Barra lateral** : é nela que as informações de participantes e configurações são mostradas quando alternadas usando os controles no cabeçalho. O componente pode ser descartado usando o "X"' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais usuários para o chat. A barra lateral de configurações permite que você defina as configurações de microfone e câmera.
+1. **Galeria de Mídia**: a fase principal em que os participantes são mostrados. Se um participante tiver a câmera habilitada, o feed de vídeo dele será mostrado aqui. Cada participante tem um bloco individual que mostra seu nome de exibição e fluxo de vídeo (quando há um)
+2. **Cabeçalho**: É aí que os controles de chamada primários estão localizados para alternar as configurações e a barra lateral do participante, ativar/desativar vídeo e combinação, compartilhar a tela e sair da chamada.
+3. **Barra lateral**: é nela que as informações de participantes e configurações são mostradas quando alternadas usando os controles no cabeçalho. O componente pode ser descartado usando o "X"' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais usuários para o chat. A barra lateral de configurações permite que você defina as configurações de microfone e câmera.
 
 Abaixo, você encontrará mais informações sobre os pré-requisitos e as etapas para configurar o exemplo.
 
@@ -116,4 +116,4 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) – Estrutura para criar aplicativos Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) – Estrutura para criar aplicativos Web

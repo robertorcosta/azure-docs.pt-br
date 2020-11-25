@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660076"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237469"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Início Rápido: Carregar em massa com o SQL do Synapse
 
@@ -39,7 +39,8 @@ Agora você pode realizar com facilidade o carregamento em massa de dados usando
 
 ### <a name="steps"></a>Etapas
 
-1. No painel Local de armazenamento de origem, selecione a conta de armazenamento e o arquivo ou a pasta da qual você está carregando. O assistente tentará detectar automaticamente os arquivos Parquet. Se o tipo de arquivo Parquet não puder ser confirmado, o texto delimitado (CSV) será usado por padrão. 
+1. No painel Local de armazenamento de origem, selecione a conta de armazenamento e o arquivo ou a pasta da qual você está carregando. O assistente tentará detectar automaticamente os arquivos Parquet. Se o tipo de arquivo Parquet não puder ser confirmado, o texto delimitado (CSV) será usado por padrão.
+
    ![Selecionar localização de origem](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Selecione as configurações do formato de arquivo, incluindo a conta de armazenamento em que você deseja escrever linhas rejeitadas (arquivo de erro). No momento, há suporte somente a arquivos CSV e Parquet.

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7c5aa7e5189b4c89636fdb38e8fd365208148900
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb6f9f598ef68911a9017dde504a032672dc55a3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094635"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966574"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando Java
 
@@ -78,8 +78,8 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
             ```
 
         5. Quando solicitado, você pode inserir um _Nome Comum_ para seus certificados.
-        6. A ferramenta gera localmente um **Certificado de Cliente** , a **Chave privada do certificado de cliente** e o **Certificado raiz**.
-        7. Copie o **Certificado raiz** , incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_** . 
+        6. A ferramenta gera localmente um **Certificado de Cliente**, a **Chave privada do certificado de cliente** e o **Certificado raiz**.
+        7. Copie o **Certificado raiz**, incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_** . 
         8. Atribua o valor do **Certificado raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING** conforme mostrado abaixo:
 
             ```Java
@@ -109,14 +109,14 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
                 ```
             2. Atribua um nome amigável ao parâmetro *DEVICE_ID* e mantenha o *PROVISIONING_STATUS* como o valor padrão *ENABLED*. 
 
-        - OU, se você optar por não configurar o serviço de provisionamento, comente ou exclua as seguintes instruções do arquivo _ServiceEnrollmentGroupSample.java_ :
+        - OU, se você optar por não configurar o serviço de provisionamento, comente ou exclua as seguintes instruções do arquivo _ServiceEnrollmentGroupSample.java_:
 
             ```Java
             enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
             enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
             ```
 
-    4. Estude o exemplo de código. Ele cria, atualiza, consulta e exclui um registro de grupo de dispositivos X.509. Para verificar o registro bem-sucedido no portal, comente temporariamente as seguintes linhas de código no fim do arquivo _ServiceEnrollmentGroupSample.java_ :
+    4. Estude o exemplo de código. Ele cria, atualiza, consulta e exclui um registro de grupo de dispositivos X.509. Para verificar o registro bem-sucedido no portal, comente temporariamente as seguintes linhas de código no fim do arquivo _ServiceEnrollmentGroupSample.java_:
 
         ```Java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -157,7 +157,7 @@ Este procedimento usa um grupo de registro. A próxima seção usa um registro i
 
 4. Observe se o registro foi bem-sucedido na janela de saída.
 
-5. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros**. Observe que o grupo de dispositivos X.509 é exibido na guia **Grupos de Registro** , com um *NOME DE GRUPO* gerado automaticamente. 
+5. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros**. Observe que o grupo de dispositivos X.509 é exibido na guia **Grupos de Registro**, com um *NOME DE GRUPO* gerado automaticamente. 
 
     ![Verificar o registro do X.509 bem-sucedido no portal](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
@@ -172,7 +172,7 @@ Para registrar um único dispositivo X.509, modifique o código de exemplo do *r
     private static final String REGISTRATION_ID = "[RegistrationId]";
     ```
 
-2. Renomeie a variável *TPM_ENDORSEMENT_KEY* como *PUBLIC_KEY_CERTIFICATE_STRING*. Copie seu certificado do cliente ou o **Certificado do cliente** da saída da ferramenta do _gerador de certificado X.509_ , como o valor da variável *PUBLIC_KEY_CERTIFICATE_STRING*. 
+2. Renomeie a variável *TPM_ENDORSEMENT_KEY* como *PUBLIC_KEY_CERTIFICATE_STRING*. Copie seu certificado do cliente ou o **Certificado do cliente** da saída da ferramenta do _gerador de certificado X.509_, como o valor da variável *PUBLIC_KEY_CERTIFICATE_STRING*. 
 
     ```Java
     // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
@@ -190,7 +190,7 @@ Para registrar um único dispositivo X.509, modifique o código de exemplo do *r
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
             "-----END CERTIFICATE-----\n";
     ```
-3. Na função **principal** , substitua a linha `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` pelo seguinte para usar o certificado de cliente X.509:
+3. Na função **principal**, substitua a linha `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` pelo seguinte para usar o certificado de cliente X.509:
     ```Java
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
@@ -203,7 +203,7 @@ Se planejar explorar o exemplo do serviço Java, não limpe os recursos criados 
 
 1. Feche a janela de saída de exemplo do Java no computador.
 1. Feche a janela _Gerador de Certificado X509_ em seu computador.
-1. Navegue até o Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registro**. Marque a caixa de seleção ao lado do *NOME DO GRUPO* para os dispositivos X.509 registrados usando este início rápido e pressione o botão **Excluir** , na parte superior do painel.  
+1. Navegue até o Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registro**. Marque a caixa de seleção ao lado do *NOME DO GRUPO* para os dispositivos X.509 registrados usando este início rápido e pressione o botão **Excluir**, na parte superior do painel.  
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você registrou um grupo simulado de dispositivos X.509 para o seu serviço de Provisionamento de Dispositivos. Para saber mais sobre os detalhes de configuração do dispositivo, prossiga para o tutorial de configuração do Serviço de Provisionamento de Dispositivos no portal do Azure. 

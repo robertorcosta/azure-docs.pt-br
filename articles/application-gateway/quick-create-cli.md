@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fb577947942ffce640f91daf0050f6796f93222b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d4b6fc296ae41667d271e243e9aca9b594e4a5b6
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91311624"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886695"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – CLI do Azure
 
@@ -24,14 +24,11 @@ O gateway de aplicativo direciona o tráfego da Web do aplicativo para recursos 
 
 Conclua também este início rápido usando o [Azure PowerShell](quick-create-powershell.md) ou o [portal do Azure](quick-create-portal.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [CLI do Azure versão 2.0.4 ou posterior](/cli/azure/install-azure-cli) (se você executar a CLI do Azure localmente).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
+- Este artigo exige a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 

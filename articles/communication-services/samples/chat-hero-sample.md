@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677415"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888565"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introdução ao exemplo de destaque de chat de grupo
 
@@ -52,9 +52,9 @@ Depois de configurar seu nome de exibição e emoji, você pode ingressar na ses
 
 Componentes da tela principal de chat:
 
-- **Área de Chat Principal** : essa é a principal experiência de chat em que os usuários podem enviar e receber mensagens. Para enviar mensagens, você pode usar a área de entrada e pressionar Enter (ou usar o botão Enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e o emoji corretos. Você verá dois tipos de notificações na área de chat: 1) notificações de digitando quando um usuário está digitando e 2) notificações de enviado e lido para mensagens.
-- **Cabeçalho** : Ali, o usuário verá o título da conversa de chat e os controles para alternar o participante e as barras laterais de configurações, além de um botão Sair para sair da sessão de chat.
-- **Barra lateral** : é aí que os participantes e as informações de configuração são mostrados quando alternados usando os controles no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral de configurações permite que você configure o título da conversa de chat. 
+- **Área de Chat Principal**: essa é a principal experiência de chat em que os usuários podem enviar e receber mensagens. Para enviar mensagens, você pode usar a área de entrada e pressionar Enter (ou usar o botão Enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e o emoji corretos. Você verá dois tipos de notificações na área de chat: 1) notificações de digitando quando um usuário está digitando e 2) notificações de enviado e lido para mensagens.
+- **Cabeçalho**: Ali, o usuário verá o título da conversa de chat e os controles para alternar o participante e as barras laterais de configurações, além de um botão Sair para sair da sessão de chat.
+- **Barra lateral**: é aí que os participantes e as informações de configuração são mostrados quando alternados usando os controles no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral de configurações permite que você configure o título da conversa de chat. 
 
 Abaixo, você encontrará mais informações sobre os pré-requisitos e as etapas para configurar o exemplo.
 
@@ -118,4 +118,4 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) – Estrutura para criar aplicativos Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) – Estrutura para criar aplicativos Web

@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018604"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874093"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -59,7 +59,7 @@ Principais benefícios e melhores práticas:
 |-----|-----|
 |Segurança aprimorada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de entradas de falha](how-to-connect-health-adfs-risky-ip.md)</br>[Em conformidade com a privacidade](reference-connect-health-user-privacy.md)|
 |Receba alertas sobre [todos os problemas críticos do sistema ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuração e disponibilidade do servidor</br>[Desempenho e conectividade](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenção regular|
-|Fácil de implantar e gerenciar|[Instalação rápida do agente](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Atualização automática do agente até o mais recente</br>Dados disponíveis no portal em minutos|
+|Fácil de implantar e gerenciar|[Instalação rápida do agente](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Atualização automática do agente até o mais recente</br>Dados disponíveis no portal em minutos|
 [Métricas de uso](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) avançadas|Uso dos principais aplicativos</br>Locais de rede e conexão TCP</br>Solicitações de token por servidor|
 |Ótima experiência do usuário|Forma do painel do portal do Azure</br>[Alertas por emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

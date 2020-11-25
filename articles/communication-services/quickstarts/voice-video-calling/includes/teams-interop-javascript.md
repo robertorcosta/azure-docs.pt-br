@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94573810"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915456"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um [aplicativo funcional de chamadas dos Serviços de Comunicação](../getting-started-with-calling.md).
-- Uma [implantação do Teams](https://docs.microsoft.com/deployoffice/teams-install).
+- Uma [implantação do Teams](/deployoffice/teams-install).
 
 ## <a name="enable-teams-interoperability"></a>Habilitar a interoperabilidade do Teams
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Obter o contexto da reunião
 
-O contexto do Teams pode ser recuperado com as APIs do Graph. Isso é detalhado na [documentação do Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+O contexto do Teams pode ser recuperado com as APIs do Graph. Isso é detalhado na [documentação do Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 Você também pode obter as informações da reunião necessárias na URL **Participar da Reunião** indicada no convite da própria reunião.
 
@@ -115,4 +115,3 @@ Abra o navegador e navegue até http://localhost:8080/. Você deve ver o seguint
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Captura de tela do Aplicativo JavaScript concluído.":::
 
 Insira o contexto do Teams na caixa de texto e clique em *Participar da Reunião do Teams* para participar da reunião do Teams no seu aplicativo dos Serviços de Comunicação.
-

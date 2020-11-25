@@ -3,18 +3,17 @@ title: Início Rápido – Criar um aplicativo do Azure IoT Central | Microsoft 
 description: Início Rápido – Criar um aplicativo do Azure IoT Central. Crie o aplicativo usando o plano de preços Gratuito ou um dos planos de preços Standard.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/30/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987374"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992804"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Início Rápido – Criar um aplicativo do Azure IoT Central
 
@@ -43,11 +42,11 @@ Para criar um aplicativo do Azure IoT Central com base no modelo de **Aplicativo
     ![Informações de cobrança do Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Se você escolheu **Aplicativo personalizado** na página anterior, uma lista suspensa **Modelo de aplicativo** é exibida. A lista suspensa pode mostrar outros modelos que foram disponibilizados para você pela sua organização. 
+    > Se você escolheu **Aplicativo personalizado** na página anterior, uma lista suspensa **Modelo de aplicativo** é exibida. A lista suspensa pode mostrar outros modelos que foram disponibilizados para você pela sua organização.
 
     >[!IMPORTANT]
-    >O modelo **Aplicativo personalizado (herdado)** (V2) foi desativado, pois todas as funcionalidades disponíveis anteriormente no modelo de aplicativo herdado agora estão disponíveis no modelo mais recente de **Aplicativo personalizado** (V3). 
-    
+    >O modelo **Aplicativo personalizado (herdado)** (V2) foi desativado, pois todas as funcionalidades disponíveis anteriormente no modelo de aplicativo herdado agora estão disponíveis no modelo mais recente de **Aplicativo personalizado** (V3).
+
 1. Opte por criar este aplicativo usando o plano de preços de avaliação gratuita de 7 dias ou um dos planos de preços Standard:
 
     - Os aplicativos criados com o plano *gratuito* são gratuitos por sete dias e dão suporte a até cinco dispositivos. Você pode convertê-los para usar um plano de preços Standard a qualquer momento antes que eles expirem.

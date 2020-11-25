@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336428"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888803"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início Rápido: Configurar o Azure NetApp Files e criar um volume do NFS
 
@@ -32,8 +32,6 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 > [!IMPORTANT]
 > Você precisa ter acesso ao serviço Azure NetApp Files. Para solicitar acesso ao serviço, consulte a [página de envio de lista de espera do Azure NetApp Files](https://aka.ms/azurenetappfiles).  Você deve esperar um email de confirmação oficial da equipe do Azure NetApp Files antes de continuar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ---
 
@@ -64,6 +62,10 @@ Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6
     ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -176,7 +178,7 @@ O snippet de código a seguir mostrará como criar uma conta do NetApp em um mod
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Na folha de gerenciamento do Azure NetApp Files, selecione sua conta do NetApp ( **myaccount1** ).
+1. Na folha de gerenciamento do Azure NetApp Files, selecione sua conta do NetApp (**myaccount1**).
 
     ![Selecionar a conta do NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
@@ -260,7 +262,7 @@ O snippet de código a seguir mostrará como criar um pool de capacidade em um m
 
 3. Na janela Criar um Volume, forneça informações para o volume:
    1. Insira **myvol1** como o nome do volume.
-   2. Selecione o pool de capacidade ( **mypool1** ).
+   2. Selecione o pool de capacidade (**mypool1**).
    3. Use o valor padrão para a cota.
    4. Na rede virtual, clique em **Criar nova** para criar uma VNET (rede virtual) do Azure.  Em seguida, preencha as seguintes informações:
        * Insira **myvnet1** como o nome da VNET.
@@ -269,7 +271,7 @@ O snippet de código a seguir mostrará como criar um pool de capacidade em um m
        * Especifique o intervalo de endereços da sub-rede, por exemplo, 10.7.0.0/24. Não é possível compartilhar a sub-rede dedicada com outros recursos.
        * Selecione **Microsoft.NetApp/volumes** para a delegação da sub-rede.
        * Clique em **OK** para criar a VNET.
-   5. Na sub-rede, selecione a VNET recém-criada ( **myvnet1** ) como a sub-rede delegada.
+   5. Na sub-rede, selecione a VNET recém-criada (**myvnet1**) como a sub-rede delegada.
 
       ![Janela Criar um volume](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
 
@@ -278,7 +280,7 @@ O snippet de código a seguir mostrará como criar um pool de capacidade em um m
 4. Clique em **Protocolo** e, em seguida, conclua as seguintes ações:
     * Selecione **NFS** como o tipo de protocolo para o volume.
     * Insira **myfilepath1** como o caminho do arquivo que será usado para criar o caminho de exportação para o volume.
-    * Selecione a versão do NFS ( **NFSv3** ou **NFSv4.1** ) para o volume.
+    * Selecione a versão do NFS (**NFSv3** ou **NFSv4.1**) para o volume.
       Confira [considerações](azure-netapp-files-create-volumes.md#considerations) e [melhor prática](azure-netapp-files-create-volumes.md#best-practice) sobre versões de NFS.
 
     ![Especifique o protocolo NFS para o início rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: ae767905e24e2d7ddf3b8e12ec77b1efe782cf85
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b93bc4d1adfa2787f14106707b3848ebfe5c57bc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535598"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021194"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar PHP para se conectar e consultar dados no Banco de Dados do Azure para MySQL
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo [PHP](https://secure.php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados.
@@ -30,7 +30,7 @@ Para este início rápido você precisa:
     | **Configurar Ponto de Extremidade de Serviço** | Público | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
     | **Configurar link privado** | Privados | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Criar um banco de dados e um usuário não administrador](/howto-create-users?tabs=single-server)
+- [Criar um banco de dados e um usuário não administrador](/azure/mysql/howto-create-users?tabs=single-server)
 - Instalar a versão mais recente do PHP para o sistema operacional
     - [PHP no macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP no Linux](https://secure.php.net/manual/install.unix.php)

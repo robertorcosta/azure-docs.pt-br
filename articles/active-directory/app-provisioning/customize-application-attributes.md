@@ -1,5 +1,5 @@
 ---
-title: Tutorial-personalizar mapeamentos de atributo Azure Active Directory
+title: Tutorial – Personalizar mapeamentos de atributo do Azure Active Directory
 description: Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios.
 services: active-directory
 author: kenwith
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441946"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955507"
 ---
-# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial-personalizar o atributo de provisionamento de usuário-mapeamentos para aplicativos SaaS no Azure Active Directory
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
 O Microsoft Azure AD dá suporte ao provisionamento de usuário para aplicativos SaaS de terceiros, como o Salesforce e o G Suite, entre outros. Se você habilitar o provisionamento de usuário para um aplicativo SaaS de terceiros, o portal do Azure controlará os valores de seus atributos por meio do mapeamento de atributos.
 
@@ -107,11 +107,11 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 
 - Salesforce
 - ServiceNow
-- WORKDAY para Active Directory/workday a Azure Active Directory
-- SuccessFactors para Active Directory/SuccessFactors Azure Active Directory
+- Workday para o Active Directory/Workday para o Azure Active Directory
+- SuccessFactors para o Active Directory/SuccessFactors para o Azure Active Directory
 - Active Directory do Azure ([atributos do Azure AD Graph API padrão](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
-- Aplicativos que dão suporte ao [SCIM 2,0](https://tools.ietf.org/html/rfc7643)
-- Para Azure Active Directory write-back para workday ou SuccessFactors, há suporte para atualizar metadados relevantes para atributos com suporte (XPATH e JSONPath), mas não há suporte para adicionar novos atributos workday ou SuccessFactors além daqueles incluídos no esquema padrão
+- Aplicativos compatíveis com [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
+- O write-back do Azure Active Directory para Workday ou SuccessFactors dá suporte para atualizar metadados relevantes para atributos com suporte (XPATH e JSONPath), mas não dá suporte para adicionar novos atributos do Workday ou do SuccessFactors além daqueles incluídos no esquema padrão
 
 
 > [!NOTE]
@@ -136,17 +136,17 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionar um atributo de extensão personalizado para um aplicativo em conformidade com SCIM
 O RFC do SCIM define um esquema de usuário e grupo principal, permitindo também que as extensões do esquema atendam às necessidades de seu aplicativo. Para adicionar um atributo personalizado a um aplicativo SCIM:
-   1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com), selecione **Aplicativos Empresariais** , selecione seu aplicativo e, em seguida, selecione **Provisionamento**.
-   2. Em **Mapeamentos** , selecione o objeto (usuário ou grupo) para o qual deseja adicionar um atributo personalizado.
+   1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com), selecione **Aplicativos Empresariais**, selecione seu aplicativo e, em seguida, selecione **Provisionamento**.
+   2. Em **Mapeamentos**, selecione o objeto (usuário ou grupo) para o qual deseja adicionar um atributo personalizado.
    3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
    4. Selecione **Editar lista de atributos do AppName**.
    5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo**.
 
-Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: usuário: CustomAttribute 
+Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 Essas instruções são aplicáveis somente a aplicativos habilitados para o SCIM. Aplicativos como o ServiceNow e o Salesforce não são integrados ao Azure AD usando o SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
 
-Atributos personalizados não podem ser atributos de referência, atributos de vários valores ou tipos complexos. Os atributos personalizados de extensão multivalor e tipo complexo atualmente têm suporte apenas para aplicativos na galeria.  
+Atributos personalizados não podem ser atributos de referência, nem atributos com vários valores e com tipo complexo. Atualmente, atributos de extensão com vários valores e com tipo complexo personalizados têm suporte apenas nos aplicativos na galeria.  
  
 **Exemplo de representação de um usuário com um atributo de extensão:**
 
@@ -202,7 +202,7 @@ Use as etapas abaixo para provisionar funções para um usuário em seu aplicati
   - **Aspectos a considerar**
     - Certifique-se de que não sejam atribuídas várias funções a um usuário. Não podemos garantir qual função será provisionada.
     
-  - **Saída de exemplo** 
+  - **Solicitação de exemplo (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Use as etapas abaixo para provisionar funções para um usuário em seu aplicati
    }
    ```
   
+  - **Exemplo de saída (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+Os formatos de solicitação no PATCH e no POST são diferentes. Para garantir que o POST e o PATCH sejam enviados no mesmo formato, você pode usar o sinalizador de recurso descrito [aqui](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **Quando usar:** use a expressão AppRoleAssignmentsComplex para provisionar várias funções para um usuário. 
   - **Como configurar:** edite a lista de atributos com suporte conforme descrito acima para incluir um novo atributo para as funções: 
@@ -316,7 +331,7 @@ A seleção dessa opção efetivamente forçará uma ressincronização de todos
 - O serviço de provisionamento do Azure AD não dá suporte ao provisionamento de valores nulos.
 - A chave primária, normalmente "ID", não deve ser incluída como um atributo de destino em seus mapeamentos de atributo. 
 - O atributo de função normalmente precisa ser mapeado usando uma expressão em vez de um mapeamento direto. Confira a seção acima para obter mais detalhes sobre o mapeamento de funções. 
-- Embora você possa desabilitar grupos de seus mapeamentos, não há suporte para desabilitar usuários. 
+- Embora você possa desabilitar os grupos dos seus mapeamentos, não há suporte para a desabilitação de usuários. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
