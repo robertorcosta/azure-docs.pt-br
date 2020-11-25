@@ -6,11 +6,11 @@ ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
 ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890387"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978549"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do ARM usando o portal do Azure
 
@@ -87,8 +87,8 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 
     ![Modelos do Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-   - Remova o parâmetro **storageAccountName** , conforme mostrado na captura de tela anterior.
-   - Adicione uma variável chamada **storageAccountName** , conforme mostrado na captura de tela anterior:
+   - Remova o parâmetro **storageAccountName**, conforme mostrado na captura de tela anterior.
+   - Adicione uma variável chamada **storageAccountName**, conforme mostrado na captura de tela anterior:
 
        ```json
        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
@@ -189,7 +189,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupos de recursos** no menu esquerdo.
-1. No campo **Filtrar por nome** , insira o nome do grupo de recursos.
+1. No campo **Filtrar por nome**, insira o nome do grupo de recursos.
 1. Selecione o nome do grupo de recursos.  Você deverá ver a conta de armazenamento no grupo de recursos.
 1. Selecione **Excluir grupo de recursos** no menu superior.
 

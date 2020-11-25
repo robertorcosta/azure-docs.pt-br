@@ -10,11 +10,11 @@ ms.date: 01/22/2019
 ms.author: chrande
 ms.custom: devx-track-python
 ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972400"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Início Rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando o Python e o portal do Azure
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -75,7 +75,7 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Greml
 
 Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Os snippets foram todos obtidos do arquivo *connect.py* na pasta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
 
-* O `client` do Gremlin é inicializado na linha 104 em *connect.py* :
+* O `client` do Gremlin é inicializado na linha 104 em *connect.py*:
 
     ```python
     ...
@@ -129,7 +129,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
         password="<YOUR_PASSWORD>")
     ```
 
-4. Na página **Chaves** , use o botão Copiar para copiar a CHAVE PRIMÁRIA e cole-a em `<YOUR_PASSWORD>` no parâmetro `password=<YOUR_PASSWORD>`.
+4. Na página **Chaves**, use o botão Copiar para copiar a CHAVE PRIMÁRIA e cole-a em `<YOUR_PASSWORD>` no parâmetro `password=<YOUR_PASSWORD>`.
 
     Agora, toda a definição do objeto `client` deve se parecer com este código:
     ```python
@@ -171,11 +171,11 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
 Após a inserção dos vértices e das bordas, você pode voltar para o Data Explorer, ver os vértices adicionados ao grafo e acrescentar pontos de dados adicionais.
 
-1. Em sua conta do Azure Cosmos DB no portal do Azure, selecione **Data Explorer** , expanda **sample-graph** , selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
+1. Em sua conta do Azure Cosmos DB no portal do Azure, selecione **Data Explorer**, expanda **sample-graph**, selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="A captura de tela mostra a opção Grafo selecionada na API com a opção Aplicar Filtro.":::
 
-2. Na lista **Resultados** , observe que três novos usuários são adicionados ao grafo. Você pode mover os vértices arrastando e soltando, ampliar e reduzir rolando o botão de rolagem do mouse e expandir o tamanho do grafo com a seta dupla. 
+2. Na lista **Resultados**, observe que três novos usuários são adicionados ao grafo. Você pode mover os vértices arrastando e soltando, ampliar e reduzir rolando o botão de rolagem do mouse e expandir o tamanho do grafo com a seta dupla. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Novos vértices no grafo no Data Explorer no portal do Azure":::
 
@@ -222,7 +222,7 @@ Após a inserção dos vértices e das bordas, você pode voltar para o Data Exp
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o destino de um vértice em um grafo":::
 
-13. Na caixa **Destino** , digite *rakesh* e, na caixa **Rótulo de borda** , digite *conhece* e, em seguida, selecione a marca de seleção.
+13. Na caixa **Destino**, digite *rakesh* e, na caixa **Rótulo de borda**, digite *conhece* e, em seguida, selecione a marca de seleção.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma conexão entre ashley e rakesh no Data Explorer":::
 

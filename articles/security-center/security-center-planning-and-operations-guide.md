@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787900"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965112"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planejamento e operações
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que pretendem usar a Central de Segurança do Azure.
@@ -71,12 +71,12 @@ A Central de Segurança permite que essas pessoas atendam a várias responsabili
 
 A Central de Segurança usa o [RBAC do Azure (controle de acesso baseado em função do Azure)](../role-based-access-control/role-assignments-portal.md), que fornece [funções internas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure. Quando um usuário abre a Central de Segurança, ele vê apenas as informações relacionadas aos recursos aos quais tem acesso. Isso significa que o usuário recebe a função de Leitor, Colaborador ou Proprietário para a assinatura ou grupo de recursos ao qual o recurso pertence. Além dessas funções, há duas funções específicas da Central de Segurança:
 
-- **Leitor de segurança** : um usuário com esta essa função consegue ver somente as configurações da Central de Segurança, que inclui recomendações, alertas, política e integridade, mas não consegue fazer alterações.
-- **Administrador de segurança** : o mesmo que o leitor de segurança, mas ele também pode atualizar a política de segurança, ignorar as recomendações e alertas.
+- **Leitor de segurança**: um usuário com esta essa função consegue ver somente as configurações da Central de Segurança, que inclui recomendações, alertas, política e integridade, mas não consegue fazer alterações.
+- **Administrador de segurança**: o mesmo que o leitor de segurança, mas ele também pode atualizar a política de segurança, ignorar as recomendações e alertas.
 
 As funções da Central de Segurança descritas acima não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
 
-Usando as pessoas explicadas no diagrama anterior, o seguinte RBAC seria necessário:
+Usando as personas explicadas no diagrama anterior, o seguinte Azure RBAC seria necessário:
 
 **Matheus (proprietário da carga de trabalho)**
 
@@ -106,7 +106,7 @@ Algumas informações importantes a serem consideradas:
 * Somente os Proprietários/Colaboradores da assinatura e Administradores de segurança podem editar uma política de segurança.
 * Somente os Proprietários e os Colaboradores da assinatura e do grupo de recursos podem aplicar recomendações de segurança para um recurso.
 
-Ao planejar o controle de acesso usando o RBAC para a Central de Segurança, compreenda quem em sua organização usará a Central de Segurança. Além disso, quais tipos de tarefas irão executar, em seguida, configurar o RBAC de acordo.
+Ao planejar o controle de acesso usando o Azure RBAC para a Central de Segurança, tenha em mente quem, em sua organização, usará a Central de Segurança. Além disso, compreenda quais tipos de tarefas essa pessoa executará; em seguida, configure o Azure RBAC corretamente.
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, os usuários que precisarem apenas exibir informações sobre o estado de segurança dos recursos, mas não precisarem executar ações, por exemplo, aplicar recomendações ou editar políticas, deverão receber a função de Leitor.
@@ -207,9 +207,9 @@ Embora este artigo não tenha como objetivo ajudar você a criar seu plano de re
 
 Você pode usar os Alertas da Central de Segurança durante os estágios a seguir:
 
-* **Detectar** : identifica uma atividade suspeita em um ou mais recursos.
-* **Avaliar** : realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
-* **Diagnosticar** : usa as etapas de correção para realizar o procedimento técnico para endereçar o problema.
+* **Detectar**: identifica uma atividade suspeita em um ou mais recursos.
+* **Avaliar**: realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
+* **Diagnosticar**: usa as etapas de correção para realizar o procedimento técnico para endereçar o problema.
 
 Cada Alerta de segurança fornece informações que podem ser usadas para entender melhor a natureza do ataque e sugerir possíveis atenuações. Alguns alertas também fornecem links para mais informações ou para outras fontes de informações no Azure. Você pode usar as informações fornecidas para pesquisa e para começar o processo de atenuação, e também pode pesquisar dados relacionados à segurança que fiquem armazenados no workspace.
 

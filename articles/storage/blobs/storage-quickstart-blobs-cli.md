@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021751"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Início Rápido: Criar, baixar e listar blobs com a CLI do Azure
 
@@ -35,7 +35,7 @@ A CLI do Azure é a experiência de linha de comando do Azure para gerenciar rec
 
 Você pode autorizar o acesso ao Armazenamento de Blobs por meio da CLI do Azure com as credenciais do Azure AD ou usando a chave de acesso da conta de armazenamento. Recomendamos usar as credenciais do Azure AD. Este artigo mostra como autorizar operações do Armazenamento de Blobs usando o Azure AD.
 
-Os comandos da CLI do Azure para operações de dados no Armazenamento de Blobs dão suporte ao parâmetro `--auth-mode`, que permite especificar como autorizar determinada operação. Defina o parâmetro `--auth-mode` como `login` para autorização com as credenciais do Azure AD. Para obter mais informações, confira [Autorizar o acesso a dados de blob ou de filas com a CLI do Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Os comandos da CLI do Azure para operações de dados no Armazenamento de Blobs dão suporte ao parâmetro `--auth-mode`, que permite especificar como autorizar determinada operação. Defina o parâmetro `--auth-mode` como `login` para autorização com as credenciais do Azure AD. Para obter mais informações, confira [Autorizar o acesso a dados de blob ou de filas com a CLI do Azure](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Somente as operações de dados do Armazenamento de Blobs dão suporte ao parâmetro `--auth-mode`. As operações de gerenciamento, como a criação de um grupo de recursos ou uma conta de armazenamento, usam automaticamente as credenciais do Azure AD para autorização.
 
@@ -89,7 +89,7 @@ az storage container create \
 > [!IMPORTANT]
 > As atribuições de função do Azure podem levar alguns minutos para serem propagadas.
 
-Você também pode usar a chave de conta de armazenamento para autorizar a operação para criar o contêiner. Para obter mais informações sobre como autorizar operações de dados com a CLI do Azure, confira [Autorizar o acesso a dados de blob ou de fila com a CLI do Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+Você também pode usar a chave de conta de armazenamento para autorizar a operação para criar o contêiner. Para obter mais informações sobre como autorizar operações de dados com a CLI do Azure, confira [Autorizar o acesso a dados de blob ou de fila com a CLI do Azure](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="upload-a-blob"></a>Carregar um blob
 
@@ -169,4 +169,4 @@ az group delete \
 Neste início rápido, você aprendeu como transferir arquivos entre um sistema de arquivos local e um contêiner no armazenamento do Blob do Azure. Para saber mais sobre como trabalhar com o Armazenamento de Blobs usando a CLI do Azure, explore os exemplos da CLI do Azure para o Armazenamento de Blobs.
 
 > [!div class="nextstepaction"]
-> [Exemplos da CLI do Azure para o Armazenamento de Blobs](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Exemplos da CLI do Azure para o Armazenamento de Blobs](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -1,19 +1,18 @@
 ---
-ms.openlocfilehash: 475a468977a976e2e7399c14df9329b31446d404
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134883"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560233"
 ---
-
-No Azure AD (Azure Active Directory), o termo **provisionamento de aplicativo** refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem ( [SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md), entre outros.
+No Azure AD (Azure Active Directory), o termo **provisionamento de aplicativo** refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md), entre outros.
 
 ![Diagrama de visão geral de provisionamento](./media/active-directory-app-provisioning/provisioning-overview.png)
 
 Esse recurso permite a você:
 
-- **Automatizar o provisionamento** : Crie automaticamente novas contas nos sistemas certos quando novas pessoas entrarem em sua equipe ou organização.
+- **Automatizar o provisionamento**: Crie automaticamente novas contas nos sistemas certos quando novas pessoas entrarem em sua equipe ou organização.
 - **Automatizar o desprovisionamento:** Desative automaticamente as contas nos sistemas certos quando as pessoas deixarem a equipe ou organização.
 - **Sincronizar dados entre sistemas:** mantenha as identidades em seus aplicativos e sistemas atualizadas com base nas alterações no diretório ou em seu sistema de recursos humanos.
 - **Provisionar grupos:** provisione grupos a aplicativos compatíveis com eles.
@@ -46,7 +45,7 @@ O Azure AD apresenta suporte pré-integrado para vários sistemas de recursos hu
 
    ![Logotipo do Salesforce](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   Se você quiser solicitar um novo aplicativo para provisionamento, poderá [solicitar que seu aplicativo seja integrado à nossa galeria de aplicativos](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md). Para uma solicitação de provisionamento de usuários, exigimos que o aplicativo tenha um ponto de extremidade em conformidade com SCIM. Solicite que o fornecedor do aplicativo siga o padrão SCIM para que possamos integrar o aplicativo à nossa plataforma rapidamente.
+   Se você quiser solicitar um novo aplicativo para provisionamento, poderá [solicitar que seu aplicativo seja integrado à nossa galeria de aplicativos](../articles/active-directory/develop/v2-howto-app-gallery-listing.md). Para uma solicitação de provisionamento de usuários, exigimos que o aplicativo tenha um ponto de extremidade em conformidade com SCIM. Solicite que o fornecedor do aplicativo siga o padrão SCIM para que possamos integrar o aplicativo à nossa plataforma rapidamente.
 
 * **Aplicativos compatíveis com SCIM 2.0**. Para obter informações sobre como se conectar genericamente a aplicativos que implementam APIs de gerenciamento de usuários com base em SCIM 2.0, confira [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
 
@@ -66,7 +65,7 @@ Os aplicativos na galeria do Azure AD são compatíveis com um de dois modos de 
 
 * **Automático** significa que o conector de provisionamento do Azure AD foi desenvolvido para este aplicativo. Você deve seguir o tutorial de instalação específico para a configuração de provisionamento para o aplicativo. Tutoriais de aplicativos podem ser encontrados em [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](../articles/active-directory/saas-apps/tutorial-list.md).
 
-Na galeria do Azure AD, os aplicativos compatíveis com o provisionamento automático são designados por um ícone de **Provisionamento**. Alterne para a nova experiência de versão prévia da galeria para ver esses ícones (na faixa localizada na parte superior da **página Adicionar um aplicativo** , selecione o link que diz **Clique aqui para experimentar a galeria de aplicativos nova e aprimorada** ).
+Na galeria do Azure AD, os aplicativos compatíveis com o provisionamento automático são designados por um ícone de **Provisionamento**. Alterne para a nova experiência de versão prévia da galeria para ver esses ícones (na faixa localizada na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **Clique aqui para experimentar a galeria de aplicativos nova e aprimorada**).
 
 ![Ícone de provisionamento na galeria de aplicativos](./media/active-directory-app-provisioning/browse-gallery.png)
 
