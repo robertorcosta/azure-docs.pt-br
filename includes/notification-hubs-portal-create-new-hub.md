@@ -9,23 +9,23 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009086"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Selecione **Todos os serviços** no menu à esquerda e **Hubs de Notificação** na seção **Móvel**. Selecione o ícone de estrela ao lado do nome do serviço para adicionar o serviço na seção **FAVORITOS** no menu à esquerda. Depois de adicionar os **Hubs de Notificação** a **FAVORITOS** , selecione-o no menu à esquerda.
+1. Selecione **Todos os serviços** no menu à esquerda e **Hubs de Notificação** na seção **Móvel**. Selecione o ícone de estrela ao lado do nome do serviço para adicionar o serviço na seção **FAVORITOS** no menu à esquerda. Depois de adicionar os **Hubs de Notificação** a **FAVORITOS**, selecione-o no menu à esquerda.
 
       ![Portal do Azure – selecionar Hubs de Notificação](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-1. Na página **Hubs de Notificação** , selecione **Adicionar** na barra de ferramentas.
+1. Na página **Hubs de Notificação**, selecione **Adicionar** na barra de ferramentas.
 
       ![Hubs de Notificação – adicionar botão de barra de ferramentas](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
 
-1. Na página **Hub de Notificação** , execute as seguintes etapas:
+1. Na página **Hub de Notificação**, execute as seguintes etapas:
 
     1. Insira um nome em **Hub de Notificação**.  
 

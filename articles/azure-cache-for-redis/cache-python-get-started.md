@@ -12,11 +12,11 @@ ms.custom:
 - devx-track-python
 ms.date: 11/05/2019
 ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008864"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Início Rápido: Usar o Cache do Azure para Redis no Python
 
@@ -34,7 +34,7 @@ Neste artigo, você incorporará o Cache do Azure para Redis a um aplicativo Pyt
 
 ## <a name="install-redis-py"></a>Instale o redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) é uma interface de Python para o Cache do Azure para Redis. Use a ferramenta de pacotes do Python, *pip* , para instalar o pacote *redis-py* com um prompt de comando. 
+[Redis-py](https://github.com/andymccurdy/redis-py) é uma interface de Python para o Cache do Azure para Redis. Use a ferramenta de pacotes do Python, *pip*, para instalar o pacote *redis-py* com um prompt de comando. 
 
 O exemplo a seguir usa *pip3* para Python 3 para instalar o *redis-py* no Windows 10 por meio de um prompt de comando do administrador.
 
@@ -99,7 +99,7 @@ Se você não pretende mais usar o grupo de recursos do Azure, ou os recursos cr
 Para excluir o grupo de recursos e sua instância do Redis do Cache do Azure:
 
 1. No [portal do Azure](https://portal.azure.com), procure e selecione **Grupos de recursos**.
-1. Na caixa de texto **Filtrar por nome** , digite o nome do grupo de recursos que contém sua instância de cache e selecione-o nos resultados da pesquisa. 
+1. Na caixa de texto **Filtrar por nome**, digite o nome do grupo de recursos que contém sua instância de cache e selecione-o nos resultados da pesquisa. 
 1. Na página do grupo de recursos, selecione **Excluir grupo de recursos**.
 1. Digite o nome do grupo de recursos e selecione **Excluir**.
    

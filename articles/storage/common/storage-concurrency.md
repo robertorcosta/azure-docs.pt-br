@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008898"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-O armazenamento do Azure também inclui suporte para cabeçalhos condicionais, como **If-Modified-Since** , **If-inmodified-Since** , **If-None-Match** e combinações desses cabeçalhos. Para obter mais informações, confira [Como especificar cabeçalhos condicionais para operações de serviço Blob](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+O armazenamento do Azure também inclui suporte para cabeçalhos condicionais, como **If-Modified-Since**, **If-inmodified-Since**, **If-None-Match** e combinações desses cabeçalhos. Para obter mais informações, confira [Como especificar cabeçalhos condicionais para operações de serviço Blob](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 A tabela a seguir resume as operações de contêiner que aceitam cabeçalhos condicionais como **If-Match** na solicitação e retornam um valor de ETag na resposta.
 
@@ -130,7 +130,7 @@ A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicio
 
 Para bloquear um blob para uso exclusivo, adquira uma [concessão](/rest/api/storageservices/Lease-Blob) para ele. Ao adquirir uma concessão, você especifica um período de tempo para a concessão. O período de tempo varia de 15 a 60 segundos ou infinito, que é o valor de um bloqueio exclusivo. Renove uma concessão finita para estendê-la. Libere uma concessão quando tiver terminado. O armazenamento de BLOBs lança automaticamente concessões finitas quando elas expiram.
 
-As concessões permitem que diferentes estratégias de sincronização sejam suportadas. As estratégias incluem *gravação exclusiva/leitura compartilhada* , *gravação exclusiva/leitura exclusiva* e *gravação compartilhada/leitura exclusiva* . Onde existe uma concessão, o armazenamento do Azure impõe gravações exclusivas (operações put, set e Delete), no entanto, garantir que exclusividade para operações de leitura exija que o desenvolvedor garanta que todos os aplicativos cliente usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.
+As concessões permitem que diferentes estratégias de sincronização sejam suportadas. As estratégias incluem *gravação exclusiva/leitura compartilhada*, *gravação exclusiva/leitura exclusiva* e *gravação compartilhada/leitura exclusiva*. Onde existe uma concessão, o armazenamento do Azure impõe gravações exclusivas (operações put, set e Delete), no entanto, garantir que exclusividade para operações de leitura exija que o desenvolvedor garanta que todos os aplicativos cliente usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.
 
 O snippet de C# a seguir mostra um exemplo de aquisição de uma concessão exclusiva por 30 segundos em um blob, atualizando o conteúdo do blob e liberando a concessão. Se já houver uma concessão válida no blob quando você tentar adquirir uma nova concessão, o serviço blob retornará um resultado de status "conflito de HTTP (409)". O snippet de código a seguir usa um objeto **AccessCondition** para encapsular as informações da concessão quando ela faz uma solicitação para atualizar o blob no serviço de Armazenamento.  Você pode baixar o exemplo completo aqui: [Gerenciando a simultaneidade usando o Armazenamento do Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -184,7 +184,7 @@ As operações de blob a seguir podem usar concessões para gerenciar a simultan
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Simultaneidade pessimista para contêineres
 
-As concessões em contêineres permitem que as mesmas estratégias de sincronização tenham suporte como em BLOBs ( *gravação exclusiva/leitura compartilhada* , *gravação exclusiva/leitura* exclusiva e *gravação compartilhada/leitura exclusiva* ) no entanto, ao contrário dos BLOBs, o serviço de armazenamento impõe apenas exclusividade em operações de exclusão. Para excluir um contêiner com uma concessão ativa, o cliente deve incluir a ID da concessão ativa com a solicitação de exclusão. Todas as outras operações de contêiner obtiveram êxito em um contêiner sob concessão sem incluir a ID de concessão, caso em que são operações compartilhadas. Se a exclusividade das operações de leitura ou atualização (colocação ou definição) for obrigatória, os desenvolvedores devem garantir que todos os clientes usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida.
+As concessões em contêineres permitem que as mesmas estratégias de sincronização tenham suporte como em BLOBs (*gravação exclusiva/leitura compartilhada*, *gravação exclusiva/leitura* exclusiva e *gravação compartilhada/leitura exclusiva*) no entanto, ao contrário dos BLOBs, o serviço de armazenamento impõe apenas exclusividade em operações de exclusão. Para excluir um contêiner com uma concessão ativa, o cliente deve incluir a ID da concessão ativa com a solicitação de exclusão. Todas as outras operações de contêiner obtiveram êxito em um contêiner sob concessão sem incluir a ID de concessão, caso em que são operações compartilhadas. Se a exclusividade das operações de leitura ou atualização (colocação ou definição) for obrigatória, os desenvolvedores devem garantir que todos os clientes usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida.
 
 As operações de contêiner a seguir podem usar concessões para gerenciar a simultaneidade pessimista:
 

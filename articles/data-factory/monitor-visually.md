@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331434"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008762"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorar visualmente o Azure Data Factory
 
@@ -40,7 +40,7 @@ A grade de execução de pipeline contém as seguintes colunas:
 | Término da execução | Data e hora de término da execução do pipeline (MM/DD/AAAA, HH: MM: SS AM/PM) |
 | Duration | Duração da execução (HH:MM:SS) |
 | Disparado por | O nome do gatilho que iniciou o pipeline |
-| Status | **Falha** , **Bem-sucedida** , **Em andamento** , **Cancelado** ou **Na fila** |
+| Status | **Falha**, **Bem-sucedida**, **Em andamento**, **Cancelado** ou **Na fila** |
 | Anotações | Marcas filtráveis associadas a um pipeline  |
 | Parâmetros | Parâmetros de execução de pipeline (pares de nome/valor) |
 | Erro | Se o pipeline falhou, o erro de execução |
@@ -62,16 +62,16 @@ Para obter uma exibição detalhada das execuções de atividade individuais de 
 
 A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline. Focalize a execução da atividade específica para obter informações específicas da execução, como a entrada JSON, a saída JSON e experiências detalhadas de monitoramento específicas da atividade.
 
-![Exibição de lista de execuções de atividade de monitoramento](media/monitor-visually/activity-runs.png)
+![Há informações sobre SalesAnalyticsMLPipeline, seguidas por uma lista de execuções de atividade.](media/monitor-visually/activity-runs.png)
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome da atividade | Nome da atividade no pipeline |
-| Tipo de atividade | Tipo de atividade, como **Copiar** , **ExecuteDataFlow** ou **AzureMLExecutePipeline** |
+| Tipo de atividade | Tipo de atividade, como **Copiar**, **ExecuteDataFlow** ou **AzureMLExecutePipeline** |
 | Ações | Ícones que permitem que você veja informações de entrada JSON, informações de saída JSON ou experiências detalhadas de monitoramento específicas da atividade | 
 | Início da Execução | Data e hora de início da execução da atividade (MM/DD/AAAA HH:MM:SS AM/PM) |
 | Duration | Duração da execução (HH:MM:SS) |
-| Status | **Falha** , **Sucesso** , **Em andamento** ou **Cancelado** |
+| Status | **Falha**, **Sucesso**, **Em andamento** ou **Cancelado** |
 | Integration Runtime | Em qual Integration Runtime a atividade foi executada |
 | Propriedades do Usuário | Propriedades definidas pelo usuário da atividade |
 | Erro | Se a atividade falhou, o erro de execução |
@@ -79,7 +79,7 @@ A exibição de lista mostra as execuções de atividade que correspondem a cada
 
 Se uma atividade falhar, você poderá ver a mensagem de erro detalhada clicando no ícone na coluna erro. 
 
-![Exibição de lista de execuções de atividade de monitoramento](media/monitor-visually/activity-run-error.png)
+![Uma notificação é exibida com detalhes do erro, incluindo código de erro, tipo de falha e detalhes do erro.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Promover as propriedades de usuário para monitorá-las
 

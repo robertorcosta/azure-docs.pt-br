@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "87088386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008881"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET para uma VM do Azure a partir do Visual Studio
 
@@ -69,7 +69,7 @@ A seção a seguir descreve como publicar um aplicativo Web ASP.NET existente em
 
 11. Se a publicação for bem-sucedida, um navegador é inicializado para abrir a URL do site recém-publicado.
 
-**Sucesso!**
+**Êxito!**
 
 Você publicou com êxito seu aplicativo Web para uma máquina virtual do Azure.
 

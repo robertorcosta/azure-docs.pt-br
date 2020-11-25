@@ -4,11 +4,11 @@ description: Fornece um resumo do suporte para o dispositivo de migrações para
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450035"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008694"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -69,8 +69,8 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Limites de descoberta** | Um dispositivo pode descobrir até 5.000 VMs do Hyper-V.<br/> Um dispositivo pode se conectar a até 300 hosts do Hyper-V.
 **Modelo VHD** | Pasta compactada incluindo VHD. Baixe do portal ou [daqui](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> O tamanho do download é 8,91 GB.<br/><br/> O modelo de dispositivo baixado é fornecido com uma licença de avaliação do Windows Server 2016 que é válida por 180 dias. Caso o período de avaliação esteja próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
 **Script do PowerShell** | Consulte este [artigo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Software/hardware***   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar os requisitos de hardware.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
-**Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pelas Migrações para Azure será a versão 5.0 da VM do Hyper-V.<br/><br/> O host do Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
+**Software/hardware** _   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar os requisitos de hardware.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
+_ *Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pelas Migrações para Azure será a versão 5.0 da VM do Hyper-V.<br/><br/> O host do Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
 **Valor de hash – VHD** | [Verificar](tutorial-discover-hyper-v.md#verify-security) Valores de hash do modelo VHD.
 **Valor de hash – script do PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
@@ -219,7 +219,7 @@ Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada V
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
+Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-vm-features-data"></a>Dados de recursos de VM do Windows
 
@@ -227,7 +227,7 @@ Aqui estão os dados de recursos que o dispositivo coleta de cada VM habilitada 
 
 **Dados**  | **Cmdlet do PowerShell** | **Propriedade**
 --- | --- | ---
-Nome  | Get-WindowsFeature  | Nome
+Name  | Get-WindowsFeature  | Name
 Tipo de recurso | Get-WindowsFeature  | Recurso de funcionalidade
 Pai  | Get-WindowsFeature  | Pai
 
@@ -237,7 +237,7 @@ Aqui estão os metadados do SQL Server que o dispositivo coleta de VMs que execu
 
 **Dados**  | **Local do Registro**  | **Key**
 --- | --- | ---
-Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
 Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 
 Service Pack  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | SP
 Versão  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Versão 
@@ -248,7 +248,7 @@ Aqui estão os dados do sistema operacional que o dispositivo coleta cada VM hab
 
 Dados  | classe WMI  | Propriedade de classe WMI
 --- | --- | ---
-Nome  | Win32_operatingsystem  | Legenda
+Name  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada V
 
 Dados  | Comando
 --- | --- 
-Nome | rpm, dpkg-Query, snap
+Name | rpm, dpkg-Query, snap
 Versão | rpm, dpkg-Query, snap
 Provedor | rpm, dpkg-Query, snap
 
@@ -268,7 +268,7 @@ Aqui estão os dados do sistema operacional que o dispositivo coleta cada VM hab
 
 **Dados**  | **Comando** 
 --- | --- | ---
-Nome <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> Versão | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arquitetura | uname
 
 

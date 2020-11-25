@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80876385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009833"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso de instância de contêiner do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "80876385"
     |Subscription|Selecione sua assinatura.|
     |Resource group|Selecione o grupo de recursos disponível ou crie um novo, como `cognitive-services` .|
     |Nome do contêiner|Insira um nome como `cognitive-container-instance` . O nome deve estar em minúsculas.|
-    |Location|Selecione uma região para implantação.|
+    |Localização|Selecione uma região para implantação.|
     |Tipo de Imagem|Se a imagem de contêiner estiver armazenada em um registro de contêiner que não requer credenciais, escolha `Public` . Se o acesso à sua imagem de contêiner exigir credenciais, escolha `Private` . Consulte [repositórios e imagens de contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter detalhes sobre se a imagem de contêiner é ou não `Public` ou `Private` ("visualização pública"). |
     |Nome da imagem|Insira o local do contêiner de serviços cognitivas. O local é o que é usado como um argumento para o `docker pull` comando. Consulte os [repositórios e as imagens do contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter os nomes de imagem disponíveis e seu repositório correspondente.<br><br>O nome da imagem deve ser totalmente qualificado, especificando três partes. Primeiro, o registro de contêiner, em seguida, o repositório, por fim, o nome da imagem: `<container-registry>/<repository>/<image-name>` .<br><br>Aqui está um exemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` que representaria a imagem de extração de frases-chave no registro de contêiner da Microsoft no repositório de serviços cognitivas do Azure. Outro exemplo é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` que representaria a imagem de fala para texto no repositório da Microsoft do registro de contêiner de visualização do contêiner. |
     |Tipo do SO|`Linux`|

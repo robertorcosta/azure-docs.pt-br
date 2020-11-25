@@ -7,11 +7,11 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009239"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
@@ -139,7 +139,7 @@ Para atualizar as configurações de uma conexão de gateway, você pode editar 
 
 Para localizar todas as conexões de API associadas à assinatura do Azure:
 
-* No menu portal do Azure, selecione **todos os serviços**  >  conexões de API**da Web**  >  **API Connections**.
+* No menu portal do Azure, selecione **todos os serviços**  >  conexões de API **da Web**  >  **API Connections**.
 * Ou, no menu portal do Azure, selecione **todos os recursos**. Defina o filtro de **tipo** como **conexão de API**.
 
 <a name="change-delete-gateway-resource"></a>
@@ -148,7 +148,7 @@ Para localizar todas as conexões de API associadas à assinatura do Azure:
 
 Para criar um recurso de gateway diferente, vincule a instalação do gateway a um recurso de gateway diferente ou remova o recurso de gateway, você pode excluir o recurso de gateway sem afetar a instalação do gateway.
 
-1. No menu portal do Azure, selecione **todos os recursos**ou pesquise e selecione **todos os recursos** em qualquer página. Localize e selecione o recurso de gateway.
+1. No menu portal do Azure, selecione **todos os recursos** ou pesquise e selecione **todos os recursos** em qualquer página. Localize e selecione o recurso de gateway.
 
 1. Se ainda não estiver selecionado, no menu de recursos do gateway, selecione **Gateway de Dados Local**. Na barra de ferramentas de recursos do gateway, selecione **excluir**.
 
