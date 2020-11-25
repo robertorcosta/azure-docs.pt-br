@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019048"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
@@ -20,7 +20,7 @@ Neste artigo, saiba como usar as Ferramentas do Azure Data Lake para Visual Stud
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As ferramentas do Azure Data Lake para VS Code dão suporte para Windows, Linux e macOS.A execução local do U-SQL e a depuração local funcionam somente no Windows.
+As ferramentas do Azure Data Lake para VS Code dão suporte para Windows, Linux e macOS. A execução local do U-SQL e a depuração local funcionam somente no Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -65,18 +65,18 @@ Abra a paleta de comandos (Ctrl + Shift + P) e insira **ADL: Abrir Script de Exe
 4. Insira o código a seguir no arquivo Sem título-1:
 
    ```usql
-   @departments  =
-       SELECT * FROM
-           (VALUES
-               (31,    "Sales"),
-               (33,    "Engineering"),
-               (34,    "Clerical"),
-               (35,    "Marketing")
-           ) AS
-                 D( DepID, DepName );
+   @departments  =
+       SELECT * FROM
+           (VALUES
+               (31,    "Sales"),
+               (33,    "Engineering"),
+               (34,    "Clerical"),
+               (35,    "Marketing")
+           ) AS
+                 D( DepID, DepName );
    ```
 
-   SAÍDA @departments      para "/output/departments.csv" usando Outputters.Csv ();
+   SAÍDA @departments     para "/Output/departments.csv" usando Outputters.Csv ();
 
     O script cria um arquivo departments.csv com alguns dados incluídos na pasta /output.
 

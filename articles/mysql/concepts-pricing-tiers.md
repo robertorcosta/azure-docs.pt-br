@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018708"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -29,7 +29,7 @@ Para escolher um tipo de preço, use a tabela a seguir como ponto de partida.
 
 | Tipo de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Basic | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
+| Básico | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
 | Uso Geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
 | Otimizado para memória | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para o processamento de transações mais rápido e com simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
 
@@ -43,7 +43,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 O armazenamento provisionado é a quantidade de capacidade de armazenamento disponível para o Banco de Dados do Azure para servidor MySQL. O armazenamento é usado para os arquivos de banco de dados, os logs de transações e os logs do servidor MySQL. A quantidade total de armazenamento que você provisiona também define a capacidade disponível para o servidor.
 
-| Atributo de armazenamento   | Basic | Propósito geral | Otimizado para memória |
+| Atributo de armazenamento   | Básico | Propósito geral | Otimizado para memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento Uso Geral | Armazenamento Uso Geral |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -97,7 +97,7 @@ O dimensionamento do armazenamento e a alteração do período de retenção de 
 
 ## <a name="pricing"></a>Preços
 
-Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/mysql/) do serviço. Para ver os custos da configuração desejada, o [Portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) mostra o custo mensal na guia **Tipo de preço** com base nas opções que você seleciona. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/), selecione **Adicionar itens** , expanda a categoria **Bancos de dados** e escolha **Banco de Dados do Azure para MySQL** para personalizar as opções.
+Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/mysql/) do serviço. Para ver os custos da configuração desejada, o [Portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) mostra o custo mensal na guia **Tipo de preço** com base nas opções que você seleciona. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/), selecione **Adicionar itens**, expanda a categoria **Bancos de dados** e escolha **Banco de Dados do Azure para MySQL** para personalizar as opções.
 
 ## <a name="next-steps"></a>Próximas etapas
 

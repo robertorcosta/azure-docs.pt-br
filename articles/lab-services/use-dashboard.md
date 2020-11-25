@@ -4,11 +4,11 @@ description: Saiba como usar o painel para um laboratório de sala de aula no Az
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3834e6910faea38e87489d1ad0075d4bd9b8c6c6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376945"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018300"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Painel para laboratórios de sala de aula
 Este artigo descreve a exibição de painel de um laboratório de sala de aula no Azure Lab Services. 

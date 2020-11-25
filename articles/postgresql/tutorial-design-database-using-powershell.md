@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332977"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018079"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o PowerShell
 
@@ -76,7 +76,7 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -GeoRedundantBackup Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores** , conforme mostrado nestes exemplos.
+O valor do parâmetro **SKU** segue a convenção **pricing-tier\_compute-generation\_vCores**, conforme mostrado nestes exemplos.
 
 - `-Sku B_Gen5_1` é mapeado para Básico, Gen 5 e 1 vCore. Essa opção é o menor SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
@@ -93,7 +93,7 @@ Considere usar o tipo de preço Básico se computação leve e E/S forem adequad
 
 Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para PostgreSQL usando o cmdlet `New-AzPostgreSqlFirewallRule`. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando `psql` ou o PostgreSQL Workbench, conecte-se ao servidor por meio do firewall do serviço Banco de Dados do Azure para PostgreSQL.
 
-O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP** , que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
+O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP**, que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um intervalo de endereços IP que correspondam à localização da qual você está se conectando.
 
 ```azurepowershell-interactive
 New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1

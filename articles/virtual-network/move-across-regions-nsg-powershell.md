@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 04abc051cec8a6fb38ce6aa8f5347ae06cb8bd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688442"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019745"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Mover o NSG (grupo de segurança de rede) do Azure para outra região usando Azure PowerShell
 
 Há vários cenários em que você deseja mover seu NSGs existente de uma região para outra. Por exemplo, talvez você queira criar um NSG com as mesmas regras de configuração e segurança para teste. Você também pode querer mover um NSG para outra região como parte do planejamento de recuperação de desastre.
 
-Os grupos de segurança do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar as regras de segurança e configuração existentes de um NSG.  Em seguida, você pode preparar o recurso em outra região exportando o NSG para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região.  Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [Exportar grupos de recursos para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Não é possível migrar os grupos de segurança do Azure de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar as regras de segurança e configuração existentes de um NSG.  Em seguida, você pode preparar o recurso em outra região exportando o NSG para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região.  Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [Exportar grupos de recursos para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -106,9 +106,9 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
     Get-AzLocation | format-table
     
     ```
-8. Você também pode alterar outros parâmetros no ** \<resource-group-name> . JSON** se escolher e forem opcionais, dependendo dos seus requisitos:
+8. Você também pode alterar outros parâmetros no **\<resource-group-name> . JSON** se escolher e forem opcionais, dependendo dos seus requisitos:
 
-    * **Regras de segurança** – você pode editar quais regras são implantadas no NSG de destino adicionando ou removendo regras para a seção **securityRules** no arquivo ** \<resource-group-name> . JSON** :
+    * **Regras de segurança** – você pode editar quais regras são implantadas no NSG de destino adicionando ou removendo regras para a seção **securityRules** no arquivo **\<resource-group-name> . JSON** :
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
             
         ```
 
-        Para concluir a adição ou a remoção das regras no NSG de destino, você também deve editar os tipos de regra personalizada no final do arquivo ** \<resource-group-name> . JSON** no formato do exemplo abaixo:
+        Para concluir a adição ou a remoção das regras no NSG de destino, você também deve editar os tipos de regra personalizada no final do arquivo **\<resource-group-name> . JSON** no formato do exemplo abaixo:
 
         ```json
            {

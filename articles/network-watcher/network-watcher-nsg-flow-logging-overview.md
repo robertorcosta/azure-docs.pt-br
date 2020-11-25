@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966506"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018096"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -305,7 +305,7 @@ Fluxo de tuplas de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
 Para os estados de fluxo de continuação _C_ e final _E_, as contagens de bytes e pacotes são contagens agregadas do tempo do registro da tupla de fluxo anterior. Referenciando a conversação de exemplo anterior, o número total de pacotes transferidos é 1021 + 52 + 8005 + 47 = 9125. O número total de bytes transferidos é 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 
-## <a name="enabling-nsg-flow-logs"></a>Habilitando logs de fluxo do NSG
+## <a name="enabling-nsg-flow-logs"></a>Como habilitar logs de fluxo de NSG
 
 Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
@@ -317,7 +317,7 @@ Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
-**Azure portal**
+**Portal do Azure**
 
 Na portal do Azure, navegue até a seção de logs de fluxo NSG no observador de rede. Em seguida, clique no nome do NSG. Isso abrirá o painel configurações para o log de fluxo. Altere os parâmetros desejados e clique em **salvar** para implantar as alterações.
 

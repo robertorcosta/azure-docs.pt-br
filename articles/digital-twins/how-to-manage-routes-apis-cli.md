@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Consulte como configurar e gerenciar pontos de extremidade e rotas de eventos para dados de gêmeos digital do Azure.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b836038aa2f8f60e25c51d1d5674d22497b3ce44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533745"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96018946"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -29,7 +29,7 @@ Como alternativa, você também pode gerenciar pontos de extremidade e rotas com
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-cli.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Grupo de recursos
+    - Resource group
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -64,15 +64,15 @@ Depois de criar o tópico, você pode vinculá-lo ao Azure digital gêmeos com o
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Agora, o tópico da grade de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como o destino de uma **rota de evento** , que você criará [posteriormente neste artigo](#create-an-event-route) usando a API do serviço de gêmeos digital do Azure.
+Agora, o tópico da grade de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como o destino de uma **rota de evento**, que você criará [posteriormente neste artigo](#create-an-event-route) usando a API do serviço de gêmeos digital do Azure.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Criar um hub de eventos ou um ponto de extremidade do barramento de serviço
 
 O processo para a criação de hubs de eventos ou pontos de extremidade do barramento de serviço é semelhante ao processo da grade de eventos mostrado acima.
 
 Primeiro, crie seus recursos que você usará como o ponto de extremidade. Aqui está o que é necessário:
-* Barramento de serviço: _namespace do barramento_ de serviço, tópico do barramento de _serviço_ , regra de _autorização_
-* Hubs de eventos: _namespace de hubs de eventos_ , Hub de _eventos_ , regra de _autorização_
+* Barramento de serviço: _namespace do barramento_ de serviço, tópico do barramento de _serviço_, regra de _autorização_
+* Hubs de eventos: _namespace de hubs de eventos_, Hub de _eventos_, regra de _autorização_
 
 Em seguida, use os seguintes comandos para criar os pontos de extremidade no Azure digital gêmeos: 
 
@@ -156,10 +156,10 @@ Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidad
 
 Os exemplos nesta seção usam o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Pré-requisito** : você precisa criar pontos de extremidade conforme descrito anteriormente neste artigo antes de passar para a criação de uma rota. Você pode prosseguir com a criação de uma rota de evento quando seus pontos de extremidade tiverem concluído a configuração.
+**Pré-requisito**: você precisa criar pontos de extremidade conforme descrito anteriormente neste artigo antes de passar para a criação de uma rota. Você pode prosseguir com a criação de uma rota de evento quando seus pontos de extremidade tiverem concluído a configuração.
 
->[!NOTE]
->Se você tiver implantado seus pontos de extremidade recentemente, valide que eles concluíram a implantação **antes** de tentar usá-los para uma nova rota de evento. Se a implantação de rota falhar porque os pontos de extremidade não estão prontos, aguarde alguns minutos e tente novamente.
+> [!NOTE]
+> Se você tiver implantado seus pontos de extremidade recentemente, valide que eles concluíram a implantação **antes** de tentar usá-los para uma nova rota de evento. Se a implantação de rota falhar porque os pontos de extremidade não estão prontos, aguarde alguns minutos e tente novamente.
 >
 > Se você estiver criando scripts para esse fluxo, talvez queira considerar isso criando em 2-3 minutos de tempo de espera para o serviço de ponto de extremidade concluir a implantação antes de passar para a instalação de rota.
 
@@ -229,7 +229,7 @@ Sem a filtragem, os pontos de extremidade recebem uma variedade de eventos do Az
 
 Você pode restringir os eventos que estão sendo enviados adicionando um **filtro** para um ponto de extremidade à sua rota de eventos.
 
-Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-10-31* com o seguinte corpo:
+Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{Your-Azure-digital-gêmeos-nome_do_host}/eventRoutes/{Event-rota-Name}? API-Version = 2020-10-31* com o seguinte corpo:
 
 ```json  
 {
@@ -237,7 +237,6 @@ Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{Y
     "filter": "<filter-text>"
 }
 ``` 
-
 Aqui estão os filtros de rota com suporte. Use os detalhes na coluna *Filtrar esquema de texto* para substituir o `<filter-text>` espaço reservado no corpo da solicitação acima.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

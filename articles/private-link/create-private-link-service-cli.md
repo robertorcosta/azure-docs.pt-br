@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: e0b9ac3f16a170bb14925b555e8894cb10080488
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cfffafaab2e2d4ef6b165ef03beb827342c94608
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026175"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96018045"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de vínculo privado usando CLI do Azure
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando CLI do Azure.
@@ -50,7 +50,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-health-probe"></a>Criar uma investigação de integridade do balanceador de carga
 
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -63,7 +63,7 @@ Uma investigação de integridade verifica todas as instâncias da máquina virt
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-Uma regra de balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no pool de front-end *myFrontEnd* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
+Uma regra de balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myHTTPRule* com [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no pool de front-end *myFrontEnd* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -79,7 +79,7 @@ Uma regra de balanceador de carga define a configuração de IP de front-end par
 ```
 ### <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Neste exemplo, não abordamos a criação da máquina virtual. Você pode seguir as etapas em [início rápido: criar um balanceador de carga interno para balancear a carga de VMs usando CLI do Azure](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) para criar duas máquinas virtuais a serem usadas como servidores de back-end para o balanceador de carga. 
+Neste exemplo, não abordamos a criação da máquina virtual. Você pode seguir as etapas em [início rápido: criar um balanceador de carga interno para balancear a carga de VMs usando CLI do Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) para criar duas máquinas virtuais a serem usadas como servidores de back-end para o balanceador de carga. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Desabilitar políticas de rede do serviço de vínculo privado na sub-rede 
@@ -163,4 +163,3 @@ az network private-link-service show --resource-group myResourceGroup --name myP
 ```
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [serviço de vínculo privado do Azure](private-link-service-overview.md)
- 

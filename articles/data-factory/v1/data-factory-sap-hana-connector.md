@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707133"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019558"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -42,7 +42,7 @@ Para habilitar a conectividade com a instância do SAP HANA, instale os seguinte
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local SAP HANA usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia. 
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net** e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -62,8 +62,8 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | . "Básico" ou "Windows" | Sim 
 Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-password | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Sim
+password | Senha do usuário. | string | Yes
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Yes
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | No
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -81,7 +81,7 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| Consulta | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Sim |
+| Consulta | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Yes |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemplo de JSON: copiar dados do SAP HANA para o Blob do Azure
 O exemplo a seguir fornece exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados de um SAP HANA local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  

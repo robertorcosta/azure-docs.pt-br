@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217551"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018198"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 
@@ -81,7 +81,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
 1. Selecione **Concluído**. 
 
-1. Defina o **nome da regra de alerta**, a **Descrição**e selecione a **severidade**do alerta. Esses detalhes são usados em todas as ações de alerta. Além disso, você pode optar por não ativar a regra de alerta na criação selecionando **habilitar regra na criação**.
+1. Defina o **nome da regra de alerta**, a **Descrição** e selecione a **severidade** do alerta. Esses detalhes são usados em todas as ações de alerta. Além disso, você pode optar por não ativar a regra de alerta na criação selecionando **habilitar regra na criação**.
 
 1. Escolha se deseja suprimir as ações de regra para um tempo após o acionamento de um alerta, use a opção [**suprimir alertas**](alerts-unified-log.md#state-and-resolving-alerts) . A regra ainda será executada e criará alertas, mas as ações não serão disparadas para evitar ruídos. O valor de ações de mudo deve ser maior que a frequência de alerta para ser eficaz.
 
@@ -126,7 +126,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
     ![Criar regra](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Pressione no botão **selecionar recurso** . Filtre escolhendo a *assinatura*, o *tipo de recurso*e selecione um recurso. Verifique se o recurso tem logs disponíveis.
+1. Pressione no botão **selecionar recurso** . Filtre escolhendo a *assinatura*, o *tipo de recurso* e selecione um recurso. Verifique se o recurso tem logs disponíveis.
 
    ![Selecionar recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -176,7 +176,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
     ![Guia ações](media/alerts-log/actions-tab.png)
 
-1. Na guia **detalhes** , defina os **detalhes da regra de alerta**e os detalhes do **projeto**. Opcionalmente, você pode definir se deseja não **iniciar a execução agora**ou fazer o [**mudo de ações**](alerts-unified-log.md#state-and-resolving-alerts) para um período após a regra de alerta ser acionada.
+1. Na guia **detalhes** , defina os **detalhes da regra de alerta** e os detalhes do **projeto**. Opcionalmente, você pode definir se deseja não **iniciar a execução agora** ou fazer o [**mudo de ações**](alerts-unified-log.md#state-and-resolving-alerts) para um período após a regra de alerta ser acionada.
 
     > [!NOTE]
     > Atualmente, as regras de alerta de log são sem estado e acionam uma ação sempre que um alerta é criado, a menos que o mudo seja definido.

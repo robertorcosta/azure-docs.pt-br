@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707269"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019575"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -37,7 +37,7 @@ Este conector dá suporte ao SAP Business Warehouse versão 7.x. Ele oferece sup
 
 Para habilitar a conectividade com a instância do SAP BW, instale os seguintes componentes:
 - **Gateway de Gerenciamento de Dados**: o serviço Data Factory oferece suporte à conexão com armazenamentos de dados locais (incluindo SAP Business Warehouse) usando um componente denominado Gateway de Gerenciamento de Dados. Para saber mais sobre o Gateway de Gerenciamento de Dados e obter instruções passo a passo de como configurar o gateway, veja o artigo [Mover dados entre armazenamentos de dados locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md). O gateway é exigido mesmo que o SAP Business Warehouse esteja hospedado em uma VM (máquina virtual) IaaS do Azure. Você pode instalar o gateway na mesma VM do armazenamento de dados ou em uma VM diferente, desde que o gateway possa conectar o banco de dados.
-- **Biblioteca do SAP NetWeaver** no computador do gateway. Você pode obter a biblioteca do SAP Netweaver com seu administrador do SAP, ou diretamente do [Centro de Download de Software SAP](https://support.sap.com/swdc). Pesquise pela **Nota SAP Nº 1025361** para obter o local de download da versão mais recente. Certifique-se de que a arquitetura para a biblioteca do SAP NetWeaver (32 bits ou 64 bits) corresponda à sua instalação do gateway. Em seguida, instale todos os arquivos incluídos no SDK RFC do SAP NetWeaver, de acordo com a Nota SAP. A biblioteca do SAP NetWeaver também está incluída na instalação das Ferramentas de Cliente SAP.
+- **Biblioteca do SAP NetWeaver** no computador do gateway. Você pode obter a biblioteca do SAP NetWeaver do administrador do SAP ou diretamente do [centro de download de software SAP](https://support.sap.com/swdc). Pesquise pela **Nota SAP Nº 1025361** para obter o local de download da versão mais recente. Certifique-se de que a arquitetura para a biblioteca do SAP NetWeaver (32 bits ou 64 bits) corresponda à sua instalação do gateway. Em seguida, instale todos os arquivos incluídos no SDK RFC do SAP NetWeaver, de acordo com a Nota SAP. A biblioteca do SAP NetWeaver também está incluída na instalação das Ferramentas de Cliente SAP.
 
 > [!TIP]
 > Coloque as dlls extraídas do SDK do RFC do NetWeaver na pasta system32.
@@ -46,7 +46,7 @@ Para habilitar a conectividade com a instância do SAP BW, instale os seguintes 
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia. 
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net** e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -63,12 +63,12 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
-systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
+Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Yes
+systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Yes
 clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
 Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-password | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Sim
+password | Senha do usuário. | string | Yes
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Yes
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | No
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -86,7 +86,7 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| Consulta | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Sim |
+| Consulta | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Yes |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo de JSON: Copiar dados do SAP Business Warehouse para o Blob do Azure
@@ -290,16 +290,16 @@ Ao mover dados do SAP BW, os seguintes mapeamentos serão usados dos tipos do SA
 
 Tipo de dados no Dicionário ABAP | Tipo de dados .NET
 -------------------------------- | --------------
-ACCP |  Int
+ACCP |  int
 CHAR | String
 CLNT | String
 CURR | Decimal
 CUKY | String
 DEC | Decimal
-FLTP | Double
+FLTP | Duplo
 INT1 | Byte
 INT2 | Int16
-INT4 | Int
+INT4 | int
 LANG | String
 LCHR | String
 LRAW | Byte[]

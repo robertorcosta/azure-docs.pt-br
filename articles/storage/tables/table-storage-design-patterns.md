@@ -10,11 +10,11 @@ ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307466"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019218"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -35,7 +35,7 @@ O serviço Tabela indexa automaticamente as entidades usando os valores de **Par
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o serviço Tabela não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem **RowKey** .  
 
 ### <a name="solution"></a>Solução
-Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey** . Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **RowKey** , "empid_" e "email_" permitem consultar um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou de IDs de funcionários.  
+Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey** . Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **RowKey**, "empid_" e "email_" permitem consultar um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou de IDs de funcionários.  
 
 ![Entidades de funcionário](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -44,7 +44,7 @@ Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma p
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid_000223')  
 * $filter=(PartitionKey eq 'Sales') e (RowKey eq 'email_jonesj@contoso.com')  
 
-Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey** , especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.  
+Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.  
 
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
 * Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra 'a', use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
@@ -90,7 +90,7 @@ Se você quiser ser capaz de encontrar uma entidade funcionário com base no val
 Você está prevendo um alto volume de transações em relação a essas entidades e deseja minimizar o risco de a limitação do serviço de tabela de seu cliente.  
 
 ### <a name="solution"></a>Solução
-Para solucionar a falta de índices secundários, você pode armazenar várias cópias de cada entidade com cada cópia usando valores diferentes de **PartitionKey** e **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **PartitionKey** , "empid_" e "email_" permitem que você identifique o índice que deseja usar para uma consulta.  
+Para solucionar a falta de índices secundários, você pode armazenar várias cópias de cada entidade com cada cópia usando valores diferentes de **PartitionKey** e **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **PartitionKey**, "empid_" e "email_" permitem que você identifique o índice que deseja usar para uma consulta.  
 
 ![Índice primário e índice secundário](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -100,7 +100,7 @@ Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma p
 * $filter=(PartitionKey eq 'empid_Sales') and (RowKey eq '000223')
 * $filter=(PartitionKey eq 'email_Sales') e (RowKey eq 'jonesj@contoso.com')  
 
-Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey** , especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.  
+Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.  
 
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199** classificados em uso de ordem de ID de funcionário: $Filter = (PartitionKey EQ ' empid_Sales ') e (RowKey ge ' 000100 ') e (RowKey Le ' 000199 ')  
 * Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
@@ -145,18 +145,18 @@ EGTs habilitam transações atômicas entre várias entidades que compartilham a
 
 ### <a name="solution"></a>Solução
 Ao usar as filas do Azure, você pode implementar uma solução que fornece consistência eventual em duas ou mais partições ou sistemas de armazenamento.
-Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, você armazena os funcionários ativos na tabela **atual** e os funcionários antigos na tabela de **arquivamento** . O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo morto** , mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação. Mais detalhes são fornecidos para caminhos de exceção no seguinte texto.  
+Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, você armazena os funcionários ativos na tabela **atual** e os funcionários antigos na tabela de **arquivamento** . O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo morto**, mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação. Mais detalhes são fornecidos para caminhos de exceção no seguinte texto.  
 
 ![Solução de filas do Azure](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
 
-Um cliente inicia a operação de arquivamento colocando uma mensagem em uma fila do Azure, neste exemplo para arquivar funcionário nº456. Uma função de trabalho controla a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia oculta na fila. A função de trabalho, em seguida, busca uma cópia da entidade na tabela **Atual** , insere uma cópia na tabela **Arquivo morto** e exclui o original da tabela **Atual**. Finalmente, se não houve erros das etapas anteriores, a função de trabalho exclui a mensagem oculta da fila.  
+Um cliente inicia a operação de arquivamento colocando uma mensagem em uma fila do Azure, neste exemplo para arquivar funcionário nº456. Uma função de trabalho controla a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia oculta na fila. A função de trabalho, em seguida, busca uma cópia da entidade na tabela **Atual**, insere uma cópia na tabela **Arquivo morto** e exclui o original da tabela **Atual**. Finalmente, se não houve erros das etapas anteriores, a função de trabalho exclui a mensagem oculta da fila.  
 
 Neste exemplo, a etapa 4 insere o funcionário na tabela **Arquivo morto** . Ele pode adicionar o funcionário em um blob no serviço Blob ou um arquivo em um sistema de arquivos.  
 
 ### <a name="recovering-from-failures"></a>Recuperando de falhas
-Caso a função de trabalho precise reiniciar a operação de arquivamento, é importante que as operações nas etapas **4** e **5** sejam *idempotentes*. Se estiver usando o serviço Tabela, na etapa **4** , você deverá usar uma operação "inserir ou substituir"; na etapa **5** , você deverá usar uma operação "excluir se existir" na biblioteca de cliente que está usando. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
+Caso a função de trabalho precise reiniciar a operação de arquivamento, é importante que as operações nas etapas **4** e **5** sejam *idempotentes*. Se estiver usando o serviço Tabela, na etapa **4**, você deverá usar uma operação "inserir ou substituir"; na etapa **5**, você deverá usar uma operação "excluir se existir" na biblioteca de cliente que está usando. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
 
-Se a função de trabalho nunca concluir a etapa **6** , após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para obter mais informações sobre como ler mensagens da fila e verificar a contagem da remoção da fila, consulte [obter mensagens](/rest/api/storageservices/Get-Messages).  
+Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para obter mais informações sobre como ler mensagens da fila e verificar a contagem da remoção da fila, consulte [obter mensagens](/rest/api/storageservices/Get-Messages).  
 
 Alguns erros dos serviços Tabela e Fila são erros transitórios e o aplicativo cliente deve incluir uma lógica de repetição adequada para lidar com eles.  
 
@@ -185,7 +185,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Mantenha entidades de índice para habilitar pesquisas eficientes que retornam listas de entidades.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
-O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode recuperar com eficiência uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário ( **PartitionKey** e **RowKey** ).  
+O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode recuperar com eficiência uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário ( **PartitionKey** e **RowKey**).  
 
 ![Entidade de funcionário](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -213,7 +213,7 @@ A propriedade **employeeids** contém uma lista de IDs de funcionários para fun
 As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com a ID 000152 e um sobrenome Jones no departamento de vendas:  
 
 1. Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.  
-2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insira a nova entidade Employee ( **PartitionKey** valor "Sales" e o valor de **RowKey** "000152") e atualize a entidade de índice ( **PartitionKey** valor "Sales" e **RowKey** Value "Jones") adicionando a nova ID employee à lista no campo employeeids. Para saber mais sobre transações de grupo de entidades, confira a seção Transações de grupo de entidades.  
+2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insira a nova entidade Employee (**PartitionKey** valor "Sales" e o valor de **RowKey** "000152") e atualize a entidade de índice (**PartitionKey** valor "Sales" e **RowKey** Value "Jones") adicionando a nova ID employee à lista no campo employeeids. Para saber mais sobre transações de grupo de entidades, confira a seção Transações de grupo de entidades.  
 3. Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.  
 
 Você pode usar uma abordagem semelhante à exclusão de um funcionário se usar a segunda opção. Alterar o sobrenome do funcionário é um pouco mais complexo, pois você precisará executar uma transação de grupo de entidades que atualiza as três entidades: a entidade funcionário, a entidade de índice para o sobrenome antigo e a entidade de índice para o novo sobrenome. Você deve recuperar cada entidade antes de fazer alterações para recuperar os valores de ETag que depois pode usar para executar as atualizações usando a simultaneidade otimista.  
@@ -316,7 +316,7 @@ $filter = (PartitionKey EQ ' Sales ') e (RowKey ge ' empid_000123 ') e (RowKey l
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
 
-* Você deve usar um caractere separador adequado que facilite a análise do valor de **RowKey** : por exemplo, **000123_2012**.  
+* Você deve usar um caractere separador adequado que facilite a análise do valor de **RowKey**: por exemplo, **000123_2012**.  
 * Você também está armazenando essa entidade na mesma partição que outras entidades que contêm dados relacionados para o mesmo funcionário, o que significa que você pode usar EGTs para manter a coerência forte.
 * Você deve considerar com que frequência consultará os dados para determinar se esse padrão é apropriado.  Por exemplo, se você for acessar os dados de revisão com pouca frequência e os dados principais do funcionário com mais frequência, deve mantê-los como entidades separadas.  
 
@@ -372,7 +372,7 @@ Habilite a exclusão de um alto volume de entidades armazenando todas as entidad
 ### <a name="context-and-problem"></a>Contexto e problema
 Muitos aplicativos excluem dados antigos que não precisam mais estar disponíveis para um aplicativo cliente, ou que o aplicativo tenha arquivado em outro meio de armazenamento. Você geralmente identifica esses dados por uma data: por exemplo, você tem um requisição para excluir registros de todas as solicitações de logon com mais de 60 dias.  
 
-Um design possível é usar a data e a hora da solicitação de logon na **RowKey** :  
+Um design possível é usar a data e a hora da solicitação de logon na **RowKey**:  
 
 ![Data e hora da tentativa de logon](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
@@ -560,7 +560,7 @@ Esta seção discute algumas das considerações a serem lembradas ao implementa
 Conforme discutido na seção Design para consulta, a consulta mais eficiente é uma consulta de ponto. Entretanto, em alguns cenários talvez seja necessário recuperar várias entidades. Esta seção descreve algumas abordagens comuns para recuperar entidades usando a Biblioteca de Cliente de Armazenamento.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento
-A maneira mais fácil de executar uma consulta de ponto é usar a operação da tabela **Recuperar** , conforme mostrado no snippet de código de C# a seguir, que recupera uma entidade com uma **PartitionKey** de valor "Vendas" e uma **RowKey** de valor "212":  
+A maneira mais fácil de executar uma consulta de ponto é usar a operação da tabela **Recuperar**, conforme mostrado no snippet de código de C# a seguir, que recupera uma entidade com uma **PartitionKey** de valor "Vendas" e uma **RowKey** de valor "212":  
 
 ```csharp
 TableOperation retrieveOperation = TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projeção do lado do servidor
-Uma única entidade pode ter até 255 propriedades e até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, você talvez não precise de todas as propriedades e pode evitar a transferência desnecessária de dados (para ajudar a reduzir a latência e custo). Você pode usar a projeção do lado do servidor para transferir apenas as propriedades que precisa. O exemplo a seguir recupera apenas a propriedade **Email** (com **PartitionKey** , **RowKey** , **Timestamp** e **ETag** ) das entidades selecionadas pela consulta.  
+Uma única entidade pode ter até 255 propriedades e até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, você talvez não precise de todas as propriedades e pode evitar a transferência desnecessária de dados (para ajudar a reduzir a latência e custo). Você pode usar a projeção do lado do servidor para transferir apenas as propriedades que precisa. O exemplo a seguir recupera apenas a propriedade **Email** (com **PartitionKey**, **RowKey**, **Timestamp** e **ETag**) das entidades selecionadas pela consulta.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -711,7 +711,7 @@ Exceções geradas quando a Biblioteca de Cliente de Armazenamento executa uma E
 Você também deve considerar como seu design afeta a forma de tratamento, por parte do cliente, das operações de simultaneidade e atualização.  
 
 ### <a name="managing-concurrency"></a>Gerenciando simultaneidade
-Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir** , **Mesclar** e **Excluir** , embora um cliente possa forçar o serviço Tabela a ignorar essas verificações. Para obter mais informações sobre como o serviço Tabela gerencia a simultaneidade, confira [Gerenciando a simultaneidade no Armazenamento do Microsoft Azure](../../storage/common/storage-concurrency.md).  
+Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar** e **Excluir**, embora um cliente possa forçar o serviço Tabela a ignorar essas verificações. Para obter mais informações sobre como o serviço Tabela gerencia a simultaneidade, confira [Gerenciando a simultaneidade no Armazenamento do Microsoft Azure](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Mesclar ou substituir
 O método **Replace** da classe **TableOperation** sempre substitui a entidade completa no serviço Tabela. Se você não incluir uma propriedade na solicitação quando essa propriedade existe na entidade armazenada, a solicitação removerá a propriedade da entidade armazenada. A menos que você queira remover uma propriedade explicitamente de uma entidade armazenada, você deve incluir todas as propriedades na solicitação.  
@@ -719,7 +719,7 @@ O método **Replace** da classe **TableOperation** sempre substitui a entidade c
 Você pode usar o método **Merge** da classe **TableOperation** para reduzir a quantidade de dados enviados para o serviço Tabela quando quiser atualizar uma entidade. O método **Mesclar** substitui todas as propriedades na entidade armazenada por valores de propriedade da entidade incluída na solicitação, mas deixa intactas quaisquer eventuais propriedades na entidade armazenada que não estejam incluídas na solicitação. Isso é útil se você tiver grandes entidades e só precisar atualizar um pequeno número de propriedades em uma solicitação.  
 
 > [!NOTE]
-> Os métodos **Replace** e **Merge** falharão se a entidade não existir. Como alternativa, você pode usar os métodos **InsertOrReplace** e **InsertOrMerge** , que criam uma nova entidade se ela não existir.  
+> Os métodos **Replace** e **Merge** falharão se a entidade não existir. Como alternativa, você pode usar os métodos **InsertOrReplace** e **InsertOrMerge**, que criam uma nova entidade se ela não existir.  
 > 
 > 
 
@@ -813,9 +813,9 @@ O serviço Tabela é um armazenamento de tabela *sem esquema* , o que significa 
 </tr>
 </table>
 
-Cada entidade deve ter ainda os valores de **PartitionKey** , **RowKey** e **Timestamp** , mas pode ter qualquer conjunto de propriedades. Além disso, não há nada para indicar o tipo de uma entidade, a menos que você opte por armazenar essa informação em algum lugar. Há duas opções para identificar o tipo de entidade:  
+Cada entidade deve ter ainda os valores de **PartitionKey**, **RowKey** e **Timestamp**, mas pode ter qualquer conjunto de propriedades. Além disso, não há nada para indicar o tipo de uma entidade, a menos que você opte por armazenar essa informação em algum lugar. Há duas opções para identificar o tipo de entidade:  
 
-* Prefixe o tipo de entidade à **RowKey** (ou possivelmente à **PartitionKey** ). Por exemplo, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** como valores de **RowKey**.  
+* Prefixe o tipo de entidade à **RowKey** (ou possivelmente à **PartitionKey**). Por exemplo, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** como valores de **RowKey**.  
 * Use uma propriedade separada para registrar o tipo de entidade, conforme mostrado na tabela a seguir.  
 
 <table>
@@ -913,7 +913,7 @@ Cada entidade deve ter ainda os valores de **PartitionKey** , **RowKey** e **Tim
 </tr>
 </table>
 
-A primeira opção, prefixar o tipo de entidade a **RowKey** , é útil quando há uma possibilidade de que duas entidades de tipos diferentes possam ter o mesmo valor de chave. Ela também agrupa entidades do mesmo tipo juntas na partição.  
+A primeira opção, prefixar o tipo de entidade a **RowKey**, é útil quando há uma possibilidade de que duas entidades de tipos diferentes possam ter o mesmo valor de chave. Ela também agrupa entidades do mesmo tipo juntas na partição.  
 
 As técnicas discutidas nesta seção são importantes principalmente para a discussão sobre [Relações de herança](table-storage-design-modeling.md#inheritance-relationships), anteriormente neste guia, no artigo [Relações de modelagem](table-storage-design-modeling.md).  
 
@@ -927,7 +927,7 @@ O restante desta seção descreve alguns dos recursos na Biblioteca de Cliente d
 ### <a name="retrieving-heterogeneous-entity-types"></a>Recuperando tipos de entidade heterogênea
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, tem três opções para trabalhar com vários tipos de entidade.  
 
-Se souber o tipo de entidade armazenado com determinados valores de **RowKey** e **PartitionKey** , você poderá especificar o tipo de entidade ao recuperar a entidade, conforme mostrado nos dois exemplos anteriores que recuperam entidades do tipo **EmployeeEntity** : [Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e [Recuperando várias entidades usando LINQ](#retrieving-multiple-entities-using-linq).  
+Se souber o tipo de entidade armazenado com determinados valores de **RowKey** e **PartitionKey**, você poderá especificar o tipo de entidade ao recuperar a entidade, conforme mostrado nos dois exemplos anteriores que recuperam entidades do tipo **EmployeeEntity**: [Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e [Recuperando várias entidades usando LINQ](#retrieving-multiple-entities-using-linq).  
 
 A segunda opção é usar o tipo **DynamicTableEntity** (um recipiente de propriedades), em vez de um tipo concreto de entidade POCO (essa opção também pode melhorar o desempenho, porque não é necessário serializar e desserializar a entidade para tipos .NET). O código C# a seguir recupera potencialmente várias entidades de diferentes tipos de tabela, mas retorna todas as entidades como instâncias **DynamicTableEntity** . Ele usa a propriedade **EntityType** para determinar o tipo de cada entidade:  
 
@@ -1092,7 +1092,7 @@ Neste exemplo assíncrono, você pode ver as seguintes alterações da versão s
 
 O aplicativo cliente pode chamar esse método várias vezes (com valores diferentes para o parâmetro **department** ) e cada consulta será executada em um thread separado.  
 
-Não há qualquer versão assíncrona do método **Execute** na classe **TableQuery** , pois a interface **IEnumerable** não dá suporte à enumeração assíncrona.  
+Não há qualquer versão assíncrona do método **Execute** na classe **TableQuery**, pois a interface **IEnumerable** não dá suporte à enumeração assíncrona.  
 
 Você também pode inserir, atualizar e excluir entidades de forma assíncrona. O exemplo c# a seguir mostra um método síncrono simples para inserir ou substituir uma entidade funcionário:  
 

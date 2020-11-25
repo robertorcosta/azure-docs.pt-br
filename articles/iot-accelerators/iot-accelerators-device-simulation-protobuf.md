@@ -10,11 +10,11 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075953"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018521"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
 
@@ -63,7 +63,7 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 No Visual Studio Code, abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter**. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o **. vscode/launch.jsno** arquivo e atribua sua cadeia de conexão de Cosmos DB à variável de ambiente ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ connString do PC** .
+Abra o **. vscode/launch.jsno** arquivo e atribua sua cadeia de conexão de Cosmos DB à variável de ambiente **\_ STORAGEADAPTER \_ DOCUMENTDB \_ connString do PC** .
 
 > [!NOTE]
 > Ao executar o microsserviço localmente em seu computador, ele ainda exige uma instância do Cosmos DB no Azure para funcionar corretamente.
