@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a7301fd878eb65e4c1dd540275611bcf9348afc
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365492"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241736"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
-O [Tradutor Personalizado](https://portal.customtranslator.azure.ai) é um recurso do serviço Microsoft Translator que permite que as empresas de tradução, os desenvolvedores de aplicativos e prestadores de serviços de linguagem criem sistemas de NMT (Tradução Automática Neural). Os sistemas de tradução personalizada se integram aos aplicativos, fluxos de trabalho e sites existentes. O [Tradutor Personalizado](https://portal.customtranslator.azure.ai/) oferece recursos semelhantes ao que o [Hub do Microsoft Translator](https://hub.microsofttranslator.com/) faz em relação à SMT (Tradução Automática Estatística), mas exclusivamente para sistemas de NMT (Tradução Automática Neural).
+O [Tradutor Personalizado](https://portal.customtranslator.azure.ai) é um recurso do serviço Microsoft Translator que permite que as empresas de tradução, os desenvolvedores de aplicativos e prestadores de serviços de linguagem criem sistemas de NMT (Tradução Automática Neural). Os sistemas de tradução personalizada se integram aos aplicativos, fluxos de trabalho e sites existentes.
 
 Sistemas de tradução criados com o [Tradutor Personalizado](https://portal.customtranslator.azure.ai) estão disponíveis pela mesmo recurso [seguro](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), baseado em nuvem, de alto desempenho e altamente escalonável que é a [API de Texto V3](../reference/v3-0-translate.md?tabs=curl) do Microsoft Translator, que viabiliza bilhões de traduções todos os dias.
 

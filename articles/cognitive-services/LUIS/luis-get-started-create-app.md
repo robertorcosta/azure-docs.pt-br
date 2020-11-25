@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/13/2020
-ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128106"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019153"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: usar aplicativo de automação Inicial predefinido
 
@@ -64,7 +64,7 @@ Selecione **Concluído**.
     > [!div class="mx-imgBorder"]
     > [![Captura de tela da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
-1. Caso deseje ver as entidades do aplicativo, selecione **Entidades**. Se você clicar em uma das entidades, como **HomeAutomation.DeviceName** , verá uma lista de valores associados a ela. 
+1. Caso deseje ver as entidades do aplicativo, selecione **Entidades**. Se você clicar em uma das entidades, como **HomeAutomation.DeviceName**, verá uma lista de valores associados a ela. 
  
     :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Texto Alt da imagem" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
@@ -223,4 +223,4 @@ Para receber uma previsão do LUIS em um chatbot ou em outro aplicativo cliente,
 Você pode chamar o ponto de extremidade do código:
 
 > [!div class="nextstepaction"]
-> [Chamar um ponto de extremidade do LUIS usando código](luis-get-started-cs-get-intent.md)
+> [Chamar um ponto de extremidade do LUIS usando código](./luis-get-started-get-intent-from-rest.md)
