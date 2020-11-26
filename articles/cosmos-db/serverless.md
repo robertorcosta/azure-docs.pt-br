@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/25/2020
+ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490348"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170818"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,9 +33,8 @@ Ao usar Azure Cosmos DB, cada operação de banco de dados tem um custo expresso
 
 Azure Cosmos DB cenários de melhor desempenho sem servidor em que você espera:
 
-- **Tráfego leve** : como a capacidade de provisionamento nessas situações não é necessária e pode ser um custo inviável
-- **Intermitênciabilidade moderada** : como contêineres sem servidor podem entregar até 5.000 unidades de solicitação por segundo
-- **Desempenho moderado** : como os contêineres sem servidor têm [características de desempenho específicas](#performance)
+- **Tráfego baixo, intermitente e imprevisível**: como a capacidade de provisionamento em tais situações não é necessária e pode ser proibitiva de custo
+- **Desempenho moderado**: como os contêineres sem servidor têm [características de desempenho específicas](#performance)
 
 Por esses motivos, o Azure Cosmos DB sem servidor deve ser considerado para os seguintes tipos de carga de trabalho:
 
@@ -62,7 +61,6 @@ Qualquer contêiner criado em uma conta sem servidor é um contêiner sem servid
     - Você não pode passar nenhuma taxa de transferência ao criar um contêiner sem servidor e fazer isso retorna um erro.
     - Você não pode ler ou atualizar a taxa de transferência em um contêiner sem servidor e fazer isso retorna um erro.
     - Você não pode criar um banco de dados de produtividade compartilhado em uma conta sem servidor e fazer isso retorna um erro.
-- Os contêineres sem servidor podem fornecer uma intermitência máxima de taxa de transferência de 5.000 unidades de solicitação por segundo.
 - Contêineres sem servidor podem armazenar um máximo de 50 GB de dados e índices.
 
 ## <a name="monitoring-your-consumption"></a>Monitorando seu consumo
@@ -79,9 +77,9 @@ Você pode encontrar o mesmo gráfico ao usar Azure Monitor, conforme descrito [
 
 Os recursos sem servidor geram características de desempenho específicas que são diferentes das que os recursos de taxa de transferência provisionados oferecem:
 
-- **Disponibilidade** : depois que a oferta sem servidor ficar disponível para o público geral, a disponibilidade de contêineres sem servidor será coberta por um contrato de nível de serviço (SLA) de 99,9% quando zonas de disponibilidade (redundância de zona) não for usada. O SLA é de 99,99% quando Zonas de Disponibilidade são usados.
-- **Latência** : depois que a oferta sem servidor ficar disponível para o público geral, a latência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para gravações. Uma operação de leitura de ponto consiste em buscar um único item por sua ID e valor de chave de partição.
-- **Intermitênciabilidade** : depois que a oferta sem servidor ficar disponível para o público geral, a intermitência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 95%. Isso significa que a intermitência máxima pode ser obtida em pelo menos 95% do tempo.
+- **Disponibilidade**: depois que a oferta sem servidor ficar disponível para o público geral, a disponibilidade de contêineres sem servidor será coberta por um contrato de nível de serviço (SLA) de 99,9% quando zonas de disponibilidade (redundância de zona) não for usada. O SLA é de 99,99% quando Zonas de Disponibilidade são usados.
+- **Latência**: depois que a oferta sem servidor ficar disponível para o público geral, a latência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para gravações. Uma operação de leitura de ponto consiste em buscar um único item por sua ID e valor de chave de partição.
+- **Intermitênciabilidade**: depois que a oferta sem servidor ficar disponível para o público geral, a intermitência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 95%. Isso significa que a intermitência máxima pode ser obtida em pelo menos 95% do tempo.
 
 > [!NOTE]
 > Como qualquer visualização do Azure, Azure Cosmos DB sem servidor é excluída dos contratos de nível de serviço (SLA). As características de desempenho mencionadas acima são fornecidas como uma visualização do que esta oferta fornecerá quando estiver disponível para o público geral.

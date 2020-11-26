@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893973"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172122"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -37,6 +37,7 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
  
   > [Saiba mais sobre extração de layout](concept-layout.md)
 
+- **Atualização da biblioteca de cliente** -as [bibliotecas de cliente](quickstarts/client-library.md) para .net, Python, Java e JavaScript entraram em disponibilidade geral.
 - **Novo idioma com suporte: Japonês** -os novos idiomas a seguir agora têm suporte: para `AnalyzeLayout` e `AnalyzeCustomForm` : Japonês ( `ja` ). [Suporte ao idioma](language-support.md)
 - **Indicação de estilo de linha de texto (manuscrito/outro) (somente idiomas latinos)** – o reconhecedor de formulário agora gera um `appearance` objeto que classifica se cada linha de texto está no estilo manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
 - **Melhorias de qualidade** -melhorias de extração, incluindo melhorias de extração de dígito único.
@@ -46,8 +47,8 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
 
   ![Exemplo de FOTT](./media/ui-preview.jpg)
   
-- **Loop de comentários** – ao analisar arquivos por meio da ferramenta de rótulo de exemplo, agora você também pode adicioná-lo ao conjunto de treinamento e adujst os rótulos, se necessário, e treinar para melhorar o modelo.
-- **Rótulo automático documets** -Automitcally rotula documentos adicionais com base em documentos rotulados anteriormente no projeto. 
+- **Loop de comentários** – ao analisar arquivos por meio da ferramenta de rótulo de exemplo, agora você também pode adicioná-lo ao conjunto de treinamento e ajustar os rótulos, se necessário, e treinar para melhorar o modelo.
+- **Documentos de rótulo automático** – rotula automaticamente documentos adicionais com base em documentos rotulados anteriormente no projeto.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

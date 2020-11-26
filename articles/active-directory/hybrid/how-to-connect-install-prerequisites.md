@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488393"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172334"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -29,7 +29,7 @@ Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure
 ## <a name="before-you-install-azure-ad-connect"></a>Antes de instalar o Azure AD Connect
 Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você precisará.
 
-### <a name="azure-ad"></a>Azure AD
+### <a name="azure-ad"></a>AD do Azure
 * Você precisa de um locatário do Azure AD. Você recebe uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Você pode usar um dos seguintes portais para gerenciar o Azure AD Connect:
   * O [portal do Azure](https://portal.azure.com).
   * O [portal do Office](https://portal.office.com).
@@ -42,7 +42,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 
 ### <a name="on-premises-active-directory"></a>Active Directory local
 * A versão do esquema de Active Directory e o nível funcional da floresta devem ser Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde que a versão do esquema e os requisitos de nível de floresta sejam atendidos.
-* Se você planeja usar o recurso *write-back de senha* , os controladores de domínio devem estar no Windows Server 2012 ou posterior.
+* Se você planeja usar o recurso *write-back de senha*, os controladores de domínio devem estar no Windows Server 2012 ou posterior.
 * O controlador de domínio usado pelo Azure AD deve ser gravável. *Não há suporte para* o uso de um RODC (controlador de domínio somente leitura) e Azure ad Connect não segue redirecionamentos de gravação.
 * Usando florestas ou domínios locais usando "pontilhado" (o nome contém um ponto ".") *Não há suporte para* nomes NetBIOS.
 * Recomendamos que você [habilite a lixeira Active Directory](how-to-connect-sync-recycle-bin.md).
@@ -52,7 +52,7 @@ Azure Active Directory Connect executa scripts do PowerShell assinados como part
 
 A política de execução recomendada durante a instalação é "RemoteSigned".
 
-Para obter mais informações sobre como definir a política de execução do PowerShell, consulte [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Para obter mais informações sobre como definir a política de execução do PowerShell, consulte [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
 
 
 ### <a name="azure-ad-connect-server"></a>Servidor do Azure AD Connect
@@ -62,7 +62,7 @@ O servidor de Azure AD Connect deve ser tratado como um componente da camada 0, 
 
 Para saber mais sobre como proteger seu ambiente de Active Directory, consulte [práticas recomendadas para proteger Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
-#### <a name="installation-prerequisites"></a>Pré-requisitos de instalação
+#### <a name="installation-prerequisites"></a>Pré-requisitos da instalação
 
 - Azure AD Connect deve ser instalado em um Windows Server 2012 ou posterior ingressado no domínio. 
 - Azure AD Connect não pode ser instalado no Small Business Server ou no Windows Server Essentials antes de 2019 (há suporte para o Windows Server Essentials 2019). O servidor deve estar usando o Windows Server standard ou superior. 
@@ -82,7 +82,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 - Crie uma [conta dedicada para todos os funcionários com acesso privilegiado](/windows-server/identity/securing-privileged-access/securing-privileged-access). Os administradores não devem navegar na Web, verificar seus emails e realizar tarefas de produtividade cotidianas com contas altamente privilegiadas.
 - Siga as orientações fornecidas em [protegendo o acesso privilegiado](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Negue o uso da autenticação NTLM com o servidor AADConnect. Aqui estão algumas maneiras de fazer isso: [restringindo o NTLM no servidor AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restringindo o NTLM em um domínio](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Verifique se cada computador tem uma senha de administrador local exclusiva. Para obter mais informações, consulte a [solução de senha de administrador local (lapsos)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias exclusivas em cada estação de trabalho e servidor armazená-las em Active Directory protegidas por uma ACL. Somente usuários autorizados qualificados podem ler ou solicitar a redefinição dessas senhas de conta de administrador local. Você pode obter as interrupções para uso em estações de trabalho e servidores do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Diretrizes adicionais para operar um ambiente com interrupções e estações de trabalho com acesso privilegiado (PAWs) podem ser encontradas em [padrões operacionais com base no princípio de origem limpa](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Verifique se cada computador tem uma senha de administrador local exclusiva. Para obter mais informações, consulte a [solução de senha de administrador local (lapsos)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias exclusivas em cada estação de trabalho e servidor armazená-las em Active Directory protegidas por uma ACL. Somente usuários autorizados qualificados podem ler ou solicitar a redefinição dessas senhas de conta de administrador local. Você pode obter as interrupções para uso em estações de trabalho e servidores do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=46899). Diretrizes adicionais para operar um ambiente com interrupções e estações de trabalho com acesso privilegiado (PAWs) podem ser encontradas em [padrões operacionais com base no princípio de origem limpa](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implemente [estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicadas para todos os funcionários com acesso privilegiado aos sistemas de informações da sua organização. 
 - Siga estas [diretrizes adicionais](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente de Active Directory.
 

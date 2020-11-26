@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 32526a31a9d52fbfac57f1d384b25e0939b5e297
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423896"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172866"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Como localizar sua ID de locatário Azure Active Directory
 
@@ -51,7 +51,7 @@ Para obter mais informações, consulte esta Azure PowerShell referência de cmd
 ## <a name="find-tenant-id-with-cli"></a>Localizar ID de locatário com a CLI
 Se você quiser usar uma interface de linha de comando para localizar a ID do locatário, poderá fazer isso com [CLI do Azure](/cli/azure/install-azure-cli) ou [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/). 
 
-Para CLI do Azure, use um dos comandos **AZ login** , **lista de contas AZ** ou **AZ Account locatário List** , conforme mostrado no exemplo a seguir. Observe a propriedade **tenantid** para cada uma de suas assinaturas na saída de cada comando.
+Para CLI do Azure, use um dos comandos **AZ login**, **lista de contas AZ** ou **AZ Account locatário List** , conforme mostrado no exemplo a seguir. Observe a propriedade **tenantid** para cada uma de suas assinaturas na saída de cada comando.
 
 ```azurecli-interactive
 az login
@@ -77,4 +77,4 @@ Para obter mais informações, consulte a referência de comando [get Microsoft 
 
 - Para saber como associar ou adicionar uma assinatura a um locatário, consulte [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- Para saber como localizar a ID de objeto, consulte [localizar a ID de objeto de usuário](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Para saber como localizar a ID de objeto, consulte [localizar a ID de objeto de usuário](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

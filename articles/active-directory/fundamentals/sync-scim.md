@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578851"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172411"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronização de SCIM com Azure Active Directory
 
@@ -35,21 +35,20 @@ Você deseja provisionar automaticamente as informações do usuário de um sist
 
 ## <a name="components-of-system"></a>Componentes do sistema 
 
-* **Sistema HCM** : aplicativos e tecnologias que permitem o processo de gerenciamento de capital humano e as práticas que dão suporte e automatizam processos de RH durante todo o ciclo de vida do funcionário. 
+* **Sistema HCM**: aplicativos e tecnologias que permitem o processo de gerenciamento de capital humano e as práticas que dão suporte e automatizam processos de RH durante todo o ciclo de vida do funcionário. 
 
-* **Serviço de provisionamento do Azure ad** : usa o protocolo scim 2,0 para provisionamento automático. O serviço se conecta ao ponto de extremidade do SCIM para o aplicativo e usa o esquema de objeto de usuário do SCIM e as APIs REST para automatizar o provisionamento e desprovisionamento de usuários e de grupos.  
+* **Serviço de provisionamento do Azure ad**: usa o protocolo scim 2,0 para provisionamento automático. O serviço se conecta ao ponto de extremidade do SCIM para o aplicativo e usa o esquema de objeto de usuário do SCIM e as APIs REST para automatizar o provisionamento e desprovisionamento de usuários e de grupos.  
 
-* **Azure ad** : repositório de usuários usado para gerenciar o ciclo de vida de identidades e seus direitos. 
+* **Azure ad**: repositório de usuários usado para gerenciar o ciclo de vida de identidades e seus direitos. 
 
-* **Sistema de destino** : aplicativo ou sistema que tem ponto de extremidade scim e funciona com o provisionamento do Azure ad para habilitar o provisionamento automático de usuários e grupos.  
+* **Sistema de destino**: aplicativo ou sistema que tem ponto de extremidade scim e funciona com o provisionamento do Azure ad para habilitar o provisionamento automático de usuários e grupos.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementar o SCIM com o Azure AD 
 
-* [Como o provisionamento funciona no Azure AD ](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Como o provisionamento funciona no Azure AD ](../app-provisioning/how-provisioning-works.md)
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure ](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure ](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure AD  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure AD  ](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [Conformidade do protocolo SCIM 2,0 do serviço de provisionamento do Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [Conformidade do protocolo SCIM 2,0 do serviço de provisionamento do Azure AD](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

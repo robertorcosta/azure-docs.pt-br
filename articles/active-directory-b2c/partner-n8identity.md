@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376877"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170915"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar a ferramenta de administração do TheAccessHub com o Azure Active Directory B2C
 
@@ -38,13 +38,13 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- Um [locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). O locatário deve estar vinculado à sua assinatura do Azure.
+- Um [locatário Azure ad B2C](./tutorial-create-tenant.md). O locatário deve estar vinculado à sua assinatura do Azure.
 
 - Um ambiente da ferramenta de administração do TheAccessHub: entre em contato com a [identidade N8](https://n8id.com/contact/) para provisionar um novo ambiente.
 
 - Adicional Informações de conexão e credenciais para quaisquer bancos de dados ou LDAPs (Lightweight Directory Access Protocols) dos quais você deseja migrar o cliente.
 
-- Adicional Configurado Azure AD B2C ambiente para usar [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), se você quiser integrar a ferramenta de administração do TheAccessHub ao seu fluxo de política de inscrição.
+- Adicional Configurado Azure AD B2C ambiente para usar [políticas personalizadas](./custom-policy-get-started.md), se você quiser integrar a ferramenta de administração do TheAccessHub ao seu fluxo de política de inscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -162,9 +162,9 @@ As permissões para gerenciar os usuários do cliente e do CSR/helpdesk na ferra
 
 3. Selecione > **Adicionar grupo**
 
-4. Insira um **nome de grupo** , uma **Descrição do grupo** e um **proprietário do grupo**
+4. Insira um **nome de grupo**, uma **Descrição do grupo** e um **proprietário do grupo**
 
-5. Procure e marque as caixas nos colegas que você deseja que sejam membros do grupo e, em seguida, selecione > **Adicionar**
+5. Procure e marque as caixas nos colegas que você deseja que sejam membros do grupo e, em seguida, selecione >**Adicionar**
 
 6. Na parte inferior da página, você pode ver todos os membros do grupo.
 
@@ -180,7 +180,7 @@ As permissões para gerenciar os usuários do cliente e do CSR/helpdesk na ferra
 
 3. Selecione > **Adicionar organização**
 
-4. Forneça um **nome de organização** , **proprietário da organização** e **organização pai**.
+4. Forneça um **nome de organização**, **proprietário da organização** e **organização pai**.
 
     a. O nome da organização é ideal para um valor que corresponda aos dados do cliente. Ao carregar dados de colegas e clientes, se você fornecer o nome da organização na carga, o colega poderá ser colocado automaticamente na organização.
 
@@ -250,7 +250,7 @@ Usando a ferramenta de administração do TheAccessHub, você pode importar dado
 
    f. **Consulta** – Insira a consulta SQL para extrair os detalhes do cliente. Como: ``SELECT * FROM mytable;``
 
-   g. Selecione **testar conexão** , você verá um exemplo de seus dados para garantir que a conexão esteja funcionando.
+   g. Selecione **testar conexão**, você verá um exemplo de seus dados para garantir que a conexão esteja funcionando.
 
    **Para LDAPs**
 
@@ -272,7 +272,7 @@ Usando a ferramenta de administração do TheAccessHub, você pode importar dado
 
    i. **Atributos** – Insira uma lista de atributos separados por vírgulas dos registros de cliente a serem passados para a ferramenta de administração do TheAccessHub
 
-   j. Selecione a **conexão de teste** , você verá um exemplo de seus dados para garantir que a conexão esteja funcionando.
+   j. Selecione a **conexão de teste**, você verá um exemplo de seus dados para garantir que a conexão esteja funcionando.
 
    **Para OneDrive**
 
@@ -280,7 +280,7 @@ Usando a ferramenta de administração do TheAccessHub, você pode importar dado
 
    b. Selecionar **autorizar conexão**
 
-   c. Uma nova janela solicitará que você faça logon no **onedrive** , faça logon com um usuário com acesso de leitura à sua conta do onedrive. TheAccessHub admin Tool, agirá para esse usuário ler arquivos de carregamento de CSV.
+   c. Uma nova janela solicitará que você faça logon no **onedrive**, faça logon com um usuário com acesso de leitura à sua conta do onedrive. TheAccessHub admin Tool, agirá para esse usuário ler arquivos de carregamento de CSV.
 
    d. Siga os prompts e selecione **aceitar** para conceder ao TheAccessHub admin Tool as permissões solicitadas.
 
@@ -296,7 +296,7 @@ Usando a ferramenta de administração do TheAccessHub, você pode importar dado
 
 4. Selecione o **tipo de colega** Azure ad B2C usuário
 
-5. Selecione **origem** , na caixa de diálogo pop-up, selecione sua fonte de dados. Se você criou uma fonte de dados do OneDrive, selecione também o arquivo.
+5. Selecione **origem**, na caixa de diálogo pop-up, selecione sua fonte de dados. Se você criou uma fonte de dados do OneDrive, selecione também o arquivo.
 
 6. Se você não quiser criar novas contas de clientes com essa carga, altere a primeira política: **se o colega não for encontrado em TheAccessHub, então** **não faça nada**
 
@@ -304,7 +304,7 @@ Usando a ferramenta de administração do TheAccessHub, você pode importar dado
 
 8. Selecione **Avançar**
 
-9. Na **configuração de mapeamento de pesquisa** , identificaremos como correlacionar os registros de carga com os clientes já carregados na ferramenta de administração do TheAccessHub. Escolha um ou mais atributos de identificação na origem. Corresponda aos atributos com um atributo na ferramenta de administração TheAccessHub que contém os mesmos valores. Se uma correspondência for encontrada, o registro existente será substituído; caso contrário, um novo cliente será criado. Você pode sequenciar várias verificações. Por exemplo, você pode verificar o email primeiro e, em seguida, o nome e sobrenome.
+9. Na **configuração de mapeamento de pesquisa**, identificaremos como correlacionar os registros de carga com os clientes já carregados na ferramenta de administração do TheAccessHub. Escolha um ou mais atributos de identificação na origem. Corresponda aos atributos com um atributo na ferramenta de administração TheAccessHub que contém os mesmos valores. Se uma correspondência for encontrada, o registro existente será substituído; caso contrário, um novo cliente será criado. Você pode sequenciar várias verificações. Por exemplo, você pode verificar o email primeiro e, em seguida, o nome e sobrenome.
 
 10. No menu do lado esquerdo, selecione mapeamento de **dados**.
 
@@ -358,7 +358,7 @@ Para sincronizar dados do Azure AD B2C para a ferramenta de administração do T
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configurar políticas de Azure AD B2C
 
-Ocasionalmente, a sincronização da ferramenta de administração do TheAccessHub é limitada em sua capacidade de manter seu estado atualizado com Azure AD B2C. Podemos aproveitar a API da ferramenta de administração do TheAccessHub e as políticas de Azure AD B2C para informar à ferramenta de administração do TheAccessHub as alterações conforme elas acontecem. Essa solução requer conhecimento técnico de [Azure ad B2C políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). Na próxima seção, daremos um exemplo de etapas de política e um certificado seguro para notificar a ferramenta de administrador do TheAccessHub de novas contas em suas políticas personalizadas do Sign-Up.
+Ocasionalmente, a sincronização da ferramenta de administração do TheAccessHub é limitada em sua capacidade de manter seu estado atualizado com Azure AD B2C. Podemos aproveitar a API da ferramenta de administração do TheAccessHub e as políticas de Azure AD B2C para informar à ferramenta de administração do TheAccessHub as alterações conforme elas acontecem. Essa solução requer conhecimento técnico de [Azure ad B2C políticas personalizadas](./custom-policy-get-started.md). Na próxima seção, daremos um exemplo de etapas de política e um certificado seguro para notificar a ferramenta de administrador do TheAccessHub de novas contas em suas políticas personalizadas do Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Criar uma credencial segura para invocar a API da ferramenta de administração do TheAccessHub
 
@@ -372,7 +372,7 @@ Ocasionalmente, a sincronização da ferramenta de administração do TheAccessH
 
 5. Selecione **baixar** para obter o certificado do cliente.
 
-6. Siga este [tutorial](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) para adicionar o certificado do cliente ao Azure ad B2C.
+6. Siga este [tutorial](./secure-rest-api.md#https-client-certificate-authentication ) para adicionar o certificado do cliente ao Azure ad B2C.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>Recuperar seus exemplos de política personalizada
 
@@ -386,12 +386,12 @@ Ocasionalmente, a sincronização da ferramenta de administração do TheAccessH
 
 5. Selecione **baixar** para obter um arquivo zip com políticas básicas que adicionam clientes à ferramenta de administração do TheAccessHub enquanto os clientes se inscrevem.
 
-6. Siga este [tutorial](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) para começar a criar políticas personalizadas no Azure ad B2C.
+6. Siga este [tutorial](./custom-policy-get-started.md) para começar a criar políticas personalizadas no Azure ad B2C.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662494"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172360"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
 É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões](/graph/extensibility-overview
@@ -70,6 +70,9 @@ Esses atributos agora estão disponíveis por meio da API Microsoft Graph, usand
 > Na API Microsoft Graph, você precisa solicitar que os atributos sejam retornados. Selecione explicitamente os atributos como este: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Para obter mais informações, consulte [Microsoft Graph: usar parâmetros de consulta](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Não há suporte para a sincronização de valores de atributo de AADConnect para atributos de extensão que não são criados pelo AADConnect. Isso pode gerar problemas de desempenho e resultados inesperados. Somente os atributos de extensão criados conforme mostrado acima têm suporte para sincronização.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Usar os atributos em grupos dinâmicos
 

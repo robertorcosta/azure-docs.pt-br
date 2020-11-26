@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992838"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170609"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
@@ -140,9 +140,9 @@ Depois de implantar o modelo e aguardar alguns minutos para que a projeção de 
 
 As configurações de diagnóstico definem onde os logs e as métricas de um recurso devem ser enviados. Os possíveis destinos são:
 
-- [Conta de Armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Soluções de [hubs de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [Espaço de Trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Conta de Armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- Soluções de [hubs de eventos](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+- [Espaço de Trabalho do Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 Neste exemplo, usamos o espaço de trabalho Log Analytics para criar um painel.
 
@@ -164,7 +164,7 @@ Para definir configurações de monitoramento para Azure AD B2C logs de atividad
 1. Marque a caixa para cada destino para enviar os logs. Selecione **Configurar** para especificar suas configurações **, conforme descrito na tabela a seguir**.
 1. Selecione **Enviar para log Analytics** e, em seguida, selecione o **nome do espaço de trabalho** que você criou anteriormente ( `AzureAdB2C` ).
 1. Selecione **AuditLogs** e **SignInLogs**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!NOTE]
 > Pode levar até 15 minutos depois que um evento é emitido para que ele [apareça em um espaço de trabalho log Analytics](../azure-monitor/platform/data-ingestion-time.md). Além disso, saiba mais sobre [Active Directory latências de relatório](../active-directory/reports-monitoring/reference-reports-latencies.md), que podem afetar a desatualização dos dados e desempenhar uma função importante no relatório.
@@ -180,7 +180,7 @@ Agora você pode configurar seu espaço de trabalho Log Analytics para visualiza
 As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos logs do Azure Monitor têm a oferecer. Uma linguagem de consulta eficiente permite unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte tenham sido coletados e você entenda como construir a consulta correta. Para obter mais informações, consulte Introdução [às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. Em **log Analytics espaço de trabalho**, selecione **logs**
-1. No editor de consultas, Cole a seguinte consulta de [linguagem de consulta Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) . Essa consulta mostra o uso de políticas por operação nos últimos x dias. A duração padrão é definida como 90 dias (90d). Observe que a consulta é focada apenas na operação em que um token/código é emitido pela política.
+1. No editor de consultas, Cole a seguinte consulta de [linguagem de consulta Kusto](/azure/data-explorer/kusto/query/) . Essa consulta mostra o uso de políticas por operação nos últimos x dias. A duração padrão é definida como 90 dias (90d). Observe que a consulta é focada apenas na operação em que um token/código é emitido pela política.
 
     ```kusto
     AuditLogs
@@ -203,9 +203,9 @@ As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos 
     - **Salvar como** -selecionar `query` .
     - **Categoria** -selecione `Log` .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
-Você também pode alterar sua consulta para visualizar os dados usando o operador [render](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
+Você também pode alterar sua consulta para visualizar os dados usando o operador [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
 
 ```kusto
 AuditLogs
@@ -240,7 +240,7 @@ Siga as instruções abaixo para criar uma nova pasta de trabalho usando um mode
 1. Selecione o botão de **edição concluído** na barra de ferramentas para concluir a edição da pasta de trabalho.
 1. Por fim, salve a pasta de trabalho usando o botão **salvar** da barra de ferramentas.
 1. Forneça um **título**, como *Azure ad B2C Dashboard*.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Salvar a pasta de trabalho](./media/azure-monitor/wrkb-title.png)
 

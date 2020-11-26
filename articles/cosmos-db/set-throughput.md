@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917249"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170813"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -137,7 +137,7 @@ Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-le
 
 Conforme descrito na seção [atual de taxa de transferência provisionada](#current-provisioned-throughput) acima, a taxa de transferência mínima que você pode provisionar em um contêiner ou banco de dados depende de vários fatores. Uma delas é a quantidade de dados atualmente armazenados, pois Azure Cosmos DB impõe uma taxa de transferência mínima de 10 RU/s por GB de armazenamento.
 
-Isso pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas têm requisitos de baixa taxa de transferência em comparação. Para acomodar melhor esses cenários, Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixa taxa de transferência"** que diminui a restrição de ru/s por GB de 10 para 1 em contas qualificadas.
+Isso pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas têm requisitos de baixa taxa de transferência em comparação. Para acomodar melhor esses cenários, Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixa taxa de transferência"** que diminui a restrição de ru/s por GB em contas qualificadas.
 
 No momento, você precisa ter pelo menos 1 banco de dados de contêiner ou de taxa de transferência compartilhada que contenha mais de 1 TB de dado em sua conta para ser elegível. Para participar deste programa e avaliar sua qualificação completa, tudo o que você precisa fazer é preencher [essa pesquisa](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Em seguida, a equipe de Azure Cosmos DB acompanhará e continuará a integração.
 

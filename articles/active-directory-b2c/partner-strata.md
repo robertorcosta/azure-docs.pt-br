@@ -11,23 +11,23 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330318"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171408"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para estender Azure AD B2C para proteger aplicativos locais usando o Strata
 
 Neste tutorial de exemplo, saiba como integrar o Azure Active Directory (AD) B2C com o [orquestrador de identidade Maverics](https://www.strata.io/maverics-identity-orchestrator/)do Strata.
 O orquestrador de identidade Maverics estende Azure AD B2C para proteger os aplicativos locais. Ele se conecta a qualquer sistema de identidade, migra os usuários e as credenciais de forma transparente, sincroniza políticas e configurações e abstrai o gerenciamento de autenticação e de sessão. O uso de empresas Stratas pode fazer a transição rapidamente do herdado para o Azure AD B2C sem reescrever aplicativos. A solução oferece as seguintes vantagens:
 
-- **SSO (Sign-On único) do cliente para aplicativos híbridos locais** : Azure ad B2C dá suporte ao SSO do cliente com o Maverics Identity Orchestrator. Os usuários entram com suas contas hospedadas no Azure AD B2C ou no IdP (provedor de identidade social). O Maverics estende o SSO para aplicativos que foram historicamente protegidos por sistemas de identidade herdados, como o Symantec SiteMinder.
+- **SSO (Sign-On único) do cliente para aplicativos híbridos locais**: Azure ad B2C dá suporte ao SSO do cliente com o Maverics Identity Orchestrator. Os usuários entram com suas contas hospedadas no Azure AD B2C ou no IdP (provedor de identidade social). O Maverics estende o SSO para aplicativos que foram historicamente protegidos por sistemas de identidade herdados, como o Symantec SiteMinder.
 
-- **Estenda o SSO baseado em padrões para aplicativos sem regravá-los** : Use Azure ad B2C para gerenciar o acesso do usuário e habilitar o SSO com conectores SAML ou OIDC do Orchestrator de identidade Maverics.
+- **Estenda o SSO baseado em padrões para aplicativos sem regravá-los**: Use Azure ad B2C para gerenciar o acesso do usuário e habilitar o SSO com conectores SAML ou OIDC do Orchestrator de identidade Maverics.
 
-- **Configuração fácil** : Azure ad B2C fornece uma interface do usuário simples e passo a passo para conectar conectores SAML ou OIDC do Orchestrator Identity ao Azure ad B2C.
+- **Configuração fácil**: Azure ad B2C fornece uma interface do usuário simples e passo a passo para conectar conectores SAML ou OIDC do Orchestrator Identity ao Azure ad B2C.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- Um [locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está vinculado à sua assinatura do Azure.
+- Um [locatário Azure ad B2C](./tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
 
 - Uma instância de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para armazenar segredos que são usados pelo orquestrador de identidade Maverics. Ele é usado para se conectar a Azure AD B2C ou a outros provedores de atributos, como um diretório ou banco de dados LDAP (Lightweight Directory Access Protocol).
 
@@ -47,11 +47,11 @@ Para começar, você precisará de:
 
 A integração Maverics do Strata inclui os seguintes componentes:
 
-- **Azure ad B2C** : o servidor de autorização responsável por verificar as credenciais do usuário. Os usuários autenticados podem acessar aplicativos locais usando uma conta local armazenada no diretório Azure AD B2C.
+- **Azure ad B2C**: o servidor de autorização responsável por verificar as credenciais do usuário. Os usuários autenticados podem acessar aplicativos locais usando uma conta local armazenada no diretório Azure AD B2C.
 
-- **Um IDP externo ou empresarial social** : pode ser qualquer provedor do OpenID Connect, Facebook, Google ou github. Confira informações sobre como usar o [IDPs externo](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) com Azure ad B2C.  
+- **Um IDP externo ou empresarial social**: pode ser qualquer provedor do OpenID Connect, Facebook, Google ou github. Confira informações sobre como usar o [IDPs externo](./technical-overview.md#external-identity-providers) com Azure ad B2C.  
 
-- **Orquestrador de identidade Maverics do Strata** : o serviço que orquestra o logon do usuário e passa de forma transparente a identidade para aplicativos por meio de cabeçalhos HTTP.
+- **Orquestrador de identidade Maverics do Strata**: o serviço que orquestra o logon do usuário e passa de forma transparente a identidade para aplicativos por meio de cabeçalhos HTTP.
 
 O diagrama de arquitetura a seguir mostra a implementação.
 
@@ -75,7 +75,7 @@ Para obter o software que você usará para integrar seu aplicativo local herdad
 
 1. **Registre seu aplicativo**
 
-   a. [Registre o orquestrador como um aplicativo](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga) em Azure ad B2C locatário.
+   a. [Registre o orquestrador como um aplicativo](./tutorial-register-applications.md?tabs=app-reg-ga) em Azure ad B2C locatário.
    >[!Note]
    >Você precisará do nome do locatário e do identificador, da ID do cliente, do segredo do cliente, das declarações configuradas e do URI de redirecionamento mais tarde ao configurar sua instância do Orchestrator.
 
@@ -83,13 +83,13 @@ Para obter o software que você usará para integrar seu aplicativo local herdad
 
    c. Adicione um URI de redirecionamento para seu aplicativo. Esse URI corresponderá ao `oauthRedirectURL` parâmetro da configuração do conector de Azure ad B2C do seu orquestrador, por exemplo, `https://example.com/oidc-endpoint` .
 
-2. **Criar um fluxo de usuário** : Crie um [entrada e um fluxo de usuário de entrada](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows).
+2. **Criar um fluxo de usuário**: Crie um [entrada e um fluxo de usuário de entrada](./tutorial-create-user-flows.md).
 
-3. **Adicionar um IDP** : opte por conectar seu usuário com uma conta local ou um [IDP](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)empresarial ou social.
+3. **Adicionar um IDP**: opte por conectar seu usuário com uma conta local ou um [IDP](./tutorial-add-identity-providers.md)empresarial ou social.
 
-4. **Definir atributos de usuário** : defina os atributos a serem coletados durante a inscrição.
+4. **Definir atributos de usuário**: defina os atributos a serem coletados durante a inscrição.
 
-5. **Especificar declarações do aplicativo** : Especifique os atributos a serem retornados ao aplicativo por meio de sua instância do Orchestrator. O orquestrador consome atributos de declarações retornadas pelo Azure AD B2C e pode recuperar atributos adicionais de outros sistemas de identidade conectados, como diretórios e bancos de dados LDAP. Esses atributos são definidos em cabeçalhos HTTP e enviados para o aplicativo de upstream local.
+5. **Especificar declarações do aplicativo**: Especifique os atributos a serem retornados ao aplicativo por meio de sua instância do Orchestrator. O orquestrador consome atributos de declarações retornadas pelo Azure AD B2C e pode recuperar atributos adicionais de outros sistemas de identidade conectados, como diretórios e bancos de dados LDAP. Esses atributos são definidos em cabeçalhos HTTP e enviados para o aplicativo de upstream local.
 
 ## <a name="configure-maverics-identity-orchestrator"></a>Configurar o orquestrador de identidade Maverics
 
@@ -259,7 +259,7 @@ appgateways:
 
 É importante proteger os segredos que o Orchestrator usa para se conectar ao Azure AD B2C e a qualquer outro sistema de identidade. O Maverics usará como padrão o carregamento de segredos em texto sem formatação, no `maverics.yaml` entanto, neste tutorial, você utilizará Azure Key Vault como o provedor de segredos.
 
-Siga as instruções para [criar um novo Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) que sua instância do Orchestrator usará como um provedor de segredos. Adicione seus segredos ao seu cofre e anote o `SECRET NAME` determinado para cada segredo. Por exemplo, `AzureADB2CClientSecret`.
+Siga as instruções para [criar um novo Key Vault](../key-vault/secrets/quick-create-portal.md) que sua instância do Orchestrator usará como um provedor de segredos. Adicione seus segredos ao seu cofre e anote o `SECRET NAME` determinado para cada segredo. Por exemplo, `AzureADB2CClientSecret`.
 
 Para declarar um valor como um segredo em um arquivo de configuração `maverics.yaml`, empacote o segredo com colchetes angulares:
 
@@ -342,6 +342,6 @@ appgateways:
 
 Para obter informações adicionais, examine os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

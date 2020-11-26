@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356341"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173372"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -36,7 +36,7 @@ Além disso, há muitos benefícios quando seus clientes usam o Azure AD como um
 - Forneça logon único para seus usuários. Com o SSO, você reduz os custos de suporte, tornando mais fácil para seus clientes o logon único. Se o SSO de um clique estiver habilitado, os administradores de ti de seus clientes não precisarão saber como configurar seu aplicativo para uso em sua organização. Para saber mais sobre o logon único, consulte [O que é logon único?](../manage-apps/what-is-single-sign-on.md).
 - Seu aplicativo pode ser detectável na Galeria de aplicativos Microsoft 365, no iniciador de aplicativos Microsoft 365 e no Microsoft Search no Office.com. 
 - Gerenciamento de aplicativo integrado. Para saber mais sobre o gerenciamento de aplicativos no Azure AD, consulte [o que é gerenciamento de aplicativos?](../manage-apps/what-is-application-management.md).
-- Seu aplicativo pode usar o [API do Graph](https://docs.microsoft.com/graph/) para acessar os dados que impulsionam a produtividade do usuário no ecossistema da Microsoft.
+- Seu aplicativo pode usar o [API do Graph](/graph/) para acessar os dados que impulsionam a produtividade do usuário no ecossistema da Microsoft.
 - A documentação específica do aplicativo coproduzida com a equipe do Azure AD para nossos clientes mútuos facilita a adoção.
 - Você fornece aos seus clientes a capacidade de gerenciar completamente sua autenticação e autorização de funcionários e de identidades de convidado.
 - Colocar todas as responsabilidades de conformidade e gerenciamento de conta com o proprietário do cliente dessas identidades.
@@ -47,7 +47,7 @@ Além disso, há muitos benefícios quando seus clientes usam o Azure AD como um
 - Adicione segurança e conveniência quando os usuários entram em aplicativos usando o SSO do Azure AD e removendo a necessidade de credenciais separadas.
 
 > [!TIP]
-> Quando você oferece seu aplicativo para uso por outras empresas por meio de uma compra ou assinatura, torna seu aplicativo disponível para clientes em seus próprios locatários do Azure. Isso é conhecido como criar um aplicativo multilocatário. Para obter uma visão geral desse conceito, consulte [aplicativos multilocatário no Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) e [locação em Azure Active Directory](single-and-multi-tenant-apps.md).
+> Quando você oferece seu aplicativo para uso por outras empresas por meio de uma compra ou assinatura, torna seu aplicativo disponível para clientes em seus próprios locatários do Azure. Isso é conhecido como criar um aplicativo multilocatário. Para obter uma visão geral desse conceito, consulte [aplicativos multilocatário no Azure](../../dotnet-develop-multitenant-applications.md) e [locação em Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Para publicar seu aplicativo na galeria do Azure AD, você deve concordar com termos e condições específicos. Antes de começar, certifique-se de ler e concordar com os [termos e condições](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -89,7 +89,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa i
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Recurso| OAuth/OIDC| SAML/WS-Fed |
+| Funcionalidade| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -98,7 +98,7 @@ A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAu
 | Políticas de acesso condicional para aplicativos móveis| √| X |
 | Experiência de MFA direta para aplicativos móveis| √| X |
 | Provisionamento de SCIM| √| √ |
-| Microsoft Graph de acesso| √| X |
+| Acessar o Microsoft Graph| √| X |
 
 * Possível, mas a Microsoft não fornece exemplos ou diretrizes.
 
@@ -162,7 +162,7 @@ Se seu aplicativo der suporte ao SAML 2,0, você poderá integrá-lo diretamente
 A Microsoft não fornece, nem recomenda, bibliotecas para implementações de SAML. Há muitas bibliotecas de código-fonte aberto disponíveis.
 
 ### <a name="implement-ws-fed"></a>Implementar WS-Fed
-Para saber mais sobre WS-Fed em ASP.NET Core, confira [autenticar usuários com WS-Federation no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Para saber mais sobre WS-Fed em ASP.NET Core, confira [autenticar usuários com WS-Federation no ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementar a compartimentação de senha
 
@@ -173,13 +173,13 @@ Crie um aplicativo Web que tenha uma página de entrada HTML. Certifique-se de q
 
 Você precisará de um locatário do Azure AD para testar seu aplicativo. Para configurar seu ambiente de desenvolvimento, consulte [início rápido: configurar um locatário](quickstart-create-new-tenant.md).
 
-Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](/office/developer-program/microsoft-365-developer-program).
 
 Depois de ter um locatário, você precisa habilitar e testar o acesso de logon único. 
 
-**Para aplicativos OIDC ou Oath** , [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
+**Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
 
-**Para aplicativos baseados em SAML e WS-baseded** , você [configura aplicativos de logon único baseados em SAML](../manage-apps/configure-saml-single-sign-on.md) usando um modelo SAML genérico no Azure AD.
+**Para aplicativos baseados em SAML e WS-baseded**, você [configura aplicativos de logon único baseados em SAML](../manage-apps/configure-saml-single-sign-on.md) usando um modelo SAML genérico no Azure AD.
 
 Você também pode [converter um aplicativo de locatário único para multilocatário,](howto-convert-app-to-be-multi-tenant.md) se necessário.
 
@@ -209,7 +209,7 @@ A facilidade de adoção é um fator significativo nas decisões de software emp
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentação no site da Microsoft
 
-Quando você listar seu aplicativo com a Galeria de aplicativos Azure Active Directory, que também publica seu aplicativo no Azure Marketplace, a Microsoft gerará documentação para nossos clientes mútuos explicando o processo passo a passo. Você pode ver um exemplo [aqui](https://aka.ms/appstutorial). Esta documentação é criada com base no seu envio para a galeria e você pode atualizá-la facilmente se fizer alterações em seu aplicativo usando sua conta do GitHub.
+Quando você listar seu aplicativo com a Galeria de aplicativos Azure Active Directory, que também publica seu aplicativo no Azure Marketplace, a Microsoft gerará documentação para nossos clientes mútuos explicando o processo passo a passo. Você pode ver um exemplo [aqui](../saas-apps/tutorial-list.md). Esta documentação é criada com base no seu envio para a galeria e você pode atualizá-la facilmente se fizer alterações em seu aplicativo usando sua conta do GitHub.
 
 
 ## <a name="step-5---submit-your-app"></a>Etapa 5 – enviar seu aplicativo
@@ -254,7 +254,7 @@ Se você quiser adicionar seu aplicativo para listar na Galeria usando o OpenID 
 
 ![Listando um aplicativo OpenID Connect na Galeria](./media/howto-app-gallery-listing/openid.png)
 
-Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado** , selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
+Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado**, selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
 
 ![Listando um aplicativo SAML 2,0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
@@ -262,7 +262,7 @@ Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de 
 
 ![Listando um aplicativo SSO de senha na Galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se você estiver implementando um ponto de extremidade [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0 para provisionamento de usuário, selecione a opção conforme mostrado. 
+Se você estiver implementando um ponto de extremidade [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 para provisionamento de usuário, selecione a opção conforme mostrado. 
 
    ![Solicitação de provisionamento de usuário](./media/howto-app-gallery-listing/user-provisioning.png)
 
