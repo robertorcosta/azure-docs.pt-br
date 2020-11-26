@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358891"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179684"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Tutorial: Configurar o Clarizen One para o provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar no Clarizen One e no Azure AD (Active Directory) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos no [Clarizen One](https://www.clarizen.com/) usando o serviço de provisionamento do Azure AD. Para obter informações sobre o que o serviço faz, como ele funciona e as perguntas frequentes, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS (software como serviço) com o Azure AD](../manage-apps/user-provisioning.md).
+Este tutorial descreve as etapas que você precisa executar no Clarizen One e no Azure AD (Active Directory) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos no [Clarizen One](https://www.clarizen.com/) usando o serviço de provisionamento do Azure AD. Para obter informações sobre o que o serviço faz, como ele funciona e as perguntas frequentes, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS (software como serviço) com o Azure AD](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
 
@@ -33,21 +33,21 @@ Este tutorial descreve as etapas que você precisa executar no Clarizen One e no
 > * Remover usuários no Clarizen One quando eles não precisarem mais de acesso.
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o Clarizen One.
 > * Provisionar grupos e associações de grupo no Clarizen One.
-> * O [SSO (logon único)](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) para o Clarizen One é recomendado.
+> * O [SSO (logon único)](./clarizen-tutorial.md) para o Clarizen One é recomendado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento. São exemplos o Administrador de aplicativos, o Administrador de aplicativos de nuvem, o Proprietário do aplicativo ou o Administrador global.
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md).
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento. São exemplos o Administrador de aplicativos, o Administrador de aplicativos de nuvem, o Proprietário do aplicativo ou o Administrador global.
 * Uma conta de usuário no Clarizen One com as [permissões](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support) **Usuário de Integração** e **Lite Admin**.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 
-1. Saiba mais sobre [como funciona o serviço de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Determine quem estará no [escopo de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Determine quais dados serão [mapeados entre o Azure AD e o Clarizen One](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
+1. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine quais dados serão [mapeados entre o Azure AD e o Clarizen One](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o Clarizen One para dar suporte ao provisionamento com o Azure AD
 
@@ -61,14 +61,14 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Clarizen One por meio da galeria de aplicativos do Azure AD
 
-Adicione o Clarizen One por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento nele. Se já tiver configurado o Clarizen One para o SSO, você poderá usar o mesmo aplicativo. Ao testar a integração inicialmente, crie um aplicativo separado. Para saber mais sobre como adicionar um aplicativo por meio da galeria, confira [Adicionar um aplicativo ao locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Adicione o Clarizen One por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento nele. Se já tiver configurado o Clarizen One para o SSO, você poderá usar o mesmo aplicativo. Ao testar a integração inicialmente, crie um aplicativo separado. Para saber mais sobre como adicionar um aplicativo por meio da galeria, confira [Adicionar um aplicativo ao locatário do Azure AD](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento
 
-Com o serviço de provisionamento do Azure AD, você pode definir o escopo de quem será provisionado com base na atribuição ao aplicativo ou nos atributos do usuário ou do grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, siga as etapas em [Gerenciar a atribuição de usuário para um aplicativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, use um filtro de escopo conforme descrito em [Provisionamento de aplicativo com base em atributo com filtros de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Com o serviço de provisionamento do Azure AD, você pode definir o escopo de quem será provisionado com base na atribuição ao aplicativo ou nos atributos do usuário ou do grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, siga as etapas em [Gerenciar a atribuição de usuário para um aplicativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, use um filtro de escopo conforme descrito em [Provisionamento de aplicativo com base em atributo com filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Ao atribuir usuários e grupos ao Clarizen One, você precisa selecionar uma função diferente de **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar mais funções.
-* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível manter o controle atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Ao atribuir usuários e grupos ao Clarizen One, você precisa selecionar uma função diferente de **Acesso Padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar mais funções.
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível manter o controle atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Etapa 5. Configurar o provisionamento automático de usuário no Clarizen One
 
@@ -104,7 +104,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 1. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Clarizen One**.
 
-1. Examine os atributos de usuário que serão sincronizados do Azure AD para o Clarizen One na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário do Clarizen One em operações de atualização. Se alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), você precisará garantir que a API do Clarizen One seja compatível com a filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+1. Examine os atributos de usuário que serão sincronizados do Azure AD para o Clarizen One na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário do Clarizen One em operações de atualização. Se alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), você precisará garantir que a API do Clarizen One seja compatível com a filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
@@ -158,7 +158,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
       |externalId|String|
       |membros|Referência|
 
-1. Para configurar filtros de escopo, confira as instruções fornecidas no [tutorial sobre filtros de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para configurar filtros de escopo, confira as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Para habilitar o serviço de provisionamento do Azure AD no Clarizen One, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
@@ -178,9 +178,9 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 
 Após configurar o provisionamento, use os recursos a seguir para monitorar a implantação.
 
-1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não.
-1. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir.
-1. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Para saber mais sobre os estados de quarentena, confira [Provisionamento de aplicativo no status de quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não.
+1. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir.
+1. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Para saber mais sobre os estados de quarentena, confira [Provisionamento de aplicativo no status de quarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
@@ -196,9 +196,9 @@ Ao atribuir um usuário ao aplicativo da galeria Clarizen One, selecione somente
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
