@@ -4,12 +4,12 @@ description: Saiba como desenvolver e testar Azure Functions usando a extensão 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010433"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168400"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver o Azure Functions usando o Visual Studio Code
 
@@ -34,7 +34,7 @@ A extensão pode ser usada com os seguintes idiomas, que têm suporte do tempo d
 
 Neste artigo, os exemplos estão disponíveis atualmente apenas para funções de biblioteca de classes JavaScript (Node.js) e C#.  
 
-Este artigo fornece detalhes sobre como usar a extensão Azure Functions para desenvolver funções e publicá-las no Azure. Antes de ler este artigo, você deve [criar sua primeira função usando Visual Studio Code](functions-create-first-function-vs-code.md).
+Este artigo fornece detalhes sobre como usar a extensão Azure Functions para desenvolver funções e publicá-las no Azure. Antes de ler este artigo, você deve [criar sua primeira função usando Visual Studio Code](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Não combine desenvolvimento local e desenvolvimento de portal para um único aplicativo de funções. Ao publicar a partir de um projeto local para um aplicativo de funções, o processo de implantação substitui quaisquer funções que você desenvolveu o portal.
@@ -233,7 +233,7 @@ Ao publicar do Visual Studio Code, você tira proveito da tecnologia de [implant
 
 ### <a name="quick-function-app-create"></a>Criação rápida de aplicativos de funções
 
-Quando você escolhe **+ criar novo aplicativo de funções no Azure...**, a extensão gera automaticamente valores para os recursos do Azure necessários para seu aplicativo de funções. Esses valores se baseiam no nome do aplicativo de funções que você escolher. Para obter um exemplo de como usar os padrões para publicar seu projeto em um novo aplicativo de funções no Azure, consulte o [artigo Visual Studio Code início rápido](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+Quando você escolhe **+ criar novo aplicativo de funções no Azure...**, a extensão gera automaticamente valores para os recursos do Azure necessários para seu aplicativo de funções. Esses valores se baseiam no nome do aplicativo de funções que você escolher. Para obter um exemplo de como usar os padrões para publicar seu projeto em um novo aplicativo de funções no Azure, consulte o [artigo Visual Studio Code início rápido](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 Se você quiser fornecer nomes explícitos para os recursos criados, deverá escolher o caminho avançado de criação.
 
@@ -408,7 +408,7 @@ Depois de concluir essas etapas, as chamadas feitas às ferramentas básicas sub
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com seus aplicativos de funções no Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes Azure Functions comandos estão disponíveis:
 
-|Azure Functions comando  | Description  |
+|Azure Functions comando  | Descrição  |
 |---------|---------|
 |**Adicionar novas configurações**  |  Cria uma nova configuração de aplicativo no Azure. Para saber mais, consulte [Publicar configurações do aplicativo](#publish-application-settings). Talvez você também precise [baixar essa configuração para suas configurações locais](#download-settings-from-azure). |
 | **Configurar a origem da implantação** | Conecta seu aplicativo de funções no Azure a um repositório git local. Para saber mais, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md). |

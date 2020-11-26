@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167838"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -19,7 +19,7 @@ Como desenvolvedor de Python, você também pode estar interessado em um dos seg
 
 | Introdução | Conceitos| Cenários/exemplos |
 | -- | -- | -- | 
-| <ul><li>[Função do Python usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Função do Python com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Classificação de imagens com o PyTorch](machine-learning-pytorch.md)</li><li>[Exemplo de automação do Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Aprendizado de máquina com o TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Procurar exemplos do Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Função do Python usando Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Função do Python com terminal/prompt de comando](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Classificação de imagens com o PyTorch](machine-learning-pytorch.md)</li><li>[Exemplo de automação do Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Aprendizado de máquina com o TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Procurar exemplos do Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Modelo de programação
 
@@ -93,22 +93,22 @@ A estrutura de pastas recomendada a um projeto Python do Functions é semelhante
 ```
 A pasta principal do projeto (<project_root>) pode conter os seguintes arquivos:
 
-* *local.settings.json* : usado para armazenar as configurações do aplicativo e as cadeias de conexão durante a execução local. Esse arquivo não é publicado no Azure. Para saber mais, confira [local.settings.file](functions-run-local.md#local-settings-file).
-* *requirements.txt* : contém a lista de pacotes do Python que o sistema instala ao publicar no Azure.
-* *host.json* : contém opções de configuração global que afetam todas as funções em um aplicativo de funções. Esse arquivo é publicado do Azure. Nem todas as opções têm suporte quando executadas localmente. Para saber mais, confira [host.json](functions-host-json.md).
-* *. vscode/* : (opcional) contém a configuração do Store vscode. Para saber mais, consulte [configuração de VSCode](https://code.visualstudio.com/docs/getstarted/settings).
-* *. venv/* : (opcional) contém um ambiente virtual Python usado pelo desenvolvimento local.
-* *Dockerfile* : (opcional) usado ao publicar seu projeto em um [contêiner personalizado](functions-create-function-linux-custom-image.md).
-* *tests/* : (opcional) contém os casos de teste do seu aplicativo de funções.
-* *. funcignore* : (opcional) declara os arquivos que não devem ser publicados no Azure. Normalmente, esse arquivo contém `.vscode/` para ignorar a configuração do editor, `.venv/` ignorar o ambiente virtual Python local, `tests/` ignorar casos de teste e `local.settings.json` impedir que as configurações do aplicativo local sejam publicadas.
+* *local.settings.json*: usado para armazenar as configurações do aplicativo e as cadeias de conexão durante a execução local. Esse arquivo não é publicado no Azure. Para saber mais, confira [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt*: contém a lista de pacotes do Python que o sistema instala ao publicar no Azure.
+* *host.json*: contém opções de configuração global que afetam todas as funções em um aplicativo de funções. Esse arquivo é publicado do Azure. Nem todas as opções têm suporte quando executadas localmente. Para saber mais, confira [host.json](functions-host-json.md).
+* *. vscode/*: (opcional) contém a configuração do Store vscode. Para saber mais, consulte [configuração de VSCode](https://code.visualstudio.com/docs/getstarted/settings).
+* *. venv/*: (opcional) contém um ambiente virtual Python usado pelo desenvolvimento local.
+* *Dockerfile*: (opcional) usado ao publicar seu projeto em um [contêiner personalizado](functions-create-function-linux-custom-image.md).
+* *tests/*: (opcional) contém os casos de teste do seu aplicativo de funções.
+* *. funcignore*: (opcional) declara os arquivos que não devem ser publicados no Azure. Normalmente, esse arquivo contém `.vscode/` para ignorar a configuração do editor, `.venv/` ignorar o ambiente virtual Python local, `tests/` ignorar casos de teste e `local.settings.json` impedir que as configurações do aplicativo local sejam publicadas.
 
 Cada função possui seu próprio arquivo de código e arquivo de configuração de associação (function.json).
 
-Ao implantar seu projeto em um aplicativo de funções no Azure, todo o conteúdo da pasta principal do projeto ( *<project_root>* ) deve ser incluído no pacote, mas não a própria pasta, o que significa que `host.json` deve estar na raiz do pacote. Recomendamos que você mantenha seus testes em uma pasta junto com outras funções, neste exemplo `tests/` . Para obter mais informações, confira [Teste de Unidade](#unit-testing).
+Ao implantar seu projeto em um aplicativo de funções no Azure, todo o conteúdo da pasta principal do projeto (*<project_root>*) deve ser incluído no pacote, mas não a própria pasta, o que significa que `host.json` deve estar na raiz do pacote. Recomendamos que você mantenha seus testes em uma pasta junto com outras funções, neste exemplo `tests/` . Para obter mais informações, confira [Teste de Unidade](#unit-testing).
 
 ## <a name="import-behavior"></a>Comportamento de importação
 
-Você pode importar módulos em seu código de função usando referências absolutas e relativas. Com base na estrutura de pastas mostrada acima, as importações a seguir funcionam de dentro do arquivo de função *<project_root> \Meus \_ primeira \_ função \\ _ \_ init \_ \_ . py* :
+Você pode importar módulos em seu código de função usando referências absolutas e relativas. Com base na estrutura de pastas mostrada acima, as importações a seguir funcionam de dentro do arquivo de função *<project_root> \Meus \_ primeira \_ função \\ _ \_ init \_ \_ . py*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -491,7 +491,7 @@ func azure functionapp publish <APP_NAME>
 
 Lembre-se de substituir `<APP_NAME>` pelo nome do aplicativo de funções no Azure.
 
-A [extensão do Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) também solicita um build remoto por padrão.
+A [extensão do Azure Functions para Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) também solicita um build remoto por padrão.
 
 ### <a name="local-build"></a>Build local
 
@@ -694,8 +694,8 @@ Para obter uma lista de bibliotecas do sistema pré-instalado em imagens do Dock
 
 |  runtime do Functions  | Versão do Debian | Versões do Python |
 |------------|------------|------------|
-| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
 
 ## <a name="cross-origin-resource-sharing"></a>Compartilhamento de recursos entre origens
 

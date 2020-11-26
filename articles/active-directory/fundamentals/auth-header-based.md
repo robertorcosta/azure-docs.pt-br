@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577151"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168739"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticação baseada em cabeçalho com Azure Active Directory
 
@@ -34,22 +34,22 @@ Os usuários remotos precisam de logon único (SSO) com segurança para aplicati
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Usuário** : acessa aplicativos herdados servidos pelo proxy de aplicativo.
+* **Usuário**: acessa aplicativos herdados servidos pelo proxy de aplicativo.
 
-* **Navegador da Web** : o componente com o qual o usuário interage para acessar a URL externa do aplicativo.
+* **Navegador da Web**: o componente com o qual o usuário interage para acessar a URL externa do aplicativo.
 
-* **AD do Azure** : autentica o usuário. 
+* **AD do Azure**: autentica o usuário. 
 
-* **Serviço de proxy de aplicativo** : atua como proxy reverso para enviar solicitação do usuário para o aplicativo local. Ele reside no Azure AD e também pode impor qualquer política de acesso condicional.
+* **Serviço de proxy de aplicativo**: atua como proxy reverso para enviar solicitação do usuário para o aplicativo local. Ele reside no Azure AD e também pode impor qualquer política de acesso condicional.
 
-* **Conector de proxy de aplicativo** : instalado no local em servidores Windows para fornecer conectividade aos aplicativos. Ele usa apenas conexões de saída. Retorna a resposta ao Azure AD.
+* **Conector de proxy de aplicativo**: instalado no local em servidores Windows para fornecer conectividade aos aplicativos. Ele usa apenas conexões de saída. Retorna a resposta ao Azure AD.
 
-* **Aplicativos herdados** : aplicativos que recebem solicitações de usuário do proxy de aplicativo. O aplicativo herdado recebe os cabeçalhos HTTP necessários para configurar uma sessão e retornar uma resposta. 
+* **Aplicativos herdados**: aplicativos que recebem solicitações de usuário do proxy de aplicativo. O aplicativo herdado recebe os cabeçalhos HTTP necessários para configurar uma sessão e retornar uma resposta. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementar a autenticação baseada em cabeçalho com o Azure AD
 
-* [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
+* [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)  
 
-* [Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access) 
+* [Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 
-* [Proteger aplicativos herdados com redes e controladores de entrega de aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
+* [Proteger aplicativos herdados com redes e controladores de entrega de aplicativos](../manage-apps/secure-hybrid-access.md)

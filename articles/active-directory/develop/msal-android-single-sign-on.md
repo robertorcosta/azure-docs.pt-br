@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209373"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169487"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Como habilitar o SSO entre aplicativos no Android usando o MSAL
 
 O SSO (logon único) permite que os usuários insiram suas credenciais apenas uma vez e que essas credenciais funcionem automaticamente entre os aplicativos.
 
-A [plataforma de identidade](/azure/active-directory/develop/) da Microsoft e a MSAL (biblioteca de autenticação da Microsoft) ajudam você a habilitar o SSO em seu próprio pacote de aplicativos. Com os aplicativos de capacidade do agente e autenticador, você pode estender o SSO em todo o dispositivo.
+A [plataforma de identidade](./index.yml) da Microsoft e a MSAL (biblioteca de autenticação da Microsoft) ajudam você a habilitar o SSO em seu próprio pacote de aplicativos. Com os aplicativos de capacidade do agente e autenticador, você pode estender o SSO em todo o dispositivo.
 
 Neste "como", você aprenderá a configurar os SDKs usados pelo seu aplicativo para fornecer SSO aos seus clientes.
 
@@ -33,7 +33,7 @@ Neste "como", você aprenderá a configurar os SDKs usados pelo seu aplicativo p
 
 Este "como" pressupõe que você saiba como:
 
-- Provisione seu aplicativo usando o portal do Azure. Para obter mais informações sobre este tópico, consulte as instruções para criar um aplicativo no [tutorial do Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Provisione seu aplicativo usando o portal do Azure. Para obter mais informações sobre este tópico, consulte as instruções para criar um aplicativo no [tutorial do Android](./tutorial-v2-android.md#create-a-project)
 - Integre seu aplicativo com a [biblioteca de autenticação da Microsoft para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## <a name="methods-for-single-sign-on"></a>Métodos para logon único
@@ -81,7 +81,7 @@ Se um dispositivo ainda não tiver um aplicativo de agente instalado, o MSAL ins
 
 Quando um agente é instalado em um dispositivo, todas as solicitações de token interativo subsequentes (chamadas para `acquireToken()` ) são tratadas pelo agente em vez de localmente por MSAL. Qualquer estado de SSO disponível anteriormente para MSAL não está disponível para o agente. Como resultado, o usuário precisará autenticar novamente ou selecionar uma conta da lista de contas existente conhecida pelo dispositivo.
 
-A instalação de um agente não exige que o usuário entre novamente. Somente quando o usuário precisar resolver um `MsalUiRequiredException` , a próxima solicitação vai para o agente. `MsalUiRequiredException` pode ser lançada por vários motivos e precisa ser resolvida interativamente. Por exemplo: 
+A instalação de um agente não exige que o usuário entre novamente. Somente quando o usuário precisar resolver um `MsalUiRequiredException` , a próxima solicitação vai para o agente. `MsalUiRequiredException` pode ser lançada por vários motivos e precisa ser resolvida interativamente. Por exemplo:
 
 - O usuário alterou a senha associada à sua conta.
 - A conta do usuário não atende mais a uma política de acesso condicional.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f438567851204a1a284955bede1525505712f4b7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442371"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169283"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicativo Web que conecta usuários: mover para produção
 
@@ -24,7 +24,7 @@ Agora que você sabe como obter um token para chamar APIs da Web, saiba como mov
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 > [!NOTE]
 > Quando os usuários entram no aplicativo Web pela primeira vez, eles precisarão consentir. No entanto, em algumas organizações, os usuários podem ver uma mensagem semelhante à seguinte:
@@ -50,7 +50,7 @@ Este tutorial progressivo tem código pronto para produção para um aplicativo 
 - Sua organização
 - Várias organizações
 - Contas corporativas ou de estudante ou contas pessoais da Microsoft
-- [Azure AD B2C](https://aka.ms/aadb2c)
+- [Azure AD B2C](../../active-directory-b2c/overview.md)
 - Nuvens nacionais
 
 ## <a name="sample-code-java-web-app"></a>Código de exemplo: aplicativo Web Java

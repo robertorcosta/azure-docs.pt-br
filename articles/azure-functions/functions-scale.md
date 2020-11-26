@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108449"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167787"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -97,7 +97,7 @@ Mesmo com Always On habilitado, o tempo limite de execução para funções indi
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinar o plano de Hospedagem de um aplicativo existente
 
-Para determinar o plano de hospedagem usado pelo seu aplicativo de funções, consulte **plano do serviço de aplicativo** na guia **visão geral** do aplicativo de funções no [portal do Azure](https://portal.azure.com). Para ver o tipo de preço, selecione o nome do **plano do serviço de aplicativo**e, em seguida, selecione **Propriedades** no painel esquerdo.
+Para determinar o plano de hospedagem usado pelo seu aplicativo de funções, consulte **plano do serviço de aplicativo** na guia **visão geral** do aplicativo de funções no [portal do Azure](https://portal.azure.com). Para ver o tipo de preço, selecione o nome do **plano do serviço de aplicativo** e, em seguida, selecione **Propriedades** no painel esquerdo.
 
 ![Exibir o plano de dimensionamento no portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -204,14 +204,14 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 | **[Plano Premium](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Plano dedicado](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[Ase](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
-| **[Kubernetes](functions-kubernetes-keda.md)** | n/d | n/d |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
+| **[Kubernetes](functions-kubernetes-keda.md)** | N/D | N/D |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 
 <sup>1</sup> O Linux é o único sistema operacional com suporte para a pilha de tempo de execução do Python.  
 <sup>2</sup> O Windows é o único sistema operacional com suporte para a pilha de tempo de execução do PowerShell.   
 <sup>3</sup> O Linux é o único sistema operacional com suporte para contêineres do Docker.
 <sup>4</sup> para limites específicos para as várias opções do plano do serviço de aplicativo, consulte os [limites do plano do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
-### <a name="scale"></a>Escala
+### <a name="scale"></a>Dimensionar
 
 | | Escalar horizontalmente | N º máximo de instâncias |
 | --- | --- | --- |
@@ -257,6 +257,6 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 
 ## <a name="next-steps"></a>Próximas etapas
 
-+ [Início Rápido: Criar um projeto do Azure Functions usando o Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Início Rápido: Criar um projeto do Azure Functions usando o Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Tecnologias de implantação no Azure Functions](functions-deployment-technologies.md) 
 + [Guia do desenvolvedor do Azure Functions](functions-reference.md)

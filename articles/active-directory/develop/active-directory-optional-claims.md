@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019952"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169742"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -67,7 +67,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `email`                    | O email endereçável para este usuário, se o usuário tiver um.  | JWT, SAML | MSA, Azure AD | Esse valor é incluído por padrão, se o usuário é um convidado no locatário.  Para usuários gerenciados (os usuários dentro do locatário), ele deve ser solicitado por meio dessa declaração opcional ou, somente na versão 2.0, com o escopo do OpenID.  Para usuários gerenciados, o endereço de email deve ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Status da conta de usuários no locatário | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se eles forem convidado, o valor é `1`. |
 | `groups`| Formatação opcional para declarações de grupo |JWT, SAML| |Usado em conjunto com a configuração GroupMembershipClaims no [manifesto do aplicativo](reference-app-manifest.md), que também deve ser definido. Para obter detalhes, confira [Declarações de grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre declarações de grupo, confira [Como configurar declarações de grupo](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](/azure/active-directory/authentication/howto-authentication-use-email-signin) não devem ser mostrados no nome UPN. Em vez disso, use as seguintes declarações de token de ID para exibir o estado de entrada para o usuário: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados no nome UPN. Em vez disso, use as seguintes declarações de token de ID para exibir o estado de entrada para o usuário: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
 | `idtyp`                    | Tipo de token   | Tokens de acesso JWT | Especial: somente em tokens de acesso somente de aplicativo |  Valor é `app` quando o token é um token somente de aplicativo. Essa é a maneira mais precisa para uma API determinar se um token é um token de aplicativo ou um token de aplicativo + usuário.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Conjunto de declarações opcionais específicas v2.0
@@ -85,7 +85,7 @@ Essas declarações são sempre incluídas em tokens do Azure AD v1.0, mas não 
 | `in_corp`     | Dentro da Rede Corporativa        | Indica se o cliente está se conectando da rede corporativa. Se não estiver, a declaração não será incluída.   |  Baseado nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) na Autenticação Multifator.    |
 | `family_name` | Sobrenome                       | Fornece o sobrenome do usuário, conforme definido no objeto do usuário. <br>"family_name":"Barros" | Com suporte na MSA e no Azure AD. Requer o escopo de `profile`.   |
 | `given_name`  | Nome                      | Fornece o nome ou nome “especificado” do usuário, conforme definido no objeto de usuário.<br>"given_name": "Davi"                   | Com suporte na MSA e no Azure AD.  Requer o escopo de `profile`. |
-| `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](/azure/active-directory/authentication/howto-authentication-use-email-signin) não devem ser mostrados no nome UPN. Em vez disso, use as seguintes declarações de token de ID para exibir o estado de entrada para o usuário: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. Requer o escopo de `profile`.|
+| `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados no nome UPN. Em vez disso, use as seguintes declarações de token de ID para exibir o estado de entrada para o usuário: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. Requer o escopo de `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
 
@@ -139,7 +139,7 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 1. Selecione **Adicionar**.
 
 > [!NOTE]
-> A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C no momento. Para aplicativos registrados em um locatário B2C, as declarações opcionais podem ser configuradas modificando o manifesto do aplicativo. Para obter mais informações [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+> A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C no momento. Para aplicativos registrados em um locatário B2C, as declarações opcionais podem ser configuradas modificando o manifesto do aplicativo. Para obter mais informações [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
 
 **Configurando declarações opcionais por meio do manifesto do aplicativo:**
 

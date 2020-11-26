@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: a2d5234b3c80456a98fde4547b9665ca1b0a83dd
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 651c1913491952c53af42abec5ce5d5009da06a0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913538"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168059"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -32,9 +32,9 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Uma conta do GitHub. Se você não tiver uma, Inscreva-se [gratuitamente](https://github.com/join).  
+- Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).  
 - Um aplicativo de funções de trabalho hospedado no Azure com um repositório GitHub.   
-    - [Início Rápido: Criar uma função no Azure usando o Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Início Rápido: Criar uma função no Azure usando o Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
@@ -46,7 +46,7 @@ Depois de salvar a credencial de perfil de publicação como um [segredo do GitH
 
 Para baixar o perfil de publicação do seu aplicativo de funções:
 
-1. Selecione a página **visão geral** do aplicativo de funções e, em seguida, selecione **obter perfil de publicação** .
+1. Selecione a página **visão geral** do aplicativo de funções e, em seguida, selecione **obter perfil de publicação**.
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Baixar perfil de publicação":::
 
@@ -55,11 +55,11 @@ Para baixar o perfil de publicação do seu aplicativo de funções:
 
 ### <a name="add-the-github-secret"></a>Adicionar o segredo do GitHub
 
-1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações**  >  **segredos**  >  **Adicionar um novo segredo** .
+1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações**  >  **segredos**  >  **Adicionar um novo segredo**.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Baixar perfil de publicação":::
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Adicionar segredo":::
 
-1. Adicione um novo segredo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **nome** , o conteúdo do arquivo de perfil de publicação para **valor** e, em seguida, selecione **Adicionar segredo** .
+1. Adicione um novo segredo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **nome**, o conteúdo do arquivo de perfil de publicação para **valor** e, em seguida, selecione **Adicionar segredo**.
 
 O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 

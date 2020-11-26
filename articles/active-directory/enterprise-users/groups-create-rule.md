@@ -13,17 +13,17 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1f970a97616fbc38a2f5d274998596992d4a45
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 343486286d45538b949de03604811bb2371701c1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169011"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
 
 No Azure Active Directory (AD do Azure), você pode usar regras para determinar a associação de grupo com base nas propriedades do usuário ou do dispositivo. Este artigo informa como configurar uma regra para um grupo dinâmico no portal do Azure.
-A associação dinâmica tem suporte para grupos de segurança ou grupos de Microsoft 365. Quando uma regra de associação de grupo é aplicada, os atributos de usuário e de dispositivo são avaliados para correspondências com a regra de associação. Quando um atributo é alterado para um usuário ou dispositivo, todas as regras de grupo dinâmico na organização são processadas para alterações de associação. Os usuários e dispositivos serão adicionados ou removidos se atenderem às condições de um grupo. Os grupos de segurança podem ser usados para dispositivos ou usuários, mas Microsoft 365 grupos só podem ser grupos de usuários. O uso de grupos dinâmicos requer a licença do Azure AD Premium P1. Consulte [regras de associação dinâmica para grupos](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-dynamic-membership) para obter mais detalhes. 
+A associação dinâmica tem suporte para grupos de segurança ou grupos de Microsoft 365. Quando uma regra de associação de grupo é aplicada, os atributos de usuário e de dispositivo são avaliados para correspondências com a regra de associação. Quando um atributo é alterado para um usuário ou dispositivo, todas as regras de grupo dinâmico na organização são processadas para alterações de associação. Os usuários e dispositivos serão adicionados ou removidos se atenderem às condições de um grupo. Os grupos de segurança podem ser usados para dispositivos ou usuários, mas Microsoft 365 grupos só podem ser grupos de usuários. O uso de grupos dinâmicos requer a licença do Azure AD Premium P1. Consulte [regras de associação dinâmica para grupos](./groups-dynamic-membership.md) para obter mais detalhes. 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal do Azure
 

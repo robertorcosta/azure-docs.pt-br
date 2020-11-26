@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358160"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169926"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -54,7 +54,7 @@ Endereços IP públicos de SKU padrão:
 - Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - Seguro por padrão e fechado para tráfego de entrada. Permitir listar o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga públicos padrão ou gateways de aplicativo. Para obter mais informações sobre o balanceador de carga padrão, consulte [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Pode ser com redundância de zona ou zonas (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Pode ser com redundância de zona (desdivulgada de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **IPs com redundância de zona só podem ser criados em [regiões em que três zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-region) estão ativas.** Os IPs criados antes de as zonas serem ativas não terão redundância de zona.
  
 > [!NOTE]
 > A comunicação de entrada com o recurso de SKU Standard falha até que você crie e associe um [grupo de segurança de rede](security-overview.md#network-security-groups) e permita explicitamente o tráfego de entrada desejado.
@@ -62,7 +62,7 @@ Endereços IP públicos de SKU padrão:
 > [!NOTE]
 > Somente endereços IP públicos com SKU básico estão disponíveis ao usar o [serviço de metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). Não há suporte para o SKU Standard.
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>Básico
 
 Todos os endereços IP públicos criados antes da introdução dos SKUs são endereços IP públicos do SKU Básico. 
 
@@ -98,7 +98,7 @@ Por exemplo, um recurso de IP público é liberado de um recurso chamado **recur
 O endereço IP é liberado quando o método de alocação é alterado de **estático** para **dinâmico**. Para garantir que o endereço IP do recurso associado permaneça o mesmo, defina o método de alocação explicitamente como **estático**. Um endereço IP estático é atribuído imediatamente.
 
 > [!NOTE]
-> Mesmo quando você define o método de alocação para **estático** , não é possível especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP de um pool de endereços IP disponíveis no local do Azure onde o recurso é criado.
+> Mesmo quando você define o método de alocação para **estático**, não é possível especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP de um pool de endereços IP disponíveis no local do Azure onde o recurso é criado.
 >
 
 Os endereços IP públicos estáticos são comumente usados nas seguintes situações:
@@ -186,7 +186,7 @@ A tabela a seguir mostra a propriedade por meio da qual um IP público pode ser 
 | Gateway de Aplicativo |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
 | Firewall do Azure | Configuração de front-end | Não | Sim|
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 Os limites para o endereçamento IP são listados no conjunto completo de [limites para rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. 
 

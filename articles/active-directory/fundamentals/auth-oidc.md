@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 0e5bf7e51de38d42e64f6737e687c5946a464160
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576981"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168654"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Autenticação do OpenID Connect com o Azure Active Directory
 
@@ -38,24 +38,23 @@ Há uma necessidade de consentimento do usuário e de entrada na Web.
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Usuário** : solicita um serviço do aplicativo.
+* **Usuário**: solicita um serviço do aplicativo.
 
-* **Agente confiável** : o componente com o qual o usuário interage. Esse agente confiável geralmente é um navegador da Web.
+* **Agente confiável**: o componente com o qual o usuário interage. Esse agente confiável geralmente é um navegador da Web.
 
-* **Aplicativo** : o aplicativo, ou servidor de recursos, é onde residem o recurso ou os dados. Ele confia no provedor de identidade para autenticar e autorizar com segurança o agente confiável. 
+* **Aplicativo**: o aplicativo, ou servidor de recursos, é onde residem o recurso ou os dados. Ele confia no provedor de identidade para autenticar e autorizar com segurança o agente confiável. 
 
-* **Azure ad** : o provedor OIDC, também conhecido como provedor de identidade, gerencia com segurança tudo o que fazer com as informações do usuário, seu acesso e as relações de confiança entre as partes em um fluxo. Ele autentica a identidade do usuário, concede e revoga o acesso a recursos e emite tokens. 
+* **Azure ad**: o provedor OIDC, também conhecido como provedor de identidade, gerencia com segurança tudo o que fazer com as informações do usuário, seu acesso e as relações de confiança entre as partes em um fluxo. Ele autentica a identidade do usuário, concede e revoga o acesso a recursos e emite tokens. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implementar o OIDC com o Azure AD
 
-* [Integrando aplicativos com o AD do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrando aplicativos com o AD do Azure](../saas-apps/tutorial-list.md) 
 
-* [Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Plataforma de identidade da Microsoft e protocolo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 
+* [Plataforma de identidade da Microsoft e protocolo OpenID Connect](../develop/v2-protocols-oidc.md) 
 
-* [Entrada na Web com o OpenID Connect no Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
+* [Entrada na Web com o OpenID Connect no Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Proteja seu aplicativo usando o OpenID Connect e o Azure AD](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Proteja seu aplicativo usando o OpenID Connect e o Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
- 

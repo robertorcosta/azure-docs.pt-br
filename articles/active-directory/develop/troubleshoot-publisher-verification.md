@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073726"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169164"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solucionar problemas de verificação do editor
 Se você não conseguir concluir o processo ou estiver experimentando um comportamento inesperado com a [verificação do Publicador](publisher-verification-overview.md), comece fazendo o seguinte se estiver recebendo erros ou observando um comportamento inesperado: 
@@ -51,8 +51,8 @@ Abaixo estão alguns problemas comuns que podem ocorrer durante o processo.
     1. Acesse o [perfil de parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
         - A ID do MPN está correta. 
         - Não há erros ou “ações pendentes” mostradas, e o status de verificação sob o perfil Negócio jurídico e as informações do Parceiro dizem “autorizado” ou “sucesso”.
-    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados. Se você precisar adicionar um locatário adicional, siga as instruções [aqui](https://docs.microsoft.com/partner-center/multi-tenant-account). Esteja ciente de que todos os administradores globais de qualquer locatário adicionado receberão privilégios de administrador global em sua conta do Partner Center.
-    1. Vá para a [página de gerenciamento de usuário do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador do MPN ou administrador de contas. Se você precisar adicionar um usuário a uma função no Partner Center, siga as instruções [aqui](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
+    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados. Se você precisar adicionar um locatário adicional, siga as instruções [aqui](/partner-center/multi-tenant-account). Esteja ciente de que todos os administradores globais de qualquer locatário adicionado receberão privilégios de administrador global em sua conta do Partner Center.
+    1. Vá para a [página de gerenciamento de usuário do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador do MPN ou administrador de contas. Se você precisar adicionar um usuário a uma função no Partner Center, siga as instruções [aqui](/partner-center/create-user-accounts-and-set-permissions).
 
 - **Quando eu entro no portal do Azure AD, não vejo nenhum aplicativo registrado. Por quê?** 
     Os registros do aplicativo podem ter sido criados usando uma conta de usuário diferente neste locatário, uma conta pessoal/de consumidor ou em um locatário diferente. Verifique se você está conectado com a conta correta no locatário onde os registros do aplicativo foram criados.

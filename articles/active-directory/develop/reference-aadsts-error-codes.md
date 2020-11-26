@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410922"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169266"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -78,7 +78,7 @@ Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquis
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 
-| Erro | Descrição |
+| Erro do | Descrição |
 |---|---|
 | AADSTS16000 | SelectUserAccount - Esta é uma interrupção lançada pelo Azure AD, que resulta na interface do usuário que permite ao usuário selecionar entre várias sessões válidas do SSO. Esse erro é bastante comum e pode ser retornado ao aplicativo se `prompt=none` for especificado. |
 | AADSTS16001 | UserAccountSelectionInvalid - Você verá esse erro se o usuário clicar em um bloco que a lógica de seleção da sessão rejeitou. Quando acionado, esse erro permite que o usuário recupere escolhendo de uma lista atualizada de blocos / sessões ou escolhendo outra conta. Este erro pode ocorrer devido a um defeito de código ou condição de corrida. |
@@ -315,7 +315,7 @@ Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquis
 | AADSTS700022 | InvalidMultipleResourcesScope - O valor fornecido para o escopo do parâmetro de entrada não é válido porque contém mais de um recurso. |
 | AADSTS700023 | InvalidResourcelessScope - O valor fornecido para o escopo do parâmetro de entrada não é válido ao solicitar um token de acesso. |
 | AADSTS7000215 | Segredo do cliente inválido é fornecido. Erro do desenvolvedor-o aplicativo está tentando entrar sem os parâmetros de autenticação necessários ou corretos.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-as chaves secretas do cliente fornecidas expiraram. Visite a portal do Azure para criar novas chaves para seu aplicativo ou considere o uso de credenciais de certificado para segurança adicional: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-as chaves secretas do cliente fornecidas expiraram. Visite a portal do Azure para criar novas chaves para seu aplicativo ou considere o uso de credenciais de certificado para segurança adicional: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | O código de autorização fornecido pelo InvalidGrantRedeemAgainstWrongTenant deve ser usado em relação a outro locatário, portanto rejeitado. O código de autorização OAuth2 deve ser resgatado no mesmo locatário em que foi adquirido (/Common ou/{tenant-ID} conforme apropriado) |
 | AADSTS1000000 | UserNotBoundError - A API de vinculação exige que o usuário do AD do Azure também se autentique com um IDP externo, o que ainda não aconteceu. |
 | AADSTS1000002 | BindCompleteInterruptError - A ligação foi concluída com êxito, mas o usuário deve ser informado. |
