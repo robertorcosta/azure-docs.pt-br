@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833292"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182743"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
 A linha de base de segurança do Azure para automação contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -80,7 +80,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para limitar a exposição de máquinas virtuais do Windows aos endereços IP aprovados por um período de tempo limitado. Além disso, use as recomendações de proteção de rede adaptável da central de segurança do Azure para configurações de NSG para limitar portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -220,7 +220,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 * [Regiões compatíveis com o workspace do Log Analytics vinculado](./how-to/region-mappings.md)
 
-* [Logs de Gerenciamento de Atualizações de consulta](./update-management/update-mgmt-query-logs.md)
+* [Logs de Gerenciamento de Atualizações de consulta](./update-management/query-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -270,7 +270,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Entender as consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Entender as consultas de log no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -600,7 +600,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são criptografados em repouso usando a criptografia do lado do servidor ou o ADE (Azure Disk Encryption). A criptografia de disco do Azure aproveita o recurso BitLocker do Windows para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada. A criptografia do lado do servidor com chaves gerenciadas pelo cliente aprimora o ADE, permitindo usar quaisquer tipos de sistema operacional e imagens para as VMs, criptografando dados no serviço de armazenamento.
 
-* [Criptografia do lado do servidor de Azure Managed disks](../virtual-machines/windows/disk-encryption.md)
+* [Criptografia do lado do servidor de Azure Managed disks](../virtual-machines/disk-encryption.md)
 
 * [Azure Disk Encryption para VMs do Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -646,9 +646,9 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, use o Azure Gerenciamento de Atualizações para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Gerenciamento de Atualizações no Azure](./update-management/update-mgmt-overview.md)
+* [Gerenciamento de Atualizações no Azure](./update-management/overview.md)
 
-* [Gerenciar atualizações e patches para suas VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerenciar atualizações e patches para suas VMs](./update-management/manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -660,9 +660,9 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, poderá usar o Azure Gerenciamento de Atualizações para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações os computadores de patch que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](./update-management/update-mgmt-overview.md)
+* [Solução Gerenciamento de Atualizações no Azure](./update-management/overview.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerenciar atualizações e patches para as VMs do Azure](./update-management/manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1280,11 +1280,11 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
 * [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

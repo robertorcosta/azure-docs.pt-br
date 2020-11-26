@@ -10,14 +10,14 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616186"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183134"
 ---
-# <a name="configure-a-java-app-for-azure-app-service"></a>Configurar um aplicativo Java para o serviço Azure App
+# <a name="configure-a-java-app-for-azure-app-service"></a>Configurar um aplicativo Java para o Serviço de Aplicativo do Azure
 
 Azure App serviço permite que os desenvolvedores de Java compilem, implantem e dimensionem rapidamente seus aplicativos Web Java SE, Tomcat e JBoss em um serviço totalmente gerenciado. Implante aplicativos com plug-ins do Maven, na linha de comando ou em editores como IntelliJ, Eclipse ou Visual Studio Code.
 
@@ -338,7 +338,7 @@ Esta seção mostra como conectar aplicativos Java implantados no Serviço de Ap
 7. No portal do Azure, navegue até seu aplicativo no serviço de aplicativo e criar uma nova configuração de aplicativo.
 
     - Para aplicativos **Java se** , crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Para o **tomcat** , crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Para o **tomcat**, crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -352,7 +352,7 @@ Esta seção mostra como conectar aplicativos Java implantados no Serviço de Ap
 7. No portal do Azure, navegue até seu aplicativo no serviço de aplicativo e criar uma nova configuração de aplicativo.
    
     - Para aplicativos **Java se** , crie uma variável de ambiente chamada `JAVA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Para o **tomcat** , crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Para o **tomcat**, crie uma variável de ambiente chamada `CATALINA_OPTS` com o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -398,7 +398,7 @@ Para conectar-se a fontes de dados nos aplicativos Spring Boot, sugerimos criar 
 
     Essa cadeia de conexão é acessível ao nosso aplicativo como uma variável de ambiente nomeada `CUSTOMCONNSTR_<your-string-name>`. Por exemplo, a cadeia de conexão que criamos acima será nomeada `CUSTOMCONNSTR_exampledb`.
 
-2. No arquivo *application.properties* , faça referência a essa cadeia de conexão com o nome da variável de ambiente. Para o nosso exemplo, usaríamos o seguinte:
+2. No arquivo *application.properties*, faça referência a essa cadeia de conexão com o nome da variável de ambiente. Para o nosso exemplo, usaríamos o seguinte:
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
@@ -437,7 +437,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 1. Crie um arquivo *context.xml* no diretório *META-INF/* do seu projeto. Crie o diretório *META-INF/* se ele não existir.
 
-2. Em *context.xml* , adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
+2. Em *context.xml*, adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
 
     ```xml
     <Context>
@@ -515,7 +515,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
 1. Crie um arquivo *context.xml* no diretório *META-INF/* do seu projeto. Crie o diretório *META-INF/* se ele não existir.
 
-2. Em *context.xml* , adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
+2. Em *context.xml*, adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
 
     ```xml
     <Context>
@@ -700,7 +700,7 @@ O protocolo JBoss só está disponível nas opções de hardware Premium e isola
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção do JDK
 
-O JDK (Java Development Kit) com suporte do Azure é o [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido pela [Azul Systems](https://www.azul.com/). Builds do Azul Zulu Enterprise do OpenJDK são uma distribuição sem custo, multiplataforma e pronta para produção do OpenJDK para Azure e Azure Stack da Microsoft e da Azul Systems. Eles contêm todos os componentes para criar e executar aplicativos Java SE. Você pode instalar o JDK a partir da [Instalação do Java JDK](https://aka.ms/azure-jdks).
+O JDK (Java Development Kit) com suporte do Azure é o [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido pela [Azul Systems](https://www.azul.com/). Builds do Azul Zulu Enterprise do OpenJDK são uma distribuição sem custo, multiplataforma e pronta para produção do OpenJDK para Azure e Azure Stack da Microsoft e da Azul Systems. Eles contêm todos os componentes para criar e executar aplicativos Java SE. Você pode instalar o JDK a partir da [Instalação do Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 As atualizações da versão principal serão fornecidas por meio de novas opções de tempo de execução no serviço Azure App. Os clientes podem atualizar para essas versões mais recentes do Java configurando a implantação do Serviço de Aplicativo. Além disso, são responsáveis por testar e garantir que a atualização da versão principal atenda às suas necessidades.
 

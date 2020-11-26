@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d44f9109540c3899ab50bd5c4c02afa19045bafb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397698"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182930"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solução de problemas de erros de gateway incorreto no Application Gateway
 
@@ -95,7 +95,7 @@ A tabela a seguir lista os valores associados à investigação de integridade p
 * Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta.
 * A chamada para `http://127.0.0.1:port` deve retornar um código de resultado de HTTP 200. Isso deve ser retornado dentro do período de tempo limite de 30 segundos.
 * Verifique se a porta configurada está aberta e se não há regras de firewall ou grupos de segurança de rede do Azure, que bloqueiam o tráfego de entrada ou saída na porta configurada.
-* Se as VMs clássicas do Azure ou o serviço de nuvem forem usados com um FQDN ou um IP público, verifique se o [ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) correspondente está aberto.
+* Se as VMs clássicas do Azure ou o serviço de nuvem forem usados com um FQDN ou um IP público, verifique se o [ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondente está aberto.
 * Se a VM estiver configurada via Azure Resource Manager e estiver fora da VNet em que o gateway de aplicativo está implantado, um [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md) deverá ser configurado para permitir o acesso na porta desejada.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas com a investigação de integridade personalizada

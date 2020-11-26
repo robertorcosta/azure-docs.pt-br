@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987210"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182794"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -63,7 +63,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Direcionar a ação de início e parada para uma assinatura e um grupo de recursos
 
-1. Adicione um `sequencestart` e uma marca de `sequencestop` com valores inteiros positivos às VMs que são destinadas às variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. As ações iniciar e parar são executadas em ordem crescente. Para saber como marcar uma VM, consulte [Marcar uma máquina virtual do Windows no Azure](../virtual-machines/windows/tag.md) e [Marcar uma máquina virtual do Linux no Azure](../virtual-machines/linux/tag.md).
+1. Adicione um `sequencestart` e uma marca de `sequencestop` com valores inteiros positivos às VMs que são destinadas às variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. As ações iniciar e parar são executadas em ordem crescente. Para saber como marcar uma VM, consulte [Marcar uma máquina virtual do Windows no Azure](../virtual-machines/tag-portal.md) e [Marcar uma máquina virtual do Linux no Azure](../virtual-machines/tag-cli.md).
 
 2. Modifique os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** de acordo com a data e hora que atendem às suas exigências e habilite o agendamento.
 
@@ -143,13 +143,13 @@ Para alterar as notificações por email depois que a ação Iniciar/Parar VMs f
 
 2. Na página StartStop_VM_Notification, clique em **Editar detalhes** em **Detalhes**. Isso abre a página Email/SMS/Push/Voz. Atualize o endereço de email e clique em **OK** para salvar suas alterações.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página monitorar-grupos de ações.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página email/SMS/Push/voz mostrando um exemplo de endereço de email atualizado.":::
 
     Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../azure-monitor/platform/action-groups.md)
 
 A seguir está um email de exemplo que é enviado quando o recurso desliga as máquinas virtuais.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela da página monitorar-grupos de ações.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela de um email de exemplo enviado quando o recurso desliga as máquinas virtuais.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Adicionar ou excluir VMs
 

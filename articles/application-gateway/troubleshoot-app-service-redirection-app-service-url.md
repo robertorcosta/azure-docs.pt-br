@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 51249c68407f6b4ca7793b2fdeceab5aa4f7bc5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575978"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182879"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solucionar problemas do serviço de aplicativo no gateway de aplicativo
 
@@ -93,7 +93,7 @@ O serviço de aplicativo agora faz o redirecionamento (se houver) no mesmo cabe�
 
 Você deve possuir um domínio personalizado e seguir este processo:
 
-- Registre o domínio na lista de domínios personalizados do serviço de aplicativo. Você deve ter um CNAME em seu domínio personalizado que aponte para o FQDN do serviço de aplicativo. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o serviço de Azure app](/azure/app-service/app-service-web-tutorial-custom-domain).
+- Registre o domínio na lista de domínios personalizados do serviço de aplicativo. Você deve ter um CNAME em seu domínio personalizado que aponte para o FQDN do serviço de aplicativo. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o serviço de Azure app](../app-service/app-service-web-tutorial-custom-domain.md).
 
     ![Lista de domínios personalizados do serviço de aplicativo](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 920cc5142d14308fce412ad44543ddc46dc1663e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 24c2fe9b6bbb0b5a40edd395bfe669abfc8c9adc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324377"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183168"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras do Azure Analysis Services
 
@@ -28,7 +28,7 @@ O repositório do [Analysis Services](https://github.com/Microsoft/Analysis-Serv
 
 ## <a name="sample-database-on-azure"></a>Banco de dados de exemplo no Azure
 
-O Azure Synapse Analytics (anteriormente SQL Data Warehouse) fornece um exemplo de banco de dados AdventureWorksDW que pode ser incluído em um recurso provisionado. Para saber mais, consulte [início rápido: criar e consultar um pool SQL dedicado no Azure Synapse Analytics ](/azure/sql-data-warehouse/create-data-warehouse-portal).
+O Azure Synapse Analytics (anteriormente SQL Data Warehouse) fornece um exemplo de banco de dados AdventureWorksDW que pode ser incluído em um recurso provisionado. Para saber mais, consulte [início rápido: criar e consultar um pool SQL dedicado no Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Bancos de dados de exemplo no GitHub
 
@@ -40,7 +40,7 @@ Esses bancos de dados de exemplo no GitHub podem ser usados para criar e testar 
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Modelo de exemplo do Adventure Works Internet Sales no Portal do Azure
 
-Se você tem um servidor do Analysis Services no Portal do Azure, você pode criar um modelo de exemplo de modo rápido e fácil. Na página de visão geral do servidor no Portal do Azure, clique em **Novo modelo** e, em seguida, em **Escolha uma fonte de dados** , selecione **Dados de exemplo**.
+Se você tem um servidor do Analysis Services no Portal do Azure, você pode criar um modelo de exemplo de modo rápido e fácil. Na página de visão geral do servidor no Portal do Azure, clique em **Novo modelo** e, em seguida, em **Escolha uma fonte de dados**, selecione **Dados de exemplo**.
 
 
 

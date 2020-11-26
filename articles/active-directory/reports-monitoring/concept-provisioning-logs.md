@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319719"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181196"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -61,7 +61,7 @@ Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
 
-![Provisionando logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
+![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
 
 
 Um log de provisionamento tem uma exibição de lista padrão que mostra:
@@ -132,7 +132,7 @@ O filtro de **ação** permite filtrar o:
 - Atualizar
 - Excluir
 - Desabilitar
-- Outros
+- Outro
 
 Além disso, para os filtros do modo de exibição padrão, você também pode definir os seguintes filtros:
 
@@ -211,7 +211,7 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita. Os logs de provisionamento podem ser publicados no [log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) para retenção além de 30 dias. 
+- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita. Os logs de provisionamento podem ser publicados no [log Analytics](../app-provisioning/application-provisioning-log-analytics.md) para retenção além de 30 dias. 
 
 - Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
 

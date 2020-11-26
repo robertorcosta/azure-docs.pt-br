@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: b87b9d9e7cab0334f1b1996feb99dc69396527b7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 31e5393cb5de627ebf8832e43302583d6eacbf59
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352941"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181468"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutorial: Configurar o SAP Analytics Cloud para provisionamento automático de usuário
 
@@ -39,7 +39,7 @@ Este tutorial descreve as etapas que você precisa executar no SAP Analytics Clo
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
+* Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
 * Um locatário do SAP Analytics Cloud
 * Uma conta de usuário no console de administração do Provisionamento de Identidade do SAP com permissões de Administrador. Verifique se você tem acesso aos sistemas de proxy no console de administração do Provisionamento de Identidade. Se você não vir o bloco **Sistemas de Proxy**, crie um incidente para o componente **BC-IAM-IPS** para solicitar acesso a esse bloco.
 * Um cliente OAuth com as Credenciais do Cliente da concessão de autorização no SAP Analytics Cloud. Para saber como, leia: [Gerenciar clientes OAuth e provedores de Identidade Confiáveis](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)

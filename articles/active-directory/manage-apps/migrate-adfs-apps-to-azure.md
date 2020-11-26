@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1012ae32f679d23f16a7483415657596d027cc01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658818"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180652"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
@@ -320,7 +320,7 @@ O seletor de usuário/grupos é uma regra que permite impor a MFA em uma base po
 
 Especificar regras de MFA para um usuário ou um grupo no Azure AD:
 
-1. Crie uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Crie uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Selecione **Atribuições**. Adicione os usuários ou grupos nos quais você deseja impor a MFA.
 
@@ -333,7 +333,7 @@ Especificar regras de MFA para um usuário ou um grupo no Azure AD:
 
 Especificar regras de MFA para dispositivos não registrados no Azure AD:
 
-1. Crie uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Crie uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Defina as **atribuições** para **todos os usuários**.
 
@@ -348,7 +348,7 @@ Quando você define a opção para vários controles para exigir um dos controle
 
 Especificar regras de MFA com base no local de um usuário no Azure AD:
 
-1. Crie uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Crie uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Defina as **atribuições** para **todos os usuários**.
 
@@ -386,7 +386,7 @@ AD FS 2016 tem várias políticas internas de controle de acesso que podem ser e
 ![Controle de acesso interno do Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-Para implementar políticas internas no Azure AD, você pode usar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) e configurar os controles de acesso, ou pode usar o designer de política personalizado no AD FS 2016 para configurar políticas de controle de acesso. O editor de regras tem uma lista completa de permissão e, exceto, opções que podem ajudá-lo a fazer todos os tipos de permutas.
+Para implementar políticas internas no Azure AD, você pode usar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) e configurar os controles de acesso, ou pode usar o designer de política personalizado no AD FS 2016 para configurar políticas de controle de acesso. O editor de regras tem uma lista completa de permissão e, exceto, opções que podem ajudá-lo a fazer todos os tipos de permutas.
 
 ![Políticas de controle de acesso do Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 
@@ -452,7 +452,7 @@ Em seguida, vá para a [portal do Azure](https://aad.portal.azure.com/) para tes
 
 Dependendo de como você configura seu aplicativo, verifique se o SSO funciona corretamente.
 
-| Tipo de autenticação| Testes |
+| Tipo de autenticação| Testando |
 | - | - |
 | OAuth/OpenID Connect| Selecione **aplicativos empresariais > permissões** e verifique se você consentiu com o aplicativo a ser usado em sua organização nas configurações de usuário para seu aplicativo.
 ‎ |

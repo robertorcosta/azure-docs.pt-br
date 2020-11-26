@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891495"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182845"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -28,7 +28,7 @@ Este artigo aborda informações sobre o autogerenciamento do Azure para máquin
 
 ## <a name="overview"></a>Visão geral
 
-O autogerenciamento do Azure para máquinas virtuais é um serviço que elimina a necessidade de descobrir, saber como integrar e como configurar determinados serviços no Azure que beneficiariam sua máquina virtual. Esses serviços ajudam a aprimorar a confiabilidade, a segurança e o gerenciamento de máquinas virtuais e são considerados serviços de práticas recomendadas do Azure, como o [azure gerenciamento de atualizações](../automation/update-management/update-mgmt-overview.md) e o [backup do Azure](../backup/backup-overview.md) , apenas para citar alguns.
+O autogerenciamento do Azure para máquinas virtuais é um serviço que elimina a necessidade de descobrir, saber como integrar e como configurar determinados serviços no Azure que beneficiariam sua máquina virtual. Esses serviços ajudam a aprimorar a confiabilidade, a segurança e o gerenciamento de máquinas virtuais e são considerados serviços de práticas recomendadas do Azure, como o [azure gerenciamento de atualizações](../automation/update-management/overview.md) e o [backup do Azure](../backup/backup-overview.md) , apenas para citar alguns.
 
 Depois de integrar suas máquinas virtuais ao gerenciamento automático do Azure, ele configura automaticamente cada serviço de prática recomendada para suas configurações recomendadas. As práticas recomendadas são diferentes para cada um dos serviços. Um exemplo pode ser o backup do Azure, em que a prática recomendada pode ser fazer backup da máquina virtual uma vez por dia e ter um período de retenção de seis meses.
 
@@ -37,7 +37,7 @@ O gerenciamento automático do Azure também monitora automaticamente a descompa
 Por fim, a experiência é incrivelmente simples.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Há vários pré-requisitos a serem considerados antes de tentar habilitar o autogerenciamento do Azure em suas máquinas virtuais.
 
@@ -69,7 +69,7 @@ Para todos esses serviços, faremos a integração automática, o autoconfigure,
 
 No portal do Azure, você pode habilitar o autogerenci em uma máquina virtual existente ou ao criar uma nova máquina virtual. Para etapas concisas para esse processo, confira o guia de [início rápido para máquinas virtuais](quick-create-virtual-machines-portal.md).
 
-Se for a primeira vez que você habilita o autogerenci para sua VM, você poderá pesquisar no portal do Azure para **autogerenciar – práticas recomendadas da máquina virtual do Azure** . Clique em **habilitar na VM existente** , selecione as VMs que você gostaria de carregar, clique em **selecionar** , em **habilitar** e pronto.
+Se for a primeira vez que você habilita o autogerenci para sua VM, você poderá pesquisar no portal do Azure para **autogerenciar – práticas recomendadas da máquina virtual do Azure**. Clique em **habilitar na VM existente**, selecione as VMs que você gostaria de carregar, clique em **selecionar**, em **habilitar** e pronto.
 
 A única vez que você pode precisar interagir com essa VM para gerenciar esses serviços está no evento que tentamos corrigir sua VM, mas não conseguiu fazer isso. Se corrigirmos com êxito sua VM, vamos colocá-la de volta em conformidade sem até mesmo alertá-lo.
 
@@ -114,7 +114,7 @@ Na experiência de portal do Azure, quando você está habilitando o autogerenci
 
 Na portal do Azure, vá para a página **autogerenciar – práticas recomendadas da máquina virtual do Azure** que lista todas as VMs gerenciadas automaticamente. Aqui, você verá o status geral de cada máquina virtual.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Integração inteligente de serviços.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista de máquinas virtuais configuradas.":::
 
 Para cada VM listada, os seguintes detalhes são exibidos: nome, perfil de configuração, preferência de configuração, status, conta, assinatura e grupo de recursos.
 
@@ -123,7 +123,7 @@ A coluna **status** pode exibir os seguintes Estados:
 - *Configurado* -a VM está configurada e nenhum descompasso foi detectado
 - *Falha* -a VM foi descartada e não foi possível corrigi-la
 
-Se você vir o **status** como *com falha* , poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos** , selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
+Se você vir o **status** como *com falha*, poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos**, selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Desabilitando o autogerenci para VMs
@@ -132,9 +132,9 @@ Você pode decidir um dia para desabilitar o autogerenciamento em determinadas V
 
 Para fazer isso na portal do Azure, vá para a página **autogerenciar – práticas recomendadas da máquina virtual do Azure** que lista todas as suas VMs gerenciadas automaticamente. Marque a caixa de seleção ao lado da máquina virtual que você deseja desabilitar em autogerenciar e clique no botão **desabilitar autogerenciamento** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Integração inteligente de serviços.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desabilitar o Gerenciamento Automático em uma máquina virtual.":::
 
-Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar** .
+Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
 
 > [!NOTE]
 > A desabilitação do autogerenciamento em uma VM resulta no seguinte comportamento:

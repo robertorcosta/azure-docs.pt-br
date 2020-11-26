@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997029"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183185"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutorial: Monitorar APIs publicadas
 
@@ -149,7 +149,7 @@ Se você habilitar a coleta de GatewayLogs ou métricas em um workspace do Log A
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Captura de tela do item &quot;Logs&quot; no menu &quot;Monitoramento&quot;":::
 
-Execute consultas para ver os dados. Existem várias [consultas de exemplo](../azure-monitor/log-query/saved-queries.md). Você também pode executar as suas. Por exemplo, a seguinte consulta recupera as 24 horas mais recentes de dados da tabela GatewayLogs:
+Execute consultas para ver os dados. Existem várias [consultas de exemplo](../azure-monitor/log-query/example-queries.md). Você também pode executar as suas. Por exemplo, a seguinte consulta recupera as 24 horas mais recentes de dados da tabela GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Para saber mais sobre como usar logs de recursos do Gerenciamento de API, confira:
 
-* [Introdução ao Log Analytics do Azure Monitor](../azure-monitor/log-query/get-started-portal.md) ou experimente o [Ambiente de Demonstração do Log Analytics](https://portal.loganalytics.io/demo).
+* [Introdução ao Log Analytics do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) ou experimente o [Ambiente de Demonstração do Log Analytics](https://portal.loganalytics.io/demo).
 
 * [Visão geral sobre consultas de log no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 507ef55a6fa3976475dbf08f88ee36cd1977464d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4436385b07dd4f1da81f17eb19b38e922e21a1ef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421015"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180414"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
 
@@ -35,17 +35,17 @@ As funções personalizadas podem ser criadas na guia [Funções e administrador
 
    ![Criar ou editar funções na página Funções e administradores](./media/custom-create/new-custom-role.png)
 
-1. Na guia **Noções básicas** , forneça um nome e uma descrição para a função e clique em **Próximo**.
+1. Na guia **Noções básicas**, forneça um nome e uma descrição para a função e clique em **Próximo**.
 
    ![forneça um nome e uma descrição para uma função personalizada na guia Noções básicas](./media/custom-create/basics-tab.png)
 
-1. Na guia **Permissões** , selecione as permissões necessárias para gerenciar propriedades básicas e propriedades de credenciais de registros de aplicativo. Para obter uma descrição detalhada de cada permissão, confira [Subtipos e permissões de registro de aplicativo no Azure Active Directory](custom-available-permissions.md).
+1. Na guia **Permissões**, selecione as permissões necessárias para gerenciar propriedades básicas e propriedades de credenciais de registros de aplicativo. Para obter uma descrição detalhada de cada permissão, confira [Subtipos e permissões de registro de aplicativo no Azure Active Directory](custom-available-permissions.md).
    1. Primeiro, insira "credenciais" na barra de pesquisa e selecione a permissão `microsoft.directory/applications/credentials/update`.
 
       ![Selecione as permissões para uma função personalizada na guia Permissões](./media/custom-create/permissions-tab.png)
 
    1. Em seguida, insira "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e, em seguida, clique **Próximo**.
-1. Na guia **Examinar + criar** , examine as permissões e selecione **Criar**.
+1. Na guia **Examinar + criar**, examine as permissões e selecione **Criar**.
 
 Sua função personalizada aparecerá na lista de funções disponíveis a serem atribuídas.
 
@@ -183,4 +183,4 @@ Como funções internas, as funções personalizadas são atribuídas por padrã
 
 - Fique à vontade para compartilhar seus comentários conosco no [fórum de funções administrativas do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - Para obter mais informações sobre funções e a atribuição de função de Administrador, confira [Atribuir funções de administrador](permissions-reference.md).
-- Para obter as permissões de usuário padrão, confira uma [comparação entre as permissões de usuário membro e convidado padrão](/azure/active-directory/fundamentals/users-default-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- Para obter as permissões de usuário padrão, confira uma [comparação entre as permissões de usuário membro e convidado padrão](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).

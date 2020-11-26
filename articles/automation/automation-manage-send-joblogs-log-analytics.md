@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024136"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182862"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Encaminhar os dados de trabalho da Automação do Azure para os logs do Azure Monitor
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrar saída de status do trabalho convertido em um objeto JSON
 
-Recentemente, alteramos o comportamento de como os dados de log de automação são gravados `AzureDiagnostics` na tabela no serviço de log Analytics, em que ele não divide as propriedades JSON em campos separados. Se você tiver configurado seu runbook para formatar objetos no fluxo de saída no formato JSON como colunas separadas, será necessário reconfigurar suas consultas para analisar esse campo para um objeto JSON a fim de acessar essas propriedades. Isso é feito usando [parseJSON](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) para acessar um elemento JSON específico em um caminho conhecido.
+Recentemente, alteramos o comportamento de como os dados de log de automação são gravados `AzureDiagnostics` na tabela no serviço de log Analytics, em que ele não divide as propriedades JSON em campos separados. Se você tiver configurado seu runbook para formatar objetos no fluxo de saída no formato JSON como colunas separadas, será necessário reconfigurar suas consultas para analisar esse campo para um objeto JSON a fim de acessar essas propriedades. Isso é feito usando [parseJSON](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) para acessar um elemento JSON específico em um caminho conhecido.
 
 Por exemplo, um runbook formata a propriedade *ResultDescription* no fluxo de saída no formato JSON com vários campos. Para procurar o status de seus trabalhos que estão em um estado de falha, conforme especificado em um campo chamado **status**, use esta consulta de exemplo para pesquisar o *ResultDescription* com um status de **falha**:
 

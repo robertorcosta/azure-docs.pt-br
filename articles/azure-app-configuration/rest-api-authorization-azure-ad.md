@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 89c51e69a4274affcecb4d967deb96dcebcfd70f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 0229b1941e40345f35cb7409533e54b0c4ea7d5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253359"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182607"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Autorização de Azure Active Directory – referência da API REST
 
@@ -32,7 +32,7 @@ As funções contêm uma lista de ações que os usuários atribuídos a essa fu
 - `Microsoft.AppConfiguration/configurationStores/keyValues/write`: Essa ação permite o acesso de gravação aos recursos chave de configuração de aplicativo-valor.
 - `Microsoft.AppConfiguration/configurationStores/keyValues/delete`: Essa ação permite que os recursos de chave de configuração de aplicativo sejam excluídos. Observe que a exclusão de um recurso retorna o valor-chave que foi excluído.
 
-## <a name="error"></a>Erro
+## <a name="error"></a>Erro do
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Gerenciando atribuições de função
 
-Você pode gerenciar atribuições de função usando [procedimentos RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) que são padrão em todos os serviços do Azure. Você pode fazer isso por meio do CLI do Azure, do PowerShell e do portal do Azure. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Você pode gerenciar atribuições de função usando [procedimentos RBAC](../role-based-access-control/overview.md) que são padrão em todos os serviços do Azure. Você pode fazer isso por meio do CLI do Azure, do PowerShell e do portal do Azure. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).

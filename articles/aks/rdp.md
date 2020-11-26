@@ -5,12 +5,12 @@ description: Saiba como criar uma conexão RDP com os nós do Windows Server do 
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: c774e2287d0540c73cdd2234843d6766e7f2fb91
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 4f221a98adb779d32fc5567b201699672c8b90f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95792244"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183270"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conectar-se ao RDP para os nós do Windows Server do cluster do AKS (serviço de kubernetes do Azure) para manutenção ou solução de problemas
 
@@ -20,7 +20,7 @@ Este artigo mostra como criar uma conexão RDP com um nó AKS usando seus endere
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha um cluster AKS existente com um nó do Windows Server. Se você precisar de um cluster AKS, consulte o artigo sobre como [criar um cluster AKs com um contêiner do Windows usando o CLI do Azure][aks-windows-cli]. Você precisa do nome de usuário e senha do administrador do Windows para o nó do Windows Server que você deseja solucionar problemas. Se você não souber, poderá redefini-los seguindo a [redefinição serviços de área de trabalho remota ou sua senha de administrador em uma VM do Windows ](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp). Você também precisa de um cliente RDP, como [área de trabalho remota da Microsoft][rdp-mac].
+Este artigo pressupõe que você tenha um cluster AKS existente com um nó do Windows Server. Se você precisar de um cluster AKS, consulte o artigo sobre como [criar um cluster AKs com um contêiner do Windows usando o CLI do Azure][aks-windows-cli]. Você precisa do nome de usuário e senha do administrador do Windows para o nó do Windows Server que você deseja solucionar problemas. Se você não souber, poderá redefini-los seguindo a [redefinição serviços de área de trabalho remota ou sua senha de administrador em uma VM do Windows ](../virtual-machines/troubleshooting/reset-rdp.md). Você também precisa de um cliente RDP, como [área de trabalho remota da Microsoft][rdp-mac].
 
 Você também precisa do CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 

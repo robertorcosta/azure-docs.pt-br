@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253347"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182624"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC – referência da API REST
 
@@ -22,7 +22,7 @@ Você pode autenticar solicitações HTTP usando o esquema de autenticação HMA
 - **Provedores** - \<Access Key ID\>
 - **Secret** -valor da chave de acesso decodificado em base64. ``base64_decode(<Access Key Value>)``
 
-Os valores de Credential (também chamado `id` ) e Secret (também chamado `value` ) devem ser obtidos na instância do Azure app configuração. Você pode fazer isso usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+Os valores de Credential (também chamado `id` ) e Secret (também chamado `value` ) devem ser obtidos na instância do Azure app configuração. Você pode fazer isso usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest).
 
 Forneça cada solicitação com todos os cabeçalhos HTTP necessários para autenticação. O mínimo necessário são:
 
@@ -45,7 +45,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>Cabeçalho de autorização
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906612"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182777"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -65,7 +65,7 @@ Para os requisitos de rede para o Hybrid Runbook Worker, consulte [Configurando 
 Você pode adicionar o computador de trabalho a um grupo de Hybrid Runbook Worker em uma de suas contas de automação. Para computadores que hospedam o Hybrid runbook Worker do sistema gerenciado pelo Gerenciamento de Atualizações, eles podem ser adicionados a um grupo de Hybrid Runbook Worker. Mas você deve usar a mesma conta de automação para Gerenciamento de Atualizações e a associação de grupo de Hybrid Runbook Worker.
 
 >[!NOTE]
->A automação do Azure [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) instala automaticamente o Hybrid runbook Worker do sistema em um computador Azure ou não Azure habilitado para gerenciamento de atualizações. No entanto, esse trabalhador não está registrado com nenhum grupo de Hybrid Runbook Worker em sua conta de automação. Para executar seus runbooks nesses computadores, você precisa adicioná-los a um grupo de Hybrid Runbook Worker. Siga a etapa 6 na seção [implantação manual](#manual-deployment) para adicioná-la a um grupo.
+>A automação do Azure [Gerenciamento de atualizações](./update-management/overview.md) instala automaticamente o Hybrid runbook Worker do sistema em um computador Azure ou não Azure habilitado para gerenciamento de atualizações. No entanto, esse trabalhador não está registrado com nenhum grupo de Hybrid Runbook Worker em sua conta de automação. Para executar seus runbooks nesses computadores, você precisa adicioná-los a um grupo de Hybrid Runbook Worker. Siga a etapa 6 na seção [implantação manual](#manual-deployment) para adicioná-la a um grupo.
 
 ## <a name="enable-for-management-with-azure-automation-state-configuration"></a>Habilitar para gerenciamento com a configuração de estado de automação do Azure
 

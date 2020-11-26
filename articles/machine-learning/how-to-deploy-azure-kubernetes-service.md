@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: e041b69d8fc256ff5fe759be9716db032540f2cb
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: d314c285057950ebaecb2e3f75a83948c8bf3cc2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873787"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182437"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
-
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web no AKS (serviço kubernetes do Azure). O serviço kubernetes do Azure é bom para implantações de produção de grande escala. Use o serviço kubernetes do Azure se você precisar de um ou mais dos seguintes recursos:
 
@@ -34,7 +33,7 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS que está __conectado ao seu espaço de trabalho__. Para obter informações sobre como conectar um cluster AKS ao seu espaço de trabalho, consulte [criar e anexar um cluster do serviço kubernetes do Azure](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> Recomendamos que você depure localmente antes de implantar no serviço Web. Para obter mais informações, consulte [depurar localmente](./how-to-troubleshoot-deployment.md#debug-locally)
+> Recomendamos que você depure localmente antes de implantar no serviço Web. Para obter mais informações, consulte [depurar localmente](./how-to-troubleshoot-deployment-local.md)
 >
 > Você também pode ver o Azure Machine Learning - [Implantar no notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
