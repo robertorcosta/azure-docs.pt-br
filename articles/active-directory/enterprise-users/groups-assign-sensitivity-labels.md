@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08abd6938990f5300639a56fb487d910bf8000b3
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f8680c1d24fe3c1ed840def40c1c3abdd2fdaf24
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488854"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121780"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir rótulos de sensibilidade a grupos de Microsoft 365 no Azure Active Directory
 
-O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) a grupos de Microsoft 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Esse recurso está atualmente em GA público. Para obter mais informações sobre o suporte a aplicativos Microsoft 365, consulte [suporte a Microsoft 365 para rótulos de sensibilidade](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) a grupos de Microsoft 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Para obter mais informações sobre o suporte a aplicativos Microsoft 365, consulte [suporte a Microsoft 365 para rótulos de sensibilidade](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esse recurso, deve haver pelo menos uma licença do Active Azure Active Directory Premium P1 na sua organização do Azure AD.
