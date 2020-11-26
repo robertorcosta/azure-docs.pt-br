@@ -4,12 +4,12 @@ description: Monitore o desempenho do site sem implantá-lo novamente. Funciona 
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020918"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186296"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -41,7 +41,7 @@ Aqui está um resumo do que você tem com cada rota:
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
 | **Solicitações & exceções** |Sim |Sim |
-| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Yes |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
 | **[Diagnóstico de dependência](./asp-net-dependencies.md)** |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
 | **[API para telemetria personalizada][api]** |Sim |Não |
@@ -85,7 +85,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de Problemas
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -93,7 +93,7 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
 
 - Verifique se o arquivo applicationInsights.config está presente no diretório de aplicativo de destino e contém sua ikey.
 
-- Se você suspeitar de que os dados estão ausentes, poderá executar uma consulta no [Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem que estão enviando telemetria no momento.
+- Se você suspeitar de que os dados estão ausentes, poderá executar uma consulta no [Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções de nuvem que estão enviando telemetria no momento.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Adicione mais telemetria:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

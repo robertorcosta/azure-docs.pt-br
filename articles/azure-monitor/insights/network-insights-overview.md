@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030128"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184630"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-preview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
@@ -108,7 +108,7 @@ O Diagnostic Toolkit fornece acesso a todos os recursos de diagnóstico disponí
 
 ![Captura de tela que mostra a guia kit de ferramentas de diagnóstico.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
-## <a name="troubleshooting"></a>Solução de problemas 
+## <a name="troubleshooting"></a>Solução de Problemas 
 
 Para obter diretrizes gerais de solução de problemas, consulte o artigo de solução de [problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
 
@@ -119,11 +119,11 @@ Esta seção o ajudará a diagnosticar e solucionar alguns problemas comuns que 
 Para saber mais sobre como solucionar problemas relacionados à rede que você identifica com o Azure Monitor para redes, consulte a documentação de solução de problemas para o recurso que está funcionando incorretamente. 
 
 Aqui estão alguns links para artigos de solução de problemas para serviços usados com frequência. Para obter mais artigos de solução de problemas sobre esses serviços, consulte os outros artigos na seção de solução de problemas do Sumário do serviço.
-* [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
-* [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
-* [Gateway de VPN do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot)
-* [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-expressroute-overview) 
-* [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot) 
+* [Rede Virtual do Azure](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Gateway de Aplicativo do Azure](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Azure Load Balancer](../../load-balancer/load-balancer-troubleshoot.md) 
 
 ### <a name="why-dont-i-see-the-resources-for-all-the-subscriptions-ive-selected"></a>Por que não vejo os recursos para todas as assinaturas que selecionei?
 

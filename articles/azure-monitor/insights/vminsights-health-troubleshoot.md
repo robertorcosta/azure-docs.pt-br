@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 048230bb85d2ac599efc6bd3fb326f98038cce57
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2aa83a861697882127c75eb696807f604c3061f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686639"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184545"
 ---
 # <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Solucionar problemas de integridade de convidado Azure Monitor para VMs (versão prévia)
 Este artigo descreve as etapas de solução de problemas que você pode tomar quando tiver problemas com a integridade do Azure Monitor para VMs.
@@ -42,7 +42,7 @@ Verifique se a identidade atribuída ao sistema está habilitada na máquina vir
 Verifique se a regra de coleta de dados especificando a extensão de integridade como uma fonte de dados está associada à máquina virtual.
 
 ## <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>Mensagem de erro para solicitação inadequada devido a permissões insuficientes
-Esse erro indica que o provedor de recursos **Microsoft. WorkloadMonitor** não foi registrado na assinatura. Consulte [provedores de recursos do Azure e tipos](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) para obter detalhes sobre como registrar esse provedor de recursos. 
+Esse erro indica que o provedor de recursos **Microsoft. WorkloadMonitor** não foi registrado na assinatura. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para obter detalhes sobre como registrar esse provedor de recursos. 
 
 ![Solicitação incorreta](media/vminsights-health-troubleshoot/bad-request.png)
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681832"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183695"
 ---
 # <a name="repair-an-automanage-account"></a>Reparar uma conta de autogerenciamento
 Sua [conta de gerenciamento automático do Azure](./automanage-virtual-machines.md#automanage-account) é o contexto de segurança ou a identidade sob a qual as operações automatizadas ocorrem. Se você moveu recentemente uma assinatura que contém uma conta de autogerenciamento para um novo locatário, precisará reconfigurar a conta. Para reconfigurá-lo, você precisa redefinir o tipo de identidade e atribuir as funções apropriadas para a conta.
@@ -22,8 +22,8 @@ Sua [conta de gerenciamento automático do Azure](./automanage-virtual-machines.
 Redefina o tipo de identidade de conta de autogerenci usando o seguinte modelo de Azure Resource Manager (ARM). Salve o arquivo localmente como armdeploy.jsem ou em um nome semelhante. Anote o nome e o local da sua conta de autogerenciamento porque eles são parâmetros obrigatórios no modelo ARM.
 
 1. Crie uma implantação do Resource Manager usando o modelo a seguir. Use `identityType = None`.
-    * Você pode criar a implantação no CLI do Azure usando o `az deployment sub create` . Para obter mais informações, consulte [AZ Deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Você pode criar a implantação no PowerShell usando o `New-AzDeployment` módulo. Para obter mais informações, consulte [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * Você pode criar a implantação no CLI do Azure usando o `az deployment sub create` . Para obter mais informações, consulte [AZ Deployment sub](/cli/azure/deployment/sub).
+    * Você pode criar a implantação no PowerShell usando o `New-AzDeployment` módulo. Para obter mais informações, consulte [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Execute o mesmo modelo de ARM novamente com `identityType = SystemAssigned` .
 
@@ -63,7 +63,7 @@ A conta de autogerenciamento requer as funções de colaborador de política de 
 
 Se você estiver usando um modelo ARM ou o CLI do Azure, precisará da ID da entidade de segurança (também conhecida como a ID de objeto) da sua conta de autogerenciamento. (Você não precisará da ID se estiver usando o portal do Azure.) Você pode encontrar essa ID usando estes métodos:
 
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/ad/sp): Use o comando `az ad sp list --display-name <name of your Automanage Account>` .
+- [CLI do Azure](/cli/azure/ad/sp): Use o comando `az ad sp list --display-name <name of your Automanage Account>` .
 
 - Portal do Azure: Vá para **Azure Active Directory** e procure sua conta de autogerenciamento por nome. Em **aplicativos empresariais**, selecione o nome da conta de autogerenciamento quando ele for exibido.
 

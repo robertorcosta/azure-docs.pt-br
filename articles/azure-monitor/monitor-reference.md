@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021432"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186687"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -189,7 +189,7 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um works
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automação do Azure](../automation/index.yml) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking/overview.md) e [Gerenciamento de Atualizações](../automation/update-management/update-mgmt-overview.md). |
+| [Automação do Azure](../automation/index.yml) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking/overview.md) e [Gerenciamento de Atualizações](../automation/update-management/overview.md). |
 | [Proteção de Informações do Azure ](/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Confira [Relatórios centrais para a Proteção de Informações do Azure](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Central de Segurança do Azure](../security-center/index.yml) | Colete e analise eventos de segurança e execute a análise de ameaças. Confira [Coleta de dados na Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a fontes diferentes, incluindo o Office 365 e o Amazon Web Services CloudTrail. Confira [Conectar fontes de dados](../sentinel/connect-data-sources.md). |
@@ -245,4 +245,3 @@ O Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos 
 - Conclua um [tutorial sobre como gravar uma consulta de log para analisar dados em logs do Azure Monitor](learn/tutorial-resource-logs.md).
 - Conclua um [tutorial sobre como criar um gráfico de métricas para analisar dados nas métricas do Azure Monitor](learn/tutorial-metrics-explorer.md).
 
- 

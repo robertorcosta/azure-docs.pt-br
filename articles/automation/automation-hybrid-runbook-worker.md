@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea2b8deb07a899ab35ddd761df3e3ddb413dd45d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183763"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -22,14 +22,14 @@ A imagem a seguir ilustra essa funcionalidade:
 
 Há dois tipos de runbook Workers-System e User. A tabela a seguir descreve a diferença entre eles.
 
-|Type | Descrição |
+|Tipo | Descrição |
 |-----|-------------|
 |**System** |O oferece suporte a um conjunto de runbooks ocultos usados pelo recurso de Gerenciamento de Atualizações que foram criados para instalar atualizações especificadas pelo usuário em computadores Windows e Linux.<br> Esse tipo de Hybrid Runbook Worker não é um membro de um grupo de Hybrid Runbook Worker e, portanto, não executa runbooks direcionados a um grupo de runbook Worker. |
 |**Usuário** |Dá suporte a runbooks definidos pelo usuário destinados a serem executados diretamente no computador Windows e Linux que são membros de um ou mais grupos do runbook Worker. |
 
 Um Hybrid Runbook Worker pode ser executado no sistema operacional Windows ou Linux, e essa função depende do [agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md) reportando para um espaço de [trabalho Azure monitor log Analytics](../azure-monitor/platform/design-logs-deployment.md). O espaço de trabalho não é apenas para monitorar o computador para o sistema operacional com suporte, mas também para baixar os componentes necessários para instalar o Hybrid Runbook Worker.
 
-Quando a [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) de automação do Azure estiver habilitada, qualquer computador conectado ao seu espaço de trabalho do log Analytics será automaticamente configurado como um Hybrid runbook Worker do sistema.
+Quando a [Gerenciamento de atualizações](./update-management/overview.md) de automação do Azure estiver habilitada, qualquer computador conectado ao seu espaço de trabalho do log Analytics será automaticamente configurado como um Hybrid runbook Worker do sistema.
 
 Cada usuário Hybrid Runbook Worker é um membro de um grupo de Hybrid Runbook Worker que você especifica ao instalar o trabalho. Um grupo pode incluir um único trabalho, mas você pode incluir vários trabalhadores em um grupo para alta disponibilidade. Cada computador pode hospedar um Hybrid Runbook Worker relatórios para uma conta de automação; Você não pode registrar o Hybrid Worker em várias contas de automação. Isso ocorre porque um Hybrid Worker só pode escutar trabalhos de uma única conta de automação. Para computadores que hospedam o Hybrid runbook Worker do sistema gerenciado pelo Gerenciamento de Atualizações, eles podem ser adicionados a um grupo de Hybrid Runbook Worker. Mas você deve usar a mesma conta de automação para Gerenciamento de Atualizações e a associação de grupo de Hybrid Runbook Worker.
 
@@ -99,7 +99,7 @@ A Hybrid Runbook Worker de automação do Azure pode ser usada no Azure governam
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de Gerenciamento de Atualizações para Hybrid Runbook Worker
 
-Além dos endereços padrão e das portas necessárias para o Hybrid Runbook Worker, Gerenciamento de Atualizações tem requisitos de configuração de rede adicionais descritos na seção [planejamento de rede](update-management/update-mgmt-overview.md#ports) .
+Além dos endereços padrão e das portas necessárias para o Hybrid Runbook Worker, Gerenciamento de Atualizações tem requisitos de configuração de rede adicionais descritos na seção [planejamento de rede](./update-management/overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>State Configuration da Automação do Azure em um Hybrid Runbook Worker
 

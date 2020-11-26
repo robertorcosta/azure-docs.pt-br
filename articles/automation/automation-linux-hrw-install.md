@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793416"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183610"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -73,7 +73,7 @@ Os requisitos mínimos para um sistema Linux e Hybrid Runbook Worker de usuário
 Você pode adicionar o computador de trabalho a um grupo de Hybrid Runbook Worker em uma de suas contas de automação. Para computadores que hospedam o Hybrid runbook Worker do sistema gerenciado pelo Gerenciamento de Atualizações, eles podem ser adicionados a um grupo de Hybrid Runbook Worker. Mas você deve usar a mesma conta de automação para Gerenciamento de Atualizações e a associação de grupo de Hybrid Runbook Worker.
 
 >[!NOTE]
->A automação do Azure [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) instala automaticamente o Hybrid runbook Worker do sistema em um computador Azure ou não Azure habilitado para gerenciamento de atualizações. No entanto, esse trabalhador não está registrado com nenhum grupo de Hybrid Runbook Worker em sua conta de automação. Para executar seus runbooks nesses computadores, você precisa adicioná-los a um grupo de Hybrid Runbook Worker. Siga a etapa 4 na seção [instalar um Hybrid runbook Worker Linux](#install-a-linux-hybrid-runbook-worker) para adicioná-lo a um grupo.
+>A automação do Azure [Gerenciamento de atualizações](./update-management/overview.md) instala automaticamente o Hybrid runbook Worker do sistema em um computador Azure ou não Azure habilitado para gerenciamento de atualizações. No entanto, esse trabalhador não está registrado com nenhum grupo de Hybrid Runbook Worker em sua conta de automação. Para executar seus runbooks nesses computadores, você precisa adicioná-los a um grupo de Hybrid Runbook Worker. Siga a etapa 4 na seção [instalar um Hybrid runbook Worker Linux](#install-a-linux-hybrid-runbook-worker) para adicioná-lo a um grupo.
 
 ## <a name="supported-linux-hardening"></a>Proteção do Linux com suporte
 
@@ -87,11 +87,11 @@ Os Hybrid runbook Workers do Linux dão suporte a um conjunto limitado de tipos 
 
 |Tipo de runbook | Com suporte |
 |-------------|-----------|
-|Python 2 |Yes |
+|Python 2 |Sim |
 |PowerShell |Sim<sup>1</sup> |
-|Fluxo de trabalho do PowerShell |No |
-|Gráfico |No |
-|Fluxo de Trabalho Gráfico do PowerShell |No |
+|Fluxo de trabalho do PowerShell |Não |
+|Gráfico |Não |
+|Fluxo de Trabalho Gráfico do PowerShell |Não |
 
 <sup>1</sup> Os runbooks do PowerShell exigem que o PowerShell Core seja instalado no computador Linux. Consulte [Instalar PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo.
 

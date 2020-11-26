@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 550c011bb9f4aeb99a4dcb8da0e7ae2be4202788
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173294"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185871"
 ---
 # <a name="quota-increase-requests"></a>Solicitações de um aumento de cota
 
@@ -24,7 +24,6 @@ Você pode solicitar um aumento do limite de cota de vCPUs para a série de VMs 
 Quando uma nova assinatura é criada, o vCPUs regional total padrão pode não ser igual à soma de cotas de vCPU padrão para todas as séries de VMs individuais. Esse fato pode resultar em uma assinatura com cota suficiente para cada série de VM individual que você deseja implantar. Ele pode não ter cota suficiente para o total de vCPUs regionais para todas as implantações. Nesse caso, você precisará enviar uma solicitação para aumentar o limite de vCPUs regional total explicitamente. O limite de vCPUs regional total não pode exceder a soma da cota aprovada em todas as séries de VM para a região.
 
 > [!NOTE]
-> Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem encargos](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
+> Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem encargos](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
 Para obter mais informações sobre cotas, consulte [cotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md) e [assinatura do Azure e limites de serviço, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-

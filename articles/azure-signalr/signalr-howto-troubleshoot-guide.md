@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684110"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185650"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de solução de problemas comuns do serviço Signaler do Azure
 
@@ -148,7 +148,7 @@ Para o Signalr ASP.NET, quando a [conexão do cliente cai](#client_connection_dr
 
 Para instâncias **gratuitas** , o limite de contagem de conexões **simultâneas** é de 20 para instâncias **padrão** , o limite de contagem de conexões **simultâneas** **por unidade** é 1 K, o que significa que o Unit100 permite conexões simultâneas de 100-K.
 
-As conexões incluem conexões de cliente e de servidor. Verifique [aqui](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) como as conexões são contadas.
+As conexões incluem conexões de cliente e de servidor. Verifique [aqui](./signalr-concept-messages-and-connections.md#how-connections-are-counted) como as conexões são contadas.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>erro 500 ao negociar: o serviço de Signaler do Azure ainda não está conectado. tente novamente mais tarde.
 
@@ -162,7 +162,7 @@ Habilite o rastreamento do lado do servidor para descobrir os detalhes do erro q
 
 #### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Habilitar o registro em log do lado do servidor para ASP.NET Core Signalr
 
-O registro em log do lado do servidor para ASP.NET Core sinalizador se integra com o `ILogger` [registro em log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) com base fornecido no ASP.NET Core Framework. Você pode habilitar o registro em log do lado do servidor usando `ConfigureLogging` o, um exemplo de uso da seguinte maneira:
+O registro em log do lado do servidor para ASP.NET Core sinalizador se integra com o `ILogger` [registro em log](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) com base fornecido no ASP.NET Core Framework. Você pode habilitar o registro em log do lado do servidor usando `ConfigureLogging` o, um exemplo de uso da seguinte maneira:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075868"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183491"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Configurações de push para configuração de aplicativo com Azure Pipelines
 
@@ -23,7 +23,7 @@ A tarefa [push de configuração de Azure app](https://marketplace.visualstudio.
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - Recurso de configuração de aplicativo – crie um gratuitamente no [portal do Azure](https://portal.azure.com).
 - Projeto DevOps do Azure – [crie um gratuitamente](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Azure App tarefa de push de configuração – Baixe gratuitamente do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.).
+- Azure App tarefa de push de configuração – Baixe gratuitamente do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
 
 ## <a name="create-a-service-connection"></a>Criar uma conexão de serviço
 
@@ -87,13 +87,13 @@ Os parâmetros a seguir são usados pela tarefa de push de configuração de apl
 - **Rótulo**: uma cadeia de caracteres que é adicionada a cada chave-valor como o rótulo no repositório de configuração do aplicativo.
 - **Tipo de conteúdo**: uma cadeia de caracteres que é adicionada a cada chave-valor como o tipo de conteúdo no repositório de configuração do aplicativo.
 - **Marcas**: um objeto JSON no formato de `{"tag1":"val1", "tag2":"val2"}` , que define as marcas que são adicionadas a cada chave-valor enviado por push para o repositório de configurações do aplicativo.
-- **Exclua todas as outras Key-Values no repositório com o prefixo e o rótulo especificados: o**valor padrão está **desmarcado**.
+- **Exclua todas as outras Key-Values no repositório com o prefixo e o rótulo especificados: o** valor padrão está **desmarcado**.
   - **Marcado**: Remove todos os valores de chave no repositório de configuração de aplicativo que correspondem ao prefixo e ao rótulo especificados antes de enviar por push novos valores de chave do arquivo de configuração.
   - **Desmarcado**: envia por push todos os valores de chave do arquivo de configuração para o repositório de configuração do aplicativo e deixa tudo o mais no repositório de configuração do aplicativo intacto.
 
 Depois de preencher os parâmetros necessários, execute o pipeline. Todos os valores de chave no arquivo de configuração especificado serão carregados para a configuração do aplicativo.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Se ocorrer um erro inesperado, os logs de depuração poderão ser habilitados definindo a variável de pipeline `system.debug` como `true` .
 

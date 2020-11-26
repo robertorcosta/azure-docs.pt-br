@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376529"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186466"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conectar o Azure a ferramentas de ITSM usando a exportação segura
 
@@ -28,8 +28,8 @@ ITSMC usa credenciais de nome de usuário e senha. A exportação segura tem aut
 
 A arquitetura de exportação segura apresenta os seguintes novos recursos:
 
-* **Novo grupo de ações** : os alertas são enviados para a ferramenta de ITSM por meio do grupo de ação de webhook seguro, em vez do grupo de ações de ITSM que o ITSMC usa.
-* **Autenticação do Azure ad** : a autenticação ocorre por meio do Azure AD em vez de credenciais de nome de usuário/senha.
+* **Novo grupo de ações**: os alertas são enviados para a ferramenta de ITSM por meio do grupo de ação de webhook seguro, em vez do grupo de ações de ITSM que o ITSMC usa.
+* **Autenticação do Azure ad**: a autenticação ocorre por meio do Azure AD em vez de credenciais de nome de usuário/senha.
 
 ## <a name="secure-export-data-flow"></a>Fluxo de dados de exportação segura
 
@@ -49,9 +49,9 @@ As etapas do fluxo de dados de exportação segura são:
 
 Os principais benefícios da integração são:
 
-* **Autenticação melhor** : o Azure ad fornece autenticação mais segura sem os tempos limite que normalmente ocorrem no ITSMC.
+* **Autenticação melhor**: o Azure ad fornece autenticação mais segura sem os tempos limite que normalmente ocorrem no ITSMC.
 * **Alertas resolvidos na ferramenta ITSM: os alertas de** métrica implementam os Estados "disparados" e "resolvidos". Quando a condição for atendida, o estado do alerta será "disparado". Quando a condição não for mais atendida, o estado do alerta será "resolvido". No ITSMC, os alertas não podem ser resolvidos automaticamente. Com a exportação segura, o estado resolvido flui para a ferramenta de ITSM e, portanto, é atualizado automaticamente.
-* **[Esquema de alerta comum](./alerts-common-schema.md)** : em ITSMC, o esquema da carga de alerta difere com base no tipo de alerta. Na exportação segura, há um esquema comum para todos os tipos de alertas. Esse esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alertas poderão associar seu IC ao CMDB.
+* **[Esquema de alerta comum](./alerts-common-schema.md)**: em ITSMC, o esquema da carga de alerta difere com base no tipo de alerta. Na exportação segura, há um esquema comum para todos os tipos de alertas. Esse esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alertas poderão associar seu IC ao CMDB.
 
 Comece a usar a ferramenta de Conector ITSM com estas etapas:
 
@@ -60,8 +60,8 @@ Comece a usar a ferramenta de Conector ITSM com estas etapas:
 3. Configure seu ambiente de parceiro. 
 
 A exportação segura dá suporte a conexões com as seguintes ferramentas de ITSM:
-* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
-* [BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](#connect-servicenow-to-azure-monitor)
+* [BMC Helix](#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registrar com Azure Active Directory
 
@@ -72,7 +72,7 @@ Siga estas etapas para registrar o aplicativo com o Azure AD:
 3. Selecione **definir** para o **URI da ID do aplicativo**.
 
    [![Captura de tela da opção de configuração do U R I do aplicativo I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação de webhook seguro
 
@@ -90,7 +90,7 @@ Para adicionar um webhook a uma ação, siga estas instruções para o webhook s
 5. Selecione **proteger webhook**.
 6. Selecione estes detalhes:
    1. Selecione a ID de objeto da instância de Azure Active Directory que você registrou.
-   2. Para o URI, Cole a URL do webhook que você copiou do [ambiente da ferramenta de ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
+   2. Para o URI, Cole a URL do webhook que você copiou do [ambiente da ferramenta de ITSM](#configure-the-itsm-tool-environment).
    3. Defina **habilitar o esquema de alerta comum** como **Sim**. 
 
    A imagem a seguir mostra a configuração de uma ação de webhook segura de exemplo:
@@ -156,12 +156,12 @@ Verifique se você atendeu aos seguintes pré-requisitos:
    4. Selecione **configuração**.
    5. Selecione **Adicionar nova** configuração de conexão.
    6. Preencha as informações da seção de configuração:
-      - **Nome** : Crie o seu próprio.
-      - **Tipo de autorização** : **nenhum**
-      - **Descrição** : Crie o seu próprio.
-      - **Site** : **nuvem**
-      - **Número de instâncias** : **2** , o valor padrão.
-      - **Marque** : selecionado por padrão para habilitar o uso.
+      - **Nome**: Crie o seu próprio.
+      - **Tipo de autorização**: **nenhum**
+      - **Descrição**: Crie o seu próprio.
+      - **Site**: **nuvem**
+      - **Número de instâncias**: **2**, o valor padrão.
+      - **Marque**: selecionado por padrão para habilitar o uso.
       - A ID do locatário do Azure e a ID do aplicativo do Azure são obtidas do aplicativo que você definiu anteriormente.
 
 ![Captura de tela que mostra a configuração do BMC.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)

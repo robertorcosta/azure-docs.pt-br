@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491368"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186092"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
-Quando você executa uma [consulta de log](log-query-overview.md) em [log Analytics no portal do Azure](get-started-portal.md), o conjunto de dados avaliado pela consulta depende do escopo e do intervalo de tempo que você selecionar. Este artigo descreve o escopo e o intervalo de tempo e como você pode definir cada um dependendo de seus requisitos. Ele também descreve o comportamento de diferentes tipos de escopos.
+Quando você executa uma [consulta de log](log-query-overview.md) em [log Analytics no portal do Azure](./log-analytics-tutorial.md), o conjunto de dados avaliado pela consulta depende do escopo e do intervalo de tempo que você selecionar. Este artigo descreve o escopo e o intervalo de tempo e como você pode definir cada um dependendo de seus requisitos. Ele também descreve o comportamento de diferentes tipos de escopos.
 
 
 ## <a name="query-scope"></a>Escopo da consulta
@@ -33,7 +33,7 @@ O escopo é determinado pelo método usado para iniciar Log Analytics e, em algu
 |:---|:---|:---|:---|
 | Espaço de trabalho do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
 | Aplicativo do Application Insights | Todos os registros no aplicativo Application Insights. | Selecione **logs** no menu **Application insights** para o aplicativo. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
-| Resource group | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
+| Grupo de recursos | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
 | Subscription | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
 | Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OU<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
 
@@ -75,7 +75,7 @@ Se você definir um filtro na consulta que usa a coluna hora padrão, conforme m
 
 ![Consulta filtrada](media/scope/query-filtered.png)
 
-Se você usar o comando de [aplicativo](app-expression.md) ou [espaço de trabalho](workspace-expression.md) para recuperar dados de outro espaço de trabalho ou aplicativo clássico, o seletor de tempo poderá se comportar de forma diferente. Se o escopo for um espaço de trabalho Log Analytics e você usar o **aplicativo** , ou se o escopo for um aplicativo Application insights clássico e você usar o **espaço de trabalho** , log Analytics poderá não entender que a coluna usada no filtro deve determinar o filtro de tempo.
+Se você usar o comando de [aplicativo](app-expression.md) ou [espaço de trabalho](workspace-expression.md) para recuperar dados de outro espaço de trabalho ou aplicativo clássico, o seletor de tempo poderá se comportar de forma diferente. Se o escopo for um espaço de trabalho Log Analytics e você usar o **aplicativo**, ou se o escopo for um aplicativo Application insights clássico e você usar o **espaço de trabalho**, log Analytics poderá não entender que a coluna usada no filtro deve determinar o filtro de tempo.
 
 No exemplo a seguir, o escopo é definido como um espaço de trabalho Log Analytics.  A consulta usa o **espaço de trabalho** para recuperar dados de outro espaço de trabalho log Analytics. O seletor de tempo muda para **definido na consulta** porque vê um filtro que usa a coluna **TimeGenerated** esperada.
 
@@ -87,5 +87,5 @@ Se a consulta usar o **aplicativo** para recuperar dados de um aplicativo Applic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Percorra um [tutorial sobre como usar log Analytics no portal do Azure](get-started-portal.md).
+- Percorra um [tutorial sobre como usar log Analytics no portal do Azure](./log-analytics-tutorial.md).
 - Percorra um [tutorial sobre como escrever consultas](get-started-queries.md).

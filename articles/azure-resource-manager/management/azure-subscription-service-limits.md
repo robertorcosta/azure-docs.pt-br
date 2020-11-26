@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577831"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186194"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -96,7 +96,7 @@ Os tipos de preço determinam a capacidade e os limites de seu serviço Search. 
 
 * O serviço multilocatário **gratuito** , compartilhado com outros assinantes do Azure, destina-se a avaliação e projetos de desenvolvimento pequenos.
 * **Básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
-* O **padrão** , que inclui a alta densidade S1, S2, S3 e S3, é para cargas de trabalho de produção maiores. Existem vários níveis na camada Standard para que você possa escolher uma configuração de recurso que melhor corresponda ao perfil de carga de trabalho.
+* O **padrão**, que inclui a alta densidade S1, S2, S3 e S3, é para cargas de trabalho de produção maiores. Existem vários níveis na camada Standard para que você possa escolher uma configuração de recurso que melhor corresponda ao perfil de carga de trabalho.
 
 **Limites por assinatura**
 
@@ -398,7 +398,7 @@ Para obter mais informações, consulte [tamanhos de máquina virtual](../../vir
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de criptografia de disco
 
-Há uma limitação de 50 conjuntos de criptografia de disco por região, por assinatura. Para obter mais informações, consulte a documentação de criptografia para máquinas virtuais [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) . Se você precisar aumentar a cota, entre em contato com o suporte do Azure.
+Há uma limitação de 50 conjuntos de criptografia de disco por região, por assinatura. Para obter mais informações, consulte a documentação de criptografia para máquinas virtuais [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/disk-encryption.md#restrictions) . Se você precisar aumentar a cota, entre em contato com o suporte do Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
 
@@ -442,7 +442,7 @@ Há limites por assinatura para implantar recursos usando Galerias de Imagens Co
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

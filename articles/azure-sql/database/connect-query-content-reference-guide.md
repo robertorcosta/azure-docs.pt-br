@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ec40e209d522daf882b8c704c7de6a1fb6aa29f9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676083"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183933"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artigos sobre a conexão ao Banco de Dados SQL do Azure e à Instância Gerenciada de SQL do Azure e a consulta deles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ O documento a seguir inclui links para exemplos do Azure que mostram como se con
 | Guia de Início Rápido | Descrição |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este guia de início rápido demonstra como usar não só o SSMS para se conectar a um banco de dados, mas também as instruções T-SQL (Transact-SQL) para consultar, inserir, atualizar e excluir dados no banco de dados.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Este guia de início rápido demonstra como usar não só o Azure Data Studio para se conectar a um banco de dados, mas também as instruções T-SQL para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Este guia de início rápido demonstra como usar não só o Azure Data Studio para se conectar a um banco de dados, mas também as instruções T-SQL para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
 |[Azure portal](connect-query-portal.md)|Este guia de início rápido demonstra como usar não só o editor de consultas para se conectar a um banco de dados (somente no Banco de Dados SQL do Azure), mas também as instruções T-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.|
 |[Visual Studio Code](connect-query-vscode.md)|Este guia de início rápido demonstra como usar não só o Visual Studio Code para se conectar a um banco de dados, mas também as instruções T-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.|
 |[.NET com Visual Studio](connect-query-dotnet-visual-studio.md)|Este guia de início rápido demonstra como usar não só o .NET Framework para criar um programa C# com o Visual Studio e se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados.|

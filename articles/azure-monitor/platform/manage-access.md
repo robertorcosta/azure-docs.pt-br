@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 234ef58920a9f896d3e8ebcc561562ea7ceb2708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536669"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186415"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
@@ -48,7 +48,7 @@ Você pode alterar essa configuração na página **Propriedades** do espaço de
 
 ![Alterar modo de acesso do espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 Use o seguinte comando para examinar o modo de controle de acesso para todos os espaços de trabalho na assinatura:
 
@@ -106,7 +106,7 @@ Cada workspace pode ter várias contas associadas e cada conta pode ter acesso a
 
 As atividades a seguir também exigem permissões do Azure:
 
-|Ação |Permissões do Azure necessárias |Observações |
+|Ação |Permissões do Azure necessárias |Anotações |
 |-------|-------------------------|------|
 | Adicionando e removendo soluções de monitoramento | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Essas permissões precisam ser concedidas no nível de assinatura ou no grupo de recursos. |
 | Alterar o tipo de preço | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -134,7 +134,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| Type    | Permissão | Descrição |
+| Tipo    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
@@ -285,7 +285,7 @@ Os exemplos acima definem uma lista de tabelas que são permitidas. Este exemplo
 
 ### <a name="custom-logs"></a>Logs personalizados
 
- Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](../log-query/get-started-portal.md#understand-the-schema).
+ Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](../log-query/log-analytics-tutorial.md#table-schema).
 
  Você não pode conceder acesso a logs personalizados individuais, mas pode conceder acesso a todos os logs personalizados. Para criar uma função com acesso a todos os logs personalizados, crie uma função personalizada usando as seguintes ações:
 

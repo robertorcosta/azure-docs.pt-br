@@ -5,12 +5,12 @@ ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207318"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183559"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
@@ -87,6 +87,6 @@ Como alternativa, desvincule o workspace da sua conta da Automação no workspac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../update-management/update-mgmt-overview.md).
+* Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../update-management/overview.md).
 * Para obter informações sobre os recursos Controle de Alterações e Inventário, veja [Visão geral do recurso Controle de Alterações e Inventário](../change-tracking/overview.md).
 * Saiba mais sobre o recurso Iniciar/Parar VMs fora do horário comercial em [Visão geral do recurso Iniciar/Parar VMs fora do horário comercial](../automation-solution-vm-management.md).

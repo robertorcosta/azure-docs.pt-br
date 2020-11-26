@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031117"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185072"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração e entrega contínuas para o espaço de trabalho Synapse do Azure
 
@@ -25,7 +25,7 @@ Para o espaço de trabalho Synapse do Azure, a integração contínua e a entreg
 
 Este artigo descreverá o uso do pipeline de liberação do Azure para automatizar a implantação de um espaço de trabalho Synapse em vários ambientes.
 
-## <a name="pre-requirements"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 -   O espaço de trabalho usado para desenvolvimento foi configurado com um repositório git no estúdio, consulte [controle do código-fonte no Synapse Studio](source-control.md).
 -   Um projeto DevOps do Azure foi preparado para executar o pipeline de liberação.
@@ -82,7 +82,7 @@ Adicione uma tarefa de implantação de Azure Resource Manager para criar ou atu
     
     ![implantação de espaço de trabalho e pools](media/pools-resource-deploy.png)
 
-1. Adicional Adicione **Azure PowerShell** para a atribuição de função de espaço de trabalho Grant and Update. Se você usar o pipeline de liberação para criar um espaço de trabalho do Synapse, a entidade de serviço do pipeline precisará ser adicionada como administrador do espaço de trabalho padrão. Você pode executar o PowerShell para conceder a outras contas acesso ao espaço de trabalho. 
+1. Adicional Adicione **Azure PowerShell** para a atribuição de função de espaço de trabalho Grant and Update. Se você usar o pipeline de liberação para criar um espaço de trabalho do Synapse, a entidade de serviço do pipeline será adicionada como administrador do espaço de trabalho padrão. Você pode executar o PowerShell para conceder a outras contas acesso ao espaço de trabalho. 
     
     ![conceder permissão](media/release-creation-grant-permission.png)
 
@@ -115,12 +115,8 @@ Depois de salvar todas as alterações, você pode selecionar **criar versão** 
 Se você estiver usando a integração do git com seu espaço de trabalho do Synapse e tiver um pipeline de CI/CD que move as alterações do desenvolvimento para o teste e, em seguida, para a produção, recomendamos estas práticas recomendadas:
 
 -   **Integração do Git**. Configure somente seu espaço de trabalho de Synapse de desenvolvimento com a integração do git. As alterações nos espaços de trabalho de teste e produção são implantadas por meio de CI/CD e não precisam de integração com o git.
--   **Preparar pools antes da migração de artefatos**. Se você anexar pools ao seu script ou bloco de anotações SQL no espaço de trabalho de desenvolvimento, o mesmo nome de pools em ambientes diferentes será esperado. 
--   **Outros**. Veja [outras práticas recomendadas](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Preparar pools antes da migração de artefatos**. Se você tiver um script SQL ou um notebook anexado a pools no espaço de trabalho de desenvolvimento, será esperado o mesmo nome de pools em ambientes diferentes. 
+-   **Infraestrutura como código (IaC)**. Gerenciamento de infraestrutura (redes, máquinas virtuais, balanceadores de carga e topologia de conexão) em um modelo descritivo, use o mesmo controle de versão que a equipe do DevOps usa para o código-fonte. 
+-   **Outros**. Veja [as práticas recomendadas para artefatos do ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
-## <a name="unsupported-features"></a>Recursos sem suporte
-
-- O Synapse Studio não permite a seleção de Cherry de confirmações ou publicação seletiva de recursos. 
-- O Synapse Studio não dá suporte à personalização de mensagem de confirmação.
-- Por design, a ação de exclusão será confirmada no git diretamente
 

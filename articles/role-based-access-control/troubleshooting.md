@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490739"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184256"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -80,7 +80,7 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>Funções personalizadas e grupos de gerenciamento
 
-- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 - Funções personalizadas com `DataActions` não podem ser atribuídas no escopo do grupo de gerenciamento.
 - Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função.
 - Para obter mais informações sobre funções personalizadas e grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
@@ -151,7 +151,7 @@ Da mesma forma, se você listar essa atribuição de função usando CLI do Azur
 }
 ```
 
-Não é um problema deixar essas atribuições de função em que a entidade de segurança foi excluída. Se desejar, você pode remover essas atribuições de função usando etapas semelhantes a outras atribuições de função. Para obter informações sobre como remover atribuições de função, consulte [portal do Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [CLI do Azure](role-assignments-cli.md#remove-role-assignment)
+Não é um problema deixar essas atribuições de função em que a entidade de segurança foi excluída. Se desejar, você pode remover essas atribuições de função usando etapas semelhantes a outras atribuições de função. Para obter informações sobre como remover atribuições de função, consulte [portal do Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [CLI do Azure](role-assignments-cli.md#remove-a-role-assignment)
 
 No PowerShell, se você tentar remover as atribuições de função usando a ID de objeto e o nome de definição de função, e mais de uma atribuição de função corresponder aos parâmetros, você receberá a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função". A saída a seguir mostra um exemplo da mensagem de erro:
 
@@ -223,12 +223,12 @@ Semelhante aos aplicativos Web, alguns recursos na folha da máquina virtual exi
 
 As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
-Estes itens exigem acesso para **gravação** na **Máquina virtual** :
+Estes itens exigem acesso para **gravação** na **Máquina virtual**:
 
 * Pontos de extremidade  
 * Endereços IP  
 * Discos  
-* Extensões  
+* Extensões do  
 
 Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no **Grupo de recursos** (juntamente com o Nome de domínio) encontrados em:  
 

@@ -3,12 +3,12 @@ title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0d118b80439579b0c8be45fdf1180b9a03b54c1d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95994121"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183984"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
 
@@ -1030,7 +1030,7 @@ A propriedade **managedBy** é retornada somente para grupos de recursos que con
 
 ### <a name="remarks"></a>Comentários
 
-A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos. Você pode usar a função `resourceGroup()` em um [modelo vinculado ou aninhado (com escopo interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo pai é implantado na assinatura. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos em uma implantação em nível de assinatura, confira [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
+A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos. Você pode usar a função `resourceGroup()` em um [modelo vinculado ou aninhado (com escopo interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo pai é implantado na assinatura. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos em uma implantação em nível de assinatura, confira [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](./deploy-to-resource-group.md).
 
 Um uso comum da função resourceGroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para um valor de parâmetro padrão.
 
@@ -1055,7 +1055,7 @@ param location string = resourceGroup().location
 
 Você também pode usar a função resourceGroup para aplicar marcas do grupo de recursos a um recurso. Para obter mais informações, confira [Aplicar marcas do grupo de recursos](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourceGroup. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
+Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourceGroup. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](./deploy-to-resource-group.md).
 
 ### <a name="resource-group-example"></a>Exemplo de grupo de recursos
 
@@ -1372,7 +1372,7 @@ A função retorna o seguinte formato:
 
 ### <a name="remarks"></a>Comentários
 
-Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
+Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](./deploy-to-resource-group.md).
 
 ### <a name="subscription-example"></a>Exemplo de assinatura
 

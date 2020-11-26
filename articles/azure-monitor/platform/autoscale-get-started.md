@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020901"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186568"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -57,7 +57,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -115,7 +115,7 @@ Você sempre pode retornar para o dimensionamento automático clicando em **Habi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Rotear o tráfego para instâncias íntegras (serviço de aplicativo)
 
-Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Save** (Salvar).
+Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Salvar**.
 
 Para habilitar o recurso com modelos ARM, defina a `healthcheckpath` Propriedade do `Microsoft.Web/sites` recurso para o caminho de verificação de integridade em seu site, por exemplo: `"/api/health/"` . Para desabilitar o recurso, defina a propriedade de volta para a cadeia de caracteres vazia, `""` .
 
@@ -151,12 +151,12 @@ Esta seção descreve como mover a autoescala do Azure para outra região sob a 
 1. Verifique se o dimensionamento automático do Azure está disponível na [região do Azure para a qual você deseja mover](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
 ### <a name="move"></a>Mover
-Use a [API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) para criar uma configuração de dimensionamento automático no novo ambiente. A configuração de dimensionamento automático criada na região de destino será uma cópia da configuração de dimensionamento automático na região de origem.
+Use a [API REST](/rest/api/monitor/autoscalesettings/createorupdate) para criar uma configuração de dimensionamento automático no novo ambiente. A configuração de dimensionamento automático criada na região de destino será uma cópia da configuração de dimensionamento automático na região de origem.
 
-[As configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) que foram criadas em associação com a configuração de dimensionamento automático na região de origem não podem ser movidas. Você precisará recriar as configurações de diagnóstico na região de destino, depois que a criação de configurações de autovenda for concluída. 
+[As configurações de diagnóstico](./diagnostic-settings.md) que foram criadas em associação com a configuração de dimensionamento automático na região de origem não podem ser movidas. Você precisará recriar as configurações de diagnóstico na região de destino, depois que a criação de configurações de autovenda for concluída. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre como mover recursos entre regiões do Azure
-Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte [mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

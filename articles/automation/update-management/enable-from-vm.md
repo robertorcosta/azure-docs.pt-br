@@ -5,12 +5,12 @@ services: automation
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347073"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183542"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Habilitar o Gerenciamento de Atualizações de uma VM do Azure
 
@@ -35,11 +35,11 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione a VM para a qual você deseja habilitar o Gerenciamento de Atualizações. As VMs podem existir em qualquer região, independentemente do local da sua conta da Automação. Você
 
-3. Na página VM, em **operações** , selecione **convidado + atualizações de host**.
+3. Na página VM, em **operações**, selecione **convidado + atualizações de host**.
 
     ![Selecione convidado + atualizações de host no painel esquerdo](media/enable-from-vm/select-guest-and-os-updates.png)
 
-4. Você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está habilitada para um espaço de trabalho. Para saber mais sobre as permissões adicionais que são necessárias, confira [Permissões necessárias para habilitar os computadores](../automation-role-based-access-control.md#feature-setup-permissions). Para saber como habilitar vários computadores de uma só vez, consulte [Habilitar Gerenciamento de Atualizações a partir de uma conta da Automação](update-mgmt-enable-automation-account.md).
+4. Você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está habilitada para um espaço de trabalho. Para saber mais sobre as permissões adicionais que são necessárias, confira [Permissões necessárias para habilitar os computadores](../automation-role-based-access-control.md#feature-setup-permissions). Para saber como habilitar vários computadores de uma só vez, consulte [Habilitar Gerenciamento de Atualizações a partir de uma conta da Automação](./enable-from-automation-account.md).
 
 5. Na página habilitar Gerenciamento de Atualizações, escolha o espaço de trabalho Log Analytics e a conta de automação e clique em **habilitar** para habilitar o gerenciamento de atualizações. Depois de habilitar Gerenciamento de Atualizações, pode levar cerca de 15 minutos para que você possa exibir a avaliação de atualização da VM.
 

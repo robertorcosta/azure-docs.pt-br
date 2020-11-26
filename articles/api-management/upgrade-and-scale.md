@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010207"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183780"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
 
@@ -74,13 +74,13 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. A atualizaçã
 1. Navegue até o serviço de gerenciamento de API no [portal do Azure](https://portal.azure.com/).
 2. Clique no **tipo de preço** no menu.
 3. Selecione a camada de serviço desejada na lista suspensa. Use o controle deslizante para especificar a escala do serviço de gerenciamento de API após a alteração.
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
 Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
 
 ## <a name="compute-isolation"></a>Isolamento de computação
-Se seus requisitos de segurança incluírem o [isolamento de computação](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), você poderá usar o tipo de preço **isolado** . Essa camada garante que os recursos de computação de uma instância de serviço de gerenciamento de API consumam todo o host físico e forneçam o nível necessário de isolamento necessário para dar suporte, por exemplo, cargas de trabalho de impacto de nível 5 (IL5) do departamento de defesa dos EUA. Para obter acesso à camada isolada, [crie um tíquete de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Se seus requisitos de segurança incluírem o [isolamento de computação](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), você poderá usar o tipo de preço **isolado** . Essa camada garante que os recursos de computação de uma instância de serviço de gerenciamento de API consumam todo o host físico e forneçam o nível necessário de isolamento necessário para dar suporte, por exemplo, cargas de trabalho de impacto de nível 5 (IL5) do departamento de defesa dos EUA. Para obter acesso à camada isolada, [crie um tíquete de suporte](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212799"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185106"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB Associação de entrada para Azure Functions 2. x e superior
 
@@ -20,7 +20,7 @@ A associação de dados de entrada do Azure Cosmos DB usa a API de SQL para recu
 Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Se a coleção for [particionada](../cosmos-db/partition-data.md#logical-partitions), as operações de pesquisa precisarão especificar também o valor da chave de partição.
+> Se a coleção for [particionada](../cosmos-db/partitioning-overview.md#logical-partitions), as operações de pesquisa precisarão especificar também o valor da chave de partição.
 >
 
 <a id="example" name="example"></a>
@@ -212,7 +212,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 O exemplo mostra como usar uma expressão de associação no parâmetro `SqlQuery`. Você pode passar os dados da rota para o parâmetro `SqlQuery` conforme mostrado, mas atualmente [não é possível passar os valores da cadeia de caracteres de consulta](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> Se você precisar consultar apenas a ID, é recomendável usar uma pesquisa, como os [exemplos anteriores](#http-trigger-look-up-id-from-query-string-c), pois ela consumirá menos [unidades de solicitação](../cosmos-db/request-units.md). Operações de leitura de ponto (GET) são [mais eficientes](../cosmos-db/optimize-cost-queries.md) do que as consultas por ID.
+> Se você precisar consultar apenas a ID, é recomendável usar uma pesquisa, como os [exemplos anteriores](#http-trigger-look-up-id-from-query-string-c), pois ela consumirá menos [unidades de solicitação](../cosmos-db/request-units.md). Operações de leitura de ponto (GET) são [mais eficientes](../cosmos-db/optimize-cost-reads-writes.md) do que as consultas por ID.
 >
 
 ```cs
@@ -1315,7 +1315,7 @@ public class DocByIdFromRoute {
 O exemplo a seguir mostra uma função Java que recupera um único documento. A função é disparada por uma solicitação HTTP que usa um parâmetro de rota para especificar a ID a ser pesquisada. Essa ID é usada para recuperar um documento da coleção e banco de dados especificado, converter o resultado definido como um ```ToDoItem[]```, já que muitos documentos podem ser retornados, dependendo dos critérios de consulta.
 
 > [!NOTE]
-> Se você precisar consultar apenas a ID, é recomendável usar uma pesquisa, como os [exemplos anteriores](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), pois ela consumirá menos [unidades de solicitação](../cosmos-db/request-units.md). Operações de leitura de ponto (GET) são [mais eficientes](../cosmos-db/optimize-cost-queries.md) do que as consultas por ID.
+> Se você precisar consultar apenas a ID, é recomendável usar uma pesquisa, como os [exemplos anteriores](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), pois ela consumirá menos [unidades de solicitação](../cosmos-db/request-units.md). Operações de leitura de ponto (GET) são [mais eficientes](../cosmos-db/optimize-cost-reads-writes.md) do que as consultas por ID.
 >
 
 ```java
@@ -1442,7 +1442,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina as `id` Propriedades e **SQLQuery** . Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações em tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina as `id` Propriedades e `sqlQuery` . Se você não definir uma ou outra, toda a coleção é recuperada.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB. |
-|**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação. Ele é necessário para pesquisas em coleções [particionadas](../cosmos-db/partition-data.md#logical-partitions) .|
+|**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação. Ele é necessário para pesquisas em coleções [particionadas](../cosmos-db/partitioning-overview.md#logical-partitions) .|
 |**preferredLocations**| **PreferredLocations**| Adicional Define os locais preferenciais (regiões) para contas de banco de dados replicadas geograficamente no serviço de Azure Cosmos DB. Os valores devem ser separados por vírgulas. Por exemplo, "leste dos EUA, EUA Central do Sul Europa Setentrional". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

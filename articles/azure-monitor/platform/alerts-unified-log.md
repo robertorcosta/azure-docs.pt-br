@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995073"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186551"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
 ## <a name="overview"></a>Visão geral
 
-Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](./alerts-overview.md). Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md).
+Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](./alerts-overview.md). Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md).
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > No momento, não há encargos adicionais para a versão da API `2020-05-01-preview` e alertas de log centrados no recurso.  Os preços para os recursos que estão na versão prévia serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a nova versão da API e alertas de log centrados no recurso após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os alertas de log executam consultas em Log Analytics dados. Primeiro, você deve começar a [coletar dados de log](resource-logs.md) e consultar os dados de log para problemas. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/saved-queries.md) no log Analytics para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/get-started-portal.md).
+Os alertas de log executam consultas em Log Analytics dados. Primeiro, você deve começar a [coletar dados de log](resource-logs.md) e consultar os dados de log para problemas. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) no log Analytics para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md).
 
 O [colaborador de monitoramento do Azure](./roles-permissions-security.md) é uma função comum que é necessária para criar, modificar e atualizar alertas de log. O acesso & direitos de execução de consulta para os logs de recursos também são necessários. O acesso parcial aos logs de recursos pode falhar em consultas ou retornar resultados parciais. [Saiba mais sobre como configurar alertas de log no Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ A definição da condição de regras de pesquisa de logs começa com:
 As seções a seguir descrevem os diferentes parâmetros que você pode usar para definir a lógica acima.
 
 ### <a name="log-query"></a>Consulta de log
-A consulta [log Analytics](../log-query/get-started-portal.md) usada para avaliar a regra. Os resultados retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta pode ser delimitada para:
+A consulta [log Analytics](../log-query/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta pode ser delimitada para:
 
 - Um recurso específico, como uma máquina virtual.
 - Um recurso em escala, como uma assinatura ou grupo de recursos.
@@ -209,4 +209,3 @@ As informações de preços estão localizadas na [página de preços do Azure m
 * Entenda os [webhooks nos alertas de log no Azure](alerts-log-webhook.md).
 * Saiba mais sobre os [Alertas do Azure](./alerts-overview.md).
 * Saiba mais sobre [log Analytics](../log-query/log-query-overview.md).
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842287"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186058"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](./itsmc-overview.md).
@@ -46,7 +46,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 > [!NOTE]
 > 
 > - O Conector ITSM pode se conectar apenas a instâncias do ServiceNow baseadas em nuvem. No momento, não há suporte para instâncias locais do ServiceNow.
-> - Para usar [modelos](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) personalizados como parte das ações, o parâmetro "geometertype" no modelo SCSM deve ser mapeado para "IncidentManagement! System. WorkItem. Incident. Projetype "
+> - Para usar [modelos](./itsmc-overview.md#template-definitions) personalizados como parte das ações, o parâmetro "geometertype" no modelo SCSM deve ser mapeado para "IncidentManagement! System. WorkItem. Incident. Projetype "
 
 ### <a name="connection-procedure"></a>Procedimento de conexão
 
@@ -432,4 +432,3 @@ Para gerar o chave/ID do cliente para Cherwell, use o procedimento a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
  - [Criar itens de trabalho de ITSM desde alertas do Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

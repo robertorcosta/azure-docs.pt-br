@@ -3,12 +3,12 @@ title: Modos de implantação
 description: Descreve como especificar se um modo de implantação completo ou incremental deve ser usado com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184035"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -29,7 +29,7 @@ Se o seu modelo inclui um recurso que não está implantado porque a [condição
 
 Tenha cuidado ao usar o modo completo com [loops de cópia](copy-resources.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
 
-Se você implantar em [mais de um grupo de recursos em um modelo](cross-scope-deployment.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
+Se você implantar em [mais de um grupo de recursos em um modelo](./deploy-to-resource-group.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
 
 Há algumas diferenças em como os tipos de recursos lidam com exclusões de modo completo. Os recursos pai serão excluídos automaticamente quando não estiverem em um modelo que é implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído.
 

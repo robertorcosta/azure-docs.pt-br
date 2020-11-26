@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f66c710901b129cb6b138fff126e67615c790714
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015146"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183661"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrar com os logs do Azure Monitor
 
@@ -36,7 +36,7 @@ Para começar a enviar seus relatórios de State Configuration de Automação pa
 
 - Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/) ( versão 2.3.0).
 - Uma conta de Automação do Azure. Confira mais informações em [Uma introdução à Automação do Azure](automation-intro.md).
-- Um espaço de trabalho do Log Analytics com uma oferta de serviço Automação e Controle. Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+- Um espaço de trabalho do Log Analytics com uma oferta de serviço Automação e Controle. Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 - No mínimo, um nó de Configuração do Estado de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pela State Configuration de Automação do Azure](automation-dsc-onboarding.md).
 - O módulo [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0), versão 2.7.0.0 ou superior. Para obter as etapas de instalação, consulte [Solucionar problemas com a Desired State Configuration da Automação do Azure](./troubleshoot/desired-state-configuration.md).
 

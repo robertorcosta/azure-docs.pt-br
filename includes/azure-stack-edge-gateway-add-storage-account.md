@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 0b6a6cbf51ef2ff1f1ef53b53a2b84c7a4f9510d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375817"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185515"
 ---
 1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online.
 
@@ -17,7 +17,7 @@ ms.locfileid: "93375817"
 
    ![Adicionar uma conta de armazenamento](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-1.png)
 
-3. No painel **Adicionar conta de armazenamento do Edge** , especifique as seguintes configurações:
+3. No painel **Adicionar conta de armazenamento do Edge**, especifique as seguintes configurações:
 
     a. Um nome exclusivo para a conta de armazenamento do Edge em seu dispositivo. Os nomes de conta de armazenamento só podem conter números e letras minúsculas. Caracteres especiais não são permitidos. O nome da conta de armazenamento deve ser exclusivo dentro do dispositivo (não entre os dispositivos).
 
@@ -32,7 +32,7 @@ ms.locfileid: "93375817"
     e. Depois que todas as opções de conta de armazenamento forem especificadas, selecione **Adicionar** para criar a conta de armazenamento do Edge. Você será notificado quando a conta de armazenamento do Edge tiver sido criada com êxito. A nova conta de armazenamento do Edge é exibida na lista de contas de armazenamento no portal do Azure. 
 
     
-4. Se você selecionar essa nova conta de armazenamento e acessar **Chaves de acesso** , poderá encontrar o ponto de extremidade de serviço de blob e o nome da conta de armazenamento correspondente. Copie essas informações, pois esses valores junto com as chaves de acesso ajudarão você a se conectar à conta de armazenamento do Edge.
+4. Se você selecionar essa nova conta de armazenamento e acessar **Chaves de acesso**, poderá encontrar o ponto de extremidade de serviço de blob e o nome da conta de armazenamento correspondente. Copie essas informações, pois esses valores junto com as chaves de acesso ajudarão você a se conectar à conta de armazenamento do Edge.
 
     ![Adicionar uma conta de armazenamento 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 

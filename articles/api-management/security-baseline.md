@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ac568e56d201ef43e40428085b226608e83973a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024561"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183746"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança do Azure para Gerenciamento de API
 
 A linha de base de segurança do Azure para o Gerenciamento de API contém recomendações que ajudarão a aprimorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -26,7 +26,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 *Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
 **Diretriz**: O Gerenciamento de API do Azure pode ser implantado em uma Rede Virtual do Microsoft Azure (VNet) para que possa acessar serviços de back-end na rede. O portal do desenvolvedor e o gateway do Gerenciamento de API podem ser configurados para serem acessados pela Internet (externo) ou somente na rede virtual (interno).
 - Externo: o portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
@@ -98,7 +98,7 @@ Use a inteligência contra ameaças integrada da Central de Segurança do Azure 
 
 * [Compreender o Gateway de Aplicativo do Azure](../application-gateway/index.yml)
 
-* [Como configurar a Proteção contra DDoS do Azure Standard](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a Proteção contra DDoS do Azure Standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
@@ -301,7 +301,7 @@ Como opção, você pode integrar o Gerenciamento de API com o Application Insig
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como integrar com o Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -614,7 +614,7 @@ A Microsoft gerencia a infraestrutura subjacente para o Gerenciamento de API do 
 
 **Diretriz**: As chamadas do plano de gerenciamento são feitas pelo Azure Resource Manager por meio de TLS. Um JWT (token Web JSON) válido é necessário. As chamadas de plano de dados podem ser protegidas com TLS e um dos mecanismos de autenticação com suporte (por exemplo, certificado de cliente ou JWT).
 
-* [Entender a proteção de dados no Gerenciamento de API do Azure](./api-management-security-controls.md#data-protection)
+* [Entender a proteção de dados no Gerenciamento de API do Azure](#data-protection)
 
 * [Gerenciar configurações de TLS no Gerenciamento de API do Azure](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -664,7 +664,7 @@ A Microsoft gerencia a infraestrutura subjacente para o Gerenciamento de API do 
 
 **Diretriz**: Dados confidenciais, como certificados, chaves e valores nomeados secretos, são criptografados com chaves de instância de serviço gerenciadas por serviço. Todas as chaves de criptografia são por instância de serviço e gerenciadas pelo serviço.
 
-* [Entender a proteção/criptografia de dados em repouso com o Gerenciamento de API do Azure](./api-management-security-controls.md#data-protection)
+* [Entender a proteção/criptografia de dados em repouso com o Gerenciamento de API do Azure](#data-protection)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -692,7 +692,7 @@ A Microsoft gerencia a infraestrutura subjacente para o Gerenciamento de API do 
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-* [Noções básicas dos controles de segurança disponíveis para o Gerenciamento de API do Azure](./api-management-security-controls.md)
+* [Noções básicas dos controles de segurança disponíveis para o Gerenciamento de API do Azure]()
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -728,7 +728,7 @@ Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controle
 
 Plataforma subjacente verificada e corrigida pela Microsoft. O cliente deve examinar os controles de segurança disponíveis a ele para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-* [Noções básicas dos controles de segurança disponíveis para o Gerenciamento de API do Azure](./api-management-security-controls.md)
+* [Noções básicas dos controles de segurança disponíveis para o Gerenciamento de API do Azure]()
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -816,7 +816,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -932,8 +932,6 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 * [Documentação do Azure Repos](/azure/devops/repos/index)
 
-* [Compreender o kit de recursos do DevOps do Gerenciamento de API do Azure](./api-management-security-controls.md#configuration-management)
-
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
@@ -971,8 +969,6 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 **Diretriz**: Use o kit de recursos do DevOps do Gerenciamento de API do Azure para executar gerenciamento de configuração para o Gerenciamento de API do Azure.
 
 Além disso, defina e implemente configurações de segurança padrão para seus serviços do Gerenciamento de API do Azure com o Azure Policy. Use aliases do Azure Policy no namespace "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração das instâncias do Gerenciamento de API do Azure. Use a política do Azure [negar] e [implantar se não existir] para impor configurações seguras em seus recursos do Azure.
-
-* [Compreender o kit de recursos do DevOps do Gerenciamento de API do Azure](./api-management-security-controls.md#configuration-management)
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

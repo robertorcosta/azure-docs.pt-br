@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317095"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183576"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importar um runbook
 
-Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShell ( **.ps1** ), um runbook gráfico ( **.graphrunbook** ) ou um script Python 2 ( **.py** ) para criar seu runbook. Você precisa especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração os aspectos a seguir.
+Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShell ( **.ps1**), um runbook gráfico ( **.graphrunbook**) ou um script Python 2 ( **.py**) para criar seu runbook. Você precisa especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração os aspectos a seguir.
 
 * Você pode importar um arquivo **.ps1** que não contém um fluxo de trabalho em um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) ou em um [runbook do Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se você importá-lo para um runbook do Fluxo de Trabalho do PowerShell, ele será convertido em um fluxo de trabalho. Nesse caso, os comentários são incluídos no runbook para descrever as alterações feitas.
 
@@ -223,7 +223,7 @@ Para usar um script personalizado:
 
 1. Crie uma conta da Automação e obtenha uma [Função de colaborador](automation-role-based-access-control.md).
 2. [Vincule a conta ao workspace do Azure](../security-center/security-center-enable-data-collection.md).
-3. Habilite o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Gerenciamento de Atualizações](update-management/update-mgmt-overview.md) ou outro recurso da Automação. 
+3. Habilite o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Gerenciamento de Atualizações](./update-management/overview.md) ou outro recurso da Automação. 
 4. Se estiver em um computador Linux, você precisa de altas permissões. Faça logon para [desativar as verificações de assinatura](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Testar um runbook

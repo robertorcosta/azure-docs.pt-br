@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428001"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186483"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -50,11 +50,11 @@ Você pode começar a usar o ITSMC concluindo as seguintes etapas:
 
 Antes de criar uma conexão, você precisa adicionar ITSMC.
 
-1. Na portal do Azure, selecione **criar um recurso** :
+1. Na portal do Azure, selecione **criar um recurso**:
 
    ![Captura de tela que mostra o item de menu criar um recurso.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Pesquise **conector de gerenciamento de serviços de ti** no Azure Marketplace. Selecione **criar** :
+2. Pesquise **conector de gerenciamento de serviços de ti** no Azure Marketplace. Selecione **criar**:
 
    ![Captura de tela que mostra o botão criar no Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -90,11 +90,11 @@ Com base no produto de ITSM ao qual você está se conectando, selecione um dos 
 
 Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para criar uma conexão:
 
-1. Em **todos os recursos** , procure por **assistência técnica ( *seu nome de espaço de trabalho* )** :
+1. Em **todos os recursos**, procure por **assistência técnica (*seu nome de espaço de trabalho*)**:
 
    ![Captura de tela que mostra os recursos recentes no portal do Azure.](media/itsmc-overview/itsm-connections.png)
 
-1. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM** :
+1. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM**:
 
    ![Captura de tela que mostra o item de menu de conexões de ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
    Esta página exibe a lista de conexões.
@@ -129,7 +129,7 @@ Os grupos de ação fornecem uma maneira modular e reutilizável para disparar a
 Use o procedimento a seguir para criar itens de trabalho:
 
 1. No portal do Azure, selecione  **alertas**.
-2. No menu na parte superior da tela, selecione **Gerenciar ações** :
+2. No menu na parte superior da tela, selecione **Gerenciar ações**:
 
     ![Captura de tela que mostra o item de menu gerenciar ações.](media/itsmc-overview/action-groups-selection-big.png)
 
@@ -145,9 +145,9 @@ Use o procedimento a seguir para criar itens de trabalho:
 
 7. Selecione um tipo de **item de trabalho** .
 
-8. Se você quiser preencher os campos prontos para uso com valores fixos, selecione **usar modelo personalizado**. Caso contrário, escolha um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista de **modelos** e insira os valores fixos nos campos de modelo.
+8. Se você quiser preencher os campos prontos para uso com valores fixos, selecione **usar modelo personalizado**. Caso contrário, escolha um [modelo](#template-definitions) existente na lista de **modelos** e insira os valores fixos nos campos de modelo.
 
-9. Se você selecionar **criar itens de trabalho individuais para cada item de configuração** , cada item de configuração terá seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Ele será atualizado de acordo com os alertas que serão criados.
+9. Se você selecionar **criar itens de trabalho individuais para cada item de configuração**, cada item de configuração terá seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Ele será atualizado de acordo com os alertas que serão criados.
 
    * Em um caso que você selecionar no menu suspenso "incidente" ou "alerta" do item de trabalho: se você desmarcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
@@ -329,4 +329,3 @@ Se você tiver consultas ou comentários sobre o Conector de Gerenciamento de Se
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar produtos/serviços de ITSM a Conector de Gerenciamento de Serviços de TI](./itsmc-connections.md)
-

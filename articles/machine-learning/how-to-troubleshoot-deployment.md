@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de implantação do serviço Web
+title: Solucionar problemas de implantação de serviço Web remoto
 titleSuffix: Azure Machine Learning
 description: Saiba como solucionar problemas, resolver e solucionar os erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure.
 services: machine-learning
@@ -8,19 +8,19 @@ ms.subservice: core
 author: gvashishtha
 ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 11/02/2020
+ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: dfbfea22738e6aeb0df31ad941b2ff10e53795a4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperfq4, devx-track-python, deploy, contperfq2
+ms.openlocfilehash: 0b8da0be16adc79b606b59f394b223b001453607
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311291"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185055"
 ---
 # <a name="troubleshoot-model-deployment"></a>Solucionar problemas de implantação de modelo
 
-Saiba como solucionar problemas e resolver, ou contornar, erros comuns de implantação do Docker com ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando Azure Machine Learning.
+Saiba como solucionar problemas e resolver, ou contornar, erros comuns de implantação do Docker remoto com ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,9 +28,6 @@ Saiba como solucionar problemas e resolver, ou contornar, erros comuns de implan
 * O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, você deve ter uma instalação do Docker em funcionamento no sistema local.
-
-    Para verificar a instalação do Docker, use o comando `docker run hello-world` em um terminal ou prompt de comando. Para obter informações sobre a instalação do Docker ou solução de erros do Docker, confira a [Documentação do Docker](https://docs.docker.com/).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Etapas para a implantação do Docker de modelos de aprendizado de máquina
 
@@ -79,94 +76,8 @@ print(service.get_logs())
 
 ## <a name="debug-locally"></a>Depurar Localmente
 
-Se você tiver problemas ao implantar um modelo em ACI ou AKS, implante-o como um serviço Web local. Usar um serviço Web local facilita a solução de problemas.
+Se você tiver problemas ao implantar um modelo em ACI ou AKS, implante-o como um serviço Web local. Usar um serviço Web local facilita a solução de problemas. Para solucionar problemas de uma implantação localmente, consulte o [artigo solução local de problemas](./how-to-troubleshoot-deployment-local.md).
 
-Você pode encontrar um exemplo de [bloco de anotações de implantação local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) no repositório  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar uma amostra executável.
-
-> [!WARNING]
-> Não há suporte para implantações de serviço Web local para cenários de produção.
-
-Para implantar localmente, modifique o código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implantação. Em seguida, use `Model.deploy()` para implantar o serviço. O exemplo a seguir implanta um modelo (contido na variável de modelo) como serviço Web local:
-
-```python
-from azureml.core.environment import Environment
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.webservice import LocalWebservice
-
-
-# Create inference configuration based on the environment definition and the entry script
-myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
-
-Se você estiver definindo seu próprio Conda de especificação YAML, liste azureml-defaults versão >= 1.0.45 como uma dependência Pip. Esse pacote é necessário para hospedar o modelo como um serviço Web.
-
-A essa altura, você pode trabalhar com o serviço normalmente. O código a seguir demonstra o envio de dados para o serviço:
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
-
-test_sample = bytes(test_sample, encoding='utf8')
-
-prediction = service.run(input_data=test_sample)
-print(prediction)
-```
-
-Para obter mais informações sobre como personalizar o ambiente do Python, confira [Criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md). 
-
-### <a name="update-the-service"></a>Atualizar o serviço
-
-Durante os testes locais, talvez seja necessário atualizar o arquivo `score.py` para adicionar o log ou tentar resolver os problemas detectados. Para recarregar as alterações no arquivo `score.py`, use `reload()`. Por exemplo, o código a seguir recarrega o script para o serviço e depois envia dados a ele. Os dados são pontuados usando o arquivo `score.py` atualizado:
-
-> [!IMPORTANT]
-> O método `reload` só está disponível para implantações locais. Para obter informações sobre como atualizar uma implantação para outro destino de computação, consulte [como atualizar seu WebService](how-to-deploy-update-web-service.md).
-
-```python
-service.reload()
-print(service.run(input_data=test_sample))
-```
-
-> [!NOTE]
-> O script é recarregado no local especificado pelo objeto `InferenceConfig` usado pelo serviço.
-
-Para alterar o modelo, as dependências Conda ou a configuração de implantação, use [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). O exemplo a seguir atualiza o modelo usado pelo serviço:
-
-```python
-service.update([different_model], inference_config, deployment_config)
-```
-
-### <a name="delete-the-service"></a>Excluir o serviço
-
-Para excluir o serviço, use [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
-
-### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Inspecionar o log do Docker
-
-Você pode imprimir mensagens de log do mecanismo do Docker detalhadas do objeto de serviços. Você pode exibir o log para implantações de ACI, AKS e local. O exemplo a seguir demonstra como fazer imprimir os logs.
-
-```python
-# if you already have the service object handy
-print(service.get_logs())
-
-# if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices['mysvc'].get_logs())
-```
-Se você vir a linha que `Booting worker with pid: <pid>` está ocorrendo várias vezes nos logs, isso significa que não há memória suficiente para iniciar o trabalho.
-Você pode resolver o erro aumentando o valor de `memory_gb` em `deployment_config`
- 
 ## <a name="container-cannot-be-scheduled"></a>Não é possível agendar o contêiner
 
 Ao implantar um serviço em um destino de computação do Serviço de Kubernetes do Azure, o Azure Machine Learning tentará agendar o serviço com a quantidade solicitada de recursos. Se não houver nós disponíveis no cluster com a quantidade apropriada de recursos após 5 minutos, a implantação falhará. A mensagem de falha é `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Você pode resolver esse erro adicionando mais nós, alterando a SKU de seus nós ou alterando os requisitos de recursos do seu serviço. 
@@ -177,7 +88,7 @@ A mensagem de erro normalmente indicará a qual recurso você precisa mais, por 
 
 Depois que a imagem é criada com êxito, o sistema tenta iniciar um contêiner usando a configuração de implantação. Como parte do processo de inicialização do contêiner, a função `init()` em seu script de pontuação é invocada pelo sistema. Se houver exceções não capturadas na função `init()`, você poderá ver o erro **CrashLoopBackOff** na mensagem de erro.
 
-Use as informações na seção [Inspecionar o log do Docker](#dockerlog) para verificar os logs.
+Use as informações no artigo [inspecionar o log do Docker](how-to-troubleshoot-deployment-local.md#dockerlog) .
 
 ## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
 
@@ -211,7 +122,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Observação** : O retorno de mensagens de erro da chamada `run(input_data)` deve ser feito para apenas para fins de depuração. Por motivos de segurança, você não deve retornar mensagens de erro dessa maneira em um ambiente de produção.
+**Observação**: O retorno de mensagens de erro da chamada `run(input_data)` deve ser feito para apenas para fins de depuração. Por motivos de segurança, você não deve retornar mensagens de erro dessa maneira em um ambiente de produção.
 
 ## <a name="http-status-code-502"></a>Código de status HTTP 502
 
@@ -221,7 +132,7 @@ Um código de status 502 indica que o serviço gerou uma exceção ou falhou no 
 
 As implantações do Serviço de Kubernetes do Azure dão suporte ao dimensionamento automático, que permite que as réplicas sejam adicionadas para dar suporte à carga adicional. O dimensionador automático foi projetado para lidar com alterações **graduais** na carga. Se você receber grandes picos em solicitações por segundo, os clientes podem receber um código de status HTTP 503. Mesmo que o dimensionador reatue rapidamente, leva AKS uma quantidade significativa de tempo para criar contêineres adicionais.
 
-As decisões de expansão/redução baseiam-se na utilização das réplicas de contêiner atuais. O número de réplicas ocupadas (processando uma solicitação) dividido pelo número total de réplicas atuais é a utilização atual. Se esse número exceder `autoscale_target_utilization` , mais réplicas serão criadas. Se for menor, as réplicas serão reduzidas. As decisões para adicionar réplicas são ansiosos e rápidas (cerca de 1 segundo). As decisões para remover réplicas são conservadoras (cerca de 1 minuto). Por padrão, a utilização de destino de dimensionamento automático é definida como **70%** , o que significa que o serviço pode lidar com picos em solicitações por segundo (RPS) de **até 30%**.
+As decisões de expansão/redução baseiam-se na utilização das réplicas de contêiner atuais. O número de réplicas ocupadas (processando uma solicitação) dividido pelo número total de réplicas atuais é a utilização atual. Se esse número exceder `autoscale_target_utilization` , mais réplicas serão criadas. Se for menor, as réplicas serão reduzidas. As decisões para adicionar réplicas são ansiosos e rápidas (cerca de 1 segundo). As decisões para remover réplicas são conservadoras (cerca de 1 minuto). Por padrão, a utilização de destino de dimensionamento automático é definida como **70%**, o que significa que o serviço pode lidar com picos em solicitações por segundo (RPS) de **até 30%**.
 
 As duas ações a seguir podem evitar códigos de status 503:
 
@@ -281,3 +192,4 @@ Saiba mais sobre a implantação:
 
 * [Como e onde implantar](how-to-deploy-and-where.md)
 * [Tutorial: Treinar e implantar modelos](tutorial-train-models-with-aml.md)
+* [Como executar e depurar experimentos localmente](./how-to-debug-visual-studio-code.md)

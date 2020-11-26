@@ -4,11 +4,11 @@ description: Entenda o processo de criação de pontos de extremidade privados p
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172233"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184733"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -77,7 +77,7 @@ Recomendamos que você conceda a função de **colaborador** para esses três gr
 
     ![Adicionar uma atribuição de função](./media/private-endpoints/add-role-assignment.png)
 
-1. No painel **Adicionar atribuição de função** , escolha **colaborador** como a **função**e use o **nome** do cofre como a entidade de **segurança**. Selecione seu cofre e selecione **salvar** quando terminar.
+1. No painel **Adicionar atribuição de função** , escolha **colaborador** como a **função** e use o **nome** do cofre como a entidade de **segurança**. Selecione seu cofre e selecione **salvar** quando terminar.
 
     ![Escolher função e entidade de segurança](./media/private-endpoints/choose-role-and-principal.png)
 

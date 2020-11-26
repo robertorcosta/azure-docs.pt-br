@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 2e183ad8a6e25c12f073f51e9416b4fc0ed9365f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530396"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186381"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -41,7 +41,7 @@ Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/
 
 ## <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível.  
-Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modelo de implantação clássico do Azure
 Um dos dois [modelos de implantação](./azure-resource-manager/management/deployment-models.md) usados para implantar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns serviços do Azure dão suporte somente ao modelo de implantação do Resource Manager, alguns dão suporte somente para o modelo de implantação clássico e alguns dão suporte a ambos. A documentação para cada serviço do Azure especifica a quais modelos esse serviço dá suporte.
@@ -58,7 +58,7 @@ Um dos dois [modelos de implantação](./azure-resource-manager/management/deplo
 
 ## <a name="fault-domain"></a>domínio de falha
 A coleção de máquinas virtuais em um conjunto de disponibilidade que podem falhar ao mesmo tempo. Um exemplo disso é um grupo de máquinas em um rack que compartilham uma fonte de alimentação e um comutador de rede comum. No Azure, as máquinas virtuais em um conjunto de disponibilidade são separadas automaticamente em vários domínios de falha.  
-Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)  
+Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>área geográfica
 Um limite definido para a residência dos dados e que geralmente contém duas ou mais regiões. Os limites podem ser dentro ou fora de fronteiras nacionais e são influenciados pela regulamentação fiscal. Cada área geográfica tem pelo menos uma região. Entre os exemplos de áreas geográficas estão Pacífico Asiático e Japão. Também é chamada de *geografia*.  
@@ -135,7 +135,7 @@ Veja [Usando marcas para organizar os recursos do Azure](./azure-resource-manage
 
 ## <a name="update-domain"></a>domínio de atualização
 A coleção de máquinas virtuais em um conjunto de disponibilidade que são atualizadas ao mesmo tempo. As máquinas virtuais no mesmo domínio de atualização são reiniciadas juntas durante a manutenção planejada. O Azure nunca reinicia mais de um domínio de atualização por vez. Isso também é chamado de domínio de upgrade.  
-Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>máquina virtual
 A implementação de software de um computador físico que executa um sistema operacional. Diversas máquinas virtuais podem ser executadas simultaneamente no mesmo hardware. No Azure, as máquinas virtuais estão disponíveis em vários tamanhos.  
@@ -144,7 +144,7 @@ Veja [Documentação de Máquinas Virtuais](https://azure.microsoft.com/document
 ## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>extensão da máquina virtual
 Um recurso que implementa comportamentos ou recursos que ajudam outros programas a funcionar, ou que fornecem a capacidade de interação com um computador em execução. Por exemplo, você pode usar a extensão de Acesso da Máquina Virtual para redefinir ou modificar valores de acesso remoto em uma máquina virtual do Azure.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
-Veja [Sobre os recursos e extensões de máquina virtual (Windows)](./virtual-machines/extensions/features-windows.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](./virtual-machines/extensions/features-linux.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
+Veja [Sobre os recursos e extensões de máquina virtual (Windows)](./virtual-machines/extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](./virtual-machines/extensions/features-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-network"></a><a name="vnet"></a>rede virtual
 Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite estabelecer conexões entre redes virtuais e entre uma rede virtual e uma rede local. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  

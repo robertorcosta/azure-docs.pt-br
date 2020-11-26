@@ -5,18 +5,18 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d13e19958ce4614db3706845cc6717b77f60c4c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6ca5b1df05c04937598278378e001f41f08ef23c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209370"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183627"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Habilitação dos recursos de Controle de Alterações e Inventário no portal do Azure
 
 Este artigo descreve como você pode habilitar [controle de alterações e inventário](overview.md) para uma ou mais VMs do Azure no portal do Azure. Para habilitar VMs do Azure em escala, habilite uma VM existente usando os recursos Controle de Alterações e Inventário.
 
-O número de grupos de recursos que você pode usar para gerenciar suas VMs é limitado pelos [limites de implantação do Resource Manager](../../azure-resource-manager/templates/cross-scope-deployment.md). As implantações do Gerenciador de recursos são limitadas a cinco grupos de recursos por implantação. Dois desses grupos de recursos são reservados para configurar o workspace do Log Analytics, a conta de Automação e os recursos relacionados. Você pode então optar entre três grupos de recursos para gerenciamento pelos recursos Controle de Alterações e Inventário. Esse limite se aplica apenas à configuração simultânea, não ao número de grupos de recursos que podem ser gerenciados por um recurso de Automação.
+O número de grupos de recursos que você pode usar para gerenciar suas VMs é limitado pelos [limites de implantação do Resource Manager](../../azure-resource-manager/templates/deploy-to-resource-group.md). As implantações do Gerenciador de recursos são limitadas a cinco grupos de recursos por implantação. Dois desses grupos de recursos são reservados para configurar o workspace do Log Analytics, a conta de Automação e os recursos relacionados. Você pode então optar entre três grupos de recursos para gerenciamento pelos recursos Controle de Alterações e Inventário. Esse limite se aplica apenas à configuração simultânea, não ao número de grupos de recursos que podem ser gerenciados por um recurso de Automação.
 
 > [!NOTE]
 > Quando habilitar os recursos Controle de Alterações e Inventário, somente determinadas regiões serão compatíveis com a vinculação de um workspace do Log Analytics e uma conta de Automação. Para obter uma lista dos pares de mapeamento compatíveis, veja [Mapeamento de região para conta de Automação e workspace do Log Analytics](../how-to/region-mappings.md).

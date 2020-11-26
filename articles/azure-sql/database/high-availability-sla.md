@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901310"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185599"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ A versão com redundância de zona da arquitetura de alta disponibilidade é ilu
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilidade da camada de serviço de hiperescala
 
-A arquitetura da camada de serviço de hiperescala é descrita na [arquitetura de funções distribuídas](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) e só está disponível no momento para o banco de dados SQL, não o SQL instância gerenciada.
+A arquitetura da camada de serviço de hiperescala é descrita na [arquitetura de funções distribuídas](./service-tier-hyperscale.md#distributed-functions-architecture) e só está disponível no momento para o banco de dados SQL, não o SQL instância gerenciada.
 
 ![Arquitetura funcional de hiperescala](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,12 +102,12 @@ O modelo de disponibilidade em hiperescala inclui quatro camadas:
 
 - Uma camada de computação sem estado que executa os `sqlservr.exe` processos e contém somente dados transitórios e armazenados em cache, como o cache RBPEX de não abrangendo, tempdb, banco de dado modelo, etc. no SSD anexado, e no cache de planos, no pool de buffers e no pool columnstore na memória. Essa camada sem estado inclui a réplica de computação primária e, opcionalmente, um número de réplicas de computação secundárias que podem servir como destinos de failover.
 - Uma camada de armazenamento sem estado formada por servidores de página. Essa camada é o mecanismo de armazenamento distribuído para os `sqlservr.exe` processos em execução nas réplicas de computação. Cada servidor de página contém apenas dados transitórios e em cache, como cobrindo o cache RBPEX no SSD anexado e páginas de dados armazenadas em cache na memória. Cada servidor de página tem um servidor de páginas emparelhado em uma configuração ativo-ativo para fornecer balanceamento de carga, redundância e alta disponibilidade.
-- Uma camada de armazenamento de log de transações com estado formada pelo nó de computação executando o processo do serviço de log, a zona de aterrissagem do log de transações e o armazenamento de longo prazo do log de transações. Zona de aterrissagem e armazenamento de longo prazo usam o armazenamento do Azure, que fornece disponibilidade e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para o log de transações, garantindo a durabilidade dos dados para transações confirmadas.
-- Uma camada de armazenamento de dados com monitoração de estado com os arquivos (. MDF/. ndf) armazenados no armazenamento do Azure e são atualizados por servidores de página. Essa camada usa recursos de [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e disponibilidade de dados do armazenamento do Azure. Ele garante que cada página em um arquivo de dados será preservada mesmo se os processos em outras camadas de falha de arquitetura de hiperescala ou se os nós de computação falharem.
+- Uma camada de armazenamento de log de transações com estado formada pelo nó de computação executando o processo do serviço de log, a zona de aterrissagem do log de transações e o armazenamento de longo prazo do log de transações. Zona de aterrissagem e armazenamento de longo prazo usam o armazenamento do Azure, que fornece disponibilidade e [redundância](../../storage/common/storage-redundancy.md) para o log de transações, garantindo a durabilidade dos dados para transações confirmadas.
+- Uma camada de armazenamento de dados com monitoração de estado com os arquivos (. MDF/. ndf) armazenados no armazenamento do Azure e são atualizados por servidores de página. Essa camada usa recursos de [redundância](../../storage/common/storage-redundancy.md) e disponibilidade de dados do armazenamento do Azure. Ele garante que cada página em um arquivo de dados será preservada mesmo se os processos em outras camadas de falha de arquitetura de hiperescala ou se os nós de computação falharem.
 
 Os nós de computação em todas as camadas de hiperescala são executados no Azure Service Fabric, que controla a integridade de cada nó e executa failovers para nós íntegros disponíveis, conforme necessário.
 
-Para obter mais informações sobre alta disponibilidade em hiperescala, consulte [alta disponibilidade do banco de dados em hiperescala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+Para obter mais informações sobre alta disponibilidade em hiperescala, consulte [alta disponibilidade do banco de dados em hiperescala](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação Acelerada de Banco de Dados (ADR)

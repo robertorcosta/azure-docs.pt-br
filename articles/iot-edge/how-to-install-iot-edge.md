@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108993"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185089"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instalar ou desinstalar o tempo de execução de Azure IoT Edge
 
@@ -51,7 +51,7 @@ Prepare seu dispositivo para acessar os pacotes de instalação da Microsoft.
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch**:
+   * **Stretch do sistema operacional Raspberry Pi**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -100,7 +100,7 @@ O Azure IoT Edge depende de um runtime de contêiner compatível com OCI. Para c
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-Atualize as listas de pacotes em seu dispositivo.
+Atualize as listas de pacotes no dispositivo.
 
    ```bash
    sudo apt-get update
@@ -138,7 +138,7 @@ As etapas nesta seção representam o processo típico para instalar a versão m
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-Atualize as listas de pacotes em seu dispositivo.
+Atualize as listas de pacotes no dispositivo.
 
    ```bash
    sudo apt-get update

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95323226"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186653"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -81,8 +81,8 @@ Use o agente de Log Analytics se você precisar:
 * Colete logs e dados de desempenho de máquinas virtuais ou físicas dentro ou fora do Azure. 
 * Envie dados para um espaço de trabalho Log Analytics para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md) , como [consultas de log](../log-query/log-query-overview.md).
 * Use [Azure monitor para VMs](../insights/vminsights-overview.md) que permite monitorar suas máquinas virtuais em escala e monitora seus processos e dependências em outros recursos e processos externos.  
-* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-intro.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
-* Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/update-mgmt-overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking/overview.md) para fornecer gerenciamento abrangente de suas VMs do Azure
+* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-introduction.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
+* Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking/overview.md) para fornecer gerenciamento abrangente de suas VMs do Azure
 * Use [soluções](../monitor-reference.md#insights-and-core-solutions) diferentes para monitorar um determinado serviço ou aplicativo.
 
 As limitações do agente de Log Analytics incluem:
