@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540039"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188642"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -119,6 +119,12 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 
 
 Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas podem não estar disponíveis em todas as regiões do Azure. Para verificar se a série de VMs está disponível, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+> [!NOTE]
+> Azure Machine Learning não dá suporte a todos os tamanhos de VM com suporte da computação do Azure. Para listar os tamanhos de VM disponíveis, use um dos seguintes métodos:
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [SDK do Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
 
 ### <a name="compute-isolation"></a>Isolamento de computação
 

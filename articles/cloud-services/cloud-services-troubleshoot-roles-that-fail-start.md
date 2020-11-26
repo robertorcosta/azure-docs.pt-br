@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076565"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187792"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solução de problemas de funções do serviço de nuvem com falha de inicialização
 Veja alguns problemas comuns e soluções relacionadas às funções do serviço de nuvem do Azure com falha na inicialização.
@@ -82,7 +82,7 @@ Por exemplo:
 ![Erro de servidor explícito no aplicativo '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnosticar problemas usando o emulador de computação
-Você pode usar o emulador de computação do Microsoft Azure para diagnosticar e solucionar problemas de dependências ausentes e erros de web.config.
+Você pode usar o emulador de computação Microsoft Azure para diagnosticar e solucionar problemas de dependências ausentes e web.config erros.
 
 Para obter melhores resultados ao usar esse método de diagnóstico, você deve usar um computador ou uma máquina virtual com uma instalação limpa do Windows. Para simular melhor o ambiente do Azure, use o Windows Server 2008 R2 x64.
 

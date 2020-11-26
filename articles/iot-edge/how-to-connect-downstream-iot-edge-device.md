@@ -12,19 +12,19 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489277"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187826"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conectar um dispositivo de IoT Edge downstream a um gateway de Azure IoT Edge (versão prévia)
 
 Este artigo fornece instruções para estabelecer uma conexão confiável entre um gateway de IoT Edge e um dispositivo de IoT Edge downstream.
 
 >[!NOTE]
->Este recurso requer IoT Edge versão 1,2, que está em visualização pública, executando contêineres do Linux.
+>Este recurso exige o IoT Edge versão 1.2, que está em versão prévia pública, que execute contêineres do Linux.
 
 Em um cenário de gateway, um dispositivo IoT Edge pode ser um gateway e um dispositivo downstream. Vários gateways IoT Edge podem ser dispostos em camadas para criar uma hierarquia de dispositivos. Os dispositivos downstream (ou filhos) podem autenticar e enviar ou receber mensagens por meio de seu dispositivo de gateway (ou pai).
 
@@ -34,15 +34,15 @@ Algumas arquiteturas de rede exigem que apenas o dispositivo IoT Edge superior e
 
 Todas as etapas neste artigo se baseiam neles em [configurar um dispositivo IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md), que configura um dispositivo IOT Edge para ser um gateway para dispositivos IOT downstream. As mesmas etapas básicas se aplicam a todos os cenários de gateway:
 
-* **Autenticação** : Crie identidades do Hub IOT para todos os dispositivos na hierarquia de gateway.
-* **Autorização** : Configure a relação pai/filho no Hub IOT para autorizar que dispositivos filho se conectem ao seu dispositivo pai, como eles se conectaram ao Hub IOT.
-* **Descoberta de gateway** : Verifique se o dispositivo filho pode encontrar seu dispositivo pai na rede local.
-* **Conexão segura** : estabeleça uma conexão segura com certificados confiáveis que fazem parte da mesma cadeia.
+* **Autenticação**: Crie identidades do Hub IOT para todos os dispositivos na hierarquia de gateway.
+* **Autorização**: Configure a relação pai/filho no Hub IOT para autorizar que dispositivos filho se conectem ao seu dispositivo pai, como eles se conectaram ao Hub IOT.
+* **Descoberta de gateway**: Verifique se o dispositivo filho pode encontrar seu dispositivo pai na rede local.
+* **Conexão segura**: estabeleça uma conexão segura com certificados confiáveis que fazem parte da mesma cadeia.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um hub IoT gratuito ou Standard.
-* Pelo menos dois **dispositivos IOT Edge** , um para ser o dispositivo de camada superior e um ou mais dispositivos de camada inferior. Se você não tiver dispositivos IoT Edge disponíveis, poderá [executar Azure IOT Edge em máquinas virtuais Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
+* Pelo menos dois **dispositivos IOT Edge**, um para ser o dispositivo de camada superior e um ou mais dispositivos de camada inferior. Se você não tiver dispositivos IoT Edge disponíveis, poderá [executar Azure IOT Edge em máquinas virtuais Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
 * Se você usar o CLI do Azure para criar e gerenciar dispositivos, tenha CLI do Azure v 2.3.1 com a extensão do Azure IoT v 0.10.6 ou superior instalada.
 
 Este artigo fornece etapas e opções detalhadas para ajudá-lo a criar a hierarquia de gateway correta para seu cenário. Para obter um tutorial guiado, consulte [criar uma hierarquia de dispositivos IOT Edge usando gateways](tutorial-nested-iot-edge.md).
@@ -99,9 +99,9 @@ Com essa configuração, cada dispositivo downstream IoT Edge ou dispositivo IoT
 
 Crie os seguintes certificados:
 
-* Um **certificado de autoridade de certificação raiz** , que é o certificado compartilhado mais alto para todos os dispositivos em uma determinada hierarquia de gateway. Esse certificado está instalado em todos os dispositivos.
+* Um **certificado de autoridade de certificação raiz**, que é o certificado compartilhado mais alto para todos os dispositivos em uma determinada hierarquia de gateway. Esse certificado está instalado em todos os dispositivos.
 * Todos os **certificados intermediários** que você deseja incluir na cadeia de certificados raiz.
-* Um **certificado de autoridade de certificação do dispositivo** e sua **chave privada** , gerados pelos certificados raiz e intermediário. Você precisa de um certificado de autoridade de certificação de dispositivo exclusivo para cada dispositivo de IoT Edge na hierarquia de gateway.
+* Um **certificado de autoridade de certificação do dispositivo** e sua **chave privada**, gerados pelos certificados raiz e intermediário. Você precisa de um certificado de autoridade de certificação de dispositivo exclusivo para cada dispositivo de IoT Edge na hierarquia de gateway.
 
 >[!NOTE]
 >Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2038.
@@ -146,11 +146,11 @@ No Linux, verifique se o usuário **iotedge** tem permissões de leitura para o 
    sudo nano /etc/iotedge/config.yaml
    ```
 
-1. Localize a seção **certificados** no arquivo config. YAML. Atualize os três campos de certificado para apontar para seus certificados. Forneça os caminhos de URI de arquivo que usam o formato `file:///<path>/<filename>` .
+1. Localize a seção **certificados** no arquivo config. YAML. Atualize os três campos de certificado para apontar para seus certificados. Forneça os caminhos de URI de arquivo, que usam o formato `file:///<path>/<filename>`.
 
-   * **device_ca_cert** : arquivo URI do caminho para o certificado de autoridade de certificação do dispositivo exclusivo para este dispositivo.
-   * **device_ca_pk** : arquivo URI do caminho para a chave privada da AC do dispositivo exclusiva para este dispositivo.
-   * **trusted_ca_certs** : arquivo URI do caminho para o certificado de autoridade de certificação raiz compartilhado por todos os dispositivos na hierarquia de gateway.
+   * **device_ca_cert**: arquivo URI do caminho para o certificado de autoridade de certificação do dispositivo exclusivo para este dispositivo.
+   * **device_ca_pk**: arquivo URI do caminho para a chave privada da AC do dispositivo exclusiva para este dispositivo.
+   * **trusted_ca_certs**: arquivo URI do caminho para o certificado de autoridade de certificação raiz compartilhado por todos os dispositivos na hierarquia de gateway.
 
 1. Localize o parâmetro **hostname** no arquivo config. YAML. Atualize o nome do host para que seja o FQDN ou o endereço IP do dispositivo de IoT Edge.
 
@@ -160,7 +160,7 @@ No Linux, verifique se o usuário **iotedge** tem permissões de leitura para o 
 
    Seja consistente com o padrão hostname em uma hierarquia de gateway. Use FQDNs ou endereços IP, mas não ambos.
 
-1. **Se esse dispositivo for um dispositivo filho** , localize o parâmetro **parent_hostname** . Atualize o campo **parent_hostname** para ser o FQDN ou o endereço IP do dispositivo pai, correspondendo qualquer que fosse fornecido como o nome do host no arquivo config. YAML do pai.
+1. **Se esse dispositivo for um dispositivo filho**, localize o parâmetro **parent_hostname** . Atualize o campo **parent_hostname** para ser o FQDN ou o endereço IP do dispositivo pai, correspondendo qualquer que fosse fornecido como o nome do host no arquivo config. YAML do pai.
 
 1. Embora esse recurso esteja em visualização pública, você precisa configurar o dispositivo de IoT Edge para usar a versão de visualização pública do agente de IoT Edge quando ele é iniciado.
 
@@ -172,7 +172,7 @@ No Linux, verifique se o usuário **iotedge** tem permissões de leitura para o 
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -202,7 +202,7 @@ No Linux, verifique se o usuário **iotedge** tem permissões de leitura para o 
 
 Embora esse recurso esteja em visualização pública, você precisa configurar seu dispositivo de IoT Edge para usar as versões de visualização pública dos módulos de tempo de execução IoT Edge. A seção anterior fornece as etapas para configurar o edgeAgent na inicialização. Você também precisa configurar os módulos de tempo de execução em implantações para seu dispositivo.
 
-1. Configure o módulo edgeHub para usar a imagem de visualização pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` .
+1. Configure o módulo edgeHub para usar a imagem de visualização pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` .
 
 1. Configure as seguintes variáveis de ambiente para o módulo edgeHub:
 
@@ -211,7 +211,7 @@ Embora esse recurso esteja em visualização pública, você precisa configurar 
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Configure o módulo edgeAgent para usar a imagem de visualização pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` .
+1. Configure o módulo edgeAgent para usar a imagem de visualização pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` .
 
 ## <a name="network-isolate-downstream-devices"></a>Isolar dispositivos downstream de rede
 
@@ -298,17 +298,17 @@ O módulo de proxy de API foi projetado para ser personalizado para lidar com os
 1. Selecione **salvar** para salvar as alterações nas configurações de tempo de execução.
 1. Selecione **Adicionar** novamente e, em seguida, escolha **IOT Edge módulo**.
 1. Forneça os seguintes valores para adicionar o módulo do registro do Docker à sua implantação:
-   1. **Nome do módulo de IOT Edge** : `registry`
-   1. Na guia **configurações do módulo** , **URI da imagem** : `registry:latest`
+   1. **Nome do módulo de IOT Edge**: `registry`
+   1. Na guia **configurações do módulo** , **URI da imagem**: `registry:latest`
    1. Na guia **variáveis de ambiente** , adicione as seguintes variáveis de ambiente:
 
-      * **Name** : `REGISTRY_PROXY_REMOTEURL` **Value** : a URL para o registro de contêiner para o qual você deseja que este módulo do registro seja mapeado. Por exemplo, `https://myregistry.azurecr`.
+      * **Name**: `REGISTRY_PROXY_REMOTEURL` **Value**: a URL para o registro de contêiner para o qual você deseja que este módulo do registro seja mapeado. Por exemplo, `https://myregistry.azurecr`.
 
         O módulo do registro só pode ser mapeado para um registro de contêiner, portanto, é recomendável ter todas as imagens de contêiner em um único registro de contêiner privado.
 
-      * **Name** : `REGISTRY_PROXY_USERNAME` **Value** : username para autenticar no registro de contêiner.
+      * **Name**: `REGISTRY_PROXY_USERNAME` **Value**: username para autenticar no registro de contêiner.
 
-      * **Nome** : `REGISTRY_PROXY_PASSWORD` **valor** : senha para autenticar no registro de contêiner.
+      * **Nome**: `REGISTRY_PROXY_PASSWORD` **valor**: senha para autenticar no registro de contêiner.
 
    1. Na guia **Opções de criação do contêiner** , Cole:
 
@@ -329,8 +329,8 @@ O módulo de proxy de API foi projetado para ser personalizado para lidar com os
 1. Selecione **Adicionar** para adicionar o módulo à implantação.
 1. Selecione **Avançar: rotas** para ir para a próxima etapa.
 1. Para habilitar mensagens do dispositivo para a nuvem de dispositivos downstream para acessar o Hub IoT, inclua uma rota que passe todas as mensagens para o Hub IoT. Por exemplo:
-    1. **Nome** : `Route`
-    1. **Valor** : `FROM /messages/* INTO $upstream`
+    1. **Nome**: `Route`
+    1. **Valor**: `FROM /messages/* INTO $upstream`
 1. Selecione **revisar + criar** para ir para a etapa final.
 1. Selecione **criar** para implantar em seu dispositivo.
 
@@ -366,7 +366,7 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
     auth: {}
 ```
 
@@ -436,8 +436,8 @@ O módulo de proxy de API foi projetado para ser personalizado para lidar com os
 1. Selecione **salvar** para salvar as alterações nas configurações de tempo de execução.
 1. Selecione **Avançar: rotas** para ir para a próxima etapa.
 1. Para habilitar mensagens do dispositivo para a nuvem de dispositivos downstream para acessar o Hub IoT, inclua uma rota que passe todas as mensagens para `$upstream` . O parâmetro upstream aponta para o dispositivo pai no caso de dispositivos de camada inferior. Por exemplo:
-    1. **Nome** : `Route`
-    1. **Valor** : `FROM /messages/* INTO $upstream`
+    1. **Nome**: `Route`
+    1. **Valor**: `FROM /messages/* INTO $upstream`
 1. Selecione **revisar + criar** para ir para a etapa final.
 1. Selecione **criar** para implantar em seu dispositivo.
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 86e13c0f57b30d2c53d9194e89ec89e7abdf1574
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168079"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187044"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de base de segurança do Azure para Azure Functions
 
 A linha de base de segurança do Azure para Azure Functions contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -26,7 +26,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 *Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
 **Diretrizes**: Integre seus aplicativos de Azure Functions com uma rede virtual do Azure. Os aplicativos de funções em execução no plano Premium têm os mesmos recursos de hospedagem que os aplicativos Web no serviço Azure App, que inclui o recurso "integração VNet".  As redes virtuais do Azure permitem que você coloque muitos dos seus recursos do Azure, como Azure Functions, em uma rede roteável que não seja da Internet.
 
@@ -86,7 +86,7 @@ Além disso, configure um gateway de front-end, como o Firewall do aplicativo We
 
 - [Considerações de rede para um Ambiente do Serviço de Aplicativo](../app-service/environment/network-info.md)
 
-- [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -1173,9 +1173,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
 
-- [Regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

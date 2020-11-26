@@ -9,11 +9,11 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
 ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129568"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188744"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como revisar e publicar uma oferta no Marketplace comercial
 
@@ -28,7 +28,7 @@ Você pode revisar o status da sua oferta na guia **visão geral** do painel do 
 | Rascunho | A oferta foi criada, mas não está sendo publicada. |
 | Publicação em andamento | A oferta está funcionando de forma por meio do processo de publicação. |
 | Ação necessária | Descobrimos um problema crítico durante a certificação ou durante outra fase de publicação. |
-| Versão Prévia | Certificamos a oferta, que agora aguarda uma verificação final pelo Publicador. Selecione **entrar em tempo real** para publicar a oferta ao vivo. |
+| Visualizar | Certificamos a oferta, que agora aguarda uma verificação final pelo Publicador. Selecione **entrar em tempo real** para publicar a oferta ao vivo. |
 | Ao vivo | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
 | Venda de parada pendente | O Publicador selecionou "parar venda" em uma oferta ou plano, mas a ação ainda não foi concluída. |
 | Não disponível no Marketplace | Uma oferta publicada anteriormente no marketplace foi removida. |
@@ -42,7 +42,7 @@ Quando estiver pronto para enviar uma oferta para publicação, selecione **revi
    - **Incompleto** – a página não tem informações necessárias ou tem erros que precisam ser corrigidos. Você precisará voltar para a página e atualizá-la.
    - **Concluída** – a página está concluída. Todos os dados necessários foram fornecidos e não há erros.
 
-Se qualquer uma das páginas tiver um status diferente de **concluído** , você precisará corrigir o problema nessa página e retornar à página **revisar e publicar** para confirmar se o status agora aparece como **concluído** . Alguns tipos de oferta exigem testes. Nesse caso, você verá um campo **observações para a certificação** , em que você precisa fornecer instruções de teste à equipe de certificação e qualquer nota suplementar útil para entender seu aplicativo.
+Se qualquer uma das páginas tiver um status diferente de **concluído**, você precisará corrigir o problema nessa página e retornar à página **revisar e publicar** para confirmar se o status agora aparece como **concluído**. Alguns tipos de oferta exigem testes. Nesse caso, você verá um campo **observações para a certificação** , em que você precisa fornecer instruções de teste à equipe de certificação e qualquer nota suplementar útil para entender seu aplicativo.
 
 Depois que todas as páginas forem concluídas e você tiver inserido as notas de teste aplicáveis, selecione **publicar** para iniciar os processos de validação e publicação. As fases e a sequência geral podem variar dependendo do tipo de oferta que você está publicando. A tabela a seguir mostra um possível fluxo de publicação. Cada fase é explicada com mais detalhes nas seções a seguir.
 
@@ -137,7 +137,7 @@ Para cancelar uma oferta com o status **publicação em andamento** :
 Se você quiser publicar a oferta em um momento posterior, será necessário iniciar o processo de publicação.
 
 > [!NOTE]
-> Você pode interromper a publicação de uma oferta somente se a oferta ainda não tiver progredido para a etapa de aprovação do Publicador. Depois de selecionar **entrar em ativação** , você não terá a opção de cancelar a publicação mais.
+> Você pode interromper a publicação de uma oferta somente se a oferta ainda não tiver progredido para a etapa de aprovação do Publicador. Depois de selecionar **entrar em ativação**, você não terá a opção de cancelar a publicação mais.
 
 ## <a name="publisher-sign-off-phase"></a>Fase de aprovação do Publicador
 
@@ -156,7 +156,7 @@ Na página **visão geral da oferta** , você verá links de visualização no b
 
 Depois de aprovar sua versão prévia, selecione **entrar em tempo real** para publicar sua oferta ao vivo no Marketplace comercial. 
 
-Se você quiser fazer alterações depois de visualizar a oferta, poderá editar e reenviar a solicitação de publicação. Se sua oferta já estiver ativa e disponível para o público no Marketplace, as atualizações feitas não entrarão em funcionamento até que você selecione * *entrar em tempo real* . Para obter mais informações, consulte [atualizar uma oferta existente no Marketplace comercial](partner-center-portal/update-existing-offer.md)
+Se você quiser fazer alterações depois de visualizar a oferta, poderá editar e reenviar a solicitação de publicação. Se sua oferta já estiver ativa e disponível para o público no Marketplace, as atualizações feitas não entrarão em funcionamento até que você selecione **entrar em tempo real*. Para obter mais informações, consulte [atualizar uma oferta existente no Marketplace comercial](partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Fase de publicação
 
@@ -198,17 +198,17 @@ Para exibir o histórico de sua oferta:
 |Evento    |Descrição    |
 |---------|---------------|
 |Oferta criada    |A oferta foi criada no Partner Center. Um usuário selecionou o tipo de oferta, a ID da oferta e **Commercial Marketplace** o alias de oferta na  >  **visão geral** do Marketplace comercial.    |
-|Plano criado: *nome do plano*    |Um usuário criou um novo plano inserindo a ID do plano e o nome do plano na guia **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos* .    |
-|Plano excluído    |Um usuário excluiu um plano de rascunho que não foi publicado selecionando **excluir rascunho** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos* .    |
-|Reinício do plano iniciado venda: *nome do plano*    |Um usuário iniciou um plano de parada-venda selecionando **parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos* .    |
-|Desfazer plano parar venda: *nome do plano*    |Um usuário cancelou um plano de parada-venda selecionando **desfazer parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos* .    |
+|Plano criado: *nome do plano*    |Um usuário criou um novo plano inserindo a ID do plano e o nome do plano na guia **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Plano excluído    |Um usuário excluiu um plano de rascunho que não foi publicado selecionando **excluir rascunho** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Reinício do plano iniciado venda: *nome do plano*    |Um usuário iniciou um plano de parada-venda selecionando **parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Desfazer plano parar venda: *nome do plano*    |Um usuário cancelou um plano de parada-venda selecionando **desfazer parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
 |Oferta enviada para visualização    |Um usuário enviou a oferta para visualização selecionando **publicar** na página **revisar e publicar** .    |
-|Envio iniciado para visualizar cancelamento    |Um usuário solicitou a cancelamento da publicação da oferta, selecionando **Cancelar publicação** na página **visão geral da oferta** após o envio para visualização.</br>*Esse evento é exibido à medida que a solicitação de cancelamento está sendo processada* .    |
-|Envio cancelado para visualização    |Um usuário cancelou a publicação da oferta para visualização selecionando **Cancelar publicação** na página **visão geral da oferta** após o envio para visualização.</br>*Esse evento é exibido depois que a solicitação de cancelamento é processada com êxito* .    |
+|Envio iniciado para visualizar cancelamento    |Um usuário solicitou a cancelamento da publicação da oferta, selecionando **Cancelar publicação** na página **visão geral da oferta** após o envio para visualização.</br>*Esse evento é exibido à medida que a solicitação de cancelamento está sendo processada*.    |
+|Envio cancelado para visualização    |Um usuário cancelou a publicação da oferta para visualização selecionando **Cancelar publicação** na página **visão geral da oferta** após o envio para visualização.</br>*Esse evento é exibido depois que a solicitação de cancelamento é processada com êxito*.    |
 |Sair para entrar no ar    |Um usuário publicou a oferta no Marketplace comercial selecionando **Go Live** na página **visão geral da oferta** .    |
-|Cancelamento de publicar no Marketplace iniciado    |Um usuário solicitou a cancelamento da publicação da oferta selecionando **Cancelar publicação** na página **visão geral da oferta** após a aprovação para entrar em tempo real.</br>*Esse evento é exibido à medida que a solicitação de cancelamento está sendo processada* .    |
-|Publicação cancelada no Marketplace comercial    |Um usuário cancelou a publicação da oferta selecionando **Cancelar publicação** na página **visão geral da oferta** após a aprovação para entrar em funcionamento.</br>*Esse evento é exibido depois que a solicitação de cancelamento é processada com êxito* .    |
-|Sincronizar público privado    |Um usuário atualizou e sincronizou o público privado selecionando **sincronizar audiência privada** na página **visão geral do plano** ou na página de **disponibilidade do plano &** .</br>*Esse evento se aplica somente a tipos de oferta que dão suporte a planos privados* .    |
+|Cancelamento de publicar no Marketplace iniciado    |Um usuário solicitou a cancelamento da publicação da oferta selecionando **Cancelar publicação** na página **visão geral da oferta** após a aprovação para entrar em tempo real.</br>*Esse evento é exibido à medida que a solicitação de cancelamento está sendo processada*.    |
+|Publicação cancelada no Marketplace comercial    |Um usuário cancelou a publicação da oferta selecionando **Cancelar publicação** na página **visão geral da oferta** após a aprovação para entrar em funcionamento.</br>*Esse evento é exibido depois que a solicitação de cancelamento é processada com êxito*.    |
+|Sincronizar público privado    |Um usuário atualizou e sincronizou o público privado selecionando **sincronizar audiência privada** na página **visão geral do plano** ou na página de **disponibilidade do plano &** .</br>*Esse evento se aplica somente a tipos de oferta que dão suporte a planos privados*.    |
 |Parar a oferta de venda    |Um usuário parou de vender a oferta selecionando **parar de vender** na página **visão geral da oferta** .    |
 
 > [!NOTE]
@@ -226,7 +226,7 @@ Há quatro filtros:
 * Eventos
 * Usuários
 * Data
-* Pages (Páginas)
+* Páginas
 
 Ao escolher o filtro de **páginas** , você pode selecionar qualquer uma das páginas do Partner Center que são aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **páginas** mostra todas as **ofertas enviadas para visualizar** eventos com alterações na página selecionada.
 

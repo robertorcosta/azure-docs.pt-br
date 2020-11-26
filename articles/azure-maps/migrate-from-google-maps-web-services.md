@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896337"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187027"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial – Migrar serviço Web do Google Maps
 
@@ -132,7 +132,7 @@ A API de geocódigo inverso dos Azure Mapas tem alguns recursos adicionais, que 
 Os dados do ponto de interesse podem ser pesquisados no Google Maps usando a API de Pesquisa de Locais. Essa API fornece três maneiras diferentes de pesquisar pontos de interesse:
 
 - **Localizar local do texto:** Pesquisa um ponto de interesse com base em seu nome, endereço ou número de telefone.
-- **Pesquisa de Proximidade** : Pesquisa pontos de interesse dentro de uma determinada distância de uma localização.
+- **Pesquisa de Proximidade**: Pesquisa pontos de interesse dentro de uma determinada distância de uma localização.
 - **Pesquisa de Texto:** pesquisa locais usando um texto de forma livre, que inclui informações de ponto de interesse e localização. Por exemplo, "pizza em Nova York" ou "restaurantes perto da main st".
 
 O Azure Mapas fornece várias APIs de pesquisa para pontos de interesse:
@@ -219,8 +219,8 @@ A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com o
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *N/A* : este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
-| `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic* . |
+| `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
+| `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic*. |
 | `transit_mode`                | Confira a [documentação de serviços de mobilidade](/rest/api/maps/mobility) |
 | `transit_routing_preference` | Confira a [documentação de serviços de mobilidade](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico.  |
@@ -443,10 +443,10 @@ Esta tabela faz uma referência cruzada dos parâmetros da API do Google Maps co
 | `language`                     | `language` – confira a documentação de [idiomas compatíveis](supported-languages.md).  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins` – especifique no corpo da solicitação POST como GeoJSON.  |
-| `region`                       | *N/A* : este recurso está relacionado ao geocódigo. Use o parâmetro `countrySet` ao usar a API de geocódigo do Azure Mapas. |
+| `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro `countrySet` ao usar a API de geocódigo do Azure Mapas. |
 | `traffic_model`                | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro `traffic`. |
-| `transit_mode`                 | *N/A* : no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
-| `transit_routing_preference`   | *N/A* : no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
+| `transit_mode`                 | *N/A*: no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
+| `transit_routing_preference`   | *N/A*: no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico. |
 
 > [!TIP]
@@ -501,10 +501,10 @@ Saiba mais sobre os serviços REST do Azure Mapas:
 > [Melhores práticas para roteamento](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API do Serviço REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps/)
+> [Documentação de referência da API do Serviço REST do Azure Mapas](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemplos de código](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Como usar o módulo de serviços (SDK da Web)](how-to-use-best-practices-for-routing.md)

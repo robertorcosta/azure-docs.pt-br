@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2fb67cf29800cf80f07181f68d266a6183f8d710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6a08fc25083ecd6917f658f27cb954391228adf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104723"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188693"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatíveis com o Azure IoT Edge
 
@@ -62,7 +62,7 @@ Os sistemas listados na tabela a seguir têm suporte da Microsoft, seja geralmen
 
 | Sistema operacional | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Stretch do sistema operacional Raspberry Pi |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública  |
 | [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública |
 | [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise), build 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
@@ -89,10 +89,10 @@ Os sistemas listados na tabela a seguir são considerados compatíveis com Azure
 | [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspberry Pi OS Buster <sup>1</sup> |  | ![Raspberry Pi OS Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Ubuntu 20, 4 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20, 4 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20, 4 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20, 4 + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Sistemas Debian 10, incluindo Raspian Buster, use uma versão de OpenSSL que não tem suporte de IoT Edge. Use o seguinte comando para instalar uma versão anterior antes de instalar o IoT Edge:
+<sup>1</sup> o Debian 10 Systems, incluindo o RASPBERRY PI os Buster, usam uma versão do OpenSSL que o IOT Edge não dá suporte. Use o seguinte comando para instalar uma versão anterior antes de instalar o IoT Edge:
 
 ```bash
 sudo apt-get install libssl1.0.2

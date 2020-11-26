@@ -4,11 +4,11 @@ description: Este artigo descreve as configurações de malha e as políticas de
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542636"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187214"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).

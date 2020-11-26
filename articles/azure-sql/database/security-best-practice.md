@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992158"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187095"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -614,7 +614,7 @@ Ataques de DDoS (negação de serviço distribuído) são tentativas de um usuá
 
 A proteção contra DDoS é habilitada automaticamente como parte da plataforma do Azure. Ele inclui o monitoramento de tráfego Always on e a mitigação em tempo real de ataques de nível de rede em pontos de extremidade públicos.
 
-- Use a [proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md) para monitorar endereços IP públicos associados aos recursos implantados em redes virtuais.
+- Use a [proteção contra DDoS do Azure](../../ddos-protection/ddos-protection-overview.md) para monitorar endereços IP públicos associados aos recursos implantados em redes virtuais.
 
 - Use a [proteção avançada contra ameaças para o banco de dados SQL do Azure](threat-detection-overview.md) para detectar ataques de dos (negação de serviço) contra bancos.
 

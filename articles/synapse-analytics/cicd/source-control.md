@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b7248a3a66e0eeca4d86568f80af82bf2d89701f
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031101"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188115"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controle do código-fonte no Azure Synapse Studio
 
@@ -38,7 +38,7 @@ Na tela de criação do Synapse Studio, selecione o menu suspenso **Synapse Live
 
 ![Definir as configurações do repositório de código da criação](media/configure-repo-1.png)
 
-### <a name="configuration-method-2-management-hub"></a>Método de configuração 2: Hub de gerenciamento
+### <a name="configuration-method-2-manage-hub"></a>Método de configuração 2: gerenciar o Hub
 
 Vá para o Hub de gerenciamento do Synapse Studio. Selecione **configuração do git** na seção **controle do código-fonte** . Se você não tiver um repositório conectado, clique em **Configurar**.
 
@@ -61,7 +61,7 @@ Ao se conectar ao repositório git, primeiro selecione o tipo de repositório co
 
 O painel de configuração mostra as seguintes configurações do git DevOps do Azure:
 
-| Configuração | Descrição | Valor |
+| Setting | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Git ou GitHub do Azure DevOps |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
@@ -197,7 +197,7 @@ Depois de remover a associação com o repositório atual, você pode definir as
 -   **Modo dinâmico de Synapse**. Após a publicação no modo git, todas as alterações serão refletidas no modo dinâmico Synapse. No modo dinâmico do Synapse, a publicação está desabilitada. E você pode exibir, executar artefatos no modo dinâmico se tiver recebido a permissão certa. 
 -   **Editar artefatos no estúdio**. O Synapse Studio é o único lugar em que você pode habilitar o controle de origem do espaço de trabalho e sincronizar as alterações para o Git automaticamente. Qualquer alteração via SDK, PowerShell, não será sincronizada com o git. Recomendamos que você sempre edite o artefato no estúdio quando o Git estiver habilitado.
 
-## <a name="troubleshooting-git-integration"></a>Solução de problemas na integração com o Git
+## <a name="troubleshooting-git-integration"></a>Solução de problemas de integração do git
 
 ### <a name="access-to-git-mode"></a>Acesso ao modo git 
 
@@ -217,6 +217,11 @@ Se a ramificação de publicação estiver fora de sincronia com a ramificação
 
 1. Criar uma solicitação de pull para mesclar as alterações com o branch de colaboração 
 
+## <a name="unsupported-features"></a>Recursos sem suporte
+
+- O Synapse Studio não permite a seleção de Cherry de confirmações ou publicação seletiva de recursos. 
+- O Synapse Studio não dá suporte à personalização de mensagem de confirmação.
+- Por design, a ação de exclusão no estúdio será confirmada no git diretamente
 
 ## <a name="next-steps"></a>Próximas etapas
 

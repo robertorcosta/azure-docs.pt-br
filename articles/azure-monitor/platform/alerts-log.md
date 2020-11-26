@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018198"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186772"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 
 ## <a name="overview"></a>Visão geral
 
-Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
 
 Este artigo mostra como criar e gerenciar alertas de log usando o Azure Monitor. As regras de alerta são definidas por três componentes:
 - Destino: um recurso específico do Azure a ser monitorado.
@@ -27,7 +27,7 @@ Este artigo mostra como criar e gerenciar alertas de log usando o Azure Monitor.
 Você também pode criar regras de alerta de log usando modelos de Azure Resource Manager, que são descritos em [um artigo separado](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de log com o portal do Azure
 
@@ -35,7 +35,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
 1. Vá para o recurso no qual você gostaria de alertar.
 1. Em **Monitor**, selecione **logs**.
-1. Consulte os dados de log que podem indicar o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/saved-queries.md) para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/get-started-portal.md). Além disso, [saiba como criar consultas de alerta otimizadas](alerts-log-query.md).
+1. Consulte os dados de log que podem indicar o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md). Além disso, [saiba como criar consultas de alerta otimizadas](alerts-log-query.md).
 1. Pressione o botão ' + nova regra de alerta ' para iniciar o fluxo de criação de alerta.
 
     ![Log Analytics – definir um alerta](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -327,4 +327,3 @@ Em caso de sucesso para a criação, 201 é retornado. Em caso de sucesso para a
 * Crie alertas de log usando [modelos de Azure Resource Manager](./alerts-log-create-templates.md).
 * Entenda as [ações de webhook para alertas de log](./alerts-log-webhook.md).
 * Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
-

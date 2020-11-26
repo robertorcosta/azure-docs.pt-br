@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 580459f3a5da8485bd92395f9b0b9745e28c023c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e9401842284cad29b297be5ce572fa53cfe774
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325257"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188081"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo nas Instâncias de Contêiner do Azure
-
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em ACI (instâncias de contêiner do Azure). Use as instâncias de contêiner do Azure se uma das seguintes condições for verdadeira:
 
@@ -29,7 +28,7 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 Para obter informações sobre a disponibilidade de cota e região para ACI, consulte o artigo [cotas e disponibilidade de região para instâncias de contêiner do Azure](../container-instances/container-instances-quotas.md) .
 
 > [!IMPORTANT]
-> É altamente recomendável depurar localmente antes de implantar no serviço Web, para obter mais informações, consulte [depurar localmente](./how-to-troubleshoot-deployment.md#debug-locally)
+> É altamente recomendável depurar localmente antes de implantar no serviço Web, para obter mais informações, consulte [depurar localmente](./how-to-troubleshoot-deployment-local.md)
 >
 > Você também pode ver o Azure Machine Learning - [Implantar no notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -60,7 +59,7 @@ Para obter mais informações, consulte [como proteger o inferência com redes v
 
 ## <a name="deploy-to-aci"></a>Implantar no ACI
 
-Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__ , que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > * ACI é adequado apenas para modelos pequenos com menos de 1 GB de tamanho. 

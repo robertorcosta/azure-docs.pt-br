@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630151"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188710"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solucionar problemas de arquivos do Azure no Windows (SMB)
 
@@ -26,7 +26,7 @@ Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azu
 
 Quando você tenta montar um compartilhamento de arquivos, pode receber o erro a seguir:
 
-- Ocorreu um erro de sistema 5. Acesso negado.
+- Ocorreu um erro de sistema 5. O acesso foi negado.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não criptografado
 
@@ -176,7 +176,7 @@ Verifique se regras de firewall e de rede virtual estão configuradas corretamen
 Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **Controle de acesso (IAM)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [como proteger sua conta de armazenamento com o controle de acesso baseado em função do Azure (RBAC do Azure)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não é possível excluir um arquivo ou diretório em um compartilhamento de arquivos do Azure
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Não é possível modificar, mover/renomear ou excluir um arquivo ou diretório
 Uma das principais finalidades de um compartilhamento de arquivos é que vários usuários e aplicativos podem interagir simultaneamente com arquivos e diretórios no compartilhamento. Para ajudá-lo nessa interação, os compartilhamentos de arquivos fornecem várias maneiras de mediar o acesso a arquivos e diretórios.
 
 Quando você abre um arquivo de um compartilhamento de arquivos do Azure montado em SMB, seu aplicativo/sistema operacional solicita um identificador de arquivo, que é uma referência ao arquivo. Entre outras coisas, seu aplicativo especifica um modo de compartilhamento de arquivos quando solicita um identificador de arquivo, que especifica o nível de exclusividade de seu acesso ao arquivo imposto pelos arquivos do Azure: 

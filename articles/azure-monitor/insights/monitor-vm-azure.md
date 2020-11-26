@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738094"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186891"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
 Este artigo descreve como usar o Azure Monitor para coletar e analisar dados de monitoramento de máquinas virtuais do Azure para manter sua integridade. As máquinas virtuais podem ser monitoradas quanto à disponibilidade e ao desempenho com Azure Monitor como qualquer [outro recurso do Azure](monitor-azure-resource.md), mas são exclusivas de outros recursos, já que você também precisa monitorar o sistema operacional e as cargas de trabalho convidadas que são executadas nelas. 
@@ -64,7 +64,7 @@ Para habilitar todos os recursos do Azure Monitor para monitoramento de máquina
 Cada uma dessas etapas de configuração é descrita nas seções a seguir.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Habilitar o Azure Monitor para VMs
-O [Azure Monitor para VMs](vminsights-overview.md) é uma [informação](insights-overview.md) no Azure Monitor que é a principal ferramenta para monitorar máquinas virtuais no Azure Monitor. Ele fornece o seguinte valor adicional em relação aos recursos de Azure Monitor padrão.
+O [Azure Monitor para VMs](vminsights-overview.md) é uma [informação](../monitor-reference.md) no Azure Monitor que é a principal ferramenta para monitorar máquinas virtuais no Azure Monitor. Ele fornece o seguinte valor adicional em relação aos recursos de Azure Monitor padrão.
 
 - Integração simplificada do agente de Log Analytics e do agente de dependência para habilitar o monitoramento de cargas de trabalho e sistema operacional convidado de máquina virtual. 
 - Gráficos predefinidos de desempenho de tendências e pastas de trabalho que permitem que você analise as métricas de desempenho principais do sistema operacional convidado da máquina virtual.
@@ -140,7 +140,7 @@ Depois de configurar a coleta de dados de monitoramento para uma máquina virtua
 | Configurações de Diagnóstico | Habilite e configure a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para a máquina virtual atual. |
 | Recomendações do Assistente | Recomendações para a máquina virtual atual de [Azure Advisor](../../advisor/index.yml). |
 | Logs | Abra o [Log Analytics](../log-query/log-analytics-overview.md) com o [escopo](../log-query/scope.md) definido para a máquina virtual atual. |
-| Monitor de conexão | Abra [Monitor de conexão do observador de rede](../../network-watcher/connection-monitor-preview.md) para monitorar as conexões entre a máquina virtual atual e outras máquinas virtuais. |
+| Monitor de conexão | Abra [Monitor de conexão do observador de rede](../../network-watcher/connection-monitor-overview.md) para monitorar as conexões entre a máquina virtual atual e outras máquinas virtuais. |
 
 
 ## <a name="analyzing-metric-data"></a>Analisando dados de métrica
@@ -242,4 +242,3 @@ Consulte [conectar Operations Manager ao Azure monitor](../platform/om-agents.md
 
 * [Saiba como analisar dados em logs de Azure Monitor usando consultas de log.](../log-query/get-started-queries.md)
 * [Saiba mais sobre alertas usando métricas e logs em Azure Monitor.](../platform/alerts-overview.md)
-

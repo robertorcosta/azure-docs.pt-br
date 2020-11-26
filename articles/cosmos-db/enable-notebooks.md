@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: c869069e40780b1fd399758e84b0ffba311398e3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334150"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187809"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,4 +76,4 @@ Você também pode selecionar **novo bloco de anotações** para criar um novo b
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre os benefícios dos [Notebooks do Jupyter do Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
+- Saiba mais sobre os benefícios do [Azure Cosmos DB notebooks Jupyter](cosmosdb-jupyter-notebooks.md)

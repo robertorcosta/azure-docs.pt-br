@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: df9dbdf61dbc7d83f1cf74871ddc864488ed9d47
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097211"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188132"
 ---
 Para criar um projeto do Visual Studio para desenvolvimento da UWP (Plataforma Universal do Windows), você precisa configurar as opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura de destino, configurar a captura de áudio e instalar o SDK de Fala.
 
