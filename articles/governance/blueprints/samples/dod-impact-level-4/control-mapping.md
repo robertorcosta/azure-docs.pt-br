@@ -4,17 +4,17 @@ description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 
 ms.date: 10/26/2020
 ms.topic: sample
 ms.openlocfilehash: 376ddd68373026a93eaf08774cee0a1f8ce06bec
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019524"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD
 
 O artigo a seguir detalha como o modelo do blueprint do Departamento de Defesa do Azure Blueprints Nível de Impacto 4 do DoD é mapeado para os controles do Nível 4 de Impacto do DoD. Para obter mais informações sobre os controles, confira [Guia de requisitos de segurança da computação em nuvem do DoD (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). A DISA (Agência de Sistemas de Informação de Defesa) é uma agência do Departamento de Defesa dos EUA (DoD) responsável pelo desenvolvimento e manutenção do SRG (Guia de Requisitos de Segurança de Computação em Nuvem) do DoD. O SRG define os requisitos básicos de segurança para CSPs (provedores de serviços de nuvem) que hospedam informações, sistemas e aplicativos do DoD e para o uso do DoD de serviços em nuvem.  
 
-Os seguintes mapeamentos referem-se aos controles **Nível 4 de Impacto do DoD** . Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições** . Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Iniciativa de política do Nível de Impacto 4** do DoD.
+Os seguintes mapeamentos referem-se aos controles **Nível 4 de Impacto do DoD**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Iniciativa de política do Nível de Impacto 4** do DoD.
 
 > [!IMPORTANT]
 > Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).

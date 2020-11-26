@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc1f8b8a7c46a3d6ad6f62d93bc91753e42c3ae
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75371931"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545033"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 
@@ -62,7 +62,7 @@ Digite `dotnet run` para executar o aplicativo. Na primeira vez que você execut
 dotnet run
 ```
 
-O aplicativo cria cinco contêineres nomeados de maneira aleatória e começa a carregar os arquivos na pasta de preparação para a conta de armazenamento. O aplicativo define o mínimo de threads como 100 e o [LimiteDeConexãoPadrão](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) como 100 para garantir que um grande número de conexões simultâneas seja permitido ao executar o aplicativo.
+O aplicativo cria cinco contêineres nomeados de maneira aleatória e começa a carregar os arquivos na pasta de preparação para a conta de armazenamento. O aplicativo define o mínimo de threads como 100 e o [LimiteDeConexãoPadrão](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) como 100 para garantir que um grande número de conexões simultâneas seja permitido ao executar o aplicativo.
 
 Além de definir as configurações de limite de thread e conexão, o [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) para o método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) é configurado para usar o paralelismo e desabilitar a validação do hash MD5. Os arquivos são carregados em blocos de 100 mb. Essa configuração fornece o melhor desempenho, mas pode ser custosa se usada em uma rede de baixa performance, já que se houver uma falha o bloco inteiro de 100 mb é repetido.
 

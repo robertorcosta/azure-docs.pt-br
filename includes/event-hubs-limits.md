@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027929"
+ms.locfileid: "96152719"
 ---
 A tabela a seguir fornece cotas e limites específicos para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="common-limits-for-all-tiers"></a>Limites comuns para todas as camadas
+### <a name="common-limits-for-all-tiers"></a>Limites comuns para todas as camadas
 Os limites a seguir são comuns em todas as camadas. 
 
 | Limite |  Observações | Valor |
@@ -33,7 +33,7 @@ Os limites a seguir são comuns em todas as camadas.
 | Número de regras de VNet (rede virtual) e de configuração de IP | - | 128 | 
 
 
-## <a name="basic-vs-standard-tiers"></a>Camadas Básica versus Standard
+### <a name="basic-vs-standard-tiers"></a>Camadas Básica versus Standard
 A tabela a seguir mostra os limites que podem ser diferentes para as camadas Basic e Standard. 
 
 | Limite | Observações | Basic | Standard |
@@ -44,7 +44,7 @@ A tabela a seguir mostra os limites que podem ser diferentes para as camadas Bas
 | Período de retenção máximo dos dados do evento | &nbsp; |1 dia |Um a sete dias |
 | Unidades de produtividade máxima |Exceder esse limite vai causar a limitação dos seus dados e gerar uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de produtividade para um nível Standard, preencha uma [solicitação de suporte](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 | 20 | 
 
-## <a name="dedicated-tier-vs-standard-tier"></a>Camada Dedicado versus camada Standard
+### <a name="dedicated-tier-vs-standard-tier"></a>Camada Dedicado versus camada Standard
 A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de quatro horas de uso. O nível Dedicado oferece todos os recursos do plano Standard, mas com capacidade em escala empresarial e limites para clientes com cargas de trabalho exigentes. 
 
 Confira este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) sobre como criar um cluster de Hubs de Eventos dedicados usando o portal do Azure.
@@ -63,11 +63,11 @@ Confira este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-cre
 | Capturar | Pagamento por hora | Incluso |
 
 
-## <a name="schema-registry-limitations"></a>Limitações do registro de esquema
+### <a name="schema-registry-limitations"></a>Limitações do registro de esquema
 
-### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Os limites são os mesmos para as camadas **standard** e **dedicada** 
+#### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Os limites são os mesmos para as camadas standard e dedicada 
 | Recurso | Limite | 
-|---|---|--|
+|---|---|
 | Comprimento máximo de um nome de grupo de esquemas | 50 |  
 | Comprimento máximo de um nome de esquema | 100 |    
 | Tamanho em bytes por esquema | 1 MB |   
@@ -76,10 +76,10 @@ Confira este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-cre
 | Tamanho em bytes por valor da propriedade de grupo | 1024 | 
 
 
-### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Os limites são os diferentes para as camadas **standard** e **dedicada** 
+#### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Os limites são os diferentes para as camadas standard e dedicada 
 
 | Limite | Standard | Dedicado | 
-|---|---|--|---|
+|---|---|--|
 | Tamanho do registro de esquema (namespace) em megabytes | 25 |  1024 |
 | Número de grupos de esquema em um Registro ou namespace de esquema | 1 – excluindo o grupo padrão | 1000 |
 | Número de versões de esquema em todos os grupos de esquema | 25 | 10000 |

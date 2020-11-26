@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901060"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004748"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ServiceNow
 
@@ -59,7 +59,7 @@ Para configurar a integração do ServiceNow no Azure AD, você precisa adiciona
 1. No painel esquerdo, selecione o serviço **Azure Active Directory**.
 1. Acesse **Aplicativos Empresariais** e selecione **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria** , digite **ServiceNow** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria**, digite **ServiceNow** na caixa de pesquisa.
 1. Selecione **ServiceNow** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso-for-servicenow"></a>Configurar e testar o SSO do Azure AD para ServiceNow
@@ -82,26 +82,26 @@ Para configurar e testar o SSO do Azure AD com o ServiceNow, execute as seguinte
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No portal do Azure, na página de integração de aplicativos do **ServiceNow** , localize a seção **Gerenciar**. Selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , selecione o ícone de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **ServiceNow**, localize a seção **Gerenciar**. Selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Captura de tela da página Configurar logon único com SAML, com o ícone de caneta realçado](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , realize as seguintes etapas:
+1. Na seção **Configuração Básica do SAML**, realize as seguintes etapas:
 
-    a. Em **URL de Logon** , insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
+    a. Em **URL de Logon**, insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
 
     b. Em **Identificador (ID da Entidade)** , insira uma URL que adote o seguinte padrão: `https://<instance-name>.service-now.com`
 
-    c. Para a **URL de Resposta** , insira um dos seguintes padrões de URLs:
+    c. Para a **URL de Resposta**, insira um dos seguintes padrões de URLs:
 
     | URL de resposta|
     |----------|
     | `https://<instancename>.service-now.com/navpage.do` |
     | `https://<instancename>.service-now.com/customer.do` | 
 
-    d. Em **URL de Logoff** , insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
+    d. Em **URL de Logoff**, insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
 
     > [!NOTE]
     > Se "/" for adicionado ao valor do Identificador, remova-o manualmente.
@@ -109,7 +109,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, a URL de Resposta, a URL de Logoff e o identificador, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação do SAML** , localize **Certificado (Base64)** . 
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação do SAML**, localize **Certificado (Base64)** . 
 
    ![Captura de tela da seção do Certificado de Autenticação do SAML, com o Download realçado](common/certificatebase64.png)
 
@@ -117,7 +117,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Selecione **Download** para baixar o **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no seu computador.
 
-1. Na seção **Configurar o ServiceNow** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o ServiceNow**, copie as URLs apropriadas de acordo com suas necessidades.
 
    ![Captura de tela da seção Configurar o ServiceNow, com as URLs realçadas](common/copy-configuration-urls.png)
 
@@ -127,9 +127,9 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. Para **Nome** , insira `B.Simon`.  
-   1. Para **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. Para **Nome**, insira `B.Simon`.  
+   1. Para **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
    1. Selecione **Criar**.
 
@@ -140,39 +140,39 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **ServiceNow**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
-1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição** , selecione **Usuários e grupos**.
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de usuários e, em seguida, escolha **Selecionar**.
+1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de usuários e, em seguida, escolha **Selecionar**.
 1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
-1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir**.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ### <a name="configure-azure-ad-sso-for-servicenow-express"></a>Configurar o SSO do Azure AD para o ServiceNow Express
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo do **ServiceNow** , clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo do **ServiceNow**, clique em **Logon único**.
 
     ![Captura de tela da página de integração do aplicativo ServiceNow com o logon único realçado](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Captura de tela de Selecionar um método de logon único, com o SAML realçado](common/select-saml-option.png)
 
-3. Na página **Configurar o logon único com o SAML** , selecione o ícone de caneta para abrir a caixa de diálogo **Configuração Básica de SAML**.
+3. Na página **Configurar o logon único com o SAML**, selecione o ícone de caneta para abrir a caixa de diálogo **Configuração Básica de SAML**.
 
     ![Captura de tela da página Configurar o logon único com o SAML, com o ícone de caneta realçado](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , realize as seguintes etapas:
+4. Na seção **Configuração Básica do SAML**, realize as seguintes etapas:
 
-    a. Para **URL de Logon** , insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
+    a. Para **URL de Logon**, insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
 
     b. Para **Identificador (ID da Entidade)** , insira uma URL que adote o seguinte padrão: `https://<instance-name>.service-now.com`
 
-    c. Para a **URL de Resposta** , insira uma das seguintes URLs:
+    c. Para a **URL de Resposta**, insira uma das seguintes URLs:
 
     | URL de resposta |
     |-----------|
     | `https://<instancename>.service-now.com/navpage.do` |
     | `https://<instancename>.service-now.com/customer.do` |
 
-    d. Em **URL de Logoff** , insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
+    d. Em **URL de Logoff**, insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
     
     > [!NOTE]
     > Se "/" for adicionado ao valor do Identificador, remova-o manualmente.
@@ -180,7 +180,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, a URL de Resposta, a URL de Logoff e o identificador, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com o SAML** , na seção **Certificado de Autenticação do SAML** , selecione **Download** para baixar o **Certificado (Base64)** das opções especificadas, de acordo com seus requisitos. Salve-o no computador.
+5. Na página **Configurar logon único com o SAML**, na seção **Certificado de Autenticação do SAML**, selecione **Download** para baixar o **Certificado (Base64)** das opções especificadas, de acordo com seus requisitos. Salve-o no computador.
 
     ![Captura de tela da seção Certificado de Autenticação SAML, com Download realçado](common/certificatebase64.png)
 
@@ -188,7 +188,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     ![Captura de tela da seção Configurar o ServiceNow, com Exibir instruções passo a passo realçada](./media/servicenow-tutorial/tutorial-servicenow-configure.png)
 
-7. No formulário **Configurar logon** , insira o nome da instância, o nome de usuário do administrador e a senha de administrador do ServiceNow. Selecione **Configurar agora**. O nome de usuário do administrador informado deve ter a função **security_admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como um provedor de identidade do SAML, selecione **Configurar manualmente o logon único**. Copie **a URL de logoff, o identificador do Azure AD e a URL de logon** da seção Referência Rápida.
+7. No formulário **Configurar logon**, insira o nome da instância, o nome de usuário do administrador e a senha de administrador do ServiceNow. Selecione **Configurar agora**. O nome de usuário do administrador informado deve ter a função **security_admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como um provedor de identidade do SAML, selecione **Configurar manualmente o logon único**. Copie **a URL de logoff, o identificador do Azure AD e a URL de logon** da seção Referência Rápida.
 
     ![Captura de tela do formulário Configurar logon, com "Configurar Agora" realçado](./media/servicenow-tutorial/configure.png "Configurar a URL do aplicativo")
 
@@ -218,15 +218,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     ![Captura de tela da seção de SSO para vários provedores, com "Propriedades" e "SSO para Vários Provedores" realçados](./media/servicenow-tutorial/tutorial-servicenow-06.png "Configurar a URL do aplicativo")
 
-1. Na caixa de diálogo **Propriedades de SSO para vários provedores** , execute as seguintes etapas:
+1. Na caixa de diálogo **Propriedades de SSO para vários provedores**, execute as seguintes etapas:
 
     ![Captura de tela da caixa de diálogo Propriedades de SSO para Vários Provedores](./media/servicenow-tutorial/ic7694981.png "Configurar a URL do aplicativo")
 
-    * Para **Habilitar SSO para vários provedores** , selecione **Sim**.
+    * Para **Habilitar SSO para vários provedores**, selecione **Sim**.
   
-    * Para **Habilitar importação automática de usuários de todos os provedores de identidade para a tabela do usuário** , selecione **Sim**.
+    * Para **Habilitar importação automática de usuários de todos os provedores de identidade para a tabela do usuário**, selecione **Sim**.
 
-    * Para **Habilitar o log de depuração para a integração do SSO para vários provedores** , selecione **Sim**.
+    * Para **Habilitar o log de depuração para a integração do SSO para vários provedores**, selecione **Sim**.
 
     * Para **O campo da tabela do usuário que...** , insira **email**.
   
@@ -240,13 +240,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
         ![Captura de tela de Configurar o ServiceNow, com Exibir instruções passo a passo realçada](./media/servicenow-tutorial/tutorial-servicenow-configure.png)
 
-    1. No formulário **Configurar logon** , insira o nome da instância, o nome de usuário do administrador e a senha de administrador do ServiceNow. Selecione **Configurar agora**. O nome de usuário do administrador informado precisa ter a função **security-admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como um provedor de identidade do SAML, selecione **Configurar manualmente o logon único**. Copie **a URL de saída, a ID da Entidade do SAML e a URL do serviço de logon único do SAML** da seção de Referência Rápida.
+    1. No formulário **Configurar logon**, insira o nome da instância, o nome de usuário do administrador e a senha de administrador do ServiceNow. Selecione **Configurar agora**. O nome de usuário do administrador informado precisa ter a função **security-admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como um provedor de identidade do SAML, selecione **Configurar manualmente o logon único**. Copie **a URL de saída, a ID da Entidade do SAML e a URL do serviço de logon único do SAML** da seção de Referência Rápida.
 
         ![Captura de tela do formulário Configurar logon, com "Configurar Agora" realçado](./media/servicenow-tutorial/configure.png "Configurar a URL do aplicativo")
 
     1. Entre no seu aplicativo ServiceNow como administrador.
 
-       * Na configuração automática, todas as configurações necessárias são definidas do lado do **ServiceNow** , mas o **Certificado X.509** não é habilitado por padrão e o valor de **Script de Logon Único** deve ser **MultiSSOv2_SAML2_custom**. Você precisa mapeá-lo manualmente para o provedor de identidade no ServiceNow. Siga estas etapas:
+       * Na configuração automática, todas as configurações necessárias são definidas do lado do **ServiceNow**, mas o **Certificado X.509** não é habilitado por padrão e o valor de **Script de Logon Único** deve ser **MultiSSOv2_SAML2_custom**. Você precisa mapeá-lo manualmente para o provedor de identidade no ServiceNow. Siga estas etapas:
 
          1. No painel à esquerda, pesquise a seção **SSO para vários provedores** na caixa de pesquisa e selecione **Provedores de identidade**.
 
@@ -256,11 +256,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
             ![Captura de tela dos provedores de identidade com o provedor de identidade gerado automaticamente realçado](./media/servicenow-tutorial/tutorial-servicenow-08.png "Configurar o logon único")
 
-         1.  Na seção **Provedor de Identidade** , execute as seguintes etapas:
+         1.  Na seção **Provedor de Identidade**, execute as seguintes etapas:
 
              ![Captura de tela da seção Provedor de Identidade](./media/servicenow-tutorial/automatic-config.png "Configurar o logon único")
 
-               a. Para **Nome** , insira um nome para a configuração (por exemplo, **Logon Único Federado do Microsoft Azure** ).
+               a. Para **Nome**, insira um nome para a configuração (por exemplo, **Logon Único Federado do Microsoft Azure**).
 
                b. Copie o valor da **Página inicial do ServiceNow** e cole-o na **URL de logon** da seção **Configuração de SAML Básica do ServiceNow** do portal do Azure.
 
@@ -283,12 +283,12 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
           1. Clique em **Salvar**.
 
-          1. Selecione **Testar conexão** , no canto superior direito da página.
+          1. Selecione **Testar conexão**, no canto superior direito da página.
 
              ![Captura de tela da página, com "Testar Conexão" realçado](./media/servicenow-tutorial/tutorial-activate-2.png "Ativar plug-in")
 
              > [!NOTE]
-             > Se a conexão de teste estiver falhando e você não puder ativar esta conexão, o ServiceNow oferecerá a opção de substituição. Você precisa inserir **Sys_properties.LIST** em **Navegação de Pesquisa** , que abrirá a nova página de Propriedades do Sistema. Aqui, você precisa criar uma propriedade com o nome **glide.authenticate.multisso.test.connection.mandatory** com **datatype** como **True/False** e, em seguida, definir **value** como **False**.
+             > Se a conexão de teste estiver falhando e você não puder ativar esta conexão, o ServiceNow oferecerá a opção de substituição. Você precisa inserir **Sys_properties.LIST** em **Navegação de Pesquisa**, que abrirá a nova página de Propriedades do Sistema. Aqui, você precisa criar uma propriedade com o nome **glide.authenticate.multisso.test.connection.mandatory** com **datatype** como **True/False** e, em seguida, definir **value** como **False**.
 
              > ![Captura de tela da página Testar conexão](./media/servicenow-tutorial/test-connection-fail.png "Configurar o logon único")
         
@@ -304,15 +304,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
         ![Captura de tela de SSO para Vários Provedores, com "Provedores de Identidade" realçado](./media/servicenow-tutorial/tutorial-servicenow-07.png "Configurar o logon único")
 
-    1. Na caixa de diálogo **Provedores de Identidade** , selecione **Novo**.
+    1. Na caixa de diálogo **Provedores de Identidade**, selecione **Novo**.
 
         ![Captura de tela da caixa de diálogo Provedores de Identidade, com "Novo" realçado](./media/servicenow-tutorial/ic7694977.png "Configurar o logon único")
 
-    1. Na caixa de diálogo **Provedores de Identidade** , selecione **SAML**.
+    1. Na caixa de diálogo **Provedores de Identidade**, selecione **SAML**.
 
         ![Captura de tela da caixa de diálogo Provedores de Identidade, com "SAML" realçado](./media/servicenow-tutorial/ic7694978.png "Configurar o logon único")
 
-    1. Em **Importar metadados do Provedor de Identidade** , execute as seguintes etapas:
+    1. Em **Importar metadados do Provedor de Identidade**, execute as seguintes etapas:
 
         ![Captura de tela de Importar Metadados do Provedor de Identidade, com "URL" e "Importar" realçados](./media/servicenow-tutorial/idp.png "Configurar o logon único")
 
@@ -324,26 +324,26 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
         ![Captura de tela de Provedor de Identidade](./media/servicenow-tutorial/ic7694982.png "Configurar o logon único")
 
-        a. Para **Nome** , insira um nome para a configuração (por exemplo, **Logon Único Federado do Microsoft Azure** ).
+        a. Para **Nome**, insira um nome para a configuração (por exemplo, **Logon Único Federado do Microsoft Azure**).
 
-        b. Copie o valor da **Página inicial do ServiceNow**. Cole-o na **URL de logon** , na seção **Configuração de SAML Básica do ServiceNow** do portal do Azure.
+        b. Copie o valor da **Página inicial do ServiceNow**. Cole-o na **URL de logon**, na seção **Configuração de SAML Básica do ServiceNow** do portal do Azure.
 
         > [!NOTE]
         > A home page da instância de ServiceNow é uma concatenação da **URL do locatário do ServiceNow** e **/navpage.do** (por exemplo: `https://fabrikam.service-now.com/navpage.do`).
 
-        c. Copie o valor **da ID da Entidade/do Emissor**. Cole-o em **Identificador** , na seção **Configuração de SAML Básica do ServiceNow** do portal do Azure.
+        c. Copie o valor **da ID da Entidade/do Emissor**. Cole-o em **Identificador**, na seção **Configuração de SAML Básica do ServiceNow** do portal do Azure.
 
         d. Verifique se a **Política NameID** está definida com o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-        e. Selecione **Avançado**. No **Campo do Usuário** , insira **email**.
+        e. Selecione **Avançado**. No **Campo do Usuário**, insira **email**.
 
         > [!NOTE]
         > Você pode configurar o Azure AD para emitir a ID de usuário do Azure AD (nome UPN) ou o endereço de email como o identificador exclusivo no token SAML. Faça isso acessando a seção **ServiceNow** > **Atributos** > **Logon único** do portal do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, nome_do_usuário).
 
-        g. Selecione **Testar conexão** , no canto superior direito da página.
+        g. Selecione **Testar conexão**, no canto superior direito da página.
 
         > [!NOTE]
-        > Se a conexão de teste estiver falhando e você não puder ativar esta conexão, o ServiceNow oferecerá a opção de substituição. Você precisa inserir **Sys_properties.LIST** em **Navegação de Pesquisa** , que abrirá a nova página de Propriedades do Sistema. Aqui, você precisa criar uma propriedade com o nome **glide.authenticate.multisso.test.connection.mandatory** com **datatype** como **True/False** e, em seguida, definir **value** como **False**.
+        > Se a conexão de teste estiver falhando e você não puder ativar esta conexão, o ServiceNow oferecerá a opção de substituição. Você precisa inserir **Sys_properties.LIST** em **Navegação de Pesquisa**, que abrirá a nova página de Propriedades do Sistema. Aqui, você precisa criar uma propriedade com o nome **glide.authenticate.multisso.test.connection.mandatory** com **datatype** como **True/False** e, em seguida, definir **value** como **False**.
 
           > ![Captura de tela de Testar conexão](./media/servicenow-tutorial/test-connection-fail.png "Configurar o logon único")
 
@@ -366,7 +366,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
     ![Captura de tela do aplicativo ServiceNow Express, com "Logon Único" realçado](./media/servicenow-tutorial/ic7694980ex.png "Configurar a URL do aplicativo")
 
-3. Na caixa de diálogo **Logon Único** , selecione o ícone de configuração no canto superior direito e defina as seguintes propriedades:
+3. Na caixa de diálogo **Logon Único**, selecione o ícone de configuração no canto superior direito e defina as seguintes propriedades:
 
     ![Captura de tela da caixa de diálogo Logon Único](./media/servicenow-tutorial/ic7694981ex.png "Configurar a URL do aplicativo")
 
@@ -376,72 +376,72 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no ServiceNow.
 
     c. Em **O campo da tabela do usuário que...** , insira **nome_do_usuário**.
 
-4. Na caixa de diálogo **Logon Único** , selecione **Adicionar Novo Certificado**.
+4. Na caixa de diálogo **Logon Único**, selecione **Adicionar Novo Certificado**.
 
     ![Captura de tela da caixa de diálogo Logon Único, com "Adicionar Novo Certificado" realçado](./media/servicenow-tutorial/ic7694973ex.png "Configurar o logon único")
 
-5. Na caixa de diálogo **Certificados X.509** , execute as seguintes etapas:
+5. Na caixa de diálogo **Certificados X.509**, execute as seguintes etapas:
 
     ![Captura de tela da caixa de diálogo Certificados X.509](./media/servicenow-tutorial/ic7694975.png "Configurar o logon único")
 
-    a. Para **Nome** , insira um nome para a configuração (por exemplo: **TestSAML2.0** ).
+    a. Para **Nome**, insira um nome para a configuração (por exemplo: **TestSAML2.0**).
 
     b. Selecione **Ativo**.
 
-    c. Para **Formato** , selecione **PEM**.
+    c. Para **Formato**, selecione **PEM**.
 
-    d. Para **Tipo** , selecione **Confiar nos Certificados do Repositório**.
+    d. Para **Tipo**, selecione **Confiar nos Certificados do Repositório**.
 
     e. Abra no bloco de notas o certificado codificado com Base64 baixado do portal do Azure. Copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado PEM**.
 
     f. Selecione **Atualizar**
 
-6. Na caixa de diálogo **Logon Único** , selecione **Adicionar Novo IdP**.
+6. Na caixa de diálogo **Logon Único**, selecione **Adicionar Novo IdP**.
 
     ![Captura de tela da caixa de diálogo Logon Único, com "Adicionar Novo IdP" realçado](./media/servicenow-tutorial/ic7694976ex.png "Configurar o logon único")
 
-7. Na caixa de diálogo **Adicionar Novo Provedor de Identidade** , em **Configurar Provedor de Identidade** , execute as seguintes etapas:
+7. Na caixa de diálogo **Adicionar Novo Provedor de Identidade**, em **Configurar Provedor de Identidade**, execute as seguintes etapas:
 
     ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade](./media/servicenow-tutorial/ic7694982ex.png "Configurar o logon único")
 
-    a. Para **Nome** , insira um nome para a configuração (por exemplo: **SAML 2.0** ).
+    a. Para **Nome**, insira um nome para a configuração (por exemplo: **SAML 2.0**).
 
-    b. Para **URL do Provedor de Identidade** , cole o valor da ID do Provedor de Identidade que você copiou do portal do Azure.
+    b. Para **URL do Provedor de Identidade**, cole o valor da ID do Provedor de Identidade que você copiou do portal do Azure.
 
-    c. Para **AuthnRequest do Provedor de Identidade** , cole o valor da URL da solicitação de autenticação que você copiou do portal do Azure.
+    c. Para **AuthnRequest do Provedor de Identidade**, cole o valor da URL da solicitação de autenticação que você copiou do portal do Azure.
 
-    d. Para **SingleLogoutRequest do Provedor de Identidade** , cole o valor da URL de logoff que você copiou do portal do Azure.
+    d. Para **SingleLogoutRequest do Provedor de Identidade**, cole o valor da URL de logoff que você copiou do portal do Azure.
 
-    e. Para **Certificado de Provedor de Identidade** , selecione o certificado que você criou na etapa anterior.
+    e. Para **Certificado de Provedor de Identidade**, selecione o certificado que você criou na etapa anterior.
 
-8. Selecione **Configurações avançadas**. Em **Propriedades Adicionais do Provedor de Identidade** , execute as seguintes etapas:
+8. Selecione **Configurações avançadas**. Em **Propriedades Adicionais do Provedor de Identidade**, execute as seguintes etapas:
 
     ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade, com "Configurações Avançadas" realçado](./media/servicenow-tutorial/ic7694983ex.png "Configurar o logon único")
 
-    a. Para **Associação de protocolo para o SingleLogoutRequest do IDP** , insira **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+    a. Para **Associação de protocolo para o SingleLogoutRequest do IDP**, insira **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
-    b. Para **Política NameID** , insira **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+    b. Para **Política NameID**, insira **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
 
-    c. Para **Método AuthnContextClassRef** , insira `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
+    c. Para **Método AuthnContextClassRef**, insira `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
 
-    d. Para **Criar uma AuthnContextClass** , alterne o campo para desativado (desmarcado).
+    d. Para **Criar uma AuthnContextClass**, alterne o campo para desativado (desmarcado).
 
-9. Em **Propriedades Adicionais do Provedor de Serviço** , execute as seguintes etapas:
+9. Em **Propriedades Adicionais do Provedor de Serviço**, execute as seguintes etapas:
 
     ![Captura de tela da caixa de diálogo Adicionar Novo Provedor de Identidade, com diversas propriedades realçadas](./media/servicenow-tutorial/ic7694984ex.png "Configurar o logon único")
 
-    a. Para **Página Inicial do ServiceNow** , insira a URL da página inicial da sua instância do ServiceNow.
+    a. Para **Página Inicial do ServiceNow**, insira a URL da página inicial da sua instância do ServiceNow.
 
     > [!NOTE]
     > A home page da instância de ServiceNow é uma concatenação da **URL do locatário do ServiceNow** e **/navpage.do** (por exemplo: `https://fabrikam.service-now.com/navpage.do`).
 
-    b. Para **ID da Entidade/Emissor** , insira a URL do seu locatário do ServiceNow.
+    b. Para **ID da Entidade/Emissor**, insira a URL do seu locatário do ServiceNow.
 
-    c. Para **URI do Público-alvo** , insira a URL do seu locatário do ServiceNow.
+    c. Para **URI do Público-alvo**, insira a URL do seu locatário do ServiceNow.
 
-    d. Para **Defasagem Horária** , insira **60**.
+    d. Para **Defasagem Horária**, insira **60**.
 
-    e. Para **Campo do usuário** , insira **email**.
+    e. Para **Campo do usuário**, insira **email**.
 
     > [!NOTE]
     > Você pode configurar o Azure AD para emitir a ID de usuário do Azure AD (nome UPN) ou o endereço de email como o identificador exclusivo no token SAML. Faça isso acessando a seção **ServiceNow** > **Atributos** > **Logon único** do portal do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, nome_do_usuário).
@@ -464,11 +464,11 @@ Ao selecionar o bloco do ServiceNow no Painel de Acesso, você deverá ser conec
 
     ![Captura de tela da página Adicionar Instância, com Continuar realçado](./media/servicenow-tutorial/test-04.png)
 
-    c. Na página de **Logon** , execute as seguintes etapas:
+    c. Na página de **Logon**, execute as seguintes etapas:
 
     ![Captura de tela da página de logon, com Usar o logon externo realçado](./media/servicenow-tutorial/test-01.png)
 
-    *  Insira o **Nome de usuário** , como B.simon@contoso.com.
+    *  Insira o **Nome de usuário**, como B.simon@contoso.com.
 
     *  Selecione **USAR LOGON EXTERNO**. Você será redirecionado à página do Azure AD para entrar.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: d28a3a304a42ec82ff18ad7f5e72518e2b77ec29
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280627"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544098"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – CLI do Azure
 
@@ -285,7 +285,7 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
     O endereço IP privado **10.0.0.5** é retornado para o nome do SQL Server.  Esse endereço está na sub-rede da rede virtual criada anteriormente.
 
 
-10. Instale o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) em **myVM**.
+10. Instale o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) em **myVM**.
 
 11. Abra o **SQL Server Management Studio**.
 

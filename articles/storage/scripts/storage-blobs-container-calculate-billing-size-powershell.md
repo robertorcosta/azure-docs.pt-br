@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999506"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010887"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de cobrança de um contêiner de blob
 
@@ -31,7 +31,7 @@ Este script calcula o tamanho de um contêiner no armazenamento de Blobs do Azur
 
 O tamanho total do contêiner de blob inclui o tamanho do próprio contêiner e o tamanho de todos os blobs no contêiner.
 
-O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs. Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
+O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs.  Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
 
 ### <a name="blob-containers"></a>Contêineres de blob
 
@@ -120,6 +120,6 @@ A seguir, encontra-se a divisão:
 
 - Para obter mais informações sobre a Cobrança do Azure Storage, consulte [Noções básicas sobre a Cobrança do Armazenamento do Microsoft Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 - Encontre exemplos adicionais de script do PowerShell de Armazenamento em [Amostras do PowerShell para Armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce5658fb79a893e0aca9d78faf090a886a2ee591
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ad5147971fc42e65e4621c8a3f0a98e01f2e0339
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651457"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237282"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integrar uma única floresta a um único locatário do Azure AD
 
@@ -67,7 +67,7 @@ Você pode usar o ambiente criado neste tutorial para testes ou para se familiar
 7. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.  Observe que, se você tiver a segurança aprimorada do IE habilitada, isso bloqueará a entrada.  Se esse for o caso, feche a instalação, desabilite a segurança aprimorada do IE no Gerenciador do Servidor e clique no **Assistente do Agente de Provisionamento AAD Connect** para reiniciar a instalação.
 8. Na tela **Conectar Active Directory**, clique em **Adicionar diretório** e, em seguida, entre com sua conta de administrador de domínio do Active Directory.  OBSERVAÇÃO:  A conta de administrador de domínio não deve ter requisitos de alteração de senha. Caso a senha expire ou seja alterada, será necessário reconfigurar o agente com as novas credenciais. Esta operação adicionará o diretório local.  Clique em **Próximo**.
 
-   ![Captura de tela da tela "Conectar o Active Directory".](media/how-to-install/install-3.png)
+   ![Captura de tela da tela "Conectar o Active Directory".](media/how-to-install/install-3a.png)
 
 9. Na tela **Configuração completa**, clique em **Confirmar**.  Esta operação registrará e reiniciará o agente.
 

@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044625"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964432"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C# para dispositivos Windows
 
@@ -33,7 +33,7 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Escopo da solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **C#** usando o **Visual Studio 2019** e implantá-lo em um **dispositivo Windows**. Se você estiver desenvolvendo módulos para dispositivos Linux, acesse [Desenvolver um módulo do IoT Edge em C# para dispositivos Linux](tutorial-csharp-module.md).
 
@@ -43,8 +43,6 @@ Use a tabela a seguir para entender as opções para desenvolver e implantar mó
 | -- | ------------------ | ------------------ |
 | **Desenvolvimento do Windows AMD64** | ![Desenvolver módulos em C# para WinAMD64 no VS Code](./media/tutorial-c-module/green-check.png) | ![Desenvolver módulos em C# para WinAMD64 no Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Depuração do Windows AMD64** |   | ![Depurar módulos em C# para WinAMD64 no Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento, [Desenvolver um módulo do IoT Edge para um dispositivo Windows](tutorial-develop-for-windows.md). Após concluir esse tutorial, você já deverá ter os seguintes pré-requisitos:
 

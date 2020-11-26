@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: c45b30fb16293652e169b89a6d93520509777a40
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 87b1f4ab7b7091970d7bb76ae1e00b06549fb0b4
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563947"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96152717"
 ---
 **Os destinos de computação podem ser reutilizados pelos trabalhos de treinamento.** Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos. Para pipelines de machine learning, use a [etapa do pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) apropriada para cada destino de computação.
 

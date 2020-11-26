@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542177"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984440"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
@@ -133,7 +133,7 @@ Se o seu projeto for do tipo "Segmentação de Instância (Polígono)", você es
 
 1. Selecione uma marca para o polígono que pretende criar.
 1. Escolha a ferramenta **Desenhar região do polígono** ![ferramenta Desenhar região do polígono](./media/how-to-label-images/polygon-tool.png) ou selecione "P".
-3. Clique em cada ponto no polígono.  Quando você tiver concluído a forma, clique duas vezes para concluir.
+1. Clique em cada ponto no polígono.  Quando você tiver concluído a forma, clique duas vezes para concluir.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Criar polígonos para gato e cachorro":::
 
@@ -158,3 +158,5 @@ Quando terminar a rotulagem, selecione seu nome no canto superior direito do por
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [treinar modelos de classificação de imagens no Azure](./tutorial-train-models-with-aml.md)
+
+

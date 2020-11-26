@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421032"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953093"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo de página única com o Azure AD B2C
 
@@ -53,7 +53,7 @@ Além disso, você precisará do seguinte no ambiente de desenvolvimento local:
 
 No [segundo tutorial](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) concluído como parte dos pré-requisitos, você registrou um aplicativo de página única no Azure AD B2C. Para habilitar a comunicação com o exemplo de código neste tutorial, adicione uma URL de resposta (também chamada de URI de redirecionamento) ao registro de aplicativo.
 
-Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations-auth-code-flow"></a>[Registros de aplicativo (fluxo de código de autenticação)](#tab/app-reg-auth/)
 

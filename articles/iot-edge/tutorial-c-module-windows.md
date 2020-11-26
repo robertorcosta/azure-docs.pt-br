@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59656db2bbb8a6898ae08a168dbbc7e0a6a82aec
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d9cffcadcb95b6c8c61205d458610f402fa7286d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044710"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964585"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C para dispositivos Windows
 
@@ -33,7 +33,7 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Escopo da solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **C** usando o **Visual Studio 2019** e implantá-lo em um **dispositivo Windows**. Se você estiver desenvolvendo módulos para dispositivos Linux, acesse [Desenvolver um módulo do IoT Edge em C para dispositivos Linux](tutorial-c-module.md).
 
@@ -42,8 +42,6 @@ Use a tabela a seguir para entender as opções para desenvolver e implantar mó
 | C | Visual Studio Code | Visual Studio 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Desenvolver módulos em C para WinAMD64 no Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Windows: [Desenvolver módulos do IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md). Após concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
 

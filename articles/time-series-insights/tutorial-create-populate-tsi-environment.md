@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023217"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights Gen1
 
@@ -83,7 +83,7 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
 
    [![Provisionamento da solução de simulação de dispositivo concluído](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. Agora, inspecione os recursos recentemente criados no portal do Azure. Na página **Grupos de recursos** , observe que um grupo de recursos foi criado usando o **Nome da solução** fornecido na última etapa. Anote os recursos que foram criados para a simulação do dispositivo.
+1. Agora, inspecione os recursos recentemente criados no portal do Azure. Na página **Grupos de recursos**, observe que um grupo de recursos foi criado usando o **Nome da solução** fornecido na última etapa. Anote os recursos que foram criados para a simulação do dispositivo.
 
    [![Recursos de simulação do dispositivo](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
@@ -97,11 +97,11 @@ Em segundo lugar, crie um ambiente do Azure Time Series Insights na sua assinatu
 
    [![Selecione o recurso de ambiente do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
-1. Na página **Ambiente do Time Series Insights** , preencha os parâmetros necessários.
+1. Na página **Ambiente do Time Series Insights**, preencha os parâmetros necessários.
 
    Parâmetro|Descrição
    ---|---
-   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](/rest/api/time-series-insights/gen1-query).
    **Assinatura** | As assinaturas são contêineres para recursos do Azure. Escolha uma assinatura para criar o ambiente do Azure Time Series Insights.
    **Grupo de recursos** | Um grupo de recursos é um contêiner para os recursos do Azure. Escolha um grupo de recursos existente ou crie um para o recurso de ambiente do Azure Time Series Insights.
    **Localidade** | Escolha uma região do data center para o seu ambiente do Azure Time Series Insights. Para evitar latência adicional, crie o ambiente do Azure Time Series Insights na mesma região que outros recursos de IoT.
@@ -184,9 +184,9 @@ Este tutorial cria vários serviços que executam o Azure para dar suporte ao am
 
 No menu à esquerda no portal do Azure:
 
-1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado para o ambiente do Azure Time Series Insights. Na parte superior da página, selecione **Excluir grupo de recursos** , insira o nome do grupo de recursos e selecione **Excluir**.
+1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado para o ambiente do Azure Time Series Insights. Na parte superior da página, selecione **Excluir grupo de recursos**, insira o nome do grupo de recursos e selecione **Excluir**.
 
-1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado pelo acelerador de solução de simulação de dispositivo. Na parte superior da página, selecione **Excluir grupo de recursos** , insira o nome do grupo de recursos e selecione **Excluir**.
+1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado pelo acelerador de solução de simulação de dispositivo. Na parte superior da página, selecione **Excluir grupo de recursos**, insira o nome do grupo de recursos e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

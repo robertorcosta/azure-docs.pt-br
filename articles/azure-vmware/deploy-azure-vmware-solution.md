@@ -4,12 +4,12 @@ description: Saiba como usar as informações coletadas na fase de planejamento 
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 11/09/2020
-ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 47fc894fa1d6204a1bc2c912da7fcbb2394627fa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336328"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484212"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implantar e configurar a Solução VMware no Azure
 
@@ -30,7 +30,7 @@ Use as informações coletadas no artigo [Planejando a implantação da Soluçã
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 >[!NOTE]
->Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Solução VMware no Azure: implantação](https://www.youtube.com/embed/1JLB3L2WDWI). 
+>Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Solução VMware no Azure: implantação](https://www.youtube.com/embed/gng7JjxgayI).
 
 ## <a name="create-the-jump-box"></a>Criar o jumpbox
 

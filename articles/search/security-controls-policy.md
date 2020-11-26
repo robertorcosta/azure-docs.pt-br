@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Azure Cognitive Search
 description: Lista os controles de Conformidade Regulatória do Azure Policy Disponíveis para o Azure Cognitive Search. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 4a31b4564a36a82c2b469c3e3737ab6ecac1a1f7
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 9d271445d472739c304cbf8fa43fe7feb1c6b1bb
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700182"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985614"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Controles de Conformidade Regulatória do Azure Policy para o Azure Cognitive Search
 
