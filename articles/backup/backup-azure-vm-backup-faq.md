@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925570"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296056"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -87,11 +87,11 @@ Sim, o backup do Azure dá suporte a [discos gerenciados SSD padrão](https://do
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer backup de uma VM com um disco ativado pelo Acelerador de Gravação?
 
-Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de Gravação. No entanto, o serviço de Backup do Azure pode excluir o disco habilitado pelo Acelerador de Gravação do backup.
+Os instantâneos só podem ser obtidos em discos de dados que são habilitados para WA e não discos do sistema operacional. Portanto, somente os discos de dados habilitados para WA podem ser protegidos.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos do Acelerador de Gravação e do SAP HANA instalados. Como fazer backup?
 
-O Backup do Azure não pode fazer backup do disco habilitado pelo Acelerador de Gravação, mas pode excluí-lo do backup. No entanto, o backup não fornecerá a consistência do banco de dados porque não são feitos backups de informações do disco habilitado pelo Acelerador de Gravação. Você pode fazer backup de discos com essa configuração se desejar o backup em disco do sistema operacional e o backup dos discos que não são habilitados pelo Acelerador de Gravação.
+O backup do Azure pode fazer backup do disco de dados habilitado para WA. No entanto, o backup não fornecerá consistência do banco de dados.
 
 O backup do Azure fornece uma solução de backup de streaming para bancos de dados SAP HANA com um RPO de 15 minutos. BACKINT certificado pela SAP para fornecer um suporte de backup nativo, aproveitando as APIs nativas do SAP HANA. Saiba mais [sobre como fazer backup de bancos de dados SAP Hana em VMs do Azure](./sap-hana-db-about.md).
 
@@ -149,7 +149,7 @@ Sim. Mesmo se você excluir a VM, poderá ir para o item de backup correspondent
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como fazer restaurar uma VM para os mesmos conjuntos de disponibilidade?
 
-Para as VMs do Azure de disco gerenciado, a restauração para os conjuntos de disponibilidade é habilitada fornecendo uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade** .
+Para as VMs do Azure de disco gerenciado, a restauração para os conjuntos de disponibilidade é habilitada fornecendo uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como conseguimos desempenhos de restauração mais rápidos?
 
@@ -185,7 +185,7 @@ O backup da VM é feito usando as configurações de retenção e agendamento na
 
    1. Localize o local da sua máquina virtual.
    2. Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
-   3. Na portal do Azure, marque **Mostrar tipos ocultos** .
+   3. Na portal do Azure, marque **Mostrar tipos ocultos**.
    4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
    6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.

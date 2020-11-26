@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/16/2019
-ms.openlocfilehash: b85e72ae6698cd9fa018c940e158bfcf25279ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/26/2020
+ms.openlocfilehash: 11e0d3336f085ccae9a7fb83ed050d69a15ce42b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410474"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296498"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiar dados de e para o banco de dado do Azure para PostgreSQL usando Azure Data Factory
 
@@ -76,7 +76,7 @@ Uma cadeia de conexão válida é `Server=<server>.postgres.database.azure.com;D
 
 **Exemplo**:
 
-***Armazenar a senha no Azure Key Vault***
+**_Armazenar a senha no Azure Key Vault_* _
 
 ```json
 {
@@ -85,13 +85,13 @@ Uma cadeia de conexão válida é `Server=<server>.postgres.database.azure.com;D
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -102,7 +102,7 @@ Uma cadeia de conexão válida é `Server=<server>.postgres.database.azure.com;D
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets in Azure data Factory](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades às quais o banco de dados do Azure para PostgreSQL dá suporte em DataSets.
 
-Para copiar dados de/para o Banco de Dados do Azure para PostgreSQL, defina o tipo da propriedade do conjunto de dados como **AzurePostgreSqlTable**. Há suporte para as seguintes propriedades:
+Para copiar dados do banco de dados do Azure para PostgreSQL, defina a propriedade Type do DataSet como _ * AzurePostgreSqlTable * *. Há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -136,7 +136,7 @@ Para copiar dados do Banco de Dados do Azure para PostgreSQL, defina o tipo de f
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como **AzurePostgreSqlSource** | Sim |
-| Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"` | Não (se a Propriedade TableName no DataSet for especificada) |
+| Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `SELECT * FROM mytable` ou `SELECT * FROM "MyTable"`. Observação no PostgreSQL, o nome da entidade é tratado como não diferencia maiúsculas de minúsculas, se não estiver entre aspas. | Não (se a Propriedade TableName no DataSet for especificada) |
 
 **Exemplo**:
 
@@ -160,7 +160,7 @@ Para copiar dados do Banco de Dados do Azure para PostgreSQL, defina o tipo de f
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "<custom query e.g. SELECT * FROM MyTable>"
+                "query": "<custom query e.g. SELECT * FROM mytable>"
             },
             "sink": {
                 "type": "<sink type>"

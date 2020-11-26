@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188115"
+ms.locfileid: "96296976"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controle do código-fonte no Azure Synapse Studio
 
@@ -30,17 +30,17 @@ Para fornecer o recurso de controle do código-fonte, o Synapse Studio permite q
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Configurar o repositório git no Synapse Studio 
 
-Depois de iniciar o Synapse Studio, você pode configurar o repositório git no espaço de trabalho. Um espaço de trabalho do Synapse Studio só pode ser associado a um repositório git por vez. 
+Depois de iniciar o Synapse Studio, você pode configurar um repositório git em seu espaço de trabalho. Um espaço de trabalho do Synapse Studio pode ser associado a apenas um repositório git por vez. 
 
-### <a name="configuration-method-1-authoring-canvas"></a>Método de configuração 1: tela de criação
+### <a name="configuration-method-1-global-bar"></a>Método de configuração 1: barra global
 
-Na tela de criação do Synapse Studio, selecione o menu suspenso **Synapse Live** e, em seguida, selecione **configurar repositório de código**.
+Na barra global do Synapse Studio, selecione o menu suspenso **Synapse Live** e, em seguida, selecione **configurar repositório de código**.
 
 ![Definir as configurações do repositório de código da criação](media/configure-repo-1.png)
 
 ### <a name="configuration-method-2-manage-hub"></a>Método de configuração 2: gerenciar o Hub
 
-Vá para o Hub de gerenciamento do Synapse Studio. Selecione **configuração do git** na seção **controle do código-fonte** . Se você não tiver um repositório conectado, clique em **Configurar**.
+Acesse o Hub gerenciar do Synapse Studio. Selecione **configuração do git** na seção **controle do código-fonte** . Se você não tiver um repositório conectado, clique em **Configurar**.
 
 ![Definir as configurações do repositório de código do hub de gerenciamento](media/configure-repo-2.png)
 
@@ -51,11 +51,11 @@ Você pode conectar o Azure DevOps ou o repositório Git do GitHub em seu espaç
 
 ## <a name="connect-with-azure-devops-git"></a>Conectar-se ao git DevOps do Azure 
 
-Você pode associar um espaço de trabalho do Synapse a um repositório DevOps do Azure para controle do código-fonte, colaboração, versionamento e assim por diante. Se você não tiver um repositório DevOps do Azure, siga [estas instruções](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os recursos do repositório primeiro.
+Você pode associar um espaço de trabalho do Synapse a um repositório DevOps do Azure para controle do código-fonte, colaboração, versionamento e assim por diante. Se você não tiver um repositório DevOps do Azure, siga [estas instruções](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os recursos do repositório.
 
 ### <a name="azure-devops-git-repository-settings"></a>Configurações do repositório Git do Azure DevOps
 
-Ao se conectar ao repositório git, primeiro selecione o tipo de repositório como Azure DevOps git e, em seguida, selecione um locatário do Azure AD na lista suspensa e clique em **continuar**.
+Ao conectar-se ao repositório git, primeiro selecione o tipo de repositório como Azure DevOps git e, em seguida, selecione um locatário do Azure AD na lista suspensa e clique em **continuar**.
 
 ![Configurar as definições do repositório de código](media/connect-with-azuredevops-repo-selected.png)
 
@@ -94,7 +94,7 @@ Para usar uma conta Microsoft pessoal para integração com o Git, você poderá
 
 Após essas etapas de configuração, seu repositório pessoal estará disponível quando você configurar a integração do git no Synapse Studio.
 
-Para saber mais sobre como se conectar ao Azure Repos para o Active Directory da sua organização, veja [Conectar sua organização do Azure DevOps ao Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+Para obter mais informações sobre como conectar Azure Repos à Active Directory da sua organização, consulte [conectar sua organização ao Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="connect-with-github"></a>Conectar-se com o GitHub 
 

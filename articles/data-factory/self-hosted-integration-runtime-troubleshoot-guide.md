@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013421"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296947"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -459,6 +459,22 @@ Conversão antes e depois:
 
 ![Após a alteração do certificado](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
+### <a name="self-hosted-integration-runtime-version-5x"></a>Integration Runtime auto-hospedados versão 5. x
+Para a atualização para a versão 5. x de Azure Data Factory o tempo de execução de integração auto-hospedado, exigimos o **tempo de execução do .NET Framework 4.7.2** ou superior. Na página de download, haverá links de download para a versão 4. x mais recente e as duas versões mais recentes do 5. x. 
+
+
+Para clientes do ADF v2:
+- Se a atualização automática estiver ativada e você já tiver atualizado seu tempo de execução do .NET Framework para 4.7.2 ou superior, o tempo de execução de integração auto-hospedado será automaticamente atualizado para a versão mais recente do 5. x.
+- Se a atualização automática estiver ativada e você não tiver atualizado seu tempo de execução do .NET Framework para 4.7.2 ou superior, o tempo de execução de integração auto-hospedado não será atualizado automaticamente para a versão mais recente do 5. x. O tempo de execução de integração auto-hospedado permanecerá na versão 4. x atual. Você pode ver um aviso para a atualização do tempo de execução do .NET Framework no portal e o cliente do Integration Runtime de hospedagem interna.
+- Se a atualização automática estiver desativada e você já tiver atualizado seu tempo de execução do .NET Framework para 4.7.2 ou superior, você poderá baixar manualmente o mais recente 5. x e instalar em seu computador.
+- Se a atualização automática estiver desativada e você não tiver atualizado seu tempo de execução do .NET Framework para 4.7.2 ou superior. Ao tentar instalar manualmente o SHIR 5. x e registrar a chave, será necessário atualizar o tempo de execução do .NET Framework primeiro.
+
+
+Para clientes do ADF V1:
+- O tempo de execução de integração auto-hospedado 5. X não dá suporte a ADF v1.
+- O tempo de execução de integração auto-hospedado será atualizado automaticamente para a versão mais recente do 4. x. E a última versão do 4. x não expirará. 
+- Se você tentar instalar manualmente o Integration Runtime 5. x e registrar a chave, você será informado de que o Integration Runtime 5. x de hospedagem interna não oferece suporte a v1.
+
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemas de conectividade de IR via hospedagem interna
 
@@ -757,6 +773,7 @@ Você pode observar outras fábricas de dados (em locatários diferentes) durant
 #### <a name="cause"></a>Causa
 
 O IR auto-hospedado não pode ser compartilhado entre locatários.
+
 
 
 ## <a name="next-steps"></a>Próximas etapas
