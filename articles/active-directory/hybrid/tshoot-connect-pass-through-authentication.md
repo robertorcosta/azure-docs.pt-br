@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652511"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176181"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -72,7 +72,7 @@ Para confirmar que esse é o problema, primeiro teste se o agente de autenticaç
  ``` 
 4. Quando for solicitado que você insira as credenciais, insira o mesmo nome de usuário e senha que são usados para entrar no ( https://login.microsoftonline.com) .
 
-Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > Se o servidor de Azure AD Connect não estiver ingressado no domínio, um requisito mencionado em [Azure ad Connect: pré-requisitos](./how-to-connect-install-prerequisites.md#installation-prerequisites), ocorrerá o problema inválido de nome de usuário/senha.

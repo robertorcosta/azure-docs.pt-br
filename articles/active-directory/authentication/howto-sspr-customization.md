@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363700"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173987"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizar a experiência do usuário para Azure Active Directory redefinição de senha de autoatendimento
 
@@ -56,7 +56,7 @@ Para obter mais informações sobre as diferentes funções de administrador e s
 
 Se sua organização não deseja notificar os administradores sobre solicitações de redefinição de senha, as seguintes opções de configuração podem ser usadas:
 
-* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **email ou URL do helpdesk personalizado de**redefinição de senha.
+* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **email ou URL do helpdesk personalizado de** redefinição de senha.
 * Habilite a redefinição de senha de autoatendimento para todos os usuários. Essa opção está em Propriedades de **redefinição de senha**  >  **Properties**. Se você não quiser que os usuários redefinam as próprias senhas, poderá definir o escopo de acesso como um grupo vazio. *Não recomendamos essa opção.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalizar a página de entrada e o painel de acesso
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Para entender o uso de SSPR em seu ambiente, consulte [Opções de relatório para o gerenciamento de senhas do Azure ad](howto-sspr-reporting.md).
 
-Se você ou os usuários tiverem problemas com o SSPR, consulte [solucionar problemas de redefinição de senha de autoatendimento](active-directory-passwords-troubleshoot.md)
+Se você ou os usuários tiverem problemas com o SSPR, consulte [solucionar problemas de redefinição de senha de autoatendimento](./troubleshoot-sspr.md)

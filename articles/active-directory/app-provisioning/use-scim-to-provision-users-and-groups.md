@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695258"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174808"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial – Criar um ponto de extremidade do SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -154,7 +154,7 @@ Dentro da [especificação do protocolo SCIM 2.0](http://www.simplecloud.info/#S
 * Dar suporte a consultas de usuários ou grupos, de acordo com a seção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os usuários são recuperados por seu `id` e consultados por seus `username` e `externalId`, e os grupos são consultados por `displayName`.  
 * Dar suporte a consultas de usuário por ID e pelo gerenciador, de acordo com a seção 3.4.2 do protocolo SCIM.  
 * Dar suporte a consultas de grupos por ID e por membro, de acordo com a seção 3.4.2 do protocolo SCIM.  
-* Dá suporte ao filtro [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) durante a consulta do recurso de grupo, de acordo com a seção 3.4.2.5 do protocolo SCIM.
+* Dá suporte ao filtro [excludedAttributes=members](#get-group) durante a consulta do recurso de grupo, de acordo com a seção 3.4.2.5 do protocolo SCIM.
 * Aceitar um único token de portador para autenticação e autorização do Azure AD para seu aplicativo.
 * Dar suporte à exclusão reversível de um usuário `active=false` e à restauração do usuário `active=true` (o objeto de usuário deverá ser retornado em uma solicitação, não importa se o usuário está ativo ou não). A única vez em que o usuário não deverá ser retornado será quando ele for excluído de maneira irreversível do aplicativo. 
 
@@ -1173,7 +1173,7 @@ Depois que o ciclo inicial for iniciado, você poderá selecionar **Logs de prov
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Etapa 5: Publique seu aplicativo na galeria de aplicativos do Azure AD
 
-Se você estiver criando um aplicativo que será usado por mais de um locatário, poderá disponibilizá-lo na galeria de aplicativos do Azure AD. Isso permitirá que organizações descubram o aplicativo e configurem o provisionamento com facilidade. Publicar seu aplicativo na galeria do Azure AD e disponibilizar o provisionamento para outras pessoas é fácil. Confira as etapas [aqui](../azuread-dev/howto-app-gallery-listing.md). A Microsoft trabalhará com você para integrar seu aplicativo em nossa galeria, testar seu ponto de extremidade e publicar [documentação](../saas-apps/tutorial-list.md) de integração para uso dos clientes. 
+Se você estiver criando um aplicativo que será usado por mais de um locatário, poderá disponibilizá-lo na galeria de aplicativos do Azure AD. Isso permitirá que organizações descubram o aplicativo e configurem o provisionamento com facilidade. Publicar seu aplicativo na galeria do Azure AD e disponibilizar o provisionamento para outras pessoas é fácil. Confira as etapas [aqui](../develop/v2-howto-app-gallery-listing.md). A Microsoft trabalhará com você para integrar seu aplicativo em nossa galeria, testar seu ponto de extremidade e publicar [documentação](../saas-apps/tutorial-list.md) de integração para uso dos clientes.
 
 ### <a name="gallery-onboarding-checklist"></a>Lista de verificação de integração da galeria
 Siga a lista de verificação abaixo para garantir que seu aplicativo seja integrado de forma rápida e que os clientes tenham uma experiência de implantação livre de problemas. As informações serão coletadas quando você estiver realizando a integração à galeria. 

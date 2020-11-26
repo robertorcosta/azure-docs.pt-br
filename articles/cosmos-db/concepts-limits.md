@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964653"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175892"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -91,7 +91,6 @@ O sem [servidor](serverless.md) permite que você use seus recursos de Azure Cos
 
 | Recurso | Limite |
 | --- | --- |
-| RU/s máximo por contêiner | 5\.000 |
 | Máximo de RU/s por partição (lógica) | 5\.000 |
 | Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição (lógica) distintas | Ilimitado |

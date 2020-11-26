@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840093"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174489"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
@@ -289,4 +289,4 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](./troubleshoot-sspr.md)

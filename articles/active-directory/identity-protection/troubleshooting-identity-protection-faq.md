@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987330"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175994"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes sobre a proteção de identidade em Azure Active Directory
 
@@ -38,7 +38,7 @@ Se você for um cliente Azure AD Identity Protection, vá para a exibição [usu
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Por que minha entrada foi bloqueada, mas a proteção de identidade não gerou uma detecção de risco?
 Entradas podem ser bloqueadas por vários motivos. É importante observar que a proteção de identidade gera apenas detecções de risco quando as credenciais corretas são usadas na solicitação de autenticação. Se um usuário usar credenciais incorretas, ele não será sinalizado pela proteção de identidade, pois não há risco de comprometimento de credenciais, a menos que um ator incorreto use as credenciais corretas. Alguns motivos pelos quais um usuário pode ser impedido de assinar que não geram uma detecção de proteção de identidade incluem:
 * O **IP pode ser bloqueado** devido a atividades mal-intencionadas do endereço IP. A mensagem bloqueada por IP não diferencia se as credenciais estavam corretas ou não. Se o IP estiver bloqueado e as credenciais corretas não forem usadas, ele não gerará uma detecção de proteção de identidade
-* O **[bloqueio inteligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** pode bloquear a conta de entrar após várias tentativas com falha
+* O **[bloqueio inteligente](../authentication/howto-password-smart-lockout.md)** pode bloquear a conta de entrar após várias tentativas com falha
 * Uma **política de acesso condicional** pode ser imposta que usa condições diferentes de nível de risco para bloquear uma solicitação de autenticação
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Como posso obter um relatório de detecções de um tipo específico?
@@ -93,6 +93,4 @@ Considerando que o risco do usuário é cumulativo por natureza e não expira, u
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que uma entrada tem uma pontuação de "risco de entrada (agregação)" alta quando as detecções associadas a ela são de risco baixo ou médio?
 
-A pontuação de risco de agregação alta pode ser baseada em outros recursos de entrada ou o fato de que mais de uma detecção foi acionada para essa entrada. E, por outro lado, uma entrada pode ter um risco de entrada (agregação) médio, mesmo se as detecções associadas com a entrada são de alto risco. 
-
-
+A pontuação de risco de agregação alta pode ser baseada em outros recursos de entrada ou o fato de que mais de uma detecção foi acionada para essa entrada. E, por outro lado, uma entrada pode ter um risco de entrada (agregação) médio, mesmo se as detecções associadas com a entrada são de alto risco.

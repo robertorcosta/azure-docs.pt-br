@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5322e5ce1bb124387931eac666cf9e5510cb2463
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237622"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173963"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalar o agente de provisionamento em nuvem do Azure AD Connect
 Este documento mostra o processo de instalação do agente de provisionamento do Azure AD (Azure Active Directory) Connect e como configurá-lo inicialmente no portal do Azure.
@@ -32,7 +32,7 @@ A instalação e configuração do provisionamento do Azure AD Connect são real
 
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-Uma conta de serviço gerenciado de grupo é uma conta de domínio gerenciado que fornece gerenciamento automático de senhas, gerenciamento de SPN (nome da entidade de serviço) simplificado, a capacidade de delegar o gerenciamento a outros administradores e também estende essa funcionalidade em vários servidores.  Azure AD Connect a sincronização de nuvem dá suporte e recomenda o uso de uma conta de serviço gerenciado de grupo para executar o agente.  Para obter mais informações sobre um gMSA, consulte [contas de serviço gerenciado de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+Uma conta de serviço gerenciado de grupo é uma conta de domínio gerenciado que fornece gerenciamento automático de senhas, gerenciamento de SPN (nome da entidade de serviço) simplificado, a capacidade de delegar o gerenciamento a outros administradores e também estende essa funcionalidade em vários servidores.  Azure AD Connect a sincronização de nuvem dá suporte e recomenda o uso de uma conta de serviço gerenciado de grupo para executar o agente.  Para obter mais informações sobre um gMSA, consulte [contas de serviço gerenciado de grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Atualizando um agente existente para usar a conta gMSA
@@ -54,7 +54,7 @@ Para instalar o agente, siga estas etapas.
    ![Tela Pacote do agente de provisionamento do Microsoft Azure AD Connect](media/how-to-install/install-1.png)</br>
  8. Após a conclusão desta operação, o assistente de configuração é iniciado. Entre com sua conta de administrador global do Azure AD.
  9. Na **tela configurar conta de serviço** , selecione **criar gMSA** ou **usar o gMSA personalizado**.  Se você permitir que o agente crie a conta, ele será nomeado provAgentgMSA $. Se você especificar **usar gMSA personalizado** , será solicitado a fornecer essa conta.
- 10. Insira as credenciais de administrador de domínio para criar a conta de serviço gerenciado de grupo que será usada para executar o serviço do Agent. Clique em **Avançar**.  
+ 10. Insira as credenciais de administrador de domínio para criar a conta de serviço gerenciado de grupo que será usada para executar o serviço do Agent. Clique em **Próximo**.  
    ![Criar gMSA](media/how-to-install/install-12.png)</br>
  11. Na tela **Active Directory Connect**, selecione **Adicionar diretório**. Em seguida, entre com sua conta de administrador do Active Directory. Esta operação adiciona seu diretório local. 
  12. Opcionalmente, você pode gerenciar a preferência de controladores de domínio que o agente usará selecionando **selecionar prioridade do controlador de domínio** e ordenando a lista de controladores de domínio.   Clique em **OK**.
@@ -107,4 +107,3 @@ Para verificar se o agente está em execução, siga estas etapas.
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)
- 

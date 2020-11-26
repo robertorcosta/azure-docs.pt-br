@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839566"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174129"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -126,7 +126,7 @@ Ao implantar a autenticação com senha, você deve primeiro habilitar um ou mai
 
 Os grupos podem ser sincronizados de um diretório local ou do Azure AD. Quando estiver satisfeito com os resultados do seu piloto, você poderá alternar a autenticação sem senha para todos os usuários.
 
-Consulte [práticas recomendadas para um piloto](https://aka.ms/deploymentplans) na página planos de implantação.
+Consulte [práticas recomendadas para um piloto](../fundamentals/active-directory-deployment-plans.md) na página planos de implantação.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planejar a autenticação sem senha com o aplicativo Microsoft Authenticator
 

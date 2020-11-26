@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919668"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174825"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -28,7 +28,7 @@ Problemas conhecidos que você deve estar atento ao trabalhar com o provisioname
 
 **Não é possível salvar após o teste de conexão bem-sucedido**
 
-Se você puder testar uma conexão com êxito, mas não puder salvar, você excedeu o limite de armazenamento permitido para as credenciais. Para saber mais, confira [problema ao salvar credenciais de administrador](application-provisioning-config-problem-storage-limit.md).
+Se você puder testar uma conexão com êxito, mas não puder salvar, você excedeu o limite de armazenamento permitido para as credenciais. Para saber mais, confira [problema ao salvar credenciais de administrador](./user-provisioning.md).
 
 **Não é possível salvar**
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 576b9c11f167f7c0d5fcb06e484347c643589a66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: abdfbc92af3617a7a13a2e4f603de9c1cc3959af
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839056"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174323"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integre sua infraestrutura existente de NPS (servidor de políticas de rede) com a autenticação multifator do Azure AD
 
@@ -72,7 +72,7 @@ A extensão do NPS deve trabalhar com sua infraestrutura existente. Verifique se
 
 ### <a name="licenses"></a>Licenças
 
-A extensão do NPS para a autenticação multifator do Azure AD está disponível para clientes com [licenças para a autenticação multifator do Azure ad](multi-factor-authentication.md). As licenças baseadas em consumo para a autenticação multifator do Azure AD, como licenças por usuário ou por autenticação, não são compatíveis com a extensão do NPS.
+A extensão do NPS para a autenticação multifator do Azure AD está disponível para clientes com [licenças para a autenticação multifator do Azure ad](./concept-mfa-howitworks.md). As licenças baseadas em consumo para a autenticação multifator do Azure AD, como licenças por usuário ou por autenticação, não são compatíveis com a extensão do NPS.
 
 ### <a name="software"></a>Software
 

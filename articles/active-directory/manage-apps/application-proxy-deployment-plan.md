@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: 9736e1b71f5e129989aba9a045581bae8a1c5f93
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9815237617566eda4759ecc31718786b6cb2cac8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997538"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176045"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação do Proxy de Aplicativo do Azure AD
 
@@ -323,7 +323,7 @@ Os artigos a seguir abordam cenários comuns que também podem ser usados para c
 * [Configurar logon único para meu aplicativo](application-proxy-config-sso-how-to.md)
 * [Problema ao criar um aplicativo no portal do administrador](application-proxy-config-problem.md)
 * [Configurar a Delegação Restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Configurar com PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
+* [Configurar com PingAccess](./application-proxy-ping-access-publishing-guide.md)
 * [Erro Não é possível acessar este aplicativo corporativo](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problema ao instalar o conector de agente de Application Proxy](application-proxy-connector-installation-problem.md)
 * [Problema de entrada](application-sign-in-problem-on-premises-application-proxy.md)

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994155"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173929"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planejar uma implantação de redefinição de senha self-service do Azure Active Directory
 
@@ -123,7 +123,7 @@ Considere suas necessidades organizacionais enquanto determina a estratégia par
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [verifique se você está participando dos stakeholders certos](https://aka.ms/deploymentplans) e que as funções de stakeholder no projeto sejam bem compreendidas ao documentar os stakeholders, a entrada e as responsabilidades no projeto.
+Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [verifique se você está participando dos stakeholders certos](../fundamentals/active-directory-deployment-plans.md) e que as funções de stakeholder no projeto sejam bem compreendidas ao documentar os stakeholders, a entrada e as responsabilidades no projeto.
 
 #### <a name="required-administrator-roles"></a>Funções de administrador necessárias
 
@@ -325,7 +325,7 @@ O [uso e as informações](./howto-authentication-methods-usage-insights.md) per
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 
-* Consulte [Solucionar problemas de redefinição de senha self-service](./active-directory-passwords-troubleshoot.md) 
+* Consulte [Solucionar problemas de redefinição de senha self-service](./troubleshoot-sspr.md) 
 
 * Siga [Perguntas frequentes sobre gerenciamento de senhas](./active-directory-passwords-faq.md) 
 

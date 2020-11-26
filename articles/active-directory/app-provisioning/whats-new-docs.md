@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 21307deb509d0735e4367f2b41603086f301bdeb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533524"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174655"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicativos Azure Active Directory: o que há de novo
 
@@ -44,7 +44,7 @@ Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos
 
 ### <a name="new-articles"></a>Novos artigos
 
-- [O que há de novo no docs?](whats-new-docs.md)
+- [O que há de novo no Docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de aplicativo no status de quarentena](application-provisioning-quarantine-status.md)
@@ -59,7 +59,7 @@ Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos
 
 
 ### <a name="updated-articles"></a>Artigos atualizados
-- [Configurar o provisionamento usando APIs de Microsoft Graph](application-provisioning-configure-api.md)
+- [Configurar o provisionamento usando APIs de Microsoft Graph](/graph/application-provisioning-configure-api)
 - [Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory](application-provisioning-config-problem-scim-compatibility.md)
 
 ## <a name="july-2020"></a>Julho de 2020

@@ -4,12 +4,12 @@ description: Saiba como conectar seu aplicativo de funções a Application Insig
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833071"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175739"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -230,7 +230,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 Para um aplicativo de funções enviar dados ao Application Insights, ele precisa saber a chave de instrumentação de um recurso do Application Insights. A chave deve estar em uma configuração de aplicativo chamada **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Ao criar seu aplicativo de funções [no portal do Azure](functions-create-first-azure-function.md), com a linha de comando usando o [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md), ou usando o [Visual Studio Code](functions-create-first-function-vs-code.md), a integração do Application Insights é habilitada por padrão. O recurso do Application Insights tem o mesmo nome do seu aplicativo de funções e é criado na mesma região ou na região mais próxima.
+Ao criar seu aplicativo de funções [no portal do Azure](functions-create-first-azure-function.md), com a linha de comando usando o [Azure Functions Core Tools](./create-first-function-cli-csharp.md), ou usando o [Visual Studio Code](./create-first-function-vs-code-csharp.md), a integração do Application Insights é habilitada por padrão. O recurso do Application Insights tem o mesmo nome do seu aplicativo de funções e é criado na mesma região ou na região mais próxima.
 
 ### <a name="new-function-app-in-the-portal"></a>Novo aplicativo de funções no portal
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173559"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -32,13 +32,13 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 ## <a name="basics"></a>Noções básicas
 
-![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção ler e entender as [políticas da plataforma Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Verifique se seu aplicativo segue os termos descritos como foram projetados para proteger os usuários e a plataforma.
+![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção ler e entender as [políticas da plataforma Microsoft](/legal/microsoft-identity-platform/terms-of-use). Verifique se seu aplicativo segue os termos descritos como foram projetados para proteger os usuários e a plataforma.
 
 ## <a name="ownership"></a>Propriedade
 
 ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) Verifique se as informações associadas à conta que você usou para registrar e gerenciar aplicativos estão atualizadas.
 
-## <a name="branding"></a>Identidade visual
+## <a name="branding"></a>Consolidação da marca
 
 ![a caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) adere às [diretrizes de identidade visual para aplicativos](howto-add-branding-in-azure-ad-apps.md).
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965617"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174557"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -31,7 +31,7 @@ Configurar esse recurso elimina a necessidade de digitar uma combinação de nom
 Este tópico:
 
 - Este tópico mostra como configurar e utilizar a autenticação baseada em certificado para usuários de locatários nos planos Office 365 corporativo, Business, educacional e governamental. Esse recurso está disponível na visualização em planos do Office 365 para China, defesa governamental e governo federal.
-- Pressupõe que você já tem uma [infraestrutura de chave pública (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [do AD FS](../hybrid/how-to-connect-fed-whatis.md) configurada.
+- Pressupõe que você já tem uma [infraestrutura de chave pública (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) e [do AD FS](../hybrid/how-to-connect-fed-whatis.md) configurada.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -154,7 +154,7 @@ Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-Az
 
 ## <a name="step-3-configure-revocation"></a>Etapa 3: configurar a revogação
 
-Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade**Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
+Para revogar um certificado do cliente, o Azure Active Directory busca a CRL (Lista de Certificados Revogados) nas URLs carregadas como parte das informações da autoridade de certificado e a armazena em cache. O carimbo de data/hora da última publicação (propriedade **Effective Date** ) na CRL é usado para garantir que a CRL continua sendo válida. A CRL é referenciada periodicamente para revogar o acesso a certificados que fazem parte da lista.
 
 Se uma revogação mais imediata for necessária (por exemplo, se um usuário perder um dispositivo), o token de autorização do usuário poderá ser invalidado. Para invalidar o token de autorização, defina o campo **StsRefreshTokenValidFrom** para esse usuário específico usando o Windows PowerShell. Você deve atualizar o campo **StsRefreshTokenValidFrom** para cada usuário do qual deseja revogar o acesso.
 

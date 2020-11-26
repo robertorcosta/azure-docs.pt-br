@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 48188adfc3648db76f2ca362f59de6986c7c1339
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393074"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174944"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -43,7 +43,7 @@ Para solicitar um conector de provisionamento automático do Azure Active Direct
 
 ## <a name="authorization"></a>Autorização
 
-As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para aplicativos da galeria, você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. Para aplicativos que não são da galeria, você pode consultar a documentação do [scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) para entender os tipos de credenciais e os requisitos. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
+As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para aplicativos da galeria, você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. Para aplicativos que não são da galeria, você pode consultar a documentação do [scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) para entender os tipos de credenciais e os requisitos. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -51,7 +51,7 @@ Ao habilitar o provisionamento de usuário para um aplicativo SaaS de terceiros,
 
 Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de usuário do Azure Active Directory e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos em conjunto com os Usuários, como Grupos.
 
-Ao configurar o provisionamento, é importante examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) são transmitidas entre o Azure Active Directory e o aplicativo. Examine e configure a propriedade correspondente ( **Corresponder objetos usando este atributo** ) usada para identificar e corresponder usuários/grupos com exclusividade entre os dois sistemas.
+Ao configurar o provisionamento, é importante examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) são transmitidas entre o Azure Active Directory e o aplicativo. Examine e configure a propriedade correspondente (**Corresponder objetos usando este atributo**) usada para identificar e corresponder usuários/grupos com exclusividade entre os dois sistemas.
 
 Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Sendo assim, você pode alterar ou excluir mapeamentos de atributos existentes ou criar mapeamentos. Para mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS](./customize-application-attributes.md).
 
@@ -62,7 +62,7 @@ Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de 
 
 Para o provisionamento de saída do Azure Active Directory para um aplicativo SaaS, depender de [atribuições de usuário ou grupo](../manage-apps/assign-user-or-group-access-portal.md) é a maneira mais comum de determinar quais usuários estão no escopo para provisionamento. Como as atribuições de usuário também são usadas para habilitar o logon único, o mesmo método pode ser usado para gerenciar o acesso e o provisionamento. O escopo baseado em atribuição não se aplica a cenários de provisionamento de entrada, como o Workday e o Successfactors.
 
-* **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento estiver definido como **Sincronizar somente usuários e grupos atribuídos** , o serviço de provisionamento do Azure Active Directory provisionará ou desprovisionará os usuários com base em sua associação a um grupo que é atribuído ao aplicativo. O objeto de grupo em si não é provisionado, a menos que o aplicativo dê suporte a objetos de grupo. Verifique se os grupos atribuídos ao seu aplicativo têm a propriedade "SecurityEnabled" definida como "True".
+* **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento estiver definido como **Sincronizar somente usuários e grupos atribuídos**, o serviço de provisionamento do Azure Active Directory provisionará ou desprovisionará os usuários com base em sua associação a um grupo que é atribuído ao aplicativo. O objeto de grupo em si não é provisionado, a menos que o aplicativo dê suporte a objetos de grupo. Verifique se os grupos atribuídos ao seu aplicativo têm a propriedade "SecurityEnabled" definida como "True".
 
 * **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure Active Directory pode ler e provisionar usuários em [grupos dinâmicos](../enterprise-users/groups-create-rule.md). Observe estas advertências e recomendações:
 
@@ -133,7 +133,7 @@ Após o ciclo inicial, todos os outros ciclos vão:
 10. Mantenha uma nova marca d'água ao final do ciclo incremental para fornecer o ponto de partida para os ciclos incrementais posteriores.
 
 > [!NOTE]
-> Você também pode desabilitar as operações de **criação** , **atualização** ou **exclusão** operações usando as caixas de seleção **Ações do objeto de destino** na seção [Mapeamentos](customize-application-attributes.md). A lógica para desabilitar um usuário durante uma atualização também é controlada por meio de um mapeamento de atributos em um campo como "accountEnabled".
+> Você também pode desabilitar as operações de **criação**, **atualização** ou **exclusão** operações usando as caixas de seleção **Ações do objeto de destino** na seção [Mapeamentos](customize-application-attributes.md). A lógica para desabilitar um usuário durante uma atualização também é controlada por meio de um mapeamento de atributos em um campo como "accountEnabled".
 
 O serviço de provisionamento continua executando ciclos incrementais back-to-back indefinidamente, em intervalos definidos no tutorial [específico para cada aplicativo](../saas-apps/tutorial-list.md). Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
 

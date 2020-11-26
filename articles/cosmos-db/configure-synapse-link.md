@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334524"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175926"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurar e usar o Link do Azure Synapse para Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -63,7 +63,7 @@ Você pode ativar o repositório analítico em um contêiner Azure Cosmos ao cri
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com/) ou no [Azure Cosmos Explorer](https://cosmos.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer**.
 
@@ -75,7 +75,7 @@ Você pode ativar o repositório analítico em um contêiner Azure Cosmos ao cri
 
 1. Selecione **OK** para criar um contêiner do Azure Cosmos habilitado para repositório analítico.
 
-1. Depois que o contêiner for criado, verifique se o repositório analítico foi habilitado clicando em **configurações** , logo abaixo dos documentos em data Explorer e verifique se a opção **vida útil do repositório analítico** está ativada.
+1. Depois que o contêiner for criado, verifique se o repositório analítico foi habilitado clicando em **configurações**, logo abaixo dos documentos em data Explorer e verifique se a opção **vida útil do repositório analítico** está ativada.
 
 ### <a name="net-sdk"></a>SDK .NET
 
@@ -171,7 +171,7 @@ Depois que o repositório analítico é habilitado com um determinado valor de T
 
 Se você criou um contêiner de repositório analítico habilitado por meio do portal do Azure, ele contém um TTL analítico padrão de -1. Use as etapas a seguir para atualizar este valor:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) ou no [Azure Cosmos Explorer](https://cosmos.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer**.
 

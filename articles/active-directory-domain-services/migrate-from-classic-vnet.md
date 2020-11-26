@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: joflore
-ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968167"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175365"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar Azure Active Directory Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
@@ -230,7 +230,7 @@ Com o domínio gerenciado preparado e submetido a backup, o domínio pode ser mi
 
 Execute o `Migrate-Aadds` cmdlet usando o parâmetro *-Commit* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado preparado na seção anterior, como *aaddscontoso.com*:
 
-Especifique o grupo de recursos de destino que contém a rede virtual para a qual você deseja migrar AD DS do Azure, como *MyResource*Group. Forneça a rede virtual de destino, como *myVnet*, e a sub-rede, como *DomainServices*.
+Especifique o grupo de recursos de destino que contém a rede virtual para a qual você deseja migrar AD DS do Azure, como *MyResource* Group. Forneça a rede virtual de destino, como *myVnet*, e a sub-rede, como *DomainServices*.
 
 Depois que esse comando for executado, você não poderá reverter:
 
@@ -302,7 +302,7 @@ Se necessário, você pode atualizar a política de senha refinada para ser meno
 
 1. [Configure a política de senha][password-policy] para menos restrições no domínio gerenciado e observe os eventos nos logs de auditoria.
 1. Se qualquer conta de serviço estiver usando senhas expiradas, conforme identificado nos logs de auditoria, atualize essas contas com a senha correta.
-1. Se uma VM for exposta à Internet, examine nomes de conta genérica como *administrador*, *usuário*ou *convidado* com tentativas de entrada altas. Sempre que possível, atualize essas VMs para usar contas com nomes menos genéricos.
+1. Se uma VM for exposta à Internet, examine nomes de conta genérica como *administrador*, *usuário* ou *convidado* com tentativas de entrada altas. Sempre que possível, atualize essas VMs para usar contas com nomes menos genéricos.
 1. Use um rastreamento de rede na VM para localizar a origem dos ataques e impedir que esses endereços IP sejam capazes de tentar entrar.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senha refinada para ser tão restritiva quanto necessário.
 
@@ -314,7 +314,7 @@ Até um determinado ponto no processo de migração, você pode optar por revert
 
 Se houver um erro quando você executar o cmdlet do PowerShell para se preparar para a migração na etapa 2 ou para a migração em si na etapa 3, o domínio gerenciado poderá reverter para a configuração original. Essa reversão requer a rede virtual clássica original. Os endereços IP ainda podem ser alterados após a reversão.
 
-Execute o `Migrate-Aadds` cmdlet usando o parâmetro *-Abort* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado preparado em uma seção anterior, como *aaddscontoso.com*e o nome da rede virtual clássica, como *myClassicVnet*:
+Execute o `Migrate-Aadds` cmdlet usando o parâmetro *-Abort* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado preparado em uma seção anterior, como *aaddscontoso.com* e o nome da rede virtual clássica, como *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
@@ -331,7 +331,7 @@ Como último recurso, Azure AD Domain Services pode ser restaurado do último ba
 
 Para restaurar o domínio gerenciado do backup, [abra um tíquete de caso de suporte usando o portal do Azure][azure-support]. Forneça a ID do diretório, o nome de domínio e o motivo da restauração. O processo de suporte e restauração pode levar vários dias para ser concluído.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Se você tiver problemas após a migração para o modelo de implantação do Gerenciador de recursos, examine algumas das seguintes áreas comuns de solução de problemas:
 
@@ -360,7 +360,7 @@ Com o domínio gerenciado migrado para o modelo de implantação do Gerenciador 
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

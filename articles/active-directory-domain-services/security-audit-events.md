@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967725"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175161"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services
 
@@ -63,11 +63,11 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o por
     ![Habilitar o destino necessário e o tipo de eventos de auditoria a serem capturados](./media/security-audit-events/diagnostic-settings-page.png)
 
     * **Armazenamento do Azure**
-        * Selecione **arquivar em uma conta de armazenamento**e, em seguida, escolha **Configurar**.
+        * Selecione **arquivar em uma conta de armazenamento** e, em seguida, escolha **Configurar**.
         * Selecione a **assinatura** e a **conta de armazenamento** que você deseja usar para arquivar eventos de auditoria de segurança.
         * Quando estiver pronto, escolha **OK**.
     * **Hubs de eventos do Azure**
-        * Selecione **fluxo para um hub de eventos**e escolha **Configurar**.
+        * Selecione **fluxo para um hub de eventos** e escolha **Configurar**.
         * Selecione a **assinatura** e o **namespace do hub de eventos**. Se necessário, escolha também um **nome de Hub de eventos** e, em seguida, **nome da política do hub de eventos**.
         * Quando estiver pronto, escolha **OK**.
     * **Espaços de trabalho de análise de logs do Azure**
@@ -95,7 +95,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
 1. Crie o recurso de destino para os eventos de auditoria de segurança.
 
     * **Armazenamento**  -  do Azure [Criar uma conta de armazenamento usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * Hubs de eventos **do Azure**  -  [Crie um hub de eventos usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Talvez você também precise usar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de AD DS do Azure para o *namespace*do hub de eventos. A regra de autorização deve incluir os direitos **gerenciar**, **escutar**e **Enviar** .
+    * Hubs de eventos **do Azure**  -  [Crie um hub de eventos usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Talvez você também precise usar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de AD DS do Azure para o *namespace* do hub de eventos. A regra de autorização deve incluir os direitos **gerenciar**, **escutar** e **Enviar** .
 
         > [!IMPORTANT]
         > Verifique se você definiu a regra de autorização no namespace do hub de eventos e não no próprio Hub de eventos.
@@ -141,7 +141,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
 Os espaços de trabalho de análise de log permitem exibir e analisar os eventos de auditoria de segurança usando Azure Monitor e a linguagem de consulta Kusto. Essa linguagem de consulta é projetada para uso somente leitura que apresenta recursos de análise de energia com uma sintaxe de fácil leitura. Para obter mais informações sobre como começar a usar as linguagens de consulta do Kusto, consulte os seguintes artigos:
 
 * [Documentação do Azure Monitor](../azure-monitor/index.yml)
-* [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Criar e compartilhar painéis de dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
