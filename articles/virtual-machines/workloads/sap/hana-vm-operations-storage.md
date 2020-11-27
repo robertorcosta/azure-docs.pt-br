@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967458"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299523"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -273,7 +273,7 @@ Para obter detalhes sobre o seja para HANA, leia os volumes do documento [NFS v 
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solução consciente de custo com o armazenamento Premium do Azure
-Até agora, a solução de armazenamento Premium do Azure descrita neste documento na seção [soluções com armazenamento Premium e acelerador de gravação do Azure para máquinas virtuais da série M do Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) foi destinada para SAP Hana cenários com suporte de produção. Uma das características das configurações com suporte de produção é a separação dos volumes para SAP HANA dados e o log de restauração em dois volumes diferentes. A razão para essa separação é que as características de carga de trabalho nos volumes são diferentes. E isso com as configurações de produção sugeridas, um tipo diferente de cache ou até mesmo tipos diferentes de armazenamento de bloco do Azure poderia ser necessário. As configurações de produção com suporte usando o destino de armazenamento de bloco do Azure para serem compatíveis com o [SLA de VM única para máquinas virtuais do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) também.  Para cenários de não produção, algumas das considerações tomadas para sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, o volume de dados e de log do HANA pode ser combinado. Embora, eventualmente, com alguns culpados, como eventualmente não atender a determinados KPIs de taxa de transferência ou latência que são necessários para sistemas de produção. Outro aspecto para reduzir os custos em tais ambientes pode ser o uso do [armazenamento de SSD standard do Azure](./planning-guide-storage.md#azure-standard-ssd-storage). Embora seja uma opção que invalida o [SLA de VM única para máquinas virtuais do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Até agora, a solução de armazenamento Premium do Azure descrita neste documento na seção [soluções com armazenamento Premium e acelerador de gravação do Azure para máquinas virtuais da série M do Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) foi destinada para SAP Hana cenários com suporte de produção. Uma das características das configurações com suporte de produção é a separação dos volumes para SAP HANA dados e o log de restauração em dois volumes diferentes. A razão para essa separação é que as características de carga de trabalho nos volumes são diferentes. E isso com as configurações de produção sugeridas, um tipo diferente de cache ou até mesmo tipos diferentes de armazenamento de bloco do Azure poderia ser necessário. Para cenários de não produção, algumas das considerações tomadas para sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, o volume de dados e de log do HANA pode ser combinado. Embora, eventualmente, com alguns culpados, como eventualmente não atender a determinados KPIs de taxa de transferência ou latência que são necessários para sistemas de produção. Outro aspecto para reduzir os custos em tais ambientes pode ser o uso do [armazenamento de SSD standard do Azure](./planning-guide-storage.md#azure-standard-ssd-storage). Tenha em mente que a escolha de SSD Standard ou HDD Standard o armazenamento do Azure tenha impacto sobre seus SLAs de VM única, conforme documentado no artigo  [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Uma alternativa menos dispendiosa para essas configurações poderia ser semelhante a:
 

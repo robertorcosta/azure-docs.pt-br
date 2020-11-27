@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3f0a9f0b7fdef26cf1ef2b145ede1826fda6ebd
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685589"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299608"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Usar metadados de arquivo em consultas de pool de SQL sem servidor
 
@@ -76,7 +76,7 @@ ORDER BY
 
 A função filepath retorna um caminho completo ou parcial:
 
-- Quando chamada sem um parâmetro, ela retorna o caminho completo do arquivo de onde a linha se origina.
+- Quando chamada sem um parâmetro, ela retorna o caminho completo do arquivo de onde a linha se origina. Quando DATA_SOURCE é usado em OPENROWSET, ele retorna o caminho relativo a DATA_SOURCE. 
 - Quando chamada com um parâmetro, ela retorna parte do caminho correspondente ao caractere curinga na posição especificada no parâmetro. Por exemplo, o valor de parâmetro 1 retornaria a parte do caminho correspondente ao primeiro caractere curinga.
 
 O exemplo a seguir lê arquivos de dados de Táxis amarelos em NYC relativos aos últimos três meses de 2017. Ele retorna o número de corridas por caminho de arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.

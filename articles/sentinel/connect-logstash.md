@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655673"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299625"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usar o Logstash para conectar fontes de dados ao Azure Sentinel
 
@@ -57,7 +57,7 @@ O plug-in de saída do Sentinela do Azure para Logstash envia dados formatados e
 
 O plug-in de saída do Sentinela do Azure está disponível na coleção Logstash.
 
-- Siga as instruções no documento Logstash [trabalhando com plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plug-in **_Microsoft-Logstash-output-Azure-loganalytics_* _.
+- Siga as instruções no documento Logstash [trabalhando com plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plug-in **_[Microsoft-Logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
    
 - Se o sistema Logstash não tiver acesso à Internet, siga as instruções no documento de [Gerenciamento de plug-ins offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) do Logstash para preparar e usar um pacote de plugin offline. (Isso exigirá que você crie outro sistema Logstash com acesso à Internet.)
 

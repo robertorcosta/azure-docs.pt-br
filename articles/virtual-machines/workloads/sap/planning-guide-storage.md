@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955405"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299591"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para carga de trabalho SAP
 O Azure tem vários tipos de armazenamento que diferem amplamente em recursos, taxa de transferência, latência e preços. Alguns dos tipos de armazenamento não são, ou do uso limitado para cenários SAP. Enquanto que vários tipos de armazenamento do Azure são adequados ou otimizados para cenários de carga de trabalho SAP específicos. Especialmente para SAP HANA, alguns tipos de armazenamento do Azure receberam certificação para o uso com SAP HANA. Neste documento, vamos percorrer os diferentes tipos de armazenamento e descrever sua capacidade e usabilidade com cargas de trabalho do SAP e componentes SAP.
@@ -34,6 +34,8 @@ Comentário sobre as unidades usadas em todo este artigo. Os fornecedores de nuv
 Microsoft Azure armazenamento de HDD Standard, SSD Standard, armazenamento Premium do Azure e ultra Disk mantém o VHD base (com o sistema operacional) e os discos de dados anexados à VM ou VHDs em três cópias em três nós de armazenamento diferentes. O failover para outra réplica e a propagação de uma nova réplica no caso de uma falha de nó de armazenamento é transparente. Como resultado dessa redundância, **não** é necessário usar qualquer tipo de camada de redundância de armazenamento em vários discos do Azure. Esse fato é chamado de Armazenamento com Redundância Local (LRS). LRS é o padrão para esses tipos de armazenamento no Azure. [Azure NetApp files](https://azure.microsoft.com/services/netapp/) fornece redundância suficiente para alcançar os mesmos SLAs que o armazenamento do Azure nativo.
 
 Há vários outros métodos de redundância, que são todos descritos no artigo replicação de [armazenamento do Azure](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) que se aplicam a alguns dos diferentes tipos de armazenamento que o Azure tem a oferecer. 
+
+Lembre-se também de que diferentes tipos de armazenamento do Azure influenciam os SLAs de disponibilidade de VM única lançados em [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 ### <a name="azure-managed-disks"></a>Managed disks do Azure
 
@@ -131,7 +133,6 @@ Esse tipo de armazenamento destina-se a cargas de trabalho do DBMS, tráfego de 
 - A taxa de transferência de e/s para esse armazenamento não é linear com o tamanho da categoria de disco. Para discos menores, como a categoria entre 65 GiB e 128 GiB de capacidade, a taxa de transferência está em volta de 780KB/GiB. Enquanto para discos extremos grandes, como um disco de 32.767 GiB, a taxa de transferência está em cerca de 28KB/GiB
 - Os SLAs de taxa de transferência e IOPS não podem ser alterados sem alterar a capacidade do disco
 
-O Azure tem um SLA de VM de instância única de 99,9% que está vinculado ao uso do armazenamento Premium do Azure ou ao armazenamento do Azure ultra Disk. O SLA é documentado em [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para estar em conformidade com esse único SLA de VM, o disco VHD de base, bem como **todos os** discos anexados, precisam ser o armazenamento Premium do Azure ou o armazenamento de disco do Azure ultra.
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
