@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
-ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911436"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532249"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço de Detecção Facial do Azure?
 
@@ -48,7 +48,7 @@ A API de Verificação executa uma autenticação com relação a dois rostos de
 
 A API de Localização de Semelhantes faz a correspondência facial entre o rosto de destino e um conjunto de rostos candidatos, encontrando um conjunto menor de rostos que são mais semelhantes ao rosto de destino. Isso é útil para fazer uma pesquisa facial por imagem. 
 
-Dois modos de trabalho, **matchPerson** e **matchFace** , têm suporte. O modo **matchPerson** retorna rostos semelhantes após a filtragem pela mesma pessoa usando a [API de Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **matchFace** ignora a filtragem pela mesma pessoa. Ele retorna uma lista de rostos candidatos parecidos que podem ou não pertencer à mesma pessoa.
+Dois modos de trabalho, **matchPerson** e **matchFace**, têm suporte. O modo **matchPerson** retorna rostos semelhantes após a filtragem pela mesma pessoa usando a [API de Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **matchFace** ignora a filtragem pela mesma pessoa. Ele retorna uma lista de rostos candidatos parecidos que podem ou não pertencer à mesma pessoa.
 
 O exemplo a seguir mostra o rosto selecionado:
 
@@ -76,9 +76,9 @@ Depois de criar e treinar um banco de dados, você poderá fazer a identificaç�
 
 Para saber mais sobre a identificação da pessoa, confira o guia de conceitos de [Reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API de Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="containers"></a>Contêineres
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 
-[Use o contêiner de Detecção Facial](face-how-to-install-containers.md) para detectar, reconhecer e identificar rostos, instalando um contêiner do Docker padronizado mais próximos aos seus dados.
+[Use o contêiner da Detecção Facial (versão prévia)](face-how-to-install-containers.md) para implantar recursos de API no local. Esse contêiner do Docker permite que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="sample-apps"></a>Aplicativos de exemplo
 

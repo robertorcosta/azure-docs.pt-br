@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966234"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301943"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 
@@ -44,7 +44,7 @@ A implementação de uma solução de recuperação de desastre de um clique, qu
    - Dispositivo de armazenamento do StorSimple local registrado com o Azure StorSimple Manager
    - Dispositivo de Nuvem StorSimple criado no gerenciador do Azure StorSimple. O dispositivo pode ser mantido em um estado de desligamento.
    - Compartilhamentos de arquivos hospedados em volumes configurados no dispositivo de armazenamento do StorSimple
-   - [Cofre de serviços do Azure Site Recovery](/azure/storsimple/hyper-v-vmm-disaster-recovery) criado em uma assinatura do Microsoft Azure
+   - [Cofre de serviços do Azure Site Recovery](/azure/site-recovery/hyper-v-vmm-azure-tutorial) criado em uma assinatura do Microsoft Azure
 
 Além disso, se o Azure for seu site de recuperação, execute a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery.
 
@@ -91,7 +91,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
          > [!NOTE]
          > O nome do arquivo poderá mudar dependendo da versão.
       
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 1. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 1. Clique em **Concluir**.
 1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](./index.yml).
@@ -112,7 +112,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    1. Use a função Serviços de Arquivo e Armazenamento para criar compartilhamentos de arquivos nesses volumes.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Para criar e preparar um cofre do Azure Site Recovery
-Confira a [documentação do Azure Site Recovery](/azure/storsimple/hyper-v-azure-tutorial) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
+Confira a [documentação do Azure Site Recovery](/azure/site-recovery/) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
 
 #### <a name="to-enable-protection"></a>Para habilitar a proteção
 1. Desconecte os destinos iSCSI das VMs locais que você deseja proteger por meio do Azure Site Recovery:
@@ -124,7 +124,7 @@ Confira a [documentação do Azure Site Recovery](/azure/storsimple/hyper-v-azur
    > [!NOTE]
    > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis.
    
-1. [Habilitar a proteção da máquina virtual](/azure/storsimple/hyper-v-azure-tutorial) da VM do servidor de arquivos do portal do Azure Site Recovery.
+1. [Habilitar a proteção da máquina virtual](/azure/site-recovery/hyper-v-azure-tutorial) da VM do servidor de arquivos do portal do Azure Site Recovery.
 1. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
 1. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 

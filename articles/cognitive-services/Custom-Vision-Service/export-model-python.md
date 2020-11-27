@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616035"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736418"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: executar um modelo TensorFlow em Python
 
@@ -34,7 +34,7 @@ Para usar o tutorial, você precisa do seguinte:
 
 Em seguida, será necessário instalar os pacotes a seguir:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Carregar seu modelo e suas marcas
 
-O arquivo zip baixado contém um model.pb e um labels.txt. Esses arquivos representam o modelo treinado e os rótulos de classificação. A primeira etapa é carregar o modelo para o seu projeto.
+O arquivo .zip baixado contém um arquivo _model.pb_ e _labels.txt_. Esses arquivos representam o modelo treinado e os rótulos de classificação. A primeira etapa é carregar o modelo para o seu projeto. Adicione o código a seguir a um novo script do Python.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Adicionar funções auxiliares
+
 As etapas acima usam as funções auxiliares a seguir:
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>Exibir os resultados
+## <a name="display-the-results"></a>Exibir os resultados
 
 Os resultados da execução do tensor de imagem por meio do modelo precisarão ser mapeados de volta para os rótulos.
 

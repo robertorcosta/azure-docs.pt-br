@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimentos, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365288"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519397"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -47,9 +47,18 @@ A detecção de idioma pode [detectar o idioma em que o texto de entrada foi esc
 
 O NER (Reconhecimento de Entidade Nomeada) pode [Identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, lugares, organizações, quantidades. Entidades conhecidas também são reconhecidas e vinculadas a mais informações na Web.
 
-## <a name="use-containers"></a>Usar contêineres
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 
-[Use os contêineres de Análise de Texto](how-tos/text-analytics-how-to-install-containers.md) como uma solução local para minerar texto e usar a API. Esses contêineres do Docker permitem que você extraia frases-chave, detecte o idioma e analise sentimentos mais perto dos seus dados.
+[Use os contêineres da Análise de Texto](how-tos/text-analytics-how-to-install-containers.md) para implantar recursos de API no local. Esses contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais. A Análise de Texto oferece os seguintes contêineres:
+
+* análise de sentimento
+* Extração de frases-chave (versão prévia)
+* Detecção de idioma (versão prévia)
+* Análise de Texto para integridade (versão prévia)
+
+## <a name="asynchronous-operations"></a>Operações assíncronas
+
+O ponto de extremidade `/analyze` permite que você use os recursos selecionados da API de Análise de Texto [de maneira assíncrona](how-tos/text-analytics-how-to-call-api.md), como o NER e a Extração de Frases-chave.
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 

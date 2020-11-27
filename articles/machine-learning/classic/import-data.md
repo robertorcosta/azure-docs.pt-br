@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309844"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302779"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe seus dados de treinamento para Azure Machine Learning Studio (clássico) de várias fontes de dados
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Para usar seus próprios dados no Machine Learning Studio (clássico) para desenvolver e treinar uma solução de análise preditiva, você pode usar dados de: 
 
 * **Arquivo local** – carregue dados locais antecipadamente do disco rígido para criar um módulo de conjunto de dados em seu workspace
-* **Fontes de dados on-line** : use o módulo [Importar dados][import-data] para acessar dados de uma das várias fontes on-line enquanto sua experiência está em exibição
+* **Fontes de dados on-line**: use o módulo [Importar dados][import-data] para acessar dados de uma das várias fontes on-line enquanto sua experiência está em exibição
 * **Teste de Machine Learning Studio (clássico)** -usar dados que foram salvos como um conjunto em Machine Learning Studio (clássico)
 * [**Banco**](use-data-from-an-on-premises-sql-server.md) de dados de SQL Server-usar de um SQL Server banco de dados sem a necessidade de copiar manualmente
 
@@ -54,7 +54,7 @@ Você pode importar vários tipos de dados para seu experimento, dependendo de q
 * Tabela de Banco de Dados SQL
 * Valores de OData
 * Dados SVMLight (.svmlight) (consulte a [definição de SVMLight](http://svmlight.joachims.org/) para obter informações sobre o formato)
-* Attribute Relation File Format (ARFF) (.arff) (consulte a [definição de ARFF](https://weka.wikispaces.com/ARFF) para obter informações sobre o formato)
+* Attribute Relation File Format (ARFF) (.arff) (consulte a [definição de ARFF](https://www.cs.waikato.ac.nz/ml/weka/arff.html) para obter informações sobre o formato)
 * Arquivo zip (.zip)
 * Arquivo de workspace ou objeto R (.RData)
 
@@ -73,12 +73,12 @@ Os seguintes tipos de dados são reconhecidos pelo estúdio (clássico):
 * DateTime
 * TimeSpan
 
-O estúdio usa um tipo de dados interno chamado * **tabela de dados** _ para passar dados entre módulos. Você pode converter explicitamente os dados no formato de tabela de dados usando o módulo [Converter em conjunto de dados][convert-to-dataset].
+O estúdio usa um tipo de dados interno chamado ***tabela de dados** _ para passar dados entre módulos. Você pode converter explicitamente os dados no formato de tabela de dados usando o módulo [Converter em conjunto de dados][convert-to-dataset].
 
 Qualquer módulo que aceite formatos que não sejam a tabela de dados converterá os dados para a tabela de dados silenciosamente antes de passá-los para o próximo módulo.
 
 Se necessário, você poderá converter o formato de tabela de dados novamente no formato CSV, TSV, ARFF ou SVMLight usando outros módulos de conversão.
-Examine a seção _ *conversões de formato de dados* * da paleta de módulo para módulos que executam essas funções.
+Examine a seção _ *conversões de formato de dados** da paleta de módulo para módulos que executam essas funções.
 
 ## <a name="data-capacities"></a>Capacidades de dados
 
@@ -150,7 +150,7 @@ As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta t
 > Atualmente, os módulos [Importar Dados][import-data] e [Exportar Dados][export-data] podem ler e gravar dados somente no armazenamento do Azure criado usando o modelo de implantação Clássico. Em outras palavras, o novo tipo de conta de Armazenamento de Blobs do Azure que oferece uma camada de acesso de armazenamento dinâmica ou uma camada de acesso de armazenamento estática ainda não é compatível.
 >
 > De modo geral, as contas de armazenamento do Azure que você possa ter criado antes de essa opção se tornar disponível não deverão ser afetadas.
-> Se precisar criar uma nova conta, escolha **Clássico** para o modelo de Implantação, ou use o Gerenciador de Recursos e selecione **Objetivo Geral** , em vez de **Armazenamento de Blobs** , para **Tipo de conta**.
+> Se precisar criar uma nova conta, escolha **Clássico** para o modelo de Implantação, ou use o Gerenciador de Recursos e selecione **Objetivo Geral**, em vez de **Armazenamento de Blobs**, para **Tipo de conta**.
 >
 > Para saber mais, confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../storage/blobs/storage-blob-storage-tiers.md).
 

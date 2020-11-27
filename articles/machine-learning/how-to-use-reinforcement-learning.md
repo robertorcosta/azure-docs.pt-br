@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012918"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302580"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Reinforcement Learning (versão prévia) com Azure Machine Learning
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Especificar uma rede virtual
 
-Para trabalhos de RL que usam vários destinos de computação, você deve especificar uma rede virtual com portas abertas que permitam que nós de trabalho e nós de cabeçalho se comuniquem entre si. A rede virtual pode estar em qualquer grupo de recursos, mas deve estar na mesma região que seu workspace. Para obter mais informações sobre como configurar sua rede virtual, consulte o [notebook de configuração do workspace](https://aka.ms/azure-rl-env-setup) que pode ser encontrado na seção de pré-requisitos. Aqui, você especifica o nome da rede virtual em seu grupo de recursos.
+Para trabalhos de RL que usam vários destinos de computação, você deve especificar uma rede virtual com portas abertas que permitam que nós de trabalho e nós de cabeçalho se comuniquem entre si. A rede virtual pode estar em qualquer grupo de recursos, mas deve estar na mesma região que seu workspace. Para obter mais informações sobre como configurar sua rede virtual, consulte o notebook de configuração do workspace que pode ser encontrado na seção de pré-requisitos. Aqui, você especifica o nome da rede virtual em seu grupo de recursos.
 
 ```python
 vnet = 'your_vnet'

@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: a71762010984928b93c19c7256c2ba4f0fe0f64b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94503985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028236"
 ---
 | Recurso | Compartilhamentos de arquivos padrão\* | Compartilhamentos de arquivos Premium |
 |----------|---------------|------------------------------------------|
@@ -27,6 +27,7 @@ ms.locfileid: "94503985"
 | Tamanho máximo do nome do objeto (diretórios e arquivos) | 2\.048 caracteres | 2\.048 caracteres |
 | Componente de nome de caminho máximo (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |
 | Limite de vínculo físico (somente NFS) | N/D | 178 |
+| Número máximo de canais do SMB Multichannel | N/D | 4 |
 
 \* Os limites para compartilhamentos de arquivo padrão aplicam-se a três camadas disponíveis para esses compartilhamentos: otimizado para transação, quente e frio.
 

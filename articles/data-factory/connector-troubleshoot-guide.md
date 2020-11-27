@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023833"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301264"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -440,7 +440,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Mensagem**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Causa**: Quando você definir “firstRowAsHeader” na atividade, a primeira linha será usada como nome da coluna. Esse erro significa que a primeira linha contém um valor vazio. Por exemplo: ' ColumnA,, coluna b '.
+- **Causa**: Quando você definir “firstRowAsHeader” na atividade, a primeira linha será usada como nome da coluna. Esse erro significa que a primeira linha contém um valor vazio. Por exemplo: ' ColumnA, coluna b '.
 
 - **Recomendação**:  Verifique a primeira linha e corrija o valor se houver um valor vazio.
 
@@ -449,7 +449,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Mensagem**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Causa**: A contagem de colunas da linha problemática é maior do que a contagem de colunas da primeira linha. Pode ser causado por problemas de dados ou configurações incorretas de caractere delimitador de coluna/caractere de cotação.
+- **Causa**: a contagem de colunas da linha problemática é maior que a contagem de colunas da primeira linha. Pode ser causado por problemas de dados ou configurações incorretas de caractere delimitador de coluna/caractere de cotação.
 
 - **Recomendação**: obter a contagem de linhas na mensagem de erro, verificar a coluna da linha e corrigir os dados.
 
@@ -645,6 +645,29 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Recomendação**:  Remova “CompressionType” do payload.
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Resposta de rede inesperada do conector REST
+
+- **Sintomas**: o ponto de extremidade às vezes recebe resposta inesperada (400/401/403/500) do conector REST.
+
+- **Causa**: o conector de origem REST usa URL e método HTTP/cabeçalho/corpo de um serviço vinculado/conjunto de conteúdo/fonte de cópia como parâmetros ao construir uma solicitação HTTP. O problema é provavelmente causado por alguns erros em um ou mais parâmetros especificados.
+
+- **Resolução**: 
+    - Use ' ondulação ' na janela cmd para verificar se o parâmetro é a causa ou não (os cabeçalhos **Accept** e **User-Agent** devem ser sempre incluídos):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Se o comando retornar a mesma resposta inesperada, corrija os parâmetros acima com ' ondulação ' até que ele retorne a resposta esperada. 
+
+      Além disso, você pode usar ' enrolation--Help ' para uso mais avançado do comando.
+
+    - Se apenas o conector REST do ADF retornar uma resposta inesperada, entre em contato com o suporte da Microsoft para obter mais soluções de problemas.
+    
+    - Observe que a ' ondulação ' pode não ser adequada para reproduzir o problema de validação do certificado SSL. Em alguns cenários, o comando ' ondulação ' foi executado com êxito sem alcançar nenhum problema de validação de certificado SSL. Mas quando a mesma URL é executada no navegador, nenhum certificado SSL é realmente retornado em primeiro lugar para o cliente estabelecer uma relação de confiança com o servidor.
+
+      Ferramentas como o **postmaster** e o **Fiddler** são recomendadas para o caso acima.
 
 
 ## <a name="general-copy-activity-error"></a>Erro geral de atividade de cópia

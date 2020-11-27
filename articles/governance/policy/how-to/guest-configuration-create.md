@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 124f747a1e7c7925efc2519ee826d62034e69cc5
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700669"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302699"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -160,7 +160,7 @@ O pacote fechado é usado pela Configuração de Convidado para criar as defini�
 
 Os cmdlets do PowerShell auxiliam na criação do pacote.
 Nenhuma pasta de nível de raiz ou de versão é necessária.
-O formato do pacote deve ser um arquivo zip.
+O formato do pacote deve ser um arquivo. zip e não pode exceder um tamanho total de 100 MB quando não compactado.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Armazenar artefatos de Configuração de Convidado
 

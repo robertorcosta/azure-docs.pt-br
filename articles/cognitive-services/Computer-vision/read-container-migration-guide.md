@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0ae7bb9acde3cc8552a23db12d208a82ba0fb2f3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676161"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800869"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para contêineres de OCR de Leitura v3.x
 
@@ -29,13 +29,13 @@ Caso esteja usando a versão 2 do contêiner de OCR de Leitura da Pesquisa Visua
 
 ## <a name="api-changes"></a>Alterações de API
 
-O contêiner da Leitura v3.1 usa a versão 3 da API da Pesquisa Visual Computacional e tem os seguintes pontos de extremidade:
+O contêiner da Leitura v3.2 usa a versão 3 da API da Pesquisa Visual Computacional e tem os seguintes pontos de extremidade:
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
-Confira o [guia de migração da API REST da Pesquisa Visual Computacional v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) para obter informações detalhadas sobre como atualizar seus aplicativos para usar a versão 3 da API de Leitura baseada em nuvem. Essas informações também se aplicarão ao contêiner. Observe que as operações de sincronização são compatíveis somente com contêineres.
+Confira o [guia de migração da API REST da Pesquisa Visual Computacional v3](./upgrade-api-versions.md) para obter informações detalhadas sobre como atualizar seus aplicativos para usar a versão 3 da API de Leitura baseada em nuvem. Essas informações também se aplicarão ao contêiner. Observe que as operações de sincronização são compatíveis somente com contêineres.
 
 ## <a name="memory-requirements"></a>Requisitos de memória
 
@@ -43,7 +43,7 @@ Os requisitos e as recomendações são baseados em parâmetros de comparação 
 
 |Contêiner  |Mínimo | Recomendado  |
 |---------|---------|------|
-|Leitura 3.1 – versão prévia | 8 núcleos, 16 GB de memória         | 8 núcleos, 24 GB de memória |
+|3\.2-preview da Leitura | 8 núcleos, 16 GB de memória         | 8 núcleos, 24 GB de memória |
 
 Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
 

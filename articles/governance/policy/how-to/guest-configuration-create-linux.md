@@ -4,12 +4,12 @@ description: Saiba como criar uma política de Configuração de Convidado do Az
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694235"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302706"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -89,6 +89,10 @@ A DSC está agindo como um wrapper do InSpec para padronizar como ele é executa
 #### <a name="configuration-requirements"></a>Requisitos de configuração
 
 O nome da configuração personalizada deve ser o mesmo em todos os lugares. O nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF e o nome da atribuição de convidado no modelo de Azure Resource Manager (modelo ARM), deve ser o mesmo.
+
+Os cmdlets do PowerShell auxiliam na criação do pacote.
+Nenhuma pasta de nível de raiz ou de versão é necessária.
+O formato do pacote deve ser um arquivo zip. e não pode exceder um tamanho total de 100 MB quando não compactado.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Personalizar a Configuração de Convidado no Linux
 

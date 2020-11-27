@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629743"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532283"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -64,7 +64,7 @@ Gere uma descrição de uma imagem inteira em linguagem compreendida por humanos
 
 ### <a name="detect-faces"></a>Detectar faces
 
-Detecte rostos em uma imagem e forneça informações sobre cada rosto detectado. A Pesquisa Visual Computacional retorna as coordenadas, o retângulo, o sexo e a idade de cada rosto detectado.<br/>A Pesquisa Visual Computacional fornece um subconjunto da funcionalidade do serviço [Detecção Facial](/azure/cognitive-services/face/). Você pode usar o serviço de Detecção Facial para uma análise mais detalhada, como identificação facial e detecção de pose. [Detectar faces](concept-detecting-faces.md)
+Detecte rostos em uma imagem e forneça informações sobre cada rosto detectado. A Pesquisa Visual Computacional retorna as coordenadas, o retângulo, o sexo e a idade de cada rosto detectado.<br/>A Pesquisa Visual Computacional fornece um subconjunto da funcionalidade do serviço [Detecção Facial](../face/index.yml). Você pode usar o serviço de Detecção Facial para uma análise mais detalhada, como identificação facial e detecção de pose. [Detectar faces](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Detectar tipos de imagem
 
@@ -90,13 +90,12 @@ Analise o conteúdo de uma imagem para retornar as coordenadas da *área de inte
 
 Use a Pesquisa Visual Computacional para [detectar conteúdo para adulto](concept-detecting-adult-content.md) em uma imagem e retornar pontuações de confiança para diferentes classificações. O limite para a sinalização de conteúdo pode ser definido em uma escala deslizante para acomodar suas preferências.
 
-## <a name="use-containers"></a>Usar contêineres
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 
-Use os contêineres do Docker da Pesquisa Visual Computacional para empregar o serviço no local. Atualmente, há dois contêineres disponíveis:
+Use os contêineres da Pesquisa Visual Computacional para implantar recursos de API no local. Esses contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais. A Pesquisa Visual Computacional oferece os seguintes contêineres:
 
-* O [contêiner de leitura da Pesquisa Visual Computacional](computer-vision-how-to-install-containers.md) permite que você reconheça textos impressos e manuscritos nas imagens.
-
-* O [contêiner de análise espacial da Pesquisa Visual Computacional](spatial-analysis-container.md) permite que você analise vídeos de streaming em tempo real para entender as relações espaciais existentes entre as pessoas e a movimentação delas nos ambientes físicos.
+* O [contêiner de OCR de leitura da Pesquisa Visual Computacional (versão prévia)](computer-vision-how-to-install-containers.md) permite que você reconheça textos impressos e manuscritos em imagens.
+* O [contêiner de análise espacial da Pesquisa Visual Computacional (versão prévia)](spatial-analysis-container.md) permite que você analise vídeos de streaming em tempo real para entender as relações espaciais existentes entre as pessoas e a movimentação delas nos ambientes físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 

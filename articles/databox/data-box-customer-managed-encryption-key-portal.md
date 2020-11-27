@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957958"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302823"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para Azure Data Box
 
@@ -103,7 +103,7 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
     ![Selecione uma identidade a ser usada](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    Você não pode criar uma nova identidade de usuário aqui. Para saber como criar um, consulte [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Você não pode criar uma nova identidade de usuário aqui. Para saber como criar um, consulte [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
     A identidade de usuário selecionada é mostrada nas configurações de **tipo de criptografia** .
 

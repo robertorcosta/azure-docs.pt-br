@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ad689c746a0f4d7232e7f61982fb8c4f735cbe34
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912830"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737795"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: moderação de vídeos e transcrições
 
@@ -35,7 +35,7 @@ Este tutorial mostra como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inscreva-se no site da [ferramenta de Análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas. Confira [Usar marcas](./review-tool-user-guide/configure.md#tags) se precisar de ajuda com esta etapa.
+- Inscreva-se no site da [ferramenta de Análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas para os recursos que deseja identificar. Confira [Usar marcas](./review-tool-user-guide/configure.md#tags) se precisar de ajuda com esta etapa.
 
     ![captura de tela das marcas personalizadas da Moderação de vídeo](images/video-tutorial-custom-tags.png)
 - Para executar o aplicativo de exemplo, você precisará de uma conta do Azure, um recurso dos Serviços de Mídia do Azure, um recurso do Azure Content Moderator e credenciais do Azure Active Directory. Para obter instruções sobre como obter esses recursos, confira o guia da [API de Moderação de Vídeo](video-moderation-api.md).
@@ -57,7 +57,7 @@ Edite o arquivo `App.config` e adicione o nome do locatário do Active Directory
 
 ## <a name="examine-the-main-code"></a>Examinar o código principal
 
-A classe `Program` em `Program.cs` é o principal ponto de entrada do aplicativo de moderação de vídeo.
+A classe **Program** em _Program.cs_ é o ponto de entrada principal para o aplicativo de moderação de vídeo.
 
 ### <a name="methods-of-program-class"></a>Métodos da classe Program
 
@@ -116,7 +116,7 @@ As seções a seguir consideram em mais detalhes alguns dos processos individuai
 Para minimizar o tráfego, o aplicativo converte arquivos de vídeo para o formato H.264 (MPEG-4 AVC) e os dimensiona para uma largura máxima de 640 pixels. O codec H.264 é recomendado devido à alta eficiência (taxa de compressão). A compactação é feita usando a ferramenta de linha de comando `ffmpeg` gratuita, incluída na pasta `Lib` da solução do Visual Studio. Os arquivos de entrada podem ser de qualquer formato com suporte de `ffmpeg`, incluindo codecs e formatos de arquivos de vídeo normalmente mais utilizados.
 
 > [!NOTE]
-> Ao iniciar o programa usando as opções de linha de comando, você especifica um diretório contendo os arquivos de vídeo a serem enviados para moderação. Todos os arquivos nesse diretório com a extensão de nome do arquivo `.mp4` são processados. Para processar outras extensões de nome de arquivo, atualize o `Main()` método em `Program.cs` para incluir as extensões desejadas.
+> Ao iniciar o programa usando as opções de linha de comando, você especifica um diretório contendo os arquivos de vídeo a serem enviados para moderação. Todos os arquivos nesse diretório com a extensão de nome do arquivo `.mp4` são processados. Para processar outras extensões de nome de arquivo, atualize o método `Main()` em _Program.cs_ para incluir as extensões desejadas.
 
 O código que compacta um único arquivo de vídeo é a `AmsComponent` classe em `AMSComponent.cs`. O método responsável por essa funcionalidade é `CompressVideo()`, mostrado aqui.
 
@@ -138,7 +138,7 @@ O método retorna o nome do arquivo de saída compactado.
 
 ## <a name="upload-and-moderate-the-video"></a>Carregar e moderar o vídeo
 
-O vídeo deve ser armazenado nos Serviços de Mídia do Azure antes que possa ser processado pelo serviço do Content Moderation. A classe `Program` em `Program.cs` tem um método curto `CreateVideoStreamingRequest()` que retorna um objeto representando a solicitação de streaming usada para enviar o vídeo.
+O vídeo deve ser armazenado nos Serviços de Mídia do Azure antes que possa ser processado pelo serviço do Content Moderation. A classe **Program** em _Program.cs_ tem um método curto `CreateVideoStreamingRequest()` que retorna um objeto representando a solicitação de streaming usada para carregar o vídeo.
 
 [!code-csharp[CreateVideoStreamingRequest](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=120-133)]
 
@@ -228,7 +228,7 @@ Uma transcrição do áudio do vídeo também é produzida quando o sinalizador 
 
 ## <a name="create-a-human-review"></a>Criar uma análise humana
 
-O processo de moderação retorna uma lista de quadros chave do vídeo, juntamente com uma transcrição das faixas de áudio. A próxima etapa é criar uma análise na ferramenta de análise do Content Moderator para moderadores humanos. Voltando ao método `ProcessVideo()` em `Program.cs`, você verá a chamada para o método `CreateVideoReviewInContentModerator()`. Este método está na classe `videoReviewApi`, que está em `VideoReviewAPI.cs`, e é mostrado aqui.
+O processo de moderação retorna uma lista de quadros chave do vídeo, juntamente com uma transcrição das faixas de áudio. A próxima etapa é criar uma análise na ferramenta de análise do Content Moderator para moderadores humanos. Voltando ao método `ProcessVideo()` em _Program.cs_, você verá a chamada ao método `CreateVideoReviewInContentModerator()`. Este método está na classe `videoReviewApi`, que está em `VideoReviewAPI.cs`, e é mostrado aqui.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 

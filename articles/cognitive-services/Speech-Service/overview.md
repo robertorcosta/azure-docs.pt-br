@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377880"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528883"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
-O serviço de Fala é a unificação da conversão de fala em texto, da conversão de texto em fala e da tradução de fala em uma única assinatura do Azure. É fácil habilitar fala em seus aplicativos, ferramentas e dispositivos com a [CLI de fala](spx-overview.md), o [SDK de Fala](speech-sdk-reference.md), o [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-quickstart), o [Speech Studio](https://speech.microsoft.com/) ou as [APIs REST](rest-apis.md).
+O serviço de Fala é a unificação da conversão de fala em texto, da conversão de texto em fala e da tradução de fala em uma única assinatura do Azure. É fácil habilitar fala em seus aplicativos, ferramentas e dispositivos com a [CLI de fala](spx-overview.md), o [SDK de Fala](./speech-sdk.md), o [SDK de Dispositivos de Fala](./speech-devices-sdk-quickstart.md?pivots=platform-android), o [Speech Studio](https://speech.microsoft.com/) ou as [APIs REST](#reference-docs).
 
 > [!IMPORTANT]
 > O serviço de Fala substituiu a API de Fala do Bing e a Tradução de Fala. Confira a seção _Migração_ para obter instruções de migração.
@@ -28,16 +28,16 @@ Os recursos a seguir fazem parte do serviço de Fala. Use os links nesta tabela 
 
 | Serviço | Recurso | Descrição | . | REST |
 |---------|---------|-------------|-----|------|
-| [Conversão de fala em texto](speech-to-text.md) | Conversão de fala em texto em tempo real | A conversão de fala em texto transcreve ou converte, em tempo real, transmissões de áudio ou arquivos locais em texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Conversão de fala em texto](speech-to-text.md) | Conversão de fala em texto em tempo real | A conversão de fala em texto transcreve ou converte, em tempo real, transmissões de áudio ou arquivos locais em texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. | [Sim](./speech-sdk.md) | [Sim](#reference-docs) |
 | | [Conversão de fala em texto em lote](batch-transcription.md) | A conversão de fala em texto em lote permite a transcrição de fala em texto assíncrona de grandes volumes de dados de áudio de fala armazenados no Armazenamento de Blobs do Azure. Além de converter áudio de fala em texto, a conversão de fala em texto em lote também permite a análise de sentimentos e a diarização. | Não | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [Conversa em vários dispositivos](multi-device-conversation.md) | Conecte vários dispositivos ou clientes em uma conversa para enviar mensagens baseadas em fala ou texto, com suporte fácil para transcrição e tradução| Sim | Não |
-| | [Transcrição de Conversas](conversation-transcription-service.md) | Permite o reconhecimento de fala em tempo real, a identificação do locutor e a diarização. É perfeito para transcrição de reuniões presenciais com a capacidade de distinguir os locutores. | Sim | Não |
+| | [Transcrição de Conversas](./conversation-transcription.md) | Permite o reconhecimento de fala em tempo real, a identificação do locutor e a diarização. É perfeito para transcrição de reuniões presenciais com a capacidade de distinguir os locutores. | Sim | Não |
 | | [Criar Modelos de Fala Personalizada](#customize-your-speech-experience) | Se estiver usando a conversão de fala em texto para funcionalidades de reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de idioma e de pronúncia personalizados para lidar com o ruído ambiente ou vocabulário específico do setor. | Não | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana usando [Linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Criar Vozes Personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
+| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana usando [Linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](./speech-sdk.md) | [Sim](#reference-docs) |
+| | [Criar Vozes Personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](#reference-docs) |
+| [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](./speech-sdk.md) | Não |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam o serviço de Fala capacitam os desenvolvedores a criarem interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O serviço de assistente de voz fornece interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o Canal de Fala de Linha Direta do Bot Framework ou o serviço integrado de Comandos Personalizados (versão prévia) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
-| [Reconhecimento do Locutor](speaker-recognition-overview.md) | Identificação e verificação do locutor | O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os locutores por suas características de voz exclusivas. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". | Sim | [Sim](https://docs.microsoft.com/rest/api/speakerrecognition/) |
+| [Reconhecimento do Locutor](speaker-recognition-overview.md) | Identificação e verificação do locutor | O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os locutores por suas características de voz exclusivas. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". | Sim | [Sim](/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
@@ -59,9 +59,9 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando sua conta Microsoft.
 
-1. Selecione **Criar um recurso** na parte superior esquerda do portal. Caso não veja **Criar um recurso** , você sempre pode encontrá-lo selecionando o menu recolhido no canto superior esquerdo da tela.
+1. Selecione **Criar um recurso** na parte superior esquerda do portal. Caso não veja **Criar um recurso**, você sempre pode encontrá-lo selecionando o menu recolhido no canto superior esquerdo da tela.
 
-1. Na janela **Novo** , digite "fala" na caixa de pesquisa e pressione ENTER.
+1. Na janela **Novo**, digite "fala" na caixa de pesquisa e pressione ENTER.
 
 1. Nos resultados da pesquisa, selecione **Fala**.
 
@@ -89,7 +89,7 @@ Para localizar as chaves e a região de uma implantação concluída, siga estas
 
 2. Selecione **Todos os recursos** e o nome do seu recurso de Serviços Cognitivos.
 
-3. No painel à esquerda, em **GERENCIAMENTO DE RECURSOS** , selecione **Chaves e Ponto de Extremidade**.
+3. No painel à esquerda, em **GERENCIAMENTO DE RECURSOS**, selecione **Chaves e Ponto de Extremidade**.
 
 Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Para copiar/colar uma chave no editor de código ou em outra localização, selecione o botão copiar ao lado de cada chave e alterne as janelas para colar o conteúdo da área de transferência na localização desejada.
 
@@ -104,15 +104,15 @@ Oferecemos guias de início rápido nas linguagens de programação mais popular
 
 * [Início rápido de conversão de fala em texto](get-started-speech-to-text.md)
 * [Início rápido da conversão de texto em fala](get-started-text-to-speech.md)
-* [Início rápido da tradução de fala](speech-translation-basics.md)
+* [Início rápido da tradução de fala](./get-started-speech-translation.md)
 * [Início rápido do reconhecimento de intenção](quickstarts/intent-recognition.md)
-* [Início rápido do reconhecimento de locutor](speaker-recognition-basics.md)
+* [Início rápido do reconhecimento de locutor](./get-started-speaker-recognition.md)
 
 Após ter tido a chance de começar a usar o serviço de Fala, experimente os tutoriais que mostram como abordar diferentes cenários.
 
 - [Tutorial: Reconhecer intenções de fala com o SDK de Fala e o LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitar por voz o bot com o SDK de Fala, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutorial: Criar um aplicativo Flask para traduzir texto, analisar o sentimento e sintetizar a conversão de texto traduzido em fala, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+- [Tutorial: Criar um aplicativo Flask para traduzir texto, analisar o sentimento e sintetizar a conversão de texto traduzido em fala, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
 
 ## <a name="get-sample-code"></a>Obter código de exemplo
 
@@ -134,16 +134,28 @@ Outros produtos oferecem modelos de fala ajustados para fins específicos, como 
 | Conversão de fala em texto | [Fala Personalizada](https://aka.ms/customspeech) | Personalize modelos de reconhecimento de fala de acordo com suas necessidades e com os dados disponíveis. Supere as barreiras do reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo. |
 | Conversão de texto em fala | [Voz personalizada](https://aka.ms/customvoice) | Crie uma voz reconhecível e exclusiva para seus aplicativos de Conversão de texto em fala usando seus dados de fala disponíveis. Você pode ajustar ainda mais as saídas de voz ajustando um conjunto de parâmetros de voz. |
 
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
+
+[Use os contêineres do serviço de Fala](speech-container-howto.md) para implantar recursos de API no local. Esses contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais. O serviço de Fala oferece os seguintes contêineres:
+
+* Conversão de fala em texto padrão
+* Conversão de fala em texto personalizada
+* Conversão de texto em fala padrão
+* Conversão de texto em fala neural
+* Conversão de texto em fala personalizada (versão prévia)
+* Detecção de Idioma de fala (versão prévia)
+
 ## <a name="reference-docs"></a>Documentos de Referência
 
-- [SDK da fala](speech-sdk-reference.md)
+- [SDK da fala](./speech-sdk.md)
 - [SDK de Dispositivos de Fala](speech-devices-sdk.md)
 - [API REST: conversão de fala em texto](rest-speech-to-text.md)
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
 - [API REST: transcrição e personalização em lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Introdução à conversão de fala em texto](speech-to-text-basics.md)
+> [Introdução à conversão de fala em texto](./get-started-speech-to-text.md)
 > [Introdução à conversão de texto em fala](get-started-text-to-speech.md)

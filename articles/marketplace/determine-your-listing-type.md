@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
-ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741902"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302861"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem
 
@@ -145,7 +145,7 @@ A tabela a seguir mostra as opções que estão disponíveis para diferentes tip
 
 &#42; ofertas de SaaS que podem ser acessadas no AppSource são apenas o cartão de crédito.
 
-&#42;&#42; os suplementos de Microsoft 365 são livres para instalação e podem ser monetizadas usando uma oferta de SaaS. Para obter mais informações, consulte [Monetizar seu suplemento do Office 365 por meio do marketplace comercial da Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+&#42;&#42; os suplementos de Microsoft 365 são livres para instalação e podem ser monetizadas usando uma oferta de SaaS. Para obter mais informações, consulte [Monetizar seu suplemento do Office 365 por meio do marketplace comercial da Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## <a name="marketplace-rewards"></a>Recompensas do Marketplace
 

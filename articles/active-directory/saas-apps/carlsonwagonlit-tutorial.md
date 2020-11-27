@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 04399dc82a3bd2d70b8b472b121e95a73ca43136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009595"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: integração do Azure Active Directory ao Carlson Wagonlit Travel
 
@@ -119,7 +119,7 @@ Para configurar o logon único do Azure AD com o Carlson Wagonlit Travel, execut
 
 ### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Configurar o logon único do Carlson Wagonlit Travel
 
-Para configurar o logon único no lado do **Carlson Wagonlit Travel**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Carlson Wagonlit Travel**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Carlson Wagonlit Travel](https://www.mycwt.com/traveler-help/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -174,7 +174,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-carlson-wagonlit-travel-test-user"></a>Criar um usuário de teste do Carlson Wagonlit Travel
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Carlson Wagonlit Travel. Trabalhar com [a equipe de suporte Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) para adicionar os usuários na plataforma Carlson Wagonlit Travel. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Carlson Wagonlit Travel. Trabalhar com [a equipe de suporte Carlson Wagonlit Travel](https://www.mycwt.com/traveler-help/) para adicionar os usuários na plataforma Carlson Wagonlit Travel. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

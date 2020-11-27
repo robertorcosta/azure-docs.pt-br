@@ -7,19 +7,19 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/26/2020
-ms.openlocfilehash: f07cc8e3d5e9d6f59671a3c8c2efd9f5fb9f27b7
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.date: 11/27/2020
+ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299049"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301953"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo explora métodos comuns de solução de problemas para problemas de CI-CD, DevOps do Azure e GitHub no Azure Data Factory.
+Este artigo explora métodos comuns de solução de problemas para implantação contínua de Integration-Continuous (CI-CD), problemas do Azure DevOps e do GitHub no Azure Data Factory.
 
 Se você tiver dúvidas ou problemas ao usar o controle do código-fonte ou as técnicas de DevOps, aqui estão alguns artigos que podem ser úteis:
 
@@ -158,9 +158,5 @@ Para obter mais ajuda com a solução de problemas, experimente os seguintes rec
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Solicitações de recurso do Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Página de P e R da Microsoft](/answers/topics/azure-data-factory.html)
 *  [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)
-
-
- 

@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Usar o portal para criptografar conteúdo
           href: encrypt-content-quickstart.md
+    - name: Usar um modelo ARM
+      items:
+        - name: Criar uma conta com o ARM
+          href: quickstart-arm-template-account.md
 - name: Tutoriais
   items:
     - name: .NET

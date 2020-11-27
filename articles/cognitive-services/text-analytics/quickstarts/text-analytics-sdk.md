@@ -13,12 +13,12 @@ ms.author: aahi
 keywords: mineração de texto, análise de sentimentos, análise de texto
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 6d69c47c4833247ac259f9dcc166d7ab2696c117
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a0856df71f87e49c1a7d627ba92419352c796d5
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977775"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980926"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto
 
@@ -38,6 +38,7 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 > * A última versão estável da API de Análise de Texto é `3.0`.
 >    * Lembre-se de seguir as instruções para a versão que você está usando.
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo.
+> * Caso deseje usar a Análise de Texto para operações assíncronas ou de integridade, confira os exemplos no GitHub para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
@@ -50,6 +51,7 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 > [!IMPORTANT]
 > * A última versão estável da API de Análise de Texto é `3.0`.
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo.
+Caso deseje usar a Análise de Texto para operações assíncronas ou de integridade, confira os exemplos no GitHub para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -72,7 +74,7 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 > [!IMPORTANT]
 > * A última versão estável da API de Análise de Texto é `3.0`.
 >    * Lembre-se de seguir as instruções para a versão que você está usando.
-> * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo. 
+> * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo. Caso deseje usar a Análise de Texto para operações assíncronas ou de integridade, confira os exemplos no GitHub para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 

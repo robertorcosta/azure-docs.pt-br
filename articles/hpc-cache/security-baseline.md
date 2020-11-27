@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3e040146673ba16c07856f30b88771d0063713e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8a1202d4c29f7e298346696dfc11b40326758029
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95896876"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301735"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Linha de base de segurança do Azure para cache HPC do Azure
 
@@ -126,7 +126,7 @@ Observação: se você tiver uma regulamentação ou outro requisito para o uso 
 
 - [Recursos de IDS de terceiros do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace?search=IDS) 
 
-- [Recurso EDR do Microsoft defender ATP](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
+- [Recurso EDR do Microsoft defender ATP](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -538,7 +538,7 @@ O cache do HPC não permite a execução de um aplicativo ou instalação de sof
 
 ## <a name="logging-and-threat-detection"></a>Log e detecção de ameaças
 
-*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: habilitar a detecção de ameaças para recursos do Azure
 
@@ -747,7 +747,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 ## <a name="posture-and-vulnerability-management"></a>Gerenciamento de postura e vulnerabilidades
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3: estabelecer configurações seguras para recursos de computação
 
@@ -873,9 +873,9 @@ Para saber mais, consulte as referências a seguir:
 
 - [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -903,7 +903,7 @@ Garanta que a estratégia de segmentação seja implementada de maneira consiste
 
 **Diretriz**: Meça e atenue continuamente os riscos para seus ativos individuais e o ambiente no qual eles estão hospedados. Priorize os ativos de alto valor e as superfícies de ataque altamente expostas, como aplicativos publicados, pontos de entrada e saída de rede, pontos de extremidade de usuário e administrador etc.
 
-- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -944,7 +944,7 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 Para saber mais, consulte as referências a seguir:
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Visão geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
@@ -972,9 +972,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Azure Security Benchmark – Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark – Acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -1006,9 +1006,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Melhor prática de segurança do Azure 4 – Processo: atualizar processos de resposta a incidentes para a nuvem](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

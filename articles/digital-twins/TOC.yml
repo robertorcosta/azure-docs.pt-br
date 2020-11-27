@@ -83,6 +83,8 @@
       items:
         - name: Usar as APIs e os SDKs
           href: how-to-use-apis-sdks.md
+        - name: Fazer solicitações com o Postman
+          href: how-to-use-postman.md
         - name: Criar SDKs personalizados com o AutoRest
           href: how-to-create-custom-sdks.md
         - name: Integração com o Serviço do Azure SignalR
