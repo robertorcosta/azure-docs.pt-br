@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963820"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303782"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -49,6 +49,8 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 * [Série NCv3](ncv3-series.md)
 * [Série ND](nd-series.md)
 * [Série NVv3](nvv3-series.md)
+* [Série NVv4](nvv4-series.md)
+* [Série NCasT4_v3](nct4-v3-series.md)
 
 <sup>1</sup> A série Mv2 não dá suporte a imagens de VM de geração 1 e só oferece suporte a um subconjunto de imagens de geração 2. Consulte a [documentação da série Mv2](mv2-series.md) para obter detalhes.
 
