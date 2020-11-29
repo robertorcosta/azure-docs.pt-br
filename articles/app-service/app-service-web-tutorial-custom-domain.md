@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488330"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95986522"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -100,7 +100,7 @@ Para adicionar um domínio personalizado ao seu aplicativo, você precisa verifi
 ![Captura de tela que mostra a ID na caixa ID de Verificação de Domínio Personalizado.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> A adição de IDs de verificação de domínio ao domínio personalizado pode impedir entradas DNS pendentes e ajudar a evitar a tomada de controle de subdomínio. Para obter mais informações sobre essa ameaça comum de alta severidade, confira [Tomada de controle de subdomínio](../security/fundamentals/subdomain-takeover.md).
+> A adição de IDs de verificação de domínio ao domínio personalizado pode impedir entradas DNS pendentes e ajudar a evitar a tomada de controle de subdomínio. Para os domínios personalizados configurados anteriormente sem essa ID de verificação, você deverá protegê-los do mesmo risco adicionando a ID de verificação ao seu registro DNS. Para obter mais informações sobre essa ameaça comum de alta severidade, confira [Tomada de controle de subdomínio](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Mapear seu domínio
 

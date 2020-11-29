@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449178"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030859"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contêineres na Central de Segurança
 
@@ -78,11 +78,11 @@ Para obter detalhes sobre as recomendações relevantes da Central de Segurança
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes
 
-Instale o **Complemento do Azure Policy para Kubernetes** a fim de obter um pacote de recomendações para proteger as cargas de trabalho dos contêineres do Kubernetes.
+Para obter um pacote de recomendações a fim de proteger as cargas de trabalho dos contêineres do Kubernetes, instale o **complemento do Azure Policy para Kubernetes**. Você também pode implantar automaticamente esse complemento, conforme explicado em [Habilitar o provisionamento automático de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
 
 Conforme explicado [na página do Azure Policy para Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), o complemento estende o software livre [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) webhook controlador de admissão para [ Agente de política aberto](https://www.openpolicyagent.org/). Os controladores de admissão do Kubernetes são plug-ins que impõem como os clusters são usados. O complemento é registrado como um webhook para o controle de admissão do Kubernetes e possibilita a aplicação de imposições em escala e proteções nos clusters de maneira centralizada e consistente. 
 
-Quando você instalar o complemento no cluster do AKS, todas as solicitações para o servidor de API do Kubernetes serão monitoradas em relação ao conjunto predefinido de melhores práticas antes de serem persistidas no cluster. Em seguida, você pode configurá-lo para **impor** as melhores práticas e exigir o uso dele em cargas de trabalho futuras. 
+Com o complemento no cluster do AKS, todas as solicitações para o servidor de API do Kubernetes serão monitoradas em relação ao conjunto predefinido de melhores práticas antes de serem persistidas no cluster. Em seguida, você pode configurá-lo para **impor** as melhores práticas e exigir o uso dele em cargas de trabalho futuras. 
 
 Por exemplo, você poderá proibir a criação de contêineres privilegiados, e todas as futuras solicitações para fazer isso serão bloqueadas.
 

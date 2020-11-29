@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122504"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conectar as contas da AWS à Central de Segurança do Azure
 
@@ -70,19 +70,19 @@ Há duas maneiras de permitir que a Central de Segurança autentique na AWS:
 - **Usuário da AWS para a Central de Segurança** – Uma opção menos segura se você não tiver o IAM habilitado
 
 #### <a name="create-an-iam-role-for-security-center"></a>Criar uma função IAM para a Central de Segurança
-1. No console do Amazon Web Services, em **Segurança, Identidade e Conformidade** , selecione **IAM**.
+1. No console do Amazon Web Services, em **Segurança, Identidade e Conformidade**, selecione **IAM**.
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Serviços da AWS":::
 
 1. Selecione **Funções** e **Criar função**.
 1. Selecione **Outra conta da AWS**.
 1. Insira os seguintes detalhes:
 
-    - **ID da Conta** – Insira a ID da Conta Microsoft ( **158177204117** ), conforme mostrado na página do conector da AWS na Central de Segurança.
+    - **ID da Conta** – Insira a ID da Conta Microsoft (**158177204117**), conforme mostrado na página do conector da AWS na Central de Segurança.
     - **Exigir ID Externa** – Deve estar selecionado
     - **ID Externa** – Insira a ID da assinatura, conforme mostrado na página do conector da AWS na Central de Segurança 
 
 1. Selecione **Avançar**.
-1. Na seção **Anexar políticas de permissão** , selecione as seguintes políticas:
+1. Na seção **Anexar políticas de permissão**, selecione as seguintes políticas:
 
     - SecurityAudit
     - AmazonSSMAutomationRole
@@ -97,7 +97,7 @@ Há duas maneiras de permitir que a Central de Segurança autentique na AWS:
 
 #### <a name="create-an-aws-user-for-security-center"></a>Criar um usuário da AWS para a Central de Segurança 
 1. Abra a guia **Usuários** e selecione **Adicionar usuário**.
-1. Na etapa **Detalhes** , insira um nome de usuário para a Central de Segurança e verifique se selecionou **Acesso programático** no tipo de acesso da AWS. 
+1. Na etapa **Detalhes**, insira um nome de usuário para a Central de Segurança e verifique se selecionou **Acesso programático** no tipo de acesso da AWS. 
 1. Selecione **Próximas Permissões**.
 1. Selecione **Anexar as políticas existentes diretamente** e aplique as seguintes políticas:
     - SecurityAudit
@@ -131,7 +131,7 @@ O Gerenciador de Sistemas da AWS é necessário para automatizar tarefas nos rec
 1. No menu da Central de Segurança, selecione **Vários conectores de nuvem**.
 1. Selecione **Adicionar conta da AWS**.
     :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Botão Adicionar conta da AWS na página de vários conectores de nuvem da Central de Segurança":::
-1. Configure as opções na guia **Autenticação da AWS** :
+1. Configure as opções na guia **Autenticação da AWS**:
     1. Insira um **Nome de exibição** para o conector.
     1. Confirme se a assinatura está a correta. É a assinatura que incluirá as recomendações do Hub de Segurança da AWS e do conector.
     1. Dependendo da opção de autenticação escolhida na [Etapa 2. Configurar a autenticação da Central de Segurança na AWS](#step-2-set-up-authentication-for-security-center-in-aws):
@@ -142,7 +142,7 @@ O Gerenciador de Sistemas da AWS é necessário para automatizar tarefas nos rec
 
         - Selecione **Credenciais** e cole a **chave de acesso** e a **chave secreta** do arquivo .csv salvo em [Criar um usuário da AWS para a Central de Segurança](#create-an-aws-user-for-security-center).
 1. Selecione **Avançar**.
-1. Defina as opções na guia **Configuração do Azure Arc** :
+1. Defina as opções na guia **Configuração do Azure Arc**:
 
     A Central de Segurança descobre as instâncias EC2 na conta da AWS conectada e usa o SSM para integrá-las ao Azure Arc. 
 

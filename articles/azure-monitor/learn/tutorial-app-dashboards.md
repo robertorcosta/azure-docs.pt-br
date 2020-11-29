@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperfq1
-ms.openlocfilehash: 1a83385c7f384f7727a0fd10e238c6511950abfe
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 31dd33bd8805ffcc677d5f0e98e81f2fa9e91ee2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91612623"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537043"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
@@ -132,7 +132,7 @@ Os Logs do Azure Application Insights oferecem uma linguagem de consulta avança
 ## <a name="share-dashboard"></a>Compartilhar painel
 
 1. Na parte superior do painel, selecione **Compartilhar** para publicar as alterações.
-2. Opcionalmente, você pode definir usuários específicos que devem ter acesso ao painel. Para obter mais informações, confira [Compartilhar painéis do Azure usando o controle de acesso baseado em função](../../azure-portal/azure-portal-dashboard-share-access.md).
+2. Opcionalmente, você pode definir usuários específicos que devem ter acesso ao painel. Para obter mais informações, confira [Compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure](../../azure-portal/azure-portal-dashboard-share-access.md).
 3. Selecione **Publicar**.
 
 ## <a name="next-steps"></a>Próximas etapas

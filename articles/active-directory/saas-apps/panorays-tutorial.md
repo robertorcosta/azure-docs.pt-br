@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369573"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029329"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory com o Panorays
 
@@ -75,18 +75,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
-
-1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
-
-    Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
-
-    | URL de logon |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Clique em **Save** (Salvar).
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão Salvar.
 
 1. O aplicativo Panorays espera que as declarações SAML estejam em um formato específico. Isso requer que você adicione um mapeamento de atributos personalizado à sua configuração de atributos do token SAML. A captura de tela a seguir mostrará a lista de atributos padrão, enquanto o **Identificador Exclusivo de Usuário** é mapeado com **user.userprincipalname**. O aplicativo Panorays espera que o **Identificador Exclusivo de Usuário** seja mapeado com o **user.mail**, portanto, será necessário editar e alterar o mapeamento de atributos clicando no ícone **Editar**.
 
@@ -134,9 +123,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-1. Clique em **Testar este aplicativo** no portal do Azure. Você será redirecionado para a URL de Entrada do Panorays, onde poderá iniciar o fluxo de logon.  
-
-1. Acesse a URL de Entrada do Panorays diretamente e inicie o fluxo de logon desse local.
+Acesse a [URL de Logon do Panorays](https://www.panoraysapp.com) diretamente e inicie o fluxo de logon nela.
 
 #### <a name="idp-initiated"></a>Iniciado por IdP:
 

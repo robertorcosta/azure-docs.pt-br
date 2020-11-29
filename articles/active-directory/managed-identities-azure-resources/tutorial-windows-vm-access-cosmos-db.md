@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006943"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Cosmos DB
 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Lembre-se de que caso não seja possível executar uma operação, pode ser que você não tenha as permissões corretas. Caso queira obter o acesso para gravação de chaves, será necessário usar uma função RBAC, como o Colaborador da Conta do DocumentDB ou criar uma função personalizada. Para obter mais informações, examine o [Controle de acesso baseado em função no Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Lembre-se de que caso não seja possível executar uma operação, pode ser que você não tenha as permissões corretas. Caso queira obter o acesso para gravação de chaves, você precisará usar uma função do Azure, como Colaborador da Conta do DocumentDB ou criar uma função personalizada. Para obter mais informações, examine [Controle de acesso baseado em função do Azure no Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
 ## <a name="access-data"></a>Acessar dados
 

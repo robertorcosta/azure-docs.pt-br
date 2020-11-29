@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372686"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014594"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -160,6 +160,9 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 |**Exploração da vulnerabilidade do Xorg [visto várias vezes]**|A análise de dados do host em %{Host Comprometido} detectou o usuário de Xorg com argumentos suspeitos. Os invasores podem usar essa técnica em tentativas de elevação de privilégio. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Médio|
 |**Daemon do Docker exposto detectado**|Os logs de computador indicam que o daemon do Docker (dockerd) expõe um soquete TCP. Por padrão, a configuração do Docker não usa criptografia ou autenticação quando um soquete TCP está habilitado. Isso permite acesso completo ao daemon do Docker, por qualquer pessoa com acesso à porta relevante.|-|Médio|
 |**Ataque de força bruta de SSH com falha**|Ataques de força bruta com falha foram detectados dos seguintes invasores :%{Attackers}. Os invasores tentaram acessar o host com os seguintes nomes de usuário: %{Accounts used on failed sign in to host attempts}.|-|Médio|
+| **Comportamento de Ataque sem Arquivos Detectado**<br>(AppServices_FilelessAttackBehaviorDetection)| A memória do processo especificado abaixo contém comportamentos geralmente usados por ataques sem arquivos.<br>Os comportamentos específicos incluem: {lista de comportamentos observados}                                                                                                                                                                                                                                                                                                                             | Execução                             | Médio   |
+| **Técnica de Ataque sem Arquivos Detectada**<br>(VM_FilelessAttackTechnique.Linux)| A memória do processo especificado abaixo contém evidências de uma técnica de ataque sem arquivos. Ataques sem arquivo são usados por invasores para executar código e, ao mesmo tempo, escapar da detecção do software de segurança.<br>Os comportamentos específicos incluem: {lista de comportamentos observados}                                                                                                                                                                                                                            | Execução                             | Alta     |
+| **Kit de Ferramentas de Ataque sem Arquivos Detectado**<br>(VM_FilelessAttackToolkit.Linux)| A memória do processo especificado abaixo contém um kit de ferramentas de ataque sem arquivos: {nome do kit de ferramentas}. Os kits de ferramentas de ataque sem arquivo normalmente não estão presentes no sistema de arquivos, dificultando a detecção pelo software antivírus tradicional.<br>Os comportamentos específicos incluem: {lista de comportamentos observados}                                                                                                                                                                                    | Evasão de defesa, Execução             | Alta     |
 |**Execução de arquivo oculto detectada**|A análise de dados do host indica que um arquivo oculto foi executado por %{nome do usuário}. A atividade pode ser legítima ou uma indicação de um host comprometido.|-|Informativo|
 |**Indicadores associados ao kit de ferramentas DDOS detectados [visto várias vezes]**|A análise de dados do host em %{Host Comprometido} detectou nomes de arquivos que fazem parte de um kit de ferramentas associado a malware capaz de iniciar ataques de DDoS, abrir portas e serviços e assumir controle total sobre o sistema infectado. Também pode ser uma atividade legítima. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Médio|
 |**Indicadores associados ao kit de ferramentas DDOS detectados**|A análise de dados do host em %{Host Comprometido} detectou nomes de arquivos que fazem parte de um kit de ferramentas associado a malware capaz de iniciar ataques de DDoS, abrir portas e serviços e assumir controle total sobre o sistema infectado. Também pode ser uma atividade legítima.|-|Médio|
@@ -167,7 +170,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 |**Reconhecimento de host local detectado**|A análise de dados do host em %{Host Comprometido} detectou a execução de um comando normalmente associado ao reconhecimento de bots comuns do Linux.|-|Médio|
 |**Manipulação do firewall do host detectada [visto várias vezes]**|A análise de dados do host em %{Host Comprometido} detectou uma possível manipulação de um firewall no host. Os invasores geralmente desabilitarão isso para exportar dados. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Médio|
 |**Manipulação do firewall do host detectada**|A análise de dados do host em %{Host Comprometido} detectou uma possível manipulação de um firewall no host. Os invasores geralmente desabilitarão isso para exportar dados.|-|Médio|
-|**Agente MITRE Caldera detectado**<br>(VM_MitreCalderaTools)|Os logs do computador indicam que o processo suspeito: "%{Processo Suspeito}" estava sendo executado em %{Host Comprometido}. Isso geralmente está associado ao agente MITRE 54ndc47, que pode ser usado de forma mal-intencionada para atacar outros computadores de alguma forma.|Todos |Médio|
+|**Agente MITRE Caldera detectado**<br>(VM_MitreCalderaTools)|Os logs do computador indicam que o processo suspeito: "%{Processo Suspeito}" estava sendo executado em %{Host Comprometido}. Isso geralmente está associado ao agente MITRE 54ndc47, que pode ser usado de forma mal-intencionada para atacar outros computadores de alguma forma.|Tudo |Médio|
 |**Nova chave SSH adicionada [visto várias vezes]**|Uma nova chave SSH foi adicionada ao arquivo de chaves autorizadas. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Baixo|
 |**Nova chave SSH adicionada**|Uma nova chave SSH foi adicionada ao arquivo de chaves autorizadas|-|Baixo|
 |**Possível ferramenta de ataque detectada [visto várias vezes]**|Os logs do computador indicam que o processo suspeito: "%{Processo Suspeito}" estava sendo executado em %{Host Comprometido}. A ferramenta geralmente está associada a usuários mal-intencionados que atacam outros computadores de alguma forma. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Médio|

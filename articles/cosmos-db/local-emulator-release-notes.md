@@ -1,29 +1,29 @@
 ---
 title: Download e notas de versão do emulador do Azure Cosmos
-description: Obtenha as notas sobre a versão do emulador do Cosmos do Azure para diferentes versões e informações de download.
+description: Obtenha as notas sobre a versão do Emulador do Cosmos do Azure para diferentes versões e informações de download.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 6ffd5670a8b84f0f4a5b7d3dee8a7a5080be26f5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e9f28aeb2a47c2ce7b439cbe46dcc39df3011c33
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357310"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997147"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos – Notas sobre a versão e informações de download
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Este artigo mostra as notas de versão do emulador do Azure Cosmos com uma lista de atualizações de recursos que foram feitas em cada versão. Também lista a versão mais recente do emulador para baixar e usar.
+Este artigo mostra as notas de versão do Emulador do Azure Cosmos com uma lista de atualizações de recursos que foram feitas em cada versão. Também lista a versão mais recente do emulador para baixar e usar.
 
 ## <a name="download"></a>Baixar
 
 | | |
 |---------|---------|
 |**Download do MSI**|[Centro de Download da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introdução**|[Desenvolver localmente com o emulador do Azure Cosmos](local-emulator.md)|
+|**Introdução**|[Desenvolvimento local com o Emulador do Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -77,7 +77,7 @@ Esta versão adiciona duas novas opções de inicialização do emulador Cosmos:
 
 ### <a name="246"></a>2.4.6
 
-- Esta versão fornece paridade com os recursos do serviço Azure Cosmos a partir de julho de 2019, com as exceções indicadas em [Desenvolvimento local com o emulador do Azure Cosmos](local-emulator.md). Ela também corrige vários bugs relacionados ao desligamento do emulador quando invocada pela linha de comando e substituições de endereço IP interno para clientes do SDK que usam a conectividade de modo direto.
+- Esta versão fornece paridade com os recursos do serviço Azure Cosmos disponíveis desde julho de 2019, com as exceções indicadas em [Desenvolvimento local com o Emulador do Azure Cosmos](local-emulator.md). Ela também corrige vários bugs relacionados ao desligamento do emulador quando invocada pela linha de comando e substituições de endereço IP interno para clientes do SDK que usam a conectividade de modo direto.
 
 ### <a name="243"></a>2.4.3
 

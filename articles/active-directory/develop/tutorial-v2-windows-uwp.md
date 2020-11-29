@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627662"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974316"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
-Este guia explica como um aplicativo nativo da UWP (Plataforma Universal do Windows) pode solicitar um token de acesso. Em seguida, o aplicativo chama a API do Microsoft Graph. O guia também se aplica a outras APIs que requerem tokens de acesso do ponto de extremidade da plataforma de identidade da Microsoft.
+Neste tutorial, você criará um aplicativo UWP (Plataforma Universal do Windows) nativo que conecta usuários e obtém um token de acesso para chamar a API do Microsoft Graph. 
 
 No final deste guia, seu aplicativo chama uma API protegida usando contas pessoais. Os exemplos são outlook.com, live.com e outros. Seu aplicativo também chama contas corporativas e de estudante de qualquer empresa ou organização que tem um Azure AD (Azure Active Directory).
 

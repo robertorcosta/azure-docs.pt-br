@@ -1,6 +1,6 @@
 ---
-title: Tutorial – o aplicativo Web acessa o armazenamento usando identidades gerenciadas | Azure
-description: Neste tutorial, você aprenderá a acessar o Armazenamento do Azure em nome de um aplicativo usando identidades gerenciadas.
+title: Tutorial – O aplicativo Web acessa o armazenamento usando identidades gerenciadas | Azure
+description: Neste tutorial, você aprenderá a acessar o Armazenamento do Azure para um aplicativo usando identidades gerenciadas.
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
@@ -10,28 +10,30 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: de179ad1e310df1fdeaed2173a83076922f3dccc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428145"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020204"
 ---
-# <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: acessar o Armazenamento do Azure de um aplicativo Web
+# <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Acessar o Armazenamento do Azure em um aplicativo Web
 
-Saiba como acessar o Armazenamento do Azure em nome de um aplicativo Web (não um usuário conectado) em execução no Serviço de Aplicativo do Azure usando identidades gerenciadas.
+Saiba como acessar o Armazenamento do Azure para um aplicativo Web (não um usuário conectado) em execução no Serviço de Aplicativo do Azure usando identidades gerenciadas.
 
-:::image type="content" alt-text="Armazenamento de acesso" source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
+:::image type="content" alt-text="Diagrama que mostra como acessar o armazenamento." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Você deseja adicionar acesso ao plano de dados do Azure (Armazenamento do Azure, SQL Azure, Azure Key Vault ou outros serviços) do aplicativo Web.  Você pode usar uma chave compartilhada, mas precisa se preocupar com a segurança operacional de quem pode criar, implantar e gerenciar o segredo.  Também é possível que a chave possa ser verificada no GitHub, pelo qual os hackers sabem como procurar. Um modo mais seguro de permitir o acesso do aplicativo Web aos dados é pelo uso de [identidades gerenciadas](/azure/active-directory/managed-identities-azure-resources/overview). Uma identidade gerenciada do Azure Active Directory permite que os Serviços de Aplicativos acessem recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado.  As pessoas não precisam se preocupar em gerenciar segredos nem credenciais de aplicativo.
+Você deseja adicionar o acesso ao plano de dados do Azure (Armazenamento do Azure, Banco de Dados SQL do Azure, Azure Key Vault ou outros serviços) no aplicativo Web. Você pode usar uma chave compartilhada, mas precisa se preocupar com a segurança operacional de quem pode criar, implantar e gerenciar o segredo. Também é possível que a chave possa ser verificada no GitHub, pelo qual os hackers sabem como procurar. Um modo mais seguro de permitir o acesso do aplicativo Web aos dados é pelo uso de [identidades gerenciadas](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Uma identidade gerenciada do Azure AD (Azure Active Directory) permite que o Serviço de Aplicativo acesse recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado. As pessoas não precisam se preocupar em gerenciar segredos nem credenciais de aplicativo.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
-> * Criar uma identidade gerenciada atribuída ao sistema em um aplicativo Web
-> * Criar uma conta de armazenamento e um contêiner de armazenamento de blobs
-> * Acessar o armazenamento por meio de um aplicativo Web usando identidades gerenciadas
+> * Criar uma identidade gerenciada atribuída ao sistema em um aplicativo Web.
+> * Criar uma conta de armazenamento e um contêiner do Armazenamento de Blobs do Azure.
+> * Acessar o armazenamento por meio de um aplicativo Web usando identidades gerenciadas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,17 +41,17 @@ Neste tutorial, você aprenderá como:
 
 * Um aplicativo Web em execução no Serviço de Aplicativo do Azure que tem o [módulo de autenticação/autorização do Serviço de Aplicativo habilitado](scenario-secure-app-authentication-app-service.md).
 
-## <a name="enable-managed-identity-on-app"></a>Habilitar a identidade gerenciada no aplicativo
+## <a name="enable-managed-identity-on-an-app"></a>Habilitar a identidade gerenciada em um aplicativo
 
-Se você criar e publicar o aplicativo Web por meio do Visual Studio, a identidade gerenciada foi habilitada no aplicativo para você. No serviço de aplicativo, selecione **Identidade** no painel de navegação à esquerda e depois selecione **Atribuído ao sistema**.  Verifique se o **Status** está definido como **Ativado**.  Se não estiver, clique primeiro em **Salvar** e depois em **Sim** para habilitar a identidade gerenciada atribuída ao sistema.  Quando a identidade gerenciada é habilitada, o status é definido como *Ativado* e a ID do objeto fica disponível.
+Se você criar e publicar o aplicativo Web por meio do Visual Studio, a identidade gerenciada foi habilitada no aplicativo para você. No serviço de aplicativo, selecione **Identidade** no painel esquerdo e escolha **Atribuído ao sistema**. Verifique se o **Status** está definido como **Ativado**. Caso contrário, selecione **Salvar** e **Sim** para habilitar a identidade gerenciada atribuída ao sistema. Quando a identidade gerenciada é habilitada, o status é definido como **Ativado** e a ID do objeto fica disponível.
 
-:::image type="content" alt-text="Identidade atribuída pelo sistema" source="./media/scenario-secure-app-access-storage/create-system-assigned-identity.png":::
+:::image type="content" alt-text="Captura de tela que mostra a opção Identidade atribuída ao sistema." source="./media/scenario-secure-app-access-storage/create-system-assigned-identity.png":::
 
-Isso cria uma nova ID do objeto diferente da ID do aplicativo criada na folha **Autenticação/Autorização**.  Copie a ID do objeto da identidade gerenciada atribuída ao sistema, pois você precisará dela mais tarde.
+Essa etapa cria uma ID do objeto diferente da ID do aplicativo criada no painel **Autenticação/Autorização**. Copie a ID do objeto da identidade gerenciada atribuída ao sistema. Você precisará dela mais tarde.
 
-## <a name="create-a-storage-account-and-blob-storage-container"></a>Criar uma conta de armazenamento e um contêiner de armazenamento de blobs
+## <a name="create-a-storage-account-and-blob-storage-container"></a>Criar uma conta de armazenamento e um contêiner do Armazenamento de Blobs
 
-Agora você está pronto para criar uma conta de armazenamento e um contêiner de armazenamento de blobs.
+Agora você está pronto para criar uma conta de armazenamento e um contêiner do Armazenamento de Blobs.
 
 Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Este artigo mostra como criar um grupo de recursos.
 
@@ -59,39 +61,39 @@ Os blobs no Armazenamento do Azure são organizados em contêineres. Para carreg
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga estas etapas:
+Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga estas etapas.
 
-1. No menu do portal do Azure, selecione **Todos os serviços**. Na lista de recursos, digite **Contas de armazenamento**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Armazenamento**.
+1. No menu do portal do Azure, selecione **Todos os serviços**. Na lista de recursos, insira **Contas de Armazenamento**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Armazenamento**.
 
-1. Na janela **Contas de Armazenamento** que aparece, escolha **Adicionar**.
+1. Na janela **Contas de Armazenamento** exibida, escolha **Adicionar**.
 
 1. Selecione a assinatura na qual você deseja criar a conta de armazenamento.
 
 1. No campo **Grupo de recursos**, selecione o grupo de recursos que contém o aplicativo Web no menu suspenso.
 
-1. Em seguida, insira um nome para sua conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também deve ter entre 3 e 24 caracteres e pode incluir apenas números e letras minúsculas.
+1. Em seguida, insira um nome para sua conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também precisa ter entre 3 e 24 caracteres e só pode incluir números e letras minúsculas.
 
 1. Selecione um local para sua conta de armazenamento ou use o local padrão.
 
 1. Deixe esses campos definidos como seus valores padrão:
 
-|Campo|Valor|
-|--|--|
-|Modelo de implantação|Gerenciador de Recursos|
-|Desempenho|Standard|
-|Tipo de conta|StorageV2 (uso geral v2)|
-|Replicação|RA-GRS (armazenamento com redundância geográfica com acesso de leitura)|
-|Camada de acesso|Frequente|
+    |Campo|Valor|
+    |--|--|
+    |Modelo de implantação|Gerenciador de Recursos|
+    |Desempenho|Standard|
+    |Tipo de conta|StorageV2 (uso geral v2)|
+    |Replicação|RA-GRS (armazenamento com redundância geográfica com acesso de leitura)|
+    |Camada de acesso|Frequente|
 
 1. Selecione **Revisar + Criar** para examinar as configurações da conta de armazenamento e criar a conta.
 
 1. Selecione **Criar**.
 
-Para criar um contêiner do armazenamento de blobs no Armazenamento do Azure, siga estas etapas:
+Para criar um contêiner do Armazenamento de Blobs no Armazenamento do Azure, siga estas etapas.
 
-1. Navegue até sua nova conta de armazenamento no portal do Azure.
+1. Acesse sua nova conta de armazenamento no portal do Azure.
 
-1. No menu à esquerda da conta de armazenamento, role a página até a seção **Serviço Blob** e, em seguida, selecione **Contêineres**.
+1. No menu à esquerda da conta de armazenamento, role a página até a seção **Serviço Blob** e selecione **Contêineres**.
 
 1. Selecione o botão **+ Contêiner**.
 
@@ -103,7 +105,9 @@ Para criar um contêiner do armazenamento de blobs no Armazenamento do Azure, si
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Execute o script a seguir para criar uma conta de armazenamento de uso geral v2 e um contêiner de armazenamento de blobs. Especifique o nome do grupo de recursos que contém o aplicativo Web. Insira um nome para a conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também deve ter entre 3 e 24 caracteres e pode incluir apenas números e letras minúsculas. Especifique o local da conta de armazenamento.  Para ver uma lista de locais válidos para a assinatura, execute ```Get-AzLocation | select Location```. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-).
+Para criar uma conta de armazenamento de uso geral v2 e um contêiner do Armazenamento de Blobs, execute o script a seguir. Especifique o nome do grupo de recursos que contém o aplicativo Web. Insira um nome para a conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também precisa ter entre 3 e 24 caracteres e só pode incluir números e letras minúsculas.
+
+Especifique o local da conta de armazenamento. Para ver uma lista de localizações válidas para a sua assinatura, execute ```Get-AzLocation | select Location```. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-).
 
 Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores.
 
@@ -128,9 +132,11 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Execute o script a seguir para criar uma conta de armazenamento de uso geral v2 e um contêiner de armazenamento de blobs. Especifique o nome do grupo de recursos que contém o aplicativo Web. Insira um nome para a conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também deve ter entre 3 e 24 caracteres e pode incluir apenas números e letras minúsculas. Especifique o local da conta de armazenamento.  O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-).
+Para criar uma conta de armazenamento de uso geral v2 e um contêiner do Armazenamento de Blobs, execute o script a seguir. Especifique o nome do grupo de recursos que contém o aplicativo Web. Insira um nome para a conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também precisa ter entre 3 e 24 caracteres e só pode incluir números e letras minúsculas. 
 
-O exemplo a seguir usa sua conta do Azure AD para autorizar a operação para criar o contêiner. Antes de criar o contêiner, atribua a função Colaborador de Dados do Blob de Armazenamento a si mesmo. Porém, mesmo que você seja o proprietário da conta, precisará de permissões explícitas para executar operações de dados na conta de armazenamento.
+Especifique o local da conta de armazenamento. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-).
+
+O exemplo a seguir usa sua conta do Azure AD para autorizar a operação para criar o contêiner. Antes de criar o contêiner, atribua a função Colaborador de Dados do Blob de Armazenamento a si mesmo. Mesmo que você seja o proprietário da conta, precisará ter permissões explícitas para executar operações de dados na conta de armazenamento.
 
 Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores.
 
@@ -161,20 +167,21 @@ az storage container create \
 
 ## <a name="grant-access-to-the-storage-account"></a>Permitir acesso à conta de armazenamento
 
-Você precisa permitir ao aplicativo Web acesso à conta de armazenamento antes de poder criar, ler ou excluir blobs. Em uma etapa anterior, você configurou o aplicativo Web em execução no Serviço de Aplicativo com uma identidade gerenciada.  Usando o Azure RBAC, é possível permitir à identidade gerenciada acesso a outro recurso, assim como qualquer entidade de segurança. A função de *Colaborador de dados de armazenamento de blobs* fornece ao aplicativo Web (representado pela identidade gerenciada atribuída ao sistema) acesso de leitura, gravação e exclusão ao contêiner de blob e aos dados.
+Você precisa permitir ao aplicativo Web acesso à conta de armazenamento antes de poder criar, ler ou excluir blobs. Em uma etapa anterior, você configurou o aplicativo Web em execução no Serviço de Aplicativo com uma identidade gerenciada. Usando o RBAC do Azure, você pode fornecer à identidade gerenciada o acesso a outro recurso, assim como qualquer entidade de segurança. A função Colaborador de Dados do Storage Blob fornece ao aplicativo Web (representado pela identidade gerenciada atribuída ao sistema) acesso de leitura, gravação e exclusão no contêiner de blob e nos dados.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-No [portal do Azure](https://portal.azure.com), acesse a conta de armazenamento para permitir acesso ao aplicativo Web.  Selecione **Controle de Acesso (IAM)** no painel de navegação à esquerda e, em seguida, selecione **Atribuições de função**.  Você verá uma lista de quem tem acesso à conta de armazenamento.  Agora você deseja adicionar uma atribuição de função a um robô, o serviço de aplicativo que precisa de acesso à conta de armazenamento.  Selecione **Adicionar**->**Adicionar atribuição de função**.
 
-Em **Função**, selecione **Colaborador de dados de blob de armazenamento** para permitir ao aplicativo Web acesso de leitura a blobs de armazenamento.  Em **Atribuir acesso a**, selecione **Serviço de Aplicativo**.  Em **Assinatura**, selecione a assinatura.  Em seguida, selecione o Serviço de Aplicativo para o qual você deseja comprovar o acesso.  Clique em **Save** (Salvar).
+No [portal do Azure](https://portal.azure.com), acesse a conta de armazenamento para permitir acesso ao aplicativo Web. Selecione **Controle de acesso (IAM)** no painel esquerdo e escolha **Atribuições de função**. Você verá uma lista de quem tem acesso à conta de armazenamento. Agora você deseja adicionar uma atribuição de função a um robô, o serviço de aplicativo que precisa de acesso à conta de armazenamento. Selecione **Adicionar** > **Adicionar atribuição de função**.
 
-:::image type="content" alt-text="Adicionar atribuição de função" source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
+Em **Função**, selecione **Colaborador de dados de blob de armazenamento** para permitir ao aplicativo Web acesso de leitura a blobs de armazenamento. Em **Atribuir acesso a**, selecione **Serviço de Aplicativo**. Em **Assinatura**, selecione a assinatura. Em seguida, selecione o serviço de aplicativo ao qual deseja fornecer acesso. Selecione **Salvar**.
+
+:::image type="content" alt-text="Captura de tela que mostra a tela Adicionar atribuição de função." source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
 
 O aplicativo Web agora tem acesso à conta de armazenamento.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Execute o script a seguir para atribuir a função de *Colaborador de dados de blob de armazenamento* ao aplicativo Web (representado por uma identidade gerenciada atribuída ao sistema) na conta de armazenamento.
+Execute o script a seguir para atribuir a função Colaborador de Dados do Storage Blob ao aplicativo Web (representado por uma identidade gerenciada atribuída ao sistema) na conta de armazenamento.
 
 ```powershell
 $resourceGroup = "securewebappresourcegroup"
@@ -188,7 +195,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Storage Blob Data Cont
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Execute o script a seguir para atribuir a função de *Colaborador de dados de blob de armazenamento* ao aplicativo Web (representado por uma identidade gerenciada atribuída ao sistema) na conta de armazenamento.
+Execute o script a seguir para atribuir a função Colaborador de Dados do Storage Blob ao aplicativo Web (representado por uma identidade gerenciada atribuída ao sistema) na conta de armazenamento.
 
 ```azurecli-interactive
 spID=$(az resource list -n SecureWebApp20201102125811 --query [*].identity.principalId --out tsv)
@@ -200,19 +207,19 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 ---
 
-## <a name="access-blob-storage-net"></a>Acessar o armazenamento de blobs (.NET)
+## <a name="access-blob-storage-net"></a>Acessar o Armazenamento de Blobs (.NET)
 
-A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obtenção de uma credencial de token para o código destinada à autorização de solicitações ao Armazenamento do Azure.  Crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa a identidade gerenciada para buscar tokens e anexá-los ao cliente do serviço. O exemplo de código a seguir obtém a credencial de token autenticada e a usa para criar um objeto de cliente de serviço que, por sua vez, carrega um novo blob.  
+A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obtenção de uma credencial de token para o código destinada à autorização de solicitações ao Armazenamento do Azure. Crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa a identidade gerenciada para buscar tokens e anexá-los ao cliente do serviço. O exemplo de código a seguir obtém a credencial de token autenticada e a usa para criar um objeto de cliente de serviço que, por sua vez, carrega um novo blob.
 
 ### <a name="install-client-library-packages"></a>Instalar os pacotes da biblioteca de clientes
 
-Instale o [Pacote NuGet do armazenamento de blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/) para trabalhar com o serviço de Armazenamento de blobs e o [pacote NuGet da biblioteca de clientes de Identidade do Azure para .NET](https://www.nuget.org/packages/Azure.Identity/) para autenticar com as credenciais do Azure AD.  Instale as bibliotecas de clientes usando a interface de linha de comando do .NET Core ou o Console do Gerenciador de Pacotes no Visual Studio.
+Instale o [Pacote NuGet do Armazenamento de Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/) para trabalhar com o Armazenamento de Blobs e o [pacote NuGet da biblioteca de clientes da Identidade do Azure para .NET](https://www.nuget.org/packages/Azure.Identity/) para se autenticar com as credenciais do Azure AD. Instale as bibliotecas de clientes usando a interface de linha de comando do .NET Core ou o Console do Gerenciador de Pacotes no Visual Studio.
 
 # <a name="command-line"></a>[Linha de comando](#tab/command-line)
 
 Abra uma linha de comando e alterne para o diretório que contém o arquivo de projeto.
 
-Execute os comandos de instalação:
+Execute os comandos de instalação.
 
 ```dotnetcli
 dotnet add package Azure.Storage.Blobs
@@ -222,9 +229,9 @@ dotnet add package Azure.Identity
 
 # <a name="package-manager"></a>[Gerenciador de Pacotes](#tab/package-manager)
 
-Abra o projeto/solução no Visual Studio e abra o console do usando o comando **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
+Abra o projeto ou a solução no Visual Studio e abra o console usando o comando **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
 
-Execute os comandos de instalação:
+Execute os comandos de instalação.
 ```powershell
 Install-Package Azure.Storage.Blobs
 
@@ -288,9 +295,9 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 >
-> * Criar uma identidade gerenciada atribuída ao sistema
-> * Criar uma conta de armazenamento e um contêiner de armazenamento de blobs
-> * Acessar o armazenamento por meio de um aplicativo Web usando identidades gerenciadas
+> * Criar uma identidade gerenciada atribuída ao sistema.
+> * Criar uma conta de armazenamento e um contêiner do Armazenamento de Blobs.
+> * Acessar o armazenamento por meio de um aplicativo Web usando identidades gerenciadas.
 
 > [!div class="nextstepaction"]
 > [O Serviço de Aplicativo acessa o Microsoft Graph em nome do usuário](scenario-secure-app-access-microsoft-graph-as-user.md)

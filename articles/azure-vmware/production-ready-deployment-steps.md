@@ -3,12 +3,12 @@ title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888973"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95529713"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
@@ -48,7 +48,7 @@ Identifique o tamanho dos hosts que você deseja usar ao implantar a Solução V
 
 ## <a name="number-of-hosts"></a>Número de hosts
 
-Defina o número de hosts que você deseja implantar na nuvem privada da Solução VMware no Azure.  É necessário no mínimo três nós e no máximo 16 por cluster.  Para obter mais informações, confira a documentação [Nuvem privada e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#clusters).
+Defina o número de hosts que você deseja implantar na nuvem privada da Solução VMware no Azure.  O número mínimo de hosts é três, e o máximo é 16 por cluster.  Para obter mais informações, confira a documentação [Nuvem privada e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#clusters).
 
 Você sempre poderá estender o cluster mais tarde se precisar ir além do número de implantação inicial.
 

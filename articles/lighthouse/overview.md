@@ -1,14 +1,14 @@
 ---
 title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os provedores de serviços forneçam serviços gerenciados para seus clientes com maior automação e eficiência em escala.
-ms.date: 10/19/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: a76606ff48a09c0c31584882e3d2aa164ec97325
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203782"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528815"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -22,9 +22,9 @@ Com o Azure Lighthouse, os provedores de serviços podem entregar serviços gere
 
 O Azure Lighthouse ajuda os provedores de serviço a criar e entregar serviços gerenciados de maneira eficiente. Os benefícios incluem:
 
-- **Gerenciamento em escala** : a participação do cliente e as operações de ciclo de vida para gerenciar os recursos do cliente são mais fáceis e escaláveis. APIs, ferramentas de gerenciamento e fluxos de trabalho existentes podem ser usados com recursos delegados, incluindo computadores hospedados fora do Azure, independentemente das regiões onde estão localizados.
-- **Maior visibilidade e controle para os clientes** : os clientes têm controle preciso sobre os escopos que delegam para gerenciamento e as permissões que são permitidas. Eles podem auditar ações do provedor de serviços e remover o acesso completamente, se desejado.
-- **Ferramentas de plataforma unificadas e abrangentes** : nossa experiência de ferramentas aborda os principais cenários de provedor de serviços, incluindo vários modelos de licenciamento, como EA, CSP e pago conforme o uso. O Azure Lighthouse funciona com ferramentas e APIs existentes, modelos de licenciamento, [Aplicativos Gerenciados do Azure](concepts/managed-applications.md) e programas de parceiros como o [programa CSP (Provedor de Soluções na Nuvem)](/partner-center/csp-overview). Você pode integrar o Azure Lighthouse aos seus fluxos de trabalho e aplicativos existentes e acompanhar seu impacto sobre as participações de clientes [vinculando sua ID de parceiro](./how-to/partner-earned-credit.md).
+- **Gerenciamento em escala**: a participação do cliente e as operações de ciclo de vida para gerenciar os recursos do cliente são mais fáceis e escaláveis. APIs, ferramentas de gerenciamento e fluxos de trabalho existentes podem ser usados com recursos delegados, incluindo computadores hospedados fora do Azure, independentemente das regiões onde estão localizados.
+- **Maior visibilidade e controle para os clientes**: os clientes têm controle preciso sobre os escopos que delegam para gerenciamento e as permissões que são permitidas. Eles podem auditar ações do provedor de serviços e remover o acesso completamente, se desejado.
+- **Ferramentas de plataforma unificadas e abrangentes**: nossa experiência de ferramentas aborda os principais cenários de provedor de serviços, incluindo vários modelos de licenciamento, como EA, CSP e pago conforme o uso. O Azure Lighthouse funciona com ferramentas e APIs existentes, modelos de licenciamento, [Aplicativos Gerenciados do Azure](concepts/managed-applications.md) e programas de parceiros como o [programa CSP (Provedor de Soluções na Nuvem)](/partner-center/csp-overview). Você pode integrar o Azure Lighthouse aos seus fluxos de trabalho e aplicativos existentes e acompanhar seu impacto sobre as participações de clientes [vinculando sua ID de parceiro](./how-to/partner-earned-credit.md).
 
 Não há custos adicionais associados ao uso do Azure Lighthouse para gerenciar os recursos do Azure. Qualquer cliente ou parceiro do Azure pode usar o Azure Lighthouse.
 
@@ -32,10 +32,13 @@ Não há custos adicionais associados ao uso do Azure Lighthouse para gerenciar 
 
 O Azure Lighthouse inclui várias maneiras de ajudar a simplificar a participação e o gerenciamento:
 
-- **Gerenciamento de recursos delegados do Azure** : [gerencie os recursos do Azure dos seus clientes com segurança de dentro do seu locatário](concepts/azure-delegated-resource-management.md) sem precisar alternar os planos de contexto e de controle. As assinaturas e os grupos de recursos de clientes podem ser delegados a usuários e funções especificados no locatário de gerenciamento, com a capacidade de remover o acesso conforme necessário.
-- **Novas experiências do portal do Azure** : veja as informações entre locatários na [página **Meus clientes**](how-to/view-manage-customers.md) no portal do Azure. Uma [página **Provedores de serviços**](how-to/view-manage-service-providers.md) correspondente permite que os clientes vejam e gerenciem o acesso do provedor de serviços.
-- **Modelos do Azure Resource Manager** : use modelos do ARM para [integrar recursos de cliente delegados](how-to/onboard-customer.md) e [executar tarefas de gerenciamento entre locatários](samples/index.md).
-- **Ofertas de serviço gerenciado no Azure Marketplace** : [ofereça seus serviços aos clientes](concepts/managed-services-offers.md) por meio de ofertas privadas ou públicas e integre-os automaticamente ao Azure Lighthouse.
+- **Gerenciamento de recursos delegados do Azure**: [gerencie os recursos do Azure dos seus clientes com segurança de dentro do seu locatário](concepts/azure-delegated-resource-management.md) sem precisar alternar os planos de contexto e de controle. As assinaturas e os grupos de recursos de clientes podem ser delegados a usuários e funções especificados no locatário de gerenciamento, com a capacidade de remover o acesso conforme necessário.
+- **Novas experiências do portal do Azure**: veja as informações entre locatários na [página **Meus clientes**](how-to/view-manage-customers.md) no portal do Azure. Uma [página **Provedores de serviços**](how-to/view-manage-service-providers.md) correspondente permite que os clientes vejam e gerenciem o acesso do provedor de serviços.
+- **Modelos do Azure Resource Manager**: use modelos do ARM para [integrar recursos de cliente delegados](how-to/onboard-customer.md) e [executar tarefas de gerenciamento entre locatários](samples/index.md).
+- **Ofertas de serviço gerenciado no Azure Marketplace**: [ofereça seus serviços aos clientes](concepts/managed-services-offers.md) por meio de ofertas privadas ou públicas e integre-os automaticamente ao Azure Lighthouse.
+
+> [!TIP]
+> Uma oferta semelhante, o [Microsoft 365 Lighthouse](https://techcommunity.microsoft.com/t5/small-and-medium-business-blog/announcing-microsoft-365-lighthouse-for-managed-service/ba-p/1698181), ajudará os Parceiros de TI a integrar, monitorar e gerenciar os clientes do Microsoft 365 em escala. Atualmente, o Microsoft 365 Lighthouse está em versão prévia privada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

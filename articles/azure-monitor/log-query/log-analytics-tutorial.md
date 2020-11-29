@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94495300"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756206"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics
 O Log Analytics é uma ferramenta do portal do Azure usada para editar e executar consultas de log dos dados coletados pelos logs do Azure Monitor e analisar os resultados de maneira interativa. Use as consultas do Log Analytics para recuperar registros que correspondem a critérios específicos, identificar tendências, analisar padrões e fornecer uma variedade de insights sobre seus dados. 
@@ -23,7 +23,7 @@ Este tutorial descreve a interface do Log Analytics, apresenta algumas consultas
 > * Gravar e executar consultas simples e modificar o intervalo de tempo para consultas
 > * Filtrar, classificar e agrupar resultados de consulta
 > * Exibir, modificar e compartilhar visuais de resultados de consulta
-> * Salvar, carregar, exportar e copiar consultas e resultados
+> * Carregar, exportar e copiar consultas e resultados
 
 > [!IMPORTANT]
 > Este tutorial usa os recursos do Log Analytics para criar e executar uma consulta em vez de trabalhar com a própria consulta. Você aproveitará os recursos do Log Analytics para criar uma consulta e usar outra consulta de exemplo. Quando estiver pronto para aprender a sintaxe das consultas e começar a editar diretamente a própria consulta, siga o [tutorial da linguagem de consulta Kusto](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). Esse tutorial descreve várias consultas de exemplo que você pode editar e executar no Log Analytics, aproveitando vários dos recursos que você aprenderá neste tutorial.

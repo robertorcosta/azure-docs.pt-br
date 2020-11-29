@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789056"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122233"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para Serviço de Aplicativo
 
@@ -45,7 +45,7 @@ Para proteger seu Plano do Serviço de Aplicativo do Azure com o Azure Defender 
 
 - Verifique se você tem um Plano do Serviço de Aplicativo compatível, associado aos computadores dedicados. Os planos compatíveis são listados acima em [Disponibilidade](#availability).
 
-- Habilitar o **Azure Defender** na sua assinatura (opcionalmente, você pode habilitar apenas o plano **Azure Defender para Serviço de Aplicativo** ), conforme descrito nos [Preços da Central de Segurança do Azure](security-center-pricing.md)
+- Habilitar o **Azure Defender** na sua assinatura (opcionalmente, você pode habilitar apenas o plano **Azure Defender para Serviço de Aplicativo**), conforme descrito nos [Preços da Central de Segurança do Azure](security-center-pricing.md)
 
 A Central de Segurança é integrada de maneira nativa ao Serviço de Aplicativo, eliminando a necessidade de implantação e integração – A integração é transparente.
 

@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 14c71d5888aefc11485c03935c5d8c7ff7d17045
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090549"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995872"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Início Rápido: Conectar-se ao Link do Azure Synapse para Azure Cosmos DB
 
@@ -41,16 +41,16 @@ A conexão de um banco de dados Azure Cosmos DB é feita como um serviço vincul
 
 No Pesquisador de Objetos de Dados, você pode conectar diretamente um banco de dados Azure Cosmos DB executando as seguintes etapas:
 
-1. Selecione o ícone ***+*** ao lado de Dados.
-2. Selecione **Conectar a dados externos**
+1. Selecione o ícone **_+_* _ ao lado de Dados
+2. Selecione _ *Conectar a dados externos**
 3. Selecione a API à qual deseja se conectar: SQL ou MongoDB
-4. Selecione ***Continuar***
+4. Escolha **_Continuar_* _
 5. Nomeie o serviço vinculado. O nome será exibido no Pesquisador de Objetos e usado pelos tempos de execução do Synapse para conectar ao banco de dados e aos contêineres. Recomendamos usar um nome amigável.
-6. Selecione o **nome da conta Cosmos DB** e o **nome do banco de dados**
-7. (Opcional) Se nenhuma região for especificada, as operações de tempo de execução do Synapse serão roteadas para a região mais próxima na qual o repositório analítico estiver habilitado. No entanto, você pode definir manualmente qual região deseja que os usuários acessem o repositório analítico do Cosmos DB. Selecione **Propriedades de conexão adicionais** e, em seguida, **Novo**. Em **Nome da Propriedade**, grave as ***Regiões Preferidas*** e defina o **Valor** para a região desejada (exemplo: WestUS2, não há espaço entre palavras e números)
-8. Escolha ***Criar***
+6. Selecione o _ *nome da conta do Cosmos DB** e o **nome do banco de dados**
+7. (Opcional) Se nenhuma região for especificada, as operações de tempo de execução do Synapse serão roteadas para a região mais próxima na qual o repositório analítico estiver habilitado. No entanto, você pode definir manualmente qual região deseja que os usuários acessem o repositório analítico do Cosmos DB. Selecione **Propriedades de conexão adicionais** e, em seguida, **Novo**. Em **Nome da Propriedade**, grave as **_PreferredRegions_ *_ e defina o _* Valor** com a região desejada (exemplo: WestUS2, não há espaço entre palavras e números)
+8. Selecione **_Criar_* _
 
-Os bancos de dados Azure Cosmos DB estão na guia **Vinculado**, na seção Azure Cosmos DB. Você pode diferenciar um contêiner Azure Cosmos DB habilitado para HTAP de um contêiner somente OLTP com os seguintes ícones:
+Os bancos de dados do Azure Cosmos DB estão visíveis na guia _ *Vinculado**, na seção Azure Cosmos DB. Você pode diferenciar um contêiner Azure Cosmos DB habilitado para HTAP de um contêiner somente OLTP com os seguintes ícones:
 
 **Contêiner Synapse** :
 

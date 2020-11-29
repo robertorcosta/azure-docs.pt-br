@@ -13,18 +13,20 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101976"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996195"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo Android
 
-Neste tutorial, você aprenderá a integrar seu aplicativo Android com a plataforma de identidade da Microsoft usando a MSAL (Biblioteca de Autenticação da Microsoft) para Android. Você aprenderá a conectar e sair com um usuário, obter um token de acesso e fazer uma solicitação à API do Microsoft Graph.
+Neste tutorial, você criará um aplicativo Android que se integra à plataforma de identidade da Microsoft para conectar usuários e obter um token de acesso para chamar a API do Microsoft Graph.
 
 Após concluir este tutorial, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory.
+
+Neste tutorial: 
 
 > [!div class="checklist"]
 > * Criar um projeto de aplicativo Android no *Android Studio*

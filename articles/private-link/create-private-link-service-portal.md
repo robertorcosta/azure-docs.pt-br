@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927231"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012111"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Início Rápido: Criar um serviço de Link Privado usando o portal do Azure
 
@@ -165,7 +165,7 @@ Nesta seção, você criará um serviço de Link Privado por trás de um Standar
 
 1. Selecione **Avançar: Segurança de acesso**.
 
-1. Em **Criar um serviço de Link Privado – Segurança de acesso**, selecione **Visibilidade** e, em seguida, escolha **Somente controle de acesso baseado em função**.
+1. Em **Criar um serviço de link privado – Segurança de acesso**, selecione **Visibilidade** e escolha **Somente controle de acesso baseado em função**.
   
 1. Selecione **Avançar: Marcas** > **Revisar + criar** ou escolha a guia **Revisar + criar** na parte superior da página.
 
@@ -182,4 +182,4 @@ Quando você terminar de usar o serviço de Link Privado, exclua o grupo de recu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um balanceador de carga interno do Azure e um serviço de link privado. Você também pode saber como [criar um ponto de extremidade privado usando o portal do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Neste início rápido, você criou um balanceador de carga interno do Azure e um serviço de link privado. Você também pode saber como [criar um ponto de extremidade privado usando o portal do Azure](./create-private-endpoint-portal.md).

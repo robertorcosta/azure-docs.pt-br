@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e5ffcd56be1ce7427697cd3a75bd7c4232cc3b8a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dee9e7596c0a30301d9e0453ef22a6dfe9541522
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663965"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96020935"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Início Rápido: Configurar o Atestado do Azure com a CLI do Azure
 
@@ -53,7 +53,7 @@ Introdução ao Atestado do Azure usando a CLI do Azure para configurar o atesta
 
 ## <a name="create-and-manage-an-attestation-provider"></a>Criar e gerenciar um provedor de atestado
 
-Siga este procedimento para criar e gerenciar um provedor de atestado.
+Estes são os comandos que você pode usar para criar e gerenciar o provedor de atestado:
 
 1. Execute o comando [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) para criar um provedor de atestado:
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893351"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -146,7 +146,7 @@ Antes de realizar a transferência de propriedade, obtenha noções básicas sob
 - Ao realizar transferências de propriedade de conta ou de assinatura entre duas IDs organizacionais no mesmo locatário, as políticas do RBAC do Azure e as funções de administrador de serviços e de coadministrador existentes são preservadas.
 - As transferências de propriedade de conta ou de assinatura entre locatários resultam na perda das políticas e das atribuições de função do RBAC do Azure.
 - Políticas e funções de administrador não são transferidas entre diretórios diferentes. Os administradores de serviços são atualizados para o proprietário da conta de destino.
-- Para evitar a perda de políticas RBAC e atribuições de função ao transferir a assinatura entre locatários, mantenha **desmarcada** a caixa de seleção **Mover as assinaturas para o locatário do Azure AD do destinatário**. Isso manterá os serviços, as funções RBAC e as políticas no locatário atual do Azure AD e transferirá apenas a propriedade da cobrança referente à conta.  
+- Para evitar a perda de políticas RBAC do Azure e atribuições de função ao transferir a assinatura entre locatários, mantenha **desmarcada** a caixa de seleção **Mover as assinaturas para o locatário do Azure AD do destinatário**. Isso manterá os serviços, as funções do Azure e as políticas no locatário atual do Azure AD e transferirá apenas a propriedade da cobrança referente à conta.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem mostrando a caixa de seleção desmarcada para mover assinaturas para o locatário do Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ O Portal do EA do Azure ajuda você a administrar seus custos e uso do EA do Azu
 
 Cada função tem um nível diferente de acesso e de autoridade.
 
-Para saber mais sobre as funções de usuário, confira [Funções de usuário corporativo](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+Para saber mais sobre as funções de usuário, confira [Funções de usuário corporativo](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Adicionar uma conta de EA do Azure
 

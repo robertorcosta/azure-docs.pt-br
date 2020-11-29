@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127971"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95795683"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Início Rápido: Criar um cache de camada Enterprise (versão prévia)
 
@@ -22,16 +22,16 @@ As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma assinatura do Azure antes de começar. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) primeiro.
+É necessário ter uma assinatura do Azure antes de começar. Caso não tenha uma, crie uma [conta](https://azure.microsoft.com/). Para obter mais informações, confira [Requisitos da camada Enterprise](cache-overview.md#enterprise-tier-requirements).
 
 ## <a name="create-a-cache"></a>Criar um cache
 1. Para criar um cache, entre no portal do Azure usando o link em seu convite de versão prévia e selecione **Criar um recurso**.
 
-1. Na página **Novo** , selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
+1. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
    
    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selecionar Cache do Azure para Redis":::
    
-1. Na página **Novo Cache Redis** , defina as configurações para o novo cache.
+1. Na página **Novo Cache Redis**, defina as configurações para o novo cache.
    
    | Configuração      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -55,7 +55,7 @@ As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](h
 
 1. Selecione **Avançar: Avançado** e defina **Política de cluster** como **Enterprise**.
    
-   Você pode manter as configurações padrão ou alterá-las conforme apropriado. Ao ativar **Permitir acesso somente via TLS** , você deve usar o TLS para acessar o novo cache do aplicativo.
+   Você pode manter as configurações padrão ou alterá-las conforme apropriado. Ao ativar **Permitir acesso somente via TLS**, você deve usar o TLS para acessar o novo cache do aplicativo.
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Noções avançadas da camada Enterprise":::
 
@@ -71,7 +71,7 @@ As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](h
 
 1. Examine as configurações e clique em **Criar**.
    
-   A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução** , o cache estará pronto para uso.
+   A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução**, o cache estará pronto para uso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
