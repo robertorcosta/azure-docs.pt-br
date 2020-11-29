@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186432"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309827"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -118,6 +118,10 @@ Se você tiver configurado sua conta de armazenamento para permitir o acesso de 
 Uma regra de exportação de dados define os dados a serem exportados para um conjunto de tabelas para um único destino. Você pode criar uma regra para cada destino.
 
 
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando da CLI a seguir para exibir tabelas em seu espaço de trabalho. Ele pode ajudar a copiar as tabelas que você deseja e incluir na regra de exportação de dados.
@@ -203,6 +207,10 @@ Veja a seguir um corpo de exemplo para a solicitação REST para um hub de event
 
 ## <a name="view-data-export-configuration"></a>Exibir configuração de exportação de dados
 
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando a seguir para exibir a configuração de uma regra de exportação de dados usando a CLI.
@@ -221,6 +229,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## <a name="disable-an-export-rule"></a>Desabilitar uma regra de exportação
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -256,6 +268,10 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Excluir uma regra de exportação
 
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando a seguir para excluir uma regra de exportação de dados usando a CLI.
@@ -274,6 +290,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Exibir todas as regras de exportação de dados em um espaço de trabalho
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
