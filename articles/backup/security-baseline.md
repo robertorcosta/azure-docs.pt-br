@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842151"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325631"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança do Azure para backup
 
@@ -534,7 +534,7 @@ Ao fazer backup com o agente MARS ou usar um cofre de serviços de recuperação
 
 Plataforma subjacente verificada e corrigida pela Microsoft. Examine os controles de segurança disponíveis para o backup do Azure para reduzir as vulnerabilidades relacionadas à configuração de serviço.
 
-- [Noções básicas sobre os controles de segurança disponíveis para o backup do Azure](./backup-security-controls.md)
+- [Noções básicas sobre os controles de segurança disponíveis para o backup do Azure]()
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

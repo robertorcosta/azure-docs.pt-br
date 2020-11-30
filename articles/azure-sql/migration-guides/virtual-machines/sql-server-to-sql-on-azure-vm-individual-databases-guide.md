@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019442"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325903"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs do Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,8 +38,8 @@ Para obter informações sobre estratégias de migração adicionais, consulte a
 Migrar para o SQL Server em VMs do Azure requer o seguinte: 
 
 - [Assistente de migração de banco de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- Um [projeto de migrações para Azure](/azure/migrate/create-manage-projects).
-- Um SQL Server de destino preparado [na VM do Azure](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) que é da mesma versão ou posterior à do SQL Server de origem.
+- Um [projeto de migrações para Azure](../../../migrate/create-manage-projects.md).
+- Um SQL Server de destino preparado [na VM do Azure](../../virtual-machines/windows/create-sql-vm-portal.md) que é da mesma versão ou posterior à do SQL Server de origem.
 - [Conectividade entre o Azure e o local](/azure/architecture/reference-architectures/hybrid-networking).
 - [Escolhendo uma estratégia de migração apropriada](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
@@ -157,8 +157,8 @@ A tabela a seguir fornece uma lista de componentes e métodos de migração reco
 || Bancos de dados de usuário com FileStream |  Use os métodos de [backup e restauração](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) para a migração. O DMA não oferece suporte a bancos de dados com FileStream. |
 | **Segurança** | Logons SQL Server e do Windows | Use o DMA para [migrar logons de usuário](/sql/dma/dma-migrateserverlogins). |
 || SQL Server funções | Script com SQL Server Management Studio |
-|| Provedores criptográficos | Recomenda- [se converter para usar Azure Key Vault serviço](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Este procedimento usa o [provedor de recursos de VM do SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Objetos de servidor** | Dispositivos de backup | Substitua pelo backup de banco de dados usando o [serviço de backup do Azure](../../../backup/backup-sql-server-database-azure-vms.md) ou backups de gravação no [armazenamento do azure](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 Cu2 +). Este procedimento usa o [provedor de recursos de VM do SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Provedores criptográficos | Recomenda- [se converter para usar Azure Key Vault serviço](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Este procedimento usa o [provedor de recursos de VM do SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Objetos de servidor** | Dispositivos de backup | Substitua pelo backup de banco de dados usando o [serviço de backup do Azure](../../../backup/backup-sql-server-database-azure-vms.md) ou backups de gravação no [armazenamento do azure](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 Cu2 +). Este procedimento usa o [provedor de recursos de VM do SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Servidores vinculados | Script com SQL Server Management Studio. |
 || Gatilhos do servidor | Script com SQL Server Management Studio. |
 | **Replicação** | Publicações locais | Script com SQL Server Management Studio. |

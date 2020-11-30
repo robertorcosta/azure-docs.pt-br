@@ -4,12 +4,12 @@ description: Os pools de imagens personalizadas são uma maneira eficiente de co
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917776"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327297"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -58,7 +58,7 @@ No Azure, você pode preparar uma imagem compartilhada de uma imagem gerenciada,
 - Um VHD local generalizado carregado para a nuvem
 
 > [!NOTE]
-> Atualmente, o Lote dá suporte somente a imagens compartilhadas generalizadas. Você não pode criar um pool de imagens personalizadas de uma imagem compartilhada especializada neste momento.
+> O lote dá suporte apenas a imagens compartilhadas generalizadas; uma imagem compartilhada especializada não pode ser usada para criar um pool.
 
 As etapas a seguir mostram como preparar uma VM, gerar um instantâneo e criar uma imagem do instantâneo.
 

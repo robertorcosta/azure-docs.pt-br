@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143703"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327212"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderação de vídeo com a ferramenta de revisão
 
@@ -26,7 +26,7 @@ Use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) e [m
 No painel, selecione qualquer uma das filas de revisão no tipo de conteúdo vídeo. Isso iniciará uma revisão e abrirá a página de moderação de conteúdo do vídeo.
 
 > [!div class="mx-imgBorder"]
-> ![Exibição detalhada de moderação de vídeo na ferramenta de revisão](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![Em Content Moderator (visualização), o controle deslizante é realçado e definido como 4 revisões. As opções desfoque All e preto e branco são realçadas e ambas são definidas.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Contagem de revisão
 
@@ -55,7 +55,7 @@ No modo de exibição de **detalhes** , o painel direito mostrará várias guias
 * Selecione a guia **histórico** para ver o histórico da revisão, como quando ela foi criada e como ela foi modificada.
 
 > [!div class="mx-imgBorder"]
-> ![Botão de marcas em massa de moderação de vídeo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![O painel direito é realçado e a guia observações é selecionada. Há uma área de teste rotulada adicionar uma anotação.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Aplicar marcas de moderação
 
@@ -63,10 +63,10 @@ A principal tarefa de uma revisão de vídeo é aplicar ou remover marcas de mod
 
 ### <a name="bulk-tagging"></a>Marcação em massa
 
-A barra de ferramentas de **marcas em massa** permite que você adicione marcas a vários vídeos selecionados de uma vez. Selecione um ou mais vídeos e, em seguida, selecione as marcas que você deseja aplicar e clique em **Enviar** . 
+A barra de ferramentas de **marcas em massa** permite que você adicione marcas a vários vídeos selecionados de uma vez. Selecione um ou mais vídeos e, em seguida, selecione as marcas que você deseja aplicar e clique em **Enviar**. 
 
 > [!div class="mx-imgBorder"]
-> ![Botão de marcas em massa de moderação de vídeo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![O botão + é realçado no painel marcas em massa.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Marcação de quadro-chave
@@ -77,7 +77,7 @@ Você também pode adicionar marcas de moderação a quadros-chave específicos.
 > Se o serviço não pôde extrair os quadros-chave, o painel do bloco do quadro chave não mostrará **nenhum quadro disponível** e a opção para selecionar quadros-chave ficará esmaecida. Nesse caso, você só pode aplicar marcas ao vídeo como um todo (usando as marcas de **vídeo +** botão).
 
 > [!div class="mx-imgBorder"]
-> ![Exibição detalhada de moderação de vídeo na ferramenta de revisão](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![O painel de bloco, player de vídeo, painel de marcas de quadro-chave e painéis de marcas de vídeo são mostrados. As marcas de quadro-chave + e marcas de vídeo + botões são realçadas.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Refazer uma revisão em espera
 
@@ -86,7 +86,7 @@ O botão **manter** na parte inferior do painel de vídeo permite que você colo
 Você pode exibir os vídeos em espera clicando no botão **manter** na parte superior da tela. O painel de espera aparece à direita. A partir daqui, você pode selecionar várias revisões em espera e liberá-las de volta na fila ou definir o tempo de expiração. Após o período pré-configurado, as revisões em espera são liberadas de volta para a fila. Selecione **salvar** para começar a contar a partir da hora de expiração selecionada no momento.
 
 > [!div class="mx-imgBorder"]
-> ![Exibição detalhada de moderação de vídeo na ferramenta de revisão](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![No painel vídeo, o botão manter é realçado. Na parte inferior do painel, uma caixa de combinação de tempo de espera é realçada, juntamente com os botões liberar e salvar.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Enviar uma revisão
 

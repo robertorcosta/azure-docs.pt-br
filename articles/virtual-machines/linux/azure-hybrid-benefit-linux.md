@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 35bed58f95deebb78d8e787c8bc3f522ce7004df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980874"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326962"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Benefício Híbrido do Azure – como ele se aplica para Máquinas Virtuais do Linux
 
@@ -155,9 +155,13 @@ R: não é possível. Benefício Híbrido do Azure dá suporte à conversão som
 
 R: não é possível. Benefício Híbrido do Azure dá suporte à conversão somente em imagens pagas conforme o uso.
 
-*P: Eu carreguei minha própria imagem RHEL do local (via ASR ou de outra forma) para o Azure. Posso converter a cobrança nessas imagens de BYOS para PAYG?*
+*P: Eu carreguei minha própria imagem RHEL do local (por meio de migrações para Azure, ASR ou de outra forma) para o Azure. Posso converter a cobrança nessas imagens de BYOS para PAYG?*
 
 R: não é possível. A funcionalidade Benefício Híbrido do Azure está disponível apenas para imagens RHEL e SLES Marketplace hoje. 
+
+*P: Eu carreguei minha própria imagem RHEL do local (por meio de migrações para Azure, ASR ou de outra forma) para o Azure. Preciso fazer algo para se beneficiar do Benefício Híbrido do Azure?*
+
+R: não você não tem. As imagens RHEL que você carrega já são consideradas BYOS, e você é cobrado apenas pelos custos de infraestrutura do Azure. Você é responsável por custos de assinaturas do RHEL, assim como faz para seus ambientes locais. 
 
 *P: posso usar Benefício Híbrido do Azure em VMs implantadas de imagens do Marketplace RHEL e do SLES SAP?*
 

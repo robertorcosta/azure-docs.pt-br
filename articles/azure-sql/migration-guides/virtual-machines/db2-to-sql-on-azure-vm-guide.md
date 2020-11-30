@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0522f677c731aa1cd218a14429791db14179686a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496481"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326039"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: DB2 para SQL Server em VMs do Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -139,10 +139,10 @@ Depois que os dados são migrados para o ambiente de destino, todos os aplicativ
 
 A abordagem de teste para a migração de banco de dados consiste nas seguintes atividades:
 
-1. **Desenvolver testes de validação** : Para testar a migração do banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
-1. **Configurar ambiente de teste** : O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
-1. **Executar testes de validação** : Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
-1. **Executar testes de desempenho** : Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
+1. **Desenvolver testes de validação**: Para testar a migração do banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
+1. **Configurar ambiente de teste**: O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
+1. **Executar testes de validação**: Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
+1. **Executar testes de desempenho**: Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
 
    > [!NOTE]
    > Para obter assistência para desenvolver e executar testes de validação após a migração, considere a Solução de Qualidade de Dados disponibilizada pelo parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -164,7 +164,7 @@ Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é
 
 Após a migração, examine o [Guia de validação e otimização pós-migração](/sql/relational-databases/post-migration-validation-and-optimization-guide). 
 
-Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudá-lo com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, consulte [Serviços e ferramentas de migração de dados](/azure/dms/dms-tools-matrix).
+Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudá-lo com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, consulte [Serviços e ferramentas de migração de dados](../../../dms/dms-tools-matrix.md).
 
 Para obter outros guias de migração, confira [Migração de banco de dados](https://datamigration.microsoft.com/). 
 

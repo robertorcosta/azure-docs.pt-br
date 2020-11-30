@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: cafb32e5bd91c6b7f3cfef4641828963e0731797
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 46216fe06e3d3425d5b237cdbb7326eed596945a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496588"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326923"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para o banco de dados SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -61,18 +61,18 @@ Diferentes ferramentas estão disponíveis para diferentes cargas de trabalho e 
 Considere as diretrizes gerais para ajudá-lo a escolher o modelo de implantação certo e a camada de serviço do banco de dados SQL do Azure. Você pode escolher recursos de computação e armazenamento durante a implantação e, em seguida, alterá-los posteriormente usando o  [portal do Azure](../../database/scale-resources.md)  sem incorrer em tempo de inatividade para seu aplicativo.
 
 
-**Modelos de implantação** : entenda a carga de trabalho do aplicativo e o padrão de uso para decidir entre um único banco de dados ou pool elástico. 
+**Modelos de implantação**: entenda a carga de trabalho do aplicativo e o padrão de uso para decidir entre um único banco de dados ou pool elástico. 
 
 - Um [banco de dados individual](../../database/single-database-overview.md) representa um banco de dados totalmente gerenciado adequado para a maioria dos aplicativos e microserviços de nuvem modernos.
 - Um [pool elástico](../../database/elastic-pool-overview.md) é uma coleção de bancos de dados individuais com um conjunto compartilhado de recursos, como CPU ou memória, e adequado para combinar bancos de dados em um pool com padrões de uso previsíveis que podem compartilhar efetivamente o mesmo conjunto de recursos.
 
-**Modelos de compra** : escolha entre o modelo de compra VCORE, DTU ou sem servidor. 
+**Modelos de compra**: escolha entre o modelo de compra VCORE, DTU ou sem servidor. 
 
 - O [modelo vCore](../../database/service-tiers-vcore.md) permite que você escolha o número de vCores para o banco de dados SQL do Azure, tornando-o a opção mais fácil ao traduzir do SQL Server local. Essa é a única opção que dá suporte ao salvamento de custo de licença com o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 - O [modelo de DTU](../../database/service-tiers-dtu.md) abstrai a computação subjacente, a memória e os recursos de e/s para fornecer um DTU combinado. 
 - O [modelo sem servidor](../../database/serverless-tier-overview.md) destina-se a cargas de trabalho que exigem dimensionamento automático sob demanda com recursos de computação cobrados por segundo de uso. A camada de computação sem servidor pausa automaticamente os bancos de dados durante períodos inativos (onde apenas o armazenamento é cobrado) e retoma automaticamente os bancos de dados quando a atividade retorna. 
 
-**Camadas de serviço** : escolha entre três camadas de serviço projetadas para diferentes tipos de aplicativos.
+**Camadas de serviço**: escolha entre três camadas de serviço projetadas para diferentes tipos de aplicativos.
 
 - A [camada de serviço do uso geral/Standard](../../database/service-tier-general-purpose.md) oferece uma opção equilibrada voltada para o orçamento com computação e armazenamento adequados para fornecer aplicativos de camada inferior, com redundância interna na camada de armazenamento para se recuperar de falhas. Projetado para a maioria das cargas de trabalho de banco de dados. 
 - A [camada de serviço comercialmente crítico/Premium](../../database/service-tier-business-critical.md) é para aplicativos de camada superior que exigem altas taxas de transação, e/s de baixa latência e um alto nível de resiliência com réplicas secundárias disponíveis para failover e para descarregar cargas de trabalho de leitura.
@@ -183,7 +183,7 @@ Para o banco de dados SQL do Azure, os únicos bancos de dados do sistema aplic�
 
 Não se esqueça de aproveitar os recursos avançados baseados em nuvem oferecidos pelo banco de dados SQL. Por exemplo, você não precisa mais se preocupar com o gerenciamento de backups, pois o serviço faz isso para você. Você pode restaurar para qualquer [ponto no tempo dentro do período de retenção](../../database/recovery-using-backups.md#point-in-time-restore). 
 
-Para reforçar a segurança, considere o uso de [Azure Active Directory autenticação](../../database/authentication-aad-overview.md), [auditoria](../../database/auditing-overview.md), [detecção de ameaças](../../database/advanced-data-security.md), [segurança em nível de linha](/sql/relational-databases/security/row-level-security)e máscara de [dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking).
+Para reforçar a segurança, considere o uso de [Azure Active Directory autenticação](../../database/authentication-aad-overview.md), [auditoria](../../database/auditing-overview.md), [detecção de ameaças](../../database/azure-defender-for-sql.md), [segurança em nível de linha](/sql/relational-databases/security/row-level-security)e máscara de [dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking).
 
 Além dos recursos avançados de gerenciamento e segurança, o banco de dados SQL fornece um conjunto de ferramentas avançadas que podem ajudá-lo a [monitorar e ajustar sua carga de trabalho](../../database/monitor-tune-overview.md). [Análise de SQL do Azure (versão prévia)](../../../azure-monitor/insights/azure-sql.md) é uma solução de monitoramento de nuvem avançada para monitorar o desempenho de todos os seus bancos de dados no banco de dados SQL do Azure em escala e em várias assinaturas em uma única exibição. Análise de SQL do Azure coleta e visualiza as principais métricas de desempenho com inteligência interna para solução de problemas de desempenho.
 

@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 708ffce014f417f3794e59e1f79a3fcf9cba3f23
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639133"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325172"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de largura de banda de protocolo RDP (RDP)
 
@@ -75,7 +75,7 @@ A tabela abaixo guia a estimativa dos dados usados pelos diferentes cenários gr
 
 | Cenário | Modo padrão | Modo H. 264/AVC 444 | Thumbnail | Descrição do cenário |
 |:---|---:|---:|---|---|
-| Ocioso | 0,3 kbps | 0,3 kbps |:::image type="content" source="media/idle.png" alt-text="Captura de tela da conexão ociosa":::| O usuário está em pausa no trabalho e não há atualizações de tela ativas |
+| Idle | 0,3 kbps | 0,3 kbps |:::image type="content" source="media/idle.png" alt-text="Captura de tela da conexão ociosa":::| O usuário está em pausa no trabalho e não há atualizações de tela ativas |
 | Microsoft Word | 100-150 kbps | 200-300 kbps |:::image type="content" source="media/word.gif" alt-text="Animação do Microsoft Word":::| O usuário está trabalhando ativamente com o Microsoft Word, digitando, colando elementos gráficos e alternando entre documentos |
 | Microsoft Excel | 150-200 Kbps | 400-500 kbps |:::image type="content" source="media/excel.gif" alt-text="Animação do Microsoft Excel":::| O usuário está trabalhando ativamente com o Microsoft Excel, várias células com fórmulas e gráficos são atualizados simultaneamente |
 | Microsoft PowerPoint | 4 a 4,5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animação do Microsoft PowerPoint":::| O usuário está trabalhando ativamente com o Microsoft PowerPoint, digitando e colando. O usuário também está modificando gráficos avançados e usando efeitos de transição de slides |
@@ -106,7 +106,7 @@ Você pode usar a QoS (qualidade de serviço) baseada em políticas em Política
 
 Para criar uma política de QoS para hosts de sessão ingressados no domínio, primeiro, entre em um computador no qual o gerenciamento de Política de Grupo foi instalado. Abra o gerenciamento de Política de Grupo (selecione Iniciar, aponte para ferramentas administrativas e, em seguida, selecione gerenciamento de Política de Grupo) e, em seguida, conclua as seguintes etapas:
 
-1. No gerenciamento de Política de Grupo, localize o contêiner em que a nova política deve ser criada. Por exemplo, se todos os computadores hosts de sua sessão estiverem localizados em uma UO chamada **hosts de sessão** , a nova política deverá ser criada na UO hosts de sessão.
+1. No gerenciamento de Política de Grupo, localize o contêiner em que a nova política deve ser criada. Por exemplo, se todos os computadores hosts de sua sessão estiverem localizados em uma UO chamada **hosts de sessão**, a nova política deverá ser criada na UO hosts de sessão.
 
 2. Clique com o botão direito do mouse no contêiner apropriado e selecione **criar um GPO nesse domínio e vincule-o aqui**.
 
@@ -114,7 +114,7 @@ Para criar uma política de QoS para hosts de sessão ingressados no domínio, p
 
 4. Clique com o botão direito do mouse na política recém-criada e selecione **Editar**.
 
-5. No Editor de Gerenciamento de Política de Grupo, expanda **configuração do computador** , expanda **configurações do Windows** , clique com o botão direito do mouse em **QoS baseada em políticas** e selecione **criar nova política**.
+5. No Editor de Gerenciamento de Política de Grupo, expanda **configuração do computador**, expanda **configurações do Windows**, clique com o botão direito do mouse em **QoS baseada em políticas** e selecione **criar nova política**.
 
 6. Na caixa de diálogo **QoS baseada em políticas** , na página de abertura, digite um nome para a nova política na caixa **nome** . Selecione **especificar taxa de aceleração de saída** e defina o valor necessário e, em seguida, selecione **Avançar**.
 
@@ -124,11 +124,11 @@ Para criar uma política de QoS para hosts de sessão ingressados no domínio, p
 
 9. Na página quatro, selecione **UDP** na lista suspensa **selecionar o protocolo que essa política de QoS se aplica** .
 
-10. No título, **especifique o número da porta de origem** , selecione **nessa porta ou intervalo de origem**. Na caixa de texto que acompanha, digite **3390**. Selecione **Concluir**.
+10. No título, **especifique o número da porta de origem**, selecione **nessa porta ou intervalo de origem**. Na caixa de texto que acompanha, digite **3390**. Selecione **Concluir**.
 
 As novas políticas que você criou não entrarão em vigor até que Política de Grupo sejam atualizadas nos computadores host da sessão. Embora Política de Grupo seja atualizado periodicamente por conta própria, você pode forçar uma atualização imediata seguindo estas etapas:
 
-1. Em cada host de sessão para o qual você deseja atualizar Política de Grupo, abra um prompt de comando como administrador ( *Executar como administrador* ).
+1. Em cada host de sessão para o qual você deseja atualizar Política de Grupo, abra um prompt de comando como administrador (*Executar como administrador*).
 
 2. No prompt de comando, digite
 

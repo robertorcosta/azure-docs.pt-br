@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748187"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327025"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da Grade de Eventos do Azure para o Azure Functions
 
@@ -80,7 +80,7 @@ namespace Company.Function
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função de script de C#](functions-reference-csharp.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -132,7 +132,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = function (context, eventGridEvent) {
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *function.json* :
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -305,7 +305,7 @@ A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-li
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* . Não há parâmetros ou propriedades do construtor para definir o atributo `EventGridTrigger`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*. Não há parâmetros ou propriedades do construtor para definir o atributo `EventGridTrigger`.
 
 |Propriedade function.json |Descrição|
 |---------|---------|
@@ -345,11 +345,11 @@ No Azure Functions 2.x e superior, você também tem a opção de usar o seguint
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json* .
+A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json* , com o tipo `func.EventGridEvent`.
+A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json*, com o tipo `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -401,19 +401,19 @@ Para iniciar o recebimento de solicitações HTTP de Grade de Eventos, crie uma 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para as funções que você desenvolve no portal do Azure com o gatilho de Grade de Eventos, selecione **Integração** , escolha **Gatilho da Grade de Eventos** e selecione **Criar assinatura de Grade de Eventos** .
+Para as funções que você desenvolve no portal do Azure com o gatilho de Grade de Eventos, selecione **Integração**, escolha **Gatilho da Grade de Eventos** e selecione **Criar assinatura de Grade de Eventos**.
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Conecte uma nova assinatura de evento para disparar no portal.":::
 
 Ao selecionar esse link, o portal abrirá a página **Criar Assinatura de Evento**  com o ponto de extremidade de gatilho atual já definido.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Conecte uma nova assinatura de evento para disparar no portal." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Criar assinatura de evento com ponto de extremidade de função já definido" :::
 
 Para obter mais informações sobre como criar assinaturas usando o Portal do Azure, consulte [Criar evento personalizado - Portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Grade de Eventos.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma assinatura usando [a CLI do Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use o comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
+Para criar uma assinatura usando [a CLI do Azure](/cli/azure/get-started-with-azure-cli), use o comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
@@ -435,25 +435,55 @@ Apresentamos aqui um exemplo que assina em uma conta de armazenamento de Blobs (
 
 #### <a name="version-2x-and-higher-runtime"></a>Runtime Versão 2.x (e posterior)
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>runtime versão 1.x
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 Para obter mais informações sobre como criar uma assinatura, consulte o [Guia de início rápido do armazenamento de blobs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou outros guias de início rápido da Grade de Eventos.
 
@@ -508,7 +538,7 @@ Para testar um gatilho de Grade de Eventos localmente, você deve receber solici
 1. [Gerar uma solicitação](#generate-a-request) e copiar o corpo da solicitação do aplicativo visualizador.
 1. [Postar manualmente a solicitação](#manually-post-the-request) para a URL localhost da sua função de gatilho da Grade de Eventos.
 
-Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
+Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update).
 
 ### <a name="create-a-viewer-web-app"></a>Criar um aplicativo Web visualizador
 

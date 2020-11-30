@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308326"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325189"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - O Key Vault e o banco de dados SQL/instância gerenciada devem pertencer ao mesmo locatário Azure Active Directory. Não há suporte para interações de servidor e cofre de chaves entre locatários. Para mover os recursos posteriormente, o TDE com AKV precisará ser reconfigurado. Saiba mais sobre como [mover recursos](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- O recurso de [exclusão reversível](../../key-vault/general/soft-delete-overview.md) deve estar habilitado no cofre de chaves para proteger contra a exclusão da chave acidental de perda de dados (ou do cofre de chaves). Os recursos excluídos por software são mantidos por 90 dias, a menos que sejam recuperados ou limpos pelo cliente enquanto isso. As ações de *recuperação* e *limpeza* têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. O recurso de exclusão reversível está desativado por padrão e pode ser habilitado por meio do [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [da CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Ele não pode ser habilitado por meio do portal do Azure.  
+- O recurso de [exclusão reversível](../../key-vault/general/soft-delete-overview.md) deve estar habilitado no cofre de chaves para proteger contra a exclusão da chave acidental de perda de dados (ou do cofre de chaves). Os recursos excluídos por software são mantidos por 90 dias, a menos que sejam recuperados ou limpos pelo cliente enquanto isso. As ações de *recuperação* e *limpeza* têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. O recurso de exclusão reversível está desativado por padrão e pode ser habilitado por meio do [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) ou [da CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Ele não pode ser habilitado por meio do portal do Azure.  
 
 - Conceda ao servidor ou à instância gerenciada acesso ao cofre de chaves (Get, wrapKey, unwrapKey) usando sua identidade de Azure Active Directory. Ao usar o portal do Azure, a identidade do Azure AD é criada automaticamente. Ao usar o PowerShell ou a CLI, a identidade do Azure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [Configurar TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configurar o TDE com BYOK para SQL instância gerenciada](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obter instruções passo a passo detalhadas ao usar o PowerShell.
 
@@ -146,7 +146,7 @@ Veja abaixo uma exibição das etapas adicionais necessárias no portal para col
 
 Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves desabilite acidentalmente o acesso do servidor à chave por:
 
-- revogando as permissões *Get* , *wrapKey* , *unwrapKey* do cofre de chaves do servidor
+- revogando as permissões *Get*, *wrapKey*, *unwrapKey* do cofre de chaves do servidor
 
 - excluindo a chave
 

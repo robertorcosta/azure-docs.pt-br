@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490875"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326379"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -52,7 +52,7 @@ Execute as etapas a seguir para preparar as unidades.
 1. Conecte as unidades de disco ao sistema Windows via conectores SATA.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 3. Habilite a criptografia BitLocker no volume NTFS. Se estiver usando um Windows Server System, use as instruções em [Como habilitar o BitLocker no Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia. Um arquivo de diário ( *. JRN* ) é criado na mesma pasta em que você executa a ferramenta.
+4. Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia. Um arquivo de diário (*. JRN*) é criado na mesma pasta em que você executa a ferramenta.
 
    Se a unidade estiver bloqueada e você precisar desbloquear a unidade, as etapas para desbloquear podem ser diferentes dependendo do caso de uso.
 
@@ -109,7 +109,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
     ![Clique em Criar Trabalho de Importação/Exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. Em **Noções básicas** :
+4. Em **Noções básicas**:
 
    * Selecione **Importar para o Azure**.
    * Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
@@ -120,7 +120,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
      ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. Em **Detalhes do trabalho** :
+5. Em **Detalhes do trabalho**:
 
    * Carregue os arquivos de diário da unidade que você obteve durante a etapa de preparação da unidade. Se utilizou `waimportexport.exe version1`, envie um arquivo para cada unidade que você preparou. Se o tamanho do arquivo de diário exceder 2 MB, você poderá usar o `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também criado com o arquivo de diário.
    * Selecione a conta de armazenamento de destino onde os dados residirão.
@@ -128,7 +128,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
    ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. Em **Informações sobre a remessa de devolução** :
+6. Em **Informações sobre a remessa de devolução**:
 
    * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com`  com as informações sobre a transportadora que você planeja usar.
    * Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
@@ -139,7 +139,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
      ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. No **Resumo** :
+7. No **Resumo**:
 
    * Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
    * Clique em **OK** para criar o trabalho de importação.
@@ -160,7 +160,7 @@ Use as etapas a seguir para criar um trabalho de importação no CLI do Azure.
     az extension add --name import-export
     ```
 
-1. Você pode usar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, execute o comando [AZ Group Create](/cli/azure/group#az_group_create) :
+1. Você pode usar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, execute o comando [az group create](/cli/azure/group#az_group_create):
 
     ```azurecli
     az group create --name myierg --location "West US"

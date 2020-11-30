@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f691ec2d6ba873ba8052c5fab35162932668f185
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c31187e87f18f0ec84cd5b80ccab997d0ba381c3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496473"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324747"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Guia de migração: DB2 para SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -138,10 +138,10 @@ Depois que os dados são migrados para o ambiente de destino, todos os aplicativ
 
 A abordagem de teste para a migração de banco de dados consiste nas seguintes atividades:
 
-1. **Desenvolver testes de validação** : Para testar a migração do banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
-1. **Configurar ambiente de teste** : O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
-1. **Executar testes de validação** : Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
-1. **Executar testes de desempenho** : Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
+1. **Desenvolver testes de validação**: Para testar a migração do banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
+1. **Configurar ambiente de teste**: O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
+1. **Executar testes de validação**: Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
+1. **Executar testes de desempenho**: Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
 
    > [!NOTE]
    > Para obter assistência para desenvolver e executar testes de validação após a migração, considere a Solução de Qualidade de Dados disponibilizada pelo parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -149,7 +149,7 @@ A abordagem de teste para a migração de banco de dados consiste nas seguintes 
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 
 
-Não se esqueça de aproveitar os recursos avançados baseados em nuvem oferecidos pelo Azure SQL Instância Gerenciada, como [alta disponibilidade interna](../../database/high-availability-sla.md), [detecção de ameaças](../../database/advanced-data-security.md)e [monitoramento e ajuste da carga de trabalho](../../database/monitor-tune-overview.md). 
+Não se esqueça de aproveitar os recursos avançados baseados em nuvem oferecidos pelo Azure SQL Instância Gerenciada, como [alta disponibilidade interna](../../database/high-availability-sla.md), [detecção de ameaças](../../database/azure-defender-for-sql.md)e [monitoramento e ajuste da carga de trabalho](../../database/monitor-tune-overview.md). 
 
 
 Alguns recursos SQL Server só estarão disponíveis quando o [nível de compatibilidade do banco de dados](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) for alterado para o nível de compatibilidade mais recente (150). 

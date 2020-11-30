@@ -3,12 +3,12 @@ title: Configurar o GitHub Enterprise Server em sua nuvem privada da solução A
 description: Saiba como configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: afce212416c7c12631a7f8d388dc991ed957736f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 00b3acf721dd7f7a1a15bcd0d24eccf3ca27ff58
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949302"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326906"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware
 
@@ -24,7 +24,13 @@ Baixe [a versão atual do GitHub Enterprise Server](https://enterprise.github.co
 
 :::image type="content" source="media/github-enterprise-server/github-options.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::  
 
-:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Escolha executar o GitHub no local ou na nuvem." (ações) |
+:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Implante o modelo OVA.":::  
+
+Forneça um nome reconhecível para sua nova máquina virtual, como GitHubEnterpriseServer. Você não precisa incluir os detalhes da versão no nome da VM, pois esses detalhes se tornam obsoletos quando a instância é atualizada. Selecione todos os padrões por enquanto (vamos editar esses detalhes em breve) e aguarde até que o OVA seja importado.
+
+Depois de importado, [ajuste a configuração de hardware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) com base em suas necessidades. Em nosso cenário de exemplo, precisaremos da configuração a seguir.
+
+| Recurso | Configuração padrão | Configuração padrão + "recursos beta" (ações) |
 | --- | --- | --- |
 | vCPUs | 4 | 8 |
 | Memória | 32 GB | 61 GB |
@@ -35,11 +41,11 @@ No entanto, suas necessidades podem variar. Consulte as diretrizes sobre conside
 
 ## <a name="configuring-the-github-enterprise-server-instance"></a>Configurando a instância do servidor do GitHub Enterprise
 
-:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::  
+:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="Instale o GitHub Enterprise.":::  
 
 Depois que a VM (máquina virtual) recentemente configurada estiver ligada, [Configure-a por meio do navegador](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#configuring-the-github-enterprise-server-instance). Será necessário carregar o arquivo de licença e definir uma senha do console de gerenciamento. Certifique-se de anotar essa senha em um local seguro.
 
-:::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::    
+:::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="Acesse o Shell de administração via SSH.":::    
 
 É recomendável, pelo menos, executar as seguintes etapas:
 
@@ -47,11 +53,11 @@ Depois que a VM (máquina virtual) recentemente configurada estiver ligada, [Con
 
 2. [Configure o TLS em sua instância](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) para que você possa usar um certificado assinado por uma autoridade de certificação confiável.
 
-:::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Configurando sua instância.":::
 
 Aplique suas configurações.  Enquanto a instância é reiniciada, você pode continuar com a próxima etapa, **Configurando o armazenamento de BLOBs para ações do GitHub**.
 
-:::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Crie sua conta de administrador.":::
 
 Depois que a instância for reiniciada, crie uma nova conta de administrador na instância. Lembre-se de anotar a senha desse usuário também.
 
@@ -74,9 +80,9 @@ Para proteger sua instância para uso em produção, as seguintes etapas opciona
 > [!NOTE]
 > [Atualmente, as ações do GitHub estão disponíveis como uma versão beta limitada no GitHub Enterprise Server versão 2,22](https://docs.github.com/en/enterprise/admin/github-actions).
 
-O armazenamento de BLOBs externo é necessário para habilitar as ações do GitHub no servidor do GitHub Enterprise (atualmente disponível como um recurso "beta"). Esse armazenamento de BLOBs externo é usado por ações para armazenar artefatos e logs. As ações no GitHub Enterprise Server [dão suporte ao armazenamento de BLOBs do Azure como um provedor de armazenamento](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (e outros). Então, provisionaremos uma nova conta de armazenamento do Azure com um [tipo de conta de armazenamento](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) de BlobStorage:
+O armazenamento de BLOBs externo é necessário para habilitar as ações do GitHub no servidor do GitHub Enterprise (atualmente disponível como um recurso "beta"). Esse armazenamento de BLOBs externo é usado por ações para armazenar artefatos e logs. As ações no GitHub Enterprise Server [dão suporte ao armazenamento de BLOBs do Azure como um provedor de armazenamento](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (e outros). Então, provisionaremos uma nova conta de armazenamento do Azure com um [tipo de conta de armazenamento](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts) de BlobStorage:
 
-:::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Provisionar conta de armazenamento de BLOBs do Azure.":::
 
 Depois que a implantação do novo recurso BlobStorage for concluída, copie e anote a cadeia de conexão (disponível em chaves de acesso). Precisaremos dessa cadeia de caracteres em breve.
 
@@ -91,9 +97,9 @@ Agora, vamos criar em algum lugar para que as ações do GitHub sejam executadas
 
 Primeiro, vamos provisionar uma nova VM no cluster. Vamos basear nossa VM em [uma versão recente do Ubuntu Server](http://releases.ubuntu.com/20.04.1/).
 
-:::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Provisionar uma nova VM.":::
 
-:::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="Provisione uma nova etapa 2 da VM.":::
 
 Depois que a VM for criada, ligue-a e conecte-se a ela via SSH.
 
@@ -152,7 +158,7 @@ Próxima Execução:
 
 Você deve ver a saída: "o armazenamento de BLOBs está íntegro".
 
-Agora que as ações do GitHub estão configuradas, habilite-as para seus usuários. Entre em sua instância do GitHub Enterprise Server como administrador e selecione o ícone de ![ Rocket.](media/github-enterprise-server/rocket-icon.png) no canto superior direito de qualquer página. Na barra lateral esquerda, selecione **visão geral da empresa**, **políticas**, **ações**e selecione a opção para **habilitar ações para todas as organizações**.
+Agora que as ações do GitHub estão configuradas, habilite-as para seus usuários. Entre em sua instância do GitHub Enterprise Server como administrador e selecione o ícone de ![ Rocket.](media/github-enterprise-server/rocket-icon.png) no canto superior direito de qualquer página. Na barra lateral esquerda, selecione **visão geral da empresa**, **políticas**, **ações** e selecione a opção para **habilitar ações para todas as organizações**.
 
 Em seguida, configure o executor na guia **executores auto-hospedados** . Selecione **Adicionar novo** e, em seguida, **novo executor** na lista suspensa.
 
@@ -162,15 +168,15 @@ Na próxima página, você verá um conjunto de comandos a serem executados. pre
 
 Copie o `config.sh` comando e cole-o em uma sessão no executor de ações (criado anteriormente).
 
-:::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Executor de ações.":::
 
 Use o comando run.sh para *executar* o executor:
 
-:::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="Execute o executor.":::
 
 Para disponibilizar esse executor para as organizações em sua empresa, edite seu acesso à organização:
 
-:::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Edite o acesso ao executor.":::
 
 Aqui, vamos disponibilizá-lo para todas as organizações, mas você também pode limitar o acesso a um subconjunto de organizações e até mesmo a repositórios específicos.
 
@@ -182,7 +188,7 @@ Para habilitar o GitHub Connect, siga as etapas em [habilitando o acesso automá
 
 Depois que o GitHub Connect estiver habilitado, selecione o **servidor para usar as ações de github.com na opção execuções de fluxo de trabalho** .
 
-:::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="Habilitar o uso de ações de GitHub.com em execuções de fluxo de trabalho.":::
 
 ## <a name="setting-up-and-running-your-first-workflow"></a>Configurando e executando seu primeiro fluxo de trabalho
 
@@ -190,30 +196,30 @@ Agora que as ações e o GitHub Connect estão configurados, vamos colocar todo 
 
 Neste fluxo de trabalho básico, usaremos `octokit/request-action` apenas para abrir um problema no GitHub usando a API.
 
-:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="Fluxo de trabalho de exemplo.":::
 
 >[!NOTE]
 >GitHub.com hospeda a ação, mas quando ela é executada no GitHub Enterprise Server, ela usa *automaticamente* a API do GitHub Enterprise Server.
 
 Se você optar por não habilitar o GitHub Connect, poderá usar o fluxo de trabalho alternativo a seguir.
 
-:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Exemplo de fluxo de trabalho alternativo.":::
 
 Navegue até um repositório em sua instância e adicione o fluxo de trabalho acima como: `.github/workflows/hello-world.yml`
 
-:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="Outro fluxo de trabalho de exemplo.":::
 
 Na guia **ações** do seu repositório, aguarde a execução do fluxo de trabalho.
 
-:::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="Fluxo de trabalho de exemplo executado.":::
 
 Você também pode ver que ele está sendo processado pelo executor.
 
-:::image type="content" source="media/github-enterprise-server/workflow-processed-by-runner.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/workflow-processed-by-runner.png" alt-text="Fluxo de trabalho processado pelo executor.":::
 
 Se tudo tiver sido executado com êxito, você verá um novo problema em seu repositório, intitulado "Olá, mundo".
 
-:::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="Escolha executar o GitHub no local ou na nuvem.":::
+:::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="Exemplo no repositório.":::
 
 Parabéns! Você acabou de concluir seu primeiro fluxo de trabalho de ações no GitHub Enterprise Server, em execução em sua nuvem privada da solução Azure VMware.
 

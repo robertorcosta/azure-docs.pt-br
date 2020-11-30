@@ -4,12 +4,12 @@ description: Saiba mais sobre as restrições, limites e cotas padrão do Lote d
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325954"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -23,15 +23,33 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 
 ## <a name="resource-quotas"></a>Cotas de recursos
 
-Uma cota é um limite de crédito, não uma garantia de capacidade. Se você precisar de capacidade em larga escala, entre em contato com o suporte do Azure.
+Uma cota é um limite, não uma garantia de capacidade. Se você precisar de capacidade em larga escala, entre em contato com o suporte do Azure.
 
 Observe também que as cotas não são valores garantidos. As cotas podem variar dependendo das alterações do serviço de lote ou de uma solicitação de usuário para alterar o valor de uma cota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Cotas de núcleo
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Cotas de núcleos no modo de serviço do lote
+
+A imposição de cotas de núcleo dedicadas está sendo aprimorada, com as alterações disponibilizadas em estágios e concluídas para todas as contas do lote até o final de dezembro de 2020.
+
+Existem cotas de núcleo para cada série de VMs com suporte do lote e são exibidas na página **cotas** no Portal. Os limites de cota da série de VMs podem ser atualizados com uma solicitação de suporte, conforme detalhado abaixo.
+
+Com o mecanismo existente sendo dividido em fases, os limites de cota para a série de VMs não são verificados, somente o limite de cota total para a conta é imposto. Isso significa que pode ser possível alocar mais núcleos para uma série de VMs do que é indicado pela cota da série de VMs, até o limite de cota de conta total.
+
+O mecanismo atualizado irá impor as cotas da série de VMs, além da cota de conta total. Como parte da transição para o novo mecanismo, os valores de cota da série de VMs podem ser atualizados para evitar falhas de alocação-qualquer série de VM usada nos últimos meses terá sua cota de série de VMs atualizada para corresponder à cota de conta total. Essa alteração não permitirá o uso de mais capacidade do que o que já estava disponível.
+
+É possível determinar se a imposição de cota da série de VMs foi habilitada para uma conta do lote, verificando:
+
+* A propriedade de API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) da conta do lote.
+
+* Texto na página de **cotas** da conta do lote no Portal.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Cotas de núcleo no modo de assinatura de usuário
 
-Se você tiver criado uma [conta do Lote](accounts.md) com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de modo diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados.
+Se você criou uma [conta do lote](accounts.md) com o modo de alocação do pool definido como **assinatura do usuário**, as VMs do lote e outros recursos serão criados diretamente em sua assinatura quando um pool for criado ou redimensionado. As cotas de núcleo do lote do Azure não se aplicam e as cotas em sua assinatura para núcleos de computação regionais, núcleos de computação por série e outros recursos são usadas e impostas.
 
 Para saber mais sobre essas cotas, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -73,7 +91,7 @@ Para exibir suas cotas de conta do Lote no [portal do Azure](https://portal.azur
 1. Selecione **Cotas** no menu da conta do Lote.
 1. Exiba as cotas atualmente aplicadas à conta do Lote.
 
-    ![Cotas para conta do Lote][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Cotas para conta do Lote":::
 
 ## <a name="increase-a-quota"></a>Aumentar uma cota
 

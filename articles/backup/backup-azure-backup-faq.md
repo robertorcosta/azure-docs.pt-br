@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096616"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327144"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -60,7 +60,7 @@ Se você já tiver configurado o backup e precisar passar de GRS para LRS, consu
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso mover dados do cofre dos serviços de recuperação para o local?
 
-Não há suporte para a exportação de dados diretamente do cofre dos serviços de recuperação para o local usando o Data Box. Os dados devem ser restaurados para uma conta de armazenamento e, em seguida, podem ser movidos para o local por meio de [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) ou de [importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Não há suporte para a exportação de dados diretamente do cofre dos serviços de recuperação para o local usando o Data Box. Os dados devem ser restaurados para uma conta de armazenamento e, em seguida, podem ser movidos para o local por meio de [Data Box](../databox/data-box-overview.md) ou de [importação/exportação](../storage/common/storage-import-export-service.md).
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 
@@ -124,7 +124,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 **Fonte de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados incluída no backup da VM de volume único que está sendo submetida a backup.
-Banco de dados do SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
+Banco de dados SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint do qual está sendo feito o backup.
 Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup.
 Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup.

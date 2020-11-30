@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102268"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327467"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em máquinas virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ O GRS (armazenamento com redundância geográfica) no Azure é implementado com 
 ## <a name="deployment-architectures"></a>Arquiteturas de implantação
 O Azure dá suporte a essas tecnologias de SQL Server para continuidade dos negócios:
 
-* [grupos de disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Grupos de disponibilidade AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 * [Always On FCIs (instâncias de cluster de failover)](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 * [Envio de logs](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [SQL Server Backup e restauração com o armazenamento de BLOBs do Azure](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
@@ -90,7 +90,7 @@ Na imagem a seguir, a instalação usa SQL Server em execução em uma máquina 
 
 Para obter mais informações, confira os [termos de licenciamento de produtos](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Para habilitar esse benefício, vá para seu [SQL Server recurso de máquina virtual](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selecione **definir** em **configurações** e, em seguida, escolha a opção **recuperação de desastre** em **SQL Server licença** . Marque a caixa de seleção para confirmar que esta SQL Server VM será usada como uma réplica passiva e, em seguida, selecione **aplicar** para salvar suas configurações. 
+Para habilitar esse benefício, vá para seu [SQL Server recurso de máquina virtual](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selecione **definir** em **configurações** e, em seguida, escolha a opção **recuperação de desastre** em **SQL Server licença**. Marque a caixa de seleção para confirmar que esta SQL Server VM será usada como uma réplica passiva e, em seguida, selecione **aplicar** para salvar suas configurações. 
 
 ![Configurar uma réplica de recuperação de desastre no Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,7 +101,7 @@ VMs do Azure, armazenamento e rede têm características operacionais diferentes
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nós de alta disponibilidade em um conjunto de disponibilidade
 Os conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta disponibilidade em domínios de falha e domínios de atualização separados. A plataforma Azure atribui um domínio de atualização e um domínio de falha a cada máquina virtual em seu conjunto de disponibilidade. Essa configuração em um datacenter garante que, durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA do Azure de 99,95%. 
 
-Para configurar uma configuração de alta disponibilidade, Coloque todas as máquinas virtuais SQL Serverdas no mesmo conjunto de disponibilidade para evitar a perda de aplicativos ou dados durante um evento de manutenção. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Para configurar uma configuração de alta disponibilidade, Coloque todas as máquinas virtuais SQL Serverdas no mesmo conjunto de disponibilidade para evitar a perda de aplicativos ou dados durante um evento de manutenção. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nós de alta disponibilidade em uma zona de disponibilidade
 As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. A separação física das zonas de disponibilidade em uma região ajuda a proteger aplicativos e dados de falhas do datacenter, garantindo que pelo menos uma máquina virtual esteja disponível e atenda ao SLA do Azure de 99,99%. 
@@ -136,7 +136,7 @@ Se o grupo de disponibilidade abranger várias sub-redes do Azure (como uma impl
 Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os grupos de disponibilidade são compatíveis com os clientes de espelhamento de banco de dados, você pode se conectar às réplicas de disponibilidade como parceiros de espelhamento de banco de dados, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento de banco
 
 * Há uma réplica primária e uma réplica secundária.
-* A réplica secundária é configurada como não legível (opção **secundária legível** definida como **não** ).
+* A réplica secundária é configurada como não legível (opção **secundária legível** definida como **não**).
 
 Aqui está um exemplo de cadeia de conexão de cliente que corresponde a essa configuração de espelhamento de banco de dados usando ADO.NET ou SQL Server Native Client:
 

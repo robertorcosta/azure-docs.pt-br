@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978107"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324914"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer backup e restaurar máquinas virtuais do Azure criptografadas
 
@@ -16,13 +16,13 @@ Este artigo descreve como fazer backup e restaurar VMs (máquinas virtuais) do A
 
 ## <a name="encryption-using-platform-managed-keys"></a>Criptografia usando chaves gerenciadas pela plataforma
 
-Por padrão, todos os discos em suas VMs são automaticamente criptografados em repouso usando chaves gerenciadas por plataforma (PMK) que usam a [criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md). Você pode fazer backup dessas VMs usando o backup do Azure sem nenhuma ação específica necessária para dar suporte à criptografia no seu fim. Para obter mais informações sobre criptografia com chaves gerenciadas por plataforma, [consulte este artigo](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
+Por padrão, todos os discos em suas VMs são automaticamente criptografados em repouso usando chaves gerenciadas por plataforma (PMK) que usam a [criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md). Você pode fazer backup dessas VMs usando o backup do Azure sem nenhuma ação específica necessária para dar suporte à criptografia no seu fim. Para obter mais informações sobre criptografia com chaves gerenciadas por plataforma, [consulte este artigo](../virtual-machines/disk-encryption.md#platform-managed-keys).
 
 ![Discos criptografados](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>Criptografia usando chaves gerenciadas pelo cliente
 
-Quando você criptografa discos com chaves gerenciadas personalizadas (CMK), a chave usada para criptografar os discos é armazenada no Azure Key Vault e é gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando CMK difere da criptografia Azure Disk Encryption (ADE). O ADE usa as ferramentas de criptografia do sistema operacional. A SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs. Para obter mais informações sobre criptografia de discos gerenciados com chaves gerenciadas pelo cliente, consulte [Este artigo](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
+Quando você criptografa discos com chaves gerenciadas personalizadas (CMK), a chave usada para criptografar os discos é armazenada no Azure Key Vault e é gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando CMK difere da criptografia Azure Disk Encryption (ADE). O ADE usa as ferramentas de criptografia do sistema operacional. A SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs. Para obter mais informações sobre criptografia de discos gerenciados com chaves gerenciadas pelo cliente, consulte [Este artigo](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Suporte à criptografia usando ADE
 

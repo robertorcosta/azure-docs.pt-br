@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2e25f2fb806cb6e88745ffdfefe3dd82c0e9a6d
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234130"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326533"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 
@@ -43,26 +43,26 @@ Você deve:
 Execute as etapas a seguir para criar um trabalho de exportação no portal do Azure.
 
 1. Faça logon em <https://portal.azure.com/>.
-2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação** .
+2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. Clique em **criar trabalho de importação/exportação** .
+3. Clique em **criar trabalho de importação/exportação**.
 
     ![Clique em Trabalho de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
-4. Em **Noções básicas** :
+4. Em **Noções básicas**:
 
-    - Selecione **Exportar do Azure** .
+    - Selecione **Exportar do Azure**.
     - Digite um nome descritivo para o trabalho de exportação. Use o nome escolhido para acompanhar o andamento dos trabalhos.
         - O nome pode conter apenas letras minúsculas, números, hifens e sublinhados.
         - O nome deve começar com uma letra e não pode conter espaços.
     - Selecione uma assinatura.
     - Insira ou selecione um grupo de recursos.
 
-        ![Básico](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-5. Em **Detalhes do trabalho** :
+5. Em **Detalhes do trabalho**:
 
     - Selecione a conta de armazenamento onde estão os dados a serem exportados. Use uma conta de armazenamento perto de onde você está localizado.
     - O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
@@ -72,8 +72,8 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
          ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - Você pode especificar quais contêineres e blobs exportar.
-        - **Para especificar um blob para exportar** : Use o seletor **Igual a** . Especifique o caminho relativo do blob, começando com o nome do contêiner. Use *$root* para especificar o contêiner raiz.
-        - **Para especificar todos os blobs que começam com um prefixo** : Use o seletor **Começa com** . Especifique o prefixo, começando com uma barra '/'. O prefixo pode ser do nome do contêiner, o nome do contêiner completo ou o nome do contêiner completo seguido do prefixo do nome do blob. Você deve fornecer os caminhos de blob no formato válido para evitar erros durante o processamento, como mostrado nesta captura de tela. Para obter mais informações, consulte [Exemplos de caminhos de blob válido](#examples-of-valid-blob-paths).
+        - **Para especificar um blob para exportar**: Use o seletor **Igual a**. Especifique o caminho relativo do blob, começando com o nome do contêiner. Use *$root* para especificar o contêiner raiz.
+        - **Para especificar todos os blobs que começam com um prefixo**: Use o seletor **Começa com**. Especifique o prefixo, começando com uma barra '/'. O prefixo pode ser do nome do contêiner, o nome do contêiner completo ou o nome do contêiner completo seguido do prefixo do nome do blob. Você deve fornecer os caminhos de blob no formato válido para evitar erros durante o processamento, como mostrado nesta captura de tela. Para obter mais informações, consulte [Exemplos de caminhos de blob válido](#examples-of-valid-blob-paths).
 
            ![Exporte os blobs e os contêineres selecionados](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
@@ -84,7 +84,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
    > [!NOTE]
    > Se o blob a ser exportado estiver em uso durante a cópia dos dados, o serviço de Importação/Exportação do Azure tira um instantâneo do blob e copia o instantâneo.
 
-6. Em **Informações sobre a remessa de devolução** :
+6. Em **Informações sobre a remessa de devolução**:
 
     - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com`  com as informações sobre a transportadora que você planeja usar.
     - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades de volta para você quando o trabalho de exportação estiver concluído.
@@ -93,7 +93,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
         > [!TIP]
         > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-7. Em **Resumo** :
+7. Em **Resumo**:
 
     - Revise os detalhes do trabalho.
     - Anote o nome do trabalho e forneça o endereço para entrega do datacenter do Azure para o envio de discos para Azure.
@@ -147,7 +147,7 @@ Use as etapas a seguir para criar um trabalho de exportação no portal do Azure
     > [!TIP]
     > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-   Esse trabalho exporta todos os BLOBs em sua conta de armazenamento. Você pode especificar um blob para exportação substituindo esse valor para **--Export** :
+   Esse trabalho exporta todos os BLOBs em sua conta de armazenamento. Você pode especificar um blob para exportação substituindo esse valor para **--Export**:
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -155,7 +155,7 @@ Use as etapas a seguir para criar um trabalho de exportação no portal do Azure
 
    Esse valor de parâmetro exporta o blob chamado *logo.bmp* no contêiner raiz.
 
-   Você também tem a opção de selecionar todos os BLOBs em um contêiner usando um prefixo. Substitua esse valor para **--Export** :
+   Você também tem a opção de selecionar todos os BLOBs em um contêiner usando um prefixo. Substitua esse valor para **--Export**:
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -234,7 +234,7 @@ Install-Module -Name Az.ImportExport
     > [!TIP]
     > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-   Esse trabalho exporta todos os BLOBs em sua conta de armazenamento. Você pode especificar um blob para exportação substituindo esse valor para **-ExportBlobListblobPath** :
+   Esse trabalho exporta todos os BLOBs em sua conta de armazenamento. Você pode especificar um blob para exportação substituindo esse valor para **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath $root\logo.bmp
@@ -242,7 +242,7 @@ Install-Module -Name Az.ImportExport
 
    Esse valor de parâmetro exporta o blob chamado *logo.bmp* no contêiner raiz.
 
-   Você também tem a opção de selecionar todos os BLOBs em um contêiner usando um prefixo. Substitua esse valor por **-ExportBlobListblobPath** :
+   Você também tem a opção de selecionar todos os BLOBs em um contêiner usando um prefixo. Substitua esse valor por **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath '/myiecontainer'
@@ -283,7 +283,7 @@ Se você não souber o número de unidades que você precisa, vá para [Verifica
 
 Quando o painel informa que o trabalho foi concluído, os discos são enviados a você e o número de controle para a remessa está disponível no portal.
 
-1. Depois de receber as unidades com dados exportados, você precisa obter as chaves do BitLocker para desbloquear as unidades. Vá para o trabalho de exportação no portal do Azure. Clique na guia **Importação/Exportação** .
+1. Depois de receber as unidades com dados exportados, você precisa obter as chaves do BitLocker para desbloquear as unidades. Vá para o trabalho de exportação no portal do Azure. Clique na guia **Importação/Exportação**.
 2. Selecione e clique no trabalho de exportação da lista. Vá para **criptografia** e copie as chaves.
 
    ![Exibir chaves do BitLocker para um trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
@@ -323,11 +323,11 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
     |Parâmetro de linha de comando|Descrição|
     |--------------------------|-----------------|
     |**logdir**|Opcional. O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|
-    |**SN**|Necessário. O nome da conta de armazenamento do trabalho de exportação.|
+    |**SN**|Obrigatórios. O nome da conta de armazenamento do trabalho de exportação.|
     |**/SK**|Necessário somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|
     |**/csas:**|Necessário somente se uma chave de conta de armazenamento não for especificada. A SAS do contêiner para listar os blobs a serem exportados no trabalho de exportação.|
-    |**/ExportBlobListFile:**|Necessário. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs) da API REST do serviço de Importação/Exportação.|
-    |**/DriveSize:**|Necessário. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo* , 500 GB, 1,5 TB.|
+    |**/ExportBlobListFile:**|Obrigatórios. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs) da API REST do serviço de Importação/Exportação.|
+    |**/DriveSize:**|Obrigatórios. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo*, 500 GB, 1,5 TB.|
 
     Consulte um [exemplo do comando PreviewExport](#example-of-previewexport-command).
 

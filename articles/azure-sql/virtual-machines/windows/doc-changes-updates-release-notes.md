@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556345"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325716"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações na documentação das máquinas virtuais do SQL Server no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,7 +96,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 | **Capacidade de suporte à instância nomeada** | Agora você poderá usar a extensão [SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md#installation) com uma instância nomeada se a instância padrão tiver sido desinstalada corretamente. | 
 | **Melhoria do portal** | A experiência do portal do Azure para implantação de uma VM do SQL Server foi renovada para aprimorar a usabilidade. Para obter mais informações, confira o breve [início rápido](sql-vm-create-portal-quickstart.md) e o [guia de instruções](create-sql-vm-portal.md) mais detalhado para implantar uma VM do SQL Server.|
 | **Aprimoramento do portal** | Agora é possível alterar o modelo de licenciamento de uma VM do SQL Server de pagamento conforme o uso para traga sua própria licença usando o [portal do Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
-| **Simplificação da implantação do grupo de disponibilidade para uma VM SQL Server por meio do CLI do Azure** | Agora ficou mais fácil do que nunca implantar um grupo de disponibilidade em uma VM do SQL Server no Azure. Você pode usar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para criar o cluster de failover do Windows, o balanceador de carga interno e os ouvintes do grupo de disponibilidade, tudo na linha de comando. Para obter mais informações, consulte [usar o CLI do Azure para configurar um grupo de disponibilidade Always on para SQL Server em uma VM do Azure](availability-group-az-cli-configure.md). | 
+| **Simplificação da implantação do grupo de disponibilidade para uma VM SQL Server por meio do CLI do Azure** | Agora ficou mais fácil do que nunca implantar um grupo de disponibilidade em uma VM do SQL Server no Azure. Você pode usar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para criar o cluster de failover do Windows, o balanceador de carga interno e os ouvintes do grupo de disponibilidade, tudo na linha de comando. Para obter mais informações, consulte [usar o CLI do Azure para configurar um grupo de disponibilidade Always on para SQL Server em uma VM do Azure](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-**VMs do Windows** :
+**VMs do Windows**:
 
 * [Visão geral do SQL Server em uma VM do Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Provisionar SQL Server em uma VM do Windows](create-sql-vm-portal.md)
@@ -121,7 +121,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 * [Melhores práticas de desempenho para as Máquinas Virtuais do SQL Server no Azure](performance-guidelines-best-practices.md)
 * [Padrões de aplicativo e estratégias de desenvolvimento para Máquinas Virtuais do SQL Server no Azure](application-patterns-development-strategies.md)
 
-**VMs Linux** :
+**VMs Linux**:
 
 * [Visão geral do SQL Server em uma VM Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provisionar SQL Server em uma máquina virtual Linux](../linux/sql-vm-create-portal-quickstart.md)

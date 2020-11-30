@@ -3,12 +3,12 @@ title: Segurança da camada de transporte no backup do Azure
 description: Saiba como habilitar o backup do Azure para usar o protocolo TLS para manter os dados seguros ao serem transferidos por uma rede.
 ms.topic: conceptual
 ms.date: 11/01/2020
-ms.openlocfilehash: 9881fd3532cbc7d67c7d5adbce75e02fc62e0bcf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280665"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327110"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Segurança da camada de transporte no backup do Azure
 
@@ -45,7 +45,7 @@ As seguintes chaves do registro garantem que o protocolo TLS 1,2 esteja habilita
 
 ### <a name="configuring-net-framework"></a>Configurando .NET Framework
 
-As chaves de registro a seguir configuram .NET Framework para dar suporte à criptografia forte. Você pode ler mais sobre como [configurar .NET Framework aqui](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
+As chaves de registro a seguir configuram .NET Framework para dar suporte à criptografia forte. Você pode ler mais sobre como [configurar .NET Framework aqui](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -65,7 +65,7 @@ O TLS 1,2 é mais seguro do que os protocolos de criptografia anteriores, como S
 
 ### <a name="what-determines-the-encryption-protocol-used"></a>O que determina o protocolo de criptografia usado?
 
-A versão de protocolo mais alta com suporte do cliente e do servidor é negociada para estabelecer a conversa criptografada. Para obter mais informações sobre o protocolo de handshake de TLS, consulte [estabelecendo uma sessão segura usando TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
+A versão de protocolo mais alta com suporte do cliente e do servidor é negociada para estabelecer a conversa criptografada. Para obter mais informações sobre o protocolo de handshake de TLS, consulte [estabelecendo uma sessão segura usando TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
 ### <a name="what-is-the-impact-of-not-enabling-tls-12"></a>Qual é o impacto de não habilitar o TLS 1,2?
 
@@ -77,6 +77,6 @@ Para melhorar a segurança dos ataques de downgrade de protocolo, o backup do Az
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Protocolo de segurança da camada de transporte](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [Garantindo o suporte para o TLS 1,2 entre sistemas operacionais implantados](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- [Práticas recomendadas do protocolo TLS com o .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls)
+- [Protocolo de segurança da camada de transporte](/windows/win32/secauthn/transport-layer-security-protocol)
+- [Garantindo o suporte para o TLS 1,2 entre sistemas operacionais implantados](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- [Práticas recomendadas do protocolo TLS com o .NET Framework](/dotnet/framework/network-programming/tls)

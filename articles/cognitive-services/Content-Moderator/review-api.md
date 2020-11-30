@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143588"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325325"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
 
@@ -26,7 +26,7 @@ O Content Moderator combina moderação assistida por computador com recursos hu
 Em uma revisão, o conteúdo é carregado para a ferramenta de revisão. Você pode exibi-lo clicando em seu tipo de conteúdo na guia **revisão** no painel. Na tela de revisão, você pode alterar as marcas aplicadas e aplicar suas próprias marcas personalizadas conforme apropriado. Quando você envia uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado e o conteúdo é removido do site.
 
 > [!div class="mx-imgBorder"]
-> ![Examinar o site da ferramenta com a guia revisão selecionada](./Review-Tool-user-Guide/images/review-tab.png)
+> ![O menu suspenso revisão é realçado. Ele mostra esses tipos de conteúdo: imagem, texto e vídeo.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Gerenciar revisões
 
@@ -40,7 +40,7 @@ O botão de **ações** de três pontos em cada revisão permite que você vá p
 Use a barra de ferramentas de **pesquisa** para classificar as revisões por uma variedade de categorias, como estado de revisão, marcas, tipo de conteúdo, subequipes, usuários atribuídos e data de criação/modificação.
 
 > [!div class="mx-imgBorder"]
-> ![Examinar o site da ferramenta com a guia revisão selecionada](./Review-Tool-user-Guide/images/review-search.png)
+> ![A barra de ferramentas de pesquisa é mostrada. Ele tem várias caixas de combinação para inserir critérios de pesquisa, como estado de revisão e marcas.](./Review-Tool-user-Guide/images/review-search.png)
 
 Consulte o [Guia de ferramentas de revisão](./review-tool-user-guide/review-moderated-images.md) para começar a criar revisões ou consulte o [guia da API REST](./try-review-api-review.md) para saber como fazer isso programaticamente.
 
@@ -50,7 +50,7 @@ Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo.
 
 ### <a name="view-workflows"></a>Exibir fluxos de trabalho
 
-Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione fluxos de trabalho de **Administração**  >  **Workflows** .
+Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione fluxos de trabalho de **Administração**  >  **Workflows**.
 
 > [!div class="mx-imgBorder"]
 > ![Fluxo de trabalho padrão](images/default-workflow-list.png)

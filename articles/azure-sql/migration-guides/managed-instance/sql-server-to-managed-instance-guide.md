@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026037"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326889"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Se você precisar comparar o desempenho de sua carga de trabalho em um Instânci
 
 ### <a name="create-sql-managed-instance"></a>Criar uma Instância Gerenciada do SQL 
 
-Com base nas informações na fase de descoberta e avaliação, crie um Instância Gerenciada de destino do SQL de tamanho adequado. Você pode fazer isso usando o [portal do Azure](../../managed-instance/instance-create-quickstart.md), o [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [modelo de Azure Resource Manager (ARM)](/azure/azure-sql/managed-instance/create-template-quickstart). 
+Com base nas informações na fase de descoberta e avaliação, crie um Instância Gerenciada de destino do SQL de tamanho adequado. Você pode fazer isso usando o [portal do Azure](../../managed-instance/instance-create-quickstart.md), o [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [modelo de Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
 ## <a name="migrate"></a>Migrações
@@ -124,7 +124,7 @@ Para executar migrações usando o DMS, siga as etapas abaixo:
 1. Depois que o banco de dados for restaurado, escolha **Iniciar transferência**. O processo de migração copia o backup da parte final do log quando você o disponibiliza no compartilhamento de rede SMB e o restaura no destino. 
 1. Interrompa todo o tráfego de entrada para o banco de dados de origem e atualize a cadeia de conexão para o novo banco de dados do Azure SQL Instância Gerenciada. 
 
-Para obter um tutorial passo a passo detalhado dessa opção de migração, consulte [migrar SQL Server para um SQL do Azure instância gerenciada online usando DMS](/azure/dms/tutorial-sql-server-managed-instance-online). 
+Para obter um tutorial passo a passo detalhado dessa opção de migração, consulte [migrar SQL Server para um SQL do Azure instância gerenciada online usando DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
 
@@ -160,7 +160,7 @@ Para migrar usando backup e restauração, siga estas etapas:
 
 1. Depois que a restauração for concluída, exiba o banco de dados no Pesquisador de **objetos** no SQL Server Management Studio. 
 
-Para saber mais sobre essa opção de migração, consulte [restaurar um banco de dados no Azure SQL instância gerenciada com o SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+Para saber mais sobre essa opção de migração, consulte [restaurar um banco de dados no Azure SQL instância gerenciada com o SSMS](../../managed-instance/restore-sample-database-quickstart.md).
 
 > [!NOTE]
 > Uma operação de restauração do banco de dados é assíncrona e repetível. Você poderá receber um erro no SQL Server Management Studio se a conexão for interrompida ou o tempo limite expirar. O Banco de Dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
@@ -203,7 +203,7 @@ A abordagem de teste para a migração de banco de dados consiste nas seguintes 
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 
 
-Não se esqueça de aproveitar os recursos avançados baseados em nuvem oferecidos pelo SQL Instância Gerenciada, como [alta disponibilidade interna](../../database/high-availability-sla.md), [detecção de ameaças](../../database/advanced-data-security.md)e [monitoramento e ajuste da carga de trabalho](../../database/monitor-tune-overview.md). 
+Não se esqueça de aproveitar os recursos avançados baseados em nuvem oferecidos pelo SQL Instância Gerenciada, como [alta disponibilidade interna](../../database/high-availability-sla.md), [detecção de ameaças](../../database/azure-defender-for-sql.md)e [monitoramento e ajuste da carga de trabalho](../../database/monitor-tune-overview.md). 
 
 [Análise de SQL do Azure](../../../azure-monitor/insights/azure-sql.md) permite monitorar um grande conjunto de instâncias gerenciadas de maneira centralizada.
 
