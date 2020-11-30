@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 43aadee627c7dc12a37a8f3895ba4dfed472808c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182896"
+ms.locfileid: "96296243"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar o complemento Controlador de Entrada (versão prévia) para um novo cluster do AKS com uma nova instância do Gateway de Aplicativo
 
@@ -34,7 +34,10 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requer a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+ - Este tutorial requer a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. Se você está usando a CLI do Azure, você precisa instalar a extensão preview na CLI usando o seguinte comando, se ainda não estiver instalada:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
  - Registre o sinalizador de recursos *AKS-IngressApplicationGatewayAddon* usando o comando [az feature register](/cli/azure/feature#az-feature-register), conforme mostrado no exemplo a seguir. Você precisará fazer isso apenas uma vez por assinatura enquanto o complemento ainda estiver na versão prévia.
     ```azurecli-interactive

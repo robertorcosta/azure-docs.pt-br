@@ -5,35 +5,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025623"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
 #### <a name="windows-install"></a>[Instalação do Windows](#tab/windowsinstall)
 
-> [!NOTE]
-> No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessário reiniciar o Windows.
-
 Siga estas etapas para instalar a CLI de Fala no Windows:
 
-1. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
-2. Acesse o diretório raiz `spx-zips` que você extraiu do download e extraia o subdiretório necessário (`spx-net471` para .NET Framework 4.7 ou `spx-netcore-win-x64` para .NET Core 3.0 em uma CPU x64).
+1. No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessária uma reinicialização.
+2. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
+3. Acesse o diretório em que você extraiu `spx-zips`. Essa pasta contém arquivos de programas para a CLI de Fala em uma variedade de plataformas. 
+4. Extraia os arquivos da sua plataforma (`spx-net471` para .NET Framework 4.7 ou `spx-netcore-win-x64` para .NET Core 3.0 em uma CPU x64). Tenha em mente que você executará `spx` nesse diretório.
 
-No prompt de comando, altere o diretório para esse local e, em seguida, digite `spx` para ver a ajuda da CLI de Fala.
+### <a name="run-the-speech-cli"></a>Executar a CLI de Fala
 
-> [!NOTE]
-> No Windows, a CLI de Fala só pode mostrar as fontes disponíveis no prompt de comando do computador local.
-> O [Terminal do Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) dá suporte a todas as fontes produzidas de maneira interativa pela CLI de Fala.
-> Se você produzir a saída em um arquivo, um editor de texto como o Bloco de notas ou um navegador da Web como o Microsoft Edge também poderá mostrar todas as fontes.
+1. Abra o prompt de comando ou o PowerShell e procure o diretório em que você extraiu a CLI de Fala.  
+2. Digite `spx` para ver os comandos de ajuda para a CLI de Fala.
 
 > [!NOTE]
 > O PowerShell não verifica o diretório local ao procurar um comando. No PowerShell, altere o diretório para a localização `spx` e chame a ferramenta inserindo `.\spx`.
 > Se você adicionar esse diretório ao caminho, o PowerShell e o prompt de comando do Windows encontrarão `spx` em qualquer diretório sem incluir o prefixo `.\`.
+
+### <a name="font-limitations"></a>Limitações de fontes
+
+No Windows, a CLI de Fala só pode mostrar as fontes disponíveis no prompt de comando do computador local.
+O [Terminal do Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) dá suporte a todas as fontes produzidas de maneira interativa pela CLI de Fala.
+
+Se você produzir a saída em um arquivo, um editor de texto como o Bloco de notas ou um navegador da Web como o Microsoft Edge também poderá mostrar todas as fontes.
 
 #### <a name="linux-install"></a>[Instalação do Linux](#tab/linuxinstall)
 

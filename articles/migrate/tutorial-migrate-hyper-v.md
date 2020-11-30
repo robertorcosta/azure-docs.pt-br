@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995311"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302562"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -43,23 +43,9 @@ Antes de iniciar este tutorial, você deverá:
 2. [Examine](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) os requisitos de host do Hyper-V para migração e as URLs do Azure para as quais os hosts e clusters do Hyper-V precisam de acesso para migração da VM.
 3. [Examine](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para VMs do Hyper-V que você deseja migrar para o Azure.
 4. É recomendável que você [avalie as VMs do Hyper-V](tutorial-assess-hyper-v.md) antes de migrá-las para o Azure, mas isso não é obrigatório.
+5. Vá para o projeto criado ou [crie um projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+6. Verifique as permissões para sua conta do Azure. Sua conta do Azure precisa de permissões para criar uma VM e gravar em um disco gerenciado do Azure.
 
-   
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Adicionar a ferramenta Migração de Servidor das Migrações para Azure
-
-Adicionar a ferramenta Migração de Servidor das Migrações para Azure. Se você ainda não tiver um projeto das Migrações para Azure, [crie-o primeiro](how-to-add-tool-first-time.md) para configurar um projeto das Migrações para Azure. Você adiciona a ferramenta de Migração de Servidor das Migrações para Azure ao criar o projeto.
-
-Se você tiver um projeto configurado, adicione a ferramenta da seguinte maneira:
-
-1. No projeto das Migrações para Azure, clique em **Visão Geral**. 
-2. Em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
-3. Em **Ferramentas de migração**, selecione **Clique aqui para adicionar uma ferramenta de migração quando você estiver pronto para fazer a migração**.
-
-    ![Selecionar uma ferramenta](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. Na lista de ferramentas, selecione **Migrações para Azure: Migração de Servidor** > **Adicionar ferramenta**
-
-    ![Ferramenta Migração de Servidor](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 ## <a name="download-and-install-the-provider"></a>Baixar e instalar o provedor
 
@@ -120,7 +106,7 @@ Com a descoberta concluída, você poderá iniciar a replicação de VMs do Hype
     - Nenhuma opção de redundância de infraestrutura será necessária se você não precisar de nenhuma dessas configurações de disponibilidade para os computadores migrados.
 10. Em **Benefício Híbrido do Azure**:
 
-    - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Próximo**.
+    - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Avançar**.
     - Selecione **Sim** se você tiver computadores Windows Server cobertos com assinaturas ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que estão sendo migrados. Em seguida, clique em **Próximo**.
 
     ![Configurações de destino](./media/tutorial-migrate-hyper-v/target-settings.png)

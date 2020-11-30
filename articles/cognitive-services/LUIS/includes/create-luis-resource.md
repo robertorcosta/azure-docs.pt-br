@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/07/2020
+ms.date: 11/20/2020
 ms.author: aahi
-ms.openlocfilehash: a077d255648ff07cc88b43dece889a221c46c11f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: ee7fd384a198c5eff672b14b6cb479aac26cfe54
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561498"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972498"
 ---
 <a name="create-luis-resources"></a>
 
@@ -37,7 +37,7 @@ ms.locfileid: "94561498"
     > [![Captura de tela que mostra a guia Básico em Criar.](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
 1. Clique em **Examinar + criar** e aguarde até que o recurso seja criado.
-1. Depois que ambos os recursos forem criados, ainda no portal do Azure, selecione o novo recurso de criação. Em seguida, selecione **Inícios Rápidos** para obter a **URL do ponto de extremidade** e a **chave** de criação para fazer a criação de maneira programática.
+1. Depois que ambos os recursos forem criados, ainda no portal do Azure, selecione o novo recurso de criação. Em seguida, selecione **Chaves e Ponto de Extremidade** para obter a **URL do ponto de extremidade** e a **chave** de criação para fazer a criação de maneira programática.
 
 > [!TIP]
 > Para usar os recursos, no portal do LUIS, [atribua os recursos](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).
