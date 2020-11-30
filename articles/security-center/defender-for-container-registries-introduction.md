@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529971"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310384"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -85,6 +85,8 @@ Sim. Caso você tenha uma necessidade organizacional para ignorar uma descoberta
 
 [Saiba mais sobre como criar regras para desabilitar as descobertas da ferramenta de avaliação de vulnerabilidade integrada](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Por que a Central de Segurança está me alertando sobre as vulnerabilidades de uma imagem que não está no meu registro?
+A Central de Segurança fornece avaliações de vulnerabilidade para todas as imagens enviadas por push ou extraídas de um registro. Algumas imagens podem reutilizar marcações de uma imagem que já foi verificada. Por exemplo, você pode transferir a marcação "Mais recente" sempre que adicionar uma imagem a um resumo. Nesses casos, a imagem antiga ainda existe no registro e pode ser extraída pelo resumo. Se a imagem tiver descobertas de segurança e for extraída, ela vai expor vulnerabilidades.
 
 
 ## <a name="next-steps"></a>Próximas etapas

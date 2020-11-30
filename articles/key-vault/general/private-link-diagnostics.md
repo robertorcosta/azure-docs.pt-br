@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 03abe4e4e098d46060e33ba114872905e54a443f
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506049"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317054"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados no Azure Key Vault
 
@@ -65,7 +65,7 @@ As etapas a seguir validam que a conexão de ponto de extremidade privada foi ap
 1. Abra o portal do Azure e abra o recurso do cofre de chaves.
 2. No menu à esquerda, selecione **rede**.
 3. Clique na guia **conexões de ponto de extremidade privado** . Isso mostrará todas as conexões de ponto de extremidade particulares e seus respectivos Estados. Se não houver conexões ou se a conexão de sua rede virtual estiver ausente, você precisará criar um novo ponto de extremidade privado. Isso será abordado mais tarde.
-4. Ainda em **conexões de ponto de extremidade privado** , encontre a que você está diagnosticando e confirme se "estado da conexão" foi **aprovado** e se o "estado de provisionamento" foi **bem-sucedido**.
+4. Ainda em **conexões de ponto de extremidade privado**, encontre a que você está diagnosticando e confirme se "estado da conexão" foi **aprovado** e se o "estado de provisionamento" foi **bem-sucedido**.
     - Se a conexão estiver no estado "pendente", talvez você possa apenas aprová-la.
     - Se a conexão "rejeitada", "falha", "erro", "desconectado" ou outro Estado, isso não é efetivo, você precisa criar um novo recurso de ponto de extremidade privado.
 
@@ -180,8 +180,15 @@ Windows:
 C:\> nslookup fabrikam.vault.azure.net
 ```
 
-Resposta não autoritativa: Endereço: aliases de 52.168.109.101: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
 ```
+
 Linux:
 
 ```console
@@ -295,7 +302,7 @@ Como você pode ver, a resolução de nomes está sob seu controle. Os motivos p
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Consultar o `/healthstatus` ponto de extremidade do cofre de chaves
 
-O cofre de chaves fornece o `/healthstatus` ponto de extremidade, que pode ser usado para diagnóstico. Os cabeçalhos de resposta incluem o endereço IP de origem, como visto pelo serviço de cofre de chaves. Você pode chamar esse ponto de extremidade com o seguinte comando ( **Lembre-se de usar o nome de host do cofre de chaves** ):
+O cofre de chaves fornece o `/healthstatus` ponto de extremidade, que pode ser usado para diagnóstico. Os cabeçalhos de resposta incluem o endereço IP de origem, como visto pelo serviço de cofre de chaves. Você pode chamar esse ponto de extremidade com o seguinte comando (**Lembre-se de usar o nome de host do cofre de chaves**):
 
 Windows (PowerShell):
 

@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184596"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317513"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -79,10 +79,10 @@ Há vários limites que você deve considerar ao planejar sua configuração de 
 * Um objeto AMPLS pode se conectar a 10 pontos de extremidade privados no máximo.
 
 Na topologia abaixo:
-* Cada VNet se conecta a um objeto AMPLS e, portanto, não pode se conectar a outros AMPLSs.
-* AMPLS B conecta-se a 2 VNets: usando 2/10 de suas conexões de ponto de extremidade privadas possíveis.
-* O AMPLS A se conecta a 2 espaços de trabalho e 1 componente do Application insights: usando 3/50 de seus recursos de Azure Monitor possíveis.
-* O espaço de trabalho 2 conecta-se ao AMPLS A e AMPLS B: usando 2/5 de suas conexões AMPLS possíveis.
+* Cada VNet se conecta a apenas **um** objeto AMPLS.
+* O AMPLS B está conectado a pontos de extremidade privados de dois VNets (VNet2 e VNet3), usando 2/10 (20%) de suas possíveis conexões de ponto de extremidade privado.
+* O AMPLS A se conecta a dois espaços de trabalho e a um componente do Application Insight, usando 3/50 (6%) de suas conexões de recursos Azure Monitor possíveis.
+* Workspace2 conecta-se ao AMPLS A e AMPLS B, usando 2/5 (40%) de suas conexões AMPLS possíveis.
 
 ![Diagrama de limites de AMPLS](./media/private-link-security/ampls-limits.png)
 
@@ -103,9 +103,9 @@ Comece criando um recurso de Escopo de Link Privado do Azure Monitor.
 
 6. Espere a validação ser aprovada e clique em **Criar**.
 
-## <a name="connect-azure-monitor-resources"></a>Conectar recursos do Azure Monitor
+### <a name="connect-azure-monitor-resources"></a>Conectar recursos do Azure Monitor
 
-Você pode conectar seu AMPLS primeiro aos pontos de extremidade privados e, em seguida, aos recursos do Azure Monitor ou vice-versa. Mas o processo de conexão será mais rápido se você iniciar com os recursos do Azure Monitor. Confira como conectar os workspaces do Log Analytics do Azure Monitor e os componentes do Application Insights a um AMPLS
+Conecte Azure Monitor recursos (Log Analytics espaços de trabalho e componentes do Application Insights) ao seu AMPLS.
 
 1. No Escopo de Link Privado do Azure Monitor, clique em **Recursos do Azure Monitor**, no menu à esquerda. Clique no botão **Adicionar** .
 2. Adicione o workspace ou componente. Clique em **Adicionar** para exibir a caixa de diálogo na qual você poderá selecionar os recursos do Azure Monitor. Você pode navegar por suas assinaturas e seus grupos de recursos ou digitar o nome deles para filtrá-los. Selecione o workspace ou componente e clique em **Aplicar** para adicioná-los ao seu escopo.
@@ -158,16 +158,19 @@ Você criou um ponto de extremidade privado conectado ao Escopo de Link Privado 
 
 ## <a name="configure-log-analytics"></a>Configurar a análise de logs
 
-Vá para o portal do Azure. No recurso de espaço de trabalho Log Analytics há um **isolamento de rede** de item de menu no lado esquerdo. Nesse menu, é possível controlar dois estados diferentes. 
+Vá para o portal do Azure. No recurso de espaço de trabalho Log Analytics há um **isolamento de rede** de item de menu no lado esquerdo. Nesse menu, é possível controlar dois estados diferentes.
 
 ![Isolamento da rede de LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-Primeiro, você pode conectar esse recurso do Log Analytics a qualquer escopo de Link Privado do Azure Monitor ao qual você tenha acesso. Clique em **Adicionar** e selecione o Escopo de Link Privado do Azure Monitor.  Clique em **Aplicar** para conectá-lo. Todos os escopos conectados são exibidos nessa tela. Essa conexão permite que o tráfego nas redes virtuais conectadas acessem esse workspace. Essa conexão tem o mesmo efeito que o executado por meio do escopo, como fizemos em [Conectar recursos do Azure Monitor](#connect-azure-monitor-resources).  
+### <a name="connected-azure-monitor-private-link-scopes"></a>Escopos de link privado Azure Monitor conectados
+Todos os escopos conectados a este espaço de trabalho aparecem nesta tela. Conectar-se a escopos (AMPLSs) permite o tráfego de rede da rede virtual conectada a cada AMPLS para alcançar este espaço de trabalho. A criação de uma conexão aqui tem o mesmo efeito que configurá-la no escopo, como fizemos para [conectar Azure monitor recursos](#connect-azure-monitor-resources). Para adicionar uma nova conexão, clique em **Adicionar** e selecione o escopo do link Azure monitor privado. Clique em **Aplicar** para conectá-lo. Observe que um espaço de trabalho pode se conectar a 5 objetos AMPLS, conforme explicado em [considerar os limites](#consider-limits). 
 
-Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados acima. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse workspace. Esses dados incluem acesso a pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. As experiências em execução fora do portal do Azure e essa consulta Log Analytics dados também precisam estar em execução na VNET vinculada ao privado.
+### <a name="access-from-outside-of-private-links-scopes"></a>Acesso de fora dos escopos de links privados
+As configurações na parte inferior dessa página controlam o acesso de redes públicas, o que significa que as redes não estão conectadas por meio dos escopos listados acima. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir **permitir acesso de rede pública para consultas** como **não**, os computadores fora dos escopos não poderão acessar dados nesse espaço de trabalho, o que significa que não será possível consultar os dados do espaço de trabalho. Isso inclui consultas em pastas de trabalho, painéis, experiências de cliente baseadas em API, informações no portal do Azure e muito mais. As experiências em execução fora do portal do Azure e essa consulta Log Analytics dados também precisam estar em execução na VNET vinculada ao privado.
 
-Restringir o acesso dessa maneira não se aplica ao Azure Resource Manager e, portanto, tem as seguintes limitações:
-* O acesso a dados-enquanto o bloqueio de consultas de redes públicas se aplica à maioria das experiências de Log Analytics, algumas experiências consultam dados por meio de Azure Resource Manager e, portanto, não poderão consultar dados, a menos que as configurações de vínculo privado sejam aplicadas ao Gerenciador de recursos também (o recurso será lançado em breve). Isso inclui, por exemplo, soluções de Azure Monitor, pastas de trabalho e ideias e o conector do LogicApp.
+### <a name="exceptions"></a>Exceções
+Restringir o acesso, conforme explicado acima, não se aplica ao Azure Resource Manager e, portanto, tem as seguintes limitações:
+* O acesso a dados-ao bloquear/permitir consultas de redes públicas se aplica à maioria das experiências de Log Analytics, algumas experiências consultam dados por meio de Azure Resource Manager e, portanto, não poderão consultar dados, a menos que as configurações de vínculo privado sejam aplicadas ao Gerenciador de recursos também (o recurso será lançado em breve). Isso inclui, por exemplo, soluções de Azure Monitor, pastas de trabalho e ideias e o conector do LogicApp.
 * Gerenciamento de espaço de trabalho-configurações de espaço de trabalho e alterações de configuração (incluindo a ativação dessas configurações de acesso ativadas ou desativadas) são gerenciadas Azure Resource Manager pelo Restrinja o acesso ao gerenciamento de espaço de trabalho usando as funções, permissões, controles de rede e auditoria apropriados. Para obter mais informações, confira [Funções, permissões e segurança do Azure Monitor](roles-permissions-security.md).
 
 > [!NOTE]

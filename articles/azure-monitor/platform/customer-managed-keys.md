@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 6264ea50f128764a5213a7a1fd9b8c47ddae8961
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309674"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317479"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -568,7 +568,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
   ---
 
-  - **Verificar status do link do espaço de trabalho**
+- **Verificar status do link do espaço de trabalho**
   
   Execute a operação get no espaço de trabalho e observe se a propriedade *clusterResourceId* está presente na resposta em *recursos*. Um espaço de trabalho vinculado terá a propriedade *clusterResourceId* .
 

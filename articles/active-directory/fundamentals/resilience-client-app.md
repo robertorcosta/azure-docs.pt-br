@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 69967035f98d7ec2fcedff173dcf481455014ac2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919300"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317462"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumentar a resiliência de autenticação e autorização em aplicativos cliente que você desenvolve
 
@@ -157,4 +157,4 @@ Se você desenvolver APIs de recursos, recomendamos que você participe dos [sin
 - [Como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](../develop/app-resilience-continuous-access-evaluation.md)
 - [Crie resiliência em aplicativos de daemon](resilience-daemon-app.md)
 - [Crie resiliência em sua infraestrutura de gerenciamento de identidade e acesso](resilience-in-infrastructure.md)
-- [Crie resiliência em sua identidade do cliente e gerenciamento de acesso com Azure Active Directory B2C](resilience-b2c.md)
+- [Crie resiliência em seus sistemas CIAM](resilience-b2c.md)

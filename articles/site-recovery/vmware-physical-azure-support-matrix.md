@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: cdc9edeb99e02d78b0701e02b157adbee016a566
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.openlocfilehash: dead1d29392f203f5617c9caf430ff952f02f9bc
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310317"
+ms.locfileid: "96317496"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -85,12 +85,12 @@ Windows 7 com SP1 64 bits | Com suporte do [pacote cumulativo de atualizações 
 **Sistema operacional** | **Detalhes**
 --- | ---
 Linux | Somente o sistema de 64 bits tem suporte. Não há suporte para o sistema de 32 bits.<br/><br/>Todos os servidores Linux devem ter [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) instalados. É necessário inicializar o servidor no Azure após failover/failover de teste. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure. <br/><br/> O Site Recovery orquestra o failover para executar servidores Linux no Azure. No entanto, os fornecedores de Linux podem limitar o suporte a apenas versões de distribuição que não atingiram o fim da vida útil.<br/><br/> Nas distribuições Linux, apenas os kernels de estoque que fazem parte da versão/atualização de versão secundária de distribuição têm suporte.<br/><br/> Não há suporte para atualização de computadores protegidos nas versões principais de distribuição do Linux. Para atualizar, desabilite a replicação, atualize o sistema operacional e, em seguida, habilite a replicação novamente.<br/><br/> [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código-fonte aberto no Azure.
-Linux Red Hat Enterprise | 5,2 a 5,11</b><br/> 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9 Beta versão](https://support.microsoft.com/help/4578241/), [7,9](https://support.microsoft.com/help/4590304/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609), [8,3](https://support.microsoft.com/help/4597409). <br/><br/> Alguns kernels mais antigos em servidores que executam Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, instale os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para o computador, para garantir a inicialização no Azure.
-Linux: CentOS | 5,2 a 5,11</b><br/> 6,1 a 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/><br/> Alguns kernels mais antigos em servidores que executam o CentOS 5.2-5.11 & 6.1-6.10 não têm  [componentes LIS (Integration Services do Linux)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
+Linux Red Hat Enterprise | 5,2 a 5,11</b><br/> 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9 versão beta](https://support.microsoft.com/help/4578241/), [7,9](https://support.microsoft.com/help/4590304/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609), [8,3](https://support.microsoft.com/help/4597409/) <br/> Alguns kernels mais antigos em servidores que executam Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
+Linux: CentOS | 5,2 a 5,11</b><br/> 6,1 a 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609), [8,3](https://support.microsoft.com/help/4597409/) <br/><br/> Alguns kernels mais antigos em servidores que executam o CentOS 5.2-5.11 & 6.1-6.10 não têm  [componentes LIS (Integration Services do Linux)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
 Ubuntu | Ubuntu 14, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions)<br/>Ubuntu 16, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 18, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 20, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> (*inclui suporte para todos os 14, 4.* x *, 16, 4.* x *, 18, 4.* x *, 20, 4.* x * versões)
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x*, 8. *x* versões); Debian 9 (inclui suporte para 9,1 a 9,13. Debian 9,0 não tem suporte.) [(Examinar as versões de kernel com suporte)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Certifique-se de baixar o instalador do agente de mobilidade mais recente no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Observação**: não há suporte para a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para o SP4. Para atualizar, desabilite a replicação e habilite novamente após a atualização. <br/>|
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/), [8,3.](https://support.microsoft.com/help/4597409)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, [7,4, 7,5](https://support.microsoft.com/help/4573888/), 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), 8,2, [8,3](https://support.microsoft.com/help/4597409/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Para cada uma das versões do Windows, Azure Site Recovery dá suporte apenas a compilações de [LTSC (canal de manutenção em longo prazo)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Versões de [canal semianuais](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) atualmente não têm suporte no momento.
@@ -100,20 +100,21 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Versão com suporte** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-14.04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/) | 3.13.0-24-generic para 3.13.0-170-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-148-generic,<br/>4.15.0-1023-azure a 4.15.0-1045-azure |
+14.04 LTS | [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/) | 3.13.0-24-generic para 3.13.0-170-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-148-generic,<br/>4.15.0-1023-azure a 4.15.0-1045-azure |
 |||
+16.04 LTS | [9,39](https://support.microsoft.com/help/4597409/) | 4.4.0-21-Generic para 4.4.0-194-Generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-123-Generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1098-Azure|
 16.04 LTS | [9,38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-Generic para 4.4.0-190-Generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-118-Generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1096-Azure|
 16.04 LTS | [9,37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-Generic para 4.4.0-189-Generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-115-Generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1093-Azure |
 16.04 LTS | [9,36](https://support.microsoft.com/help/4578241/)| 4.4.0-21-Generic para 4.4.0-186-Generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-112-Generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1092-Azure |
 16.04 LTS | [9,35](https://support.microsoft.com/help/4573888/) | 4.4.0-21-Generic para 4.4.0-184-Generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-106-Generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1089-Azure |
-16.04 LTS | [9,34](https://support.microsoft.com/help/4570609) | 4.4.0-21-Generic para 4.4.0-178-Generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-101-Generic<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1083-Azure |
 |||
+18.04 LTS | [9,39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-Generic para 4.15.0-123-Generic </br> 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-Generic para 5.0.0-63-Generic </br> 5.3.0-19-generic para 5.3.0-69-Generic </br> 5.4.0-37-Generic a 5.4.0-53-Generic</br> 4.15.0-1009-Azure para 4.15.0-1099-Azure </br> 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-Azure para 5.0.0-1036-Azure </br> 5.3.0-1007-Azure para 5.3.0-1035-Azure </br> 5.4.0-1020-Azure para 5.4.0-1031-Azure|
 18.04 LTS | [9,38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-Generic para 4.15.0-118-Generic </br> 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-Generic para 5.0.0-61-Generic </br> 5.3.0-19-generic para 5.3.0-67-Generic </br> 5.4.0-37-Generic a 5.4.0-48-Generic</br> 4.15.0-1009-Azure para 4.15.0-1096-Azure </br> 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-Azure para 5.0.0-1036-Azure </br> 5.3.0-1007-Azure para 5.3.0-1035-Azure </br> 5.4.0-1020-Azure para 5.4.0-1026-Azure|
 18.04 LTS | [9,37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-Generic para 4.15.0-115-Generic </br> 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-Generic para 5.0.0-60-Generic </br> 5.3.0-19-generic para 5.3.0-66-Generic </br> 5.4.0-37-Generic a 5.4.0-45-Generic</br> 4.15.0-1009-Azure para 4.15.0-1093-Azure </br> 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-Azure para 5.0.0-1036-Azure </br> 5.3.0-1007-Azure para 5.3.0-1035-Azure </br> 5.4.0-1020-Azure para 5.4.0-1023-Azure|
 18.04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-Generic para 4.15.0-112-Generic </br> 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-Generic para 5.0.0-58-Generic </br> 5.3.0-19-generic para 5.3.0-64-Generic </br> 5.4.0-37-Generic a 5.4.0-42-Generic</br> 4.15.0-1009-Azure para 4.15.0-1092-Azure </br> 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-Azure para 5.0.0-1036-Azure </br> 5.3.0-1007-Azure para 5.3.0-1032-Azure </br> 5.4.0-1020-Azure para 5.4.0-1022-Azure|
 18.04 LTS | [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-Generic para 4.15.0-108-Generic </br> 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-Generic para 5.0.0-52-Generic </br> 5.3.0-19-generic para 5.3.0-61-Generic </br> 4.15.0-1009-Azure para 4.15.0-1089-Azure </br> 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-Azure para 5.0.0-1036-Azure </br> 5.3.0-1007-Azure para 5.3.0-1031-Azure|
-18.04 LTS | [9,34](https://support.microsoft.com/help/4570609) | 4.15.0-20-Generic para 4.15.0-101-Generic </br> 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-Generic para 5.0.0-48-Generic </br> 5.3.0-19-generic para 5.3.0-53-Generic </br> 4.15.0-1009-Azure para 4.15.0-1083-Azure </br> 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-Azure para 5.0.0-1036-Azure </br> 5.3.0-1007-Azure para 5.3.0-1022-Azure|
 |||
+20, 4 LTS |[9,39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-Generic para 5.4.0-53 </br> -Generic 5.4.0-1010-Azure para 5.4.0-1031-Azure
 20, 4 LTS |[9,38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-Generic para 5.4.0-48 </br> -Generic 5.4.0-1010-Azure para 5.4.0-1026-Azure
 20, 4 LTS |[9,37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-Generic para 5.4.0-45 </br> -Generic 5.4.0-1010-Azure para 5.4.0-1023-Azure
 20, 4 LTS |[9,36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-Generic para 5.4.0-42 </br> -Generic 5.4.0-1010-Azure para 5.4.0-1022-Azure
@@ -123,31 +124,30 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Versão com suporte** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-Debian 7 | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/)| 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/), [9,39](https://support.microsoft.com/help/4597409/)| 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/) | 3.16.0-4-AMD64 para 3.16.0-11-AMD64, 4.9.0-0. BPO. 4-AMD64 para 4.9.0-0. BPO. 11-AMD64 |
-Debian 8 | [9,34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
+Debian 8 | [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/), [9,39](https://support.microsoft.com/help/4597409/) | 3.16.0-4-AMD64 para 3.16.0-11-AMD64, 4.9.0-0. BPO. 4-AMD64 para 4.9.0-0. BPO. 11-AMD64 |
 |||
-Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-AMD64 a 4.9.0-13-AMD64 </br> 4.19.0-0. BPO. 1-AMD64 para 4.19.0-0. BPO. 11-AMD64 </br> 4.19.0-0. BPO. 1-Cloud-AMD64 para 4.19.0-0. BPO. 11-Cloud-AMD64 </br> 
+Debian 9,1 | [9,39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-AMD64 a 4.9.0-14-AMD64 </br> 4.19.0-0. BPO. 1-AMD64 para 4.19.0-0. BPO. 12-AMD64 </br> 4.19.0-0. BPO. 1-Cloud-AMD64 para 4.19.0-0. BPO. 12-Cloud-AMD64 </br> Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-AMD64 a 4.9.0-13-AMD64 </br> 4.19.0-0. BPO. 1-AMD64 para 4.19.0-0. BPO. 11-AMD64 </br> 4.19.0-0. BPO. 1-Cloud-AMD64 para 4.19.0-0. BPO. 11-Cloud-AMD64 </br> 
 Debian 9,1 | [9,37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-AMD64 para 4.9.0-13-AMD64, 4.19.0-0. BPO. 6-AMD64 para 4.19.0-0. BPO. 10-AMD64, 4.19.0-0. BPO. 6-Cloud-AMD64 para 4.19.0-0. BPO. 10-Cloud-AMD64
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 versões de kernel com suporte
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,39](https://support.microsoft.com/help/4597409/) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.34-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,38](https://support.microsoft.com/help/4590304/) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.28-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/),  | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.22-Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,35](https://support.microsoft.com/help/4573888/) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.19-Azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,34](https://support.microsoft.com/help/4570609) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.13-Azure  |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 versões de kernel com suporte
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9,39](https://support.microsoft.com/help/4597409/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.47-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.21-Azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.44-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.18-Azure
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.38-Azure
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9,35](https://support.microsoft.com/help/4573888/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.33-Azure 
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9,34](https://support.microsoft.com/help/4570609)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.30-Azure 
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de arquivos Linux/armazenamento convidado
 
@@ -197,15 +197,15 @@ Acesso de link privado ao serviço de Site Recovery | Sim. [Saiba mais](hybrid-h
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | Yes
-ILB | Yes
-ELB | Yes
-Gerenciador de Tráfego do Azure | Yes
-NIC múltipla | Yes
-Endereço IP Reservado | Yes
-IPv4 | Yes
-Manter endereço IP de origem | Yes
-Pontos de extremidade de serviço de rede virtual do Azure<br/> | Yes
+Azure ExpressRoute | Sim
+ILB | Sim
+ELB | Sim
+Gerenciador de Tráfego do Azure | Sim
+NIC múltipla | Sim
+Endereço IP Reservado | Sim
+IPv4 | Sim
+Manter endereço IP de origem | Sim
+Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
@@ -214,25 +214,25 @@ Redes aceleradas | Não
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
 Configuração de disco do Docker | Não
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | Yes
+Host SAN iSCSI/FC) | Sim
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | Yes
+VMDK do convidado/servidor | Sim
 Disco de cluster compartilhado do convidado/servidor | Não
 Disco criptografado do convidado/servidor | Não
 NFS do convidado/servidor | Não
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
 SMB 3.0 do convidado/servidor | Não
-RDM do convidado/servidor | Yes<br/><br/> N/D para servidores físicos
+RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
 Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
 Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
-Volume do convidado/servidor com discos distribuídos >4 TB | Yes
+Volume do convidado/servidor com discos distribuídos >4 TB | Sim
 Gerenciamento de volumes lógicos (LVM)| Provisionamento espesso-Sim <br></br> Provisionamento dinâmico-não
 Convidado/servidor - espaços de armazenamento | Não
 Adicionar/remover disco a quente por convidado/servidor | Não
-Convidado/servidor - excluir disco | Yes
+Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
@@ -250,17 +250,17 @@ Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | Yes
-Armazenamento com redundância geográfica | Yes
-Armazenamento com redundância geográfica com acesso de leitura | Yes
+Armazenamento com redundância local | Sim
+Armazenamento com redundância geográfica | Sim
+Armazenamento com redundância geográfica com acesso de leitura | Sim
 Armazenamento frio | Não
 Armazenamento quente| Não
 Blobs de bloco | Não
-Criptografia em repouso (SSE)| Yes
+Criptografia em repouso (SSE)| Sim
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
-Armazenamento Premium | Yes
-Opção de transferência segura | Yes
+Armazenamento Premium | Sim
+Opção de transferência segura | Sim
 Serviço de importação/exportação | Não
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)
@@ -269,10 +269,10 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | Yes
+Conjuntos de disponibilidade | Sim
 Zonas de disponibilidade | Não
-HUB | Yes
-Discos gerenciados | Yes
+HUB | Sim
+Discos gerenciados | Sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
