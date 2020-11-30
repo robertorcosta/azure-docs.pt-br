@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: cdc9edeb99e02d78b0701e02b157adbee016a566
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95800269"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310317"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -85,12 +85,12 @@ Windows 7 com SP1 64 bits | Com suporte do [pacote cumulativo de atualizações 
 **Sistema operacional** | **Detalhes**
 --- | ---
 Linux | Somente o sistema de 64 bits tem suporte. Não há suporte para o sistema de 32 bits.<br/><br/>Todos os servidores Linux devem ter [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) instalados. É necessário inicializar o servidor no Azure após failover/failover de teste. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure. <br/><br/> O Site Recovery orquestra o failover para executar servidores Linux no Azure. No entanto, os fornecedores de Linux podem limitar o suporte a apenas versões de distribuição que não atingiram o fim da vida útil.<br/><br/> Nas distribuições Linux, apenas os kernels de estoque que fazem parte da versão/atualização de versão secundária de distribuição têm suporte.<br/><br/> Não há suporte para atualização de computadores protegidos nas versões principais de distribuição do Linux. Para atualizar, desabilite a replicação, atualize o sistema operacional e, em seguida, habilite a replicação novamente.<br/><br/> [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código-fonte aberto no Azure.
-Linux Red Hat Enterprise | 5,2 a 5,11</b><br/> 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9 versão beta](https://support.microsoft.com/help/4578241/), [7,9](https://support.microsoft.com/help/4590304/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/> Alguns kernels mais antigos em servidores que executam Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
+Linux Red Hat Enterprise | 5,2 a 5,11</b><br/> 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9 Beta versão](https://support.microsoft.com/help/4578241/), [7,9](https://support.microsoft.com/help/4590304/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609), [8,3](https://support.microsoft.com/help/4597409). <br/><br/> Alguns kernels mais antigos em servidores que executam Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, instale os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para o computador, para garantir a inicialização no Azure.
 Linux: CentOS | 5,2 a 5,11</b><br/> 6,1 a 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/><br/> Alguns kernels mais antigos em servidores que executam o CentOS 5.2-5.11 & 6.1-6.10 não têm  [componentes LIS (Integration Services do Linux)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Se os componentes LIS internos estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
 Ubuntu | Ubuntu 14, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions)<br/>Ubuntu 16, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 18, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 20, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> (*inclui suporte para todos os 14, 4.* x *, 16, 4.* x *, 18, 4.* x *, 20, 4.* x * versões)
-Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x*, 8. *x* versões); Debian 9 (inclui suporte para 9,1 a 9,13. Debian 9,0 não tem suporte.) [(examinar as versões de kernel com suporte)](#debian-kernel-versions)
+Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x*, 8. *x* versões); Debian 9 (inclui suporte para 9,1 a 9,13. Debian 9,0 não tem suporte.) [(Examinar as versões de kernel com suporte)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Certifique-se de baixar o instalador do agente de mobilidade mais recente no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Observação**: não há suporte para a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para o SP4. Para atualizar, desabilite a replicação e habilite novamente após a atualização. <br/>|
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/), [8,3.](https://support.microsoft.com/help/4597409)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Para cada uma das versões do Windows, Azure Site Recovery dá suporte apenas a compilações de [LTSC (canal de manutenção em longo prazo)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Versões de [canal semianuais](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) atualmente não têm suporte no momento.
@@ -212,28 +212,28 @@ Redes aceleradas | Não
 **Componente** | **Com suporte**
 --- | ---
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
-Configuração de disco do Docker | No
+Configuração de disco do Docker | Não
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
 Host SAN iSCSI/FC) | Yes
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
 VMDK do convidado/servidor | Yes
-Disco de cluster compartilhado do convidado/servidor | No
-Disco criptografado do convidado/servidor | No
-NFS do convidado/servidor | No
+Disco de cluster compartilhado do convidado/servidor | Não
+Disco criptografado do convidado/servidor | Não
+NFS do convidado/servidor | Não
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
-SMB 3.0 do convidado/servidor | No
+SMB 3.0 do convidado/servidor | Não
 RDM do convidado/servidor | Yes<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
-Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | No
-Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | No
+Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
+Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
 Volume do convidado/servidor com discos distribuídos >4 TB | Yes
 Gerenciamento de volumes lógicos (LVM)| Provisionamento espesso-Sim <br></br> Provisionamento dinâmico-não
-Convidado/servidor - espaços de armazenamento | No
-Adicionar/remover disco a quente por convidado/servidor | No
+Convidado/servidor - espaços de armazenamento | Não
+Adicionar/remover disco a quente por convidado/servidor | Não
 Convidado/servidor - excluir disco | Yes
-MPIO (Múltiplos caminhos) de convidado/servidor | No
+MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
 Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
@@ -242,9 +242,9 @@ Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [
 
 |**Tipo de replicação**   |**Com suporte**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       No  |
-|Propagação offline        |   No      |
-| Azure Data Box | No
+|Transferências de dados descarregadas (ODX)    |       Não  |
+|Propagação offline        |   Não      |
+| Azure Data Box | Não
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
@@ -253,15 +253,15 @@ Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [
 Armazenamento com redundância local | Yes
 Armazenamento com redundância geográfica | Yes
 Armazenamento com redundância geográfica com acesso de leitura | Yes
-Armazenamento frio | No
-Armazenamento quente| No
-Blobs de bloco | No
+Armazenamento frio | Não
+Armazenamento quente| Não
+Blobs de bloco | Não
 Criptografia em repouso (SSE)| Yes
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
 Armazenamento Premium | Yes
 Opção de transferência segura | Yes
-Serviço de importação/exportação | No
+Serviço de importação/exportação | Não
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)
 
@@ -270,7 +270,7 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 **Recurso** | **Com suporte**
 --- | ---
 Conjuntos de disponibilidade | Yes
-Zonas de disponibilidade | No
+Zonas de disponibilidade | Não
 HUB | Yes
 Discos gerenciados | Yes
 
@@ -326,10 +326,10 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 
 **Ação** | **Com suporte**
 --- | ---
-Mover cofre entre grupos de recursos | No
-Mover o cofre dentro e entre assinaturas | No
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos | No
-Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | No
+Mover cofre entre grupos de recursos | Não
+Mover o cofre dentro e entre assinaturas | Não
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos | Não
+Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | Não
 
 
 ## <a name="obtain-latest-components"></a>Obter os componentes mais recentes

@@ -2,14 +2,14 @@
 title: Matriz de suporte para a recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Resume o suporte para a recuperação de desastre de VMs do Azure em uma região secundária com o Azure Site Recovery.
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 25fb28c8f420a64f60ab0d058c374f5de74ed883
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808848"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310316"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -98,8 +98,8 @@ Windows 7 (x64) com SP1 em diante | Na versão [9.30](https://support.microsoft.
 
 **Sistema operacional** | **Detalhes**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/)
-CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9 versão de pré-lançamento](https://support.microsoft.com/help/4578241/), a versão 7,9 GA tem suporte do patch do 9,37 Hot Fix * * </br> 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609)
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/), [8,3](https://support.microsoft.com/help/4597409).
+CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9 versão de pré-lançamento](https://support.microsoft.com/help/4578241/), 7,9 (a versão GA tem suporte do hotfix 9,37 * *), 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609)
 Ubuntu 14.04 LTS Server | Inclui suporte para todos os 14, 4. versões *x* ; [Versões de kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines); 
 Servidor do Ubuntu 16.04 LTS | Inclui suporte para todos os 16, 4. versões *x* ; [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Servidores Ubuntu usando autenticação e entrada baseados em senha, bem como o pacote cloud-init para configurar VMs em nuvem, podem ter a entrada baseada em senha desabilitada no failover (dependendo da configuração do cloudinit). A entrada baseada em senha pode ser habilitada novamente na máquina virtual com a redefinição da senha no menu Suporte > Solução de problemas > Configurações (da VM com falha no portal do Azure).
 Servidor Ubuntu 18.04 LTS | Inclui suporte para todos os 18, 4. versões *x* ; [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
@@ -111,10 +111,10 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5  [(versões de kernel 
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2[(versões de kernel com suporte)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Não há suporte para atualização de replicação de máquinas de SP3 para SP4. Se uma máquina replicada tiver sido atualizada, será necessário desativar a replicação e reativar a replicação após a atualização.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/) (executando o kernel compatível com Red Hat ou o inquebrável Enterprise kernel versão 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8,1 (em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no [9,35](https://support.microsoft.com/help/4573888/). O suporte para o restante dos kernels do RedHat está disponível em [9,36](https://support.microsoft.com/help/4578241/))
 
 > [!NOTE]
-> Verifique se há versões do Linux, Azure Site Recovery não oferece suporte a imagens de sistema operacional personalizadas. Somente os kernels de ações que fazem parte do lançamento/atualização da versão secundária de distribuição têm suporte.
+> Para versões do Linux, Azure Site Recovery não oferece suporte a imagens de sistema operacional personalizadas. Somente os kernels de ações que fazem parte do lançamento/atualização da versão secundária de distribuição têm suporte.
 
 * * Observação: para dar suporte aos kernels do Linux mais recentes dentro de 15 dias do lançamento, Azure Site Recovery distribui o patch do Hot Fix sobre a versão mais recente do agente de mobilidade. Essa correção é distribuída entre duas versões de versão principais. Para atualizar para a versão mais recente do agente de mobilidade (incluindo patch de Hot Fix), siga as etapas mencionadas neste [artigo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Esse patch é lançado atualmente para agentes de mobilidade usados no cenário de recuperação de desastre do Azure para Azure.
 
