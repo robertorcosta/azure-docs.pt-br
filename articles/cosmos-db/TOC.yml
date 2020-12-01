@@ -1329,7 +1329,7 @@
         - name: Configurar o acesso de pontos de extremidade privados
           href: how-to-configure-private-endpoints.md
         - name: Conectar-se de modo privado a uma conta do Cosmos DB
-          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
         - name: Usar o Azure Key Vault para acessar dados
           href: access-secrets-from-keyvault.md
         - name: Restringir o acesso do usuário apenas às operações de dados

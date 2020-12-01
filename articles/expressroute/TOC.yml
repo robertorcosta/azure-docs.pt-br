@@ -4,7 +4,7 @@
   items:
     - name: O que é ExpressRoute?
       href: expressroute-introduction.md
-- name: Inícios rápidos
+- name: Início rápido
   items:
     - name: Criar um circuito do ExpressRoute – Portal
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -101,7 +101,7 @@
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Atributos de segurança
-      href: expressroute-security-controls.md
+      href: ./security-baseline.md
     - name: BFD por meio do ExpressRoute
       href: expressroute-bfd.md
     - name: Requisitos de QoS
