@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657101"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339669"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o namespace agregado
 
@@ -83,7 +83,7 @@ Esta lista mostra o número máximo de caminhos de namespace por configuração.
   * caminhos de namespace de 6 TB de cache-10
   * 23 TB de namespace de cache-20
 
-* Taxa de transferência de até 5 GB/s:
+* Taxa de transferência de até 4 GB/s:
 
   * caminhos de namespace de 6 TB de cache-10
   * 12 TB de namespace de cache-10

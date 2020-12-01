@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9386b154148cf5b5b6b7cd0b43f5a4b4aa741059
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329620"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339686"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -72,7 +72,7 @@ Noções básicas sobre segurança de rede fornecida pela central de segurança 
 
 **Orientação**: habilite a proteção contra DDoS Standard nas redes virtuais associadas aos seus hubs de eventos para proteger contra ataques de DDoS (negação de serviço distribuído). Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-Como configurar a proteção contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+Como configurar a proteção contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 

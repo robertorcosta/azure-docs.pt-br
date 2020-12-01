@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565782"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338632"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
-> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Uma instância de Pesquisa Personalizada permite adaptar a experiência de pesquisa para incluir conteúdo apenas de sites com os quais os usuários se importam. Em vez de realizar uma pesquisa em toda a Web, o Bing pesquisa apenas a parte da Web de interesse do usuário. Para criar a exibição personalizada da Web, use o [portal](https://www.customsearch.ai) da Pesquisa Personalizada do Bing.
 
@@ -62,7 +62,7 @@ Você pode acessar a lista de fatias ativas e bloqueadas, clicando nas guias **A
 
 Para especificar as fatias da web que você deseja que o Bing pesquise, clique na guia **Ativo** e adicione uma ou mais URLs. Para editar ou excluir URLs, use as opções na coluna **Controles**. 
 
-Ao adicionar URLs à lista **Ativo** , você pode adicionar URLs únicas ou várias URLs simultaneamente carregando um arquivo de texto usando o ícone de upload.
+Ao adicionar URLs à lista **Ativo**, você pode adicionar URLs únicas ou várias URLs simultaneamente carregando um arquivo de texto usando o ícone de upload.
 
 ![A guia Ativo da Pesquisa Personalizada do Bing](media/file-upload-icon.png)
 
@@ -89,7 +89,7 @@ Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Ima
 
 1. Abaixo da caixa de pesquisa, selecione **Minha instância**. Você pode comparar os resultados de sua experiência de pesquisa com o Bing, selecionando **Bing**. 
 2. Selecione um filtro de pesquisa seguro e qual mercado pesquisar (consulte [Parâmetros de Consulta](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
-3. Insira uma consulta e pressione Enter ou clique no ícone de pesquisa para exibir os resultados da configuração atual. Você pode alterar seu tipo de pesquisa que você executa clicando em **Web** , **Imagem** , ou **Vídeo** para obter resultados correspondentes. 
+3. Insira uma consulta e pressione Enter ou clique no ícone de pesquisa para exibir os resultados da configuração atual. Você pode alterar seu tipo de pesquisa que você executa clicando em **Web**, **Imagem**, ou **Vídeo** para obter resultados correspondentes. 
 
 <a name="adjustrank"></a>
 
@@ -125,7 +125,7 @@ Você pode fixar uma página da Web na parte superior de duas maneiras:
 
 * Na guia **fixado** , insira a URL da página da Web a ser fixada na parte superior e sua consulta correspondente.
 
-* No painel **Visualização** , insira uma consulta de pesquisa e clique em pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
+* No painel **Visualização**, insira uma consulta de pesquisa e clique em pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificar a condição de correspondência da fixação
 
@@ -141,7 +141,7 @@ Por padrão, as páginas da Web só estão fixadas na parte superior dos resulta
 | Contém    | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário contém a cadeia de caracteres de consulta da fixação.   |
 
 
-Para alterar a condição de correspondência da fixação, clique no ícone de edição da fixação. Na coluna **Condição de correspondência de consulta** , clique na lista suspensa e selecione a nova condição a ser usada. Em seguida, clique no ícone de salvar para salvar as alterações.
+Para alterar a condição de correspondência da fixação, clique no ícone de edição da fixação. Na coluna **Condição de correspondência de consulta**, clique na lista suspensa e selecione a nova condição a ser usada. Em seguida, clique no ícone de salvar para salvar as alterações.
 
 ### <a name="change-the-order-of-your-pinned-sites"></a>Alterar a ordem dos seus sites fixados
 

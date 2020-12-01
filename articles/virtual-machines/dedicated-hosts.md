@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542143"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339584"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
@@ -165,13 +165,15 @@ O *tipo* é a geração de hardware. Tipos de hardware diferentes para a mesma s
 
 Os tamanhos e tipos de hardware variam por região. Consulte a [página de preços](https://aka.ms/ADHPricing) do host para saber mais.
 
+> [!NOTE]
+> Quando um host dedicado for provisionado, você não poderá alterar o tamanho ou o tipo. Se você precisar de um tamanho diferente do tipo, será necessário criar um novo host.  
 
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
 
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de Integridade   | Description       |
+| Estado de Integridade   | Descrição       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |

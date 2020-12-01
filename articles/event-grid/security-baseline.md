@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccc39513505f299e85cbc270e2daeafeac6ca6fd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845179"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341028"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança do Azure para a grade de eventos
 
@@ -74,7 +74,7 @@ Habilite a proteção contra DDoS Standard nessas redes virtuais para proteger c
 
 - [Como configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure](configure-private-endpoints.md)
 
-- [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure](../security-center/azure-defender.md)
 
@@ -227,7 +227,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -289,7 +289,7 @@ Além disso, você pode integrar seu espaço de trabalho do Log Analytics ao Azu
 
 **Diretrizes**: a grade de eventos do Azure permite que você controle o nível de acesso concedido a diferentes usuários para realizar várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. A grade de eventos usa o controle de acesso baseado em função do Azure (RBAC do Azure). A grade de eventos dá suporte a funções internas, bem como a funções personalizadas.
 
-O Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como CLI do Azure, Azure PowerShell ou portal do Azure.
+O Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
 - [Autorizando o acesso aos recursos da grade de eventos](security-authorization.md)
 
@@ -984,11 +984,11 @@ Atualmente, a grade de eventos não dá suporte a chaves gerenciadas pelo client
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
 - [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

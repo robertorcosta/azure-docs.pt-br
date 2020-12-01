@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d2d6ee8357698e4af59f44579ce7f2c3aa82991c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001670"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340315"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 
@@ -94,7 +94,7 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 Esta seção explora métodos comuns de solução de problemas do assistente de cópia no Azure Data Factory.
 
 > [!NOTE] 
-> Essas dicas de solução de problemas se aplicam ao assistente de cópia na versão 1 do Data Factory. Para Data Factory v2, consulte o guia de solução de problemas em [Azure data Factory de solução de problemas](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
+> Essas dicas de solução de problemas se aplicam ao assistente de cópia na versão 1 do Data Factory. Para Data Factory v2, consulte o guia de solução de problemas em [Azure data Factory de solução de problemas](../data-factory-ux-troubleshoot-guide.md).
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Código de erro: não é possível validar no assistente de cópia
 

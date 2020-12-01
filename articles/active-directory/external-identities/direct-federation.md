@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442075"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339465"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -45,7 +45,7 @@ Com a federação direta, os usuários convidados usam as respectivas contas org
 ## <a name="limitations"></a>Limitações
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domínios verificados por DNS no Azure AD
-O domínio com o qual você deseja federar deve ***não**_ ser verificado pelo DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
+O domínio com o qual você deseja federar deve ***não** _ ser verificado pelo DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
 
 ### <a name="authentication-url"></a>URL de autenticação
 A federação direta só é permitida para políticas em que o domínio da URL de autenticação corresponde ao domínio de destino ou onde a URL de autenticação é um desses provedores de identidade permitidos (essa lista está sujeita a alterações):
@@ -146,7 +146,7 @@ Em seguida, você vai configurar a federação com o provedor de identidade conf
 
 1. Vá para o [Portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Confira **Identidades Externas** > **Todos os provedores de identidade**.
-3. Selecione e, em seguida, selecione **Novo IdP de SAML/WS-Fed**.
+3. Selecione e, em seguida, selecione **novo IDP SAML/WS-Enalimentado**.
 
     ![Captura de tela mostrando o botão para adicionar um novo IdP de SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7b7362d9315d8228e56dc85b2da22e0d507fa8ae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027101"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339782"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -46,7 +46,7 @@ Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se eu pagar por um circuito de ExpressRoute de uma determinada largura de banda, tenho a capacidade de usar mais do que a minha largura de banda adquirida?
 
-Sim, você pode usar até duas vezes o limite de largura de banda adquirido usando a largura de banda disponível na conexão secundária do circuito do ExpressRoute. A redundância interna do circuito é configurada usando conexões primárias e secundárias, cada uma das larguras de banda adquiridas, para dois roteadores do Microsoft Enterprise Edge (MSEEs). A largura de banda disponível por meio de sua conexão secundária pode ser usada para tráfego adicional, se necessário. No entanto, como a conexão secundária é destinada à redundância, ela não é garantida e não deve ser usada para tráfego adicional por um período de tempo prolongado. Para saber mais sobre como usar o conexões para transmitir o tráfego, consulte [aqui](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Sim, você pode usar até duas vezes o limite de largura de banda adquirido usando a largura de banda disponível na conexão secundária do circuito do ExpressRoute. A redundância interna do circuito é configurada usando conexões primárias e secundárias, cada uma das larguras de banda adquiridas, para dois roteadores do Microsoft Enterprise Edge (MSEEs). A largura de banda disponível por meio de sua conexão secundária pode ser usada para tráfego adicional, se necessário. No entanto, como a conexão secundária é destinada à redundância, ela não é garantida e não deve ser usada para tráfego adicional por um período de tempo prolongado. Para saber mais sobre como usar o conexões para transmitir o tráfego, consulte [aqui](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
 Se você planeja usar apenas a conexão primária para transmitir o tráfego, a largura de banda da conexão será fixa e a tentativa de inscrições resultará em quedas de pacotes maiores. Se o tráfego fluir por um gateway de ExpressRoute, a largura de banda para a SKU será fixa e não ficará intermitente.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Posso usar a mesma conexão de rede privada com rede virtual e outros serviços do Azure simultaneamente?

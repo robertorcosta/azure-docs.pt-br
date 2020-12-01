@@ -1,5 +1,5 @@
 ---
-title: Adicionar preenchimento automático e sugestões em uma caixa de pesquisa
+title: Adicionar preenchimento automático a uma caixa de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Habilite as ações de consulta de pesquisa conforme o tipo no Azure Pesquisa Cognitiva criando sugestores e solicitações formulars que completam a caixa de pesquisa com termos ou frases concluídas. Você também pode retornar correspondências sugeridas.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029006"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339601"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos cliente
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar preenchimento automático e sugestões para aplicativos cliente usando o Azure Pesquisa Cognitiva
 
 O Search-as-Type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo usuário. No Azure Pesquisa Cognitiva, essa experiência tem suporte por meio de *preenchimento automático*, que termina um termo ou frase com base na entrada parcial (concluindo "micro" com "Microsoft"). Uma segunda experiência de usuário é *sugestões* ou uma lista curta de documentos correspondentes (retornando títulos de livros com uma ID para que você possa vincular a uma página de detalhes sobre esse livro). O preenchimento automático e as sugestões são predicadas em uma correspondência no índice. O serviço não oferecerá consultas que retornam zero resultados.
 

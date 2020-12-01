@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319904"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339414"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de ponto de extremidade da sincronização do Azure AD Connect V2 (versão prévia pública) 
 A Microsoft implantou um novo ponto de extremidade (API) para o Azure AD Connect que aprimora o desempenho das operações de serviço de sincronização para o Azure Active Directory. Ao utilizar o novo ponto de extremidade V2, você experimentará ganhos de desempenho perceptíveis na exportação e na importação para o Azure AD. Esse novo ponto de extremidade dá suporte ao seguinte:
