@@ -1,6 +1,6 @@
 ---
 title: Uso de regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados na Central de Segurança do Azure.
-description: Este artigo explica como usar as regras de supressão da central de segurança do Azure para ocultar alertas indesejados do Azure defender
+description: Este artigo explica como usar as regras de supressão da central de segurança do Azure para ocultar alertas de segurança indesejados
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372652"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436786"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure Defender
 
@@ -60,11 +60,11 @@ Para criar uma regra diretamente no portal do Azure:
 
 1. Na página de alertas de segurança da Central de Segurança:
 
-    - Localize o alerta específico que você não deseja mais ver e, no menu de reticências (...) do alerta, selecione **Criar regra de supressão** :
+    - Localize o alerta específico que você não deseja mais ver e, no menu de reticências (...) do alerta, selecione **Criar regra de supressão**:
 
         [![Opção **Criar regra de supressão**](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
-    - Ou então, selecione o link **regras de supressão** na parte superior da página e, na página de regras de supressão, selecione **Criar nova regra de supressão** :
+    - Ou então, selecione o link **regras de supressão** na parte superior da página e, na página de regras de supressão, selecione **Criar nova regra de supressão**:
 
         ![Botão Criar nova regra de supressão**](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
@@ -73,7 +73,7 @@ Para criar uma regra diretamente no portal do Azure:
     - A regra pode ignorar o alerta **em critérios específicos** - quando está relacionado especificamente a um endereço IP, um nome do processo, uma conta de usuário, um recurso do Azure ou um local.
 
     > [!TIP]
-    > Se você abriu a página da nova regra em um alerta específico, o alerta e a assinatura serão configurados automaticamente na nova regra. Se você usou o link **Criar nova regra de supressão** , as assinaturas selecionadas corresponderão ao filtro atual no portal.
+    > Se você abriu a página da nova regra em um alerta específico, o alerta e a assinatura serão configurados automaticamente na nova regra. Se você usou o link **Criar nova regra de supressão**, as assinaturas selecionadas corresponderão ao filtro atual no portal.
 
     [![Painel de criação de regras de supressão](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Insira os detalhes da regra:
@@ -127,9 +127,9 @@ Você pode criar, exibir ou excluir regras de supressão de alerta por meio da A
 
 Os métodos HTTP relevantes para regras de supressão na API REST são:
 
-- **PUT** : Para criar ou atualizar uma regra de supressão em uma assinatura especificada.
+- **PUT**: Para criar ou atualizar uma regra de supressão em uma assinatura especificada.
 
-- **GET** :
+- **GET**:
 
     - Para listar todas as regras configuradas para uma assinatura especificada. Esse método retorna uma matriz das regras aplicáveis.
 
@@ -137,7 +137,7 @@ Os métodos HTTP relevantes para regras de supressão na API REST são:
 
     - Para simular o impacto de uma regra de supressão ainda na fase de design. Essa chamada identifica qual dos alertas existentes teria sido ignorado, se a regra estivesse ativa.
 
-- **DELETE** : Exclui uma regra existente (mas não altera o status dos alertas já ignorados por ela).
+- **DELETE**: Exclui uma regra existente (mas não altera o status dos alertas já ignorados por ela).
 
 Para obter os detalhes completos e exemplos de uso, confira a [documentação da API](/rest/api/securitycenter/). 
 

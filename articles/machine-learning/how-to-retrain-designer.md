@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554794"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437109"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Readaptação de modelos com o Azure Machine Learning designer
 
@@ -47,7 +47,11 @@ O pipeline usado neste artigo é uma versão alterada de uma [previsão de renda
 
 ## <a name="create-a-pipeline-parameter"></a>Criação de um parâmetro de pipeline
 
-Crie parâmetros de pipeline para definir variáveis dinamicamente em tempo de execução. Para este exemplo, você irá alterar o caminho de dados de treinamento de um valor fixo para um parâmetro, para que você possa readaptar seu modelo para dados diferentes.
+Os parâmetros de pipeline são usados para criar pipelines versáteis que podem ser reenviados posteriormente com valores de parâmetro variados. Alguns cenários comuns são a atualização de conjuntos de valores ou alguns hiperparâmetros para novo treinamento. Crie parâmetros de pipeline para definir variáveis dinamicamente em tempo de execução. 
+
+Os parâmetros de pipeline podem ser adicionados à fonte de dados ou parâmetros de módulo em um pipeline. Quando o pipeline é reenviado, os valores desses parâmetros podem ser especificados.
+
+Para este exemplo, você irá alterar o caminho de dados de treinamento de um valor fixo para um parâmetro, para que você possa readaptar seu modelo para dados diferentes. Você também pode adicionar outros parâmetros de módulo como parâmetros de pipeline de acordo com seu caso de uso.
 
 1. Selecione o módulo **Importar Dados**.
 
@@ -60,31 +64,22 @@ Crie parâmetros de pipeline para definir variáveis dinamicamente em tempo de e
 
 1. Passe com o cursor do mouse sobre o campo **Caminho** e selecione as reticências exibidas acima do campo **Caminho**.
 
-    ![Captura de tela que mostra como criar um parâmetro de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Selecione **Adicionar ao parâmetro de pipeline**.
 
 1. Forneça um nome de parâmetro e um valor padrão.
 
-   > [!NOTE]
-   > Você pode inspecionar e editar seus parâmetros de pipeline selecionando o ícone de engrenagem de **Configurações** ao lado do título do seu rascunho de pipeline. 
+   ![Captura de tela que mostra como criar um parâmetro de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Clique em **Salvar**.
 
+   > [!NOTE]
+   > Você também pode desanexar um parâmetro de módulo do parâmetro de pipeline no painel de detalhes do módulo, semelhante à adição de parâmetros de pipeline.
+   >
+   > Você pode inspecionar e editar seus parâmetros de pipeline selecionando o ícone de engrenagem de **Configurações** ao lado do título do seu rascunho de pipeline. 
+   >    - Depois de desanexar, você pode excluir o parâmetro de pipeline no painel **configurações** .
+   >    - Você também pode adicionar um parâmetro de pipeline no painel **configurações** e, em seguida, aplicá-lo em algum parâmetro de módulo.
+
 1. Envie a execução do pipeline.
-
-## <a name="find-a-trained-model"></a>Localização de um modelo treinado
-
-O designer salva toda a saída do pipeline, incluindo modelos treinados, na conta de armazenamento de workspace padrão. Você também pode acessar modelos treinados diretamente no designer:
-
-1. Aguarde até que o pipeline termine a execução.
-1. Selecione o módulo **Treinar Modelo**.
-1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs**.
-1. Encontre o modelo em **Outras saídas** juntamente com os logs de execução.
-1. Como alternativa, selecione o ícone **Exibir saída**. A partir deste ponto, siga as instruções na caixa de diálogo para navegar diretamente até o seu armazenamento de dados. 
-
-> [!div class="mx-imgBorder"]
-> ![Captura de tela que mostra como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicação de um pipeline de treinamento
 

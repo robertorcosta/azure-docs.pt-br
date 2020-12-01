@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887392"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437364"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
@@ -146,6 +146,7 @@ A tabela a seguir resume esses parâmetros adicionais. Consulte a [documentaçã
 |`forecast_horizon`|Define quantos períodos encaminhar você gostaria de prever. O horizonte está em unidades da frequência da série temporal. As unidades são baseadas no intervalo de tempo dos seus dados de treinamento (por exemplo, mensalmente, semanalmente) em que o forecaster deve prever.|✓|
 |`enable_dnn`|[Habilitar previsão de DNNs]().||
 |`time_series_id_column_names`|Os nomes de coluna usados para identificar exclusivamente a série temporal em dados que têm várias linhas com o mesmo carimbo de data/hora. Se os identificadores de série temporal não estiverem definidos, o conjunto de dados será considerado uma série temporal. Para saber mais sobre série temporal única, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
+|`freq`| A frequência do conjunto de tempo da série temporal. Esse parâmetro representa o período com o qual os eventos devem ocorrer, como diário, semanal, anual, etc. A frequência deve ser um [alias de deslocamento de pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
 |`target_lags`|Número de linhas para retardar os valores de destino com base na frequência dos dados. O retardo é representado como uma lista ou um único inteiro. O retardo deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou se correlaciona por padrão. ||
 |`feature_lags`| Os recursos a serem defasados serão automaticamente decididos pelo ML automatizado quando `target_lags` estiverem definidos e `feature_lags` definidos como `auto` . Habilitar o recurso retardo pode ajudar a melhorar a precisão. O recurso retardo está desabilitado por padrão. ||
 |`target_rolling_window_size`|*n* períodos históricos para usar os valores previstos gerado, <= o tamanho do conjunto de treinamento. Se omitido, *n* será o tamanho total do conjunto de treinamento. Especifique esse parâmetro quando desejar considerar apenas certa quantidade de histórico no treinamento do modelo. Saiba mais sobre a [agregação de janela de destino](#target-rolling-window-aggregation).||
@@ -297,7 +298,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
                                             short_series_handling_config='auto',
-                                            freq = 50
+                                            freq = '7',
                                             target_lags='auto')
 ```
 A tabela a seguir resume as configurações disponíveis para o `short_series_handling_config` .

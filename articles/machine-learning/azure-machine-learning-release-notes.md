@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444544"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -43,7 +43,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Documentação aprimorada do `OutputDatasetConfig.register_on_complete` para incluir o comportamento do que acontecerá quando o nome já existir.
     + Especificar os nomes de entrada e saída do conjunto de dados que têm o potencial de colidir com variáveis de ambiente comuns resultará em um aviso
     + Parâmetro de realocação `grant_workspace_access` ao registrar os repositórios de armazenamento. Defina-o como `True` para acessar dados por trás da rede virtual do Machine Learning Studio.
-      [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Saiba mais](./how-to-enable-studio-virtual-network.md)
     + A API de serviço vinculado está refinada. Em vez de fornecer a ID do recurso, temos 3 parâmetros separados sub_id, RG e Name definidos na configuração.
     + Para permitir que os clientes resolvam automaticamente os problemas de corrupção de token, habilite a sincronização de token de espaço de trabalho para ser um método público.
     + Essa alteração permite que uma cadeia de caracteres vazia seja usada como um valor para um script_param
@@ -109,8 +109,8 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de outubro)
 + **Novos recursos**
-  + [Suporte completo à rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Modo de foco](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Suporte completo à rede virtual](./how-to-enable-studio-virtual-network.md)
+  + [Modo de foco](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Salvar blocos de anotações Ctrl-S
   + Números de Linha
 
@@ -797,7 +797,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Description  |
+| Ferramenta baseada na Web  |     Descrição  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1309,7 +1309,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Description | 
+| Ferramenta baseada na Web | Descrição | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 

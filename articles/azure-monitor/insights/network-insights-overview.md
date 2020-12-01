@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184630"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437296"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-preview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
@@ -26,7 +26,7 @@ Azure Monitor para redes é estruturada com base nesses principais componentes d
 
 A página **visão geral** do Azure monitor for Networks fornece uma maneira fácil de visualizar o inventário de seus recursos de rede, juntamente com a integridade e os alertas de recursos. Ele é dividido em quatro áreas funcionais principais: pesquisa e filtragem, integridade de recursos e métricas, alertas e exibição de dependência.
 
-[ ![ Captura de tela que mostra a página de visão geral](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
+[![Captura de tela mostrando a página Visão geral](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### <a name="search-and-filtering"></a>Pesquisa e filtragem
 Você pode personalizar a exibição de integridade e alertas de recursos usando filtros como **assinatura**, **grupo de recursos** e **tipo**.
@@ -108,7 +108,7 @@ O Diagnostic Toolkit fornece acesso a todos os recursos de diagnóstico disponí
 
 ![Captura de tela que mostra a guia kit de ferramentas de diagnóstico.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
-## <a name="troubleshooting"></a>Solução de Problemas 
+## <a name="troubleshooting"></a>Solução de problemas 
 
 Para obter diretrizes gerais de solução de problemas, consulte o artigo de solução de [problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
 

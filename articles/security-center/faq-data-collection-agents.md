@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638779"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444523"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -86,12 +86,12 @@ O local do workspace padrão depende da região do Azure:
 - Para VMs na Austrália, o local do workspace é Austrália
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quais dados são coletados pelo agente de Log Analytics?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Quais eventos de segurança são coletados pelo agente de Log Analytics?
 
-Para obter uma lista completa dos aplicativos e serviços monitorados pelo agente, consulte [o que é monitorado pelo Azure monitor?](../azure-monitor/monitor-reference.md#azure-services).
+Para obter uma lista completa dos eventos de segurança coletados pelo agente, consulte [quais tipos de eventos são armazenados para as configurações de eventos de segurança "comum" e "mínimo"?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
-> Observe que, para alguns serviços, como o Firewall do Azure, se você tiver habilitado o registro em log e escolhido um recurso informativo para registrar (por exemplo, definir o log como *detalhado* ), poderá encontrar impactos significativos em suas necessidades de armazenamento log Analytics espaço de trabalho. 
+> Observe que, para alguns serviços, como o Firewall do Azure, se você tiver habilitado o registro em log e escolhido um recurso informativo para registrar (por exemplo, definir o log como *detalhado*), poderá encontrar impactos significativos em suas necessidades de armazenamento log Analytics espaço de trabalho. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Posso excluir os workspaces padrão criados pela Central de Segurança?
@@ -129,7 +129,7 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
     - Selecione **Sim** se quiser que as novas configurações de workspace sejam **aplicadas a todas as VMs**. Além disso, todas as VMs conectadas a um workspace criado da Central de Segurança serão reconectadas ao novo workspace de destino.
 
     > [!NOTE]
-    > Se você selecionar **Sim** , não exclua os workspaces criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo workspace de destino. Essa operação falhará se um workspace for excluído muito cedo.
+    > Se você selecionar **Sim**, não exclua os workspaces criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo workspace de destino. Essa operação falhará se um workspace for excluído muito cedo.
 
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o agente do Log Analytics já foi instalado como extensão na VM?<a name="mmaextensioninstalled"></a>
@@ -178,7 +178,7 @@ Você pode desligar o provisionamento automático para suas assinaturas na polí
 
     :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Habilitar a implantação automática para o agente de Log Analytics":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Devo recusar a instalação do agente e a criação do workspace automáticas?
@@ -245,12 +245,12 @@ Se você o habilitou, mas agora deseja desabilitá-lo:
 
 1. Selecione a assinatura na qual você deseja desabilitar o provisionamento automático.
 
-1. Em **provisionamento automático** , desative a alternância para o agente de log Analytics.
+1. Em **provisionamento automático**, desative a alternância para o agente de log Analytics.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Como habilitar a coleta de dados?
 
-É possível habilitar a coleta de dados para suas assinaturas do Azure na Política de segurança. Para habilitar a coleta de dados. [Entre no portal do Azure](https://portal.azure.com), selecione **Procurar** , **Central de Segurança** e **Política de segurança**. Selecione a assinatura em que você deseja habilitar o provisionamento automático. Quando você seleciona uma assinatura **Política de segurança - coleta de dados** é exibido. Em **Provisionamento automático** , selecione **Habilitado**.
+É possível habilitar a coleta de dados para suas assinaturas do Azure na Política de segurança. Para habilitar a coleta de dados. [Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política de segurança**. Selecione a assinatura em que você deseja habilitar o provisionamento automático. Quando você seleciona uma assinatura **Política de segurança - coleta de dados** é exibido. Em **Provisionamento automático**, selecione **Habilitado**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a coleta de dados é habilitada?

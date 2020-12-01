@@ -2,17 +2,17 @@
 title: Métricas de Azure Monitor para o gateway de aplicativo
 description: Saiba como usar métricas para monitorar o desempenho do gateway de aplicativo
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397732"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437058"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -40,7 +40,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
   Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor de back-end e o recebimento do primeiro byte do cabeçalho de resposta. 
 
-  Isso aproxima a soma do *tempo de conexão de back-end* , o tempo gasto pela solicitação para alcançar o back-end do gateway de aplicativo, o tempo gasto pelo aplicativo de back-end para responder (o tempo que o servidor levou para gerar conteúdo, potencialmente buscar consultas de banco de dados) e o tempo gasto pelo primeiro byte da resposta para alcançar o gateway de aplicativo do back-end.
+  Isso aproxima a soma do *tempo de conexão de back-end*, o tempo gasto pela solicitação para alcançar o back-end do gateway de aplicativo, o tempo gasto pelo aplicativo de back-end para responder (o tempo que o servidor levou para gerar conteúdo, potencialmente buscar consultas de banco de dados) e o tempo gasto pelo primeiro byte da resposta para alcançar o gateway de aplicativo do back-end.
 
 - **Tempo de resposta do último byte do back-end**
 
@@ -52,7 +52,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
   Tempo médio que leva para que uma solicitação seja recebida, processada e sua resposta seja enviada. 
 
-  Esse é o intervalo a partir do momento em que o gateway de aplicativo recebe o primeiro byte da solicitação HTTP até a hora em que o último byte de resposta foi enviado ao cliente. Isso inclui o tempo de processamento usado pelo gateway de aplicativo, o *tempo de resposta do último byte de back-end* , o tempo gasto pelo gateway de aplicativo para enviar toda a resposta e o *RTT do cliente*.
+  Esse é o intervalo a partir do momento em que o gateway de aplicativo recebe o primeiro byte da solicitação HTTP até a hora em que o último byte de resposta foi enviado ao cliente. Isso inclui o tempo de processamento usado pelo gateway de aplicativo, o *tempo de resposta do último byte de back-end*, o tempo gasto pelo gateway de aplicativo para enviar toda a resposta e o *RTT do cliente*.
 
 - **RTT do Cliente**
 
@@ -62,7 +62,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
 Essas métricas podem ser usadas para determinar se a lentidão observada é devido à rede do cliente, ao desempenho do gateway de aplicativo, à rede de back-end e à saturação de pilha TCP do servidor de back-end, ao desempenho do aplicativo de backend ou ao tamanho de arquivo grande.
 
-Por exemplo, se houver um pico na tendência de *tempo de resposta do primeiro byte de back-end* , mas a tendência de *tempo de conexão de back-end* for estável, poderá ser inferida que o gateway de aplicativo para latência de back-end e o tempo necessário para estabelecer a conexão é estável e o pico é causado devido a um aumento no tempo de resposta do aplicativo back-end. Por outro lado, se o tempo de resposta do pico no *primeiro byte de back-end* estiver associado a um pico correspondente no *tempo de conexão de back-end* , ele poderá ser deduzido que a rede entre o gateway de aplicativo e o servidor de back-end ou a pilha TCP do servidor de back-end está saturada. 
+Por exemplo, se houver um pico na tendência de *tempo de resposta do primeiro byte de back-end* , mas a tendência de *tempo de conexão de back-end* for estável, poderá ser inferida que o gateway de aplicativo para latência de back-end e o tempo necessário para estabelecer a conexão é estável e o pico é causado devido a um aumento no tempo de resposta do aplicativo back-end. Por outro lado, se o tempo de resposta do pico no *primeiro byte de back-end* estiver associado a um pico correspondente no *tempo de conexão de back-end*, ele poderá ser deduzido que a rede entre o gateway de aplicativo e o servidor de back-end ou a pilha TCP do servidor de back-end está saturada. 
 
 Se você notar um pico no *tempo de resposta do último byte de back-end* , mas o *tempo de resposta do primeiro byte de back-end* for estável, ele poderá ser deduzido de que o pico é devido a um arquivo maior sendo solicitado.
 
@@ -162,7 +162,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
 - **Solicitações com falha**
 
-  Número de solicitações que o gateway de aplicativo serviu com códigos de erro do servidor 5xx. Isso inclui os códigos 5xx gerados a partir do gateway de aplicativo, bem como os códigos 5xx gerados a partir do back-end. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
+  Número de solicitações que falharam devido a problemas de conexão. Essa contagem inclui solicitações que falharam devido à excedeção da configuração de HTTP "tempo limite de solicitação" e solicitações que falharam devido a problemas de conexão entre o gateway de aplicativo e o back-end. Essa contagem não inclui falhas porque nenhum back-end íntegro está disponível. as respostas 4xx e 5xx do back-end também não são consideradas como parte dessa métrica.
 
 - **Status da Resposta**
 
@@ -214,11 +214,11 @@ O seguinte exemplo orientará você pela criação de uma regra de alerta que en
 
 2. Na página **Adicionar regra** , preencha as seções nome, condição e notificar e selecione **OK**.
 
-   * No seletor **Condição** , selecione um dos quatro valores: **Maior que** , **Maior ou igual a** , **Menor que** ou **Menor ou igual a**.
+   * No seletor **Condição**, selecione um dos quatro valores: **Maior que**, **Maior ou igual a**, **Menor que** ou **Menor ou igual a**.
 
-   * No seletor **Período** , selecione um período de cinco minutos a seis horas.
+   * No seletor **Período**, selecione um período de cinco minutos a seis horas.
 
-   * Se você selecionar **Proprietários, colaboradores e leitores de email** , o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você poderá fornecer uma lista separada por vírgula de usuários na caixa **Emails de administrador adicionais**.
+   * Se você selecionar **Proprietários, colaboradores e leitores de email**, o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você poderá fornecer uma lista separada por vírgula de usuários na caixa **Emails de administrador adicionais**.
 
    ![Página Adicionar regra][7]
 

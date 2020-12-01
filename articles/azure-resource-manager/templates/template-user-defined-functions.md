@@ -3,12 +3,12 @@ title: Funções definidas pelo usuário em modelos
 description: Descreve como definir e usar funções definidas pelo usuário em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353469"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436956"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funções definidas pelo usuário no modelo ARM
 
@@ -103,8 +103,7 @@ Ao definir uma função de usuário, há algumas restrições:
 * A função não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) .
 * Os parâmetros para a função não podem ter valores padrão.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para funções definidas pelo usuário, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
-* Para obter uma lista das funções de modelo disponíveis, consulte [Azure Resource Manager funções de modelo](template-functions.md).
+* Para saber mais sobre as propriedades disponíveis para funções definidas pelo usuário, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma lista das funções de modelo disponíveis, consulte [ARM template Functions](template-functions.md).

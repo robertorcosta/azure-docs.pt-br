@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563051"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436599"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar o Azure Sentinel ao AWS CloudTrail
 
@@ -80,11 +80,11 @@ Você deve ter permissão de gravação no espaço de trabalho do Azure Sentinel
 
 1. Para usar o esquema relevante em Log Analytics para eventos AWS, pesquise **AWSCloudTrail**.
 
-
+    > [!IMPORTANT]
+    > A partir de 1º de dezembro de 2020, o campo **AwsRequestId** foi substituído pelo campo **AwsRequestId_** (Observe o sublinhado adicionado). Os dados no campo **AwsRequestId** antigo serão preservados no final do período de retenção de dados especificado do cliente.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar o AWS CloudTrail ao Azure sentinela. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
-

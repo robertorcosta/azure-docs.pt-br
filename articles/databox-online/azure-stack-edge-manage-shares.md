@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777200"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444589"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Usar o portal do Azure para gerenciar compartilhamentos no Azure Stack Edge pro
 
@@ -54,7 +54,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 5. Na lista suspensa, escolha o **serviço de armazenamento** do blob de blocos, BLOB de páginas ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nessa instância, queremos que os dados residam como BLOBs de blocos no Azure, portanto, selecionamos **blob de blocos**. Se escolher **blob de páginas**, você deverá garantir que seus dados estejam alinhados em 512 bytes. Use o **blob de páginas** para VHDS ou VHDX que são sempre 512 bytes alinhados.
 
    > [!IMPORTANT]
-   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS.
    - **Se estiver criando compartilhamento SMB**: no campo **Todos os usuários locais com privilégios**, escolha **Criar novo** ou **Usar existente**. Se a criação for de um novo usuário local, forneça o **nome de usuário**, a **senha** e então confirme a senha. Isso atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
@@ -68,7 +68,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
 7. Para acessar com facilidade os compartilhamentos por meio dos módulos de computação de borda, use o ponto de montagem local. Selecione **Usar o compartilhamento com a Computação de borda** para que o compartilhamento seja montado automaticamente depois que ele é criado. Quando essa opção é selecionada, o módulo de borda também pode usar a computação com o ponto de montagem local.
 
-8. Clique em **Criar** para criar o compartilhamento. Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
+8. Clique em **criar** para criar o compartilhamento. Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento é criado com as configurações especificadas, a folha **compartilhamentos** é atualizada para refletir o novo compartilhamento.
 
 ## <a name="add-a-local-share"></a>Adicionar um compartilhamento local
 
@@ -92,7 +92,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
    ![Criar um compartilhamento local](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
-    Você verá uma notificação indicando que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
+    Você verá uma notificação indicando que a criação do compartilhamento está em andamento. Depois que o compartilhamento é criado com as configurações especificadas, a folha **compartilhamentos** é atualizada para refletir o novo compartilhamento.
 
    ![Exibir atualizações da folha Compartilhamentos](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     

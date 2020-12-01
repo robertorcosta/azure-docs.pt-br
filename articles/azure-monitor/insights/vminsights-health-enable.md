@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318126"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444771"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitar Azure Monitor para VMs integridade de convidado (versão prévia)
 Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
@@ -87,7 +87,7 @@ Há três etapas necessárias para habilitar as máquinas virtuais usando Azure 
 > [!NOTE]
 > Se você habilitar uma máquina virtual usando a portal do Azure, a regra de coleta de dados descrita aqui será criada para você. Nesse caso, você não precisa executar esta etapa.
 
-A configuração dos monitores no Azure Monitor para VMs integridade do convidado é armazenada em [Data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Instale a regra de coleta de dados definida no modelo do Resource Manager abaixo para habilitar todos os monitores para as máquinas virtuais com a extensão de integridade do convidado. Cada máquina virtual com a extensão de integridade do convidado precisará de uma associação com essa regra.
+A configuração dos monitores no Azure Monitor para VMs integridade do convidado é armazenada em [Data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Cada máquina virtual com a extensão de integridade do convidado precisará de uma associação com essa regra.
 
 > [!NOTE]
 > Você pode criar regras de coleta de dados adicionais para modificar a configuração padrão dos monitores, conforme descrito em [Configurar monitoramento em Azure monitor para VMs integridade de convidado (versão prévia)](vminsights-health-configure.md).
@@ -115,7 +115,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-
+A regra de coleta de dados definida no modelo do Resource Manager abaixo habilita todos os monitores para as máquinas virtuais com a extensão de integridade do convidado. Ele deve incluir fontes de dados para cada um dos contadores de desempenho usados pelos monitores.
 
 ```json
 {
@@ -138,7 +138,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -151,6 +151,19 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -170,7 +183,11 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -181,7 +198,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
               "name": "Microsoft-HealthStateChange-Dest"
             }
           ]
-        },
+        },                  
         "dataFlows": [
           {
             "streams": [
@@ -205,7 +222,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "healthDataCollectionRuleResourceId": {
+      "destinationWorkspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
       },
       "dataCollectionRuleLocation": {
@@ -217,7 +234,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 
-## <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Instalar a extensão de integridade do convidado e associar à regra de coleta de dados
+### <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Instalar a extensão de integridade do convidado e associar à regra de coleta de dados
 Use o seguinte modelo do Resource Manager para habilitar uma máquina virtual para a integridade do convidado. Isso instala a extensão de integridade do convidado e cria a associação com a regra de coleta de dados. Você pode implantar esse modelo usando qualquer [método de implantação para modelos do Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
@@ -370,9 +387,6 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       },
       "healthDataCollectionRuleResourceId": {
         "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/Microsoft-VMInsights-Health"
-      },
-      "healthExtensionVersion": {
-        "value": "private-preview"
       }
   }
 }

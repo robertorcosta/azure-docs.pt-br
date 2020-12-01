@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789107"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436752"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -20,7 +20,7 @@ Os recursos da Central de Segurança do Azure abrangem os dois pilares mais ampl
 
 - **GPSN (gerenciamento da postura de segurança na nuvem)** – A Central de Segurança está disponível **gratuitamente** para todos os usuários do Azure. A experiência gratuita inclui recursos de GPSN, como classificação de segurança, detecção de configurações incorretas de segurança em seus computadores do Azure, inventário de ativos e muito mais. Use esses recursos de GPSN para fortalecer sua postura de nuvem híbrida e controlar a conformidade com as políticas internas.
 
-- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender** , oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
+- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender**, oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
 
 O painel do Azure Defender na Central de Segurança fornece visibilidade e controle dos recursos de PCTN em seu ambiente:
 
@@ -61,7 +61,7 @@ Para estender a proteção para máquinas virtuais e bancos de dados SQL em outr
 
 
 
-## <a name="azure-defender-alerts"></a>Alertas do Azure Defender 
+## <a name="security-alerts"></a>Alertas de segurança 
 
 Quando o Azure Defender detecta uma ameaça em qualquer área do seu ambiente, ela gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
 
