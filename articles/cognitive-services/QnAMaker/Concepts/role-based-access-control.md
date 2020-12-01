@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147517"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346148"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colabore com outros autores e editores
 
@@ -42,11 +42,11 @@ O diagrama a seguir mostra o fluxo, da perspectiva do autor, para entrar no port
 |3|API de QnA Maker valida o token.|
 |4 |API de QnA Maker chama o serviço QnAMaker.|
 
-Se você pretende chamar as [APIs de criação](../How-To/collaborate-knowledge-base.md), saiba mais sobre como configurar a autenticação.
+Se você pretende chamar as [APIs de criação](../index.yml), saiba mais sobre como configurar a autenticação.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autenticar pelo portal de QnA Maker
 
-Se você criar e colaborar usando o portal de QnA Maker, depois de [Adicionar a função apropriada ao recurso para um colaborador](../How-To/collaborate-knowledge-base.md), o portal de QnA Maker gerenciará todas as permissões de acesso.
+Se você criar e colaborar usando o portal de QnA Maker, depois de [Adicionar a função apropriada ao recurso para um colaborador](../index.yml), o portal de QnA Maker gerenciará todas as permissões de acesso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Autenticar por QnA Maker APIs e SDKs
 
@@ -54,4 +54,4 @@ Se você criar e colaborar usando as APIs, seja por REST ou pelos SDKs, será ne
 
 ## <a name="next-step"></a>Próxima etapa
 
-* Criar uma base de dados de conhecimento para [linguagens](design-language-culture.md) e para [aplicativos cliente](integration-with-other-applications.md)
+* Criar uma base de dados de conhecimento para [linguagens](../index.yml) e para [aplicativos cliente](../index.yml)

@@ -3,12 +3,12 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981095"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345346"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Para obter mais informações sobre como usar CLI do Azure com a grade de eventos, consulte [rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Agendamento de nova tentativa e duração
+
+Quando o EventGrid recebe um erro para uma tentativa de entrega de evento, o EventGrid decide se deve tentar novamente a entrega ou mensagens mortas ou descartar o evento com base no tipo de erro. 
+
+Se o erro retornado pelo ponto de extremidade assinado for um erro relacionado à configuração que não pode ser corrigido com repetições (por exemplo, se o ponto de extremidade for excluído), EventGrid ele executará um evento de mensagens mortas ou descartará o evento se a letra inativa não estiver configurada.
+
+A seguir estão os tipos de pontos de extremidade para os quais repetir não acontece:
+
+| Tipo de Ponto de Extremidade | Códigos do Erro |
+| --------------| -----------|
+| Recursos do Azure | 400 solicitação inadequada, entidade de solicitação 413 muito grande, 403 Proibido | 
+| webhook | 400 solicitação inválida, entidade de solicitação 413 muito grande, 403 Proibido, 404 não encontrado, 401 não autorizado |
+ 
+> [!NOTE]
+> Se Dead-Letter não estiver configurado para o ponto de extremidade, os eventos serão descartados quando os erros acima ocorrerem, portanto, considere configurar a inatividade, se você não quiser que esses tipos de eventos sejam removidos.
+
+Se o erro retornado pelo ponto de extremidade assinado não estiver entre a lista acima, o EventGrid executará a repetição usando as políticas descritas abaixo:
 
 A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para tentar novamente. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A grade de eventos repete a entrega na seguinte agenda com base no melhor esforço:
 
@@ -256,16 +272,16 @@ A grade de eventos considera **apenas** os seguintes códigos de resposta http c
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
+Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos (se necessário). Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
 
 | Código de status | Tentar comportamento novamente |
 | ------------|----------------|
-| 400 Solicitação Inválida | Tente novamente após 5 minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
-| 401 Não Autorizado | Tente novamente após 5 minutos ou mais |
-| 403 Proibido | Tente novamente após 5 minutos ou mais |
-| 404 Não Encontrado | Tente novamente após 5 minutos ou mais |
+| 400 Solicitação Inválida | Não repetido |
+| 401 Não Autorizado | Tente novamente após 5 minutos ou mais para os pontos de extremidade de recursos do Azure |
+| 403 Proibido | Não repetido |
+| 404 Não Encontrado | Tente novamente após 5 minutos ou mais para os pontos de extremidade de recursos do Azure |
 | 408 Tempo Limite da Solicitação | Tentar novamente após 2 minutos ou mais |
-| Solicitação 413 entidade muito grande | Tente novamente após 10 segundos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
+| Solicitação 413 entidade muito grande | Não repetido |
 | 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
 | Todos os outros | Tentar novamente após 10 segundos ou mais |
 

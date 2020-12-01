@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336581"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345722"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usar identidades gerenciadas atribuídas pelo sistema para acessar dados de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -68,9 +68,9 @@ Nesse cenário, o aplicativo de funções lerá a temperatura do aquário e, em 
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de tela mostrando o painel Adicionar atribuição de função.":::
 
-   * **Função** : selecione **colaborador de conta do DocumentDB**
-   * **Atribuir acesso a** : na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções**.
-   * **Select** : o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada**. Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
+   * **Função**: selecione **colaborador de conta do DocumentDB**
+   * **Atribuir acesso a**: na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções**.
+   * **Select**: o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada**. Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de tela mostrando o painel Adicionar atribuição de função preenchido com exemplos.":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Agora você está pronto para [implantar seu aplicativo de funções](../azure-functions/functions-create-first-function-vs-code.md).
+Agora você está pronto para [implantar seu aplicativo de funções](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

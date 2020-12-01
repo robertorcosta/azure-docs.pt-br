@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 4d899fe7f84a8708bb8ee32cc008567b272a885c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169368"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348400"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -55,7 +55,7 @@ Se você não tiver uma assinatura do Azure governamental, crie uma [conta gratu
 
 Para obter detalhes sobre como usar uma nuvem nacional com uma linguagem de programação específica, escolha a guia correspondente ao seu idioma:
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 Você pode usar o MSAL.NET para conectar usuários, adquirir tokens e chamar a API Microsoft Graph em nuvens nacionais.
 

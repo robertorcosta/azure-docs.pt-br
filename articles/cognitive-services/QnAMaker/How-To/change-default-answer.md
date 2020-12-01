@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: ceff3127eba724ba9aa9bc8f9398d0f27ba687eb
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376597"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346113"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso de QnA Maker
 
-A resposta padrão para uma base de dados de conhecimento deve ser retornada quando uma resposta não for encontrada. Se você estiver usando um aplicativo cliente, como o [serviço de bot do Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna), ele também poderá ter uma resposta padrão separada, indicando que nenhuma resposta atende ao limite de pontuação.
+A resposta padrão para uma base de dados de conhecimento deve ser retornada quando uma resposta não for encontrada. Se você estiver usando um aplicativo cliente, como o [serviço de bot do Azure](/azure/bot-service/bot-builder-howto-qna), ele também poderá ter uma resposta padrão separada, indicando que nenhuma resposta atende ao limite de pontuação.
 
 ## <a name="types-of-default-answer"></a>Tipos de resposta padrão
 
@@ -24,21 +24,21 @@ Há dois tipos de resposta padrão na sua base de dados de conhecimento. É impo
 
 |Tipos de respostas padrão|Descrição da resposta|
 |--|--|
-|Resposta da KB quando nenhuma resposta for determinada|`No good match found in KB.` -Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra nenhuma resposta correspondente à pergunta, a `DefaultAnswer` configuração do serviço de aplicativo é retornada. Todas as bases de conhecimento no mesmo QnA Maker recurso compartilham o mesmo texto de resposta padrão.<br>Você pode gerenciar a configuração na portal do Azure, por meio do serviço de aplicativo ou com as APIs REST para [obter](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [Atualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) a configuração.|
-|Texto de instrução de aviso de acompanhamento|Ao usar um prompt de acompanhamento em um fluxo de conversa, talvez você não precise de uma resposta no par QnA porque deseja que o usuário selecione entre os prompts de acompanhamento. Nesse caso, defina texto específico definindo o texto de resposta padrão, que é retornado com cada Previsão para avisos de acompanhamento. O texto deve ser exibido como texto de instrução para a seleção de prompts de acompanhamento. Um exemplo para esse texto de resposta padrão é `Please select from the following choices` . Essa configuração é explicada nas próximas seções deste documento. Também pode definir como parte da definição da base de dados de conhecimento de `defaultAnswerUsedForExtraction` usando a [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|Resposta da KB quando nenhuma resposta for determinada|`No good match found in KB.` -Quando a [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra nenhuma resposta correspondente à pergunta, a `DefaultAnswer` configuração do serviço de aplicativo é retornada. Todas as bases de conhecimento no mesmo QnA Maker recurso compartilham o mesmo texto de resposta padrão.<br>Você pode gerenciar a configuração na portal do Azure, por meio do serviço de aplicativo ou com as APIs REST para [obter](/rest/api/appservice/webapps/listapplicationsettings) ou [Atualizar](/rest/api/appservice/webapps/updateapplicationsettings) a configuração.|
+|Texto de instrução de aviso de acompanhamento|Ao usar um prompt de acompanhamento em um fluxo de conversa, talvez você não precise de uma resposta no par QnA porque deseja que o usuário selecione entre os prompts de acompanhamento. Nesse caso, defina texto específico definindo o texto de resposta padrão, que é retornado com cada Previsão para avisos de acompanhamento. O texto deve ser exibido como texto de instrução para a seleção de prompts de acompanhamento. Um exemplo para esse texto de resposta padrão é `Please select from the following choices` . Essa configuração é explicada nas próximas seções deste documento. Também pode definir como parte da definição da base de dados de conhecimento de `defaultAnswerUsedForExtraction` usando a [API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 |Tipos de respostas padrão|Descrição da resposta|
 |--|--|
-|Resposta da KB quando nenhuma resposta for determinada|`No good match found in KB.` -Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra nenhuma resposta correspondente à pergunta, ele exibe uma resposta de texto padrão. Em QnA Maker gerenciado (versão prévia), você pode definir esse texto nas **configurações** da sua base de dados de conhecimento. <br><br> ![Resposta padrão de definição de QnA Maker gerenciada (visualização)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
-|Texto de instrução de aviso de acompanhamento|Ao usar um prompt de acompanhamento em um fluxo de conversa, talvez você não precise de uma resposta no par QnA porque deseja que o usuário selecione entre os prompts de acompanhamento. Nesse caso, defina texto específico definindo o texto de resposta padrão, que é retornado com cada Previsão para avisos de acompanhamento. O texto deve ser exibido como texto de instrução para a seleção de prompts de acompanhamento. Um exemplo para esse texto de resposta padrão é `Please select from the following choices` . Essa configuração é explicada nas próximas seções deste documento. Você também pode definir isso como parte de uma definição da base de dados de conhecimento com `defaultAnswerUsedForExtraction` o uso da [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|Resposta da KB quando nenhuma resposta for determinada|`No good match found in KB.` -Quando a [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra nenhuma resposta correspondente à pergunta, ele exibe uma resposta de texto padrão. Em QnA Maker gerenciado (versão prévia), você pode definir esse texto nas **configurações** da sua base de dados de conhecimento. <br><br> ![Resposta padrão de definição de QnA Maker gerenciada (visualização)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Texto de instrução de aviso de acompanhamento|Ao usar um prompt de acompanhamento em um fluxo de conversa, talvez você não precise de uma resposta no par QnA porque deseja que o usuário selecione entre os prompts de acompanhamento. Nesse caso, defina texto específico definindo o texto de resposta padrão, que é retornado com cada Previsão para avisos de acompanhamento. O texto deve ser exibido como texto de instrução para a seleção de prompts de acompanhamento. Um exemplo para esse texto de resposta padrão é `Please select from the following choices` . Essa configuração é explicada nas próximas seções deste documento. Você também pode definir isso como parte de uma definição da base de dados de conhecimento com `defaultAnswerUsedForExtraction` o uso da [API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ---
 
 ### <a name="client-application-integration"></a>Integração de aplicativos cliente
 
-Para um aplicativo cliente, como um bot com o **serviço de bot do Azure** , você pode escolher entre os seguintes cenários comuns:
+Para um aplicativo cliente, como um bot com o **serviço de bot do Azure**, você pode escolher entre os seguintes cenários comuns:
 
 * Usar a configuração da base de dados de conhecimento
 * Use texto diferente no aplicativo cliente para distinguir quando uma resposta é retornada, mas não atende ao limite de pontuação. Esse texto pode ser um texto estático armazenado no código ou pode ser armazenado na lista de configurações do aplicativo cliente.

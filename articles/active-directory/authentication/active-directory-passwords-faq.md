@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b79eb842105734f0f6c145884d73f886a02dbbbc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174489"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348151"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
@@ -263,7 +263,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  O write-back de senha funciona com quais tipos de conta?**
 
-  > **R:** O write-back de senha funciona com contas de usuário sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e de autenticação de passagem.
+  > **R:** O Write-back de senha funciona para contas de usuário que são sincronizadas do Active Directory local para o Azure AD, incluindo usuários federados, sincronizados com hash de senha e Pass-Through autenticação.
   >
   >
 * **P:  O write-back de senha impõe as políticas de senha do meu domínio?**
