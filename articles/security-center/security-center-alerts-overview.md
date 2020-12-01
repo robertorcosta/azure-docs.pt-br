@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182301"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433012"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -91,7 +91,7 @@ Você tem uma variedade de opções para exibir seus alertas fora da central de 
 
 - **Baixar o relatório CSV** no painel alertas fornece uma única exportação para CSV.
 - A **exportação contínua** de configurações de & de preços permite que você configure fluxos de alertas de segurança e recomendações para log Analytics espaços de trabalho e hubs de eventos. [Saiba mais sobre a exportação contínua](continuous-export.md)
-- O **conector do Azure Sentinel** transmite alertas do Azure defender da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o sentinela](../sentinel/connect-azure-security-center.md)
+- O **conector do Azure Sentinel** transmite alertas de segurança da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o sentinela](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,12 +3,12 @@ title: Conectar-se a uma rede par no Azure Lab Services | Microsoft Docs
 description: Saiba como conectar sua rede de laboratório a outra rede como um par. Por exemplo, conecte sua rede de organização/universidade local com a rede virtual do laboratório no Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 169160005b27f6ab9575749e4a72a26d2df4000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647980"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434236"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conectar a rede do seu laboratório a uma rede virtual par no Azure Lab Services
 
@@ -26,7 +26,7 @@ Talvez você precise conectar a rede do laboratório a uma rede virtual par em a
 Determinadas redes locais são conectadas à rede virtual do Azure por meio do [ExpressRoute](../expressroute/expressroute-introduction.md) ou do [Gateway de Rede Virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md). Esses serviços devem ser configurados fora do Azure Lab Services. Para saber mais sobre como conectar uma rede local ao Azure usando o ExpressRoute, confira [Visão geral do ExpressRoute](../expressroute/expressroute-introduction.md). Para ter conectividade local usando um Gateway de Rede Virtual, o gateway, a rede virtual especificada e a conta de laboratório devem estar na mesma região.
 
 > [!NOTE]
-> Ao criar uma Rede Virtual do Azure que será emparelhada com uma conta de laboratório, é importante entender como a região da rede virtual afeta o local em que os laboratórios de sala de aula são criados.  Para obter mais informações, confira a seção do guia do administrador sobre [regiões/locais](./administrator-guide.md#regionslocations).
+> Ao criar uma rede virtual do Azure que será emparelhada com uma conta de laboratório, é importante entender como a região da rede virtual afeta onde os laboratórios são criados.  Para obter mais informações, confira a seção do guia do administrador sobre [regiões/locais](./administrator-guide.md#regionslocations).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta de laboratório
 

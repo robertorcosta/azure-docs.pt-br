@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367815"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433250"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [atribuições de função](active-directory-users-assign-role-azure-portal.md) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
@@ -63,7 +63,7 @@ As permissões padrão para usuários convidados podem ser restritas das seguint
 
 Permissão | Configurar explicação
 ---------- | ------------
-Restrições de acesso do usuário de convidados (visualização) | A definição dessa opção para **os usuários convidados têm o mesmo acesso que os membros** concedem a todos os usuários Membros permissões de usuário para convidados por padrão.<p>Definir essa opção como **acesso de usuário convidado é restrito a propriedades e associações de seus próprios objetos de diretório** restringe o acesso de convidado apenas a seu próprio perfil de usuário por padrão. O acesso a outros usuários não é mais permitido mesmo ao pesquisar por nome principal do usuário, ObjectId ou nome de exibição. O acesso a informações de grupos, incluindo associações de grupos, também não é mais permitido.<p>**Observação**: essa configuração não impede o acesso a grupos Unidos em alguns serviços de Microsoft 365, como o Microsoft Teams. Consulte [acesso de convidado do Microsoft Teams]() para saber mais.<p>Os usuários convidados ainda podem ser adicionados às funções de administrador, independentemente dessas configurações de permissão.
+Restrições de acesso do usuário de convidados (visualização) | A definição dessa opção para **os usuários convidados têm o mesmo acesso que os membros** concedem a todos os usuários Membros permissões de usuário para convidados por padrão.<p>Definir essa opção como **acesso de usuário convidado é restrito a propriedades e associações de seus próprios objetos de diretório** restringe o acesso de convidado apenas a seu próprio perfil de usuário por padrão. O acesso a outros usuários não é mais permitido mesmo ao pesquisar por nome principal do usuário, ObjectId ou nome de exibição. O acesso a informações de grupos, incluindo associações de grupos, também não é mais permitido.<p>**Observação**: essa configuração não impede o acesso a grupos Unidos em alguns serviços de Microsoft 365, como o Microsoft Teams. Consulte [acesso de convidado do Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/guest-access) para saber mais.<p>Os usuários convidados ainda podem ser adicionados às funções de administrador, independentemente dessas configurações de permissão.
 Convidados podem convidar | Definir essa opção como Sim permite que os convidados convidem outros convidados. Confira [delegar convites para colaboração B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para saber mais.
 Membros podem convidar | Definir essa opção como Sim permite que membros não administradores do seu diretório convidem convidados. Confira [delegar convites para colaboração B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para saber mais.
 Administradores e usuários na função de emissor do convite convidado podem convidar | Definir essa opção como Sim permite que administradores e usuários na função "emissor do convidado" convidem convidados. Quando definido como Sim, os usuários na função emissor de convite do convidado ainda poderão convidar convidados, independentemente da configuração dos membros podem convidar. Confira [delegar convites para colaboração B2B](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) para saber mais.

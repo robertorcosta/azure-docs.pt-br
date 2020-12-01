@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028388"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356203"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -66,9 +66,9 @@ ms.locfileid: "96028388"
 
 **<a name="data-ingestion-volume-rate">Taxa do volume de ingestão de dados</a>**
 
-O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. Esse limite da taxa de volume se aplica a todos os dados ingeridos, sejam eles enviados de recursos do Azure usando as [Configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md), a [API do Coletor de dados](../articles/azure-monitor/platform/data-collector-api.md) ou os agentes.
+O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. O limite da taxa de volume se aplica aos dados ingeridos dos recursos do Azure por meio de [Configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md). Quando o limite da taxa de volume é atingido, um mecanismo de repetição tenta ingerir os dados quatro vezes em um período de 30 minutos e removê-los se a operação falhar. Ele não se aplica aos dados ingeridos de [agentes](../articles/azure-monitor/platform/agents-overview.md) ou da [API do Coletor de Dados](../articles/azure-monitor/platform/data-collector-api.md).
 
-Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento abrindo uma solicitação de suporte. 
+Quando os dados enviados ao seu workspace estiverem a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela *Operações* no workspace a cada seis horas enquanto o limite continuar sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento abrindo uma solicitação de suporte. 
 
 Confira [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) para criar regras de alerta para você ser proativamente notificado quando atingir os limites de ingestão.
 

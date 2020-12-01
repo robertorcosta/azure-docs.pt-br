@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e4f002d038820edf128e3fefb229a0918a8ac55
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703869"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433515"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adicionar ou remover uma delegação de sub-rede
 
@@ -33,7 +33,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 Nesta seção, você criará uma rede virtual e a sub-rede que você delegará posteriormente a um serviço do Azure.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso**rede redes  >  **Networking**  >  **virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais**.
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -60,21 +60,23 @@ Nesta seção, você delega a sub-rede que criou na seção anterior para um ser
 
 1. Na barra de pesquisa do portal, insira *myVirtualNetwork*. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o.
 2. Nos resultados da pesquisa, selecione *myVirtualNetwork*.
-3. Selecione **sub-redes**, em **configurações**e, em seguida, selecione **mysubnet**.
+3. Selecione **sub-redes**, em **configurações** e, em seguida, selecione **mysubnet**.
 4. Na página *mysubnet* , para a lista **delegação de sub-rede** , selecione os serviços listados em **delegar sub-rede para um serviço** (por exemplo, **Microsoft. DBforPostgreSQL/serversv2**).  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Remover a delegação de sub-rede de um serviço do Azure
 
 1. Na barra de pesquisa do portal, insira *myVirtualNetwork*. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o.
 2. Nos resultados da pesquisa, selecione *myVirtualNetwork*.
-3. Selecione **sub-redes**, em **configurações**e, em seguida, selecione **mysubnet**.
+3. Selecione **sub-redes**, em **configurações** e, em seguida, selecione **mysubnet**.
 4. Na página *mysubnet* , para a lista **delegação de sub-rede** , selecione **nenhum** dos serviços listados em **delegar sub-rede a um serviço**. 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Prepare seu ambiente para a CLI do Azure.
 
-Se você decidir instalar e usar CLI do Azure localmente, este artigo exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.

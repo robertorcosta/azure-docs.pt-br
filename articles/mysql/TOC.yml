@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: Limitações
           href: concepts-limits.md
+        - name: Práticas recomendadas operacionais
+          href: concept-operation-excellence-best-practices.md
         - name: Tipos de preço
           items:
             - name: Tipos de preço
@@ -195,6 +197,10 @@
             - name: Recomendações do desempenho
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Melhores práticas de monitoramento
+              href: concept-monitoring-best-practices.md
+            - name: Práticas recomendadas de desempenho
+              href: concept-performance-best-practices.md
         - name: Desenvolvimento de aplicativo
           items:
             - name: Visão geral do desenvolvimento de aplicativos

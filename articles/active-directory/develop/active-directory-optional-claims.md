@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348085"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433308"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -58,7 +58,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
 | `vnet`                     | Informações de especificador de VNET. | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET) |
-| `ctry`                     | País/região do usuário | JWT, SAML |  | O Azure AD retorna a `ctry` declaração opcional se ela estiver presente e o valor do campo for um código de país/região padrão de duas letras, como fr, JP, sz e assim por diante. |
+| `ctry`                     | País/região do usuário | JWT |  | O Azure AD retorna a `ctry` declaração opcional se ela estiver presente e o valor do campo for um código de país/região padrão de duas letras, como fr, JP, sz e assim por diante. |
 | `tenant_ctry`              | País do locatário do recurso | JWT | | O mesmo que `ctry` Except definido em um nível de locatário por um administrador.  Também deve ser um valor padrão de duas letras. |
 | `xms_pdl`             | Local dos dados preferido   | JWT | | Para locatários de várias regiões geográficas, o local de dados preferencial é o código de três letras que mostra a região geográfica em que o usuário está. Para obter mais informações, confira a [documentação do Azure AD Connect sobre o local de dados preferencial](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Por exemplo: `APC` para Pacífico Asiático. |
 | `xms_pl`                   | Idioma preferido do usuário  | JWT ||O idioma preferido do usuário, se definido. Originado de seu locatário inicial, em cenários de acesso de convidado. Tem o formato II-PP ("en-us"). |
@@ -244,7 +244,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 1. Selecione **Adicionar grupos declaração**.
 1. Selecione os tipos de grupo a serem retornados (**grupos de segurança** ou **funções de diretório**, **todos os grupos** e/ou **grupos atribuídos ao aplicativo**). Os **grupos atribuídos à opção de aplicativo** incluem apenas grupos atribuídos ao aplicativo. A opção **todos os grupos** inclui o grupo de **segurança**, **DirectoryRole** e **DistributionList**, mas não **os grupos atribuídos ao aplicativo**. 
 1. Opcional: selecione as propriedades do tipo de token específico para modificar o valor da declaração grupos para conter os atributos do grupo local ou para alterar o tipo de declaração para uma função.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 **Configurando declarações opcionais de grupos por meio do manifesto do aplicativo:**
 

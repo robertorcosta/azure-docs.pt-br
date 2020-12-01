@@ -1,14 +1,14 @@
 ---
-title: Definir configurações de uso em laboratórios de sala de aula do Azure Lab Services
+title: Definir configurações de uso em laboratórios de Azure Lab Services
 description: Saiba como configurar o número de alunos para um laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais.
 ms.topic: article
 ms.date: 11/11/2020
-ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555712"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434542"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
 
@@ -20,7 +20,7 @@ Nesta seção, você adicionará alunos a um laboratório manualmente ou carrega
 
 1. No painel esquerdo, selecione **Usuários**. 
 
-    Por padrão, a opção **restringir acesso** é ativada e, a menos que estejam na lista de usuários, os alunos não poderão se registrar no laboratório mesmo se tiverem um link de registro. Somente os usuários listados podem se registrar no laboratório usando o link de registro que você envia. Neste procedimento, você pode adicionar usuários à lista. Como alternativa, você pode desativar o **acesso restrito** , que permite que os alunos se registrem no laboratório, desde que tenham o link de registro. 
+    Por padrão, a opção **restringir acesso** é ativada e, a menos que estejam na lista de usuários, os alunos não poderão se registrar no laboratório mesmo se tiverem um link de registro. Somente os usuários listados podem se registrar no laboratório usando o link de registro que você envia. Neste procedimento, você pode adicionar usuários à lista. Como alternativa, você pode desativar o **acesso restrito**, que permite que os alunos se registrem no laboratório, desde que tenham o link de registro. 
 
 1. Na parte superior do painel **usuários** , selecione **Adicionar usuários** e, em seguida, selecione **Adicionar por endereço de email**. 
 
@@ -81,7 +81,7 @@ Esse método mostra como enviar emails com um link de registro e uma mensagem op
 
 1. Na janela **Enviar convite por email** , insira uma mensagem opcional e, em seguida, selecione **Enviar**. 
 
-    O email inclui automaticamente o link de registro. Para obter e salvar o link de registro separadamente, selecione as reticências ( **...** ) na parte superior do painel **usuários** e, em seguida, selecione **link de registro**. 
+    O email inclui automaticamente o link de registro. Para obter e salvar o link de registro separadamente, selecione as reticências (**...**) na parte superior do painel **usuários** e, em seguida, selecione **link de registro**. 
 
     ![A janela "enviar link de registro por email"](./media/tutorial-setup-classroom-lab/send-email.png)
 
@@ -156,7 +156,7 @@ Para definir cotas adicionais, faça o seguinte:
 
     ![O botão "ajustar cota"](./media/how-to-configure-student-usage/adjust-quota-button.png)
 
-1. Em **ajustar cota para \<selected user or users email address>** , insira o número de horas de laboratório adicionais que você deseja conceder ao aluno ou aos alunos selecionados e, em seguida, selecione **aplicar**. 
+1. Em **ajustar cota para \<selected user or users email address>**, insira o número de horas de laboratório adicionais que você deseja conceder ao aluno ou aos alunos selecionados e, em seguida, selecione **aplicar**. 
 
     ![A "ajustar cota..." Window](./media/how-to-configure-student-usage/additional-quota.png)
 
@@ -169,7 +169,7 @@ Para definir cotas adicionais, faça o seguinte:
 Para adicionar alunos a um laboratório de sala de aula, você usa suas contas de email. Os alunos podem ter os seguintes tipos de contas de email:
 
 - Uma conta de email de aluno fornecida pela instância de Azure Active Directory da sua universidade.
-- Uma conta de email do domínio da Microsoft, como *Outlook.com* , *hotmail.com* , *MSN.com* ou *Live.com*.
+- Uma conta de email do domínio da Microsoft, como *Outlook.com*, *hotmail.com*, *MSN.com* ou *Live.com*.
 - Uma conta de email que não seja da Microsoft, como uma fornecida pelo Yahoo! ou Google. No entanto, esses tipos de contas devem ser vinculados a um conta Microsoft.
 - Uma conta do GitHub. Essa conta deve ser vinculada a um conta Microsoft.
 
@@ -207,7 +207,7 @@ Se eles ainda não tiverem vinculado sua conta do GitHub a um conta Microsoft, e
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>Exportar uma lista de usuários para um arquivo CSV
 
 1. Vá para o painel **usuários** .
-1. Na barra de ferramentas, selecione as reticências ( **...** ) e, em seguida, selecione **Exportar CSV**. 
+1. Na barra de ferramentas, selecione as reticências (**...**) e, em seguida, selecione **Exportar CSV**. 
 
     ![O botão "exportar CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
@@ -218,4 +218,4 @@ Veja os artigos a seguir:
 
 - Para administradores: [criar e gerenciar contas de laboratório](how-to-manage-lab-accounts.md)
 - Para proprietários de laboratório: [criar e gerenciar laboratórios](how-to-manage-classroom-labs.md) e [configurar e publicar modelos](how-to-create-manage-template.md)
-- Para usuários do laboratório: [acessar laboratórios da sala de aula](how-to-use-classroom-lab.md)
+- Para usuários de laboratório: [laboratórios de acesso](how-to-use-classroom-lab.md)

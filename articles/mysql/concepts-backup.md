@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 4438ceaa7bb4e9c29a05de0481acdad571e3bb64
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542330"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433267"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -43,8 +43,6 @@ O armazenamento de uso geral é o armazenamento de back-end com suporte ao [uso 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
 
 Em um subconjunto de [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
-
-Em um subconjunto de [regiões do Azure](concepts-pricing-tiers.md#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 
 Os backups de instantâneo diferenciais ocorrem pelo menos uma vez por dia. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Os backups de instantâneo diferenciais ocorrem a cada 24 horas, a menos que o log de transações (binlog no MySQL) exceda 50 GB desde o último backup diferencial. Em um dia, são permitidos no máximo seis instantâneos diferenciais.
 

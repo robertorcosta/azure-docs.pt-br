@@ -1,6 +1,6 @@
 ---
-title: Introdução dos utilitários do Microsoft Spark
-description: Tutorial de como usar o MSSparkutils nos blocos de anotações do Azure Synapse Analytics.
+title: Introdução aos utilitários do Microsoft Spark
+description: 'Tutorial: MSSparkutils nos blocos de anotações do Azure Synapse Analytics'
 author: ruxu
 services: synapse-analytics
 ms.service: synapse-analytics
@@ -10,14 +10,14 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3c4e062393f9d75d478720041436c2e0f54485a3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ff294c0227bb6a830a5aef2379248714a7f2f64a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795082"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435188"
 ---
-# <a name="introduction-of-microsoft-spark-utilities"></a>Introdução dos utilitários do Microsoft Spark
+# <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos utilitários do Microsoft Spark
 
 Os utilitários do Microsoft Spark (MSSparkUtils) são um pacote interno para ajudá-lo a executar tarefas comuns com facilidade. Você pode usar o MSSparkUtils para trabalhar com sistemas de arquivos, obter variáveis de ambiente e trabalhar com segredos. MSSparkUtils estão disponíveis nos `PySpark (Python)` `Scala` blocos de anotações, e `.NET Spark (C#)` notebooks e Synapse.
 

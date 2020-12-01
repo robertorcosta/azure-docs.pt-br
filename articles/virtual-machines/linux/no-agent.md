@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978723"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435093"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criando imagens generalizadas sem um agente de provisionamento
 
@@ -78,7 +78,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 Além disso, dentro da VM, como removemos o agente Linux do Azure, precisamos fornecer um mecanismo para relatar prontamente. 
 
-#### <a name="python-script"></a>Script do Python
+#### <a name="python-script"></a>Script Python
 
 ```python
 import http.client
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Esse serviço em sistema faz três coisas para o provisionamento básico:
 
 1. Relatórios prontos para o Azure (para indicar que ele foi fornecido com êxito).
-1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](./instance-metadata-service.md). **Observação** O IMDS também fornece outros [metadados de instância](./instance-metadata-service.md#accessing-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
+1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](./instance-metadata-service.md). **Observação** O IMDS também fornece outros [metadados de instância](./instance-metadata-service.md#access-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
 1. Desabilita a si mesmo para que ele só seja executado na primeira inicialização e não nas reinicializações subsequentes.
 
 Com a unidade no sistema de arquivos, execute o seguinte para habilitá-lo:

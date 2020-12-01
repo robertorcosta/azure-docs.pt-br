@@ -3,12 +3,12 @@ title: Introdução ao Azure Lab Services
 description: Este artigo descreve como começar a usar o Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434423"
 ---
 # <a name="get-started-with-lab-services"></a>Introdução aos serviços de laboratório 
 
@@ -48,7 +48,7 @@ A coisa mais importante a ser lembrada ao gerenciar as VMs é que, sempre que um
 
 ### <a name="overview"></a>Visão geral
 
-Painéis para laboratórios de sala de aula no Azure Lab Services fornecem um instantâneo de diferentes aspectos de um laboratório específico, incluindo informações de VM, número de VMs atribuídas e não atribuídas, número de usuários registrados e não registrados e informações sobre agendamentos de laboratório. 
+Painéis para laboratórios no Azure Lab Services fornecem um instantâneo de diferentes aspectos de um laboratório específico, incluindo informações da VM, número de VMs atribuídas e não atribuídas, número de usuários registrados e não registrados e informações sobre agendamentos de laboratório. 
 
 > [!NOTE]
 > Embora a maioria dos aspectos administrativos do painel e do [Azure Lab Services site](https://labs.azure.com/) fique visível para os professores, as permissões específicas para sua função podem afetar sua capacidade de modificar determinados critérios no painel. Se você encontrar um problema com sua configuração de laboratório específica, entre em contato com o administrador da CTE.
