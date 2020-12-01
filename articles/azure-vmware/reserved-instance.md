@@ -3,12 +3,12 @@ title: Economize custos com a instância reservada da solução Azure VMware
 description: Saiba como comprar uma instância reservada para a solução do Azure VMware.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578936"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327390"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a solução Azure VMware
 
@@ -22,7 +22,7 @@ As instâncias reservadas estão disponíveis com algumas exceções.
 
 -   **Cota insuficiente** -uma reserva com escopo para uma assinatura única/compartilhada deve ter a cota de hosts disponível na assinatura para a nova instância reservada. Você pode [criar uma solicitação de aumento de cota](enable-azure-vmware-solution.md) para resolver esse problema.
 
--   **Qualificação da oferta** -você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+-   **Qualificação da oferta**-você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 
 -   **Restrições de capacidade** -em raras circunstâncias, o Azure limita a compra de novas reservas para SKUs do host da solução Azure VMware devido à baixa capacidade em uma região.
 
@@ -54,7 +54,7 @@ Esses requisitos se aplicam à compra de uma instância de host dedicada reserva
 
    | Campo        |  Descrição |
    | ------------ | ------------ |
-   | Assinatura | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os preços são deduzidos do saldo do compromisso monetário, se disponível, ou são cobrados como excedente. Para uma assinatura com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito da assinatura ou em um método de pagamento de fatura. |
+   | Subscription | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os preços são deduzidos do saldo do compromisso monetário, se disponível, ou são cobrados como excedente. Para uma assinatura com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito da assinatura ou em um método de pagamento de fatura. |
    | Escopo        | O escopo da reserva pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar:<br><ul><li><b>Escopo do grupo de recursos único</b> – aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.</li><li><b>Escopo de assinatura única</b> – aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.</li><li><b>Escopo compartilhado</b> – aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul>       |
    | Região       | A região do Azure que é coberta pela reserva.   |
    | Tamanho do host    | AV36    |
@@ -63,7 +63,7 @@ Esses requisitos se aplicam à compra de uma instância de host dedicada reserva
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Comprar instâncias reservadas para uma assinatura CSP
 
-Os CSPs que desejam comprar instâncias reservadas para seus clientes devem usar o procedimento **admin em nome do** (Aobo) da [documentação do Partner Center](https://docs.microsoft.com/partner-center/azure-plan-manage). Para obter mais informações, exiba o vídeo [admin em nome do (Aobo)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) .
+Os CSPs que desejam comprar instâncias reservadas para seus clientes devem usar o procedimento **admin em nome do** (Aobo) da [documentação do Partner Center](/partner-center/azure-plan-manage). Para obter mais informações, exiba o vídeo [admin em nome do (Aobo)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) .
 
 1. Entre no [Partner Center](https://partner.microsoft.com).
 
@@ -83,7 +83,7 @@ Os CSPs que desejam comprar instâncias reservadas para seus clientes devem usar
 
    | Campo        |  Descrição |
    | ------------ | ------------ |
-   | Assinatura | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um qualificado, que neste caso é uma assinatura do CSP|
+   | Subscription | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um qualificado, que neste caso é uma assinatura do CSP|
    | Escopo        | O escopo da reserva pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar:<br><ul><li><b>Escopo do grupo de recursos único</b> – aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.</li><li><b>Escopo de assinatura única</b> – aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.</li><li><b>Escopo compartilhado</b> – aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul>       |
    | Região       | A região do Azure que é coberta pela reserva.   |
    | Tamanho do host    | AV36    |
@@ -113,7 +113,7 @@ Você pode fazer essas alterações em uma reserva após a compra:
 
 Você também pode dividir uma reserva em partes menores ou reservas de mesclagem. Nenhuma das alterações causa uma nova transação comercial ou alterar a data de término da reserva.
 
-Para obter detalhes sobre reservas gerenciadas pelo CSP, consulte [vender Microsoft Azure reservas para clientes usando o Partner Center, o portal do Azure ou as APIs](https://docs.microsoft.com/partner-center/azure-reservations).
+Para obter detalhes sobre reservas gerenciadas pelo CSP, consulte [vender Microsoft Azure reservas para clientes usando o Partner Center, o portal do Azure ou as APIs](/partner-center/azure-reservations).
 
 
 
@@ -131,4 +131,4 @@ Para obter detalhes sobre reservas gerenciadas pelo CSP, consulte [vender Micros
 
 É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitações, adquiridas para o cliente. Para obter mais informações, consulte [gerenciar, cancelar, trocar ou reembolsar reservas de Microsoft Azure para clientes](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitações, adquiridas para o cliente. Para obter mais informações, consulte [gerenciar, cancelar, trocar ou reembolsar reservas de Microsoft Azure para clientes](/partner-center/azure-reservations-manage).

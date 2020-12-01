@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528237"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327484"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -79,7 +79,7 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 |CentOS 6 e 7 (x64)      | Os agentes do Linux requerem acesso a um repositório de atualização. O patch baseado em classificação requer que `yum` retorne dados de segurança que as versões RTM do CentOS não têm. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, confira [Classificações de atualização no Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |
-|Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 (x64)      |Os agentes do Linux requerem acesso a um repositório de atualização.         |
+|Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 LTS (x64)      |Os agentes do Linux requerem acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Os conjuntos de dimensionamento de máquinas virtuais do Azure podem ser gerenciados por meio do Gerenciamento de Atualizações. O Gerenciamento de Atualizações funciona nas instâncias e não na imagem base. Você precisará agendar as atualizações de maneira incremental, para que nem todas as instâncias de VM sejam atualizadas de imediato. Você pode adicionar nós para conjuntos de dimensionamento de máquinas virtuais seguindo as etapas em [Adicionar um computador não Azure ao Controle de Alterações e Inventário](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).

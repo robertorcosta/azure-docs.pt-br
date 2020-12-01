@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f3723c792dfe962f2cbf16e3b167faf66c50a92e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991529"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327450"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauração para o SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -93,7 +93,7 @@ As seções a seguir descrevem várias opções de backup e de restauração em 
 
 ### <a name="backup-to-attached-disks"></a>Backup em discos anexados
 
-Para o SQL Server em VMs do Azure, você pode usar o backup nativo e técnicas de restauração usando discos anexados na VM para o destino dos arquivos de backup. No entanto, há um limite para o número de discos que você pode anexar a uma máquina virtual do Azure, com base no [tamanho da máquina virtual](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Também é necessário considerar a sobrecarga de gerenciamento de disco.
+Para o SQL Server em VMs do Azure, você pode usar o backup nativo e técnicas de restauração usando discos anexados na VM para o destino dos arquivos de backup. No entanto, há um limite para o número de discos que você pode anexar a uma máquina virtual do Azure, com base no [tamanho da máquina virtual](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Também é necessário considerar a sobrecarga de gerenciamento de disco.
 
 Para obter um exemplo de como criar manualmente um backup de banco de dados completo usando o Transact-SQL ou o SQL Server Management Studio (SSMS), veja [Criar um backup completo de banco de dados](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
