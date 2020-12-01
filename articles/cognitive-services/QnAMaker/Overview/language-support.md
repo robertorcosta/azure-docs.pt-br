@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375628"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353112"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte a idiomas para um recurso QnA Maker e bases de dados de conhecimento
 
@@ -25,7 +25,7 @@ Idioma do serviço é selecionado quando você cria a primeira base de dados de 
 
 O idioma determina a relevância dos resultados QnA Maker fornece em resposta a consultas de usuário. O recurso QnA Maker e todas as bases de dados de conhecimento dentro desse recurso oferecem suporte a um único idioma. A linguagem única é necessária para fornecer os melhores resultados de resposta para uma consulta.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 No QnA Maker gerenciado, você obtém a opção de criar configurações de idioma no nível de base de dados de conhecimento individual. Essa configuração só pode ser habilitada com a base de dados de conhecimento do serviço. Depois de definido, as configurações de idioma não podem ser alteradas para o serviço. 
 
@@ -48,7 +48,7 @@ Considere o seguinte:
 # <a name="qnamaker-managed-preview"></a>[QnAMaker gerenciados (visualização)](#tab/v2)
 ![Configuração de idioma no QnA Maker gerenciado](../media/language-support/language-setting-managed.png)
 
-Se você **não marcar a caixa de seleção para habilitar a configuração de idioma por base de dados de conhecimento** , considere o seguinte: 
+Se você **não marcar a caixa de seleção para habilitar a configuração de idioma por base de dados de conhecimento**, considere o seguinte: 
 * Um serviço QnA Maker e todas as suas bases de dados de conhecimento oferecerão suporte apenas a um idioma.
 * O idioma é definido explicitamente quando a primeira base de dados de conhecimento do serviço é criada
 * O idioma é determinado dos arquivos e URLs adicionados quando a base de dados de conhecimento é criada
@@ -62,7 +62,7 @@ Se você **não marcar a caixa de seleção para habilitar a configuração de i
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 Essa funcionalidade não tem suporte em nossa versão estável atual de GA (disponibilidade geral). Confira QnA Maker gerenciado para testar essa funcionalidade. 
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 * Ao criar a primeira base de dados de conhecimento em seu serviço, você tem a opção de habilitar a configuração de idioma por base de dados de conhecimento. Marque a caixa de seleção para criar bases de dados de conhecimento que pertencem a idiomas diferentes dentro de um serviço.
 * A opção de configuração de idioma não pode ser modificada para o serviço, depois que a primeira base de dados de conhecimento é criada.
 * Se você habilitar as configurações de idioma específicas de cada base de dados de conhecimento, em vez de ter um índice de teste para o serviço, você terá um índice de teste por base de dados de conhecimento. 
@@ -140,7 +140,7 @@ A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker.
 |Vietnamita|
 
 ## <a name="query-matching-and-relevance"></a>Correspondência de consulta e relevância
-QnA Maker depende dos [analisadores de linguagem do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/language-support) para fornecer resultados.
+QnA Maker depende dos [analisadores de linguagem do Azure pesquisa cognitiva](/rest/api/searchservice/language-support) para fornecer resultados.
 
 Embora os recursos de Pesquisa Cognitiva do Azure estejam em par para os idiomas com suporte, QnA Maker tem um classificador adicional que fica acima dos resultados do Azure Search. Neste modelo de classificação, usamos alguns recursos semânticos e baseados em palavras especiais nos idiomas a seguir.
 
@@ -166,4 +166,4 @@ Essa classificação adicional é um trabalho interno do classificador de QnA Ma
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Seleção de idioma](../how-to/language-knowledge-base.md)
+> [Seleção de idioma](../index.yml)

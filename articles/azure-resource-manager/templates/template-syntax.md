@@ -1,20 +1,20 @@
 ---
 title: Estrutura e sintaxe do modelo
-description: Descreve a estrutura e as propriedades dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
+description: Descreve a estrutura e as propriedades de modelos de Azure Resource Manager (modelos ARM) usando a sintaxe JSON declarativa.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0e1e3225d63d0463164a3ed599fb0b760367123
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911491"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353486"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Noções básicas de estrutura e sintaxe dos modelos ARM
 
-Este artigo descreve a estrutura de um modelo de Azure Resource Manager (ARM). Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções.
+Este artigo descreve a estrutura de um modelo de Azure Resource Manager (modelo ARM). Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções.
 
-Este artigo destina-se a usuários que têm alguma familiaridade com modelos ARM. Ele fornece informações detalhadas sobre a estrutura do modelo. Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, consulte [tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager](template-tutorial-create-first-template.md).
+Este artigo destina-se a usuários que têm alguma familiaridade com modelos ARM. Ele fornece informações detalhadas sobre a estrutura do modelo. Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira [Tutorial: criar e implantar seu primeiro modelo do ARM](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de modelo
 
@@ -137,7 +137,7 @@ As propriedades disponíveis para um parâmetro são:
 | maxLength |No |O tamanho máximo para parâmetros de tipo de matriz, cadeia de caracteres segura e cadeia de caracteres, esse valor é inclusivo. |
 | descrição |No |Descrição do parâmetro exibido aos usuários pelo portal. Para obter mais informações, confira [Comentários em modelos](#comments). |
 
-Para obter exemplos de como usar parâmetros, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
+Para obter exemplos de como usar parâmetros, consulte [parâmetros em modelos ARM](template-parameters.md).
 
 ## <a name="variables"></a>Variáveis
 
@@ -172,7 +172,7 @@ O exemplo a seguir mostra as opções disponíveis para definir uma variável:
 
 Para obter informações sobre como usar `copy` o para criar vários valores para uma variável, consulte [Iteration Variable](copy-variables.md).
 
-Para obter exemplos de como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
+Para obter exemplos de como usar variáveis, consulte [variáveis no modelo ARM](template-variables.md).
 
 ## <a name="functions"></a>Funções
 
@@ -217,7 +217,7 @@ Ao definir uma função de usuário, há algumas restrições:
 | tipo de saída |Yes |Tipo do valor de saída. Os valores de saída dão suporte aos mesmos tipos de parâmetros de entrada de função. |
 | saída-valor |Yes |Expressão de linguagem do modelo que é avaliada e retornada da função. |
 
-Para obter exemplos de como usar funções personalizadas, consulte [funções definidas pelo usuário no modelo Azure Resource Manager](template-user-defined-functions.md).
+Para obter exemplos de como usar funções personalizadas, consulte [funções definidas pelo usuário no modelo ARM](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Recursos
 
@@ -287,7 +287,7 @@ Você define recursos com a seguinte estrutura:
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Os serviços do Azure que expõem o nome do recurso a partes externas validam o nome para verificar se não há uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
 | comments |No |Suas anotações para documentar os recursos no modelo. Para obter mais informações, confira [Comentários em modelos](template-syntax.md#comments). |
 | local |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recurso exige um local, ao contrário de alguns deles (como uma atribuição de função). Consulte [definir local do recurso](resource-location.md). |
-| dependsOn |No |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, eles são implantados em paralelo. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Os recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como configurar as dependências, confira [Definir as dependências nos modelos do Azure Resource Manager](define-resource-dependency.md). |
+| dependsOn |No |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, eles são implantados em paralelo. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Os recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como definir dependências, consulte [definir a ordem de implantação de recursos em modelos ARM](define-resource-dependency.md). |
 | marcas |Não |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
 | sku | Não | Alguns recursos permitem que os valores definam a SKU para implantar. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
 | kind | No | Alguns recursos permitem que um valor defina o tipo de recurso que você implantar. Por exemplo, você pode especificar o tipo de Cosmos DB para criar. |
@@ -322,9 +322,9 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 | condition |No | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor padrão é `true`. |
 | tipo |Yes |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. Se você especificar **SecureString** para o tipo de saída, o valor não será exibido no histórico de implantação e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e referencie o segredo no arquivo de parâmetro. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md). |
 | value |No |Expressão de linguagem do modelo avaliada e retornada como valor de saída. Especifique o **valor** ou a **cópia**. |
-| copy |No | Usado para retornar mais de um valor para uma saída. Especifique o **valor** ou a **cópia**. Para obter mais informações, consulte [iteração de saída em modelos de Azure Resource Manager](copy-outputs.md). |
+| copy |No | Usado para retornar mais de um valor para uma saída. Especifique o **valor** ou a **cópia**. Para obter mais informações, consulte [Iteration de saída em modelos ARM](copy-outputs.md). |
 
-Para obter exemplos de como usar saídas, consulte [saídas no modelo Azure Resource Manager](template-outputs.md).
+Para obter exemplos de como usar saídas, consulte [saídas no modelo ARM](template-outputs.md).
 
 <a id="comments"></a>
 
@@ -453,7 +453,7 @@ Para implantar modelos com cadeias de caracteres de várias linhas usando CLI do
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-* Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](template-functions.md).
-* Para combinar vários modelos durante a implantação, confira [Como usar modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para obter recomendações sobre a criação de modelos, consulte[Melhores práticas para modelo do Azure Resource Manager](template-best-practices.md).
+* Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [funções de modelo do ARM](template-functions.md).
+* Para combinar vários modelos durante a implantação, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md).
+* Para obter recomendações sobre como criar modelos, consulte [práticas recomendadas do modelo ARM](template-best-practices.md).
 * Para obter respostas a perguntas comuns, consulte perguntas frequentes [sobre modelos de ARM](frequently-asked-questions.md).

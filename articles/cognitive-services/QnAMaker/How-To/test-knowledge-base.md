@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376106"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353146"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste sua base de dados de conhecimento no QnA Maker
 
@@ -31,7 +31,7 @@ Para limpar todas as consultas de teste inseridas e seus resultados do console d
 
 ### <a name="close-test-panel"></a>Fechar painel de teste
 
-Para fechar o painel de **Teste** , selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
+Para fechar o painel de **Teste**, selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
 
 ### <a name="inspect-score"></a>Inspecionar pontuação
 
@@ -66,15 +66,15 @@ Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perg
 > [!NOTE]
 > Todas as edições da base de dados de conhecimento somente serão salvas quando você pressionar o botão **Salvar e Treinar**.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 1. Acesse a base de dados de conhecimento, selecionando o nome na página **Minhas bases de dados de conhecimento**.
 1. Para acessar o painel deslizante de Teste, selecione **Testar** no painel superior do aplicativo. 
-1. Você verá uma caixa de seleção na parte superior **Exibir resposta curta** , que é selecionada por padrão. Essa opção é usada para habilitar a detecção de span de resposta baseada na MRC no seu painel de teste. 
+1. Você verá uma caixa de seleção na parte superior **Exibir resposta curta**, que é selecionada por padrão. Essa opção é usada para habilitar a detecção de span de resposta baseada na MRC no seu painel de teste. 
 1. Insira uma consulta na caixa de texto e selecione Enter. 
 1. Para cada consulta, se houver uma resposta precisa de resposta/curta presente na passagem de resposta, juntamente com a passagem de resposta de melhor correspondência, que está presente na base de dados de conhecimento, você também terá uma resposta curta para sua consulta.
-    ![Painel de teste habilitado gerenciado](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
-1. Se você desmarcar a **resposta de exibição curta** , somente a passagem de resposta com a melhor correspondência da base de dados de conhecimento será retornada como a resposta.
+    ![Painel de teste gerenciado habilitado](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Se você desmarcar a **resposta de exibição curta**, somente a passagem de resposta com a melhor correspondência da base de dados de conhecimento será retornada como a resposta.
 
 ### <a name="clear-test-panel"></a>Limpar painel de teste
 
@@ -82,7 +82,7 @@ Para limpar todas as consultas de teste inseridas e seus resultados do console d
 
 ### <a name="close-test-panel"></a>Fechar painel de teste
 
-Para fechar o painel de **Teste** , selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
+Para fechar o painel de **Teste**, selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
 
 ### <a name="inspect-score"></a>Inspecionar pontuação
 
@@ -151,7 +151,7 @@ Use a ferramenta de teste do lote quando desejar:
     * Idioma – o idioma inglês
 1. Insira o nome `Multi-turn batch test quickstart` como o nome da sua base de dados de conhecimento.
 
-1. Na **Etapa 4** , defina as configurações com a seguinte tabela:
+1. Na **Etapa 4**, defina as configurações com a seguinte tabela:
 
     |Configuração|Valor|
     |--|--|
@@ -160,7 +160,7 @@ Use a ferramenta de teste do lote quando desejar:
     |**+ Adicionar Arquivo**|Selecione a listagem de arquivos `.docx` baixada nos pré-requisitos.|
     |**Bate-papo**|Selecione **Professional**|
 
-1. Na **Etapa 5** , selecione **Criar sua KB**.
+1. Na **Etapa 5**, selecione **Criar sua KB**.
 
     Quando o processo de criação for concluído, o portal exibirá a base de dados de conhecimento editável.
 
@@ -251,7 +251,7 @@ Use o gráfico a seguir para entender como localizar os valores de campo para da
 
 ### <a name="add-metadata-to-the-knowledge-base"></a>Adicionar metadados à base de dados de conhecimento
 
-1. No portal do QnA, na página **Editar** , adicione metadados de `topic:power` às seguintes perguntas:
+1. No portal do QnA, na página **Editar**, adicione metadados de `topic:power` às seguintes perguntas:
 
     |Perguntas|
     |--|
@@ -323,4 +323,4 @@ Se você não quiser continuar a usar essa base de dados de conhecimento, exclua
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Publicar uma base de dados de conhecimento](./publish-knowledge-base.md)
+> [Publicar uma base de dados de conhecimento](../quickstarts/create-publish-knowledge-base.md)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 17dff6056564b421f0741f55ce8171f3251c94c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c79846b0a5b675c34e4e7919e9ecd9d591bfefe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028089"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356351"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com o Azure Key Vault
 
@@ -38,8 +38,8 @@ O uso de chaves gerenciadas pelo cliente requer que duas propriedades sejam defi
 
 Para saber como habilitar essas propriedades em um cofre de chaves existente, confira as seções intituladas **Como habilitar a exclusão temporária** e **Como habilitar a proteção contra a limpeza** em um dos seguintes artigos:
 
-- [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md).
-- [Como usar a exclusão reversível com a CLI](../../key-vault/general/soft-delete-cli.md).
+- [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/key-vault-recovery.md).
+- [Como usar a exclusão reversível com a CLI](../../key-vault/general/key-vault-recovery.md).
 
 Somente as chaves RSA de tamanho 2048 têm suporte com a criptografia de armazenamento do Azure. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/general/about-keys-secrets-certificates.md).
 

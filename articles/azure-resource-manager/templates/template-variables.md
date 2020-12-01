@@ -1,18 +1,18 @@
 ---
 title: Variáveis em modelos
-description: Descreve como definir variáveis em um modelo de Azure Resource Manager.
+description: Descreve como definir variáveis em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95915996"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353452"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variáveis em modelos do Azure Resource Manager
+# <a name="variables-in-arm-template"></a>Variáveis no modelo ARM
 
-Este artigo descreve como definir e usar variáveis em seu modelo de Azure Resource Manager. Você usa variáveis para simplificar seu modelo. Em vez de repetir expressões complicadas em todo o modelo, você define uma variável que contém a expressão complicada. Em seguida, você faz referência a essa variável conforme necessário em todo o modelo.
+Este artigo descreve como definir e usar variáveis em seu modelo de Azure Resource Manager (modelo ARM). Você usa variáveis para simplificar seu modelo. Em vez de repetir expressões complicadas em todo o modelo, você define uma variável que contém a expressão complicada. Em seguida, você faz referência a essa variável conforme necessário em todo o modelo.
 
 O Gerenciador de recursos resolve as variáveis antes de iniciar as operações de implantação. Sempre que a variável é usada no modelo, o Resource Manager a substitui pelo valor resolvido.
 
@@ -95,5 +95,5 @@ Os exemplos a seguir demonstram cenários para usar variáveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para variáveis, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre as propriedades disponíveis para variáveis, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para obter recomendações sobre como criar variáveis, consulte [Best Practices-Variables](template-best-practices.md#variables).

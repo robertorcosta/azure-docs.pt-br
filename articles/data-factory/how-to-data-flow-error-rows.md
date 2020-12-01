@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006773"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352587"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Manipular linhas de erro de truncamento do SQL no mapeamento de Data Factory fluxos de dados
 
@@ -23,7 +23,7 @@ Um cenário comum no Data Factory ao usar o mapeamento de fluxos de dados é gra
 
 Há dois métodos principais para lidar com erros de identificadores normais ao gravar dados no coletor de banco de dados no ADF:
 
-* Defina a [manipulação de linha de erro](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) do coletor como "continuar se houver erro" ao processar dados do banco de dado. Esse é um método de interceptação automatizada que não requer lógica personalizada em seu fluxo de dados.
+* Defina a [manipulação de linha de erro](./connector-azure-sql-database.md#error-row-handling) do coletor como "continuar se houver erro" ao processar dados do banco de dado. Esse é um método de interceptação automatizada que não requer lógica personalizada em seu fluxo de dados.
 * Como alternativa, siga as etapas abaixo para fornecer o log de colunas que não se ajustarão a uma coluna de cadeia de caracteres de destino, permitindo que o fluxo de dados continue.
 
 > [!NOTE]

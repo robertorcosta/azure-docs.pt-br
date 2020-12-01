@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006159"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353299"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -81,7 +81,7 @@ Para fazer upgrade da SKU de gerenciamento do QnA Maker:
 
  Quando sua base de dados de conhecimento precisar atender a mais solicitações de seu aplicativo cliente, atualize seu tipo de preço do serviço de aplicativo.
 
-Você pode [escalar verticalmente](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou escalar horizontalmente o serviço de aplicativo.
+Você pode [escalar verticalmente](../../../app-service/manage-scale-up.md) ou escalar horizontalmente o serviço de aplicativo.
 
 Vá para o recurso serviço de aplicativo no portal do Azure e selecione a opção **escalar verticalmente** ou **escalar** horizontalmente, conforme necessário.
 
@@ -154,13 +154,13 @@ O principal objetivo do plano de continuidade de negócios é criar um ponto de 
 
 A ideia de alto nível como representada acima é a seguinte:
 
-1. Configurar dois [serviços QnA Maker](set-up-qnamaker-service-azure.md) em paralelo nas [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Configurar dois [serviços QnA Maker](set-up-qnamaker-service-azure.md) em paralelo nas [regiões emparelhadas do Azure](../../../best-practices-availability-paired-regions.md).
 
 1. [Faça backup](../../../app-service/manage-backup.md) de seu serviço de aplicativo de QnA Maker primário e [restaure](../../../app-service/web-sites-restore.md) -o na instalação secundária. Isso garantirá que ambas as configurações funcionem com o mesmo nome de host e chaves.
 
 1. Mantenha os índices primário e secundário do Azure Search sincronizados. Use o exemplo do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como fazer backup-restaurar índices do Azure.
 
-1. Fazer backup do Application Insights usando [exportação contínua](../../../application-insights/app-insights-export-telemetry.md).
+1. Fazer backup do Application Insights usando [exportação contínua](../../../azure-monitor/app/export-telemetry.md).
 
 1. Depois que as pilhas primárias e secundárias forem configuradas, use o [gerenciador de tráfego](../../../traffic-manager/traffic-manager-overview.md) para configurar os dois pontos de extremidade e configurar um método de roteamento.
 
@@ -256,7 +256,7 @@ Saiba como atualizar os recursos usados pela sua base de dados de conhecimento. 
 
 Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
 
-No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
+No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, execute estas etapas:
 
 1. Crie um novo recurso de Azure Search no portal do Azure e selecione o SKU desejado.
 
@@ -345,7 +345,7 @@ Os recursos de pesquisa gratuitos são excluídos após 90 dias sem receber uma 
 
 Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
 
-No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
+No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, execute estas etapas:
 
 1. Crie um novo recurso de Azure Search no portal do Azure e selecione o SKU desejado.
 
@@ -386,4 +386,4 @@ Se você excluir qualquer um dos recursos do Azure usados em suas bases de conhe
 Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Saiba como criar com outras pessoas](../how-to/collaborate-knowledge-base.md)
+> [Saiba como criar com outras pessoas](../index.yml)

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024320"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353758"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
-Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## <a name="general"></a>Geral
 
@@ -71,7 +71,7 @@ Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa im
 
 **P: Minhas solicitações são registradas?**
 
-**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar o *conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](how-to-custom-speech-deploy-model.md) para habilitar o rastreamento. Em seguida, as solicitações serão registradas no Azure no armazenamento seguro.
+**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar o *conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](./how-to-custom-speech-train-model.md) para habilitar o rastreamento. Em seguida, as solicitações serão registradas no Azure no armazenamento seguro.
 
 **Pergunta: são minhas solicitações limitadas?**
 

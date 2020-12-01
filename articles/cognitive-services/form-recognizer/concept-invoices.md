@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736656"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353741"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
 
-O reconhecedor de formulários do Azure pode analisar e extrair informações de faturas de vendas usando seus modelos de fatura pré-criados. A API de fatura permite que os clientes façam faturas em uma variedade de formatos e retornem dados estruturados para automatizar o processamento da fatura. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) com a nota fiscal que entende os modelos de aprendizado profundo para extrair informações importantes das faturas em inglês. Ele extrai o texto, as tabelas e as informações como Customer, Vendor, ID da nota fiscal, data de vencimento da fatura, total, valor da nota fiscal devido, valor do imposto, enviar para, faturar e muito mais. A API de fatura predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1.
+O reconhecedor de formulários do Azure pode analisar e extrair informações de faturas de vendas usando seus modelos de fatura pré-criados. A API de fatura permite que os clientes façam faturas em uma variedade de formatos e retornem dados estruturados para automatizar o processamento da fatura. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](../computer-vision/concept-recognizing-text.md) com a nota fiscal que entende os modelos de aprendizado profundo para extrair informações importantes das faturas em inglês. Ele extrai o texto, as tabelas e as informações como Customer, Vendor, ID da nota fiscal, data de vencimento da fatura, total, valor da nota fiscal devido, valor do imposto, enviar para, faturar e muito mais. A API de fatura predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>O que o serviço de fatura faz?
 
@@ -32,7 +32,7 @@ A API de nota fiscal extrai campos de chave de faturas e os retorna em uma respo
 Para experimentar o serviço de fatura do reconhecedor de formulário, vá para a ferramenta de interface do usuário de exemplo online:
 
 > [!div class="nextstepaction"]
-> [Experimente modelos predefinidos](https://fott-preview.azurewebsites.net/)
+> [Experimentar modelos predefinidos](https://fott-preview.azurewebsites.net/)
 
 Você precisará de uma assinatura do Azure ([crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um [formulário Recognzier](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ponto de extremidade de recurso e chave para experimentar o serviço de fatura do reconhecedor de formulário. 
 
@@ -55,7 +55,7 @@ A operação [analisar fatura](https://westcentralus.dev.cognitive.microsoft.com
 
 A segunda etapa é chamar a operação [obter resultado da fatura de obtenção](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de fatura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
@@ -74,7 +74,7 @@ A saída JSON tem três partes:
 
 O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir estão os campos extraídos de uma nota fiscal na resposta de saída JSON (a saída abaixo usa este [exemplo de fatura](./media/sample-invoice.jpg))  
 
-|Nome| Type | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente sendo faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
@@ -113,4 +113,3 @@ O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir 
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)
 * [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-

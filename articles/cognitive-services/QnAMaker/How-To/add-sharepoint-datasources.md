@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776860"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353180"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma fonte de dados protegida do SharePoint à sua base de conhecimento
 
@@ -27,7 +27,7 @@ Se o QnA Maker Gerenciador da base de dados de conhecimento não for o Active Di
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adicionar tipos de arquivo com suporte à base de dados de conhecimento
 
-Você pode adicionar todos os tipos de [arquivo](../Concepts/content-types.md) com suporte QnA Maker de um site do SharePoint à sua base de dados de conhecimento. Talvez você precise conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
+Você pode adicionar todos os tipos de [arquivo](../index.yml) com suporte QnA Maker de um site do SharePoint à sua base de dados de conhecimento. Talvez você precise conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
 
 1. Na biblioteca com o site do SharePoint, selecione o menu de reticências do arquivo, `...` .
 1. Copie a URL do arquivo.
@@ -156,7 +156,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -188,4 +188,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Colaborar com sua base de dados de conhecimento](collaborate-knowledge-base.md)
+> [Colaborar com sua base de dados de conhecimento](../index.yml)

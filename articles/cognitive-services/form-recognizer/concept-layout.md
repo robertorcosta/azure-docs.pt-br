@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95741722"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353690"
 ---
 # <a name="form-recognizer-layout-service"></a>Serviço de layout do reconhecedor de formulário
 
-O reconhecedor de formulários do Azure pode extrair texto, tabelas, marcas de seleção e informações de estrutura de documentos usando seu serviço de layout. A API de layout permite que os clientes consigam documentos em uma variedade de formatos e retornem dados estruturados e representação do documento. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) com documentos que compreendem modelos de aprendizado profundo para extrair texto, tabelas, marcas de seleção e estrutura de documentos. 
+O reconhecedor de formulários do Azure pode extrair texto, tabelas, marcas de seleção e informações de estrutura de documentos usando seu serviço de layout. A API de layout permite que os clientes consigam documentos em uma variedade de formatos e retornem dados estruturados e representação do documento. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](../computer-vision/concept-recognizing-text.md) com documentos que compreendem modelos de aprendizado profundo para extrair texto, tabelas, marcas de seleção e estrutura de documentos. 
 
 ## <a name="what-does-the-layout-service-do"></a>O que o serviço de layout faz?
 
@@ -54,7 +54,7 @@ A operação [analisar layout](https://westcentralus.dev.cognitive.microsoft.com
 
 A segunda etapa é chamar a operação [Get Analyze layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de layout. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. 
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | `notStarted`: A operação de análise não foi iniciada.<br /><br />`running`: A operação de análise está em andamento.<br /><br />`failed`: Falha na operação de análise.<br /><br />`succeeded`: A operação de análise foi bem-sucedida.|
 
@@ -96,7 +96,3 @@ O layout também extrai marcas de seleção de documentos. As marcas de seleçã
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)
 * [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
-
-
-
-

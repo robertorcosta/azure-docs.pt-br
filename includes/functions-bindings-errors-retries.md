@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93406751"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356186"
 ---
 Os erros gerados em um Azure Functions podem vir de qualquer uma das seguintes origens:
 
@@ -149,6 +149,27 @@ Aqui está a política de repetição na *function.jsno* arquivo:
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Aqui está a política de repetição na *function.jsno* arquivo:
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
 ---
 
 #### <a name="exponential-backoff-retry"></a>Repetição de retirada exponencial
@@ -230,6 +251,27 @@ Aqui está a política de repetição na *function.jsno* arquivo:
 ```
 
 # <a name="java"></a>[Java](#tab/java)
+
+Aqui está a política de repetição na *function.jsno* arquivo:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aqui está a política de repetição na *function.jsno* arquivo:
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652596"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353537"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -18,7 +18,7 @@ Neste artigo, você aprende os conceitos de alto nível em torno de gatilhos e a
 
 Os gatilhos são o que causa a execução de uma função. Um gatilho define como uma função é invocada e uma função deve ter exatamente um gatilho. Gatilhos têm dados associados, que geralmente são fornecidos como o conteúdo da função. 
 
-A associação a uma função é uma maneira de conectar declarativamente outro recurso à função; as associações podem ser conectadas como *associações de entrada*, associações de *saída*ou ambas. Dados de associações são fornecidos para a função como parâmetros.
+A associação a uma função é uma maneira de conectar declarativamente outro recurso à função; as associações podem ser conectadas como *associações de entrada*, associações de *saída* ou ambas. Dados de associações são fornecidos à função como parâmetros.
 
 Você pode misturar e combinar diferentes associações para atender às suas necessidades. Associações são opcionais e uma função pode ter uma ou várias associações de entrada e/ou saída.
 
@@ -28,10 +28,10 @@ Considere os exemplos a seguir de como você pode implementar funções diferent
 
 | Cenário de exemplo | Gatilho | Associação de entrada | Associação de saída |
 |-------------|---------|---------------|----------------|
-| Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | Espera<sup>*</sup> | *Nenhuma* | Espera<sup>*</sup> |
-|Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Timer | Armazenamento de Blobs | Cosmos DB |
+| Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | Espera<sup>*</sup> | *Nenhum* | Espera<sup>*</sup> |
+|Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Temporizador | Armazenamento de Blobs | Cosmos DB |
 |A grade de eventos é usada para ler uma imagem do armazenamento de BLOBs e um documento do Cosmos DB para enviar um email. | Grade de Eventos | Armazenamento de BLOBs e Cosmos DB | SendGrid |
-| Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *Nenhuma* | Microsoft Graph |
+| Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *Nenhum* | Microsoft Graph |
 
 <sup>\*</sup> Representa filas diferentes
 
@@ -88,6 +88,10 @@ Para obter informações sobre quais associações estão na visualização ou s
 Use a tabela a seguir para encontrar exemplos de tipos de associação específicos que mostram como trabalhar com associações em suas funções. Primeiro, escolha a guia idioma que corresponde ao seu projeto. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Associações personalizadas
+
+Você pode criar associações de entrada e saída personalizadas. As associações devem ser criadas no .NET, mas podem ser consumidas de qualquer idioma com suporte. Para obter mais informações sobre como criar associações personalizadas, consulte [Criando associações de entrada e saída personalizadas](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## <a name="resources"></a>Recursos
 - [Padrões e expressões de associação](./functions-bindings-expressions-patterns.md)

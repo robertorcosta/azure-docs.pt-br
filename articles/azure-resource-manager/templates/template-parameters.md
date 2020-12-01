@@ -1,18 +1,18 @@
 ---
 title: Parâmetros em modelos
-description: Descreve como definir parâmetros em um modelo de Azure Resource Manager.
+description: Descreve como definir parâmetros em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911406"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353503"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parâmetros em modelos do Azure Resource Manager
+# <a name="parameters-in-arm-templates"></a>Parâmetros em modelos ARM
 
-Este artigo descreve como definir e usar parâmetros em seu modelo de Azure Resource Manager. Ao fornecer valores diferentes para parâmetros, você pode reutilizar um modelo para ambientes diferentes.
+Este artigo descreve como definir e usar parâmetros em seu modelo de Azure Resource Manager (modelo ARM). Ao fornecer valores diferentes para parâmetros, você pode reutilizar um modelo para ambientes diferentes.
 
 O Resource Manager resolve os valores de parâmetro antes de iniciar as operações de implantação. Sempre que o parâmetro for usado no modelo, o Resource Manager o substituirá pelo valor resolvido.
 
@@ -159,9 +159,8 @@ Os exemplos a seguir demonstram cenários para o uso de parâmetros.
 |[parâmetros com funções de valores padrão](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como usar funções de modelo ao definir valores padrão para parâmetros. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como usar um objeto para um parâmetro. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para saber mais sobre a passagem de valores de parâmetro como um arquivo, consulte [criar arquivo de parâmetro do Resource Manager](parameter-files.md).
 * Para obter recomendações sobre como criar parâmetros, consulte [Best Practices-Parameters](template-best-practices.md#parameters).

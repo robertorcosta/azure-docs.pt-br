@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 93d9cc871d1cb114f7f08b68eb8ae9d597e228b9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 9c042d044f5ceba5a64d6bd7dfefa34bbc69b107
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376478"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353197"
 ---
 # <a name="manage-qna-maker-app"></a>Gerenciar QnA Maker aplicativo
 
@@ -23,7 +23,7 @@ Sua base de dados de conhecimento não é alterada automaticamente. Para que qua
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Adicionar controle de acesso baseado em função do Azure (RBAC do Azure)
 
-QnA Maker permite que várias pessoas colaborem em todas as bases de dados de conhecimento no mesmo recurso de QnA Maker. Esse recurso é fornecido com o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../../active-directory/role-based-access-control-configure.md).
+QnA Maker permite que várias pessoas colaborem em todas as bases de dados de conhecimento no mesmo recurso de QnA Maker. Esse recurso é fornecido com o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="access-at-the-qna-maker-resource-level"></a>Acesso no nível de recurso QnA Maker
 
@@ -77,7 +77,7 @@ Quando eles selecionam uma base de dados de conhecimento, sua função atual nes
 
 O aprendizado ativo é compatível com a versão de runtime 4.4.0 e superior. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para usar esse recurso.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 No QnA Maker gerenciado (versão prévia), como o tempo de execução é hospedado pelo próprio serviço de QnA Maker, não há necessidade de atualizar o tempo de execução manualmente.
 
@@ -91,7 +91,7 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver sugestões de
 
 1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizado ativo são coletadas somente do ponto de extremidade de previsão da API GenerateAnswer. As consultas ao painel de teste no portal de QnA Maker não afetam o aprendizado ativo.
 
-1. Para ativar o aprendizado ativo no portal de QnA Maker, vá para o canto superior direito, selecione seu **nome** , vá para [**configurações de serviço**](https://www.qnamaker.ai/UserSettings).
+1. Para ativar o aprendizado ativo no portal de QnA Maker, vá para o canto superior direito, selecione seu **nome**, vá para [**configurações de serviço**](https://www.qnamaker.ai/UserSettings).
 
     ![Ative as alternativas de perguntas sugeridas do aprendizado ativo na página Configurações de serviço. Selecione seu nome de usuário no menu superior direito e, em seguida, selecione configurações de serviço.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -104,7 +104,7 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver sugestões de
     > A versão exata na imagem anterior é mostrada apenas como um exemplo. Sua versão pode ser diferente.
     Quando o **aprendizado ativo** é habilitado, a base de dados de conhecimento sugere novas perguntas em intervalos regulares com base em perguntas enviadas pelo usuário. Você pode desabilitar o **aprendizado ativo** desativando a configuração novamente.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Por padrão, o aprendizado ativo está **ativado** no QnA Maker gerenciado (versão prévia). Para ver as perguntas alternativas sugeridas, [use as opções de exibição](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
 

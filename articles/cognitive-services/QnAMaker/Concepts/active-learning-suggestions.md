@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e1a8043912c984be46f85bd384a7049da27028b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445006"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353231"
 ---
 # <a name="active-learning-suggestions"></a>Sugestões de aprendizado ativo
 
@@ -44,7 +44,7 @@ Para usar o aprendizado ativo:
 * Você precisa [ativar o aprendizado ativo](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) para que QnA Maker colete perguntas alternativas para sua base de dados de conhecimento.
 * Para ver as perguntas alternativas sugeridas, [use as opções de exibição](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Por padrão, o aprendizado ativo está **ativado** no QnA Maker gerenciado (versão prévia). Para ver as perguntas alternativas sugeridas, [use as opções de exibição](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
 
@@ -137,7 +137,7 @@ QnA Maker precisa de comentários explícitos sobre quais das respostas foi a me
 * Lógica de negócios, como determinar um intervalo de Pontuação aceitável.
 * Uma combinação dos comentários do usuário e da lógica de negócios.
 
-Use a [API de treinamento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) para enviar a resposta correta para QnA Maker, depois que o usuário a selecionar.
+Use a [API de treinamento](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) para enviar a resposta correta para QnA Maker, depois que o usuário a selecionar.
 
 ## <a name="next-step"></a>Próxima etapa
 
