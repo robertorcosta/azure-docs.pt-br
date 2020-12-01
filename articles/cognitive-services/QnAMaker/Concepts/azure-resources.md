@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376784"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351888"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -30,7 +30,7 @@ Ao passar para a fase de desenvolvimento do projeto, você deve considerar:
 
 Planeje ter um único recurso de QnA Maker conter todas as bases de dados de conhecimento que têm o mesmo idioma, a mesma região e a mesma combinação de domínio de assunto.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Ao desenvolver pela primeira vez uma base de dados de conhecimento gerenciada QnA Maker, na fase de protótipo, é comum ter um único recurso gerenciado de QnA Maker para teste e produção.
 
@@ -48,17 +48,17 @@ Ao passar para a fase de desenvolvimento do projeto, você deve considerar:
 
 Normalmente, há três parâmetros que você precisa considerar:
 
-* **A taxa de transferência que você precisa do serviço** :
-    * selecione o [Plano de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/) apropriado para o serviço de aplicativo com base em suas necessidades. Você pode [escalar verticalmente](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou reduzir verticalmente o Aplicativo.
-    * Isso também deve influenciar sua seleção de SKU **pesquisa cognitiva** do Azure, veja mais detalhes [aqui](https://docs.microsoft.com/azure/search/search-sku-tier). Além disso, talvez seja necessário ajustar Pesquisa Cognitiva [capacidade](../../../search/search-capacity-planning.md) com réplicas.
+* **A taxa de transferência que você precisa do serviço**:
+    * selecione o [Plano de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/) apropriado para o serviço de aplicativo com base em suas necessidades. Você pode [escalar verticalmente](../../../app-service/manage-scale-up.md) ou reduzir verticalmente o Aplicativo.
+    * Isso também deve influenciar sua seleção de SKU **pesquisa cognitiva** do Azure, veja mais detalhes [aqui](../../../search/search-sku-tier.md). Além disso, talvez seja necessário ajustar Pesquisa Cognitiva [capacidade](../../../search/search-capacity-planning.md) com réplicas.
 
-* **Tamanho e o número de bases de dados de conhecimento** : escolha a [SKU de pesquisa do Azure](https://azure.microsoft.com/pricing/details/search/) apropriada para seu cenário. Normalmente, você decide o número de bases de dados de conhecimento de que precisa com base no número de domínios de assunto diferentes. Uma vez que o domínio do assunto (para um único idioma) deve estar em uma base de dados de conhecimento.
+* **Tamanho e o número de bases de dados de conhecimento**: escolha a [SKU de pesquisa do Azure](https://azure.microsoft.com/pricing/details/search/) apropriada para seu cenário. Normalmente, você decide o número de bases de dados de conhecimento de que precisa com base no número de domínios de assunto diferentes. Uma vez que o domínio do assunto (para um único idioma) deve estar em uma base de dados de conhecimento.
 
     Você pode publicar as bases de dados de conhecimento N-1 em uma camada específica, onde N representa os índices máximos permitidos na camada. Verifique também o tamanho máximo e o número de documentos permitidas por camada.
 
     Por exemplo, se a camada tiver 15 índices permitidos, você poderá publicar 14 bases de dados de conhecimento (1 índice por base de dados de conhecimento publicada). O décimo quinto índice é usado para todas as bases de dados de conhecimento para criação e teste.
 
-* **Número de documentos como fontes** : a SKU gratuita do serviço de gerenciamento do QnA Maker limita o número de documentos que você pode gerenciar por meio do portal e as APIs a três (cada uma com 1 MB de tamanho). O padrão de SKU não tem limites para o número de documentos que você pode gerenciar. Veja mais detalhes [aqui](https://aka.ms/qnamaker-pricing).
+* **Número de documentos como fontes**: a SKU gratuita do serviço de gerenciamento do QnA Maker limita o número de documentos que você pode gerenciar por meio do portal e as APIs a três (cada uma com 1 MB de tamanho). O padrão de SKU não tem limites para o número de documentos que você pode gerenciar. Veja mais detalhes [aqui](https://aka.ms/qnamaker-pricing).
 
 A tabela a seguir fornece algumas diretrizes de alto nível.
 
@@ -68,15 +68,15 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 | **Ambiente de Desenvolvimento/Teste**   | SKU Standard         | Compartilhado      | Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
 | **Ambiente de Produção** | SKU Standard         | Basic       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Normalmente, há três parâmetros que você precisa considerar:
 
-* **A taxa de transferência que você precisa do serviço** :
+* **A taxa de transferência que você precisa do serviço**:
     * O QnA Maker gerenciado (versão prévia) é um serviço gratuito, e a taxa de transferência está atualmente limitada a 10 TPS para APIs de gerenciamento e APIs de previsão.
-    * Isso também deve influenciar sua seleção de SKU **pesquisa cognitiva** do Azure, veja mais detalhes [aqui](https://docs.microsoft.com/azure/search/search-sku-tier). Além disso, talvez seja necessário ajustar Pesquisa Cognitiva [capacidade](../../../search/search-capacity-planning.md) com réplicas.
+    * Isso também deve influenciar sua seleção de SKU **pesquisa cognitiva** do Azure, veja mais detalhes [aqui](../../../search/search-sku-tier.md). Além disso, talvez seja necessário ajustar Pesquisa Cognitiva [capacidade](../../../search/search-capacity-planning.md) com réplicas.
 
-* **Tamanho e o número de bases de dados de conhecimento** : escolha a [SKU de pesquisa do Azure](https://azure.microsoft.com/pricing/details/search/) apropriada para seu cenário. Normalmente, você decide o número de bases de dados de conhecimento de que precisa com base no número de domínios de assunto diferentes. Uma vez que o domínio do assunto (para um único idioma) deve estar em uma base de dados de conhecimento.
+* **Tamanho e o número de bases de dados de conhecimento**: escolha a [SKU de pesquisa do Azure](https://azure.microsoft.com/pricing/details/search/) apropriada para seu cenário. Normalmente, você decide o número de bases de dados de conhecimento de que precisa com base no número de domínios de assunto diferentes. Uma vez que o domínio do assunto (para um único idioma) deve estar em uma base de dados de conhecimento.
 
     Com o QnA Maker gerenciado (versão prévia), você tem a opção de configurar seu serviço de QnA Maker para KBs em uma única linguagem ou em vários idiomas. Você pode fazer essa seleção ao criar a primeira base de dados de conhecimento em seu serviço QnA Maker gerenciado (versão prévia).
 
@@ -86,14 +86,14 @@ Normalmente, há três parâmetros que você precisa considerar:
 
     Por exemplo, se sua camada tiver 15 índices permitidos, você poderá publicar 14 bases de dados de conhecimento do mesmo idioma (1 índice por base de dados de conhecimento publicado). O décimo quinto índice é usado para todas as bases de dados de conhecimento para criação e teste. Se você optar por ter bases de dados de conhecimento em idiomas diferentes, você só poderá publicar 7 bases de dados de conhecimento.
 
-* **Número de documentos como fontes** : QnA Maker gerenciado (versão prévia) é um serviço gratuito e não há limites para o número de documentos que você pode adicionar como fontes. Veja mais detalhes [aqui](https://aka.ms/qnamaker-pricing).
+* **Número de documentos como fontes**: QnA Maker gerenciado (versão prévia) é um serviço gratuito e não há limites para o número de documentos que você pode adicionar como fontes. Veja mais detalhes [aqui](https://aka.ms/qnamaker-pricing).
 
 A tabela a seguir fornece algumas diretrizes de alto nível.
 
 |                            |Pesquisa Cognitiva do Azure | Limitações                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentação**        |Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
-| **Ambiente de Desenvolvimento/Teste**   |Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
+| **Ambiente de Desenvolvimento/Teste**   |Básico        | Publicar até 14 KBs, com tamanho de 2 GB    |
 | **Ambiente de Produção** |Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 ---
@@ -110,7 +110,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 | 100         | P3V2, 10 instâncias  | S3, 12 instâncias, 3 partições   |
 | 200 a 250         | P3V2, 20 instâncias | S3, 12 instâncias, 3 partições    |
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 O QnA Maker gerenciado é um serviço gratuito, e a taxa de transferência está atualmente limitada a 10 transações por segundo para APIs de gerenciamento e APIs de previsão. Para direcionar 10 transações por segundo para seu serviço, recomendamos a SKU S1 (1 instância) do Azure Pesquisa Cognitiva.
 
@@ -128,7 +128,7 @@ O QnA Maker gerenciado é um serviço gratuito, e a taxa de transferência está
 
 Obtenha as atualizações de tempo de execução mais recentes [atualizando seu serviço de aplicativo no portal do Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 [Atualizar](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) o O serviço de Pesquisa Cognitiva do Azure quando você planeja ter muitas bases de dados de conhecimento.
 
@@ -232,7 +232,7 @@ O serviço de gerenciamento do QnA Maker é usado somente para o portal de QnA M
 
 Seu serviço de QnA Maker lida com dois tipos de chaves: chaves de **criação** e **chaves de ponto de extremidade de consulta** usadas com o tempo de execução hospedado no serviço de aplicativo.
 
-Se você estiver procurando sua **chave de assinatura** , [a terminologia foi alterada](#subscription-keys).
+Se você estiver procurando sua **chave de assinatura**, [a terminologia foi alterada](#subscription-keys).
 
 Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
@@ -240,7 +240,7 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de criação|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
 |Chave do ponto de extremidade da consulta|[Portal do QnA Maker](https://www.qnamaker.ai)|Essas chaves são usadas para consultar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade de consulta em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
 
 ### <a name="subscription-keys"></a>Chaves de assinatura
@@ -251,13 +251,13 @@ Você deve saber o que a chave está acessando, gerenciamento da base de dados d
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
-* Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Proteger o serviço de aplicativo (tempo de execução QnA) do acesso público:
     * Permitir tráfego somente de IPs de serviço cognitiva. Eles já estão incluídos na marca de serviço "CognitiveServicesManagement". Isso é necessário para criar APIs (criar/atualizar KB) para invocar o serviço de aplicativo e atualizar o serviço de Azure Search de acordo.
     * Certifique-se também de permitir outros pontos de entrada como o serviço de bot, QnA Maker Portal (pode ser seu corpnet) etc. para acesso à API de previsão "GenerateAnswer".
-    * Confira [mais informações sobre marcas de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+    * Confira [mais informações sobre marcas de serviço.](../../../virtual-network/service-tags-overview.md)
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 O nome do recurso para o recurso QnA Maker gerenciado (versão prévia), como `qna-westus-f0-b` , também é usado para nomear os outros recursos.
 
@@ -309,7 +309,7 @@ No QnA Maker gerenciado (versão prévia), tanto o gerenciamento quanto os servi
 
 Seu serviço gerenciado (versão prévia) QnA Maker lida com dois tipos de chaves: **chaves de criação** e chaves de **pesquisa cognitiva do Azure** usadas para acessar o serviço na assinatura do cliente.
 
-Se você estiver procurando sua **chave de assinatura** , [a terminologia foi alterada](#subscription-keys).
+Se você estiver procurando sua **chave de assinatura**, [a terminologia foi alterada](#subscription-keys).
 
 Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
@@ -317,8 +317,8 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
-|Chave de administração de Pesquisa Cognitiva do Azure|[Portal do Azure](https://docs.microsoft.com/azure/search/search-security-api-keys)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
+|Chave de criação|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de administração de Pesquisa Cognitiva do Azure|[Azure portal](../../../search/search-security-api-keys.md)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
 
 ### <a name="subscription-keys"></a>Chaves de assinatura
 
@@ -328,13 +328,12 @@ Você deve saber o que a chave está acessando, gerenciamento da base de dados d
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede 
 
-Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [base de dados de conhecimento](knowledge-base.md) QnA Maker
+* Saiba mais sobre a [base de dados de conhecimento](../index.yml) QnA Maker
 * Entender um [ciclo de vida da base de dados de conhecimento](development-lifecycle-knowledge-base.md)
 * Examinar [os limites](../limits.md) do serviço e da base de dados de conhecimento
-

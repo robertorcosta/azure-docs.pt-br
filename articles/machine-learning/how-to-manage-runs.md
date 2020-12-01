@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 921c88f4771fedb910dc41983d559987a8cdfb0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542007"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349326"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorar e cancelar execuções de treinamento em Python
 
@@ -278,7 +278,7 @@ Para criar várias execuções filhas com eficiência, use o [`create_children()
 
 ### <a name="submit-child-runs"></a>Enviar execuções filhas
 
-As execuções filhas também podem ser enviadas de uma execução pai. Isso permite que você crie hierarquias de execuções pai e filho. 
+As execuções filhas também podem ser enviadas de uma execução pai. Isso permite que você crie hierarquias de execuções pai e filho. Não é possível criar uma execução filho sem pai: mesmo que a execução pai não faça nada, mas inicie execuções filhas, ainda é necessário criar a hierarquia. O status de todas as execuções são independentes: um pai pode estar no `"Completed"` estado bem-sucedido mesmo que uma ou mais execuções filhas tenham sido canceladas ou com falha.  
 
 Você pode desejar que seu filho seja executado para usar uma configuração de execução diferente da execução do pai. Por exemplo, você pode usar uma configuração menos eficiente baseada em CPU para o pai, ao usar configurações baseadas em GPU para seus filhos. Outro desejo comum é passar cada um dos diferentes argumentos e dados filho. Para personalizar uma execução filho, crie um `ScriptRunConfig` objeto para a execução do filho. O código abaixo faz o seguinte:
 
@@ -327,6 +327,24 @@ Para consultar as execuções filhas de um pai específico, use o [`get_children
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Log para a execução de pai ou raiz
+
+Você pode usar o `Run.parent` campo para acessar a execução que iniciou a execução do filho atual. Um caso de uso comum para isso é quando você deseja consolidar os resultados de log em um único lugar. Observe que o filho é executado de forma assíncrona e não há nenhuma garantia de ordenação ou sincronização além da capacidade do pai de aguardar a conclusão de suas execuções filhas.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Marcar e localizar execuções
 

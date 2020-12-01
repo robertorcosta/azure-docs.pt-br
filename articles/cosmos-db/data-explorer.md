@@ -1,22 +1,22 @@
 ---
-title: Usar o gerenciador do Azure Cosmos DB para gerenciar os dados
-description: O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB.
+title: Use o Azure Cosmos DB Explorer para gerenciar seus dados
+description: O Azure Cosmos DB Explorer é uma interface autônoma baseada na Web que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4baa92fe4aa2ed402c394198684c4deec2bf9f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008575"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348595"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com os dados usando o Azure Cosmos Explorer 
+# <a name="work-with-data-using-azure-cosmos-db-explorer"></a>Trabalhar com dados usando o Azure Cosmos DB Explorer 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB. O gerenciador do Azure Cosmos DB é equivalente à guia **Data Explorer** existente disponível no portal do Azure quando você cria uma conta do Azure Cosmos DB. As principais vantagens do gerenciador do Azure Cosmos DB sobre o gerenciador de Data Explorer são:
+O Azure Cosmos DB Explorer é uma interface autônoma baseada na Web que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB. Azure Cosmos DB Explorer é equivalente à guia **Data Explorer** existente que está disponível em portal do Azure quando você cria uma conta de Azure Cosmos DB. As principais vantagens do Azure Cosmos DB Explorer sobre o data Explorer existente são:
 
 * Você tem um estado real de tela inteira para exibir os dados, executar consultas, procedimentos armazenados, gatilhos e exibir os resultados.  
 
@@ -24,13 +24,13 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
 * Você pode compartilhar os resultados da consulta com outros usuários que não tenham acesso à assinatura ou portal do Azure.  
 
-## <a name="access-azure-cosmos-db-explorer"></a>Acessar o gerenciador do Azure Cosmos DB
+## <a name="access-azure-cosmos-db-explorer"></a>Acessar o Azure Cosmos DB Explorer
 
 1. Entre no [Portal do Azure](https://portal.azure.com/). 
 
 2. Em **Todos os recursos**, localize e navegue até a conta do Azure Cosmos DB, selecione Chaves e copie a **Cadeia de Conexão Primária**.  
 
-3. Vá para https://cosmos.azure.com/, cole a cadeia de conexão e selecione **Conectar**. Usando a cadeia de conexão, é possível acessar o gerenciador do Azure Cosmos DB sem quaisquer limites de tempo.  
+3. Vá para https://cosmos.azure.com/, cole a cadeia de conexão e selecione **Conectar**. Usando a cadeia de conexão, você pode acessar o Gerenciador de Azure Cosmos DB sem nenhum limite de tempo.  
 
    Se quiser fornecer a outros usuários o acesso temporário à sua conta do Azure Cosmos DB, você poderá fazer isso usando as URLs de acesso de leitura e leitura/gravação. 
 
@@ -42,7 +42,7 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
    Escolha o tipo de acesso com o qual gostaria de abrir a conta e clique em **Abrir**. Após abrir o gerenciador, a experiência é a mesma que você tinha com a guia Data Explorer no portal do Azure.
 
-   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Abrir Azure Cosmos DB Explorer":::
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Abrir o Azure Cosmos DB Explorer":::
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -54,6 +54,6 @@ Os clientes que recebem erros HTTP-401 podem ser devido a permissões do RBAC do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como começar a usar o gerenciador do Azure Cosmos DB para gerenciar os dados, em seguida, poderá:
+Agora que você aprendeu a começar a usar o Azure Cosmos DB Explorer para gerenciar seus dados, em seguida, você pode:
 
 * Começar a definir[consultas](./sql-query-getting-started.md) usando a sintaxe SQL e executar [programação do lado do servidor](stored-procedures-triggers-udfs.md), usando procedimentos armazenados, UDFs, gatilhos.

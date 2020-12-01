@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 986a7c8f1282b76c2ae94eebcc2c31dc3b3e7cad
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367583"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352007"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurar experiência de sugestão automática personalizada
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
-> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A sugestão automática personalizada retorna uma lista de cadeias de consulta de pesquisa sugeridas que são relevantes para sua experiência de pesquisa. As cadeias de consulta sugeridas são baseadas em uma cadeia de consulta parcial que o usuário fornece na caixa de pesquisa. A lista conterá no máximo 10 sugestões. 
 
@@ -65,7 +65,7 @@ Ao incluir as sugestões do Bing, você poderá adicionar uma lista de cadeias d
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Habilitando a sugestão automática na interface do usuário hospedada
 
-Para habilitar as sugestões de cadeia de consulta para a interface do usuário hospedada, clique em **Interface do usuário hospedada**. Role para baixo até a seção **Configuração Adicional**. Em **Pesquisa na Web** , selecione **Habilitado** para **Habilitar sugestão automática**. Para habilitar a sugestão automática, você precisa selecionar um layout que inclui uma caixa de pesquisa.
+Para habilitar as sugestões de cadeia de consulta para a interface do usuário hospedada, clique em **Interface do usuário hospedada**. Role para baixo até a seção **Configuração Adicional**. Em **Pesquisa na Web**, selecione **Habilitado** para **Habilitar sugestão automática**. Para habilitar a sugestão automática, você precisa selecionar um layout que inclui uma caixa de pesquisa.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Chamando a API de Sugestão Automática

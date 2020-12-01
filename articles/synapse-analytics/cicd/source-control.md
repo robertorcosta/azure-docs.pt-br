@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296976"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350731"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controle do código-fonte no Azure Synapse Studio
 
@@ -61,7 +61,7 @@ Ao conectar-se ao repositório git, primeiro selecione o tipo de repositório co
 
 O painel de configuração mostra as seguintes configurações do git DevOps do Azure:
 
-| Setting | Descrição | Valor |
+| Configuração | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Git ou GitHub do Azure DevOps |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
@@ -192,7 +192,7 @@ Depois de remover a associação com o repositório atual, você pode definir as
 
 ## <a name="best-practices-for-git-integration"></a>Melhores práticas para a integração do Git
 
--   **Permissões**. Depois de ter um repositório git conectado ao seu espaço de trabalho, qualquer pessoa que possa acessar o repositório Git com qualquer função no espaço de trabalho poderá atualizar artefatos, como script SQL, Notebook, definição de trabalho do Spark, conjunto de fluxo de trabalhos e pipeline no modo git. Normalmente, você não quer que todos os membros da equipe tenham permissões para atualizar o espaço de trabalho. Conceda permissão somente ao repositório Git para autores de artefato do espaço de trabalho Synapse. 
+-   **Permissões**. Depois que você tiver um repositório git conectado ao seu espaço de trabalho, qualquer pessoa que tenha acesso ao seu repositório Git com qualquer função no espaço de trabalho poderá atualizar artefatos, como script SQL, Notebook, definição de trabalho do Spark, DataSet, fluxo de trabalhos e pipeline no modo git. Normalmente, você não quer que todos os membros da equipe tenham permissões para atualizar o espaço de trabalho. Conceda permissão somente ao repositório Git para autores de artefato do espaço de trabalho Synapse. 
 -   **Colaboração**. É recomendável não permitir check-ins diretos no branch de colaboração. Essa restrição pode ajudar a evitar bugs, uma vez que cada check-in passará por um processo de revisão de solicitação de pull descrito em [Criando branches de recurso](source-control.md#creating-feature-branches).
 -   **Modo dinâmico de Synapse**. Após a publicação no modo git, todas as alterações serão refletidas no modo dinâmico Synapse. No modo dinâmico do Synapse, a publicação está desabilitada. E você pode exibir, executar artefatos no modo dinâmico se tiver recebido a permissão certa. 
 -   **Editar artefatos no estúdio**. O Synapse Studio é o único lugar em que você pode habilitar o controle de origem do espaço de trabalho e sincronizar as alterações para o Git automaticamente. Qualquer alteração via SDK, PowerShell, não será sincronizada com o git. Recomendamos que você sempre edite o artefato no estúdio quando o Git estiver habilitado.

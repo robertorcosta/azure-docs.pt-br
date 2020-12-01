@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 737b6e0534111924a31204d4548dfa59805c2fe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963599"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352568"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Atualizar um comando de um ponto de extremidade da Web
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a atualizar um comando contínuo de um ponto de e
 
 ## <a name="create-an-azure-function"></a>Criar uma função do Azure 
 
-Para este exemplo, você precisará de uma [função do Azure](https://docs.microsoft.com/azure/azure-functions/) disparada por http que dá suporte à seguinte entrada (ou a um subconjunto dessa entrada):
+Para este exemplo, você precisará de uma [função do Azure](../../azure-functions/index.yml) disparada por http que dá suporte à seguinte entrada (ou a um subconjunto dessa entrada):
 
 ```JSON
 {

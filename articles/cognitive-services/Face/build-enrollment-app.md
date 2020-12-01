@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025713"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350357"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Criar um aplicativo de registro para Android com reagir
 
@@ -74,7 +74,7 @@ Para estender a funcionalidade do aplicativo para cobrir a experiência completa
 
 ### <a name="android"></a>Android
 
-Primeiro, verifique se seu aplicativo está pronto para implantação de produção: Remova as chaves ou segredos do código do aplicativo e verifique se você seguiu as [práticas recomendadas de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+Primeiro, verifique se seu aplicativo está pronto para implantação de produção: Remova as chaves ou segredos do código do aplicativo e verifique se você seguiu as [práticas recomendadas de segurança](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 Quando estiver pronto para liberar seu aplicativo para produção, você gerará um arquivo APK pronto para liberação, que é o formato de arquivo de pacote para aplicativos Android. Esse arquivo APK deve ser assinado com uma chave privada. Com esse Build de versão, você pode começar a distribuir o aplicativo diretamente para seus dispositivos. 
 

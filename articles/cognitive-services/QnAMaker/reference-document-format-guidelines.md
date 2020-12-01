@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993798"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352228"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos e URLs importadas
 
@@ -22,7 +22,7 @@ Depois de importar um arquivo ou URL, QnA Maker converte e armazena seu conteúd
 
 Se você adicionar ou editar seu conteúdo diretamente na sua base de dados de conhecimento, use a **formatação de redução** para criar conteúdo de Rich Text ou alterar o conteúdo do formato de redução que já está na resposta. QnA Maker dá suporte a grande parte do formato de redução para trazer recursos de Rich Text para seu conteúdo. No entanto, o aplicativo cliente, como um bot de chat, pode não dar suporte ao mesmo conjunto de formatos de redução. É importante testar a exibição de respostas do aplicativo cliente.
 
-Consulte uma lista completa de [tipos de conteúdo e exemplos](./Concepts/content-types.md#file-and-url-data-types).
+Consulte uma lista completa de [tipos de conteúdo e exemplos](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).
 
 ## <a name="basic-document-formatting"></a>Formatação básica de documentos
 
@@ -118,4 +118,4 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja uma lista completa de [tipos de conteúdo e exemplos](./Concepts/content-types.md#file-and-url-data-types)
+Veja uma lista completa de [tipos de conteúdo e exemplos](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920484"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349949"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -32,7 +32,7 @@ Você pode adicionar APIs sem servidor a aplicativos Web Estáticos do Azure por
 
 As etapas a seguir demonstram como criar um novo repositório e clonar os arquivos para o computador.
 
-1. Verifique se você está conectado ao GitHub e, em seguida, navegue até https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
+1. Verifique se você está conectado ao GitHub e, em seguida, navegue até [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) para criar um novo repositório.
 1. Na caixa _Nome do repositório_, insira **my-vanilla-api**.
 1. Clique em **Criar repositório do modelo**.
 

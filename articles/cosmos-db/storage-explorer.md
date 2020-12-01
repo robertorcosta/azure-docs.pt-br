@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010564"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348646"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerenciar Azure Cosmos DB recursos usando Gerenciador de Armazenamento do Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ Você pode usar o Gerenciador de armazenamento do Azure para se conectar ao Azur
 Use a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único lugar. Você pode gerenciar Azure Cosmos DB entidades, manipular dados, atualizar procedimentos armazenados e gatilhos juntamente com outras entidades do Azure, como BLOBs de armazenamento e filas. O Gerenciador de Armazenamento do Azure dá suporte a contas Cosmos configuradas para APIs SQL, MongoDB, Graph e Table.
 
 > [!NOTE]
-> A integração do Azure Cosmos DB com o Gerenciador de Armazenamento foi preterida. Qualquer funcionalidade existente não será removida por um período mínimo de um ano a partir desta versão. Você deve usar o [Portal do Azure](https://portal.azure.com/), o [aplicativo de área de trabalho do Portal do Azure](https://portal.azure.com/App/Download) ou o [Azure Cosmos Explorer](data-explorer.md) autônomo. As opções alternativas contêm muitos recursos novos que atualmente não têm suporte no Gerenciador de Armazenamento.
+> A integração do Azure Cosmos DB com o Gerenciador de Armazenamento foi preterida. Qualquer funcionalidade existente não será removida por um período mínimo de um ano a partir desta versão. Você deve usar o [portal do Azure](https://portal.azure.com/), o [aplicativo de área de trabalho do portal do Azure](https://portal.azure.com/App/Download) ou o [Gerenciador de Azure Cosmos DB](data-explorer.md) autônomo em vez disso. As opções alternativas contêm muitos recursos novos que atualmente não têm suporte no Gerenciador de Armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

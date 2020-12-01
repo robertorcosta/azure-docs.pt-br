@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849255"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350663"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Criar um pool com a criptografia de disco habilitada
 
@@ -25,8 +25,8 @@ Com um pool do lote, você pode acessar e armazenar dados no sistema operacional
 
 O lote aplicará uma dessas tecnologias de criptografia de disco em nós de computação, com base na configuração de pool e suporte regional.
 
-- [Criptografia de disco gerenciado em repouso com chaves gerenciadas pela plataforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Criptografia no host usando uma chave gerenciada por plataforma](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Criptografia de disco gerenciado em repouso com chaves gerenciadas pela plataforma](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Criptografia no host usando uma chave gerenciada por plataforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Criptografia de Disco do Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Ao criar um pool do lote no portal do Azure, selecione **TemporaryDisk** ou **Os
 
 Depois que o pool é criado, você pode ver os destinos de configuração de criptografia de disco na seção de **Propriedades** do pool.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de tela da opção de configuração de criptografia de disco no portal do Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de tela mostrando os destinos de configuração de criptografia de disco na portal do Azure.":::
 
 ## <a name="examples"></a>Exemplos
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [criptografia do lado do servidor de armazenamento em disco do Azure](../virtual-machines/windows/disk-encryption.md).
+- Saiba mais sobre a [criptografia do lado do servidor de armazenamento em disco do Azure](../virtual-machines/disk-encryption.md).
 - Para obter uma visão geral detalhada do Lote, confira [Recursos e fluxo de trabalho do serviço de Lote](batch-service-workflow-features.md).

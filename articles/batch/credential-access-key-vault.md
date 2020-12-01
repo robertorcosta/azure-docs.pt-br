@@ -4,12 +4,12 @@ description: Saiba como acessar programaticamente suas credenciais de Key Vault 
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337484"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350680"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acessar com segurança o Key Vault com o Lote
 
@@ -67,7 +67,7 @@ As URLs para o aplicativo não são importantes, pois estamos apenas usando-as p
 
 ## <a name="grant-rights-to-key-vault"></a>Conceder direitos para Key Vault
 
-A entidade de serviço criada na etapa anterior precisa de permissão para recuperar os segredos de Key Vault. A permissão pode ser concedida por meio do [portal do Azure](/azure/key-vault/general/assign-access-policy-portal) ou com o comando do PowerShell abaixo.
+A entidade de serviço criada na etapa anterior precisa de permissão para recuperar os segredos de Key Vault. A permissão pode ser concedida por meio do [portal do Azure](../key-vault/general/assign-access-policy-portal.md) ou com o comando do PowerShell abaixo.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -94,7 +94,7 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Acessar Key Vault
 
-Agora você está pronto para acessar Key Vault em scripts em execução em seus nós do lote. Para acessar o Key Vault de um script, tudo o que você precisa é que seu script seja autenticado no Microsoft Azure Active Directory usando o certificado. Para fazer isso no PowerShell, use os comandos de exemplo a seguir. Especifique o GUID apropriado para **impressão digital** , **ID do aplicativo** (a ID da entidade de serviço) e a **ID do locatário** (o locatário onde a entidade de serviço existe).
+Agora você está pronto para acessar Key Vault em scripts em execução em seus nós do lote. Para acessar o Key Vault de um script, tudo o que você precisa é que seu script seja autenticado no Microsoft Azure Active Directory usando o certificado. Para fazer isso no PowerShell, use os comandos de exemplo a seguir. Especifique o GUID apropriado para **impressão digital**, **ID do aplicativo** (a ID da entidade de serviço) e a **ID do locatário** (o locatário onde a entidade de serviço existe).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId

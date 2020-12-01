@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227909"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348752"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML do OAuth 2.0
 O fluxo de declaração do portador SAML do OAuth 2.0 permite solicitar um token de acesso OAuth usando uma declaração SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma declaração SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende do conteúdo para identificar a entidade da declaração para fins relacionados à segurança.
@@ -32,7 +32,7 @@ O fluxo de declaração de portador SAML do OAuth só tem suporte para usuários
 ![Fluxo do OAuth](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Grafo de chamadas usando a declaração de portador SAML
-Agora vamos entender como podemos realmente efetuar fetch da declaração SAML de maneira programática. Essa abordagem é testada com o ADFS. No entanto, isso funciona com qualquer provedor de identidade que dê suporte ao retorno da declaração SAML de maneira programática. O processo básico é: obter uma declaração SAML, obter um token de acesso e acessar o Microsoft Graph.
+Agora vamos entender como podemos realmente buscar a Asserção SAML programaticamente. Essa abordagem é testada com o ADFS. No entanto, isso funciona com qualquer provedor de identidade que ofereça suporte ao retorno de Asserção SAML programaticamente. O processo básico é: obter uma declaração SAML, obter um token de acesso e acessar o Microsoft Graph.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

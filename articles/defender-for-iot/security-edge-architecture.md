@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 1933e60892430b907e070ea04f39d8acc86ddac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f6d9f670a1b85e55ccc8f6cb18645b92927221a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932967"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351632"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>Módulo de segurança do Azure defender para IoT Edge
 
-[Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) fornece recursos poderosos para gerenciar e executar fluxos de trabalho de negócios na borda.
+[Azure IOT Edge](../iot-edge/index.yml) fornece recursos poderosos para gerenciar e executar fluxos de trabalho de negócios na borda.
 A parte importante que IoT Edge desempenha em ambientes de IoT o torna particularmente atraente para atores mal-intencionados.
 
 O módulo de segurança do defender for IoT fornece uma solução de segurança abrangente para seus dispositivos IoT Edge.
@@ -39,7 +39,7 @@ O módulo de segurança do defender for IoT para o IoT Edge oferece os seguintes
 
 - Análise de manifestos de implantação do IoT Edge.
 
-- Agrega eventos de segurança brutos em mensagens enviadas por meio do [Hub IOT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Agrega eventos de segurança brutos em mensagens enviadas por meio do [Hub IOT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).
 
 - Remova a configuração por meio do uso do módulo de segurança.
 

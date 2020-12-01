@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279966"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350816"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -20,7 +20,7 @@ O gêmeos digital do Azure usa **rotas de eventos** para enviar dados para consu
 
 Há dois casos principais para enviar dados do gêmeos digital do Azure:
 * Envio de dados de um gêmeos no grafo digital do Azure para outro. Por exemplo, quando uma propriedade em uma cópia digital é alterada, convém notificar e atualizar outra cópia digital de maneira adequada.
-* Envio de dados para serviços de dados downstream para armazenamento ou processamento adicional (também conhecido como *egresso de dados* ). Por exemplo,
+* Envio de dados para serviços de dados downstream para armazenamento ou processamento adicional (também conhecido como *egresso de dados*). Por exemplo,
   - Um hospital pode querer enviar dados de evento de gêmeos digital do Azure para [Time Series insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registrar dados de série temporal de eventos relacionados a Handwashing para análise em massa.
   - Uma empresa que já esteja usando [mapas do Azure](../azure-maps/about-azure-maps.md) pode querer usar o gêmeos digital do Azure para aprimorar sua solução. Eles podem habilitar rapidamente um mapa do Azure depois de configurar o Azure digital gêmeos, colocar as entidades do Azure MAP no gêmeos digital do Azure como [gêmeos digital](concepts-twins-graph.md) no grafo de entrelaçamento ou executar consultas poderosas que aproveitam seus mapas do Azure e os dados do Azure digital gêmeos juntos.
 
@@ -103,7 +103,7 @@ Se qualquer uma das condições for atendida, o evento será descartado ou inati
 
 Antes de configurar o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. Você fornece a URL para esse contêiner ao criar o ponto de extremidade. A letra de inatividade é fornecida como uma URL de contêiner com um token SAS. Esse token precisa apenas `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Para saber mais sobre tokens SAS, confira: [ *conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Para saber mais sobre tokens SAS, confira: [ *conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)*](../storage/common/storage-sas-overview.md)
 
 Para saber como configurar um ponto de extremidade com mensagens mortas, consulte [*como gerenciar pontos de extremidades e rotas no gêmeos digital do Azure (APIs e CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

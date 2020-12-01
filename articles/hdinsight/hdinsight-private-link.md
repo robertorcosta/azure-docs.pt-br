@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 66c9a3afb91aaff448d6eadc86175d8515be766c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889075"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352534"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
 
@@ -102,10 +102,10 @@ Para obter um modelo completo com muitos dos recursos de segurança do HDInsight
 
 ### <a name="use-azure-powershell"></a>Usar o Azure Powershell
 
-Para usar o PowerShell, consulte o exemplo [aqui](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+Para usar o PowerShell, consulte o exemplo [aqui](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
 ### <a name="use-azure-cli"></a>Usar a CLI do Azure
-Para usar CLI do Azure, consulte o exemplo [aqui](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
+Para usar CLI do Azure, consulte o exemplo [aqui](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 

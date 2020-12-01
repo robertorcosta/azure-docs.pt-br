@@ -1,6 +1,6 @@
 ---
-title: Migrar uma imagem gerenciada para uma galeria de imagens compartilhadas
-description: Saiba como usar Azure PowerShell para migrar uma imagem gerenciada para uma versão de imagem em uma galeria de imagens compartilhada.
+title: Clonar uma imagem gerenciada para uma galeria de imagens compartilhadas
+description: Saiba como usar Azure PowerShell para clonar uma imagem gerenciada para uma versão de imagem em uma galeria de imagens compartilhada.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964874"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349915"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerenciada para uma imagem da Galeria de imagens compartilhadas
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clonar uma imagem gerenciada para uma imagem da Galeria de imagens compartilhadas
 
-Se você tiver uma imagem gerenciada existente que deseja migrar para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente da imagem gerenciada. Depois de testar a nova imagem, você pode excluir a imagem gerenciada de origem. Você também pode migrar de uma imagem gerenciada para uma galeria de imagens compartilhada usando o [CLI do Azure](image-version-managed-image-cli.md).
+Se você tiver uma imagem gerenciada existente que deseja clonar e mover para uma galeria de imagens compartilhada, poderá criar uma imagem da Galeria de imagens compartilhada diretamente da imagem gerenciada. Depois de testar a nova imagem, você pode excluir a imagem gerenciada de origem. Você também pode migrar de uma imagem gerenciada para uma galeria de imagens compartilhada usando o [CLI do Azure](image-version-managed-image-cli.md).
 
 As imagens em uma galeria de imagens têm dois componentes, que serão criados neste exemplo:
 - Uma **definição de imagem** contém informações sobre a imagem e os requisitos para usá-la. Isso inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. 

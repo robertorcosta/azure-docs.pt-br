@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637044"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348796"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Mapeamento de atributo de provisionamento de nuvem Azure AD Connect
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Mapeamento de atributo de provisionamento de nuvem Azure AD Connect
 
 Azure AD Connect o provisionamento em nuvem introduziu um novo recurso, que permitirá que você mapeie facilmente atributos entre seus objetos de usuário/grupo local e os objetos no Azure AD.  Esse recurso foi adicionado à configuração de provisionamento de nuvem.
 
@@ -54,7 +54,7 @@ Além dessa propriedade, os mapeamentos de atributos também dão suporte aos se
 ## <a name="using-attribute-mapping"></a>Usando o mapeamento de atributos
 Para usar o novo recurso, siga as etapas abaixo.
 
- 1.  Na portal do Azure, selecione **Azure Active Directory**.
+ 1.  No portal do Azure, selecione **Azure Active Directory**.
  2.  Selecione **Azure AD Connect**.
  3.  Selecione **gerenciar provisionamento**.
 
@@ -82,7 +82,7 @@ Para usar o novo recurso, siga as etapas abaixo.
 ## <a name="test-your-attribute-mapping"></a>Testar o mapeamento de atributo
 Para testar o mapeamento de atributo, você pode usar o [provisionamento sob demanda](how-to-on-demand-provision.md).  Na lista 
 
-1.  Na portal do Azure, selecione **Azure Active Directory**.
+1.  No portal do Azure, selecione **Azure Active Directory**.
 2.  Selecione **Azure AD Connect**.
 3.  Selecione **gerenciar provisionamento**.
 4. Em **configuração**, selecione sua configuração.

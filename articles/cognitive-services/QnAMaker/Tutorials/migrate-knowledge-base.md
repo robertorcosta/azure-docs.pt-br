@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427659"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350918"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import
 
@@ -34,7 +34,7 @@ A migração de uma base de dados de conhecimento requer a exportação de uma b
 1. Entre no [portal do QnA Maker](https://qnamaker.ai).
 1. Selecione a base de dados de conhecimento de origem que você deseja migrar.
 
-1. Na página **configurações** , selecione **Exportar base de dados de conhecimento** para baixar um arquivo. tsv que contém o conteúdo de sua base de dados de conhecimento de origem-perguntas, respostas, metadados, avisos de acompanhamento e os nomes da fonte de dados da qual eles foram extraídos. As IDs de QnA exportadas com as perguntas e respostas podem ser usadas para atualizar um par QnA específico usando a [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). A ID de QnA para um par de QnA específico permanece inalterada em várias operações de exportação.
+1. Na página **configurações** , selecione **Exportar base de dados de conhecimento** para baixar um arquivo. tsv que contém o conteúdo de sua base de dados de conhecimento de origem-perguntas, respostas, metadados, avisos de acompanhamento e os nomes da fonte de dados da qual eles foram extraídos. As IDs de QnA exportadas com as perguntas e respostas podem ser usadas para atualizar um par QnA específico usando a [API de atualização](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). A ID de QnA para um par de QnA específico permanece inalterada em várias operações de exportação.
 
 1. Selecione **criar uma base de dados de conhecimento** no menu superior e, em seguida, crie uma base de dados de conhecimento _vazia_ . Ele está vazio porque, ao criá-lo, você não adicionará URLs ou arquivos. Eles são adicionados durante a etapa de importação, após a criação.
 
@@ -59,16 +59,16 @@ O processo de migração está programaticamente disponível usando as seguintes
 
 **Exportar**
 
-* [Baixar API da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Baixar API da base de dados de conhecimento](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importaçãoação**
 
-* [Substituir API (recarregar com a mesma ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Criar API (carregar com nova ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Substituir API (recarregar com a mesma ID da base de dados de conhecimento)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Criar API (carregar com nova ID da base de dados de conhecimento)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Logs de chat e alterações
-As alterações (sinônimos) que não diferenciam maiúsculas de minúsculas não são importadas automaticamente. Use as [APIs v4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover as alterações na nova base de dados de conhecimento.
+As alterações (sinônimos) que não diferenciam maiúsculas de minúsculas não são importadas automaticamente. Use as [APIs v4](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) para mover as alterações na nova base de dados de conhecimento.
 
 Não há nenhuma maneira de migrar os logs de chat, já que a nova base de dados de conhecimento usa o Application Insights para armazenar os logs de chat.
 

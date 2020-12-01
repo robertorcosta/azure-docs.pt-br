@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017790"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350391"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -93,7 +93,7 @@ Todas as métricas para o Azure Cosmos DB estão no namespace **Métricas padrã
 * Região
 * StatusCode
 
-Para referência, você pode ver uma lista de [todas as métricas de recurso com suporte no Azure monitor](/azure/azure-monitor/platform/metrics-supported).
+Para referência, você pode ver uma lista de [todas as métricas de recurso com suporte no Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Exibir métricas de nível de operação para o Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Você pode agrupar as métricas usando a opção **Aplicar divisão**. Por exemp
 
 Os dados em Logs do Azure Monitor são armazenados em tabelas, cada uma com o próprio conjunto de propriedades exclusivas.
 
-Todos os logs de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos do serviço. O esquema comum é descrito em [Azure monitor esquema de log de recursos](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). Para obter uma lista dos tipos de logs de recursos coletados para Azure Cosmos DB, consulte [monitorando Azure Cosmos DB referência de dados] ((monitor-Cosmos-DB-Reference. MD # Resource-logs)  
+Todos os logs de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos do serviço. O esquema comum é descrito em [Azure monitor esquema de log de recursos](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de logs de recursos coletados para Azure Cosmos DB, consulte [monitoramento Azure Cosmos DB referência de dados](monitor-cosmos-db-reference.md#resource-logs).
 
 O [log de atividades](/azure/azure-monitor/platform/activity-log) é um logon de plataforma do Azure que fornece informações sobre eventos de nível de assinatura. Você pode exibi-lo de forma independente ou roteá-lo para Azure Monitor logs, onde você pode fazer consultas muito mais complexas usando Log Analytics.  
 
@@ -172,7 +172,7 @@ Aqui estão algumas consultas que você pode inserir na barra de pesquisa da **p
 
 ## <a name="alerts"></a>Alertas
 
-Azure Monitor Alertas proativamente notificam você quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas em seu sistema antes que os clientes os percebam. Você pode definir alertas em [métricas](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log)e no [log de atividades](/azure/azure-monitor/platform/activity-log-alerts). Tipos diferentes de alertas têm benefícios e desvantagens
+Azure Monitor Alertas proativamente notificam você quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas em seu sistema antes que os clientes os percebam. Você pode definir alertas em [métricas](../azure-monitor/platform/alerts-metric-overview.md), [logs](../azure-monitor/platform/alerts-unified-log.md)e no [log de atividades](../azure-monitor/platform/activity-log-alerts.md). Tipos diferentes de alertas têm benefícios e desvantagens
 
 Por exemplo, a tabela a seguir lista algumas regras de alerta para seus recursos. Você pode encontrar uma lista detalhada das regras de alerta do portal do Azure. Para saber mais, consulte [o artigo como configurar alertas](create-alerts.md) .  
 

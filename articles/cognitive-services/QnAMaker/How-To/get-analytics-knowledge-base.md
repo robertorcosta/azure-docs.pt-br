@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376563"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352415"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter a análise em sua base de dados de conhecimento
 
@@ -48,11 +48,11 @@ QnA Maker armazenará todos os logs de chat e outras telemetrias, se você tiver
 
     [![Executar a consulta para determinar as perguntas, as respostas e a Pontuação dos usuários](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 QnA Maker gerenciado (versão prévia) usa o log de diagnóstico do Azure para armazenar os dados de telemetria e os logs de chat. Siga as etapas abaixo para executar consultas de exemplo para obter análises sobre o uso de sua base de dados de conhecimento QnA Maker.
 
-1. [Habilite o log de diagnóstico](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) para seu serviço QnA Maker gerenciado (versão prévia).
+1. [Habilite o log de diagnóstico](../../diagnostic-logging.md) para seu serviço QnA Maker gerenciado (versão prévia).
 
 2. Na etapa anterior, selecione **rastrear** , além de **auditoria, RequestResponse e biométricas** para registro em log
 
@@ -132,7 +132,7 @@ traces | extend id = operation_ParentId
 | order  by timestamp  desc
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 ### <a name="all-qna-chat-log"></a>Todos os logs de chat do QnA
 

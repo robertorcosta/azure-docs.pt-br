@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem a necessidade de modificação de código. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444734"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351530"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -143,7 +143,7 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
 | **Dependências**    |            |                     |  Yes    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Visualizações de página**      |            |                     |  Yes    |
+| **Exibições de página**      |            |                     |  Yes    |
 | **Solicitações**        |            |                     |  Yes    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
@@ -228,17 +228,3 @@ Ou você também pode usar Application Insights Java SDK 2. x:
       telemetryClient.trackException(e);
   }
 ```
-
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Atualizando do SDK do Java do Application Insights 2. x
-
-Se você já estiver usando Application Insights Java SDK 2. x em seu aplicativo, não será necessário removê-lo.
-O agente do Java 3,0 o detectará e irá capturar e correlacionar qualquer telemetria personalizada que você estiver enviando por meio do SDK do Java 2. x, ao mesmo tempo em que suprimirá qualquer coleção automática executada pelo SDK do Java 2. x para evitar a telemetria duplicada.
-
-Se você estiver usando o agente Application Insights 2. x, será necessário remover o `-javaagent:` ARG JVM que estava apontando para o agente 2. x.
-
-> [!NOTE]
-> O Java SDK 2. x TelemetryInitializers e o TelemetryProcessors não serão executados ao usar o agente 3,0.
-> Muitos dos casos de uso exigidos anteriormente podem ser resolvidos em 3,0 Configurando [dimensões personalizadas](./java-standalone-config.md#custom-dimensions) ou configurando [processadores de telemetria](./java-standalone-telemetry-processors.md).
-
-> [!NOTE]
-> 3,0 não oferece suporte a várias chaves de instrumentação em uma única JVM ainda.

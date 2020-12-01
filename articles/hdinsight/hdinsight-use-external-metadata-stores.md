@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a001f3a13daf40a1af712f09e35d93fd045ea133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629947"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350238"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar armazenamentos de metadados externos no Azure HDInsight
 
@@ -41,7 +41,7 @@ Por padrão, o HDInsight cria um metastore com cada tipo de cluster. Em vez diss
 * O metastore padrão é recomendado apenas para cargas de trabalho simples. Cargas de trabalho que não exigem vários clusters e não precisam de metadados preservados além do ciclo de vida do cluster.
 
 > [!IMPORTANT]
-> O metastore padrão fornece um banco de dados SQL do Azure com um **limite de DTU básico de camada 5 (não atualizável)** ! Adequado para fins de teste básico. Para cargas de trabalho grandes ou de produção, é recomendável migrar para um metastore externo.
+> O metastore padrão fornece um banco de dados SQL do Azure com um **limite de DTU básico de camada 5 (não atualizável)**! Adequado para fins de teste básico. Para cargas de trabalho grandes ou de produção, é recomendável migrar para um metastore externo.
 
 ## <a name="custom-metastore"></a>Metastore personalizado
 
@@ -67,7 +67,7 @@ Crie ou tenha um banco de dados SQL do Azure existente antes de configurar um me
 
 Ao criar o cluster, o serviço HDInsight precisa se conectar ao metastore externo e verificar suas credenciais. Configure as regras de firewall do banco de dados SQL do Azure para permitir que os serviços e recursos do Azure acessem o servidor. Habilite essa opção no portal do Azure selecionando **definir Firewall do servidor**. Em seguida, selecione **não** abaixo de **negar acesso à rede pública** e **Sim** abaixo **permitir que os serviços e recursos do Azure acessem este servidor para o** banco de dados SQL do Azure. Para obter mais informações, consulte [criar e gerenciar regras de firewall de IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Pontos de extremidade privados para repositórios SQL só têm suporte nos clusters criados com `outbound` ResourceProviderConnection. Para saber mais, Confira esta [documentação](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link).
+Pontos de extremidade privados para repositórios SQL só têm suporte nos clusters criados com `outbound` ResourceProviderConnection. Para saber mais, Confira esta [documentação](./hdinsight-private-link.md).
 
 ![botão Definir Firewall do servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

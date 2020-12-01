@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916773"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352211"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurar um IR auto-hospedado como um proxy para um Azure-SSIS IR no Azure Data Factory
 
@@ -70,7 +70,7 @@ Se você ainda não tiver feito isso, crie um serviço vinculado do armazenament
 - Para **o método de autenticação**, selecione chave de **conta**, **URI de SAS**, entidade de **serviço** ou **identidade gerenciada**.  
 
 >[!TIP]
->Se você selecionar o método de **entidade de serviço** , conceda à sua entidade de serviço pelo menos uma função de colaborador de dados de *blob de armazenamento* . Para obter mais informações, consulte [conector do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties). Se você selecionar o método de **identidade gerenciada** , conceda ao ADF as funções adequadas de identidade gerenciada para acessar o armazenamento de BLOBs do Azure. Para obter mais informações, consulte [acessar o armazenamento de BLOBs do Azure usando a autenticação do Azure Active Directory com a identidade gerenciada do ADF](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>Se você selecionar o método de **entidade de serviço** , conceda à sua entidade de serviço pelo menos uma função de colaborador de dados de *blob de armazenamento* . Para obter mais informações, consulte [conector do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties). Se você selecionar o método de **identidade gerenciada** , conceda ao ADF as funções adequadas de identidade gerenciada para acessar o armazenamento de BLOBs do Azure. Para obter mais informações, consulte [acessar o armazenamento de BLOBs do Azure usando a autenticação do Azure Active Directory com a identidade gerenciada do ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Preparar o serviço vinculado do armazenamento de BLOBs do Azure para preparo](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -157,7 +157,7 @@ Você também pode habilitar essa propriedade ao executar pacotes existentes, se
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Depurar as tarefas locais e de preparo na nuvem
 
-Em seu IR auto-hospedado, você pode encontrar os logs de tempo de execução na pasta *C:\ProgramData\SSISTelemetry* e os logs de execução de tarefas de preparo locais na pasta *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Você pode encontrar os logs de execução das tarefas de preparo de nuvem em seus arquivos de log do SSISDB, especificados ou Azure Monitor dependendo se você armazena seus pacotes no SSISDB, habilita a [integração de Azure monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor), etc. Você também pode encontrar as IDs exclusivas das tarefas de preparo locais nos logs de execução das tarefas de preparo de nuvem. 
+Em seu IR auto-hospedado, você pode encontrar os logs de tempo de execução na pasta *C:\ProgramData\SSISTelemetry* e os logs de execução de tarefas de preparo locais na pasta *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Você pode encontrar os logs de execução das tarefas de preparo de nuvem em seus arquivos de log do SSISDB, especificados ou Azure Monitor dependendo se você armazena seus pacotes no SSISDB, habilita a [integração de Azure monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. Você também pode encontrar as IDs exclusivas das tarefas de preparo locais nos logs de execução das tarefas de preparo de nuvem. 
 
 ![ID exclusiva da primeira tarefa de preparo](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -173,7 +173,7 @@ As tarefas de preparo de nuvem que são executadas no Azure-SSIS IR não são co
 
 Para habilitar seus componentes personalizados/de terceiros para acessar dados locais usando o IR auto-hospedado como um proxy para Azure-SSIS IR, siga estas instruções:
 
-1. Instale os componentes personalizados/de terceiros direcionados SQL Server 2017 em Azure-SSIS IR por meio de [instalações personalizadas padrão/Express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+1. Instale os componentes personalizados/de terceiros direcionados SQL Server 2017 em Azure-SSIS IR por meio de [instalações personalizadas padrão/Express](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 1. Crie as seguintes chaves do registro DTSPath no IR via hospedagem interna, se elas ainda não existirem:
    1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` definido como `C:\Program Files\Microsoft SQL Server\140\DTS\`
@@ -197,7 +197,7 @@ Se você precisar usar criptografia forte/protocolo de rede seguro (TLS 1,2) e d
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Somente os componentes de fluxo de dados internos/pré-instalados no Azure-SSIS IR Standard Edition, exceto os componentes Hadoop/HDFS/DQS, têm suporte no momento, confira [todos os componentes internos/pré-instalados em Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Somente os componentes de fluxo de dados internos/pré-instalados no Azure-SSIS IR Standard Edition, exceto os componentes Hadoop/HDFS/DQS, têm suporte no momento, confira [todos os componentes internos/pré-instalados em Azure-SSIS ir](./built-in-preinstalled-components-ssis-integration-runtime.md).
 - Somente componentes de fluxo de dados personalizados/de terceiros gravados em código gerenciado (.NET Framework) atualmente são suportados – aqueles escritos no código nativo (C++) atualmente não têm suporte.
 - No momento, não há suporte para a alteração de valores de variáveis em tarefas locais e de preparo na nuvem.
 - A alteração de valores de variáveis do tipo Object em tarefas de preparo locais não será refletida em outras tarefas.
