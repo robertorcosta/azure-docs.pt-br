@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889228"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344186"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Usar o Jupyter Notebooks para procurar ameaças à segurança
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Use Jupyter Notebook para procurar ameaças à segurança
 
 A base do Azure Sentinel é o armazenamento de dados; Ele combina consultas de alto desempenho, esquema dinâmico e escalas para grandes volumes de dados. O portal do Azure e todas as ferramentas do Azure Sentinel usam uma API comum para acessar esse armazenamento de dados. A mesma API também está disponível para ferramentas externas, como notebooks [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser executadas no portal, o Jupyter estende o escopo do que você pode fazer com esses dados. Ele combina programação completa com uma enorme coleção de bibliotecas para aprendizado de máquina, visualização e análise de dados. Esses atributos fazem do Jupyter uma ferramenta interessante para investigação de segurança e busca.
 
@@ -63,7 +63,7 @@ Para usar os blocos de anotações, você deve primeiro criar um espaço de trab
 
     |Campo|Descrição|
     |--|--|
-    |Subscription|Selecione a assinatura do Azure que deseja usar.|
+    |Subscription|Selecione a assinatura do Azure que você deseja usar.|
     |Resource group|Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Neste exemplo, usamos **AzureMLRG**.|
     |Nome do workspace|Insira um nome único que identifique seu workspace. Neste exemplo, usamos **testworkspace1**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas.|
     |Região|Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.|
@@ -140,7 +140,7 @@ Mande comentários, sugestões, solicitações de recursos, contribuições de n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a começar a usar os notebooks do Jupyter no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste artigo, você aprendeu a começar a usar o Jupyter Notebook no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
 - [Buscar ameaças proativamente](hunting.md)
 - [Use indicadores para salvar informações interessantes durante a busca](bookmarks.md)

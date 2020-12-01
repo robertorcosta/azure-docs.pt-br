@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99594ad5fe07f18f639b4870f4e0faa59a697afc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a92802f0b121a332afccf7f6c12e876b3263bd82
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843172"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343936"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de base de segurança do Azure para ExpressRoute
 
 A linha de base de segurança do Azure para ExpressRoute contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -56,9 +56,9 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: não aplicável; os Expressroute ao qual de cada cliente estão contidos em seus próprios domínios de roteamento e são encapsulados em sua própria rede virtual. Embora os Expressroute ao qual sejam isolados, para proteção extra de outros recursos que compartilham a mesma rede virtual, você pode habilitar a proteção contra DDoS Standard para proteger contra ataques de DDoS.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
-* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -76,7 +76,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: não aplicável; os Expressroute ao qual de cada cliente estão contidos em seus próprios domínios de roteamento e são encapsulados em sua própria rede virtual.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -447,7 +447,7 @@ Como configurar o IPSEC site a site por meio do ExpressRoute: https://docs.micro
 
 **Orientação**: não aplicável; O Azure ExpressRoute não armazena dados do cliente.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -861,7 +861,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: não aplicável; O Azure ExpressRoute não armazena dados do cliente.
 
-* [Entender os controles de segurança do Azure ExpressRoute](./expressroute-security-controls.md)
+* [Entender os controles de segurança do Azure ExpressRoute]()
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a775ce6b7c560783a22697c5dd92288c5d5b7d4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226566"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343698"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributo no Azure Active Directory
 Quando você configura um provisionamento de nuvem, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. 
@@ -289,7 +289,7 @@ a função InStr localiza a primeira ocorrência de uma subcadeia de caracteres 
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: cadeia de caracteres a ser pesquisada
 * stringmatch: cadeia de caracteres a ser localizada
@@ -712,7 +712,7 @@ Split([extensionAttribute5], ",")
 
 **Entrada/saída de exemplo:** <br>
 
-* **ENTRADA** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **Entrada** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **SAÍDA**: ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato

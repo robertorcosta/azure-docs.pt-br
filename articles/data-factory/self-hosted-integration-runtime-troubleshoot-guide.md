@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296947"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341760"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -752,7 +752,7 @@ Dois motivos possíveis para esse problema:
 - Por motivo 1, verifique se o certificado do servidor ADF e sua cadeia de certificados são confiáveis pelo computador em que o SHIR está instalado.
 - Por motivo 2, confie na AC raiz substituída no computador SHIR ou configure o proxy para não substituir o certificado do servidor ADF.
 
-Consulte [Este artigo](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obter detalhes sobre como confiar em um certificado no Windows.
+Consulte [Este artigo](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obter detalhes sobre como confiar em um certificado no Windows.
 
 #### <a name="additional-info"></a>Informações adicionais
 Estamos distribuindo um novo certificado SSL, que é assinado de DigiCert, verifique se o DigiCert global root G2 está na AC raiz confiável.

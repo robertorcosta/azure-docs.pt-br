@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperfq2
-ms.openlocfilehash: 4c37923b0955652a0627808b19762095c18bdedc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a1d83f91ad82bddacb7e806e31151b8e4a7ab612
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737673"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344922"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para escrever expressões para mapeamentos de atributo no Azure AD
 
@@ -49,7 +49,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetro**
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
 | **suffix** |Obrigatório |String |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
@@ -67,7 +67,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value1** |Obrigatório |num |Valor numérico que deve ser AND'eddo com value2|
 | **value2** |Obrigatório |num |Valor numérico que deve ser AND'ed com value1|
@@ -83,11 +83,11 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 `CBool(Expression)`
 
 **Descrição:**  
- `CBool` Retorna um booliano com base na expressão avaliada. Se a expressão for avaliada como um valor diferente de zero, `CBool` retornará *true* , caso contrário retornará *false* .
+ `CBool` Retorna um booliano com base na expressão avaliada. Se a expressão for avaliada como um valor diferente de zero, `CBool` retornará *true*, caso contrário retornará *false*.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **expressão** |Obrigatório | expressão | Qualquer expressão válida |
 
@@ -103,7 +103,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source1  … sourceN** | Obrigatório | String |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
 | **defaultValue** | Opcional | Cadeia de caracteres | Valor padrão a ser usado quando todos os valores de origem forem nulos. Pode ser uma cadeia de caracteres vazia ("").
@@ -116,7 +116,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Cadeia de caracteres a ser convertida em base 64|
 
@@ -133,7 +133,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Cadeia de caracteres a ser convertida em UTF8 hex|
 
@@ -150,7 +150,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Attribute** |Obrigatório |Atributo |Atributo com valores múltiplos que terá elementos contados|
 
@@ -162,7 +162,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | Numeric, Reference ou Boolean | pode ser um valor numérico, o atributo de referência ou booliano. |
 
@@ -179,7 +179,7 @@ Retorna "CN = Joe, DC = contoso, DC = com"
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | Data | A data do AD a ser convertida no tipo DateTime |
 
@@ -198,7 +198,7 @@ Retorna um DateTime que representa 1º de janeiro de 2012 às 11:13h.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
 | **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [/dotnet/Standard/base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
@@ -218,7 +218,7 @@ Retorna um DateTime que representa 1º de janeiro de 2012 às 11:13h.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **problema** |Obrigatório |Variável ou expressão |Qualquer valor ou expressão que possa ser avaliada como verdadeira ou falsa. |
 | **valueIfTrue** |Obrigatório |Variável ou cadeia de caracteres | se a condição for avaliada como true, o valor será retornado. |
@@ -235,7 +235,7 @@ Retorna um DateTime que representa 1º de janeiro de 2012 às 11:13h.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value1** |Obrigatório |String |Cadeia de caracteres a ser pesquisada |
 | **value2** |Obrigatório |String |Cadeia de caracteres a ser encontrada |
@@ -259,7 +259,7 @@ Avalia para 5
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
@@ -277,7 +277,7 @@ O inverso dessa função é chamado de IsPresent.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
@@ -294,7 +294,7 @@ Retornará true se o atributo não estiver presente ou for uma cadeia de caracte
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
@@ -309,7 +309,7 @@ Retornará true se o atributo não estiver presente ou for uma cadeia de caracte
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **expressão** |Obrigatório |expressão |Expressão a ser avaliada |
 
@@ -321,7 +321,7 @@ Retornará true se o atributo não estiver presente ou for uma cadeia de caracte
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Attribute** |Obrigatório |Atributo |Atributo de valores múltiplos a ser pesquisado |
 | **index** |Necessária |Inteiro | Índice para um item na cadeia de caracteres de valores múltiplos|
@@ -339,7 +339,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **separator** |Obrigatório |String |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | **source1  … sourceN** |Obrigatório, número de vezes variável |String |Valores de cadeia de caracteres a serem unidos. |
@@ -355,7 +355,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Cadeia de caracteres** |Obrigatório |Atributo | A cadeia de caracteres da qual retornar os caracteres |
 | **NumChars** |Necessária |Inteiro | Um número que identifica o número de caracteres a serem retornados do início (à esquerda) da cadeia de caracteres|
@@ -373,11 +373,11 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Geralmente o nome do atributo. |
 | **start** |Obrigatório |inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
-| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source** , a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source** . |
+| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -387,7 +387,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String | Geralmente um atributo de nome ou sobrenome. |
 
@@ -395,11 +395,11 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 ### <a name="not"></a>Not
 **Função:** Não (origem)
 
-**Descrição:** Inverte o valor booliano da **origem** . Se o valor de **Source** for true, retornará false. Caso contrário, retornará true.
+**Descrição:** Inverte o valor booliano da **origem**. Se o valor de **Source** for true, retornará false. Caso contrário, retornará true.
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |Cadeia de caracteres booliana |Valores da **origem** esperados são "True" ou "False". |
 
@@ -411,7 +411,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | String | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
@@ -431,7 +431,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Attribute** |Obrigatório |Atributo de valores múltiplos |Atributo com valores múltiplos que terá duplicatas removidas|
 
@@ -453,22 +453,22 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 * Quando **regexPattern** e **replacementValue** são fornecidos:
 
   * A função aplica o **regexPattern** à cadeia de caracteres **source** e você pode usar os nomes de grupo Regex para construir a cadeia de caracteres para **replacementValue**
-* Quando **regexPattern** , **regexGroupName** e **replacementValue** são fornecidos:
+* Quando **regexPattern**, **regexGroupName** e **replacementValue** são fornecidos:
   
   * A função aplica o **regexPattern** à cadeia de caracteres **source** e substitui todos os valores correspondentes a **regexGroupName** com **replacementValue**
-* Quando **regexPattern** , **regexGroupName** e **replacementAttributeName** são fornecidos:
+* Quando **regexPattern**, **regexGroupName** e **replacementAttributeName** são fornecidos:
   
   * Se **source** não tiver um valor, **source** será retornado
   * Se **source** tiver um valor, a função aplicará o **regexPattern** à cadeia de caracteres **source** e substituirá todos os valores correspondentes a **regexGroupName** pelo valor associado a **replacementAttributeName**
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de **origem** . |
-| **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template** . |
-| **regexPattern** |Opcional |Cadeia de caracteres |Padrão Regex para o valor a ser substituído na **origem** . Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName** . |
-| **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern** . Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName** . |
+| **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
+| **regexPattern** |Opcional |Cadeia de caracteres |Padrão Regex para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
+| **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
 | **replacementValue** |Opcional |Cadeia de caracteres |Novo valor com o qual substituir um antigo. |
 | **replacementAttributeName** |Opcional |Cadeia de caracteres |Nome do atributo a ser usado para o valor de substituição |
 | **modelos** |Opcional |Cadeia de caracteres |Quando o valor do **modelo** for fornecido, procuraremos **OldValue** dentro do modelo e o substituíremos pelo valor de **origem** . |
@@ -482,13 +482,13 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
  - Essa é uma função de nível superior, ele não pode ser aninhado.
  - Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.   
- - Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto** .
+ - Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto**.
  - Atualmente, essa função só é compatível com "Provisionamento de usuário do Workday para o Active Directory". Ele não pode ser usado com outros aplicativos de provisionamento. 
 
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras de geração de valor exclusivo para avaliar. |
 
@@ -501,9 +501,9 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obrigatório |String |Objeto **[appRoleAssignments]** . |
+| **[appRoleAssignments]** |Obrigatório |String |Objeto **[appRoleAssignments]**. |
 
 ---
 ### <a name="split"></a>Divisão
@@ -513,7 +513,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Valor da **origem** para atualizar. |
 | **delimitador** |Obrigatório |String |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
@@ -526,7 +526,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Valor da **origem** para atualizar. |
 
@@ -534,15 +534,15 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 ### <a name="switch"></a>Alternar
 **Função:** Switch (Source, defaultValue, key1, value1, Key2, value2,...)
 
-**Descrição:** Quando o valor de **origem** corresponde a uma **chave** , retorna um **valor** para essa **chave** . Se o valor da **origem** não corresponder a nenhuma chave, retorna **defaultValue** .  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
+**Descrição:** Quando o valor de **origem** corresponde a uma **chave**, retorna um **valor** para essa **chave**. Se o valor da **origem** não corresponder a nenhuma chave, retorna **defaultValue**.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |**Source** a atualizar. |
 | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source** . |
+| **chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source**. |
 | **value** |Obrigatório |String |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 ---
@@ -553,10 +553,10 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source |
-| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2* , em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -566,10 +566,10 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
-| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2* , em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 ### <a name="word"></a>Word
@@ -583,7 +583,7 @@ Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não c
 
 **Parâmetro** 
 
-| Name | Obrigatório/repetição | Type | Observações |
+| Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Cadeia de caracteres** |Obrigatório |Atributo de valores múltiplos |Cadeia de caracteres da qual retornar uma palavra.|
 | **WordNumber** |Necessária | Inteiro | Número que identifica qual número de palavras deve retornar|
@@ -610,7 +610,7 @@ Você precisa retirar um nome de domínio conhecido do email de um usuário para
 **Entrada/saída de exemplo:** 
 
 * **INPUT** (mail): "john.doe@contoso.com"
-* **SAÍDA** : "davi.barros"
+* **SAÍDA**: "davi.barros"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Acrescentar sufixo constante ao nome de usuário
 Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescentar um sufixo adicional a todos os nomes de usuário antes de sincronizá-los.
@@ -620,8 +620,8 @@ Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescent
 
 **Entrada/saída de exemplo:** 
 
-* **INPUT** : (userPrincipalName): "John.Doe@contoso.com"
-* **Saída** : " John.Doe@contoso.com.test "
+* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
+* **Saída**: " John.Doe@contoso.com.test "
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar o alias de usuário concatenando partes do nome e do sobrenome
 Você precisa gerar um alias de usuário selecionando as três primeiras letras do nome do usuário e as cinco primeiras letras do sobrenome do usuário.
@@ -633,7 +633,7 @@ Você precisa gerar um alias de usuário selecionando as três primeiras letras 
 
 * **ENTRADA** (givenName): "Davi"
 * **ENTRADA** (sobrenome): "Barros"
-* **Saída** : "davibarros"
+* **Saída**: "davibarros"
 
 ### <a name="remove-diacritics-from-a-string"></a>Remover diacríticos de uma cadeia de caracteres
 Você precisa substituir caracteres que contenham os acentos por caracteres equivalentes que não contenham acentos.
@@ -643,7 +643,7 @@ Você precisa substituir caracteres que contenham os acentos por caracteres equi
 **Entrada/saída de exemplo:** 
 
 * **INPUT** (givenName): "Zoë"
-* **SAÍDA** :  "Zoe"
+* **SAÍDA**:  "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres em uma matriz de vários valores
 É necessário usar uma lista de cadeias de caracteres delimitada por vírgula e dividi-las em uma matriz que possa ser conectada a um atributo com vários valores, como o atributo PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi preenchida em extensionAttribute5 no Azure AD.
@@ -652,8 +652,8 @@ Você precisa substituir caracteres que contenham os acentos por caracteres equi
 
 **Entrada/saída de exemplo:** 
 
-* **Entrada** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
-* **SAÍDA** : ["PermissionSetOne", "PermissionSetTwo"]
+* **Entrada** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
+* **SAÍDA**: ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
 Você deseja enviar datas para um aplicativo SaaS em um determinado formato.  Por exemplo, você deseja formatar datas para o ServiceNow.
@@ -665,7 +665,7 @@ Você deseja enviar datas para um aplicativo SaaS em um determinado formato.  Po
 **Entrada/saída de exemplo:**
 
 * **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
-* **Saída** : "2015-01-23"
+* **Saída**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
 
@@ -677,7 +677,7 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 **Entrada/saída de exemplo:**
 
 * **ENTRADA** (estado): "QLD"
-* **SAÍDA** : "Australia/Brisbane"
+* **SAÍDA**: "Australia/Brisbane"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Substituir caracteres usando uma expressão regular
 É necessário localizar caracteres que correspondam a um valor de expressão regular e removê-los.
@@ -689,7 +689,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **Entrada/saída de exemplo:**
 
 * **ENTRADA** (mailNickname: "john_doe72"
-* **Saída** : "72"
+* **Saída**: "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor userPrincipalName (UPN) gerado em letras minúsculas
 No exemplo a seguir, o valor do UPN é gerado pela concatenação dos campos de origem PreferredFirstName e PreferredLastName, e a função ToLower opera na cadeia de caracteres gerada para converter todos os caracteres em letras minúsculas. 
@@ -700,7 +700,7 @@ No exemplo a seguir, o valor do UPN é gerado pela concatenação dos campos de 
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **Saída** : " john.smith@contoso.com "
+* **Saída**: " john.smith@contoso.com "
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
 Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar um valor para o atributo UPN e procure sua exclusividade no diretório de destino AD antes de atribuir o valor para o atributo UPN.
@@ -719,9 +719,9 @@ Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar u
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **Saída** : " John.Smith@contoso.com " se o valor UPN de John.Smith@contoso.com ainda não existir no diretório
-* **Saída** : " J.Smith@contoso.com " se o valor UPN John.Smith@contoso.com já existir no diretório
-* **Saída** : " Jo.Smith@contoso.com " se os dois valores UPN acima já existirem no diretório
+* **Saída**: " John.Smith@contoso.com " se o valor UPN de John.Smith@contoso.com ainda não existir no diretório
+* **Saída**: " J.Smith@contoso.com " se o valor UPN John.Smith@contoso.com já existir no diretório
+* **Saída**: " Jo.Smith@contoso.com " se os dois valores UPN acima já existirem no diretório
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>O valor do fluxo de email se não for nulo; caso contrário, flua userPrincipalName
 Você deseja fluir o atributo mail se ele estiver presente. Se não for, você deseja fluir o valor de userPrincipalName em vez disso.
@@ -733,7 +733,7 @@ Você deseja fluir o atributo mail se ele estiver presente. Se não for, você d
 
 * **Entrada** (email): nulo
 * **Entrada** (userPrincipalName): " John.Doe@contoso.com "
-* **Saída** : " John.Doe@contoso.com "
+* **Saída**: " John.Doe@contoso.com "
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md)

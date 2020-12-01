@@ -1,14 +1,14 @@
 ---
 title: Visão geral de modelos
-description: Descreve os benefícios que usam modelos de Azure Resource Manager para a implantação de recursos.
+description: Descreve os benefícios usando modelos de Azure Resource Manager (modelos ARM) para a implantação de recursos.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325053"
+ms.locfileid: "96342321"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
@@ -16,7 +16,7 @@ Com a mudança para a nuvem, muitas equipes adotaram métodos de desenvolvimento
 
 Para atender a esses desafios, você pode automatizar implantações e usar a prática da infraestrutura como código. No código, você define a infraestrutura que precisa ser implantada. O código de infraestrutura torna-se parte do seu projeto. Assim como o código do aplicativo, você armazena o código de infraestrutura em um repositório de origem e a versão. Qualquer um em sua equipe pode executar o código e implantar ambientes semelhantes.
 
-Para implementar a infraestrutura como código para suas soluções do Azure, use modelos de Azure Resource Manager (ARM). O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
+Para implementar a infraestrutura como código para suas soluções do Azure, use modelos de Azure Resource Manager (modelos ARM). O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
 ## <a name="why-choose-arm-templates"></a>Por que escolher modelos de ARM?
 

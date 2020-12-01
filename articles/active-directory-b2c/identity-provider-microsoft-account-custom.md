@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db81f8b60cf4883223f6fc084c19c8da1d07bc9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282d60b1894ffa186a6b5b6b5630aefa9e961572
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388095"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345126"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta Microsoft usando políticas personalizadas no Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Para habilitar a entrada de usuários com um conta Microsoft, é preciso registr
 1. Registre a **ID do Aplicativo (do cliente)** mostrada na página Visão Geral do aplicativo. Ela será necessária durante a configuração do provedor de declarações em uma seção posterior.
 1. Escolha **Certificados e Segredos**
 1. Clique em **Novo segredo do cliente**
-1. Insira uma **Descrição** para o segredo, por exemplo *Segredo do cliente do aplicativo MSA*e clique em **Adicionar**.
+1. Insira uma **Descrição** para o segredo, por exemplo *Segredo do cliente do aplicativo MSA* e clique em **Adicionar**.
 1. Registre a senha do aplicativo mostrada na coluna **Valor**. Você usará esse valor na próxima seção.
 
 ## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
@@ -100,7 +100,7 @@ Você pode definir o Azure AD como um provedor de declarações, adicionando o e
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Microsoft application client ID</Item>
           </Metadata>
           <CryptographicKeys>

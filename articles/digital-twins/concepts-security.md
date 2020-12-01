@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279895"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344140"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -24,7 +24,7 @@ O Azure digital gêmeos também dá suporte à criptografia de dados em repouso.
 
 O RBAC do Azure é fornecido para o gêmeos digital do Azure por meio da integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Você pode usar o Azure RBAC para conceder permissões a uma *entidade de segurança* , que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo Azure AD e recebe um token 2,0 do OAuth em retorno. Esse token pode ser usado para autorizar uma solicitação de acesso a uma instância do gêmeos digital do Azure.
+Você pode usar o Azure RBAC para conceder permissões a uma *entidade de segurança*, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo Azure AD e recebe um token 2,0 do OAuth em retorno. Esse token pode ser usado para autorizar uma solicitação de acesso a uma instância do gêmeos digital do Azure.
 
 ### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
@@ -93,7 +93,7 @@ Se um usuário tentar executar uma ação não permitida por sua função, ele p
 
 Uma **marca de serviço** representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte  [*marcas de rede virtual*](../virtual-network/service-tags-overview.md). 
 
-Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules)   ou no [Firewall do Azure](../firewall/service-tags.md), usando as marcas de serviço no lugar de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (nesse caso, **AzureDigitalTwins** ) no campo de *origem*   ou *destino* apropriado   de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. 
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules)   ou no [Firewall do Azure](../firewall/service-tags.md), usando as marcas de serviço no lugar de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (nesse caso, **AzureDigitalTwins**) no campo de *origem*   ou *destino* apropriado   de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. 
 
 Abaixo estão os detalhes da marca de serviço **AzureDigitalTwins** .
 
@@ -121,7 +121,7 @@ O Azure digital gêmeos fornece criptografia de dados em repouso e em trânsito 
 
 ## <a name="cross-origin-resource-sharing-cors"></a>CORS (Compartilhamento de Recursos entre Origens)
 
-O Azure digital gêmeos atualmente não dá suporte a **CORS (compartilhamento de recursos entre origens)**. Como resultado, se você estiver chamando uma API REST de um aplicativo de navegador, uma interface de [Gerenciamento de API (APIM)](../api-management/api-management-key-concepts.md) ou um conector de [aplicativos de energia](https://docs.microsoft.com/powerapps/powerapps-overview) , você poderá ver um erro de política.
+O Azure digital gêmeos atualmente não dá suporte a **CORS (compartilhamento de recursos entre origens)**. Como resultado, se você estiver chamando uma API REST de um aplicativo de navegador, uma interface de [Gerenciamento de API (APIM)](../api-management/api-management-key-concepts.md) ou um conector de [aplicativos de energia](/powerapps/powerapps-overview) , você poderá ver um erro de política.
 
 Para resolver esse erro, você pode fazer um dos seguintes:
 * Remova o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Esse cabeçalho indica se a resposta pode ser compartilhada. 

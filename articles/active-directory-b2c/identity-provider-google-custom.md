@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 91a55782492c1b2612652b147e0aca37941bf4db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 635e33223b054aafb1d91c217a44fdd6d9b369b9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388197"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345160"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Google usando políticas personalizadas no Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Este artigo mostra como habilitar a entrada para usuários com uma conta do Goog
 Para habilitar a entrada para usuários de uma conta do Google, você precisa criar um projeto de aplicativo do Google.
 
 1. Entre no [Console de Desenvolvedores do Google](https://console.developers.google.com/) com suas credenciais de conta.
-2. Insira um **Nome do Projeto**, clique em **Criar**e verifique se você está usando o novo projeto.
+2. Insira um **Nome do Projeto**, clique em **Criar** e verifique se você está usando o novo projeto.
 3. Selecione **Credenciais** no menu à esquerda e, em seguida, selecione **Criar credenciais > ID do cliente Oauth**.
 4. Selecione **Configurar tela de consentimento**.
 5. Selecione ou especifique um **endereço de Email** válido, forneça um **Nome do produto** mostrado aos usuários, insira `b2clogin.com` em **Domínios autorizados** e, em seguida, clique em **Salvar**.
@@ -84,7 +84,7 @@ Você pode definir uma conta do Google como um provedor de declarações, adicio
             <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
             <Item Key="scope">email profile</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Google application ID</Item>
           </Metadata>
           <CryptographicKeys>

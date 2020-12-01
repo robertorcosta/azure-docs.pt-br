@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 5b89126b837f9c197a8babf81abb17bfd98002e4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998653"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344990"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ Para definir os percursos do usuário com suporte da política, um elemento **Us
 
 O elemento **UserJourneys** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | UserJourney | 1:n | Um percurso do usuário que define todos os constructos necessários para um fluxo completo do usuário. |
 
@@ -41,7 +41,7 @@ O elemento **UserJourney** contém o seguinte atributo:
 
 O elemento **UserJourney** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1:n | Uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Cada percurso do usuário consiste de uma lista ordenada de etapas de orquestração que são executadas em sequência. Se alguma delas falhar, a transação falhará. |
 
@@ -55,7 +55,7 @@ Para especificar a lista ordenada de etapas de orquestração, um elemento **Orc
 
 O elemento **OrchestrationSteps** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1:n | Uma etapa de orquestração ordenada. |
 
@@ -70,7 +70,7 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 
 O elemento **OrchestrationStep** pode conter um dos seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Pré-condições | 0:n | Uma lista de pré-condições que devem ser atendidas para que a etapa de orquestração seja executada. |
 | ClaimsProviderSelections | 0:n | Uma lista de seleções do provedor de declarações para a etapa de orquestração. |
@@ -81,7 +81,7 @@ O elemento **OrchestrationStep** pode conter um dos seguintes elementos:
 
 O elemento **Preconditions** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Pré-condição | 1:n | Dependendo do perfil técnico usado, redireciona o cliente de acordo com a seleção do provedor de declarações ou faz uma chamada de servidor para trocar declarações. |
 
@@ -164,7 +164,7 @@ Uma etapa de orquestração do tipo `ClaimsProviderSelection` ou `CombinedSignIn
 
 O elemento **ClaimsProviderSelections** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 1:n | Fornece a lista de provedores de declarações que podem ser selecionados.|
 
@@ -172,7 +172,7 @@ O elemento **ClaimsProviderSelections** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| DisplayOption| No | Controla o comportamento de um caso em que uma única seleção de provedor de declarações está disponível. Valores possíveis:  `DoNotShowSingleProvider`   (padrão), o usuário é redirecionado imediatamente para o provedor de identidade federada. Ou  `ShowSingleProvider`   Azure ad B2C apresenta a página de entrada com a seleção de provedor de identidade única. Para usar esse atributo, a [versão de definição de conteúdo](page-layout.md) deve ser  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e acima.|
+| DisplayOption| No | Controla o comportamento de um caso em que uma única seleção de provedor de declarações está disponível. Valores possíveis: `DoNotShowSingleProvider` (padrão), o usuário é redirecionado imediatamente para o provedor de identidade federada. Ou `ShowSingleProvider` Azure ad B2C apresenta a página de entrada com a seleção de provedor de identidade única. Para usar esse atributo, a [versão de definição de conteúdo](page-layout.md) deve ser `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e acima.|
 
 O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 
@@ -222,7 +222,7 @@ Na etapa de orquestração a seguir, o usuário pode optar por entrar com o Face
 
 O elemento **ClaimsExchanges** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 1:n | Dependendo do perfil técnico usado, redireciona o cliente de acordo com a seleção do ClaimsProviderSelection ou faz uma chamada de servidor para trocar declarações. |
 
@@ -237,7 +237,7 @@ O elemento **ClaimsExchange** contém os seguintes atributos:
 
 O elemento **jornadalist** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Candidato | 1:1 | Uma referência a um sub jornada a ser chamado. |
 
