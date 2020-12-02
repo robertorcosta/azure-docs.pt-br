@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447193"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de treinamento
 
-Neste artigo, você aprenderá a configurar e a enviar Azure Machine Learning execuções para treinar seus modelos.
+Neste artigo, você aprenderá a configurar e a enviar Azure Machine Learning execuções para treinar seus modelos. Trechos de código explicam as principais partes da configuração e o envio de um script de treinamento.  Em seguida, use um dos [notebooks de exemplo](#notebooks) para encontrar os exemplos de trabalho completos de ponta a ponta.
 
 Ao treinar, é comum iniciar em seu computador local e, posteriormente, escalar horizontalmente para um cluster baseado em nuvem. Com o Azure Machine Learning, você pode executar o script em vários destinos de computação sem precisar alterar o script de treinamento.
 
@@ -38,10 +38,10 @@ Um [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?prese
 
 Você envia seu teste de treinamento com um objeto ScriptRunConfig.  Esse objeto inclui:
 
-* **source_directory** : o diretório de origem que contém o script de treinamento
-* **script** : o script de treinamento a ser executado
-* **compute_target** : o destino de computação para executar em
-* **ambiente** : o ambiente a ser usado ao executar o script
+* **source_directory**: o diretório de origem que contém o script de treinamento
+* **script**: o script de treinamento a ser executado
+* **compute_target**: o destino de computação para executar em
+* **ambiente**: o ambiente a ser usado ao executar o script
 * e algumas opções adicionais configuráveis (consulte a [documentação de referência](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para obter mais informações)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Treinar seu modelo
@@ -94,7 +94,7 @@ Para obter mais informações e detalhes sobre ambientes, consulte [criar & usar
   
 ### <a name="local-compute-target"></a><a name="local"></a>Destino de computação local
 
-Se o seu destino de computação for seu **computador local** , você será responsável por garantir que todos os pacotes necessários estejam disponíveis no ambiente do Python em que o script é executado.  Use o `python.user_managed_dependencies` para usar seu ambiente atual do Python (ou o Python no caminho que você especificar).
+Se o seu destino de computação for seu **computador local**, você será responsável por garantir que todos os pacotes necessários estejam disponíveis no ambiente do Python em que o script é executado.  Use o `python.user_managed_dependencies` para usar seu ambiente atual do Python (ou o Python no caminho que você especificar).
 
 ```python
 from azureml.core import Environment
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Para obter mais informações sobre instantâneos, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
-> **Pastas Especiais** Duas pastas, *produzem* e *logs* , recebem tratamento especial do Aprendizado de Máquina do Azure. Durante o treinamento, ao gravar arquivos em pastas denominadas *gera* e *logs* que são relativos ao diretório raiz (`./outputs` e `./logs`, respectivamente), os arquivos serão automaticamente Carregue o histórico de execução para que você tenha acesso a eles quando sua execução for concluída.
+> **Pastas Especiais** Duas pastas, *produzem* e *logs*, recebem tratamento especial do Aprendizado de Máquina do Azure. Durante o treinamento, ao gravar arquivos em pastas denominadas *gera* e *logs* que são relativos ao diretório raiz (`./outputs` e `./logs`, respectivamente), os arquivos serão automaticamente Carregue o histórico de execução para que você tenha acesso a eles quando sua execução for concluída.
 >
 > Para criar artefatos durante o treinamento (como arquivos de modelo, os pontos de verificação, arquivos de dados ou imagens plotadas) escreva para a pasta `./outputs`.
 >
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 Quando você inicia uma execução de treinamento em que o diretório de origem é um repositório Git local, as informações sobre o repositório são armazenadas no histórico de execuções. Para obter mais informações, confira [Integração do Git com o Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="notebook-examples"></a>Exemplos de notebook
+## <a name="notebook-examples"></a><a name="notebooks"></a>Exemplos de notebook
 
 Consulte estes blocos de anotações para obter exemplos de como configurar execuções para vários cenários de treinamento:
 * [Treinamento em vários destinos de computação](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

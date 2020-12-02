@@ -1,6 +1,6 @@
 ---
-title: Classificação de carga de trabalho
-description: Orientação para usar a classificação para gerenciar recursos de simultaneidade, importância e computação para consultas no Azure Synapse Analytics.
+title: Classificação de carga de trabalho para o pool SQL dedicado
+description: Orientação para usar a classificação para gerenciar a simultaneidade de consulta, a importância e os recursos de computação para o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf19e2d1674d0a0c2102280b28b5549505c1dfab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323869"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447772"
 ---
-# <a name="azure-synapse-analytics-workload-classification"></a>Classificação de carga de trabalho do Azure Synapse Analytics
+# <a name="workload-classification-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Classificação de carga de trabalho para o pool SQL dedicado no Azure Synapse Analytics
 
 Este artigo explica o processo de classificação de carga de trabalho de atribuição de um grupo de carga de trabalho e a importância para solicitações de entrada com pools SQL dedicados no Azure Synapse.
 
-## <a name="classification"></a>classificação
+## <a name="classification"></a>Classificação
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
@@ -36,7 +36,7 @@ Nem todas as instruções são classificadas, pois não exigem recursos ou preci
 
 ## <a name="classification-process"></a>Processo de classificação
 
-A classificação do pool SQL dedicado no Azure Synapse é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Com essa sintaxe, os usuários do pool do SQL dedicados podem atribuir importância e quantos recursos do sistema são atribuídos a uma solicitação por meio do `workload_group` parâmetro.
+A classificação do pool SQL dedicado é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Com essa sintaxe, os usuários do pool do SQL dedicados podem atribuir importância e quantos recursos do sistema são atribuídos a uma solicitação por meio do `workload_group` parâmetro.
 
 > [!NOTE]
 > A classificação é avaliada em uma base por solicitação. Várias solicitações em uma única sessão podem ser classificadas de forma diferente.

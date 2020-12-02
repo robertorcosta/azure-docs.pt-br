@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 55e5a587a0ad02fa1f8993027b46162a14a58832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318092"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448245"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurar o monitoramento em Azure Monitor para VMs integridade de convidado usando regras de coleta de dados (versão prévia)
 [Azure monitor para VMs integridade de convidado](vminsights-health-overview.md) permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão em várias máquinas virtuais usando regras de coleta de dados.
@@ -32,7 +32,7 @@ A tabela a seguir descreve as propriedades que podem ser configuradas em cada mo
 
 | Propriedade | Monitores | Descrição |
 |:---|:---|:---|
-| habilitado | Agregado<br>Unidade | Se for true, o monitor de estado será calculado e contribuirá para a integridade da máquina virtual. Ele pode disparar um alerta de alertas está habilitado. |
+| Habilitada | Agregado<br>Unidade | Se for true, o monitor de estado será calculado e contribuirá para a integridade da máquina virtual. Ele pode disparar um alerta de alertas está habilitado. |
 | Alertas | Agregado<br>Unidade | Se for true, um alerta será disparado para o monitor quando ele se mover para um estado não íntegro. Se for false, o estado do monitor continuará a contribuir para a integridade da máquina virtual que pode disparar um alerta. |
 | Aviso | Unidade | Critérios para o estado de aviso. Se nenhum, o monitor nunca vai inserir um estado de aviso. |
 | Crítico | Unidade | Critérios para o estado crítico. Se nenhum, o monitor nunca entrará em um estado crítico. |
@@ -47,11 +47,11 @@ A tabela a seguir descreve as propriedades que podem ser configuradas em cada mo
 A tabela a seguir lista a configuração padrão para cada monitor. Essa configuração padrão não pode ser alterada diretamente, mas você pode definir [substituições](#overrides) que modificarão a configuração do monitor para determinadas máquinas virtuais.
 
 
-| Monitoramento | habilitado | Alertas | Aviso | Crítico | Frequência de avaliação | Lookback | Tipo de avaliação | Exemplo mín. | Máximo de amostras |
+| Monitoramento | Habilitada | Alertas | Aviso | Crítico | Frequência de avaliação | Lookback | Tipo de avaliação | Exemplo mín. | Máximo de amostras |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Utilização da CPU  | True | Falso | Nenhum | \> 90%    | 60 s | 240 s | Mín | 2 | 3 |
-| Memória disponível | True | Falso | Nenhum | \< 100 MB | 60 s | 240 s | Max | 2 | 3 |
-| Sistema de arquivos      | True | Falso | Nenhum | \< 100 MB | 60 s | 120 s | Max | 1 | 1 |
+| Utilização da CPU  | Verdadeiro | Falso | Nenhum | \> 90%    | 60 s | 240 s | Mín | 2 | 3 |
+| Memória disponível | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 240 s | Max | 2 | 3 |
+| Sistema de arquivos      | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 120 s | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>Substituições
@@ -271,106 +271,8 @@ Define a lógica de comparação e limite para a condição crítica. Se esse el
 | `operator`  | No | Define o operador de comparação a ser usado na expressão de limite. Valores possíveis: >, <, >=, <=, = =. |
 
 ## <a name="sample-data-collection-rule"></a>Regra de coleta de dados de exemplo
-A regra de coleta de dados de exemplo a seguir mostra um exemplo de uma substituição para configurar o monitoramento.
+Para obter uma regra de coleta de dados de exemplo habilitando o monitoramento de convidado, consulte [habilitar uma máquina virtual usando o modelo do Resource Manager](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template).
 
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "defaultHealthDataCollectionRuleName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the data collection rule to create."
-      },
-      "defaultValue": "Microsoft-VMInsights-Health"
-    },
-    "destinationWorkspaceResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to store virtual machine health data."
-      }
-    },
-    "dataCollectionRuleLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "name": "[parameters('defaultHealthDataCollectionRuleName')]",
-      "location": "[parameters('dataCollectionRuleLocation')]",
-      "apiVersion": "2019-11-01-preview",
-      "properties": {
-        "description": "Data collection rule for VM Insights health.",
-        "dataSources": {
-          "performanceCounters": [
-              {
-                  "name": "VMHealthPerfCounters",
-                  "streams": [ "Microsoft-Perf" ],
-                  "scheduledTransferPeriod": "PT1M",
-                  "samplingFrequencyInSeconds": 60,
-                  "counterSpecifiers": [
-                      "\\LogicalDisk(*)\\% Free Space",
-                      "\\Memory\\Available Bytes",
-                      "\\Processor(_Total)\\% Processor Time"
-                  ]
-              }
-          ],
-          "extensions": [
-            {
-              "name": "Microsoft-VMInsights-Health",
-              "streams": [
-                "Microsoft-HealthStateChange"
-              ],
-              "extensionName": "HealthExtension",
-              "extensionSettings": {
-                "schemaVersion": "1.0",
-                "contentVersion": "",
-                "healthRuleOverrides": [
-                  {
-                    "scopes": [ "*" ],
-                    "monitors": ["root"],
-                    "alertConfiguration": {
-                      "isEnabled": true
-                    }
-                  }
-                ]
-              },
-              "inputDataSources": [
-                  "VMHealthPerfCounters"
-              ]
-
-            }
-          ]
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[parameters('destinationWorkspaceResourceId')]",
-              "name": "Microsoft-HealthStateChange-Dest"
-            }
-          ]
-        },                  
-        "dataFlows": [
-          {
-            "streams": [
-              "Microsoft-HealthStateChange"
-            ],
-            "destinations": [
-              "Microsoft-HealthStateChange-Dest"
-            ]
-          }
-        ]
-      }
-    }
-  ]
-}
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 

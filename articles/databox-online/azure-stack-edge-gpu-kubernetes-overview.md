@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636911"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448644"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes em seu dispositivo de GPU pro do Azure Stack Edge
 
@@ -106,7 +106,7 @@ Para obter mais informações sobre como implantar aplicativos no cluster kubern
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes e arco do Azure
 
-O Arc do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters kubernetes. O arco do Azure também permite que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é Azure-Arc habilitado kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Para obter informações sobre preços de arco do Azure, vá para [preços de arco do Azure](https://azure.microsoft.com/services/azure-arc/#pricing).
+O Arc do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters kubernetes. O arco do Azure também permite que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é Azure-Arc habilitado kubernetes?](../azure-arc/kubernetes/overview.md). Para obter informações sobre preços de arco do Azure, vá para [preços de arco do Azure](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## <a name="next-steps"></a>Próximas etapas

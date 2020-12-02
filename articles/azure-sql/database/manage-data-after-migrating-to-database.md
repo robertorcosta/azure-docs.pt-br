@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841216"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446125"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gerenciando o banco de dados SQL do Azure após a migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Você não cria backups no banco de dados SQL do Azure e isso ocorre porque voc�
 
 |Camada de serviço|Período de retenção em dias|
 |---|:---:|
-|Basic|7|
+|Básico|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -106,7 +106,7 @@ Há dois métodos de autenticação oferecidos no Banco de Dados SQL:
 
 Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD do Azure) é um serviço de gerenciamento de identidade e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. 
 
-O Azure AD dá suporte à [autenticação multifator do Azure ad](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) que o Azure AD pode ser integrado com o Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece um nome de usuário/senha e pode autenticar usuários em qualquer banco de dados em um determinado servidor. Isso também permite que o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam a autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
+O Azure AD dá suporte à [autenticação multifator do Azure ad](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) que o Azure AD pode ser integrado com o Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece um nome de usuário/senha e pode autenticar usuários em qualquer banco de dados em um determinado servidor. Isso também permite que o banco de dados SQL e o Azure Synapse Analytics ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
 
 |**Se você...**|**Banco de dados SQL/análise de Synapse do Azure**|
 |---|---|
@@ -172,7 +172,7 @@ Para proteger dados confidenciais em trânsito e em repouso, o Banco de Dados SQ
 |**Características**|**Always Encrypted**|**Criptografia de Dados Transparente**|
 |---|---|---|
 |**Expansão de criptografia**|Ponta a ponta|Dados em repouso|
-|**O servidor pode acessar dados confidenciais**|Não|Sim, desde que a criptografia seja para os dados em repouso|
+|**O servidor pode acessar dados confidenciais**|No|Sim, desde que a criptografia seja para os dados em repouso|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Toda a área de superfície do T-SQL está disponível|
 |**Alterações de aplicativo necessárias para usar o recurso**|Mínimo|Muito Mínimo|
 |**Granularidade de criptografia**|Nível de coluna|Nível de banco de dados|

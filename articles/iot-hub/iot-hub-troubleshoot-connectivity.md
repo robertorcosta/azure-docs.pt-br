@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506389"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446415"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorar, diagnosticar e solucionar problemas de desconexões com o Hub IoT
 
@@ -34,7 +34,7 @@ Em ambos os casos, esses recursos são limitados ao que o Hub IoT pode observar,
 
 ## <a name="event-grid-vs-azure-monitor"></a>Grade de eventos versus Azure Monitor
 
-A grade de eventos fornece uma solução de monitoramento de baixa latência por dispositivo que você pode usar para rastrear conexões de dispositivo para dispositivos e infraestruturas críticos. Azure Monitor fornece uma métrica, *dispositivos conectados* , que você pode usar para monitorar o número de dispositivos conectados ao seu hub IOT e disparar um alerta quando esse número cair abaixo de um limite estático.
+A grade de eventos fornece uma solução de monitoramento de baixa latência por dispositivo que você pode usar para rastrear conexões de dispositivo para dispositivos e infraestruturas críticos. Azure Monitor fornece uma métrica, *dispositivos conectados*, que você pode usar para monitorar o número de dispositivos conectados ao seu hub IOT e disparar um alerta quando esse número cair abaixo de um limite estático.
 
 Considere o seguinte ao decidir se deseja usar a grade de eventos ou Azure Monitor para um cenário específico:
 
@@ -58,7 +58,7 @@ Explore os tópicos a seguir para saber mais sobre como monitorar eventos de con
 
 * Para obter um tutorial sobre como ordenar eventos de conexão do dispositivo, consulte [solicitar eventos de conexão do dispositivo do Hub IOT do Azure usando Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* Para obter um tutorial sobre como enviar notificações por email, consulte [enviar notificações por email sobre eventos do Hub IOT do Azure usando a grade de eventos e aplicativos lógicos](/azure/event-grid/publish-iot-hub-events-to-logic-apps) na documentação da grade de eventos.
+* Para obter um tutorial sobre como enviar notificações por email, consulte [enviar notificações por email sobre eventos do Hub IOT do Azure usando a grade de eventos e aplicativos lógicos](../event-grid/publish-iot-hub-events-to-logic-apps.md) na documentação da grade de eventos.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: rotear eventos de conexão para logs
 
@@ -94,7 +94,7 @@ Depois de criar uma configuração de diagnóstico para rotear logs de recursos 
 
 1. Em **monitoramento** no painel esquerdo do Hub IOT, selecione **logs**.
 
-1. Para isolar os logs de erro de conectividade do Hub IoT, insira a seguinte consulta no editor de consultas e, em seguida, selecione **executar** :
+1. Para isolar os logs de erro de conectividade do Hub IoT, insira a seguinte consulta no editor de consultas e, em seguida, selecione **executar**:
 
     ```kusto
     AzureDiagnostics

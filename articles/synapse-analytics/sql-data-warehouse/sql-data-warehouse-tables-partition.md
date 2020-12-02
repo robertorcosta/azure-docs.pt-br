@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314502"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448018"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Particionando tabelas no pool SQL dedicado
 
@@ -30,7 +30,7 @@ O particionamento pode melhorar o desempenho da consulta e a manutenção de dad
 
 ### <a name="benefits-to-loads"></a>Benefícios para cargas
 
-O principal benefício do particionamento no pool dedicado do SQL é melhorar a eficiência e o desempenho do carregamento de dados por meio do uso de exclusão de partição, troca e mesclagem. Na maioria dos casos, os dados são particionados em uma coluna de data que está intimamente ligada à ordem em que os dados são carregados no banco de dados. Um dos maiores benefícios do uso de partições para manter dados é a eliminação do log de transações. Embora a simples inserção, atualização ou exclusão de dados possa ser a abordagem mais simples, com um pouco de empenho, o uso de particionamento durante o processo de carregamento pode melhorar consideravelmente o desempenho.
+O principal benefício do particionamento no pool dedicado do SQL é melhorar a eficiência e o desempenho do carregamento de dados por meio do uso de exclusão de partição, troca e mesclagem. Na maioria dos casos, os dados são particionados em uma coluna de data que está fortemente ligada à ordem na qual os dados são carregados no pool do SQL. Um dos maiores benefícios do uso de partições para manter dados é a eliminação do log de transações. Embora a simples inserção, atualização ou exclusão de dados possa ser a abordagem mais simples, com um pouco de empenho, o uso de particionamento durante o processo de carregamento pode melhorar consideravelmente o desempenho.
 
 A alternância de partição pode ser usada para remover ou substituir uma seção de uma tabela rapidamente.  Por exemplo, uma tabela de fatos de vendas pode conter apenas dados dos últimos 36 meses. No final de cada mês, o mês de dados de vendas mais antigo é excluído da tabela.  Esses dados poderiam ser excluídos usando uma instrução delete para excluir os dados do mês mais antigo. 
 
@@ -48,7 +48,7 @@ Embora o particionamento possa ser usado para melhorar o desempenho de alguns ce
 
 Para que o particionamento seja útil, é importante entender quando usar o particionamento e o número de partições a serem criadas. Não há uma regra rígida quanto à quantidade de partições que são muitas, isso depende dos seus dados e de quantas partições você carrega simultaneamente. Um esquema de particionamento bem sucedido geralmente tem dezenas a centenas de partições, não milhares.
 
-Ao criar partições em tabelas **columnstore clusterizadas** , é importante considerar quantas linhas pertencem a cada partição. Para compactação e desempenho ideais de tabelas columnstore clusterizadas, é necessário um mínimo de um milhão de linhas por distribuição, e também é necessário haver partição. Antes que as partições sejam criadas, o pool SQL dedicado já divide cada tabela em bancos de dados distribuídos 60. 
+Ao criar partições em tabelas **columnstore clusterizadas**, é importante considerar quantas linhas pertencem a cada partição. Para compactação e desempenho ideais de tabelas columnstore clusterizadas, é necessário um mínimo de um milhão de linhas por distribuição, e também é necessário haver partição. Antes que as partições sejam criadas, o pool SQL dedicado já divide cada tabela em bancos de dados distribuídos 60. 
 
 O particionamento adicionado a uma tabela é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de fatos de vendas contiver 36 partições mensais e, Considerando que um pool SQL dedicado tem distribuições de 60, a tabela de fatos de vendas deverá conter 60 milhões linhas por mês ou 2.100.000.000 linhas quando todos os meses forem preenchidos. Se uma tabela possuir menos linhas do que o mínimo recomendado, considere usar menos partições para aumentar o número de linhas por partição. 
 
@@ -355,7 +355,7 @@ Para evitar a definição da tabela de **rusting** em seu sistema de controle de
     DROP TABLE #partitions;
     ```
 
-Com essa abordagem, o código no controle do código-fonte permanece estático e os valores de limite de particionamento podem ser dinâmicos; evoluindo com o banco de dados ao longo do tempo.
+Com essa abordagem, o código no controle do código-fonte permanece estático e os valores de limite de particionamento podem ser dinâmicos; evoluindo com o pool SQL ao longo do tempo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

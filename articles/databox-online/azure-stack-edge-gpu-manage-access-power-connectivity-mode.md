@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532436"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448587"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gerenciar o acesso, a energia e o modo de conectividade para sua GPU pro do Azure Stack Edge
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para seu Azure Stack Edge pro com o dispositivo de GPU. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
+
+Este artigo aplica-se a Azure Stack Edge pro GPU, Azure Stack borda pro R e Azure Stack dispositivos mini R do Edge.
+
 
 Neste artigo, você aprenderá como:
 
@@ -31,6 +34,8 @@ Neste artigo, você aprenderá como:
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
 O acesso ao seu dispositivo Azure Stack Edge pro é controlado pelo uso de uma senha de dispositivo. Você pode alterar a senha por meio da interface do usuário da Web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
+
+O acesso aos dados nos discos do dispositivo também é controlado por chaves de criptografia em repouso.
 
 ### <a name="change-device-password"></a>Alterar a senha de dispositivo
 
@@ -54,6 +59,40 @@ O fluxo de trabalho de redefinição não exige que o usuário recupere a senha 
 
 2. Digite a nova senha e confirme-a. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Selecione **Restaurar**.
 
+    ![Redefinir senha 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>Gerenciar o acesso aos dados do dispositivo
+
+Para os dispositivos do Azure Stack Edge pro R e Azure Stack mini-R Edge, o acesso aos dados do dispositivo é controlado usando chaves de criptografia em repouso para as unidades de dispositivo. Depois de configurar com êxito o dispositivo para criptografia em repouso, a opção girar chaves de criptografia em repouso fica disponível na interface do usuário local do dispositivo. 
+
+Essa operação permite alterar as chaves para volumes do BitLocker `HcsData` e `HcsInternal` todas as unidades de criptografia automática em seu dispositivo.
+
+Siga estas etapas para girar as chaves de criptografia em repouso.
+
+1. Na interface do usuário local do dispositivo, vá para a página de **introdução** . No bloco **segurança** , selecione **criptografia em repouso: opção teclas de rotação** . Essa opção só estará disponível depois que você tiver configurado com êxito as chaves de criptografia em repouso.
+
+    ![Selecionar teclas de rotação para criptografia em repouso na página de introdução](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. Você pode usar suas próprias chaves do BitLocker ou usar as chaves geradas pelo sistema.  
+
+    Para fornecer sua própria chave, insira uma cadeia de caracteres com codificação de base 64 de 32 caracteres. A entrada é semelhante ao que você forneceria ao configurar a criptografia em repouso pela primeira vez.
+
+    ![Traga sua própria chave de criptografia em repouso](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    Você também pode optar por usar uma chave gerada pelo sistema.
+
+    ![Usar a chave de criptografia em repouso gerada pelo sistema](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Selecione **Aplicar**. Os protetores de chave são girados.
+
+    ![Aplicar a nova chave de criptografia em repouso](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. Quando for solicitado a baixar e salvar o arquivo de chave, selecione **baixar e continuar**. 
+
+    ![Baixar e continuar o arquivo de chave](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Salve o `.json` arquivo de chave em um local seguro. Esse arquivo é usado para facilitar uma possível recuperação futura do dispositivo.
+
     ![Captura de tela mostra a caixa de diálogo Redefinir senha do dispositivo.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerenciar o acesso de recursos
@@ -69,7 +108,7 @@ Ao gerar a chave de ativação para o Azure Stack dispositivo pro Edge ou execut
 
 Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de fazer isso `Read all directory objects` . Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects` . Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento no dispositivo Azure Stack Edge pro, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
 
-Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registrar provedores de recursos
 

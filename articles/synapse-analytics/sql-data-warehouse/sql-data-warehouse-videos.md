@@ -11,16 +11,16 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eaf41e903f1a55dd85c6b6282617564a32087707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320991"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447812"
 ---
-# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Análise de Synapse do Azure – vídeos dedicados do pool SQL
+# <a name="azure-synapse-analytics---dedicated-sql-pool--formerly-sql-dw-videos"></a>Análise do Azure Synapse – vídeos do pool dedicado do SQL (anteriormente conhecido como SQL DW)
 
-Assista aos vídeos mais recentes do pool do SQL dedicado para saber mais sobre os novos recursos e melhorias de desempenho. 
+Assista aos vídeos mais recentes do pool de SQL dedicado (anteriormente conhecido como SQL DW) para saber mais sobre os novos recursos e melhorias de desempenho. 
 
 Para começar, selecione o vídeo de visão geral abaixo para saber mais sobre as novas atualizações para o pool SQL dedicado. Além disso, saiba como os padrões de data warehouse modernos podem ser usados para lidar com cenários do mundo real, como crime cibernético.
 </br>
