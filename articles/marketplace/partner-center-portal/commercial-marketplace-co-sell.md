@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 10/28/2020
-ms.openlocfilehash: 2a648b4f4c614fc64fa7817102215720e51abe7f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d303a5d5b9779a2003b12d063c97c36a90576dd3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095587"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456624"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
 
@@ -83,10 +83,10 @@ Você pode fornecer seus contatos baixando o modelo CSV do Partner Center, preen
 
 Você também pode exportar sua lista existente de contatos de uma oferta e, em seguida, fazer alterações nesse arquivo.
 
-* *Nome (obrigatório)* : o nome do contato.
-* *Endereço de email (obrigatório)* : o endereço de email do contato.
-* Cargo *(obrigatório)* : título do trabalho.
-* *Função (obrigatório)* : Use qualquer uma das funções a seguir.
+* *Nome (obrigatório)*: o nome do contato.
+* *Endereço de email (obrigatório)*: o endereço de email do contato.
+* Cargo *(obrigatório)*: título do trabalho.
+* *Função (obrigatório)*: Use qualquer uma das funções a seguir.
 
     | **Função**    | **Descrição**  |
     | :------------------- | :-------------------|
@@ -108,7 +108,7 @@ O diagrama de arquitetura de referência é um modelo que representa a infraestr
 
 O documento pode ser criado por meio de várias ferramentas. Recomendamos o Microsoft Visio, pois ele tem vários estênceis que descrevem os modelos de arquitetura do Azure.
 
-Um ponto de partida útil para criar diagramas de arquitetura de referência é aproveitar os [modelos de arquitetura do Azure](https://docs.microsoft.com/azure/architecture/browse/).
+Um ponto de partida útil para criar diagramas de arquitetura de referência é aproveitar os [modelos de arquitetura do Azure](/azure/architecture/browse/).
 
 ### <a name="typical-components-of-a-reference-architecture-diagram"></a>Componentes típicos de um diagrama de arquitetura de referência
 - Serviços de nuvem que hospedam e interagem com sua oferta, incluindo aqueles que geram consumo do Azure

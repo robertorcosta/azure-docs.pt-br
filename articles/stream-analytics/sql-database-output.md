@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129823"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459236"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Saída do banco de dados SQL do Azure de Azure Stream Analytics
 
@@ -35,11 +35,11 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 |Herdar esquema de partição| Uma opção para herdar o esquema de partição da etapa da sua consulta anterior para possibilitar uma topologia totalmente paralela com vários gravadores na tabela. Para obter mais informações, confira [Saída do Azure Stream Analytics para Banco de Dados SQL do Azure](stream-analytics-sql-output-perf.md).|
 |Contagem máxima do lote| O limite máximo recomendado do número de registros enviados com cada transação de inserção em massa.|
 
-Há dois adaptadores que permitem a saída do Azure Stream Analytics para o Azure Synapse Analytics (anteriormente SQL Data Warehouse): Banco de Dados SQL e Azure Synapse. Recomendamos que você escolha o adaptador do Azure Synapse Analytics em vez do adaptador do banco de dados SQL se qualquer uma das condições a seguir for verdadeira:
+Há dois adaptadores que permitem a saída de Azure Stream Analytics para o Azure Synapse Analytics: banco de dados SQL e Azure Synapse. Recomendamos que você escolha o adaptador do Azure Synapse Analytics em vez do adaptador do banco de dados SQL se qualquer uma das condições a seguir for verdadeira:
 
-* **Taxa de transferência** : se a taxa de transferência esperada agora ou no futuro for maior que 10 MB/s, use a opção de saída do Azure Synapse para melhorar o desempenho.
+* **Taxa de transferência**: se a taxa de transferência esperada agora ou no futuro for maior que 10 MB/s, use a opção de saída do Azure Synapse para melhorar o desempenho.
 
-* **Partições de entrada** : caso tenha oito ou mais partições de entrada, use a opção de saída do Azure Synapse para uma expansão melhor.
+* **Partições de entrada**: caso tenha oito ou mais partições de entrada, use a opção de saída do Azure Synapse para uma expansão melhor.
 
 ## <a name="partitioning"></a>Particionamento
 
@@ -47,7 +47,7 @@ O particionamento precisa ser habilitado e baseado na cláusula PARTITION BY na 
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Você pode configurar o tamanho máximo da mensagem usando a **contagem máxima de lotes** . O máximo padrão é 10.000 e o mínimo padrão é 100 linhas por inserção em massa única. Para obter mais informações, consulte [limites do SQL do Azure](../azure-sql/database/resource-limits-logical-server.md). Inicialmente, cada lote é inserido em massa com a contagem máxima de lotes. O lote é dividido na metade (até a contagem de lote mínima) com base em erros de nova tentativa do SQL.
+Você pode configurar o tamanho máximo da mensagem usando a **contagem máxima de lotes**. O máximo padrão é 10.000 e o mínimo padrão é 100 linhas por inserção em massa única. Para obter mais informações, consulte [limites do SQL do Azure](../azure-sql/database/resource-limits-logical-server.md). Inicialmente, cada lote é inserido em massa com a contagem máxima de lotes. O lote é dividido na metade (até a contagem de lote mínima) com base em erros de nova tentativa do SQL.
 
 ## <a name="next-steps"></a>Próximas etapas
 

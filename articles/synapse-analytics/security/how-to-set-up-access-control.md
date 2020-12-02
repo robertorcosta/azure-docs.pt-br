@@ -1,5 +1,5 @@
 ---
-title: Proteger seu workspace do Synapse (versão prévia)
+title: Proteja seu espaço de trabalho do Synapse
 description: Este artigo ensinará como usar funções e o controle de acesso para controlar atividades e o acesso a dados no workspace do Synapse.
 services: synapse-analytics
 author: matt1883
@@ -9,20 +9,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556022"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458715"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteger seu workspace do Synapse (versão prévia) 
+# <a name="secure-your-synapse-workspace"></a>Proteja seu espaço de trabalho do Synapse 
 
 Este artigo ensinará como usar funções e o controle de acesso para controlar as atividades e o acesso a dados. Seguindo essas instruções, o controle de acesso no Azure Synapse Analytics é simplificado. Você só precisa adicionar usuários a um dos três grupos de segurança e removê-los de lá.
 
 ## <a name="overview"></a>Visão geral
 
-Para proteger um workspace do Synapse (versão prévia), você seguirá um padrão de configuração dos seguintes itens:
+Para proteger um espaço de trabalho do Synapse, você seguirá um padrão de configuração dos seguintes itens:
 
 - Funções do Azure (como as internas, por exemplo, Proprietário, Colaborador etc.)
 - Funções do Synapse – essas funções são exclusivas do Synapse e não são baseadas em funções do Azure. Há três dessas funções:
@@ -96,7 +96,7 @@ O workspace do Synapse precisa de acesso ao STG1 e CNT1 para que possa executar 
 
 - Abrir o portal do Azure
 - Navegar até WS1
-- Em **configurações** , selecione **administrador do SQL Active Directory**
+- Em **configurações**, selecione **administrador do SQL Active Directory**
 - Selecione **definir administrador** e escolha WS1 \_ sqladmins
 
 ## <a name="step-6-maintain-access-control"></a>ETAPA 6: manter o controle de acesso

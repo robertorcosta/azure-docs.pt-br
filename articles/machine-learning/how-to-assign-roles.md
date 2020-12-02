@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 8af3da5d04f9aaafc18299f4837660694ee34b51
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0719f2d9200741798c798aca4b4196812f1229c9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345262"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458443"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a gerenciar o acesso (autorização) a um espaço
 >
 > * [Controlar o acesso aos recursos do cluster kubernetes do Azure](../aks/azure-ad-rbac.md)
 > * [Usar o RBAC do Azure para autorização kubernetes](../aks/manage-azure-rbac.md)
-> * [Usar o RBAC do Azure para acessar dados de BLOB](/azure/storage/common/storage-auth-aad-rbac-portal)
+> * [Usar o RBAC do Azure para acessar dados de BLOB](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > A aplicação de algumas funções pode limitar a funcionalidade da interface do usuário no Azure Machine Learning Studio para outros usuários. Por exemplo, se a função de um usuário não tiver a capacidade de criar uma instância de computação, a opção de criar uma instância de computação não estará disponível no estúdio. Esse comportamento é esperado e impede que o usuário tente operações que retornariam um erro de acesso negado.

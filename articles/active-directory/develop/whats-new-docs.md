@@ -5,22 +5,36 @@ description: Documentação nova e atualizada para a plataforma de identidade da
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322562"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457151"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos da plataforma Microsoft Identity: o que há de novo
 
 Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="new-articles"></a>Novos artigos
+
+- [Como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](app-resilience-continuous-access-evaluation.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Tokens de acesso da plataforma de identidade da Microsoft](access-tokens.md)
+- [Opções de configuração de aplicativo (MSAL)](msal-client-application-configuration.md)
+- [Como: fornecer declarações opcionais para seu aplicativo](active-directory-optional-claims.md)
+- [Publicar seu aplicativo na Galeria de aplicativos do Azure AD](v2-howto-app-gallery-listing.md)
+- [Como: adicionar funções de aplicativo ao seu aplicativo e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -67,23 +81,3 @@ Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity.
 - [Início Rápido: Configurar um aplicativo cliente para acessar uma API Web](quickstart-configure-app-access-web-apis.md)
 - [Início Rápido: Configurar um aplicativo para expor uma API Web](quickstart-configure-app-expose-web-apis.md)
 - [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md)
-
-## <a name="august-2020"></a>Agosto de 2020
-
-### <a name="new-articles"></a>Novos artigos
-
-- [Migrar aplicativos Android que usam um agente de ADAL.NET para MSAL.NET](msal-net-migration-android-broker.md)
-- [Tratar exceções e erros no MSAL para Android](msal-android-handling-exceptions.md)
-
-### <a name="updated-articles"></a>Artigos atualizados
-
-- [Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET](msal-net-migration-ios-broker.md)
-- [Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin](msal-net-use-brokers-with-xamarin-apps.md)
-- [Requisitos de configuração e dicas de solução de problemas para o Xamarin Android com MSAL.NET](msal-net-xamarin-android-considerations.md)
-- [Configurar um aplicativo móvel que chama APIs da Web](scenario-mobile-app-configuration.md)
-- [Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)](active-directory-claims-mapping.md)
-- [Credenciais de certificado de autenticação do aplicativo da plataforma de identidade da Microsoft](active-directory-certificate-credentials.md)
-- [Restrições e limitações do URI de redirecionamento (URL de resposta)](reply-url.md)
-- [Início Rápido: Configurar um aplicativo para expor uma API Web](quickstart-configure-app-expose-web-apis.md)
-- [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
-- [Início Rápido: Chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft](quickstart-v2-dotnet-native-aspnet.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ca167a2ae313c29581d40fe921a8742b9b6b61fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 983b1a5e024a44733fab418a67375f232e66cfe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686048"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457163"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -46,7 +46,7 @@ Um ClusterRole funciona da mesma forma para conceder permissões para recursos, 
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings e ClusterRoleBindings
 
-Depois que as funções são definidas para conceder permissões a recursos, você atribui essas permissões de RBAC Kubernetes com um *RoleBinding*. Se o seu cluster AKS se [integrar com o Azure Active Directory](#azure-active-directory-integration), as associações serão como esses usuários do Azure ad recebem permissões para executar ações no cluster, consulte como [controlar o acesso a recursos de cluster usando o controle de acesso baseado em função kubernetes e identidades de Azure Active Directory](azure-ad-rbac.md).
+Depois que as funções são definidas para conceder permissões a recursos, você atribui essas permissões de RBAC Kubernetes com um *RoleBinding*. Se o cluster AKS se [integrar com o Azure Active Directory (Azure AD)](#azure-active-directory-integration), as associações serão como esses usuários do Azure ad recebem permissões para executar ações no cluster, consulte como [controlar o acesso a recursos de cluster usando o controle de acesso baseado em função kubernetes e identidades de Azure Active Directory](azure-ad-rbac.md).
 
 Associações de função são usadas para atribuir funções para um namespace específico. Essa abordagem permite separar logicamente um único cluster AKS, com os usuários que só odem acessar os recursos do aplicativo em seu namespace atribuído. Se você precisar conceder permissões em todo o cluster ou a recursos de cluster fora de um namespace específico, você pode usar *ClusterRoles*.
 
@@ -144,6 +144,22 @@ O AKS fornece as quatro funções internas a seguir. Eles são semelhantes às [
 | Administrador de cluster do RBAC do serviço kubernetes do Azure  | Permite o acesso de superusuário para executar qualquer ação em qualquer recurso. Ele fornece controle total sobre cada recurso no cluster e em todos os namespaces. |
 
 **Para saber como habilitar o RBAC do Azure para autorização de kubernetes, [Leia aqui](manage-azure-rbac.md).**
+
+## <a name="summary"></a>Resumo
+
+Esta tabela resume as maneiras como os usuários podem se autenticar no kubernetes quando a integração do Azure AD está habilitada.  Em todos os casos, a sequência de comandos do usuário é:
+1. Execute `az login` para autenticar no Azure.
+1. Execute `az aks get-credentials` para baixar as credenciais do cluster no `.kube/config` .
+1. Executar `kubectl` comandos (o primeiro deles pode disparar a autenticação baseada em navegador para autenticar no cluster, conforme descrito na tabela a seguir).
+
+A concessão de função referida na segunda coluna é a concessão de função do RBAC do Azure mostrada na guia **controle de acesso** na portal do Azure. O grupo administrador do cluster do Azure AD é mostrado na guia **configuração** no portal (ou com o nome `--aad-admin-group-object-ids` do parâmetro no CLI do Azure).
+
+| Descrição        | Concessão de função necessária| Grupo (s) do Azure AD de administrador do cluster | Quando usar |
+| -------------------|------------|----------------------------|-------------|
+| Logon de administrador herdado usando o certificado do cliente| **Função de administrador de kubernetes do Azure**. Essa função permite que `az aks get-credentials` seja usada com o `--admin` sinalizador, que baixa um [certificado de administrador de cluster herdado (não Azure AD)](control-kubeconfig-access.md) para o usuário `.kube/config` . Essa é a única finalidade da "função de administrador de kubernetes do Azure".|N/D|Se você estiver permanentemente bloqueado por não ter acesso a um grupo válido do Azure AD com acesso ao seu cluster.| 
+| Azure AD com RoleBindings manual (cluster)| **Função de usuário kubernetes do Azure**. A função "usuário" permite que `az aks get-credentials` seja usada sem o `--admin` sinalizador. (Essa é a única finalidade da "função de usuário kubernetes do Azure".) O resultado, em um cluster habilitado para Azure AD, é o download de [uma entrada vazia](control-kubeconfig-access.md) no `.kube/config` , que dispara a autenticação baseada em navegador quando é usado pela primeira vez pelo `kubectl` .| O usuário não está em nenhum desses grupos. Como o usuário não está em nenhum grupo de administração de cluster, seus direitos serão controlados inteiramente por qualquer RoleBindings ou ClusterRoleBindings que tenha sido configurado pelos administradores de cluster. O (cluster) RoleBindings indica [usuários do Azure ad ou grupos do Azure ad](azure-ad-rbac.md) como seu `subjects` . Se nenhuma dessas associações tiver sido configurada, o usuário não poderá excute nenhum `kubectl` comando.|Se você quiser um controle de acesso refinado e não estiver usando o RBAC do Azure para autorização kubernetes. Observe que o usuário que configura as associações deve fazer logon por um dos outros métodos listados nesta tabela.|
+| Azure AD por membro do grupo de administradores| O mesmo que o descrito acima|O usuário é um membro de um dos grupos listados aqui. O AKS gera automaticamente um ClusterRoleBinding que associa todos os grupos listados à `cluster-admin` função kubernetes. Portanto, os usuários nesses grupos podem executar todos os `kubectl` comandos como `cluster-admin` .|Se você quiser conceder convenientemente aos usuários direitos de administrador completo e _não_ estiver usando o RBAC do Azure para autorização kubernetes.|
+| Azure AD com o Azure RBAC para autorização de kubernetes|Duas funções: primeiro, **função de usuário kubernetes do Azure** (como acima). Em segundo lugar, um dos "serviços de kubernetes do Azure **RBAC**..." funções listadas acima ou sua própria alternativa personalizada.|O campo funções de administrador na guia configuração é irrelevante quando o RBAC do Azure para autorização kubernetes está habilitado.|Você está usando o RBAC do Azure para autorização kubernetes. Essa abordagem oferece um controle refinado, sem a necessidade de configurar RoleBindings ou ClusterRoleBindings.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023239"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458101"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
@@ -47,9 +47,9 @@ Na janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, use
 
 Selecione *Room.json* para abri-lo na janela de edição e altere-o das seguintes maneiras:
 
-* **Atualizar o número de versão**, de modo a indicar que você está fornecendo uma versão mais atualizada do modelo. Faça isso alterando o *1* no final do valor `@id` para *2*. Qualquer número maior que o da versão atual também funcionará.
-* **Editar uma propriedade**. Altere o nome da propriedade `Humidity` para *HumidityLevel* (ou algo diferente, se desejar. Se usar algo diferente de *HumidityLevel*, lembre-se do que você usou e continue usando o mesmo nome em vez de *HumidityLevel* ao longo do tutorial).
-* **Adicionar uma propriedade**. Abaixo da propriedade `HumidityLevel` que termina na linha 15, cole o código a seguir para adicionar uma propriedade `RoomName` à sala:
+1. **Atualizar o número de versão**, de modo a indicar que você está fornecendo uma versão mais atualizada do modelo. Faça isso alterando o *1* no final do valor `@id` para *2*. Qualquer número maior que o da versão atual também funcionará.
+1. **Editar uma propriedade**. Altere o nome da propriedade `Humidity` para *HumidityLevel* (ou algo diferente, se desejar. Se usar algo diferente de *HumidityLevel*, lembre-se do que você usou e continue usando o mesmo nome em vez de *HumidityLevel* ao longo do tutorial).
+1. **Adicionar uma propriedade**. Abaixo da propriedade `HumidityLevel` que termina na linha 15, cole o código a seguir para adicionar uma propriedade `RoomName` à sala:
 
     ```json
     ,
@@ -59,13 +59,13 @@ Selecione *Room.json* para abri-lo na janela de edição e altere-o das seguinte
       "schema": "string"
     }
     ```
-* **Adicionar uma relação**. Abaixo da propriedade `RoomName` que você acabou de adicionar, cole o código a seguir para adicionar a capacidade desse tipo de gêmeo de gerar relações do tipo *contains* com outros gêmeos:
+1. **Adicionar uma relação**. Abaixo da propriedade `RoomName` que você acabou de adicionar, cole o código a seguir para adicionar a capacidade desse tipo de gêmeo de gerar relações do tipo *contains* com outros gêmeos:
 
     ```json
     ,
     {
       "@type": "Relationship",
-      "name": "contains",
+      "name": "contains"
     }
     ```
 

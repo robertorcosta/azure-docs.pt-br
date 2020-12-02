@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados com Apache Spark
+title: Visualizar os dados com o Apache Spark
 description: Crie visualizações de dados ricas usando o Apache Spark e os blocos de anotações do Azure Synapse Analytics
 services: synapse-analytics
 author: midesa
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919374"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458768"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analisar dados com Apache Spark
 
@@ -99,7 +99,7 @@ Além das opções internas de gráficos do bloco de anotações, você também 
 
 > [!Note]
 > 
-> Por padrão, cada pool de Apache Spark do Azure Synapse Analytics contém um conjunto de bibliotecas padrão usadas com frequência. Você pode exibir a lista completa de bibliotecas no [tempo de execução do Synapse do Azure](../spark/apache-spark-version-support.md). online. Além disso, para disponibilizar códigos de terceiros ou criados localmente para seus aplicativos, você pode [instalar uma biblioteca](../spark/apache-spark-azure-portal-add-libraries.md) em um dos pools do Spark (versão prévia).
+> Por padrão, cada pool de Apache Spark do Azure Synapse Analytics contém um conjunto de bibliotecas padrão usadas com frequência. Você pode exibir a lista completa de bibliotecas no [tempo de execução do Synapse do Azure](../spark/apache-spark-version-support.md). online. Além disso, para disponibilizar códigos de terceiros ou criados localmente para seus aplicativos, você pode [instalar uma biblioteca](../spark/apache-spark-azure-portal-add-libraries.md) em um de seus pools do Spark.
 >
 
 1. Para tornar o desenvolvimento mais fácil e menos dispendioso, vamos reduzir o exemplo do conjunto de os. Usaremos o recurso interno de amostragem de Apache Spark. Além disso, o manascido e o matplotlib exigem uma matriz de dataframe do pandas ou numpy. Para obter um dataframe do pandas, usaremos o ```toPandas()``` comando para converter nosso dataframe.

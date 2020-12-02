@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas para o pool SQL sem servidor (visualização)
-description: Recomendações e práticas recomendadas para trabalhar com o pool SQL sem servidor (visualização).
+title: Melhores práticas do pool de SQL sem servidor
+description: Recomendações e práticas recomendadas para trabalhar com o pool SQL sem servidor.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638862"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457896"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Práticas recomendadas para o pool SQL sem servidor (visualização) no Azure Synapse Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Práticas recomendadas para o pool SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você encontrará uma coleção de práticas recomendadas para usar o pool SQL sem servidor (visualização). O pool SQL sem servidor é um recurso no Azure Synapse Analytics.
+Neste artigo, você encontrará uma coleção de práticas recomendadas para usar o pool SQL sem servidor. O pool SQL sem servidor é um recurso no Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Considerações gerais
 
@@ -61,7 +61,7 @@ Os tipos de dados usados na consulta afetam o desempenho. Obtenha um melhor dese
 - Usar o menor tamanho de dados que acomodará o maior valor possível.
   - Se o comprimento máximo do valor de caracteres for de 30 caracteres, use um tipo de dados de caractere de comprimento 30.
   - Se todos os valores de coluna de caracteres forem de tamanho fixo, use **char** ou **nchar**. Caso contrário, use **varchar** ou **nvarchar**.
-  - Se o valor máximo inteiro da coluna for 500, use **smallint** , pois é o menor tipo de dados que pode acomodar esse valor. Encontre os intervalos de tipo de dados inteiro [neste artigo](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+  - Se o valor máximo inteiro da coluna for 500, use **smallint**, pois é o menor tipo de dados que pode acomodar esse valor. Encontre os intervalos de tipo de dados inteiro [neste artigo](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - Se possível, use **varchar** e **char** em vez de **nvarchar** e **nchar**.
 - Use tipos de dados baseados em inteiro, se possível. As operações SORT, JOIN e GROUP são concluídas mais rapidamente em dados do tipo inteiro do que em dados de caracteres.
 - Se você estiver usando a inferência de esquema, [verifique os tipos de dados inferidos](#check-inferred-data-types).
@@ -129,7 +129,7 @@ Você pode usar um analisador otimizado para desempenho ao consultar arquivos CS
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Criar manualmente estatísticas para arquivos CSV
 
-O pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. As estatísticas serão criadas automaticamente para colunas em arquivos parquet quando necessário. Neste momento, as estatísticas não são criadas automaticamente para colunas em arquivos CSV e você deve criar estatísticas manualmente para as colunas que você usa em consultas, particularmente as usadas em DISTINCT, junção, WHERE, ORDENAr por e agrupar por. Verifique as [estatísticas no pool SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) para obter detalhes.
+O pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. As estatísticas serão criadas automaticamente para colunas em arquivos parquet quando necessário. Neste momento, as estatísticas não são criadas automaticamente para colunas em arquivos CSV e você deve criar estatísticas manualmente para as colunas que você usa em consultas, particularmente as usadas em DISTINCT, junção, WHERE, ORDENAr por e agrupar por. Verifique [estatísticas no pool SQL sem servidor] (desenvolva-Tables-Statistics. MD # Statistics-in-Server-SQL-pool para obter detalhes.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para aprimorar o desempenho e as junções de consulta
 

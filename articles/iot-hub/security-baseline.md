@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 003bf5241611df450fa6d0ecadff264c4d5de243
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 891366060cddaf2a046de36fa9300432977ec903
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842848"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457736"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Linha de base de segurança do Azure para o Hub IoT do Azure
 
@@ -33,7 +33,7 @@ Recomenda-se restringir a conectividade aos recursos do Azure (incluindo o Hub I
 Mantenha as portas de hardware abertas em seus dispositivos para um mínimo para evitar o acesso indesejado. Além disso, os mecanismos de compilação impedem ou detectam a violação física do dispositivo.
 
 - [Suporte a redes virtuais de IoT](virtual-network-support.md)
-- [prática recomendada de rede grande](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
+- [prática recomendada de rede grande](../iot-fundamentals/security-recommendations.md?context=azure%2fiot-hub%2frc%2frc#networking)
 - [Visão geral do link privado do Azure](../private-link/private-link-overview.md)
 - [Grupo de segurança de rede do Azure](../virtual-network/network-security-groups-overview.md)
 
@@ -73,7 +73,7 @@ A proteção contra DDoS do Azure básica já está habilitada e disponível sem
 
 - [Central de segurança do Azure para comunicação de endereço IP suspeito de IoT](../defender-for-iot/concept-security-alerts.md)
 
-- [Gerenciar a proteção contra DDoS do Azure básica](../virtual-network/ddos-protection-overview.md)
+- [Gerenciar a proteção contra DDoS do Azure básica](../ddos-protection/ddos-protection-overview.md)
 
 - [Proteção contra ameaças na Central de Segurança do Azure](../security-center/azure-defender.md)
 
@@ -220,7 +220,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 - [Monitorar a integridade de IoT do Azure](monitor-iot-hub.md)
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
    
 - [ Como executar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -517,7 +517,7 @@ O Hub IoT do Azure fornece criptografia de dados em repouso e em trânsito confo
 
 - [Criptografia de dados em repouso com chaves gerenciadas pelo cliente para o Hub IoT](iot-hub-customer-managed-keys.md)
 
-- [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md)
+- [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -629,7 +629,7 @@ Cada Hub IoT tem um registro de identidade que pode ser usado para criar recurso
 
 **Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em suas assinaturas. 
 
-Use o grafo de recursos do Azure para consultar e descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados. 
+Use o Azure Resource Graph para consultar e descobrir recursos dentro das assinaturas deles.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados. 
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -1027,11 +1027,11 @@ Executar periodicamente a restauração de dados de conteúdo no backup. Verifiq
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 
 - [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

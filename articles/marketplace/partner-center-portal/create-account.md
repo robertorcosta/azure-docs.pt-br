@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542279"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458116"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
 
@@ -114,7 +114,7 @@ Agora você criou uma conta do Marketplace comercial no Partner Center. Continue
 >
 >Contas individuais são para desenvolvedores que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa fornecem acesso para enviar aplicativos com funcionalidade adicional.
 >
-> Para verificar se você está autorizado a configurar a conta de sua empresa, exigimos a verificação adicional das contas da empresa depois que você se registrar. Essa verificação pode levar de alguns dias a algumas semanas e, muitas vezes, inclui um telefonema para sua empresa. Os dois tipos de contas permitem que você envie aplicativos, suplementos e serviços. Para obter mais informações, consulte [tipos de conta, locais e taxas](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> Para verificar se você está autorizado a configurar a conta de sua empresa, exigimos a verificação adicional das contas da empresa depois que você se registrar. Essa verificação pode levar de alguns dias a algumas semanas e, muitas vezes, inclui um telefonema para sua empresa. Os dois tipos de contas permitem que você envie aplicativos, suplementos e serviços. Para obter mais informações, consulte [tipos de conta, locais e taxas](/windows/uwp/publish/account-types-locations-and-fees).
 
 Ao se registrar no programa do Marketplace comercial com a mesma conta do programa de desenvolvedor, você poderá ver todos os registros do programa existente no painel esquerdo do Partner Center.
 
