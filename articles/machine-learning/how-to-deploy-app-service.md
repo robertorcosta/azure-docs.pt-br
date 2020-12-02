@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578018"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452142"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 
@@ -29,7 +29,7 @@ Saiba como implantar um modelo de Azure Machine Learning como um aplicativo Web 
 Com Azure Machine Learning, você pode criar imagens do Docker de modelos de aprendizado de máquina treinados. Essa imagem contém um serviço Web que recebe dados, envia-os para o modelo e, em seguida, retorna a resposta. Azure App serviço pode ser usado para implantar a imagem e fornece os seguintes recursos:
 
 * [Autenticação](../app-service/configure-authentication-provider-aad.md) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
-* [Dimensionamento automático](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json) sem precisar reimplantar.
+* [Dimensionamento automático](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
 * [Suporte a TLS](../app-service/configure-ssl-certificate-in-code.md) para comunicações seguras entre clientes e o serviço.
 
 Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](../app-service/overview.md).
@@ -70,7 +70,7 @@ Antes de implantar o, você deve definir o que é necessário para executar o mo
 
     Para obter mais informações sobre scripts de entrada, confira [Implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Dependências** , como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
+* **Dependências**, como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
 
 Essas entidades são encapsuladas em uma __configuração de inferência__. A configuração de inferência faz referência ao script de entrada e a outras dependências.
 
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como configurar seu aplicativo Web na documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
-* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json).
+* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Use um certificado TLS/SSL em seu serviço de Azure app](../app-service/configure-ssl-certificate-in-code.md).
 * [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](../app-service/configure-authentication-provider-aad.md).
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)

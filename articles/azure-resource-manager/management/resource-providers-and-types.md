@@ -2,14 +2,14 @@
 title: Provedores de recursos e tipos de recursos
 description: Descreve os provedores de recursos que dão suporte ao Azure Resource Manager. Ele descreve seus esquemas, as versões de API disponíveis e as regiões que podem hospedar os recursos.
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352092"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452101"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
@@ -32,7 +32,7 @@ Para obter uma lista que mapeia os provedores de recursos para os serviços do A
 
 ## <a name="register-resource-provider"></a>Registrar provedor de recursos
 
-Antes de usar um provedor de recursos, sua assinatura do Azure deve ser registrada para o provedor de recursos. O Registro configura sua assinatura para trabalhar com o provedor de recursos. Alguns provedores de recursos são registrados por padrão. Outros provedores de recursos são registrados automaticamente quando você executar determinadas ações. Por exemplo, quando você cria um recurso por meio do portal, o provedor de recursos normalmente é registrado para você. Para outros cenários, talvez seja necessário registrar manualmente um provedor de recursos.
+Antes de usar um provedor de recursos, sua assinatura do Azure deve ser registrada para o provedor de recursos. O Registro configura sua assinatura para trabalhar com o provedor de recursos. Alguns provedores de recursos são registrados por padrão. Outros provedores de recursos são registrados automaticamente quando você executar determinadas ações. Por exemplo, quando você cria um recurso por meio do portal, o provedor de recursos normalmente é registrado para você. Para outros cenários, talvez seja necessário registrar manualmente um provedor de recursos. Para obter uma lista de provedores de recursos registrados por padrão, consulte [provedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 
 Este artigo mostra como verificar o status de registro de um provedor de recursos e registrá-lo conforme necessário. Você deve ter permissão para realizar a `/register/action` operação para o provedor de recursos. A permissão está incluída nas funções colaborador e proprietário.
 

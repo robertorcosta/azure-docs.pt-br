@@ -7,21 +7,21 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563776"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450758"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de pedidos na análise do marketplace comercial
 
 Este artigo fornece informações sobre o painel Pedidos no Partner Center. Este painel exibe informações sobre seus pedidos, incluindo tendências de crescimento, apresentadas em um formato gráfico e baixável.
 
-Para acessar o painel pedidos no Partner Center, em **Marketplace comercial** , selecione **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **pedidos**.
+Para acessar o painel pedidos no Partner Center, em **Marketplace comercial**, selecione **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **pedidos**.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [terminologia de análise do Marketplace comercial e perguntas comuns](./partner-center-portal/faq-terminology.md).
+> Para obter definições detalhadas de terminologia de análise, consulte [terminologia de análise do Marketplace comercial e perguntas comuns](./analytics-faq.md).
 
 ## <a name="orders-dashboard"></a>Painel de pedidos
 
@@ -69,9 +69,9 @@ O gráfico de linhas **order by por estação e baseado em site** representa a m
 
 As ofertas de SaaS podem usar um dos dois modelos de preços com cada plano: uma taxa fixa (baseada em site) ou por usuário (baseada em estação).
 
-- **Taxa fixa** : habilite o acesso à sua oferta com um único preço de taxa mensal ou anual. Isso é, às vezes, chamado de preço baseado em site.
-- **Por usuário** : habilite o acesso à sua oferta com um preço com base no número de usuários que podem acessar a oferta ou ocupar estações. Com esse modelo baseado em uso, você pode definir o número mínimo e máximo de usuários com suporte no plano. Você pode criar vários planos para configurar diferentes pontos de preço com base no número de usuários. Esses campos são opcionais. Se deixado desmarcado, o número de usuários será interpretado como não tendo um limite (mínimo de 1 e máximo de quantos o serviço pode dar suporte). Esses campos podem ser editados como parte de uma atualização para seu plano.
-- **Cobrança limitada** : além do preço da taxa fixa. Com esse modelo de preços, opcionalmente, você pode definir planos medidos que usam a API do serviço de medição do Marketplace para cobrar os clientes pelo uso que não está coberto pela taxa fixa.
+- **Taxa fixa**: habilite o acesso à sua oferta com um único preço de taxa mensal ou anual. Isso é, às vezes, chamado de preço baseado em site.
+- **Por usuário**: habilite o acesso à sua oferta com um preço com base no número de usuários que podem acessar a oferta ou ocupar estações. Com esse modelo baseado em uso, você pode definir o número mínimo e máximo de usuários com suporte no plano. Você pode criar vários planos para configurar diferentes pontos de preço com base no número de usuários. Esses campos são opcionais. Se deixado desmarcado, o número de usuários será interpretado como não tendo um limite (mínimo de 1 e máximo de quantos o serviço pode dar suporte). Esses campos podem ser editados como parte de uma atualização para seu plano.
+- **Cobrança limitada**: além do preço da taxa fixa. Com esse modelo de preços, opcionalmente, você pode definir planos medidos que usam a API do serviço de medição do Marketplace para cobrar os clientes pelo uso que não está coberto pela taxa fixa.
 
 Para obter mais detalhes sobre o assento, o site e a cobrança baseada em medição, consulte [como planejar uma oferta de SaaS para o Marketplace comercial](plan-saas-offer.md).
 
@@ -135,7 +135,7 @@ A tabela detalhes do pedido exibe uma lista numerada dos 1.000 principais pedido
 | Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. |
 | Data de término da avaliação gratuita | Data de término da avaliação gratuita | A data em que o período de avaliação gratuita deste pedido terminará ou terminou. |
 | Customer Id | ID do Cliente | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace. |
-| ID da conta de cobrança | ID da conta de cobrança | O identificador da conta na qual a cobrança é gerada. Map _ *ID da conta de cobrança* * para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios Customer, Order e Usage. |
+| ID da conta de cobrança | ID da conta de cobrança | O identificador da conta na qual a cobrança é gerada. Map _ *ID da conta de cobrança** para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios Customer, Order e Usage. |
 | AssetCount | Contagem de ativos | O número de ativos associados à ID do pedido. |
 ||||
 
@@ -154,4 +154,4 @@ Os filtros de página **pedidos** são aplicados no nível de página pedidos. V
 - Para as métricas de cobrança de uso e de medição de VM (máquina virtual), confira [Painel de Uso em análises de marketplace comercial](./usage-dashboard.md).
 - Para obter uma lista de suas solicitações de download nos últimos 30 dias, confira [Painel de Downloads em análises do marketplace comercial](./partner-center-portal/downloads-dashboard.md).
 - Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e AppSource, consulte [classificações & análises painel de análise no Partner Center](./partner-center-portal/ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [terminologia e perguntas comuns sobre a análise do Marketplace comercial](./partner-center-portal/faq-terminology.md).
+- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [terminologia e perguntas comuns sobre a análise do Marketplace comercial](./analytics-faq.md).

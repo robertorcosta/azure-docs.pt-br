@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445482"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452170"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -44,9 +44,9 @@ Para obter mais informações sobre autenticação para Key Vault, consulte [aut
 
 Quando você cria um cofre de chaves em uma assinatura do Azure, ele é automaticamente associado ao locatário do Azure Active Directory da assinatura. Todos os chamadores em ambos os planos devem se registrar neste locatário e se autenticar para acessar o cofre de chaves. Em ambos os casos, os aplicativos podem acessar Key Vault de três maneiras:
 
-- **Somente aplicativo** : o aplicativo representa uma entidade de serviço ou uma identidade gerenciada. Essa identidade é o cenário mais comum para aplicativos que periodicamente precisam acessar certificados, chaves ou segredos do cofre de chaves. Para que esse cenário funcione, o `objectId` do aplicativo deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
-- **Somente usuário** : o usuário acessa o cofre de chaves de qualquer aplicativo registrado no locatário. Exemplos deste tipo de acesso incluem o Azure PowerShell e o portal do Azure. Para que esse cenário funcione, o `objectId` do usuário deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
-- **Application-Plus-User** (às vezes chamado de _identidade composta_ ): o usuário é solicitado a acessar o cofre de chaves de um aplicativo específico _e_ o aplicativo deve usar o fluxo de autenticação em nome de (obo) para representar o usuário. Para que esse cenário funcione, `applicationId` e `objectId` deve ser especificado na política de acesso. O `applicationId` identifica o aplicativo necessário e o `objectId` identifica o usuário. Atualmente, essa opção não está disponível para o Azure RBAC (visualização) do plano de dados.
+- **Somente aplicativo**: o aplicativo representa uma entidade de serviço ou uma identidade gerenciada. Essa identidade é o cenário mais comum para aplicativos que periodicamente precisam acessar certificados, chaves ou segredos do cofre de chaves. Para que esse cenário funcione, o `objectId` do aplicativo deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
+- **Somente usuário**: o usuário acessa o cofre de chaves de qualquer aplicativo registrado no locatário. Exemplos deste tipo de acesso incluem o Azure PowerShell e o portal do Azure. Para que esse cenário funcione, o `objectId` do usuário deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
+- **Application-Plus-User** (às vezes chamado de _identidade composta_): o usuário é solicitado a acessar o cofre de chaves de um aplicativo específico _e_ o aplicativo deve usar o fluxo de autenticação em nome de (obo) para representar o usuário. Para que esse cenário funcione, `applicationId` e `objectId` deve ser especificado na política de acesso. O `applicationId` identifica o aplicativo necessário e o `objectId` identifica o usuário. Atualmente, essa opção não está disponível para o Azure RBAC (visualização) do plano de dados.
 
 Em todos os tipos de acesso, o aplicativo é autenticado com o Azure AD. O aplicativo usa qualquer [método de autenticação compatível](../../active-directory/develop/authentication-vs-authorization.md) com base no tipo de aplicativo. O aplicativo adquire um token para um recurso no plano para conceder acesso. O recurso é um ponto de extremidade no plano de gerenciamento ou de dados, com base no ambiente do Azure. O aplicativo usa esse token e envia uma solicitação da API REST ao Key Vault. Para saber mais, examine o [fluxo de autenticação completo](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -73,9 +73,9 @@ No plano de gerenciamento, use o [controle de acesso baseado em função do Azur
 
 Crie um cofre de chaves em um grupo de recursos e gerencie o acesso usando o Azure Active Directory. Conceda a usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Conceda o acesso em um nível de escopo específico atribuindo funções apropriadas do Azure. Para conceder acesso a um usuário para gerenciar cofres de chaves, você atribui uma função predefinida de [Key Vault colaborador](../../role-based-access-control/built-in-roles.md#key-vault-contributor) para o usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função do Azure:
 
-- **Assinatura** : uma função do Azure atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
-- **Grupo de recursos** : uma função do Azure atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
-- **Recurso específico** : uma função do Azure atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
+- **Assinatura**: uma função do Azure atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
+- **Grupo de recursos**: uma função do Azure atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
+- **Recurso específico**: uma função do Azure atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
 
 Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md). 
 
@@ -130,19 +130,19 @@ Para obter mais informações sobre Key Vault firewall e redes virtuais, consult
 
 ## <a name="private-endpoint-connection"></a>Conexão de ponto de extremidade particular
 
-No caso de uma necessidade de bloquear completamente Key Vault exposição ao público, um [ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) pode ser usado. Um Ponto de Extremidade Privado do Azure é um adaptador de rede que conecta você de maneira privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
+No caso de uma necessidade de bloquear completamente Key Vault exposição ao público, um [ponto de extremidade privado do Azure](../../private-link/private-endpoint-overview.md) pode ser usado. Um Ponto de Extremidade Privado do Azure é um adaptador de rede que conecta você de maneira privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 
 Cenários comuns para usar o link privado para os serviços do Azure:
 
-- **Acesse os serviços de forma privada na plataforma Azure** : Conecte sua rede virtual a serviços no Azure sem um endereço IP público na origem ou no destino. Os provedores de serviços podem renderizar seus serviços em sua rede virtual e os consumidores podem acessar esses serviços em sua rede virtual local. A plataforma de Link Privado manipulará a conectividade entre o consumidor e os serviços na rede de backbone do Azure. 
+- **Acesse os serviços de forma privada na plataforma Azure**: Conecte sua rede virtual a serviços no Azure sem um endereço IP público na origem ou no destino. Os provedores de serviços podem renderizar seus serviços em sua rede virtual e os consumidores podem acessar esses serviços em sua rede virtual local. A plataforma de Link Privado manipulará a conectividade entre o consumidor e os serviços na rede de backbone do Azure. 
  
-- **Redes locais e emparelhadas** : Acesse serviços em execução no Azure do local por meio de emparelhamento privado do ExpressRoute, túneis de VPN e redes virtuais emparelhadas usando pontos de extremidade privados. Não é necessário configurar o emparelhamento público ou atravessar a Internet para acessar o serviço. O Link Privado fornece uma forma segura de migrar cargas de trabalho para o Azure.
+- **Redes locais e emparelhadas**: Acesse serviços em execução no Azure do local por meio de emparelhamento privado do ExpressRoute, túneis de VPN e redes virtuais emparelhadas usando pontos de extremidade privados. Não é necessário configurar o emparelhamento público ou atravessar a Internet para acessar o serviço. O Link Privado fornece uma forma segura de migrar cargas de trabalho para o Azure.
  
-- **Proteção contra vazamento de dados** : um ponto de extremidade privado é mapeado para uma instância de um recurso de PaaS em vez de todo o serviço. Os consumidores só podem se conectar ao recurso específico. O acesso a qualquer outro recurso no serviço é bloqueado. Esse mecanismo fornece proteção contra riscos de vazamento de dados. 
+- **Proteção contra vazamento de dados**: um ponto de extremidade privado é mapeado para uma instância de um recurso de PaaS em vez de todo o serviço. Os consumidores só podem se conectar ao recurso específico. O acesso a qualquer outro recurso no serviço é bloqueado. Esse mecanismo fornece proteção contra riscos de vazamento de dados. 
  
-- **Alcance Global** : Conecte-se de maneira privada aos serviços executados em outras regiões. A rede virtual do consumidor pode estar na região A e pode se conectar aos serviços por trás do Link Privado na região B.  
+- **Alcance Global**: Conecte-se de maneira privada aos serviços executados em outras regiões. A rede virtual do consumidor pode estar na região A e pode se conectar aos serviços por trás do Link Privado na região B.  
  
-- **Estenda para seus próprios serviços** : Habilite a mesma experiência e a mesma funcionalidade para renderizar seu serviço de maneira privada para consumidores no Azure. Colocando seu serviço atrás de um Azure Load Balancer padrão, você pode habilitá-lo para o Link Privado. O consumidor pode então se conectar diretamente ao seu serviço usando um ponto de extremidade privado em sua rede virtual. Você pode gerenciar as solicitações de conexão usando um fluxo de chamada de aprovação. O Link Privado do Azure funciona para consumidores e serviços que pertencem a locatários diferentes do Azure Active Directory. 
+- **Estenda para seus próprios serviços**: Habilite a mesma experiência e a mesma funcionalidade para renderizar seu serviço de maneira privada para consumidores no Azure. Colocando seu serviço atrás de um Azure Load Balancer padrão, você pode habilitá-lo para o Link Privado. O consumidor pode então se conectar diretamente ao seu serviço usando um ponto de extremidade privado em sua rede virtual. Você pode gerenciar as solicitações de conexão usando um fluxo de chamada de aprovação. O Link Privado do Azure funciona para consumidores e serviços que pertencem a locatários diferentes do Azure Active Directory. 
 
 Para obter mais informações sobre pontos de extremidade privados, consulte [Key Vault com o link privado do Azure](./private-link-service.md)
 
@@ -151,15 +151,15 @@ Para obter mais informações sobre pontos de extremidade privados, consulte [Ke
 Neste exemplo, estamos desenvolvendo um aplicativo que usa um certificado para TLS/SSL, armazenamento do Azure para armazenar dados e uma chave RSA de 2.048 bits para criptografar dados no armazenamento do Azure. Nosso aplicativo é executado em uma máquina virtual (VM) do Azure (ou em um conjunto de dimensionamento de máquinas virtuais). Podemos usar um cofre de chaves para armazenar os segredos do aplicativo. Podemos armazenar o certificado de inicialização usado pelo aplicativo para se autenticar com o Azure Active Directory.
 
 Precisamos de acesso aos seguintes segredos e chaves armazenados:
-- **Certificado TLS/SSL** : Usado para TLS/SSL.
-- **Chave de armazenamento** : usada para acessar a conta de armazenamento.
-- **Chave RSA de 2.048 bits** : usada para encapsular/desencapsular a chave de criptografia de dados pelo armazenamento do Azure.
-- **Identidade gerenciada do aplicativo** : usada para autenticar com o Azure AD. Depois que o acesso ao Key Vault é concedido, o aplicativo pode buscar a chave de armazenamento e o certificado.
+- **Certificado TLS/SSL**: Usado para TLS/SSL.
+- **Chave de armazenamento**: usada para acessar a conta de armazenamento.
+- **Chave RSA de 2.048 bits**: usada para encapsular/desencapsular a chave de criptografia de dados pelo armazenamento do Azure.
+- **Identidade gerenciada do aplicativo**: usada para autenticar com o Azure AD. Depois que o acesso ao Key Vault é concedido, o aplicativo pode buscar a chave de armazenamento e o certificado.
 
 É preciso definir as seguintes funções para especificar quem pode gerenciar, implantar e auditar nosso aplicativo:
-- **Equipe de segurança** : a equipe de TI do escritório do Diretor de segurança ou colaboradores equivalentes. A equipe de segurança é responsável por guardar adequadamente os segredos. Os segredos podem incluir certificados TLS/SSL, chaves RSA para criptografia, cadeias de conexão e chaves de conta de armazenamento.
-- **Desenvolvedores e operadores** : a equipe que desenvolve o aplicativo e o implanta no Azure. Os membros desta equipe não fazem parte da equipe de segurança. Eles não devem ter acesso a dados confidenciais, como certificados TLS/SSL e chaves RSA. Somente o aplicativo que eles implantam deve ter acesso aos dados confidenciais.
-- **Auditores** : essa função é para colaboradores que não são membros da equipe de desenvolvimento ou de TI geral. Eles analisam o uso e a manutenção de certificados, chaves e segredos para garantir a conformidade com padrões de segurança.
+- **Equipe de segurança**: a equipe de TI do escritório do Diretor de segurança ou colaboradores equivalentes. A equipe de segurança é responsável por guardar adequadamente os segredos. Os segredos podem incluir certificados TLS/SSL, chaves RSA para criptografia, cadeias de conexão e chaves de conta de armazenamento.
+- **Desenvolvedores e operadores**: a equipe que desenvolve o aplicativo e o implanta no Azure. Os membros desta equipe não fazem parte da equipe de segurança. Eles não devem ter acesso a dados confidenciais, como certificados TLS/SSL e chaves RSA. Somente o aplicativo que eles implantam deve ter acesso aos dados confidenciais.
+- **Auditores**: essa função é para colaboradores que não são membros da equipe de desenvolvimento ou de TI geral. Eles analisam o uso e a manutenção de certificados, chaves e segredos para garantir a conformidade com padrões de segurança.
 
 Há outra função que está fora do escopo do nosso aplicativo: o administrador da assinatura (ou do grupo de recursos). O administrador da assinatura define permissões de acesso inicial para a equipe de segurança. Ele concede acesso à equipe de segurança usando um grupo de recursos que tem os recursos exigidos pelo aplicativo.
 
@@ -185,8 +185,8 @@ A tabela a seguir resume as permissões de acesso para as funções e o aplicati
 | Função | Permissões do plano de gerenciamento | Permissões do plano de dados-políticas de acesso do cofre | Permissões de plano de dados-RBAC do Azure (versão prévia)  |
 | --- | --- | --- | --- |
 | Equipe de segurança | [Colaborador do Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Key Vault administrador (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
-| Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação** : essa permissão possibilita que as VMs implantadas busquem segredos do cofre de chaves. | Nenhum | Nenhum |
-| Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação** : essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Key Vault Reader (visualização)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação**: essa permissão possibilita que as VMs implantadas busquem segredos do cofre de chaves. | Nenhum | Nenhum |
+| Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Key Vault Reader (visualização)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
 | Conta de Armazenamento do Azure | Nenhum | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Criptografia do serviço de criptografia Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
 | Aplicativo | Nenhum | Segredos: obter, listar <br> Certificados: obter, listar | [Leitor de Key Vault (visualização)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault usuário de segredo (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 

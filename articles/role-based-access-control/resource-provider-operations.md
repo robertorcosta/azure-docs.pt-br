@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 8225d50e9991ff632fb831c63e194551dbe02b31
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980908"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451875"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -22,7 +22,7 @@ Esta seção lista as operações para provedores de recursos do Azure, que são
 
 Clique no nome do provedor de recursos na tabela a seguir para ver a lista de operações.
 
-## <a name="all"></a>Todos
+## <a name="all"></a>Tudo
 
 | Geral |
 | --- |
@@ -40,7 +40,7 @@ Clique no nome do provedor de recursos na tabela a seguir para ver a lista de op
 | [Microsoft.Cdn](#microsoftcdn) |
 | [Microsoft.ClassicNetwork](#microsoftclassicnetwork) |
 | [Microsoft.Network](#microsoftnetwork) |
-| **Storage** |
+| **Armazenamento** |
 | [Microsoft.ClassicStorage](#microsoftclassicstorage) |
 | [Microsoft.DataBox](#microsoftdatabox) |
 | [Microsoft.ImportExport](#microsoftimportexport) |
@@ -3862,7 +3862,7 @@ Serviço do Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Serviço do Azure: [banco de dados SQL do](../azure-sql/database/index.yml)Azure, [Azure SQL instância gerenciada](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (anteriormente SQL data warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
+Serviço do Azure: [banco de dados SQL](../azure-sql/database/index.yml)do Azure, [Azure SQL instância gerenciada](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -7030,7 +7030,7 @@ Serviço do Azure: [DevOps do Azure](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Exclui o Projeto |
 > | Microsoft.VisualStudio/Project/Read | Lê o Projeto |
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -9734,7 +9734,7 @@ Serviço do Azure: insights de monitoramento da Microsoft
 > | Microsoft.Intune/diagnosticsettings/delete | Exclusão de uma configuração de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 

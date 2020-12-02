@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323628"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449698"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diretrizes para criar tabelas distribuídas usando o pool SQL dedicado no Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de 
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool SQL dedicado, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta.
+Como valores idênticos sempre são hash para a mesma distribuição, o SQL Analytics tem conhecimento interno dos locais de linha. No pool SQL dedicado, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta.
 
 Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo.
 

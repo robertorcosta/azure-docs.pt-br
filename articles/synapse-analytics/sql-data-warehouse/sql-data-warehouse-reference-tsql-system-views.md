@@ -1,6 +1,6 @@
 ---
-title: Exibições do sistema para o pool do SQL dedicado
-description: Links para a documentação de exibições do sistema para o pool do SQL dedicado no Azure Synapse Analytics.
+title: Exibições do sistema para o pool do SQL dedicado (antigo SQL DW)
+description: Links para a documentação de exibições do sistema para o pool do SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 81ce875b5ee9baa96fe9aaa9fa4ea99a730d307e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9149238099704a3567a8d7f34eddbc99ee8f304e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313363"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449910"
 ---
-# <a name="system-views-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Exibições do sistema para o pool do SQL dedicado no Azure Synapse Analytics
+# <a name="system-views-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Exibições do sistema para o pool do SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 
-Links para a documentação para instruções T-SQL com suporte no pool SQL dedicado.
+Links para a documentação para instruções T-SQL com suporte no pool SQL dedicado (anteriormente conhecido como SQL DW).
 
-## <a name="dedicated-sql-pool-catalog-views"></a>Exibições do catálogo do pool do SQL dedicado
+## <a name="dedicated-sql-pool-formerly-sql-dw-catalog-views"></a>Exibições de catálogo do pool SQL dedicado (anteriormente conhecido como SQL DW)
 
 * [sys.pdw_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.pdw_distributions](/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -48,7 +48,7 @@ Links para a documentação para instruções T-SQL com suporte no pool SQL dedi
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.workload_management_workload_groups](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-groups-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>DMVs (exibições de gerenciamento dinâmico) do pool do SQL dedicado
+## <a name="dedicated-sql-pool-formerly-sql-dw-dynamic-management-views-dmvs"></a>DMVs (exibições de gerenciamento dinâmico) do pool dedicado do SQL (anteriormente SQL DW)
 
 * [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_dms_external_work](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -70,9 +70,9 @@ Links para a documentação para instruções T-SQL com suporte no pool SQL dedi
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>SQL Server DMVs aplicáveis ao pool do SQL dedicado
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool-formerly-sql-dw"></a>SQL Server DMVs aplicáveis ao pool dedicado do SQL (antigo SQL DW)
 
-As DMVs a seguir são aplicáveis ao pool do SQL dedicado, mas devem ser executadas conectando-se ao banco de dados **mestre** .
+As DMVs a seguir são aplicáveis ao pool dedicado do SQL (anteriormente conhecido como SQL DW), mas devem ser executadas pela conexão ao banco de dados **mestre** .
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -152,16 +152,16 @@ As DMVs a seguir são aplicáveis ao pool do SQL dedicado, mas devem ser executa
 * [sys.types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>SQL Server DMVs disponíveis no pool SQL dedicado
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool-formerly-sql-dw"></a>SQL Server DMVs disponíveis no pool SQL dedicado (anteriormente conhecido como SQL DW)
 
-O pool SQL dedicado expõe muitas das SQL Server DMVs (exibições de gerenciamento dinâmico). Essas exibições, quando consultadas no pool dedicado do SQL, estão relatando o estado dos bancos de dados SQL em execução nas distribuições.
+O pool de SQL dedicado (anteriormente conhecido como SQL DW) expõe muitas das DMVs (exibições de gerenciamento dinâmico) SQL Server. Essas exibições, quando consultadas no pool dedicado do SQL (anteriormente, SQL DW), estão relatando o estado dos bancos de dados SQL em execução nas distribuições.
 
-O pool dedicado de SQL e o PDW (data warehouse paralelo) usam as mesmas exibições do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação.
+O pool de SQL dedicado (anteriormente conhecido como SQL DW) e o PDW (Parallel data warehouse) usam as mesmas exibições do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação.
 
 > [!NOTE]
 > Para usar essas exibições, insira “pdw_nodes_” no nome, conforme mostrado na seguinte tabela:
 
-| Nome DMV no pool SQL dedicado | Artigo sobre o SQL Server Transact-SQL|
+| Nome DMV no pool dedicado do SQL (antigo SQL DW) | Artigo sobre o SQL Server Transact-SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -223,9 +223,9 @@ O pool dedicado de SQL e o PDW (data warehouse paralelo) usam as mesmas exibiç�
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>SQL Server DMVs 2016 do polybase disponíveis no pool SQL dedicado
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool-formerly-sql-dw"></a>SQL Server DMVs 2016 do polybase disponíveis no pool SQL dedicado (anteriormente conhecido como SQL DW)
 
-As DMVs a seguir são aplicáveis ao pool do SQL dedicado, mas devem ser executadas conectando-se ao banco de dados **mestre** .
+As DMVs a seguir são aplicáveis ao pool dedicado do SQL (anteriormente conhecido como SQL DW), mas devem ser executadas pela conexão ao banco de dados **mestre** .
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -252,4 +252,4 @@ As DMVs a seguir são aplicáveis ao pool do SQL dedicado, mas devem ser executa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações de referência, consulte [instruções t-SQL no pool de SQL dedicado](sql-data-warehouse-reference-tsql-statements.md)e [elementos de linguagem t-SQL no pool SQL dedicado](sql-data-warehouse-reference-tsql-language-elements.md).
+Para obter mais informações de referência, consulte [instruções t-SQL no pool dedicado de SQL (anteriormente SQL DW)](sql-data-warehouse-reference-tsql-statements.md)e [elementos de linguagem T-SQL no pool SQL dedicado (anteriormente conhecido como SQL DW)](sql-data-warehouse-reference-tsql-language-elements.md).

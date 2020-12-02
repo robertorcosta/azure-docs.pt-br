@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 573d52b836aef36063dd288bf5a5016b98d220ef
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 22a7738c2d4d3cc02c03c233e0821f07b459dd94
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524123"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452080"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Suporte para mover recursos do SQL do Azure entre regiões do Azure
 
@@ -38,7 +38,7 @@ Os requisitos são resumidos na tabela a seguir.
 **Ajuste automático** | Não há suporte. | Solução alternativa: defina as configurações de ajuste automático após a movimentação. [Saiba mais](../azure-sql/database/automatic-tuning-enable.md).
 **Alertas de banco de dados** | Não há suporte. | Solução alternativa: Defina alertas após a movimentação. [Saiba mais](../azure-sql/database/alerts-insights-configure-portal.md).
 **Banco de dados de Stretch SQL Server do Azure** | Sem suporte | Não é possível mover os bancos de dados de Stretch do SQL Server com o Resource mover.
-**Azure Synapse Analytics** | Sem suporte | Não é possível mover Synapse Analytics (anteriormente SQL Data Warehouse) com o Resource mover.
+**Azure Synapse Analytics** | Sem suporte | Não é possível mover o Azure Synapse Analytics com o Resource mover.
 ## <a name="next-steps"></a>Próximas etapas
 
 Experimente os [recursos do SQL Azure](tutorial-move-region-sql.md) para outra região com o Resource mover.

@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020275"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450230"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor para seus bancos de dados e pools elásticos no [banco de dados SQL do Azure](sql-database-paas-overview.md) ou em seus bancos de dados no [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com seu banco de dados no banco de dados SQL do Azure e no Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+*Regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor para seus bancos de dados e pools elásticos no [banco de dados SQL do Azure](sql-database-paas-overview.md) ou em seus bancos de dados no [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com seu banco de dados no banco de dados SQL do Azure e no Azure Synapse Analytics.
 
 > [!NOTE]
 > Este artigo se aplica ao banco de dados SQL do Azure e ao Azure Synapse Analytics. Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics.

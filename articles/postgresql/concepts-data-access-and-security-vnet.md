@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425508"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451063"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usar pontos de extremidade de serviço de rede virtual e regras para o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -106,7 +106,7 @@ Para o Banco de Dados do Azure para PostgreSQL, o recurso de regras da rede virt
 
 - As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
-- Ativar pontos de extremidade de serviço de rede virtual no banco de dados do Azure para PostgreSQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse do Azure (anteriormente SQL data warehouse)
+- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para PostgreSQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 

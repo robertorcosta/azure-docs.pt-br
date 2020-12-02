@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186653"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450089"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -32,7 +32,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente de Azure Monitor (versão prévia) | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
 | **Ambientes com suporte** | Azure<br>Outra nuvem (arco do Azure)<br>Local (Azure ARC)  | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
@@ -42,7 +42,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente de Azure Monitor (versão prévia) | Diagnóstico<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|:---|
 | **Ambientes com suporte** | Azure<br>Outra nuvem (arco do Azure)<br>Local (arco ARC) | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
@@ -176,6 +176,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                     |   | X | X | X |
+| SUSE Linux Enterprise Server 15,1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |

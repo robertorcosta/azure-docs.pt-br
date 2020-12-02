@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357939"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450792"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
@@ -27,7 +27,7 @@ Para fins de segurança, talvez seja necessário alterar as chaves de acesso de 
 
 > [!IMPORTANT]
 
-> As credenciais registradas com repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) habilitada para seu Key Vault, este artigo fornecerá instruções para atualizar as credenciais. Se você cancelar o registro do repositório de armazenamento e tentar registrá-lo novamente com o mesmo nome, essa ação falhará. Consulte [Ativar exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para saber como habilitar a exclusão reversível neste cenário.
+> As credenciais registradas com repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](../key-vault/general/soft-delete-overview.md) habilitada para seu Key Vault, este artigo fornecerá instruções para atualizar as credenciais. Se você cancelar o registro do repositório de armazenamento e tentar registrá-lo novamente com o mesmo nome, essa ação falhará. Consulte [Ativar exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para saber como habilitar a exclusão reversível neste cenário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,7 +111,7 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
         Esse comando sincroniza automaticamente as novas chaves para a conta de armazenamento do Azure usada pelo espaço de trabalho.
 
 1. Você pode registrar novamente os armazenamentos de os (s) que usam a conta de armazenamento por meio do SDK ou [do Azure Machine Learning Studio](https://ml.azure.com).
-    1. **Para registrar novamente os repositórios de armazenamento por meio do SDK do Python** , use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o código a seguir. 
+    1. **Para registrar novamente os repositórios de armazenamento por meio do SDK do Python**, use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o código a seguir. 
     
         Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
     
@@ -133,12 +133,12 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
         
         ```
     
-    1. **Para registrar novamente os repositórios de armazenamento por meio do estúdio** , selecione **repositórios de armazenamento** no painel esquerdo do estúdio. 
+    1. **Para registrar novamente os repositórios de armazenamento por meio do estúdio**, selecione **repositórios de armazenamento** no painel esquerdo do estúdio. 
         1. Selecione qual repositório de armazenamento você deseja atualizar.
         1. Selecione o botão **Atualizar credenciais** na parte superior esquerda. 
         1. Use a nova chave de acesso da etapa 1 para preencher o formulário e clique em **salvar**.
         
-            Se você estiver atualizando as credenciais para seu **repositório de armazenamento padrão** , conclua esta etapa e repita a etapa 2B para ressincronizar sua nova chave com o repositório de armazenamento padrão do espaço de trabalho. 
+            Se você estiver atualizando as credenciais para seu **repositório de armazenamento padrão**, conclua esta etapa e repita a etapa 2B para ressincronizar sua nova chave com o repositório de armazenamento padrão do espaço de trabalho. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

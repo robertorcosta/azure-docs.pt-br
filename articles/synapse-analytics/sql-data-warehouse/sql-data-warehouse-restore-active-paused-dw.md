@@ -1,5 +1,5 @@
 ---
-title: Restaurar um pool SQL dedicado existente no Azure Synapse Analytics
+title: Restaurar um pool SQL dedicado existente
 description: Guia de instruções para restaurar um pool SQL dedicado existente no Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 08/29/2018
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d3c84f7d951db715d26042f524f385826197e076
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577542"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449987"
 ---
-# <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restaurar um pool SQL dedicado existente no Azure Synapse Analytics
+# <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Restaurar um pool SQL dedicado existente (anteriormente conhecido como SQL DW)
 
-Neste artigo, você aprenderá a restaurar um pool SQL dedicado existente na análise de Synapse do Azure usando o portal do Azure e o PowerShell.
+Neste artigo, você aprenderá a restaurar um pool SQL dedicado existente (anteriormente conhecido como SQL DW) usando o portal do Azure e o PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ Neste artigo, você aprenderá a restaurar um pool SQL dedicado existente na an�
 1. Certifique-se de [instalar Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Ter um ponto de restauração existente do qual você deseja restaurar. Se você quiser criar uma nova restauração, consulte [o tutorial para criar um novo ponto de restauração definido pelo usuário](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-dedicated-sql-pool-through-powershell"></a>Restaurar um pool SQL dedicado existente por meio do PowerShell
+## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-powershell"></a>Restaurar um pool SQL dedicado existente (anteriormente conhecido como SQL DW) por meio do PowerShell
 
-Para restaurar um pool SQL dedicado existente de um ponto de restauração, use o cmdlet do PowerShell [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
+Para restaurar um pool SQL dedicado existente (anteriormente conhecido como SQL DW) de um ponto de restauração, use o cmdlet do PowerShell [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 1. Abra o PowerShell.
 
@@ -41,18 +41,18 @@ Para restaurar um pool SQL dedicado existente de um ponto de restauração, use 
 
 3. Selecione a assinatura que contém o banco de dados a ser restaurado.
 
-4. Liste os pontos de restauração para o pool SQL dedicado.
+4. Liste os pontos de restauração para o pool SQL dedicado (anteriormente conhecido como SQL DW).
 
 5. Selecione o ponto de restauração desejado usando o RestorePointCreationDate.
 
-6. Restaure o pool SQL dedicado para o ponto de restauração desejado usando o cmdlet do PowerShell [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
+6. Restaure o pool de SQL dedicado (anteriormente conhecido como SQL DW) para o ponto de restauração desejado usando o cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) do PowerShell.
 
-    1. Para restaurar o pool dedicado do SQL para um servidor diferente, certifique-se de especificar o nome do outro servidor.  Esse servidor também pode estar em um grupo de recursos e região diferentes.
+    1. Para restaurar o pool de SQL dedicado (anteriormente conhecido como SQL DW) para um servidor diferente, certifique-se de especificar o outro nome de servidor.  Esse servidor também pode estar em um grupo de recursos e região diferentes.
     2. Para restaurar para uma assinatura diferente, use o botão ' mover ' para mover o servidor para outra assinatura.
 
-7. Verifique se o pool SQL dedicado restaurado está online.
+7. Verifique se o pool SQL dedicado restaurado (anteriormente conhecido como SQL DW) está online.
 
-8. Depois que a restauração for concluída, você poderá configurar seu pool SQL dedicado recuperado seguindo [configurar seu banco de dados após a recuperação](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. Depois que a restauração for concluída, você poderá configurar seu pool SQL dedicado recuperado (anteriormente conhecido como SQL DW) seguindo [configurar seu banco de dados após a recuperação](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Restaurar um pool SQL dedicado existente por meio do portal do Azure
+## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-the-azure-portal"></a>Restaurar um pool SQL dedicado existente (anteriormente conhecido como SQL DW) por meio do portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Navegue até o dedicado do qual você deseja restaurar.
@@ -97,11 +97,11 @@ $RestoredDatabase.status
 
     ![ Visão Geral de Restauração](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Selecione **Pontos de Restauração Automática** ou **Pontos de Restauração Definido Pelo Usuário**. Se o pool SQL dedicado não tiver pontos de restauração automáticos, aguarde algumas horas ou crie um ponto de restauração definido pelo usuário antes de restaurar. Para User-Defined pontos de restauração, selecione um existente ou crie um novo. Para o **servidor** , você pode escolher um servidor em um grupo de recursos e uma região diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **revisar + restaurar**.
+4. Selecione **Pontos de Restauração Automática** ou **Pontos de Restauração Definido Pelo Usuário**. Se o pool do SQL dedicado (anteriormente conhecido como SQL DW) não tiver pontos de restauração automáticos, aguarde algumas horas ou crie um ponto de restauração definido pelo usuário antes da restauração. Para User-Defined pontos de restauração, selecione um existente ou crie um novo. Para o **servidor**, você pode escolher um servidor em um grupo de recursos e uma região diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **revisar + restaurar**.
 
     ![Pontos de restauração automática](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Restaurar um pool SQL dedicado excluído](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurar de um pool SQL dedicado de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restaurar um pool SQL dedicado excluído (antigo SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar de um pool SQL dedicado de backup geográfico (antigo SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

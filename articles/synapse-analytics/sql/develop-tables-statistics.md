@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638845"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451794"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas no SQL do Synapse
 
-Fornecidas neste artigo estão recomendações e exemplos para criar e atualizar estatísticas de otimização de consulta usando os recursos do SQL Synapse: pool de SQL dedicado e pool SQL sem servidor (visualização).
+Fornecidas neste artigo estão recomendações e exemplos para criar e atualizar estatísticas de otimização de consulta usando os recursos do SQL Synapse: pool de SQL dedicado e pool de SQL sem servidor.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Estatísticas no pool SQL dedicado
 
@@ -74,7 +74,7 @@ Para evitar a degradação mensurável do desempenho, verifique se as estatísti
 > [!NOTE]
 > A criação de estatísticas é registrada em [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) em um contexto de usuário diferente.
 
-Quando as estatísticas automáticas são criadas, elas assumem o formato: _WA_Sys_ <id da coluna de 8 dígitos em Hex>_<id da tabela de 8 dígitos em Hex>. Você pode exibir estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+Quando as estatísticas automáticas são criadas, elas assumem o formato: _WA_Sys_<id da coluna de 8 dígitos em Hex>_<id da tabela de 8 dígitos em Hex>. Você pode exibir estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Para criar um objeto estatístico de várias colunas, use os exemplos anteriores
 > [!NOTE]
 > O histograma, que é usado para estimar o número de linhas no resultado da consulta, está disponível apenas para a primeira coluna listada na definição do objeto estatístico.
 
-Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_category* :
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Como existe uma correlação entre a *categoria do\_produto* e a *sub\_categoria do\_produto* , um objeto de estatística de colunas múltiplas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
+Como existe uma correlação entre a *categoria do\_produto* e a *sub\_categoria do\_produto*, um objeto de estatística de colunas múltiplas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Criar estatísticas em todas as coluna em uma tabela
 
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - O erro personalizado 2767 não é suportado.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Estatísticas no pool SQL sem servidor (visualização)
+## <a name="statistics-in-serverless-sql-pool"></a>Estatísticas no pool SQL sem servidor
 
 As estatísticas são criadas por coluna específica para um conjunto de dado específico (caminho do armazenamento).
 
@@ -566,7 +566,7 @@ As estatísticas são criadas por coluna específica para um conjunto de dado es
 
 ### <a name="why-use-statistics"></a>Por que usar estatísticas
 
-O pool de SQL sem servidor (versão prévia) sabe sobre seus dados, quanto mais rápido ele pode executar consultas em relação a ele. Coletar estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar as consultas. 
+Quanto mais um pool de SQL sem servidor souber sobre seus dados, mais rápido ele poderá executar consultas em relação a ele. Coletar estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar as consultas. 
 
 O otimizador de consulta do pool SQL sem servidor é um otimizador baseado em custo. Ele compara o custo de vários planos de consulta e, em seguida, escolhe o plano com o menor custo. Na maioria dos casos, ele escolhe o plano que será executado mais rapidamente. 
 
@@ -604,7 +604,7 @@ As estatísticas manuais nunca são declaradas obsoletas.
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 
-Quando o número de linhas mudar substancialmente, ou houver uma alteração material na distribuição de valores para uma coluna, *então* , significa que é hora de atualizar as estatísticas.
+Quando o número de linhas mudar substancialmente, ou houver uma alteração material na distribuição de valores para uma coluna, *então*, significa que é hora de atualizar as estatísticas.
 
 > [!NOTE]
 > Se houver uma alteração importante na distribuição de valores para uma coluna, você deverá atualizar as estatísticas independentemente da última vez que foram atualizadas.

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8637b33ebc4b697ee6f498acb84ee33718c53f6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535938"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448861"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um aplicativo sem monitoração de estado do PHP com Redis em um cluster kubernetes habilitado para Arc na GPU pro Azure Stack Edge
 
@@ -25,7 +25,7 @@ Este artigo mostra como criar e implantar um aplicativo Web simples de várias c
 
 A implantação é feita usando GitOps no cluster do kubernetes habilitado para ARC em seu dispositivo Azure Stack Edge pro. 
 
-Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](../azure-arc/kubernetes/overview.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -44,7 +44,7 @@ Antes de implantar o aplicativo sem estado, verifique se você concluiu os segui
 
 1. Você tem um sistema cliente Windows que será usado para acessar o dispositivo Azure Stack Edge pro.
   
-    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Você também pode ter qualquer outro cliente com um [sistema operacional com suporte](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Este artigo descreve o procedimento ao usar um cliente do Windows. 
     
@@ -81,7 +81,7 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
     ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure com adicionar configuração selecionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. Em **Adicionar configuração** , insira os valores apropriados para os campos e selecione **aplicar**.
+1. Em **Adicionar configuração**, insira os valores apropriados para os campos e selecione **aplicar**.
 
     |Parâmetro  |Descrição |
     |---------|---------|

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686150"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451599"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conectar-se ao SQL do Synapse com o Visual Studio e o SSDT
 
@@ -30,7 +30,7 @@ ms.locfileid: "94686150"
 Use o Visual Studio para consultar o pool dedicado do SQL usando o Azure Synapse Analytics. Esse método usa a extensão SSDT (SQL Server Data Tools) no Visual Studio 2019. 
 
 > [!NOTE]
-> O pool SQL sem servidor (visualização) não tem suporte do SSDT.
+> O pool SQL sem servidor não tem suporte do SSDT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

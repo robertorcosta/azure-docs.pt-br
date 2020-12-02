@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505930"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449069"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implantar VMs em seu dispositivo do Azure Stack Edge pro GPU por meio de modelos
 
@@ -76,7 +76,7 @@ Configure esses pré-requisitos para criar recursos que serão necessários para
     
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure, como a conta de armazenamento, disco, disco gerenciado são implantados e gerenciados.
+Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure, como a conta de armazenamento, disco, disco gerenciado são implantados e gerenciados.
 
 > [!IMPORTANT]
 > Todos os recursos são criados no mesmo local que o do dispositivo e o local é definido como **DBELocal**.
@@ -149,7 +149,7 @@ Em um ambiente típico, você teria o DNS configurado para que todas as contas d
 
 ### <a name="optional-install-certificates"></a>Adicional Instalar certificados
 
-Ignore esta etapa se você for se conectar via Gerenciador de Armazenamento usando *http*. Se você estiver usando *https* , precisará instalar os certificados apropriados no Gerenciador de armazenamento. Nesse caso, instale o certificado de ponto de extremidade de BLOB. Para obter mais informações, consulte como criar e carregar certificados em [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md). 
+Ignore esta etapa se você for se conectar via Gerenciador de Armazenamento usando *http*. Se você estiver usando *https*, precisará instalar os certificados apropriados no Gerenciador de armazenamento. Nesse caso, instale o certificado de ponto de extremidade de BLOB. Para obter mais informações, consulte como criar e carregar certificados em [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Criar e carregar um VHD
 
@@ -159,7 +159,7 @@ Copie as imagens de disco a serem usadas em blobs de páginas na conta de armaze
 
 ### <a name="use-storage-explorer-for-upload"></a>Usar Gerenciador de Armazenamento para carregar
 
-1. Abra o Gerenciador de Armazenamento. Vá para **Editar** e verifique se o aplicativo está definido como **destino Azure Stack APIs**.
+1. Abra o Explorer do Armazenamento. Vá para **Editar** e verifique se o aplicativo está definido como **destino Azure Stack APIs**.
 
     ![Definir destino para Azure Stack APIs](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/set-target-apis-1.png)
 
@@ -189,13 +189,13 @@ Copie as imagens de disco a serem usadas em blobs de páginas na conta de armaze
 
     ![Conectar-se ao armazenamento do Azure 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. Em **conectar com nome e chave** , forneça o **nome de exibição** , o nome da conta de **armazenamento** , a chave da **conta** de armazenamento do Azure. Selecione **outro** domínio de armazenamento e forneça a `<device name>.<DNS domain>` cadeia de conexão. Se você não instalou um certificado no Gerenciador de Armazenamento, marque a opção **usar http** . Selecione **Avançar**.
+6. Em **conectar com nome e chave**, forneça o **nome de exibição**, o nome da conta de **armazenamento**, a chave da **conta** de armazenamento do Azure. Selecione **outro** domínio de armazenamento e forneça a `<device name>.<DNS domain>` cadeia de conexão. Se você não instalou um certificado no Gerenciador de Armazenamento, marque a opção **usar http** . Selecione **Avançar**.
 
     ![Conectar-se com o nome e a chave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Examine o **Resumo da conexão** e selecione **conectar**.
 
-8. A conta de armazenamento aparece no painel esquerdo. Selecione e expanda a conta de armazenamento. Selecione **contêineres de blob** , clique com o botão direito do mouse e selecione **criar contêiner de blob**. Forneça um nome para o contêiner de BLOB.
+8. A conta de armazenamento aparece no painel esquerdo. Selecione e expanda a conta de armazenamento. Selecione **contêineres de blob**, clique com o botão direito do mouse e selecione **criar contêiner de blob**. Forneça um nome para o contêiner de BLOB.
 
 9. Selecione o contêiner que você acabou de criar e, no painel direito, selecione **carregar > carregar arquivos**. 
 
@@ -249,7 +249,7 @@ O arquivo `CreateImageAndVnet.parameters.json` usa os seguintes parâmetros:
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -343,7 +343,7 @@ Implante o modelo `CreateImageAndVnet.json` . Este modelo implanta os recursos d
 > [!NOTE]
 > Ao implantar o modelo, se você receber um erro de autenticação, suas credenciais do Azure para esta sessão poderão ter expirado. Execute `login-AzureRM` novamente o comando para se conectar ao Azure Resource Manager no dispositivo do Azure Stack Edge Pro novamente.
 
-1. Execute o seguinte comando: 
+1. Execute o comando a seguir: 
     
     ```powershell
     $templateFile = "Path to CreateImageAndVnet.json"
@@ -441,7 +441,7 @@ Atribua parâmetros apropriados no `CreateVM.parameters.json` para seu dispositi
 
 1. Forneça um nome exclusivo, o nome da interface de rede e o nome do ipconfig. 
 1. Insira um nome de usuário, uma senha e um tamanho de VM com suporte.
-1. Dê o mesmo nome para **VnetName** , **subnetName** e **ImageName** , conforme fornecido nos parâmetros para `CreateImageAndVnet.parameters.json` . Por exemplo, se você tiver fornecido VnetName, subnetName e ImageName como **vnet1** , **subnet1** e **image1** , mantenha os mesmos valores para os parâmetros nesse modelo também.
+1. Dê o mesmo nome para **VnetName**, **subnetName** e **ImageName** , conforme fornecido nos parâmetros para `CreateImageAndVnet.parameters.json` . Por exemplo, se você tiver fornecido VnetName, subnetName e ImageName como **vnet1**, **subnet1** e **image1**, mantenha os mesmos valores para os parâmetros nesse modelo também.
 1. Agora você precisará de um endereço IP estático para atribuir à VM que está na rede de sub-rede definida acima. Substitua **PrivateIPAddress** por esse endereço no arquivo de parâmetro. Para que a VM obtenha um endereço IP do servidor DCHP local, deixe o `privateIPAddress` valor em branco.  
     
     ```json
@@ -497,7 +497,7 @@ Atribua parâmetros apropriados no `CreateVM.parameters.json` para seu dispositi
 
 Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma interface de rede a partir da VNet existente e cria a VM a partir da imagem implantada.
 
-1. Execute o seguinte comando: 
+1. Execute o comando a seguir: 
     
     ```powershell
     Command:
@@ -571,7 +571,7 @@ Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma inte
     --     ----            -------------   -----         -----------     --------             -------
     ```
 
-7. Verifique se a VM foi provisionada com êxito. Execute o seguinte comando:
+7. Verifique se a VM foi provisionada com êxito. Execute o comando a seguir:
 
     `Get-AzureRmVm`
 
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

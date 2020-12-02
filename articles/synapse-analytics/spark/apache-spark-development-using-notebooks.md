@@ -1,6 +1,6 @@
 ---
 title: Blocos de anotações do Synapse Studio
-description: Neste artigo, você aprenderá a criar e a desenvolver notebooks do Azure Synapse Studio (versão prévia) para fazer a preparação e a visualização dos dados.
+description: Neste artigo, você aprenderá a criar e desenvolver blocos de anotações do Azure Synapse Studio para fazer a preparação e a visualização dos dados.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900868"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450855"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio (visualização) no Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio no Azure Synapse Analytics
 
-Um notebook Synapse Studio (visualização) é uma interface da Web para você criar arquivos que contenham código ao vivo, visualizações e texto de narração. Os notebooks são um bom lugar para validar ideias e fazer experimentos rápidos para obter insights de seus dados. Os notebooks também são amplamente usados na preparação e visualização de dados, no aprendizado de máquina e em outros cenários de Big Data.
+Um notebook do Synapse Studio é uma interface da Web para que você crie arquivos que contenham código ao vivo, visualizações e texto de narração. Os notebooks são um bom lugar para validar ideias e fazer experimentos rápidos para obter insights de seus dados. Os notebooks também são amplamente usados na preparação e visualização de dados, no aprendizado de máquina e em outros cenários de Big Data.
 
 Com um notebook do Azure Synapse Studio, você pode:
 
@@ -549,7 +549,7 @@ Usando os atalhos de tecla a seguir, você pode navegar e executar o código com
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Confira os blocos de anotações de exemplo do Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Início Rápido: Criar um Pool do Apache Spark (versão prévia) no Azure Synapse Analytics usando ferramentas da Web](../quickstart-apache-spark-notebook.md)
+- [Início Rápido: Criar um Pool do Apache Spark no Azure Synapse Analytics usando ferramentas da Web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark no Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)
 - [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

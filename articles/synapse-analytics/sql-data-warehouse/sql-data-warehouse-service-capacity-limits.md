@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7f0eff28533d8cf736d032aff61454a49bcf379e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313143"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449730"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacidade para o pool de SQL dedicado no Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU Max para uma única unidade de pool de SQL dedicada (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU Max para um único pool de SQL dedicado  | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma cota de DTU de 54.000, que permite até DW5000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique o 7,5 pelo total de DWU necessário ou multiplique 9,5 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
 | Conexão de banco de dados |Máximo de sessões abertas simultâneas |1024<br/><br/>O número de sessões abertas simultâneas irá variar com base no DWU selecionado. O DWU600c e superior dão suporte a um máximo de 1024 sessões abertas. DWU500c e abaixo, dão suporte a um limite máximo de sessão de abertura simultânea de 512. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
@@ -54,7 +54,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
-| Exibir |Colunas por exibição |1\.024 |
+| Visualizar |Colunas por exibição |1\.024 |
 ||||
 
 ## <a name="loads"></a>Cargas
@@ -74,10 +74,10 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | Consulta |Máximo de parâmetros |2098 |
 | Lote |Tamanho máximo |65.536*4096 |
 | Resultados de SELECT |Colunas por linha |4096<br/><br/>Nunca será possível ter mais de 4.096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela. |
-| SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
-| SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
-| SELECIONAR |Bytes por colunas GROUP BY. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
-| SELECIONAR |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
+| SELECT |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
+| SELECT |Colunas por JOIN |1024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
+| SELECT |Bytes por colunas GROUP BY. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
+| SELECT |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
 | Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/> O número de identificadores que podem estar contidos em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20.000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server.|
 ||||
