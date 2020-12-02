@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, processamento de formulários
-ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519516"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353673"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -76,7 +76,7 @@ Quando você treina os dados rotulados, o modelo supervisiona o aprendizado para
 
 O Reconhecimento de Formulários usa a [API de layout](#layout-api) para aprender os tamanhos e as posições esperados de elementos de texto impressos e manuscritos. Em seguida, ele usa rótulos especificados pelo usuário para aprender as associações de chave/valor nos documentos. Recomendamos que você use cinco formulários rotulados manualmente do mesmo tipo (mesma estrutura) para começar ao treinar um novo modelo e adicionar mais dados rotulados, conforme necessário, a fim de aprimorar a precisão do modelo.
 
-[Introdução ao treinamento com rótulos](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+[Introdução ao treinamento com rótulos](./quickstarts/label-tool.md)
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]

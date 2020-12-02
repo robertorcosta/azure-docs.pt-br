@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3229091a0effda7837b8e58fe8764910e3b6636d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ace7a0ccaba533c9e72961536159d32af5ab8d98
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366988"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352721"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o C#
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
-> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo C# simples envia uma solicitação à API e retorna uma lista de correções sugeridas. 
 
@@ -36,7 +36,7 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
      
    Para instalar este pacote no Visual Studio:
 
-     1. No **Gerenciador de Soluções** , clique com o botão direito do mouse no arquivo de Solução.
+     1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no arquivo de Solução.
      1. Selecione **Gerenciar Pacotes NuGet para a Solução**.
      1. Pesquise por *Newtonsoft.Json* e instale o pacote.
 

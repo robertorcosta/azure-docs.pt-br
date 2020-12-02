@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777464"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350972"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Início Rápido: Biblioteca de clientes do QnA Maker
 
@@ -52,9 +52,8 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
->[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](./batch-testing.md)
+>[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](../index.yml)
 
 * [O que é a API de QnA Maker?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)
 * [Obter a análise de uso](../how-to/get-analytics-knowledge-base.md)
-

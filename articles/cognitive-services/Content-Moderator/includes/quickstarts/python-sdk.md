@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: bf24d7c5ca88c47d3bfd8067a4e533ed413dde90
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 324f89d2de56666242ed4f6231eff0855ec561b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918664"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356470"
 ---
 Introdução à biblioteca de clientes do Content Moderator do Azure para Python. Siga essas etapas para instalar o pacote PiPy e testar o código de exemplo para tarefas básicas. 
 
@@ -67,7 +67,7 @@ Em seguida, crie variáveis para a localização do ponto de extremidade do recu
 > [!IMPORTANT]
 > Acesse o portal do Azure. Caso o recurso do Content Moderator criado na seção **Pré-requisitos** tenha sido implantado com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
 >
-> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ## <a name="object-model"></a>Modelo de objeto
 
