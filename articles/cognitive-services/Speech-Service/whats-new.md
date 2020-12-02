@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483807"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: o que há de novo no docs
 
@@ -32,7 +32,7 @@ Se você quiser saber mais sobre as atualizações para o serviço de fala, o SD
 
 ### <a name="new-articles"></a>Novos artigos
 
-* [Melhorar um modelo para Fala Personalizada](how-to-custom-speech-improve-accuracy.md)
+* [Melhorar um modelo para Fala Personalizada](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
@@ -44,7 +44,7 @@ Se você quiser saber mais sobre as atualizações para o serviço de fala, o SD
 * [Início rápido: síntese assíncrona para áudio de formato longo em Python (versão prévia)](./long-audio-api.md) – atualizado com suporte para vozes neurais públicas e parâmetros associados.
 * [Início rápido: reconhecer a fala de um arquivo de áudio](./get-started-speech-to-text.md) – instruções JavaScript adicionadas à documentação.
 * [Início rápido: reconhecer a fala de uma](./get-started-speech-to-text.md) instrução Go e JavaScript adicionadas ao microfone à documentação.
-* [Início rápido: reconhecer a fala armazenada no armazenamento de BLOBs](quickstarts/from-blob.md) – instruções JavaScript adicionadas à documentação.
+* [Início rápido: reconhecer a fala armazenada no armazenamento de BLOBs](./batch-transcription.md) – instruções JavaScript adicionadas à documentação.
 * [Início rápido: reconhecer fala, intenções e entidades com Reconhecimento vocal (LUIS)](quickstarts/intent-recognition.md)
 * [Início rápido: configurar o ambiente de desenvolvimento](quickstarts/setup-platform.md) – instruções JavaScript adicionadas à documentação.
 * [Início rápido: sintetizar a fala em um arquivo de áudio](./get-started-text-to-speech.md) – instruções JavaScript adicionadas à documentação.
@@ -58,28 +58,28 @@ Esses problemas foram abertos em maio. Esta tabela lista o usuário que abriu o 
 
 Esta tabela é atualizada mensalmente e só reflete os problemas abertos em maio.  
 
-|ID|Usuário|Description|Aberto|Estado|Tipo|
+|ID|Usuário|Descrição|Aberto|Estado|Tipo|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Atividade descartada porque o ponto de extremidade do bot está ausente|2020-05-31|Fechadas|Problema|
-|[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Etapas de bot de publicação erradas|2020-05-31|Aberto|Problema|
-|[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Adicionar mais documentos claros sobre o formato de exemplos de PCM|2020-05-30|Aberto|Problema|
+|[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Etapas de bot de publicação erradas|2020-05-31|Abrir|Problema|
+|[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Adicionar mais documentos claros sobre o formato de exemplos de PCM|2020-05-30|Abrir|Problema|
 |[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|O título não corresponde à barra lateral|2020-05-29|Fechadas|Problema|
 |[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|Erro de CLI com arquivo Wave|2020-05-28|Fechadas|Problema|
-|[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Atualizar speech-sdk.md|2020-05-27|Aberto|Solicitação pull|
+|[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Atualizar speech-sdk.md|2020-05-27|Abrir|Solicitação pull|
 |[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Erro estranho com o nome de voz sem suporte|2020-05-20|Fechadas|Problema|
-|[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|A documentação da API de fala para texto é ruim|2020-05-18|Aberto|Problema|
+|[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|A documentação da API de fala para texto é ruim|2020-05-18|Abrir|Problema|
 |[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|A classe de fala Microsoft Cognitivaservices SpeechRecognizer, não pode coletar um texto resultante|2020-05-18|Fechadas|Problema|
 |[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Não claro|2020-05-18|Fechadas|Problema|
 |[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Gráficos não visíveis no tema escuro|2020-05-17|Fechadas|Problema|
-|[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|seção ausente?|2020-05-15|Aberto|Problema|
-|[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Falha ao executar contêineres de serviço de fala|2020-05-13|Aberto|Problema|
-|[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|Manish-95|Exemplo de arquivo de pronúncia|2020-05-11|Aberto|Problema|
-|[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|O exemplo de Java está incorreto.|2020-05-10|Aberto|Problema|
+|[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|seção ausente?|2020-05-15|Abrir|Problema|
+|[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Falha ao executar contêineres de serviço de fala|2020-05-13|Abrir|Problema|
+|[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|Manish-95|Exemplo de arquivo de pronúncia|2020-05-11|Abrir|Problema|
+|[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|O exemplo de Java está incorreto.|2020-05-10|Abrir|Problema|
 |[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Não é possível obter a pontuação de pronúncia|2020-05-08|Fechadas|Problema|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Modelo de arquivo YAML|2020-05-07|Fechadas|Problema|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|O código de exemplo do C# não solicita que o usuário fale.|2020-05-06|Fechadas|Problema|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Atualizar o TTS de v 1.3 para v 1.4|2020-05-05|Fechadas|Solicitação pull|
 |[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Atualizar a versão mais recente do STT personalizado para o v 2.2.0|2020-05-05|Fechadas|Solicitação pull|
-|[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|Os links para projetos do GitHub estão desfeitos|2020-05-03|Aberto|Problema|
+|[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|Os links para projetos do GitHub estão desfeitos|2020-05-03|Abrir|Problema|
 |[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Propriedade a ser definida: tempo máximo de reconhecimento de áudio para microfone Android. Parando o reconhecimento de áudio após 15 segundos|2020-05-02|Fechadas|Problema|
 |[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Comandos personalizados: atualização de documentos|2020-05-01|Fechadas|Solicitação pull|

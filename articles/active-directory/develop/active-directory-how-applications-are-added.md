@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e37065e6fa61f3784d1a6165bd88c515bdfc29f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484100"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 
@@ -118,6 +118,7 @@ Os aplicativos são adicionados ao Microsoft Azure AD para aproveitar um ou mais
 * Controle de acesso baseado em função – Use o diretório para definir funções de aplicativo para executar verificações de autorização baseadas em funções em um aplicativo
 * Serviços de autorização OAuth-usados por Microsoft 365 e outros aplicativos da Microsoft para autorizar o acesso a APIs/recursos
 * Publicação de aplicativo e proxy - Publique um aplicativo a partir de uma rede privada na Internet
+* Atributos de extensão de esquema [de diretório – estenda o esquema de entidade de serviço e objetos de usuário](active-directory-schema-extensions.md) para armazenar dados adicionais no Azure AD 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicativos à minha instância do AD do Azure?
 

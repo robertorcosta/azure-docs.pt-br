@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eb71de223e2d840e0caa0444b837e16e1f091414
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787662"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484780"
 ---
 # <a name="azure-storage-analytics-logging"></a>Log da Análise de Armazenamento do Azure
 
@@ -57,11 +57,11 @@ Todos os logs são armazenados em blobs de blocos em um contêiner denominado `$
 > [!NOTE]
 >  O contêiner `$logs` não é exibido quando uma operação de listagem de contêiner é executada, como o método Listar Contêineres. Ele deve ser acessado diretamente. Por exemplo, use o método Listar Blobs para acessar os blobs no contêiner `$logs`.
 
-Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob. Pode levar até uma hora para que os dados de log sejam mostrados no contêiner **$logs** devido à frequência com que o serviço de armazenamento libera os gravadores de log. Podem existir registros duplicados para os logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando **RequestId** e o número da **Operação** .
+Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob. Pode levar até uma hora para que os dados de log sejam mostrados no contêiner **$logs** devido à frequência com que o serviço de armazenamento libera os gravadores de log. Podem existir registros duplicados para os logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando **RequestId** e o número da **Operação**.
 
 Se tiver um grande volume de dados de log com vários arquivos para cada hora, você poderá usar os metadados de blob para determinar quais dados o log contém examinando os campos de metadados do blob. Isso também é útil porque, às vezes, pode haver um atraso enquanto os dados são gravados nos arquivos de log: os metadados do blob fornecem uma indicação mais precisa do conteúdo do blob do que o nome do blob.
 
-A maioria das ferramentas de navegação de armazenamento permite exibir os metadados de blobs. Além disso, você pode ler essas informações usando o PowerShell ou de forma programática. O seguinte snippet do PowerShell é um exemplo de filtragem da lista de blobs de log pelo nome, para especificar uma hora, e por metadados, para identificar apenas os logs que contêm operações de **gravação** .  
+A maioria das ferramentas de navegação de armazenamento permite exibir os metadados de blobs. Além disso, você pode ler essas informações usando o PowerShell ou de forma programática. O seguinte snippet do PowerShell é um exemplo de filtragem da lista de blobs de log pelo nome, para especificar uma hora, e por metadados, para identificar apenas os logs que contêm operações de **gravação**.  
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -139,7 +139,7 @@ Especifique os serviços de armazenamento que deseja registrar em log e o perío
 
  Você pode usar o PowerShell em seu computador local para configurar o log de armazenamento em sua conta de armazenamento usando o cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** para recuperar as configurações atuais e o cmdlet **set-AzStorageServiceLoggingProperty** para alterar as configurações atuais.  
 
- Os cmdlets que controlam o Registro em Log do Armazenamento usam um parâmetro **LoggingOperations** que é uma cadeia de caracteres contendo uma lista de tipos de solicitação separados por vírgulas para o log. Os três tipos possíveis de solicitação são **leitura** , **gravação** e **exclusão** . Para desativar o registro em log, use o valor **none** no parâmetro **LoggingOperations** .  
+ Os cmdlets que controlam o Registro em Log do Armazenamento usam um parâmetro **LoggingOperations** que é uma cadeia de caracteres contendo uma lista de tipos de solicitação separados por vírgulas para o log. Os três tipos possíveis de solicitação são **leitura**, **gravação** e **exclusão**. Para desativar o registro em log, use o valor **none** no parâmetro **LoggingOperations**.  
 
  O seguinte comando ativa o registro em log para solicitações de leitura, gravação e exclusão no serviço de Fila em sua conta de armazenamento padrão com a retenção definida como cinco dias:  
 
@@ -204,7 +204,7 @@ O exemplo a seguir mostra como você pode baixar os dados de log para o serviço
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para saber mais sobre como baixar arquivos específicos, veja [Download de arquivos específicos](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
+Para saber mais sobre como baixar arquivos específicos, veja [Download de arquivos específicos](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Após baixar seus dados de log, veja as entradas de log nos arquivos. Esses arquivos de log usam um formato de texto delimitado que muitas ferramentas de leitura de log podem analisar (para obter mais informações, consulte o guia [monitoramento, diagnóstico e solução de problemas armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Ferramentas diferentes têm recursos diferentes para formatação, filtragem, classificação e pesquisa de anúncios para o conteúdo de seus arquivos de log. Para obter mais informações sobre o formato e o conteúdo do arquivo de log do Registro em Log do Armazenamento, consulte [Formato do Log de Análise do Armazenamento](/rest/api/storageservices/storage-analytics-log-format) e [Operações Registradas em Log na Análise de Armazenamento e Mensagem de Status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

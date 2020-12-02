@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386700"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485256"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -136,7 +136,7 @@ Armazenamento quente| Não | Não
 Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
-Criptografia dupla em repouso <br></br> (Somente para failover em discos gerenciados) <br></br> Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
+Criptografia dupla em repouso <br></br> (Somente para failover em discos gerenciados) <br></br> Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não

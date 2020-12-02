@@ -3,12 +3,12 @@ title: Configurar a análise de dependência baseada em agente na avaliação do
 description: Este artigo descreve como configurar a análise de dependência baseada em agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302847"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483463"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização de dependência
 
@@ -21,7 +21,7 @@ Este artigo descreve como configurar a análise de dependência baseada em agent
     - [Servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [VMs do Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Verifique se você:
-    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](how-to-add-tool-first-time.md) um agora.
+    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](./create-manage-projects.md) um agora.
     - Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment ao projeto.
     - Configure um [dispositivo de migrações para Azure](migrate-appliance.md) para descobrir computadores locais. O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. Configurar um dispositivo para:
         - [VMware](how-to-set-up-appliance-vmware.md) VMs.
@@ -147,7 +147,7 @@ Depois de criar o grupo, recomendamos que você instale agentes em todos os comp
 Você pode consultar dados de dependência capturados por Mapa do Serviço no espaço de trabalho Log Analytics associado ao projeto de migrações para Azure. Log Analytics é usado para gravar e executar Azure Monitor consultas de log.
 
 - [Saiba como](../azure-monitor/insights/service-map.md#log-analytics-records) procurar mapa do serviço dados no log Analytics.
-- [Obtenha uma visão geral](../azure-monitor/log-query/get-started-queries.md)  da gravação de consultas de log no [log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Obtenha uma visão geral](../azure-monitor/log-query/get-started-queries.md)  da gravação de consultas de log no [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Execute uma consulta para dados de dependência da seguinte maneira:
 

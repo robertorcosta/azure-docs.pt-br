@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528883"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485188"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -49,7 +49,7 @@ Nas etapas a seguir, você precisará de uma conta Microsoft e de uma conta do A
 Depois de ter uma conta Microsoft, acesse a [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente** e crie uma conta do Azure usando uma conta Microsoft. Assista a um vídeo sobre [como se inscrever para ter uma conta gratuita do Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> Quando você se inscreve para ter uma conta gratuita do Azure, ela vem com US$ 200 em crédito de serviço que podem ser aplicados a uma assinatura paga do serviço de Fala, válidos por até 30 dias. Seus serviços do Azure são desabilitados quando o crédito é esgotado ou expira ao final dos 30 dias. Para continuar usando os serviços do Azure, é necessário atualizar sua conta. Para obter mais informações, confira [Como atualizar sua conta gratuita do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
+> Quando você se inscreve para ter uma conta gratuita do Azure, ela vem com US$ 200 em crédito de serviço que podem ser aplicados a uma assinatura paga do serviço de Fala, válidos por até 30 dias. Seus serviços do Azure são desabilitados quando o crédito é esgotado ou expira ao final dos 30 dias. Para continuar usando os serviços do Azure, é necessário atualizar sua conta. Para obter mais informações, confira [Como atualizar sua conta gratuita do Azure](../../cost-management-billing/manage/upgrade-azure-subscription.md). 
 >
 > O serviço de Fala tem duas camadas de serviço: gratuita (f0) e assinatura (s0), que têm diferentes limitações e benefícios. Se você usar a camada de serviço de fala gratuita e de baixo volume, poderá manter essa assinatura gratuita mesmo após a expiração da avaliação gratuita ou do crédito de serviço. Para obter mais informações, confira [Preço dos Serviços Cognitivos – serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -70,8 +70,8 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
 1. Selecione **Criar** e:
 
    - Dê um nome exclusivo ao seu novo recurso. O nome ajuda a distinguir entre várias assinaturas associadas ao mesmo serviço.
-   - Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados. Veja a introdução a [como criar uma assinatura do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) no portal do Azure.
-   - Escolha a [região](regions.md) em que o recurso será usado. O Azure é uma plataforma de nuvem global que está em disponibilidade geral em muitas regiões em todo o mundo. Para obter o melhor desempenho, selecione a região mais próxima de você ou de onde o aplicativo é executado. A disponibilidade do serviço de Fala varia de acordo com a região. Crie seu recurso em uma região com suporte. Confira [suporte à região para os serviços de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados. Veja a introdução a [como criar uma assinatura do Azure](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) no portal do Azure.
+   - Escolha a [região](regions.md) em que o recurso será usado. O Azure é uma plataforma de nuvem global que está em disponibilidade geral em muitas regiões em todo o mundo. Para obter o melhor desempenho, selecione a região mais próxima de você ou de onde o aplicativo é executado. A disponibilidade do serviço de Fala varia de acordo com a região. Crie seu recurso em uma região com suporte. Confira [suporte à região para os serviços de Fala](./regions.md#speech-to-text-text-to-speech-and-translation).
    - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e cotas de uso para cada camada, selecione **Exibir detalhes de preço completos** ou confira [preços dos serviços de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Para saber mais sobre os limites de recursos, confira [Limites dos Serviços Cognitivos do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Crie um grupo de recursos para esta assinatura de Fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recurso ajudam você a manter suas diversas assinaturas do Azure organizadas.
    - Selecione **Criar**. Isso direcionará você à visão geral de implantação e exibirá mensagens sobre o progresso da implantação.  
@@ -112,7 +112,7 @@ Após ter tido a chance de começar a usar o serviço de Fala, experimente os tu
 
 - [Tutorial: Reconhecer intenções de fala com o SDK de Fala e o LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitar por voz o bot com o SDK de Fala, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutorial: Criar um aplicativo Flask para traduzir texto, analisar o sentimento e sintetizar a conversão de texto traduzido em fala, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
+- [Tutorial: Criar um aplicativo Flask para traduzir texto, analisar o sentimento e sintetizar a conversão de texto traduzido em fala, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
 
 ## <a name="get-sample-code"></a>Obter código de exemplo
 

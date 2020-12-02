@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 0de8d8d5ff0f14d0268dbcca743f4d06ed877903
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 331ceb6124463604989116ce84bc73acd8cfb22f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544387"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483242"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
@@ -30,7 +30,7 @@ Este guia mostra como usar o blobfuse e montar um contêiner de Armazenamento de
 ## <a name="install-blobfuse-on-linux"></a>Instalar o blobfuse no Linux
 Os binários do Blobfuse estão disponíveis em [repositórios de software da Microsoft para Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) para distribuições Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários a partir do código-fonte seguindo as [etapas de instalação do Armazenamento do Microsoft Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source), se não houver binários disponíveis para sua distribuição.
 
-O Blobfuse dá suporte à instalação no Ubuntu 14, 4, 16, 4 e 18, 4. Execute este comando para garantir que uma dessas versões seja implementada:
+O Blobfuse dá suporte à instalação no Ubuntu 14, 4, 16, 4, 18, 4 e 20, 4. Execute este comando para garantir que uma dessas versões seja implementada:
 ```
 lsb_release -a
 ```

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951276"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484372"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma SAP BusinessObjects BI no Azure
 
@@ -184,7 +184,7 @@ O banco de dados SQL do Azure oferece os três modelos de compra a seguir:
 
 O banco de dados do Azure para MySQL vem com três tipos de preço diferentes. Eles são diferenciados pela quantidade de computação em vCores, memória por vCore e a tecnologia de armazenamento usada para armazenar a data. Veja a seguir os detalhes de alto nível sobre as opções e para obter mais detalhes sobre atributos diferentes, consulte [camada de preços](../../../mysql/concepts-pricing-tiers.md) do banco de dados do Azure para MySQL.
 
-- Basic
+- Básico
 
   Ele é usado para as cargas de trabalho de destino que exigem desempenho de e/s e computação leve.
 
@@ -267,4 +267,4 @@ Para uma oferta de banco de dados como serviço, qualquer banco de dados criado 
 - [Implantação da plataforma de BI do SAP BusinessObjects no Linux](businessobjects-deployment-guide-linux.md)
 - [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP](planning-guide.md)
 - [Implantação de Máquinas Virtuais do Azure para SAP](deployment-guide.md)
-- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](dbms-guide.md)
+- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](./dbms_guide_general.md)

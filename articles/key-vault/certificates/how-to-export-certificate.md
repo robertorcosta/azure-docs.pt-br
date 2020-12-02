@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289564"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483688"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportar certificados do Azure Key Vault
 
@@ -33,8 +33,8 @@ Quando um certificado do Key Vault é criado, uma *chave* e um *segredo* endere�
 
 Depois que um certificado do Key Vault é criado, você pode recuperá-lo por meio do segredo endereçável com a chave privada. Recupere o certificado no formato PFX ou PEM.
 
-- **Exportável** : a política usada para criar o certificado indica que a chave é exportável.
-- **Não exportável** : a política usada para criar o certificado indica que a chave é não exportável. Nesse caso, a chave privada não faz parte do valor quando é recuperada como um segredo.
+- **Exportável**: a política usada para criar o certificado indica que a chave é exportável.
+- **Não exportável**: a política usada para criar o certificado indica que a chave é não exportável. Nesse caso, a chave privada não faz parte do valor quando é recuperada como um segredo.
 
 Tipos de chave com suporte: RSA, RSA-HSM, EC, EC-HSM, oct (listadas [aqui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)). A exportação só é permitida com RSA e EC. As chaves HSM seriam não exportáveis.
 
@@ -83,7 +83,7 @@ Use esse comando no Azure PowerShell para obter o certificado denominado **TestC
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {
@@ -106,7 +106,7 @@ Para obter mais informações sobre o comando **Get-AzKeyVaultCertificate** e os
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal do Azure, depois de criar/importar um certificado na folha **Certificado** , você receberá uma notificação de que o certificado foi criado com êxito. Selecione o certificado e a versão atual para ver a opção para baixar.
+No portal do Azure, depois de criar/importar um certificado na folha **Certificado**, você receberá uma notificação de que o certificado foi criado com êxito. Selecione o certificado e a versão atual para ver a opção para baixar.
 
 Para baixar o certificado, selecione **Baixar no formato CER** ou **Baixar no formato PFX/PEM**.
 

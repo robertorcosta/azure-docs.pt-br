@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299523"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484270"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -112,7 +112,7 @@ A acumulação de vários VHDs do Azure sob um conjunto de distribuição é acu
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funcionalidade de intermitência do Azure para armazenamento Premium
-Para discos de armazenamento Premium do Azure menores ou iguais a 512 GiB em capacidade, a funcionalidade de intermitência é oferecida. A maneira exata de como funciona a intermitência de disco é descrita no artigo [intermitência de disco](../../linux/disk-bursting.md). Ao ler o artigo, você entende o conceito de acumular IOPS e taxa de transferência nos momentos em que a carga de trabalho de e/s está abaixo do IOPS nominal e da taxa de transferência dos discos (para obter detalhes sobre a taxa de transferência nominal, consulte [preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/)). Você vai acumular o Delta de IOPS e a taxa de transferência entre o uso atual e os valores nominais do disco. As intermitências são limitadas a um máximo de 30 minutos.
+Para discos de armazenamento Premium do Azure menores ou iguais a 512 GiB em capacidade, a funcionalidade de intermitência é oferecida. A maneira exata de como funciona a intermitência de disco é descrita no artigo [intermitência de disco](../../disk-bursting.md). Ao ler o artigo, você entende o conceito de acumular IOPS e taxa de transferência nos momentos em que a carga de trabalho de e/s está abaixo do IOPS nominal e da taxa de transferência dos discos (para obter detalhes sobre a taxa de transferência nominal, consulte [preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/)). Você vai acumular o Delta de IOPS e a taxa de transferência entre o uso atual e os valores nominais do disco. As intermitências são limitadas a um máximo de 30 minutos.
 
 Os casos ideais em que essa funcionalidade de intermitência pode ser planejada provavelmente serão os volumes ou discos que contêm arquivos de dados para o DBMS diferente. A carga de trabalho de e/s esperada nesses volumes, especialmente com sistemas de pequeno a médio porte, deve parecer com a seguinte aparência:
 
@@ -134,7 +134,7 @@ Especialmente em sistemas DBMS menores em que sua carga de trabalho está lidand
 > Certificação do SAP HANA para máquinas virtuais da série M do Azure é exclusivamente com o Acelerador de gravação do Azure para o **hana/log** volume. Como resultado, as implantações de SAP HANA de cenário de produção em máquinas virtuais da série M do Azure devem ser configurados com o Acelerador de gravação do Azure para o **hana/log** volume.  
 
 > [!NOTE]
-> Em cenários que envolvem o armazenamento Premium do Azure, estamos implementando recursos de intermitência na configuração. Como você está usando as ferramentas de teste de armazenamento de qualquer forma ou formulário, mantenha o [funcionamento do Azure Premium Disk Burst](../../linux/disk-bursting.md) em mente. Executando os testes de armazenamento fornecidos por meio da ferramenta SAP HWCCT ou HCMT, não estamos esperando que todos os testes passem os critérios, já que alguns dos testes excederão os créditos de intermitência que você pode acumular. Especialmente quando todos os testes são executados sequencialmente sem interrupção.
+> Em cenários que envolvem o armazenamento Premium do Azure, estamos implementando recursos de intermitência na configuração. Como você está usando as ferramentas de teste de armazenamento de qualquer forma ou formulário, mantenha o [funcionamento do Azure Premium Disk Burst](../../disk-bursting.md) em mente. Executando os testes de armazenamento fornecidos por meio da ferramenta SAP HWCCT ou HCMT, não estamos esperando que todos os testes passem os critérios, já que alguns dos testes excederão os créditos de intermitência que você pode acumular. Especialmente quando todos os testes são executados sequencialmente sem interrupção.
 
 
 > [!NOTE]
@@ -148,7 +148,7 @@ Configuração do volume do SAP **/Hana/data** :
 | --- | --- | --- | --- | --- | --- | --- | 
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
-| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2.000 | 14.000 |
+| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2\.000 | 14.000 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4.400 | 14.000 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200 | 14.000 |  
 | M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200| 14.000 | 

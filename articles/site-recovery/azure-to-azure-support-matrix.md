@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 64e8d4d00efa52b10d4543d36af7874f61dc3455
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317530"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485273"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -234,7 +234,7 @@ Armazenamento frio e quente | Sem suporte | Discos de VM não são suportados em
 Espaços de Armazenamento | Com suporte |
 Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em contas de armazenamento.
 Criptografia em repouso (CMK) | Com suporte | As chaves de software e HSM são compatíveis com discos gerenciados
-Criptografia dupla em repouso | Com suporte | Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
+Criptografia dupla em repouso | Com suporte | Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md)
 Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. |
 ADE (Azure Disk Encryption) para sistema operacional Linux | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. <br><br> Problema conhecido com a habilitação da replicação. [Saiba mais.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotação de chave SAS | Sem suporte | Se a chave SAS para contas de armazenamento for girada, o cliente precisará desabilitar e reabilitar a replicação. |

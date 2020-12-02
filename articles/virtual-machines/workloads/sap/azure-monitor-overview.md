@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957428"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484389"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure monitor para soluções SAP (versão prévia)
 
@@ -35,7 +35,7 @@ Bancos de dados com suporte:
 - Banco de dados do SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor para soluções SAP aproveita o poder de recursos de [Azure monitor](../../../azure-monitor/overview.md) existentes, como log Analytics e [pastas de trabalho](../../../azure-monitor/platform/workbooks-overview.md) , para fornecer recursos de monitoramento adicionais. Os clientes podem criar [visualizações personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) editando as pastas de trabalho padrão fornecidas pelo Azure monitor para soluções SAP, escrever [consultas personalizadas](../../../azure-monitor/log-query/get-started-portal.md) e criar [alertas personalizados](../../../azure-monitor/learn/tutorial-response.md) usando o espaço de trabalho log Analytics do Azure, aproveitar o período de [retenção flexível](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) e conectar dados de monitoramento com seu sistema de tíquetes.
+Azure Monitor para soluções SAP aproveita o poder de recursos de [Azure monitor](../../../azure-monitor/overview.md) existentes, como log Analytics e [pastas de trabalho](../../../azure-monitor/platform/workbooks-overview.md) , para fornecer recursos de monitoramento adicionais. Os clientes podem criar [visualizações personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) editando as pastas de trabalho padrão fornecidas pelo Azure monitor para soluções SAP, escrever [consultas personalizadas](../../../azure-monitor/log-query/log-analytics-tutorial.md) e criar [alertas personalizados](../../../azure-monitor/learn/tutorial-response.md) usando o espaço de trabalho log Analytics do Azure, aproveitar o período de [retenção flexível](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) e conectar dados de monitoramento com seu sistema de tíquetes.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quais dados Azure Monitor para soluções SAP coletam?
 

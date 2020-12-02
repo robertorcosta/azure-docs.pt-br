@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694773"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483582"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Usando SNAT para conexões de saída
 
@@ -66,7 +66,7 @@ Quando o [cenário 2](#scenario2) abaixo estiver configurado, o host para cada i
  | Balanceador de carga público ou autônomo | [SNAT (conversão de endereços de rede de origem)](#snat) </br> não usado. | TCP (protocolo de controle de transmissão) </br> UDP (protocolo de datagrama do usuário) </br> ICMP (protocolo de mensagens de controle da Internet) </br> ESP (encapsulamento de carga de segurança) |
 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
 
 
  O Azure usa o IP público atribuído à configuração de IP da NIC da instância para todos os fluxos de saída. A instância possui todas as portas efêmeras disponíveis. Não importa se a VM tem balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. 
@@ -83,7 +83,7 @@ Quando o [cenário 2](#scenario2) abaixo estiver configurado, o host para cada i
  | Balanceador de carga público | Uso de IPs de front-end do balanceador de carga para [SNAT](#snat).| TCP </br> UDP |
 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
 
 
  O recurso de balanceador de carga é configurado com uma regra de saída ou uma regra de balanceamento de carga que habilita o SNAT padrão. Essa regra é usada para criar um vínculo entre o front-end IP público com o pool de back-end. 
@@ -111,7 +111,7 @@ Quando o [cenário 2](#scenario2) abaixo estiver configurado, o host para cada i
  | ------------ | ------ | ------------ |
  |Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com endereço IP dinâmico em nível de instância| TCP </br> UDP | 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
 
 
  Quando a VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para um endereço IP de origem pública alocado dinamicamente. Esse endereço IP público **não é configurável** e não pode ser reservado. Esse endereço não conta com relação ao limite de recursos de IP público da assinatura. 
@@ -182,8 +182,6 @@ Para obter mais informações sobre o NAT de rede virtual do Azure, consulte [o 
 
 ## <a name="constraints"></a>Restrições
 
-*   As portas serão liberadas após 15 segundos se um **TCP RST** for recebido ou enviado
-*   As portas serão liberadas após 240 segundos se um **FINACK** for recebido ou enviado
 *   Quando uma conexão estiver ociosa sem que nenhum novo pacote seja enviado, as portas serão liberadas após 4 a 120 minutos.
   * Esse limite pode ser configurado por meio de regras de saída.
 *   Cada endereço IP fornece 64.000 portas que podem ser usadas para SNAT.

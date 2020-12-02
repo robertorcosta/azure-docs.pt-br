@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015351"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483913"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -58,13 +58,13 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 | `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem quatro representações diferentes de texto de exibição. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked` , que substitui profanação por asteriscos, `removed` , que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
-| `cid` | Ao usar o [portal de fala personalizada](how-to-custom-speech.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
+| `cid` | Ao usar o [portal de fala personalizada](./custom-speech-overview.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
 
-|Cabeçalho| Description | Obrigatório/Opcional |
+|Cabeçalho| Descrição | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |

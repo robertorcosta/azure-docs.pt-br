@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635204"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484882"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -77,7 +77,7 @@ Os logs de armazenamento do Azure capturam detalhes sobre as solicitações feit
 
 Para registrar solicitações em sua conta de armazenamento do Azure para avaliar como elas são autorizadas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](../blobs/monitor-blob-storage.md).
 
-O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma configuração de diagnóstico no portal do Azure
 
@@ -90,8 +90,8 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 1. Selecione o serviço de armazenamento do Azure para o qual você deseja registrar solicitações. Por exemplo, escolha **blob** para registrar solicitações ao armazenamento de BLOBs.
 1. Selecione **Adicionar configuração de diagnóstico**.
 1. Forneça um nome para a configuração de diagnóstico.
-1. Em **detalhes da categoria** , na seção **log** , escolha **StorageRead** , **StorageWrite** e **StorageDelete** para registrar em log todas as solicitações de dados para o serviço selecionado.
-1. Em **detalhes de destino** , selecione **Enviar para log Analytics**. Selecione sua assinatura e o espaço de trabalho Log Analytics criado anteriormente, conforme mostrado na imagem a seguir.
+1. Em **detalhes da categoria**, na seção **log** , escolha **StorageRead**, **StorageWrite** e **StorageDelete** para registrar em log todas as solicitações de dados para o serviço selecionado.
+1. Em **detalhes de destino**, selecione **Enviar para log Analytics**. Selecione sua assinatura e o espaço de trabalho Log Analytics criado anteriormente, conforme mostrado na imagem a seguir.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
 
@@ -217,7 +217,7 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 | AzCopy | Com suporte para armazenamento de BLOBs. Para obter informações sobre como autorizar operações de AzCopy, consulte [escolher como você fornecerá credenciais de autorização](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) na documentação do AzCopy. |
 | Gerenciador de Armazenamento do Azure | Com suporte somente para armazenamento de BLOBs e Azure Data Lake Storage Gen2. Não há suporte para o acesso do Azure AD ao armazenamento de filas. Certifique-se de selecionar o locatário correto do Azure AD. Para obter mais informações, consulte Introdução [ao Gerenciador de armazenamento](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Com suporte. Para obter informações sobre como autorizar comandos do PowerShell para operações de BLOB ou fila com o Azure AD, consulte [executar comandos do PowerShell com as credenciais do Azure ad para acessar dados de blob](../blobs/authorize-data-operations-powershell.md) ou [executar comandos do PowerShell com as credenciais do Azure ad para acessar os dados da fila](../queues/authorize-data-operations-powershell.md). |
-| CLI do Azure | Com suporte. Para obter informações sobre como autorizar comandos de CLI do Azure com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos de CLI do Azure com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-data-operations-cli.md). |
+| CLI do Azure | Com suporte. Para obter informações sobre como autorizar comandos de CLI do Azure com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos de CLI do Azure com as credenciais do Azure ad para acessar dados de BLOB ou fila](../blobs/authorize-data-operations-cli.md). |
 | Hub IoT do Azure | Com suporte. Para obter mais informações, consulte [suporte do Hub IOT para redes virtuais](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
 
@@ -239,7 +239,7 @@ As métricas do Azure e o log em Azure Monitor não fazem distinção entre dife
 - Um token SAS de serviço ou um token SAS de conta é autorizado com a chave compartilhada e não será permitido em uma solicitação para o armazenamento de blob quando a propriedade **AllowSharedKeyAccess** estiver definida como **false**.
 - Uma SAS de delegação de usuário é autorizada com o Azure AD e será permitida em uma solicitação para o armazenamento de blob quando a propriedade **AllowSharedKeyAccess** for definida como **false**.
 
-Quando você estiver avaliando o tráfego para sua conta de armazenamento, tenha em mente que as métricas e os logs conforme descrito em [detectar o tipo de autorização usado por aplicativos cliente](#detect-the-type-of-authorization-used-by-client-applications) podem incluir solicitações feitas com uma SAS de delegação de usuário. Para obter mais informações sobre como o armazenamento do Azure responde a uma SAS quando a propriedade **AllowSharedKeyAccess** é definida como **false** , consulte [entender como a despermissão de chave compartilhada afeta os tokens SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
+Quando você estiver avaliando o tráfego para sua conta de armazenamento, tenha em mente que as métricas e os logs conforme descrito em [detectar o tipo de autorização usado por aplicativos cliente](#detect-the-type-of-authorization-used-by-client-applications) podem incluir solicitações feitas com uma SAS de delegação de usuário. Para obter mais informações sobre como o armazenamento do Azure responde a uma SAS quando a propriedade **AllowSharedKeyAccess** é definida como **false**, consulte [entender como a despermissão de chave compartilhada afeta os tokens SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Solicitações com tokens SAS são permitidas para filas, tabelas e arquivos quando AllowSharedKeyAccess é false
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165325"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483998"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -46,9 +46,9 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Usado para teste | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
-| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Yes | 1 a 1.000 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | No | N/A | Yes | 1-200 MB de texto relacionado |
+| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
+| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | Não | N/A | Sim | 1-200 MB de texto relacionado |
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo. zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -186,7 +186,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês ( `en-US` ) e alemão ( `de-DE` ). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Localidade | Caracteres |
+| Linguagem | Localidade | Caracteres |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -204,4 +204,4 @@ Use a tabela a seguir para garantir que o arquivo de dados relacionado para pron
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
 * [Treinar seu modelo](how-to-custom-speech-train-model.md)
-* [Implantar o seu modelo](how-to-custom-speech-deploy-model.md)
+* [Implantar o seu modelo](./how-to-custom-speech-train-model.md)

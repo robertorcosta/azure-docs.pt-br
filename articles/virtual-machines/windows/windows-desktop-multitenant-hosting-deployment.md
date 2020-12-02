@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5631cbdd0b1eae343899be2147720d980e605dbb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452715"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96482936"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário 
 Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Área de Trabalho Virtual do Windows por usuário (licenças de assinatura do usuário ou licenças complementares de assinatura do usuário), os direitos de hospedagem multilocatário para Windows 10 permitem que você coloque suas licenças do Windows 10 na nuvem e execute máquinas virtuais do Windows 10 no Azure sem necessidade de pagar por outra licença. Para obter mais informações, consulte [Hospedagem multilocatário para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -26,7 +26,7 @@ Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Áre
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implantando a imagem do Windows 10 do Azure Marketplace 
 Para implantações de modelo do PowerShell, CLI e Azure Resource Manager, a imagem do Windows 10 pode ser encontrada com o PublisherName, oferta, SKU a seguir.
 
-| Sistema operacional  |      PublisherName      |  Oferta | Sku |
+| SO  |      PublisherName      |  Oferta | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -36,9 +36,11 @@ Para implantações de modelo do PowerShell, CLI e Azure Resource Manager, a ima
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualificar para direitos de Hospedagem de vários locatários 
 Para se qualificar para direitos de hospedagem multilocatários e executar imagens do Windows 10 em usuários do Azure, é necessário ter uma das seguintes assinaturas: 
 
--   Microsoft 365 E3/E5/F3/a3/a5
--   Windows 10 Enterprise E3/e5 
--   Educação do Windows 10 a3/a5
+-   Microsoft 365 E3/e5 
+-   Microsoft 365 F3 
+-   Microsoft 365 a3/a5 
+-   Windows 10 Enterprise E3/e5
+-   Educação do Windows 10 a3/a5 
 -   Windows VDA E3/e5
 
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: 7d5108d2c155c7e21f2f94f532bd1aa0a96c5b3f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96020493"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483603"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>Coisas a serem consideradas ao usar Video Indexer em escala
 
@@ -50,7 +50,7 @@ Ao carregar vídeos usando a URL, você só precisa fornecer um caminho para o l
 > [!TIP]
 > Use o `videoUrl` parâmetro opcional da API carregar vídeo.
 
-Para ver um exemplo de como carregar vídeos usando a URL, confira [Este exemplo](upload-index-videos.md#code-sample). Ou, você pode usar o [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) para uma maneira rápida e confiável de obter seu conteúdo para uma conta de armazenamento da qual você pode enviá-lo para video indexer usando a [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Para ver um exemplo de como carregar vídeos usando a URL, confira [Este exemplo](upload-index-videos.md#code-sample). Ou, você pode usar o [AzCopy](../../storage/common/storage-use-azcopy-v10.md) para uma maneira rápida e confiável de obter seu conteúdo para uma conta de armazenamento da qual você pode enviá-lo para video indexer usando a [URL SAS](../../storage/common/storage-sas-overview.md).
 
 ## <a name="increase-media-reserved-units-if-needed"></a>Aumentar as unidades reservadas de mídia, se necessário
 

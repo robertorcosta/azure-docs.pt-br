@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782222"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483276"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure
 
@@ -113,10 +113,10 @@ Para revogar o acesso às chaves gerenciadas pelo cliente, use o [PowerShell](./
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Chaves gerenciadas pelo cliente para Azure Managed disks
 
-As chaves gerenciadas pelo cliente também estão disponíveis para gerenciar a criptografia de Azure Managed disks. Chaves gerenciadas pelo cliente se comportam de maneira diferente para discos gerenciados do que para recursos de armazenamento do Azure Para obter mais informações, consulte [criptografia no servidor de Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) para Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) para Linux.
+As chaves gerenciadas pelo cliente também estão disponíveis para gerenciar a criptografia de Azure Managed disks. Chaves gerenciadas pelo cliente se comportam de maneira diferente para discos gerenciados do que para recursos de armazenamento do Azure Para obter mais informações, consulte [criptografia no servidor de Azure Managed disks](../../virtual-machines/disk-encryption.md) para Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/disk-encryption.md) para Linux.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
-- [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas no Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Configurar a criptografia com as chaves gerenciadas pelo cliente armazenadas no Azure Key Vault](customer-managed-keys-configure-key-vault.md)
 - [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](customer-managed-keys-configure-key-vault-hsm.md)
