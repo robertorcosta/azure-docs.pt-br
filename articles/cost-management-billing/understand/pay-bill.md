@@ -7,15 +7,15 @@ ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/21/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: e9ad580ae5e3ffe7a7f5781423f96897272a4844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5397bb4ebd5909406d0bae1ef68ec2c6453549d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972069"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026328"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar sua fatura do Microsoft Azure
 
@@ -29,7 +29,7 @@ Se a forma de pagamento padrão for cartão de crédito, nós o cobraremos autom
 
 ## <a name="pay-now-in-the-azure-portal"></a>Pagar agora no portal do Azure
 
-Para pagar faturas no portal do Azure, você deve ser o administrador da Conta de Cobrança. O administrador da Conta de Cobrança é o usuário que originalmente se inscreveu na conta MCA.
+Para pagar faturas no portal do Azure, você precisa ter as [permissões MCA](../manage/understand-mca-roles.md) corretas ou ser o administrador da Conta de Cobrança. O administrador da Conta de Cobrança é o usuário que originalmente se inscreveu na conta MCA.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.

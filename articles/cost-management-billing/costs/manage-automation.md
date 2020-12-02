@@ -3,17 +3,17 @@ title: Gerenciar os custos do Azure com automação
 description: Este artigo explica como você pode gerenciar os custos do Azure com automação.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
-ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.reviewer: adwise
+ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131965"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956085"
 ---
 # <a name="manage-costs-with-automation"></a>Gerenciar os custos com a automação
 
@@ -63,11 +63,18 @@ As solicitações de exemplo a seguir são usadas pelos clientes da Microsoft pa
 
 ### <a name="get-usage-details-for-a-scope-during-specific-date-range"></a>Obter os Detalhes de Uso para um escopo durante um intervalo de datas específico
 
-Os dados retornados pela solicitação correspondem à data em que o uso foi recebido pelo sistema de cobrança. Ele pode incluir custos de várias notas fiscais.
+Os dados retornados pela solicitação correspondem à data em que o uso foi recebido pelo sistema de cobrança. Ele pode incluir custos de várias notas fiscais. A chamada a ser usada varia de acordo com seu tipo de assinatura.
+
+Para clientes herdados com uma assinatura EA (Contrato Enterprise) ou paga conforme o uso, use a seguinte chamada:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+Para clientes modernos com um Contrato de Cliente da Microsoft, use a seguinte chamada:
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>Obter detalhes de custo amortizado

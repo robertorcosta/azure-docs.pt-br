@@ -50,16 +50,16 @@ Crie um grupo de consumidores exclusivo no hub IoT para consumo do TSI. Substitu
 az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
 ```
 
-## <a name="choose-your-time-series-id"></a>Escolher a ID de Série Temporal
+## <a name="choose-your-time-series-id"></a>Escolher a ID da Série Temporal
 
-Ao provisionar seu ambiente do TSI, você precisará escolher uma *ID de Série Temporal*. É importante escolher a ID de Série Temporal apropriada, pois essa propriedade é imutável e não poderá ser alterada após a definição. Uma ID de Série Temporal é como uma chave de partição de banco de dados. A ID de Série Temporal funciona como a chave primária do Modelo de Série Temporal. Para saber mais, confira [Melhores práticas para a escolha de uma ID de Série Temporal](../time-series-insights/how-to-select-tsid.md).
+Ao provisionar seu ambiente do TSI, você precisará escolher uma *ID da Série Temporal*. É importante escolher a ID da Série Temporal apropriada, pois essa propriedade é imutável e não poderá ser alterada após a definição. Uma ID da Série Temporal é como uma chave de partição de banco de dados. A ID da Série Temporal funciona como a chave primária do Modelo de Série Temporal. Para saber mais, confira [Melhores práticas para a escolha de uma ID da Série Temporal](../time-series-insights/how-to-select-tsid.md).
 
-Como usuário do IoT Plug and Play, especifique uma _chave composta_ que consiste em `iothub-connection-device-id` e `dt-subject` como a ID de Série Temporal. O Hub IoT adiciona essas propriedades do sistema que contêm a identificação do dispositivo IoT Plug and Play e os nomes dos componentes do dispositivo, respectivamente.
+Como usuário do IoT Plug and Play, especifique uma _chave composta_ que consiste em `iothub-connection-device-id` e `dt-subject` como a ID da Série Temporal. O Hub IoT adiciona essas propriedades do sistema que contêm a identificação do dispositivo IoT Plug and Play e os nomes dos componentes do dispositivo, respectivamente.
 
-Mesmo que os modelos de dispositivos IoT Plug and Play não usem os componentes no momento, você deverá incluir `dt-subject` como parte de uma chave composta de modo que possa usá-los no futuro. Como a ID de Série Temporal é imutável, a Microsoft recomenda habilitar essa opção caso você precise dela no futuro.
+Mesmo que os modelos de dispositivos IoT Plug and Play não usem os componentes no momento, você deverá incluir `dt-subject` como parte de uma chave composta de modo que possa usá-los no futuro. Como a ID da Série Temporal é imutável, a Microsoft recomenda habilitar essa opção caso você precise dela no futuro.
 
 > [!NOTE]
-> Os exemplos abaixo referem-se ao dispositivo de **TemperatureController** de vários componentes, mas os conceitos são os mesmos para o dispositivo de **Termostato**.
+> Os exemplos abaixo referem-se ao dispositivo de **TemperatureController** de vários componentes, mas os conceitos são os mesmos para o dispositivo de **Termostato** sem componente.
 
 ## <a name="provision-your-tsi-environment"></a>Provisionar seu ambiente do TSI
 
@@ -72,7 +72,7 @@ O seguinte comando:
 * Cria um ambiente do Azure Time Series Insights Gen2, incluindo o armazenamento warm com um período de retenção de sete dias e um armazenamento frio para a retenção infinita.
   * Substitua `my-tsi-env` por um nome exclusivo para seu ambiente do TSI.
   * Substitua `my-pnp-resourcegroup` pelo nome do grupo de recursos usado durante a configuração.
-  * `iothub-connection-device-id, dt-subject` é a propriedade da ID de Série Temporal.
+  * `iothub-connection-device-id, dt-subject` é a propriedade da ID da Série Temporal.
 
 ```azurecli-interactive
 storage=mytsicoldstore
@@ -112,13 +112,13 @@ No Gerenciador, você verá três instâncias:
 
 Em seguida, você converterá o modelo de dispositivo DTDL no modelo de ativo do TSI (Azure Time Series Insights). O Modelo de Série Temporal do TSI é uma ferramenta de modelagem semântica para a contextualização de dados dentro do TSI. O Modelo de Série Temporal tem três componentes principais:
 
-* [Instâncias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-instances). As instâncias são representações virtuais da série temporal. As instâncias são identificadas exclusivamente pela ID de Série Temporal.
+* [Instâncias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-instances). As instâncias são representações virtuais da série temporal. As instâncias são identificadas exclusivamente pela ID da Série Temporal.
 * [Hierarquias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies). As hierarquias organizam instâncias especificando nomes de propriedade e suas relações.
 * [Tipos de Modelos de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-types). Os tipos ajudam você a definir [variáveis](../time-series-insights/concepts-variables.md) ou fórmulas para cálculos. Os tipos são associados a uma instância específica.
 
 ### <a name="define-your-types"></a>Definir os tipos
 
-Você pode começar ingerindo dados no Azure Time Series Insights Gen2 sem ter um modelo predefinido. Quando a telemetria é recebida, o TSI tenta resolver automaticamente as instâncias de série temporal com base nos valores da propriedade da ID de Série Temporal. Todas as instâncias recebem o *tipo padrão*. Você precisa criar um tipo manualmente para categorizar corretamente as instâncias. Os seguintes detalhes mostram o método mais simples para sincronizar os modelos de dispositivo DTDL com os tipos do Modelo de Série Temporal:
+Você pode começar ingerindo dados no Azure Time Series Insights Gen2 sem ter um modelo predefinido. Quando a telemetria é recebida, o TSI tenta resolver automaticamente as instâncias de série temporal com base nos valores da propriedade da ID da Série Temporal. Todas as instâncias recebem o *tipo padrão*. Você precisa criar um tipo manualmente para categorizar corretamente as instâncias. Os seguintes detalhes mostram o método mais simples para sincronizar os modelos de dispositivo DTDL com os tipos do Modelo de Série Temporal:
 
 * O identificador de modelo do gêmeo digital passa a ser a ID do tipo.
 * O nome do tipo pode ser o nome do modelo ou o nome de exibição.

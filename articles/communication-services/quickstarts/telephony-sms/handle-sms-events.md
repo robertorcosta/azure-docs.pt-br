@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357463"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888837"
 ---
 # <a name="quickstart-handle-sms-events"></a>Início Rápido: Manipular eventos de SMS
 
@@ -24,7 +24,7 @@ Introdução aos Serviços de Comunicação do Azure usando a Grade de Eventos d
 
 ## <a name="about-azure-event-grid"></a>Sobre a Grade de Eventos do Azure
 
-A [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview) é um serviço de eventos baseado em nuvem. Neste artigo, você aprenderá a assinar eventos para [eventos do serviço de comunicação](../../concepts/event-handling.md) e disparar um evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, enviaremos os eventos para um aplicativo Web que coleta e exibe as mensagens.
+A [Grade de Eventos do Azure](../../../event-grid/overview.md) é um serviço de eventos baseado em nuvem. Neste artigo, você aprenderá a assinar eventos para [eventos do serviço de comunicação](../../concepts/event-handling.md) e disparar um evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, enviaremos os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -49,7 +49,7 @@ A conclusão do registro pode demorar um pouco. Selecione **Atualizar** para atu
 
 ### <a name="event-grid-viewer-deployment"></a>Implantação do Visualizador da Grade de Eventos
 
-Para este guia de início rápido, usaremos o [Exemplo do Visualizador da Grade de Eventos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para exibir eventos quase em tempo real. Isso dará ao usuário a experiência de ter um feed em tempo real. Além disso, o conteúdo do evento também deve estar disponível para inspeção.  
+Para este guia de início rápido, usaremos o [Exemplo do Visualizador da Grade de Eventos do Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para exibir eventos quase em tempo real. Isso dará ao usuário a experiência de ter um feed em tempo real. Além disso, o conteúdo do evento também deve estar disponível para inspeção.  
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>Assinar os eventos de SMS usando webhooks
 
@@ -63,7 +63,7 @@ Na página **Criar Assinatura de Evento**, insira um **nome** para a assinatura 
 
 Você pode assinar eventos específicos para informar à Grade de Eventos qual dos eventos de SMS você deseja acompanhar e aonde enviar os eventos. Selecione os eventos que você gostaria de assinar no menu suspenso. Para o SMS, você terá a opção de escolher `SMS Received` e `SMS Delivery Report Received`. 
 
-Se for solicitado que você forneça um **Nome de Tópico de Sistema**, sinta-se à vontade para fornecer um identificador exclusivo que também pode ser usado para filtrar eventos depois de emitidos.
+Se for solicitado que você forneça um **Nome do Tópico do Sistema**, fique à vontade para fornecer uma cadeia de caracteres exclusiva. O campo não tem impacto sobre sua experiência e é usado para fins de telemetria interna.
 
 Confira a lista completa de [eventos com suporte dos Serviços de Comunicação do Azure](../../concepts/event-handling.md).
 
@@ -75,7 +75,7 @@ Selecione **Web Hook** para o **Tipo de ponto de extremidade**.
 
 Para o **Ponto de extremidade**, clique em **Selecionar um ponto de extremidade** e insira a URL do seu aplicativo Web.
 
-Nesse caso, usaremos a URL do [Exemplo do Visualizador da Grade de Eventos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado anteriormente neste guia de início rápido. A URL do exemplo estará no formato: `https://{{site-name}}.azurewebsites.net/api/updates`
+Nesse caso, usaremos a URL do [Exemplo do Visualizador da Grade de Eventos do Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado anteriormente neste guia de início rápido. A URL do exemplo estará no formato: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 Em seguida, selecione **Confirmar Seleção**.
 
@@ -94,7 +94,7 @@ Confira a lista completa de [eventos com suporte dos Serviços de Comunicação 
 
 ### <a name="receiving-sms-events"></a>Receber eventos de SMS
 
-Depois de realizar uma das ações acima, você observará que os eventos `SMS Received` e `SMS Delivery Report Received` são enviados para seu ponto de extremidade. Esses eventos aparecerão no [Exemplo do Visualizador da Grade de Eventos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado no início. Você pode pressionar o ícone de olho ao lado do evento para ver todo o conteúdo. Os eventos terão esta aparência:
+Depois de realizar uma das ações acima, você observará que os eventos `SMS Received` e `SMS Delivery Report Received` são enviados para seu ponto de extremidade. Esses eventos aparecerão no [Exemplo do Visualizador da Grade de Eventos do Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado no início. Você pode pressionar o ícone de olho ao lado do evento para ver todo o conteúdo. Os eventos terão esta aparência:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Captura de tela mostrando o Esquema da Grade de Eventos para um Evento de SMS Recebido.":::
 
@@ -116,4 +116,4 @@ Neste guia de início rápido, você aprendeu a consumir eventos de SMS. Você p
 Você também pode querer:
 
  - [Saber mais sobre os conceitos de manipulação de eventos](../../concepts/event-handling.md)
- - [Saber mais sobre a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Saber mais sobre a Grade de Eventos](../../../event-grid/overview.md)

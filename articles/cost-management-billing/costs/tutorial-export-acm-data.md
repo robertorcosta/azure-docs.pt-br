@@ -118,7 +118,7 @@ Comece preparando seu ambiente para a CLI do Azure:
    --schedule-status Active --storage-directory demodirectory
    ```
 
-   Para o parâmetro **--type**, escolha `ActualCost`, `AmortizedCost`ou `Usage`.
+   Para o parâmetro **--type**, escolha `ActualCost`, `AmortizedCost` ou `Usage`.
 
    Este exemplo usa o `MonthToDate`. A exportação cria um arquivo de exportação diariamente para os custos do mês atual. Os últimos dados são agregados das exportações diárias anteriores neste mês.
 

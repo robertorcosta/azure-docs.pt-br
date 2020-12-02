@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685419"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254231"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorar o Centro de Conhecimento do Azure Synapse
 
@@ -33,8 +33,8 @@ Escolha um dos métodos e abra o **Centro de Conhecimento**.
 ## <a name="overview"></a>Visão geral
 
 O **Centro de Conhecimento** permite que você faça três coisas:
-* **Use amostras imediatamente**. Essa opção é otimizada para você ver a análise em ação o mais rápido possível. Se você quiser um exemplo rápido de como o Azure Synapse funciona, escolha essa opção.
-* **Amostra de navegador disponível**. Essa opção permite vincular conjuntos de dados de exemplo e adicionar código de exemplo na forma de scripts SQL, notebooks e pipelines.
+* **Use amostras imediatamente**. Se você quiser um exemplo rápido de como o Azure Synapse funciona, escolha essa opção.
+* **Procurar na galeria**. Essa opção permite vincular conjuntos de dados de exemplo e adicionar código de exemplo na forma de scripts SQL, notebooks e pipelines.
 * **Fazer um tour no Synapse studio**. Essa opção o levará em um breve tour pelas partes básicas do Synapse Studio. Isso será útil se você nunca tiver usado o Synapse Studio.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Como explorar o armazenamento de blobs com o pool de SQL sem servidor
@@ -47,7 +47,7 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 1. Clique em Executar. Isso executará o texto selecionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Como carregar mais dados de táxi de NYC
-1. Acesse o **Centro de Conhecimento** e clique em **Procurar exemplos disponíveis** 
+1. Acesse o **Centro de Conhecimento** e clique em **Procurar na galeria** 
 1. Selecione a guia **Scripts SQL** na parte superior
 1. Selecione **Carregar o conjunto de dados de táxis de Nova York**
 1. Em **Entradas**, escolha **Selecionar um pool existente** e selecione **SQLDB1**

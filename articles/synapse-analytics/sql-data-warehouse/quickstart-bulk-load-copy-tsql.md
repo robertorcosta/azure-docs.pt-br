@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212999"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024578"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Início Rápido: Carregar dados em massa usando a instrução COPY
 
-Neste guia de início rápido, você carregará dados em massa para seu pool de SQL usando a [instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simples e flexível para a ingestão de dados com alta taxa de transferência. A instrução COPY é o utilitário de carregamento recomendado, pois permite carregar dados de maneira direta e flexível oferecendo funcionalidades para:
+Neste guia de início rápido, você carregará dados em massa para seu pool de SQL dedicado usando a [instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simples e flexível para a ingestão de dados com alta taxa de transferência. A instrução COPY é o utilitário de carregamento recomendado, pois permite carregar dados de maneira direta e flexível oferecendo funcionalidades para:
 
 - Permitir que usuários com menor privilégio carreguem sem a necessidade de permissões CONTROL estritas no data warehouse
 - Usar apenas uma instrução T-SQL sem precisar criar nenhum objeto de banco de dados adicional
@@ -34,7 +34,7 @@ Neste guia de início rápido, você carregará dados em massa para seu pool de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este guia de início rápido pressupõe que você já tem um pool de SQL. Se um pool de SQL não tiver sido criado, use o guia de início rápido [Criar e conectar-se – portal](create-data-warehouse-portal.md).
+Este guia de início rápido pressupõe que você já tem um pool de SQL dedicado. Se um pool de SQL dedicado não tiver sido criado, use o início rápido [Criar e conectar-se – portal](create-data-warehouse-portal.md).
 
 ## <a name="set-up-the-required-permissions"></a>Configurar as permissões necessárias
 

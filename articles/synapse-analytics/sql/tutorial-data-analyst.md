@@ -1,34 +1,26 @@
 ---
-title: 'Tutorial: Usar o pool de SQL sem servidor (versão prévia) para analisar os Azure Open Datasets no Azure Synapse Studio (versão prévia)'
-description: Este tutorial mostra como executar facilmente a análise de dados exploratória combinando diferentes Azure Open Datasets usando o pool de SQL sem servidor (versão prévia) e visualizar os resultados no Azure Synapse Studio.
+title: 'Tutorial: Explorar e analisar os data lakes com o SQL do Synapse sem servidor'
+description: Este tutorial mostra como executar facilmente a análise de dados exploratória combinando diferentes Azure Open Datasets usando o pool de SQL sem servidor (versão prévia) e visualizar os resultados no Synapse Studio para o Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 84fc49df2838a66969b449dee5b416c2a0f86f86
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685912"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237928"
 ---
-# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Usar o pool de SQL sem servidor para analisar os Azure Open Datasets e visualizar os resultados no Azure Synapse Studio
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Tutorial: Explorar e analisar data lakes com o pool de SQL sem servidor (versão prévia)
 
-Neste tutorial, você aprenderá a executar a análise de dados exploratória combinando diferentes Azure Open Datasets usando o pool de SQL sem servidor e a visualizar os resultados no Azure Synapse Studio.
+Neste tutorial, você aprenderá a executar a análise de dados exploratória. Você combinará diferentes Azure Open Datasets usando um pool de SQL sem servidor. Em seguida, você visualizará os resultados no Synapse Studio para o Azure Synapse Analytics.
 
-Em particular, você analisa o [conjunto de dados de Táxis em NYC (Nova York City)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), que inclui:
-
-- Datas e horas de início e término de corrida.
-- Localizações de início e término de corrida. 
-- Distâncias das viagens.
-- Tarifas discriminadas.
-- Tipos de taxa.
-- Tipos de pagamento. 
-- Contagens de passageiro relatadas pelos motoristas.
+A função OPENROWSET(BULK...) permite que você acesse arquivos no Armazenamento do Azure. A função [OPENROWSET](develop-openrowset.md) lê o conteúdo de uma fonte de dados remota (por exemplo, o arquivo) e retorna o conteúdo como um conjunto de linhas.
 
 ## <a name="automatic-schema-inference"></a>Inferência de esquema automática
 
@@ -44,9 +36,15 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-O seguinte snippet mostra o resultado dos dados de táxis de NYC:
+O [conjunto de dados de táxi de NYC (Nova York)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) inclui:
 
-![Snippet de resultado com os dados de táxis de NYC](./media/tutorial-data-analyst/1.png)
+- Datas e horas de início e término de corrida.
+- Localizações de início e término de corrida. 
+- Distâncias das viagens.
+- Tarifas discriminadas.
+- Tipos de taxa.
+- Tipos de pagamento. 
+- Contagens de passageiro relatadas pelos motoristas.
 
 Da mesma forma, podemos consultar o conjunto de dados de feriados públicos usando a seguinte consulta:
 
@@ -57,10 +55,6 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
-
-O seguinte snippet mostra o resultado do conjunto de dados de feriados públicos:
-
-![Snippet de resultado do conjunto de dados de feriados públicos](./media/tutorial-data-analyst/2.png)
 
 Por fim, você também pode consultar o conjunto de dados meteorológicos usando a seguinte consulta:
 
@@ -74,11 +68,10 @@ FROM
     ) AS [weather]
 ```
 
-O seguinte snippet mostra o resultado do conjunto de dados meteorológicos:
-
-![Snippet de resultado do conjunto de dados meteorológicos](./media/tutorial-data-analyst/3.png)
-
-Você pode saber mais sobre o significado das colunas individuais nas descrições dos conjunto de dados [Táxi de Nova York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [Feriados Públicos](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)e [Dados Meteorológicos](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/).
+Você pode saber mais sobre o significado das colunas individuais nas descrições dos conjuntos de dados: 
+- [Táxi de NYC](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
+- [Feriados](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
+- [Dados de clima](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 
 ## <a name="time-series-seasonality-and-outlier-analysis"></a>Análise de série temporal, sazonalidade e exceções
 
@@ -100,13 +93,13 @@ ORDER BY 1 ASC
 
 O seguinte snippet mostra o resultado do número anual de corridas de táxi:
 
-![Snippet de resultado do número anual de corridas de táxi](./media/tutorial-data-analyst/4.png)
+![Snippet de resultado do número anual de corridas de táxi](./media/tutorial-data-analyst/yearly-taxi-rides.png)
 
 Os dados podem ser visualizados no Synapse Studio, alternando da exibição de **Tabela** para a exibição de **gráfico**. Você pode escolher entre diferentes tipos de gráfico, tais como: **área**, **barras**, **colunas**, **linha**, **pizza** e **dispersão**. Neste caso, plote o gráfico de **colunas** com a coluna **Categoria** definida com o valor **current_year**:
 
-![Gráfico de colunas mostrando o número de corridas por ano](./media/tutorial-data-analyst/5.png)
+![Gráfico de colunas mostrando o número de corridas por ano](./media/tutorial-data-analyst/column-chart-rides-year.png)
 
-Nessa visualização, é possível ver claramente uma tendência de queda no número de corridas ao longo de anos. Supostamente, essa queda se deve ao recente aumento da popularidade das empresas de compartilhamento de caronas.
+Nessa visualização, você pode ver uma tendência de diminuição dos números de corridas ao longo dos anos. Supostamente, essa queda se deve ao recente aumento da popularidade das empresas de compartilhamento de caronas.
 
 > [!NOTE]
 > No momento da elaboração deste tutorial, os dados de 2019 ainda estavam incompletos. Como resultado, há uma enorme queda no número de corridas desse ano.
@@ -129,15 +122,15 @@ ORDER BY 1 ASC
 
 O seguinte snippet mostra o resultado dessa consulta:
 
-![Snippet de resultado do número diário de corridas em 2016](./media/tutorial-data-analyst/6.png)
+![Snippet de resultado do número diário de corridas em 2016](./media/tutorial-data-analyst/daily-rides.png)
 
 Novamente, você pode visualizar com facilidade os dados plotando o gráfico de **colunas** com a coluna **Categoria** definida com o valor **current_day** e a coluna **Legend (series)** definida com o valor **rides_per_day**.
 
-![Gráfico de colunas mostrando o número diário de corridas em 2016](./media/tutorial-data-analyst/7.png)
+![Gráfico de colunas mostrando o número diário de corridas em 2016](./media/tutorial-data-analyst/column-chart-daily-rides.png)
 
 No gráfico de plotagem, você pode ver que há um padrão semanal, com pico diário aos sábados. Durante os meses de verão, há menos corridas de táxi devido ao período de férias. Há também algumas quedas significativas no número de corridas de táxi sem um padrão claro de quando e por que elas ocorrem.
 
-Em seguida, vamos analisar se as quedas estão relacionadas aos feriados públicos unindo o conjunto de dados de corridas de táxis de NYC com o conjunto de dados de feriados públicos:
+Em seguida, vamos ver se a queda nas corridas se correlaciona com feriados públicos. Podemos ver se há uma correlação unindo o conjunto de dados de corridas de Táxi de NYC com o conjunto de dados de Feriados Públicos:
 
 ```sql
 WITH taxi_rides AS
@@ -172,11 +165,11 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![Visualização de resultado dos conjunto de dados de corridas de táxis e de feriados públicos em NYC](./media/tutorial-data-analyst/8.png)
+![Visualização de resultado dos conjunto de dados de corridas de táxis e de feriados públicos em NYC](./media/tutorial-data-analyst/rides-public-holidays.png)
 
 Desta vez, queremos realçar o número de corridas de táxi durante os feriados públicos. Para tanto, escolheremos **nenhum** para a coluna **Categoria** e **rides_per_day** e **holiday** como as colunas **Legend (series)** .
 
-![Gráfico de plotagem do número de corridas de táxi durante os feriados públicos em NYC](./media/tutorial-data-analyst/9.png)
+![Gráfico de plotagem do número de corridas de táxi durante os feriados públicos em NYC](./media/tutorial-data-analyst/plot-chart-public-holidays.png)
 
 No gráfico de plotagem, é possível ver que, durante os feriados públicos, o número de corridas de táxi é menor. No entanto, ainda há uma grande queda não explicada no dia 23 de janeiro. Vamos examinar o clima em NYC naquele dia consultando o conjunto de dados meteorológicos:
 
@@ -205,7 +198,7 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![Visualização de resultado do conjunto de dados meteorológicos de NYC](./media/tutorial-data-analyst/10.png)
+![Visualização de resultado do conjunto de dados meteorológicos de NYC](./media/tutorial-data-analyst/weather-data-set-visualization.png)
 
 Os resultados da consulta indicam que a queda no número de corridas de táxis ocorreu porque:
 
@@ -218,4 +211,6 @@ Este tutorial mostrou como o analista de dados pode executar rapidamente anális
 ## <a name="next-steps"></a>Próximas etapas
 
 Para aprender como conectar o pool de SQL sem servidor ao Power BI Desktop e criar relatórios, confira o artigo [Conectar o pool de SQL sem servidor ao Power BI Desktop e criar relatórios](tutorial-connect-power-bi-desktop.md).
+
+Para saber como usar tabelas externas no pool de SQL sem servidor, confira [Usar tabelas externas com o SQL do Synapse](develop-tables-external-tables.md?tabs=sql-pool)
  

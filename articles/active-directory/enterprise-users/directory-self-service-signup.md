@@ -7,7 +7,6 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
 ms.date: 11/15/2020
@@ -15,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0edd85ea4478ac95ea854b73717056d52a9098b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 846059c5c20255f9bddba59673458e12e1f354d3
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647555"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503571"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição por autoatendimento no Azure Active Directory?
 
@@ -76,6 +75,12 @@ Esses dois parâmetros podem ser usados em conjunto para definir um controle mai
 O fluxograma a seguir explica as diferentes combinações desses parâmetros e as condições resultantes para o diretório e para a inscrição por autoatendimento.
 
 ![fluxograma de controles de inscrição por autoatendimento](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+
+Os detalhes dessa configuração podem ser recuperados pelo cmdlet Get-MsolCompanyInformation do PowerShell. Para obter mais informações sobre isso, confira [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
 
 Para obter mais informações e exemplos de como usar esses parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

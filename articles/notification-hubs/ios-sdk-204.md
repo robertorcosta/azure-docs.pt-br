@@ -61,7 +61,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
 5. Adicione os módulos do SDK dos Hubs de Notificação do Microsoft Azure.
 
-   Você pode integrar o SDK dos Hubs de Notificações do Azure ao seu aplicativo usando o [CocoaPods](https://cocoapods.org/) ou adicionando manualmente os binários ao seu projeto.
+   Você pode integrar o SDK dos Hubs de Notificação do Azure ao seu aplicativo usando o [CocoaPods](https://cocoapods.org/) ou adicionando manualmente os binários ao seu projeto.
 
    - Integração por meio de Cocoapods: Adicione as seguintes dependências ao seu podfile para incluir o SDK dos Hubs de Notificação do Azure em seu aplicativo:
 
@@ -89,7 +89,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
    - Integração copiando os binários em seu projeto: Você pode realizar a integração copiando os binários para seu projeto, da seguinte maneira:
 
-        - Baixe a estrutura do [SDK dos Hubs de Notificações do Azure](https://github.com/Azure/azure-notificationhubs-android/releases) fornecida como um arquivo zip e descompacte-o.
+        - Baixe a estrutura do [SDK dos Hubs de Notificação do Azure](https://github.com/Azure/azure-notificationhubs-android/releases) fornecida como um arquivo zip e descompacte-o.
 
         - No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Opções** e verifique se a opção **Copiar itens se necessário** está selecionada e, em seguida, clique em **Adicionar**.
 

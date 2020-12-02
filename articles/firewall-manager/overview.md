@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596689"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489687"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -89,7 +89,8 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |As regras de aplicativo falham em um hub seguro com DNS personalizado (versão prévia) configurado.|O DNS personalizado (versão prévia) não funciona em implantações de hub seguro e implantações de rede virtual de hub em que o túnel forçado está habilitado.|Correção sob investigação.|
 |Não há suporte à Proteção contra DDoS Standard com hubs virtuais seguros|A Proteção contra DDoS Standard não está integrada aos vWANs.|Investigando|
 |Logs de atividade sem suporte completo|Atualmente, a política de firewall não dá suporte a logs de atividade.|Investigando|
-|Configurando intervalos de endereço IP privado SNAT|As [configurações de intervalo de IP privado](../firewall/snat-private-range.md) serão ignoradas se a política do Firewall do Azure estiver configurada. O comportamento padrão do Firewall do Azure é usado, em que ele não aceita regras de rede SNAT quando o endereço IP de destino está em um intervalo de endereços IP privado, de acordo com o [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigando
+|Configurando intervalos de endereço IP privado SNAT|As [configurações de intervalo de IP privado](../firewall/snat-private-range.md) serão ignoradas se a política do Firewall do Azure estiver configurada. O comportamento padrão do Firewall do Azure é usado, em que ele não aceita regras de rede SNAT quando o endereço IP de destino está em um intervalo de endereços IP privado, de acordo com o [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigando|
+|Algumas configurações de firewall não são migradas quando o firewall é migrado para usar a Política de Firewall|Os endereços privados de SNAT e Zonas de Disponibilidade não são migrados quando você faz a migração para a Política de Firewall do Azure.|Investigando| 
 
 ## <a name="next-steps"></a>Próximas etapas
 

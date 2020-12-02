@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/02/2020
+ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592661"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510583"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -78,25 +78,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Antes de instalar um pacote, verifique se ele já existe, para que você não repita uma instalação. As instalações repetitivas podem fazer com que as solicitações de serviço Web expirem o tempo limite.     
 
+## <a name="access-to-registered-dataset"></a>Acesso ao DataSet registrado
+
+Você pode consultar o seguinte código de exemplo para acessar os [conjuntos de valores registrados](../how-to-create-register-datasets.md) em seu espaço de trabalho:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>Carregando arquivos
 O módulo executar script R dá suporte ao carregamento de arquivos usando o SDK do R Azure Machine Learning.
 
 O exemplo a seguir mostra como carregar um arquivo de imagem em executar script R:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,22 +121,6 @@ Depois que a execução do pipeline for concluída, você poderá visualizar a i
 > [!div class="mx-imgBorder"]
 > ![Visualização da imagem carregada](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>Acesso ao DataSet registrado
-
-Você pode consultar o seguinte código de exemplo para acessar os [conjuntos de valores registrados](../how-to-create-register-datasets.md) em seu espaço de trabalho:
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar o executar script R
 
 O módulo executar script R contém um código de exemplo como um ponto de partida.
@@ -147,11 +133,11 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
 
 1. Conecte as entradas que o script precisa. As entradas são opcionais e podem incluir dados e código de R adicional.
 
-    * **DataSet1** : referencia a primeira entrada como `dataframe1` . O conjunto de dados de entrada deve ser formatado como um arquivo CSV, TSV ou ARFF. Ou você pode conectar um conjunto de Azure Machine Learning.
+    * **DataSet1**: referencia a primeira entrada como `dataframe1` . O conjunto de dados de entrada deve ser formatado como um arquivo CSV, TSV ou ARFF. Ou você pode conectar um conjunto de Azure Machine Learning.
 
-    * **Dataset2** : referencia a segunda entrada como `dataframe2` . Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV ou ARFF ou como um conjunto de Azure Machine Learning.
+    * **Dataset2**: referencia a segunda entrada como `dataframe2` . Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV ou ARFF ou como um conjunto de Azure Machine Learning.
 
-    * **Pacote de script** : a terceira entrada aceita arquivos. zip. Um arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
+    * **Pacote de script**: a terceira entrada aceita arquivos. zip. Um arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
 
 1. Na caixa de texto **script r** , digite ou cole um script R válido.
 
@@ -216,7 +202,7 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
     }
     ```
 
-1.  Para **semente aleatória** , insira um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Este parâmetro é equivalente a chamar `set.seed(value)` no código de R.  
+1.  Para **semente aleatória**, insira um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Este parâmetro é equivalente a chamar `set.seed(value)` no código de R.  
 
 1. Enviar o pipeline.  
 

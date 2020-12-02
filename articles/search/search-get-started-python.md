@@ -1,45 +1,46 @@
 ---
-title: 'Início Rápido: Criar um índice de pesquisa em Python usando APIs REST'
+title: 'Início Rápido: Criar um índice de pesquisa em Python'
 titleSuffix: Azure Cognitive Search
-description: Explica como criar um índice, carregar dados e executar consultas usando Python, Jupyter Notebooks e a API REST da Pesquisa Cognitiva do Azure.
+description: Explica como criar um índice, carregar dados e executar consultas usando Python, Jupyter Notebooks e a biblioteca Azure.Documents.Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.devlang: rest-api
-ms.date: 08/20/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dca53dc27eacc5c7e04bbf6cb5df82a8e8da0dfc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 528d29f3b285c2583fd1bb52e1de7c24fdc9e28a
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694543"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917079"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Python usando Jupyter notebooks
 
 > [!div class="op_single_selector"]
-> * [Python (REST)](search-get-started-python.md)
+> * [Python](search-get-started-python.md)
 > * [PowerShell (REST)](./search-get-started-powershell.md)
 > * [C#](./search-get-started-dotnet.md)
 > * [REST](search-get-started-rest.md)
 > * [Portal](search-get-started-portal.md)
-> 
+>
 
-Crie um Jupyter notebook que cria, carrega e consulta um índice da Pesquisa Cognitiva do Azure usando Python e as [APIs REST da Pesquisa Cognitiva do Azure](/rest/api/searchservice/). Este artigo explica como criar um passo a passo do notebook. Como alternativa, você pode [baixar e executar um notebook Python Jupyter concluído](https://github.com/Azure-Samples/azure-search-python-samples).
+Crie um notebook Jupyter que cria, carrega e consulta um índice do Azure Cognitive Search usando o Python e a [biblioteca azure-search-documents](/python/api/overview/azure/search-documents-readme) no SDK do Azure para Python. Este artigo explica como criar um passo a passo do notebook. Como alternativa, você pode [baixar e executar um notebook Python Jupyter concluído](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os serviços e as ferramentas a seguir são necessários para este início rápido. 
+Os serviços e as ferramentas a seguir são necessários para este início rápido.
 
-+ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), que fornece o Python 3.x e os Notebooks Jupyter.
+* [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), que fornece o Python 3.x e o Jupyter Notebook.
 
-+ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar a camada gratuita deste início rápido. 
+* [Pacote azure-search-documents](https://pypi.org/project/azure-search-documents/)
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+* [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar a camada gratuita deste início rápido. 
+
+## <a name="copy-a-key-and-url"></a>Copiar uma chave e URL
 
 As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
 
@@ -57,99 +58,120 @@ Nesta tarefa, inicie um Jupyter notebook e verifique se você pode se conectar �
 
 1. Crie um notebook Python3.
 
-1. Na primeira célula, carregue as bibliotecas usadas para trabalhar com JSON e formular solicitações HTTP.
+1. Na primeira célula, carregue as bibliotecas do SDK do Azure para Python, incluindo [azure-search-documents](/python/api/azure-search-documents).
 
    ```python
-   import json
-   import requests
-   from pprint import pprint
+    !pip install azure-search-documents --pre
+    !pip show azure-search-documents
+
+    import os
+    from azure.core.credentials import AzureKeyCredential
+    from azure.search.documents.indexes import SearchIndexClient 
+    from azure.search.documents import SearchClient
+    from azure.search.documents.indexes.models import (
+        ComplexField,
+        CorsOptions,
+        SearchIndex,
+        ScoringProfile,
+        SearchFieldDataType,
+        SimpleField,
+        SearchableField
+    )
    ```
 
-1. Na segunda célula, insira os elementos de solicitação que serão constantes em cada solicitação. Substitua o nome do serviço de pesquisa (NOME-DO-SERVIÇO-DE-PESQUISA) e a chave de API de administração (CHAVE-DE-API-DE-ADMINISTRAÇÃO) por valores válidos. 
+1. Na segunda célula, insira os elementos de solicitação que serão constantes em cada solicitação. Forneça o nome do serviço de pesquisa, a chave de API de administração e a chave de API de consulta, copiados em uma etapa anterior. Essa célula também configura os clientes que serão usados para operações específicas: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) para criar um índice e [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) para consultar um índice.
 
    ```python
-   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-   api_version = '?api-version=2020-06-30'
-   headers = {'Content-Type': 'application/json',
-           'api-key': '<YOUR-ADMIN-API-KEY>' }
+    service_name = ["SEARCH_ENDPOINT - do not include search.windows.net"]
+    admin_key = ["Cognitive Search Admin API Key"]
+
+    index_name = "hotels-quickstart"
+
+    # Create an SDK client
+    endpoint = "https://{}.search.windows.net/".format(service_name)
+    admin_client = SearchIndexClient(endpoint=endpoint,
+                          index_name=index_name,
+                          credential=AzureKeyCredential(admin_key))
+
+    search_client = SearchClient(endpoint=endpoint,
+                          index_name=index_name,
+                          credential=AzureKeyCredential(admin_key))
    ```
 
-   Se você receber ConnectionError `"Failed to establish a new connection"`, verifique se a chave de API é uma chave de administração primária ou secundária e se todos os caracteres à esquerda e à direita (`?` e `/`) estão no lugar.
-
-1. Na terceira célula, formule a solicitação. Essa solicitação GET direciona a coleção de índices do serviço de pesquisa e seleciona a propriedade de nome dos índices existentes.
+1. Na terceira célula, execute uma operação delete_index para limpar seu serviço de índices *hotels-quickstart* existentes. A exclusão do índice permite que você crie outro índice *hotels-quickstart* de mesmo nome.
 
    ```python
-   url = endpoint + "indexes" + api_version + "&$select=name"
-   response  = requests.get(url, headers=headers)
-   index_list = response.json()
-   pprint(index_list)
+    try:
+        result = admin_client.delete_index(index_name)
+        print ('Index', index_name, 'Deleted')
+    except Exception as ex:
+        print (ex)
    ```
 
-1. Execute cada etapa. Se existirem índices, a resposta conterá uma lista de nomes de índice. Na captura de tela abaixo, o serviço já tem um índice azureblob-index e um realestate-us-sample.
-
-   ![Script de Python no Jupyter notebook com solicitações HTTP para a Pesquisa Cognitiva do Azure](media/search-get-started-python/connect-azure-search.png "Script de Python no Jupyter notebook com solicitações HTTP para a Pesquisa Cognitiva do Azure")
-
-   Por outro lado, uma coleção de índice vazia retorna esta resposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+1. Execute cada etapa.
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-A menos que você esteja usando o portal, deve haver um índice no serviço antes que você possa carregar dados. Esta etapa usa a [API REST Criar Índice](/rest/api/searchservice/create-index) para enviar por push um esquema de índice para o serviço.
+Os elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A coleção de campos define a estrutura de um *documento de pesquisa* lógico, usado para carregar dados e retornar resultados. 
 
-Os elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A coleção de campos define a estrutura de um *documento*. Cada campo tem um nome, tipo e atributos que determinam como o campo é usado (por exemplo, se for pesquisável de texto completo, filtrável ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` deve ser designado como a *chave* para a identidade do documento.
+Cada campo tem um nome, tipo e atributos que determinam como o campo é usado (por exemplo, se for pesquisável de texto completo, filtrável ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` deve ser designado como a *chave* para a identidade do documento.
 
 Esse índice é denominado "hotels-quickstart" e tem as definições de campo que você vê abaixo. É um subconjunto de um [Índice de hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outros passo a passos. Nós o cortamos neste guia de início rápido para fins de brevidade.
 
-1. Na próxima célula, cole o exemplo a seguir em uma célula para fornecer o esquema. 
+1. Na próxima célula, cole o exemplo a seguir em uma célula para fornecer o esquema.
 
     ```python
-    index_schema = {
-       "name": "hotels-quickstart",  
-       "fields": [
-         {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
-         {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
-         {"name": "Description", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "en.lucene"},
-         {"name": "Description_fr", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "fr.lucene"},
-         {"name": "Category", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "Tags", "type": "Collection(Edm.String)", "searchable": "true", "filterable": "true", "sortable": "false", "facetable": "true"},
-         {"name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "Rating", "type": "Edm.Double", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "Address", "type": "Edm.ComplexType", 
-         "fields": [
-         {"name": "StreetAddress", "type": "Edm.String", "filterable": "false", "sortable": "false", "facetable": "false", "searchable": "true"},
-         {"name": "City", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "StateProvince", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "PostalCode", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-         {"name": "Country", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"}
+    name = index_name
+    fields = [
+            SimpleField(name="HotelId", type=SearchFieldDataType.String, key=True),
+            SearchableField(name="HotelName", type=SearchFieldDataType.String, sortable=True),
+            SearchableField(name="Description", type=SearchFieldDataType.String, analyzer_name="en.lucene"),
+            SearchableField(name="Description_fr", type=SearchFieldDataType.String, analyzer_name="fr.lucene"),
+            SearchableField(name="Category", type=SearchFieldDataType.String, facetable=True, filterable=True, sortable=True),
+
+            SearchableField(name="Tags", collection=True, type=SearchFieldDataType.String, facetable=True, filterable=True),
+
+            SimpleField(name="ParkingIncluded", type=SearchFieldDataType.Boolean, facetable=True, filterable=True, sortable=True),
+            SimpleField(name="LastRenovationDate", type=SearchFieldDataType.DateTimeOffset, facetable=True, filterable=True, sortable=True),
+            SimpleField(name="Rating", type=SearchFieldDataType.Double, facetable=True, filterable=True, sortable=True),
+
+            ComplexField(name="Address", fields=[
+                SearchableField(name="StreetAddress", type=SearchFieldDataType.String),
+                SearchableField(name="City", type=SearchFieldDataType.String, facetable=True, filterable=True, sortable=True),
+                SearchableField(name="StateProvince", type=SearchFieldDataType.String, facetable=True, filterable=True, sortable=True),
+                SearchableField(name="PostalCode", type=SearchFieldDataType.String, facetable=True, filterable=True, sortable=True),
+                SearchableField(name="Country", type=SearchFieldDataType.String, facetable=True, filterable=True, sortable=True),
+            ])
         ]
-       }
-      ]
-    }
+    cors_options = CorsOptions(allowed_origins=["*"], max_age_in_seconds=60)
+    scoring_profiles = []
+    suggester = [{'name': 'sg', 'source_fields': ['Tags', 'Address/City', 'Address/Country']}]
     ```
 
-2. Em outra célula, formule a solicitação. Essa solicitação POST direciona a coleção de índices de seu serviço de pesquisa e cria um índice com base no esquema de índice fornecido na célula anterior.
+1. Em outra célula, formule a solicitação. Essa solicitação create_index direciona a coleção de índices de seu serviço de pesquisa e cria um [SearchIndex](/python/api/azure-search-documents/azure.search.documents.indexes.models.searchindex) com base no esquema de índice fornecido na célula anterior.
 
    ```python
-   url = endpoint + "indexes" + api_version
-   response  = requests.post(url, headers=headers, json=index_schema)
-   index = response.json()
-   pprint(index)
+    index = SearchIndex(
+        name=name,
+        fields=fields,
+        scoring_profiles=scoring_profiles,
+        suggesters = suggester,
+        cors_options=cors_options)
+
+    try:
+        result = admin_client.create_index(index)
+        print ('Index', result.name, 'created')
+    except Exception as ex:
+        print (ex)
    ```
 
-3. Execute cada etapa.
-
-   A resposta inclui a representação JSON do esquema. A captura de tela a seguir está mostrando apenas uma parte da resposta.
-
-    ![Solicitação para criar um índice](media/search-get-started-python/create-index.png "Solicitação para criar um índice")
-
-> [!Tip]
-> Outra maneira de verificar a criação do índice é verificar a lista de índices no portal.
+1. Execute cada etapa.
 
 <a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - Carregar documentos
 
-Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de extremidade de URL do seu índice. A API REST é [Adicionar, Atualizar ou Excluir Documentos](/rest/api/searchservice/addupdate-or-delete-documents). Os documentos são originados de [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) no GitHub.
+Para carregar documentos, crie uma coleção de documentos, usando uma [ação de índice](/python/api/azure-search-documents/azure.search.documents.models.indexaction) para o tipo de operação (carregar, mesclar e carregar e assim por diante). Os documentos são originados de [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) no GitHub.
 
 1. Em uma nova célula, forneça quatro documentos em conformidade com o esquema de índice. Especifique uma ação de upload para cada documento.
 
@@ -234,85 +256,99 @@ Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de
         }
     ]
     }
-    ```   
+    ```  
 
-2. Em outra célula, formule a solicitação. Essa solicitação POST direciona a coleção de documentos do índice hotels-quickstart e efetua push dos documentos fornecidos na etapa anterior.
+1. Em outra célula, formule a solicitação. Essa solicitação upload_documents direciona a coleção de documentos do índice hotels-quickstart e efetua push dos documentos fornecidos na etapa anterior para o índice do Cognitive Search.
+
 
    ```python
-   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
-   response  = requests.post(url, headers=headers, json=documents)
-   index_content = response.json()
-   pprint(index_content)
+    try:
+        result = search_client.upload_documents(documents=documents)
+        print("Upload of new document succeeded: {}".format(result[0].succeeded))
+    except Exception as ex:
+        print (ex.message)
    ```
 
-3. Execute cada etapa para efetuar push dos documentos para um índice em seu serviço de pesquisa. Os resultados devem ser semelhantes ao exemplo a seguir. 
-
-    ![Enviar documentos para um índice](media/search-get-started-python/load-index.png "Enviar documentos para um índice")
+1. Execute cada etapa para efetuar push dos documentos para um índice em seu serviço de pesquisa.
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
 Esta etapa mostra como consultar um índice usando a [API REST Pesquisar Documentos](/rest/api/searchservice/search-documents).
 
-1. Em uma célula, forneça uma expressão de consulta que executa uma pesquisa vazia (search=*), retornando uma lista não classificada (pontuação de pesquisa = 1,0) de documentos arbitrários. Por padrão, a Pesquisa Cognitiva do Azure retorna 50 correspondências por vez. Como estruturada, essa consulta retorna uma estrutura e valores do documento inteiro. Adicione $count=true para obter uma contagem de todos os documentos nos resultados.
+1. Para essa operação, use search_client. Essa consulta executa uma pesquisa vazia (`search=*`), retornando uma lista não classificada (pontuação de pesquisa = 1,0) de documentos arbitrários. Como não há nenhum critério, todos os documentos são incluídos nos resultados. Essa consulta imprime apenas dois dos campos em cada documento. Ela também adiciona `include_total_count=True` para obter uma contagem de todos os documentos (4) nos resultados.
 
    ```python
-   searchstring = '&search=*&$count=true'
+    results =  search_client.search(search_text="*", include_total_count=True)
 
-   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
-   response  = requests.get(url, headers=headers, json=searchstring)
-   query = response.json()
-   pprint(query)
+    print ('Total Documents Matching Query:', results.get_count())
+    for result in results:
+        print("{}: {}".format(result["HotelId"], result["HotelName"]))
    ```
 
-1. Em uma nova célula, forneça o seguinte exemplo para pesquisar nos termos “hotéis” e “Wi-Fi”. Adicione $select para especificar quais campos incluir nos resultados da pesquisa.
+1. A próxima consulta adiciona termos inteiros à expressão de pesquisa ("wifi"). Essa consulta especifica que os resultados contêm apenas os campos na instrução `select`. Limitar os campos retornados minimiza a quantidade de dados enviados de volta pela rede e reduz a latência de pesquisa.
 
    ```python
-   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
+    results =  search_client.search(search_text="wifi", include_total_count=True, select='HotelId,HotelName,Tags')
 
-   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
-   response  = requests.get(url, headers=headers, json=searchstring)
-   query = response.json()
-   pprint(query)   
+    print ('Total Documents Matching Query:', results.get_count())
+    for result in results:
+        print("{}: {}: {}".format(result["HotelId"], result["HotelName"], result["Tags"]))
    ```
 
-   Os resultados devem ser semelhantes à saída a seguir. 
-
-    ![Pesquisar um índice](media/search-get-started-python/search-index.png "Pesquisar um índice")
-
-1. Em seguida, aplique uma expressão $filter que selecione apenas os hotéis com uma classificação maior que 4. 
+1. Em seguida, aplique uma expressão de filtro, que retorna apenas os hotéis com uma classificação maior que 4, organizados em ordem decrescente.
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+    results =  search_client.search(search_text="hotels", select='HotelId,HotelName,Rating', filter='Rating gt 4', order_by='Rating desc')
 
-   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
-   response  = requests.get(url, headers=headers, json=searchstring)
-   query = response.json()
-   pprint(query)     
+    for result in results:
+        print("{}: {} - {} rating".format(result["HotelId"], result["HotelName"], result["Rating"]))
    ```
 
-1. Por padrão, o mecanismo de pesquisa retorna os 50 principais documentos, mas você pode usar as opções Início e Ignorar para adicionar uma paginação e escolher quantos documentos são exibidos em cada resultado. Essa consulta retorna dois documentos em cada conjunto de resultados.
+1. Adicione `search_fields` à correspondência de consulta de escopo a um único campo.
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+    results =  search_client.search(search_text="sublime", search_fields='HotelName', select='HotelId,HotelName')
 
-   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
-   response  = requests.get(url, headers=headers, json=searchstring)
-   query = response.json()
-   pprint(query)
+    for result in results:
+        print("{}: {}".format(result["HotelId"], result["HotelName"]))
    ```
 
-1. Neste último exemplo, use $orderby para classificar os resultados por cidade. Este exemplo inclui campos da coleção Endereços.
+1. As facetas são rótulos que podem ser usados para compor a estrutura de navegação da faceta. Essa consulta retorna facetas e contagens para a Categoria.
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+    results =  search_client.search(search_text="*", facets=["Category"])
 
-   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
-   response  = requests.get(url, headers=headers, json=searchstring)
-   query = response.json()
-   pprint(query)
+    facets = results.get_facets()
+
+    for facet in facets["Category"]:
+        print("    {}".format(facet))
    ```
 
-## <a name="clean-up"></a>Limpar
+1. Neste exemplo, pesquise um documento específico com base na chave dele. Normalmente, seria interessante retornar um documento quando um usuário clicasse em um documento em um resultado de pesquisa.
+
+   ```python
+    result = search_client.get_document(key="3")
+
+    print("Details for hotel '3' are:")
+    print("        Name: {}".format(result["HotelName"]))
+    print("      Rating: {}".format(result["Rating"]))
+    print("    Category: {}".format(result["Category"]))
+   ```
+
+1. Neste exemplo, usaremos a função de preenchimento automático. Normalmente, isso é usado em uma caixa de pesquisa para ajudar a preencher automaticamente as possíveis correspondências à medida que o usuário realiza a digitação na caixa de pesquisa.
+
+   Quando o índice foi criado, um sugestor chamado "sg" também foi criado como parte da solicitação. Uma definição de sugestor especifica quais campos podem ser usados para encontrar possíveis correspondências para as solicitações do sugestor. Neste exemplo, esses campos são "Marcas", "Endereço/Cidade", "Endereço/País". Para simular o preenchimento automático, passe as letras "sa" como uma cadeia de caracteres parcial. O método de preenchimento automático de [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) envia de volta correspondências de potenciais termos.
+
+   ```python
+    search_suggestion = 'sa'
+    results = search_client.autocomplete(search_text=search_suggestion, suggester_name="sg", mode='twoTerms')
+
+    print("Autocomplete for:", search_suggestion)
+    for result in results:
+        print (result['text'])
+   ```
+
+## <a name="clean-up"></a>Limpeza
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 

@@ -552,7 +552,7 @@ Adicione as máquinas virtuais ao pool de saída com [az network nic ip-config a
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
-## <a name="configure-virtual-network---basic"></a>Configurar uma rede virtual – Básico
+## <a name="configure-virtual-network---basic"></a>Configurar a rede virtual – Básico
 
 Antes de implantar VMs e testar o balanceador de carga, crie os recursos da rede virtual de suporte.
 

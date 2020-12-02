@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972424"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014468"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar um aplicativo de gestão de resíduos conectada no IoT Central
 
@@ -49,7 +49,7 @@ Para criar um aplicativo de gestão de resíduos conectada no Azure IoT Central:
 
     ![Insira a conta da sua organização](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-2. Clique em **Compilar** no painel esquerdo e selecione a guia**Governamental**. A página governamental exibe vários modelos de aplicativos governamentais.
+2. Clique em **Compilar** no painel esquerdo e selecione a guia **Governamental**. A página governamental exibe vários modelos de aplicativos governamentais.
 
     ![Criar modelos de aplicativo governamental](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
@@ -92,18 +92,18 @@ Como construtor, você pode criar e personalizar modos de exibição no painel p
 
 O painel é composto por diferentes tipos de blocos:
 
-* ***Bloco de imagem do sistema de coleta de lixo da Wide World Waste***: o primeiro bloco do painel é um bloco de imagem do sistema de coleta de lixo fictício "Wide World Waste". Você pode personalizar o bloco e colocar sua própria imagem ou removê-la. 
+* ***Bloco de imagem do sistema de coleta de lixo da Wide World Waste** _: o primeiro bloco do painel é um bloco de imagem do sistema de coleta de lixo fictício "Wide World Waste". Você pode personalizar o bloco e colocar sua própria imagem ou removê-la. 
 
-* ***Bloco de imagem de lixeira***: você pode usar blocos de imagem e conteúdo para criar uma representação visual do dispositivo que está sendo monitorado, junto com um texto descritivo. 
+_ ***Bloco de imagem de lixeira** _: você pode usar blocos de imagem e conteúdo para criar uma representação visual do dispositivo que está sendo monitorado, junto com um texto descritivo. 
 
-* ***Bloco de KPI de nível de enchimento***: o bloco exibe um valor relatado por um sensor de *nível de enchimento* em uma lixeira. O sensor de *nível de enchimento* e outros sensores como *medidor de odor* ou *peso* em uma lixeira podem ser monitorados remotamente. Um operador pode tomar medidas, como despachar um caminhão de coleta de lixo. 
+_ ***Bloco de KPI de nível de enchimento** _: o bloco exibe um valor relatado por um sensor de _nível de enchimento* em uma lixeira. O sensor de *nível de enchimento* e outros sensores como *medidor de odor* ou *peso* em uma lixeira podem ser monitorados remotamente. Um operador pode tomar medidas, como despachar um caminhão de coleta de lixo. 
 
-*  ***Mapa da área de monitoramento de resíduos***: o mapa está usando o Azure Mapas, que pode ser configurado diretamente no Azure IoT Central. A peça de mapa está exibindo a localização do dispositivo. Tente focalizar o mapa e experimente os controles sobre ele, como ampliar, reduzir ou expandir.
+*  ***Mapa da área de monitoramento de resíduos** _: o mapa está usando o Azure Mapas, que pode ser configurado diretamente no Azure IoT Central. A peça de mapa está exibindo a localização do dispositivo. Tente focalizar o mapa e experimente os controles sobre ele, como ampliar, reduzir ou expandir.
 
      ![Mapa do painel de Gestão de resíduos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Gráfico de barras de nível de enchimento, odor e peso**: você pode visualizar um ou vários dados de telemetria de dispositivo em um gráfico de barras. Você também pode expandir o gráfico de barras.  
+_ ***Gráfico de barras de nível de enchimento, odor e peso**: você pode visualizar um ou vários dados de telemetria de dispositivo em um gráfico de barras. Você também pode expandir o gráfico de barras.  
 
   ![Gráfico de barras do painel de Gestão de resíduos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -197,7 +197,7 @@ O aplicativo de **Gestão de resíduos conectada** tem dois dispositivos simulad
 
 ## <a name="explore-and-configure-rules"></a>Explorar e configurar regras
 
-No Azure IoT Central, você pode criar regras para monitorar automaticamente a telemetria do dispositivo e disparar ações quando uma ou mais condições forem atendidas. As ações podem incluir o envio de notificações por email, o acionamento de uma ação do Microsoft Flow ou o acionamento de uma ação de webhook para enviar dados a outros serviços.
+No Azure IoT Central, você pode criar regras para monitorar automaticamente a telemetria do dispositivo e disparar ações quando uma ou mais condições forem atendidas. As ações podem incluir o envio de notificações por email, o acionamento de uma ação do Power Automate ou o acionamento de uma ação de webhook para enviar dados a outros serviços.
 
 O aplicativo de **Gestão de resíduos conectada** tem quatro regras de exemplo.
 

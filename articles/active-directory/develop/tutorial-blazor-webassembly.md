@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: f967b10d729c9c5486bbca9b643f48aaf558687c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5489feeeec64c7b3d4b5fc28eddfe8b780308796
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628057"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979871"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 
-O Blazor WASM (WebAssembly) é uma estrutura de aplicativo de página única para criar aplicativos Web interativos do lado do cliente com o .NET. Neste tutorial, você aprenderá a implementar a autenticação e a recuperar dados do Microsoft Graph em um aplicativo Blazor WASM usando a plataforma de identidade da Microsoft e registrando seu aplicativo no Azure AD (Azure Active Directory).
+Neste tutorial, você criará um aplicativo WebAssembly Blazor que conecta os usuários e obtém dados do Microsoft Graph usando a plataforma de identidade da Microsoft e registrando seu aplicativo no Azure AD (Azure Active Directory).
 
 Também temos um tutorial para o [Blazor Server](tutorial-blazor-server.md). 
 
-Neste tutorial, você irá:
+Neste tutorial:
 
 > [!div class="checklist"]
 >

@@ -189,7 +189,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de Logon do BeyondTrust Remote Support diretamente e inicie o fluxo de logon nela.
 
-* Você pode usar o portal Meus Aplicativos da Microsoft. Quando você clicar no bloco de suporte do BeyondTrust Remote Support em Meus Aplicativos, isso redirecionará você para a URL de Logon do BeyondTrust Remote Support. Para obter mais informações sobre o portal Meus Aplicativos, confira [Introdução ao portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco de suporte do BeyondTrust Remote Support em Meus Aplicativos, isso redirecionará você para a URL de Logon do BeyondTrust Remote Support. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Próximas etapas
 

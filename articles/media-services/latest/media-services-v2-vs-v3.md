@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14544f58bcda56a55cef33de8fe0a70d5859b589
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019827"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510940"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de mídia v2 versus v3
 
@@ -80,7 +80,6 @@ A API de v3 tem as seguintes falhas de recurso em relação a API v2. Fechar as 
     * A união de ativos
     * Sobreposições
     * Corte
-    * Sprites em miniatura
     * Inserindo uma faixa de áudio silenciosa quando a entrada não tem áudio
     * Inserindo uma faixa de vídeo quando a entrada não tem vídeo
 * Atualmente, os Eventos ao Vivo com transcodificação não dão suporte à inserção em curso de imagem fixa e à inserção de marcador de anúncio por meio da chamada à API. 
@@ -115,7 +114,7 @@ A tabela a seguir mostra como as propriedades do [ativo](/rest/api/media/assets/
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia:
 
-|Opção de criptografia|Description|Serviços de Mídia v2|Serviços de Mídia v3|
+|Opção de criptografia|Descrição|Serviços de Mídia v2|Serviços de Mídia v3|
 |---|---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
 |[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte|Com suporte|

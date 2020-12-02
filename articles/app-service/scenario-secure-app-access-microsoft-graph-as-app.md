@@ -10,28 +10,28 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 70b180efa35d6310735f045a85103719b17c8555
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428121"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999664"
 ---
-# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: acessar o Microsoft Graph de um aplicativo protegido como o aplicativo
+# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Acessar o Microsoft Graph em um aplicativo protegido como o aplicativo
 
 Saiba como acessar o Microsoft Graph de um aplicativo Web em execução no Serviço de Aplicativo do Azure.
 
-:::image type="content" alt-text="Acessar o Microsoft Graph" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="Diagrama que mostra o acesso ao Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Você deseja chamar o Microsoft Graph em nome do aplicativo Web.  Um modo seguro de permitir o acesso do aplicativo Web aos dados é pelo uso de uma [identidade gerenciada atribuída ao sistema](/azure/active-directory/managed-identities-azure-resources/overview). Uma identidade gerenciada do Azure AD permite que os Serviços de Aplicativos acessem recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado.  Você não precisa se preocupar em gerenciar segredos nem credenciais de aplicativo.
+Você deseja chamar o Microsoft Graph para o aplicativo Web. Um modo seguro de permitir o acesso do aplicativo Web aos dados é usar uma [identidade gerenciada atribuída ao sistema](/azure/active-directory/managed-identities-azure-resources/overview). Uma identidade gerenciada do Azure Active Directory permite que o Serviço de Aplicativo acesse recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado. Você não precisa se preocupar em gerenciar segredos nem credenciais de aplicativo.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
-> * Criar uma identidade gerenciada atribuída ao sistema em um aplicativo Web
-> * Adicionar permissões de API do Microsoft Graph a uma identidade gerenciada
-> * Chamar o Microsoft Graph por meio de um aplicativo Web usando identidades gerenciadas
+> * Criar uma identidade gerenciada atribuída ao sistema em um aplicativo Web.
+> * Adicionar permissões de API do Microsoft Graph a uma identidade gerenciada.
+> * Chamar o Microsoft Graph em um aplicativo Web usando identidades gerenciadas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,39 +41,39 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="enable-managed-identity-on-app"></a>Habilitar a identidade gerenciada no aplicativo
 
-Se você criar e publicar o aplicativo Web por meio do Visual Studio, a identidade gerenciada foi habilitada no aplicativo para você. No serviço de aplicativo, selecione **Identidade** no painel de navegação à esquerda e depois selecione **Atribuído ao sistema**.  Verifique se **Status** está definido como **Ativado**.  Se não estiver, clique primeiro em **Salvar** e depois em **Sim** para habilitar a identidade gerenciada atribuída ao sistema.  Quando a identidade gerenciada é habilitada, o status é definido como *Ativado* e a ID do objeto fica disponível.
+Se você criar e publicar o aplicativo Web por meio do Visual Studio, a identidade gerenciada foi habilitada no aplicativo para você. No serviço de aplicativo, selecione **Identidade** no painel esquerdo e escolha **Atribuído ao sistema**. Verifique se **Status** está definido como **Ativado**. Caso contrário, selecione **Salvar** e **Sim** para habilitar a identidade gerenciada atribuída ao sistema. Quando a identidade gerenciada é habilitada, o status é definido como **Ativado** e a ID do objeto fica disponível.
 
-Anote a **ID do objeto**, que será necessária na próxima etapa.
+Anote o valor da **ID do Objeto**, que será necessária na próxima etapa.
 
-:::image type="content" alt-text="Identidade atribuída pelo sistema" source="./media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
+:::image type="content" alt-text="Captura de tela que mostra a identidade atribuída ao sistema." source="./media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
 
 ## <a name="grant-access-to-microsoft-graph"></a>Permitir acesso ao Microsoft Graph
 
-Ao acessar o Microsoft Graph, a identidade gerenciada precisa ter as permissões adequadas para a operação que ele deseja executar. Atualmente, não há nenhuma opção para atribuir essas permissões por meio do portal do Azure. O seguinte script adicionará as permissões de API do Microsoft Graph solicitadas ao objeto de entidade de serviço de identidade gerenciada:
+Ao acessar o Microsoft Graph, a identidade gerenciada precisa ter as permissões adequadas para a operação que ele deseja executar. Atualmente, não há nenhuma opção para atribuir essas permissões por meio do portal do Azure. O script a seguir adicionará as permissões de API do Microsoft Graph solicitadas ao objeto de entidade de serviço de identidade gerenciada.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Install the module (You need admin on the machine)
-#Install-Module AzureAD 
+# Install the module. (You need admin on the machine.)
+# Install-Module AzureAD.
 
-# Your tenant id (in Azure Portal, under Azure Active Directory -> Overview )
+# Your tenant ID (in the Azure portal, under Azure Active Directory > Overview).
 $TenantID="<tenant-id>"
 $resourceGroup = "securewebappresourcegroup"
 $webAppName="SecureWebApp-20201102125811"
 
-# Get ID of the managed identity for the web app
+# Get the ID of the managed identity for the web app.
 $spID = (Get-AzWebApp -ResourceGroupName $resourceGroup -Name $webAppName).identity.principalid
 
-# Check the Microsoft Graph documentation for the permission you need for the operation
+# Check the Microsoft Graph documentation for the permission you need for the operation.
 $PermissionName = "User.Read.All"
 
 Connect-AzureAD -TenantId $TenantID
 
-# Get the service principal for Microsoft Graph
+# Get the service principal for Microsoft Graph.
 $GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph"
 
-# Assign permissions to managed identity service principal
+# Assign permissions to the managed identity service principal.
 $AppRole = $GraphServicePrincipal.AppRoles | `
 Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
 
@@ -103,29 +103,33 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 ---
 
-Depois de executar o script, é possível verificar no [portal do Azure](https://portal.azure.com) que as permissões de API solicitadas são atribuídas à identidade gerenciada.  Navegue para o **Azure Active Directory** e selecione **Aplicativos empresariais**.  Essa folha exibe todas as entidades de serviço em seu locatário.  Em **Todos os Aplicativos**, selecione a entidade de serviço para a identidade gerenciada.  Se você estiver seguindo este tutorial, há duas entidades de serviço com o mesmo nome de exibição ("SecureWebApp2020094113531", por exemplo).  A entidade de serviço que tem uma *URL de Home Page* representa o aplicativo Web no locatário.  A entidade de serviço sem a *URL da Home Page* representa a identidade gerenciada atribuída ao sistema para o aplicativo Web. A ID de objeto para a identidade gerenciada corresponde à ID do objeto da identidade gerenciada que você criou anteriormente.  
+Depois de executar o script, é possível verificar no [portal do Azure](https://portal.azure.com) que as permissões de API solicitadas são atribuídas à identidade gerenciada.
+
+Acesse o **Azure Active Directory** e selecione **Aplicativos empresariais**. Esse painel exibe todas as entidades de serviço no seu locatário. Em **Todos os Aplicativos**, selecione a entidade de serviço para a identidade gerenciada. 
+
+Se você estiver seguindo este tutorial, haverá duas entidades de serviço com o mesmo nome de exibição (SecureWebApp2020094113531, por exemplo). A entidade de serviço que tem uma **URL de Home Page** representa o aplicativo Web no locatário. A entidade de serviço sem a **URL da Home Page** representa a identidade gerenciada atribuída ao sistema do aplicativo Web. O valor da **ID do Objeto** da identidade gerenciada corresponde à ID do objeto da identidade gerenciada criada anteriormente.
 
 Selecione a entidade de serviço para a identidade gerenciada.
 
-:::image type="content" alt-text="Todos os aplicativos" source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
+:::image type="content" alt-text="Captura de tela que mostra a opção Todos os aplicativos." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
 
-Em **Visão geral**, selecione **Permissões** e você verá as permissões adicionadas para o Microsoft Graph.
+Em **Visão geral**, selecione **Permissões** e você verá as permissões adicionadas ao Microsoft Graph.
 
-:::image type="content" alt-text="Permissões" source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
+:::image type="content" alt-text="Captura de tela que mostra o painel Permissões." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
 
 ## <a name="call-microsoft-graph-net"></a>Chamar o Microsoft Graph (.NET)
 
-A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obtenção de uma credencial de token para o código destinada à autorização de solicitações ao Armazenamento do Azure.  Crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa a identidade gerenciada para buscar tokens e anexá-los ao cliente do serviço. O exemplo de código a seguir obtém a credencial de token autenticada e a usa para criar um objeto de cliente de serviço, que obtém os usuários no grupo.  
+A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obtenção de uma credencial de token para o código destinada à autorização de solicitações ao Microsoft Graph. Crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa a identidade gerenciada para buscar tokens e anexá-los ao cliente do serviço. O exemplo de código a seguir obtém a credencial de token autenticada e a usa para criar um objeto de cliente de serviço, que obtém os usuários no grupo.
 
-### <a name="install-microsoftgraph-client-library-package"></a>Instalar o pacote da biblioteca de clientes do Microsoft.Graph
+### <a name="install-the-microsoftgraph-client-library-package"></a>Instalar o pacote da biblioteca de clientes Microsoft.Graph
 
-Instale o [pacote do NuGet Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) em seu projeto usando a interface de linha de comando do .NET Core ou o Console do Gerenciador de Pacotes no Visual Studio.
+Instale o [pacote NuGet Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) no projeto usando a interface de linha de comando do .NET Core ou o Console do Gerenciador de Pacotes no Visual Studio.
 
 # <a name="command-line"></a>[Linha de comando](#tab/command-line)
 
 Abra uma linha de comando e alterne para o diretório que contém o arquivo de projeto.
 
-Execute os comandos de instalação:
+Execute os comandos de instalação.
 
 ```dotnetcli
 dotnet add package Microsoft.Graph
@@ -133,9 +137,9 @@ dotnet add package Microsoft.Graph
 
 # <a name="package-manager"></a>[Gerenciador de Pacotes](#tab/package-manager)
 
-Abra o projeto/solução no Visual Studio e abra o console do usando o comando **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
+Abra o projeto/a solução no Visual Studio e abra o console do usando o comando **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
 
-Execute os comandos de instalação:
+Execute os comandos de instalação.
 ```powershell
 Install-Package Microsoft.Graph
 ```
@@ -159,7 +163,7 @@ public IList<MSGraphUser> Users { get; set; }
 
 public async Task OnGetAsync()
 {
-    // Create the Graph service client with a DefaultAzureCredential which gets an access token using the available Managed Identity
+    // Create the Microsoft Graph service client with a DefaultAzureCredential class, which gets an access token by using the available Managed Identity.
     var credential = new DefaultAzureCredential();
     var token = credential.GetToken(
         new Azure.Core.TokenRequestContext(
@@ -210,8 +214,8 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 >
-> * Criar uma identidade gerenciada atribuída ao sistema em um aplicativo Web
-> * Adicionar permissões de API do Microsoft Graph a uma identidade gerenciada
-> * Chamar o Microsoft Graph por meio de um aplicativo Web usando identidades gerenciadas
+> * Criar uma identidade gerenciada atribuída ao sistema em um aplicativo Web.
+> * Adicionar permissões de API do Microsoft Graph a uma identidade gerenciada.
+> * Chamar o Microsoft Graph em um aplicativo Web usando identidades gerenciadas.
 
 Saiba como conectar um [aplicativo .NET Core](tutorial-dotnetcore-sqldb-app.md), [aplicativo Python](tutorial-python-postgresql-app.md), [aplicativo Java](tutorial-java-spring-cosmosdb.md) ou [aplicativo Node.js](tutorial-nodejs-mongodb-app.md) a um banco de dados.

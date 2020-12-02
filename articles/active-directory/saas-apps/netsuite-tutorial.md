@@ -253,7 +253,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 - Clique em Testar este aplicativo no portal do Azure e você será conectado automaticamente ao NetSuite, para o qual configurou o SSO
 
-- Você pode usar o portal Meus Aplicativos da Microsoft. Ao clicar no bloco do NetSuite em Meus Aplicativos, você deverá ser conectado automaticamente ao NetSuite, para o qual configurou o SSO. Para obter mais informações sobre o portal Meus Aplicativos, confira [Introdução ao portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+- Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do NetSuite em Meus Aplicativos, você deverá ser conectado automaticamente ao NetSuite, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Próximas etapas

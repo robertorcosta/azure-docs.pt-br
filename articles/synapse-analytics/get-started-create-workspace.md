@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/21/2020
+ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592440"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241923"
 ---
 # <a name="creating-a-synapse-workspace"></a>Como criar um workspace do Azure Synapse
 
@@ -65,9 +65,9 @@ Um pool de SQL dedicado consome recursos faturáveis desde que ele esteja ativo.
 
 O Pool do Spark informa o Azure Synapse sobre quantos recursos do Spark serão usados. Você paga somente pelos recursos que usa. Quando você parar ativamente de usar o pool, os recursos atingirão o tempo limite automaticamente e serão reciclados.
 
-## <a name="the-serverless-sql-pool"></a>O pool de SQL sem servidor
+## <a name="the-built-in-serverless-sql-pool"></a>O pool de SQL sem servidor interno
 
-Todo workspace é fornecido com um pool predefinido chamado **Interno**. Esse pool não pode ser excluído. O pool de SQL sem servidor permite que você trabalhe com o SQL sem precisar criar nem pensar em gerenciar um pool de SQL no Azure Synapse. Ao contrário dos pools de SQL dedicados, a cobrança de um pool de SQL sem servidor se baseia no volume de dados examinados para executar a consulta, não no número de recursos usados para executá-la.
+Todo workspace é fornecido com um pool de SQL sem servidor predefinido chamado **Interno**. Esse pool não pode ser excluído. Os pools de SQL sem servidor permitem que você use o SQL sem precisar reservar a capacidade com pools de SQL dedicados. Ao contrário dos pools de SQL dedicados, a cobrança de um pool de SQL sem servidor se baseia no volume de dados examinados para executar a consulta, não no número de capacidade alocada para executá-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

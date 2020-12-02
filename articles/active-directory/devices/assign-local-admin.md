@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511110"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -72,14 +72,19 @@ Administradores do dispositivo são atribuídos a todos os dispositivos ingressa
 >[!NOTE]
 > Esse recurso está atualmente na visualização.
 
+
 A partir da atualização do Windows 10 2004, você pode usar os grupos do Azure AD para gerenciar privilégios de administrador em dispositivos ingressados no Azure AD com a política de MDM de [Grupos restritos](/windows/client-management/mdm/policy-csp-restrictedgroups) . Essa política permite que você atribua usuários individuais ou grupos do Azure AD ao grupo de administradores locais em um dispositivo ingressado no Azure AD, fornecendo a granularidade para configurar administradores distintos para diferentes grupos de dispositivos. 
 
-Atualmente, não há nenhuma interface do usuário no Intune para gerenciar essa política e precisa ser configurada usando [configurações de OMA-URI personalizadas](/mem/intune/configuration/custom-settings-windows-10). Algumas considerações para esta política: 
+>[!NOTE]
+> Iniciando a atualização do Windows 10 20H2, é recomendável usar a política de [usuários e grupos locais](/windows/client-management/mdm/policy-csp-localusersandgroups) em vez da política de grupos restritos
+
+
+Atualmente, não há nenhuma interface do usuário no Intune para gerenciar essas políticas e elas precisam ser configuradas usando [configurações de OMA-URI personalizadas](/mem/intune/configuration/custom-settings-windows-10). Algumas considerações sobre o uso de qualquer uma dessas políticas: 
 
 - A adição de grupos do Azure AD por meio da política requer o SID do grupo que pode ser obtido pela execução da API groups. O SID é definido pela propriedade `securityIdentifier` na API de grupos.
-- Quando a política de grupos restritos é imposta, qualquer membro atual do grupo que não está na lista de membros é removido. Assim, a imposição dessa política com novos membros ou grupos removerá os administradores existentes, ou seja, o usuário que ingressou no dispositivo, a função de administrador de dispositivo e a função de administrador global do dispositivo. Para evitar a remoção de membros existentes, você precisa configurá-los como parte da lista de membros na política de grupos restritos. 
-- Essa política só é aplicável aos seguintes grupos conhecidos em um dispositivo Windows 10: administradores, usuários, convidados, usuários avançados, Área de Trabalho Remota usuários e usuários de gerenciamento remoto. 
-- O gerenciamento de administradores locais usando a política de grupos restritos não é aplicável a dispositivos registrados no Azure AD híbrido ou no Azure AD.
+- Quando a política de grupos restritos é imposta, qualquer membro atual do grupo que não está na lista de membros é removido. Assim, a imposição dessa política com novos membros ou grupos removerá os administradores existentes, ou seja, o usuário que ingressou no dispositivo, a função de administrador de dispositivo e a função de administrador global do dispositivo. Para evitar a remoção de membros existentes, você precisa configurá-los como parte da lista de membros na política de grupos restritos. Essa limitação será resolvida se você usar a política usuários e grupos locais que permite atualizações incrementais na associação de grupo
+- Os privilégios de administrador usando ambas as políticas são avaliados apenas para os seguintes grupos conhecidos em um dispositivo Windows 10: administradores, usuários, convidados, usuários avançados, Área de Trabalho Remota usuários e usuários de gerenciamento remoto. 
+- O gerenciamento de administradores locais usando grupos do Azure AD não é aplicável a dispositivos registrados no Azure ad híbrido ou ao Azure AD.
 - Embora a política de grupos restritos existia antes da atualização do Windows 10 2004, ela não dava suporte a grupos do Azure AD como membros do grupo de administradores locais de um dispositivo. 
 
 ## <a name="manage-regular-users"></a>Gerenciar usuários regulares

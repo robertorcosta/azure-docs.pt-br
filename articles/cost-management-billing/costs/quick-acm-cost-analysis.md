@@ -169,7 +169,7 @@ Comece preparando seu ambiente para a CLI do Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Depois de se conectar, use o comando [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) para consultar as informações de uso do mês atual da sua assinatura:
+Depois de entrar, use o comando [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) para consultar as informações de uso do mês atual da sua assinatura:
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \

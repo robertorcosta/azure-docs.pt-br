@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825921"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979939"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
-Neste tutorial, você criará um SPA (aplicativo de página única) em JavaScript que pode conectar usuários com contas pessoais da Microsoft ou contas corporativas e de estudante e adquirirá um token de acesso para chamar a API do Microsoft Graph.
+Neste tutorial, você criará um SPA (aplicativo de página única) JavaScript que conecta usuários e chama o Microsoft Graph usando o fluxo implícito. O SPA que você cria usa a MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript v1.0.
 
 Neste tutorial:
 
@@ -513,4 +513,3 @@ Aprofunde-se no desenvolvimento de SPA (aplicativo de página única) na platafo
 
 > [!div class="nextstepaction"]
 > [Cenário: Aplicativo de página única](scenario-spa-overview.md)
-

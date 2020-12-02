@@ -183,7 +183,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
     
-    ![Captura de tela que mostra a seção Identidade Visual da Página de Logon com as opções PPE e Salvar selecionadas.](./media/jobscience-tutorial/ic784366.png "Identidade visual da página de logon")
+    ![Captura de tela que mostra a seção Identidade Visual da Página de Logon com as opções EPI e Salvar selecionadas.](./media/jobscience-tutorial/ic784366.png "Identidade visual da página de logon")
 
 1. Para obter o logon único iniciado pelo SP, clique nas **Configurações de Logon Único** na seção do menu **Controles de Segurança**.
 

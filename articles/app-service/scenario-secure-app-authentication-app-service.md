@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Adicionar a autenticação a um aplicativo Web no Serviço de Aplicativo do Azure | Azure
-description: Neste tutorial, você aprenderá a habilitar a autenticação e a autorização para um aplicativo Web em execução no Serviço de Aplicativo do Azure. Limite o acesso ao aplicativo Web para os usuários na sua organização.
+description: Neste tutorial, você aprenderá a habilitar a autenticação e a autorização para um aplicativo Web em execução no Serviço de Aplicativo do Azure. Limitar o acesso ao aplicativo Web para os usuários na sua organização.
 services: active-directory, app-service-web
 author: rwike77
 manager: CelesteDG
@@ -72,7 +72,7 @@ Quando você habilitou o módulo de autenticação/autorização do Serviço de 
 
 :::image type="content" alt-text="Captura de tela que mostra a verificação do acesso." source="./media/scenario-secure-app-authentication-app-service/verify-access.png":::
 
-Para verificar se o acesso ao seu aplicativo está limitado aos usuários da sua organização, inicie um navegador no modo anônimo ou particular e acesse `https://<app-name>.azurewebsites.net`. Você deverá ser direcionado para uma página de entrada segura, confirmando que os usuários não autenticados não têm permissão de acesso ao site. Entre como um usuário em sua organização para obter acesso ao site. Você também pode iniciar um novo navegador e tentar se conectar usando uma conta pessoal para confirmar se os usuários fora da organização não têm acesso.
+Para verificar se o acesso ao seu aplicativo está limitado aos usuários da sua organização, inicie um navegador no modo anônimo ou particular e acesse `https://<app-name>.azurewebsites.net`. Você deverá ser direcionado para uma página de entrada segura, confirmando que os usuários não autenticados não têm permissão de acesso ao site. Entre como um usuário em sua organização para obter acesso ao site. Você também pode iniciar um novo navegador e tentar entrar usando uma conta pessoal para confirmar se os usuários fora da organização não têm acesso.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

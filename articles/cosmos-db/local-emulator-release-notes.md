@@ -16,7 +16,7 @@ ms.locfileid: "95997147"
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos – Notas sobre a versão e informações de download
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Este artigo mostra as notas de versão do Emulador do Azure Cosmos com uma lista de atualizações de recursos que foram feitas em cada versão. Também lista a versão mais recente do emulador para baixar e usar.
+Este artigo mostra as notas sobre a versão do Emulador do Azure Cosmos com uma lista de atualizações de recursos que foram feitas em cada versão. Também lista a versão mais recente do emulador para baixar e usar.
 
 ## <a name="download"></a>Baixar
 

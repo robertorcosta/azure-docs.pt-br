@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: fef949e9285264ef46fbaed05a4385a15b27e65e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 70acc696f1cb366d25299f616744e52491a54471
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354404"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024170"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
 
@@ -129,7 +129,7 @@ Agora que você tem um fluxo de eventos de chamada, pode criar um trabalho do St
 
 1. Para criar um trabalho do Stream Analytics, navegue até o [portal do Azure](https://portal.azure.com/).
 
-2. Clique em **Criar um recurso** e pesquise um **trabalho do Stream Analytics**. Selecione o bloco **Trabalho do Stream Analytics** e clique em *Criar**.
+2. Clique em **Criar um recurso** e pesquise um **trabalho do Stream Analytics**. Selecione o bloco **Trabalho do Stream Analytics** e selecione **Criar**.
 
 3. Preencha o formulário **Novo trabalho do Stream Analytics** com os seguintes valores:
 

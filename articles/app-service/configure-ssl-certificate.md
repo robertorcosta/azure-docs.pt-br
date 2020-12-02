@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149064"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956493"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL ao Serviço de Aplicativo do Azure
 
@@ -105,6 +105,8 @@ Se você já tiver um certificado funcional do Serviço de Aplicativo, poderá:
 
 - [Importar o certificado no Serviço de Aplicativo](#import-certificate-into-app-service).
 - [Gerenciar o certificado](#manage-app-service-certificates), por exemplo, renovar, rechavear e exportá-lo.
+> [!NOTE]
+> Não há suporte para os Certificados do Serviço de Aplicativo nas Nuvens Nacionais do Azure no momento.
 
 ### <a name="start-certificate-order"></a>Iniciar o pedido de certificado
 

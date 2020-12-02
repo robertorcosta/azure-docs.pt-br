@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579463"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026654"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -23,7 +23,7 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |------------------------------|----------|-------------|---------------|
-|[criptografia de chave gerenciada pelo cliente em indexadores, fontes de dados e conjuntos de habilidades](search-security-manage-encryption-keys.md) | Segurança | Essa adição estende a criptografia gerenciada pelo cliente para toda a gama de ativos criados e gerenciados por um serviço de pesquisa. Lembre-se de que o suporte à CMK adiciona uma camada de criptografia extra, além da criptografia base executada e gerenciada pela Microsoft. | Em disponibilidade geral com a REST api-version=2020-06-30 |  
+|[Criptografia de chave gerenciada pelo cliente em indexadores, fontes de dados e conjuntos de habilidades](search-security-manage-encryption-keys.md) | Segurança | Essa adição estende a criptografia gerenciada pelo cliente para toda a gama de ativos criados e gerenciados por um serviço de pesquisa. Lembre-se de que o suporte à chave gerenciada pelo cliente adiciona uma camada de criptografia extra, além da criptografia base executada e gerenciada pela Microsoft. | Em disponibilidade geral com a REST api-version=2020-06-30 |  
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -41,7 +41,7 @@ Crie uma identidade para um serviço de pesquisa no Azure Active Directory e use
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
-| [criptografia dupla](search-security-overview.md#encryption) | Segurança | Habilite a criptografia dupla na camada de armazenamento configurando a criptografia CMK (chave gerenciada pelo cliente) em novos serviços de pesquisa. Crie um serviço, [configure e aplique as chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) a índices ou a mapas de sinônimos e beneficie-se da criptografia dupla nesse conteúdo. | Em disponibilidade geral em todos os serviços de pesquisa criados após 1º de agosto de 2020 nestas regiões: Oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, US Gov – Virgínia e US Gov – Arizona. Use o portal, as APIs REST de gerenciamento ou os SDKs para criar o serviço. |
+| [criptografia dupla](search-security-overview.md#encryption) | Segurança | Habilite a criptografia dupla na camada de armazenamento configurando a criptografia de chave gerenciada pelo cliente em novos serviços de pesquisa. Crie um serviço, [configure e aplique as chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) a índices ou a mapas de sinônimos e beneficie-se da criptografia dupla nesse conteúdo. | Em disponibilidade geral em todos os serviços de pesquisa criados após 1º de agosto de 2020 nestas regiões: Oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, US Gov – Virgínia e US Gov – Arizona. Use o portal, as APIs REST de gerenciamento ou os SDKs para criar o serviço. |
 
 ## <a name="july-2020"></a>Julho de 2020
 
