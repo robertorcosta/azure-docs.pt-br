@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751242"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462952"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuração detalhada para unidades de teste hospedadas
 
@@ -29,7 +29,7 @@ Este artigo descreve como configurar um test drive hospedado para o Dynamics 365
 
     - **Tipo de Test Drive** – escolha **Microsoft Hosted (Dynamics 365 para compromisso com o cliente & PowerApps)**. Isso indica que a Microsoft hospedará e manterá o serviço que executa o provisionamento e desprovisionamento test drive usuário.
 
-5. Conceda Microsoft AppSource permissão para provisionar e desprovisionar test drive usuários em seu locatário usando [estas instruções](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). Nesta etapa, você irá gerar a **ID de aplicativo Azure ad** e **aplicativo Azure ad** valores de chave mencionados abaixo.
+5. Conceda Microsoft AppSource permissão para provisionar e desprovisionar test drive usuários em seu locatário usando [estas instruções](./test-drive-azure-subscription-setup.md). Nesta etapa, você irá gerar a **ID de aplicativo Azure ad** e **aplicativo Azure ad** valores de chave mencionados abaixo.
 6. Preencha esses campos na página de **configuração técnica do Test Drive** .
 
     [![A página de configuração técnica do test drive.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
@@ -81,7 +81,7 @@ Este artigo descreve como configurar um test drive hospedado para o Dynamics 365
     - **Nome do locatário do Azure Active Directory** – o nome do locatário do Azure para sua instância do Dynamics 365. Use o formato `<tenantname>.onmicrosoft.com`. Valor de exemplo: `testdrive.onmicrosoft.com` .
     - **ID do aplicativo Azure Active Directory** – a ID do aplicativo Azure Active Directory (AD) que você criou na etapa 5. Valor de exemplo: `53852862-a2ae-4e43-9461-faa49650a096` .
     - **Azure Active Directory segredo do cliente do aplicativo** – segredo para o aplicativo do Azure ad criado na etapa 5. Valor de exemplo: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` .
-    - **Entidade legal de avaliação** – forneça uma entidade legal para atribuir um usuário de avaliação. Você pode criar um novo em [criar ou modificar uma entidade legal](https://technet.microsoft.com/library/hh242184.aspx).
+    - **Entidade legal de avaliação** – forneça uma entidade legal para atribuir um usuário de avaliação. Você pode criar um novo em [criar ou modificar uma entidade legal](/dynamicsax-2012/appuser-itpro/create-or-modify-a-legal-entity).
     - **Nome da função** – o nome da AoT (árvore de objetos de aplicativo) da função de segurança personalizada do Dynamics 365 que você criou para Test Drive. Essa é a função que será atribuída aos usuários durante seus test drive.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="A página de configuração de segurança.":::

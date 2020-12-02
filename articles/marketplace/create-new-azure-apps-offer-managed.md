@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463102"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configurar um plano de aplicativo gerenciado
 
@@ -23,7 +23,7 @@ Este artigo aplica-se somente a planos de aplicativo gerenciados para uma oferta
 
 Cada plano precisa estar disponível em pelo menos um mercado. Na guia **preços e disponibilidade** , você pode configurar os mercados em que esse plano estará disponível, o preço e se deseja tornar o plano visível para todos ou apenas para clientes específicos (também chamados de plano privado).
 
-1. Em **mercados** , selecione o link **Editar mercados** .
+1. Em **mercados**, selecione o link **Editar mercados** .
 1. Na caixa de diálogo que aparece, selecione os locais de mercado onde você deseja disponibilizar seu plano. Você deve selecionar no mínimo um e no máximo 141 mercados.
 
     > [!NOTE]
@@ -41,7 +41,7 @@ Os preços são definidos em USD (USD = Estados Unidos dólar) são convertidos 
 
 ### <a name="add-a-custom-meter-dimension-optional"></a>Adicionar uma dimensão de medidor personalizado (opcional)
 
-1. Em **dimensões do serviço de medição do Marketplace** , selecione o link **Adicionar uma dimensão de medição personalizada (máx. 18)** .
+1. Em **dimensões do serviço de medição do Marketplace**, selecione o link **Adicionar uma dimensão de medição personalizada (máx. 18)** .
 1. Na caixa **ID** , insira a referência de identificador imutável ao emitir eventos de uso.
 1. Na caixa **nome de exibição** , insira o nome de exibição associado à dimensão. Por exemplo, "mensagens de texto enviadas".
 1. Na caixa **unidade de medida** , insira a descrição da unidade de cobrança. Por exemplo, "mensagem por texto" ou "por email 100".
@@ -61,13 +61,13 @@ Examine seus preços cuidadosamente antes de publicar, pois há algumas restriç
 Para definir preços personalizados em um mercado individual, exporte, modifique e importe a planilha de preços. Você é responsável por validar esse preço e possuir essas configurações. Para obter informações detalhadas, consulte [preços personalizados](plans-pricing.md#custom-prices).
 
 1. É necessário primeiro salvar as alterações de preços para habilitar a exportação de dados sobre preços. Próximo à parte inferior da guia **preços e disponibilidade** , selecione **salvar rascunho**.
-1. Em **preços** , selecione o link **exportar dados de preços** .
+1. Em **preços**, selecione o link **exportar dados de preços** .
 1. Abra o arquivo exportedPrice.xlsx no Microsoft Excel.
 1. Na planilha, faça as atualizações desejadas para suas informações de preço e salve o arquivo.
 
    Talvez seja necessário habilitar a edição no Excel antes que você possa atualizar o arquivo.
 
-1. Na guia **preços e disponibilidade** , em **preços** , selecione o link **importar dados de preços** .
+1. Na guia **preços e disponibilidade** , em **preços**, selecione o link **importar dados de preços** .
 1. Na caixa de diálogo exibida, clique em **Sim**.
 1. Selecione o arquivo de exportedPrice.xlsx que você atualizou e clique em **abrir**.
 
@@ -78,9 +78,9 @@ Você pode configurar cada plano para ser visível para todos ou apenas para um 
 > [!NOTE]
 > Se você publicar um plano privado, poderá alterar sua visibilidade para o público posteriormente. No entanto, depois de publicar um plano público, você não pode alterar sua visibilidade para particular.
 
-Em **visibilidade do plano** , siga um destes procedimentos:
+Em **visibilidade do plano**, siga um destes procedimentos:
 
-- Para tornar o plano público, selecione o botão de opção **pública** (também conhecido como um _botão de opção_ ).
+- Para tornar o plano público, selecione o botão de opção **pública** (também conhecido como um _botão de opção_).
 - Para tornar o plano privado, selecione o botão de opção **particular** e, em seguida, adicione as IDs de assinatura do Azure manualmente ou com um arquivo CSV.
 
 > [!NOTE]
@@ -88,20 +88,20 @@ Em **visibilidade do plano** , siga um destes procedimentos:
 
 ### <a name="manually-add-azure-subscription-ids-for-a-private-plan"></a>Adicionar manualmente IDs de assinatura do Azure para um plano privado
 
-1. Em **visibilidade do plano** , selecione o botão de opção **particular** .
+1. Em **visibilidade do plano**, selecione o botão de opção **particular** .
 1. Na caixa **ID de assinatura do Azure** que aparece, insira a ID de assinatura do Azure do público que você deseja conceder acesso a este plano privado. É necessário um mínimo de uma ID de assinatura.
 1. Adicional Insira uma descrição desse público na caixa **Descrição** .
 1. Para adicionar outra ID de assinatura, selecione o link **Adicionar ID (máx. 10)** e repita as etapas 2 e 3.
 
 ### <a name="use-a-csv-file-to-add-azure-subscription-ids-for-a-private-plan"></a>Use um. Arquivo CSV para adicionar IDs de assinatura do Azure para um plano privado
 
-1. Em **visibilidade do plano** , selecione o botão de opção **particular** .
+1. Em **visibilidade do plano**, selecione o botão de opção **particular** .
 1. Selecione o link **Exportar audiência (CSV)** .
 1. Abra o. Arquivo CSV e adicione as IDs de assinatura do Azure às quais você deseja conceder acesso à oferta privada para a coluna **ID** .
 1. Opcionalmente, insira uma descrição para cada público na coluna **Descrição** .
 1. Adicione "SubscriptionId" na coluna **tipo** para cada linha com uma ID de assinatura.
 1. Salve o. Arquivo CSV.
-1. Na guia **disponibilidade** , em **visibilidade do plano** , selecione o link **importar audiência (CSV)** .
+1. Na guia **disponibilidade** , em **visibilidade do plano**, selecione o link **importar audiência (CSV)** .
 1. Na caixa de diálogo exibida, selecione **Sim**.
 1. Selecione o. Arquivo CSV e, em seguida, selecione **abrir**. É exibida uma mensagem indicando que o. O arquivo CSV foi importado com êxito.
 
@@ -118,7 +118,7 @@ Na caixa **versão** , forneça a versão atual da configuração técnica. Aume
 
 ### <a name="upload-a-package-file"></a>Carregar um arquivo de pacote
 
-Em **arquivo de pacote (. zip)** , arraste o arquivo de pacote para a caixa cinza ou selecione o link **procurar seu (s) arquivo (es)** .
+Em **arquivo de pacote (. zip)**, arraste o arquivo de pacote para a caixa cinza ou selecione o link **procurar seu (s) arquivo (es)** .
 
 > [!NOTE]
 > Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço `https://upload.xboxlive.com` que é usado pelo Partner Center.
@@ -135,10 +135,10 @@ Para habilitar o acesso JIT para este plano, marque a caixa de seleção **habil
 
 Selecione o modo de implantação **completo** ou **incremental** .
 
-- No modo **completo** , uma reimplantação do aplicativo pelo cliente resultará na remoção de recursos no grupo de recursos gerenciados se os recursos não estiverem definidos no [mainTemplate.jsem](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
+- No modo **completo** , uma reimplantação do aplicativo pelo cliente resultará na remoção de recursos no grupo de recursos gerenciados se os recursos não estiverem definidos no [mainTemplate.jsem](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template).
 - No modo **incremental** , uma reimplantação do aplicativo deixa os recursos existentes inalterados.
 
-Para saber mais sobre modos de implantação, confira [Modos de implantação do Azure Resource Manager](/azure/azure-resource-manager/deployment-modes).
+Para saber mais sobre modos de implantação, confira [Modos de implantação do Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Forneça uma URL de ponto de extremidade de notificação
 
@@ -164,7 +164,7 @@ Conclua as etapas a seguir para a nuvem global do Azure e do Azure governamental
 
 Você pode configurar um máximo de cinco políticas e apenas uma instância de cada opção de políticas. Algumas políticas não requerem parâmetros adicionais.
 
-1. Em **configurações de política** , selecione o link **+ Adicionar política (máx. 5)** .
+1. Em **configurações de política**, selecione o link **+ Adicionar política (máx. 5)** .
 1. Na caixa **nome** , insira o nome da atribuição de política (limitado a 50 caracteres).
 1. Na caixa de listagem **políticas** , selecione a política do Azure que será aplicada aos recursos criados pelo aplicativo gerenciado na assinatura do cliente.
 1. Na caixa **parâmetros de política** , forneça o parâmetro no qual as políticas de auditoria e configurações de diagnóstico devem ser aplicadas.
@@ -181,8 +181,8 @@ Depois de criar um ou mais planos, você verá o nome do plano, a ID do plano, o
 
 As ações disponíveis na coluna **ação** da guia **visão geral do plano** variam de acordo com o status do plano e podem incluir o seguinte:
 
-- Se o status do plano for **rascunho** , o link na coluna **ação** dirá **excluir rascunho**.
-- Se o status do plano for **dinâmico** , o link na coluna **ação** será parar o **plano de venda** ou **sincronizar público privado**. O link **sincronizar audiência privada** publicará apenas as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta.
+- Se o status do plano for **rascunho**, o link na coluna **ação** dirá **excluir rascunho**.
+- Se o status do plano for **dinâmico**, o link na coluna **ação** será parar o **plano de venda** ou **sincronizar público privado**. O link **sincronizar audiência privada** publicará apenas as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta.
 - Para criar outro plano para esta oferta, na parte superior da guia **visão geral do plano** , selecione **+ criar novo plano**. Em seguida, repita as etapas em [como criar planos para sua oferta de aplicativo do Azure](create-new-azure-apps-offer-plans.md). Caso contrário, se você terminar de criar planos, vá para a próxima seção: próximas etapas.
 
 ## <a name="next-steps"></a>Próximas etapas

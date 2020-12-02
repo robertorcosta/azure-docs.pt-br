@@ -3,12 +3,12 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345346"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463230"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -57,7 +57,7 @@ Para obter mais informações sobre como usar CLI do Azure com a grade de evento
 
 Quando o EventGrid recebe um erro para uma tentativa de entrega de evento, o EventGrid decide se deve tentar novamente a entrega ou mensagens mortas ou descartar o evento com base no tipo de erro. 
 
-Se o erro retornado pelo ponto de extremidade assinado for um erro relacionado à configuração que não pode ser corrigido com repetições (por exemplo, se o ponto de extremidade for excluído), EventGrid ele executará um evento de mensagens mortas ou descartará o evento se a letra inativa não estiver configurada.
+Se o erro retornado pelo ponto de extremidade assinado for um erro relacionado à configuração que não pode ser corrigido com repetições (por exemplo, se o ponto de extremidade for excluído), EventGrid irá executar mensagens mortas no evento ou descartar o evento se a letra inativa não estiver configurada.
 
 A seguir estão os tipos de pontos de extremidade para os quais repetir não acontece:
 

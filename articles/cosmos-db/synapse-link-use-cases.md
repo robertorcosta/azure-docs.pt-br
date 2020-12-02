@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340168"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463115"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Link do Azure Synapse para Azure Cosmos DB: casos de uso de análise quase em tempo real
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ Com base na arquitetura anterior, você pode obter os seguintes casos de uso com
 
   O Link do Synapse para Azure Cosmos DB habilita a criação de cenários ricos de BI (business intelligence)/relatórios:
 
-  * Consultar dados operacionais de Azure Cosmos DB repositório analítico usando a integração nativa com o Synapse SQL Server sem servidor e a expressividade completa da linguagem T-SQL.
+  * Consultar dados operacionais de Azure Cosmos DB repositório analítico usando a integração nativa com o pool SQL sem servidor e a expressividade completa da linguagem T-SQL.
 
-  * Modele e publique os painéis de BI de atualização automática em Azure Cosmos DB por meio do suporte Synapse SQL Server para ferramentas de BI familiares. Por exemplo, Azure Analysis Services, Power BI Premium etc.
+  * Modele e publique os painéis de BI de atualização automática em Azure Cosmos DB por meio do suporte a pool do SQL sem servidor para ferramentas de BI familiares. Por exemplo, Azure Analysis Services, Power BI Premium etc.
 
 A seguir, há algumas diretrizes para a integração de dados do lote e de dados de streaming ao Azure Cosmos DB:
 
@@ -143,4 +143,4 @@ Para saber mais, consulte a seguinte documentação:
 
 * [Apache Spark no Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Suporte a tempo de execução sem SQL Server no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Suporte a tempo de execução do pool SQL sem servidor no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

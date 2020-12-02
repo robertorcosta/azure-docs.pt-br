@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 897f16d84a3e1cf0ca747e90ce621a35ff326b2a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2191a4df5b319ec16a4a6116aa99cfac50c87d9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488971"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462921"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -33,7 +33,7 @@ A tabela a seguir mostra os tipos de oferta do Marketplace comercial no Partner 
 | [**Aplicativo do Azure**](plan-azure-application-offer.md) | Há dois tipos de planos de aplicativo do Azure: _modelo de solução_ e _aplicativo gerenciado_. Ambos os tipos de plano dão suporte à automatização da implantação e configuração de uma solução além de uma única VM (máquina virtual). Você pode automatizar o processo de fornecimento de vários recursos, incluindo VMs, rede e recursos de armazenamento para fornecer soluções complexas, como soluções de IaaS. Ambos os tipos de plano podem empregar vários tipos diferentes de recursos do Azure, incluindo, mas não se limitando a VMs.<ul><li>Os planos de **modelo de solução** são uma das principais maneiras de publicar uma solução no Marketplace comercial. Os planos de modelo de solução não são pagos no mercado comercial, mas podem ser usados para implantar ofertas de VM pagas que são cobradas por meio do Marketplace comercial. Use o tipo de plano de modelo de solução quando o cliente gerenciar a solução e as transações forem cobradas por meio de outro plano.</li><br><li>Os planos de **aplicativos gerenciados** permitem que você crie e forneça facilmente aplicativos prontos para uso e totalmente gerenciados para seus clientes. Eles têm os mesmos recursos que os planos de modelo de solução, com algumas diferenças importantes:</li><ul><li> Os recursos são implantados em um grupo de recursos e são gerenciados pelo editor do aplicativo. O grupo de recursos está presente na assinatura do consumidor, mas uma identidade no locatário do fornecedor tem acesso ao grupo de recursos.</li><li>Como o Publicador, você especifica o custo para o suporte contínuo da solução e as transações têm suporte por meio do Marketplace comercial.</li></ul>Use o tipo de plano de aplicativo gerenciado quando você ou seu cliente exigir que a solução seja gerenciada por um parceiro ou se você implantar uma solução baseada em assinatura.</ul> |
 | [**Contêiner do Azure**](marketplace-containers.md) | Use o tipo de oferta de contêiner do Azure quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes. |
 | [**Máquina virtual do Azure**](marketplace-virtual-machines.md) | Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente. |
-| [**Serviço de consultoria**](consulting-services.md) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
+| [**Serviço de consultoria**](./plan-consulting-service-offer.md) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que criam ou estendem o Dynamics 365 Business central, o compromisso com o cliente do Dynamics 365, os aplicativos de energia e os aplicativos de finanças e operações.|
 | [**Módulo do IoT Edge**](iot-edge-module.md) | Os módulos do Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como o Azure Stream Analytics), serviços de terceiros ou o código específico da sua própria solução. |
 | [**Serviço gerenciado**](partner-center-portal/create-new-managed-service-offer.md) | Você pode criar ofertas de serviço gerenciado e gerenciar assinaturas delegadas pelo cliente ou grupos de recursos por meio [do Azure Lighthouse](../lighthouse/overview.md).|

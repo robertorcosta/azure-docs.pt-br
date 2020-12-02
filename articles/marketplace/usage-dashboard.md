@@ -7,21 +7,21 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565531"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462925"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial
 
 Este artigo fornece informações sobre o painel de uso no Partner Center. Este painel exibe todas as máquinas virtuais (VM) oferece uso normalizado, uso bruto e métricas de cobrança limitada em três guias separadas: uso normalizado da VM, uso bruto da VM e uso de cobrança medido.
 
-Para acessar o painel de uso no Partner Center, em **Marketplace comercial** , selecione **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **uso**.
+Para acessar o painel de uso no Partner Center, em **Marketplace comercial**, selecione **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **uso**.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [terminologia de análise do Marketplace comercial e perguntas comuns](./partner-center-portal/faq-terminology.md).
+> Para obter definições detalhadas de terminologia de análise, consulte [terminologia de análise do Marketplace comercial e perguntas comuns](./analytics-faq.md).
 
 ## <a name="usage-dashboard"></a>Painel de uso
 
@@ -171,13 +171,13 @@ O relatório de widgets e de exportação para uso bruto da VM são semelhantes 
 
 A guia **uso medido** mostra informações de uso para os tipos de oferta em que o uso é medido pela dimensão por medidor. O tipo de oferta de SaaS excedente é apresentado no momento. A guia apresenta representações gráficas de tendências excedentes para o uso de cobrança limitada de SaaS:
 
-- **Tendência excedente por dimensão de medidor** : Exibe a tendência excedente mensal para a dimensão de medidor selecionada de uma oferta. O eixo X representa o mês e o eixo Y representa a quantidade de uso excedente. A unidade de medida do medidor personalizado também é exibida no eixo Y.
+- **Tendência excedente por dimensão de medidor**: Exibe a tendência excedente mensal para a dimensão de medidor selecionada de uma oferta. O eixo X representa o mês e o eixo Y representa a quantidade de uso excedente. A unidade de medida do medidor personalizado também é exibida no eixo Y.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="Ilustra o gráfico de uso de VM normalizado no painel uso.":::
 
-- **Tendência de excedente por SKU** : representa a tendência de quantidade de uso da dimensão de medidor selecionada por SKU/planos. Os cinco principais planos com a maior quantidade de uso da oferta selecionada são exibidos.
+- **Tendência de excedente por SKU**: representa a tendência de quantidade de uso da dimensão de medidor selecionada por SKU/planos. Os cinco principais planos com a maior quantidade de uso da oferta selecionada são exibidos.
 
-- **Tendência de excedente por clientes** : o quadro líder do cliente representa uma listagem empilhada de clientes com as horas de uso mais altas e são exibidas em uma _placa líder_ , classificada pelo uso mais alto do medidor personalizado. Selecione um cliente no quadro de preenchimento para exibir a tendência de uso excedente de uma dimensão de medidor selecionada.
+- **Tendência de excedente por clientes**: o quadro líder do cliente representa uma listagem empilhada de clientes com as horas de uso mais altas e são exibidas em uma _placa líder_, classificada pelo uso mais alto do medidor personalizado. Selecione um cliente no quadro de preenchimento para exibir a tendência de uso excedente de uma dimensão de medidor selecionada.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="Ilustra o gráfico uso medido por clientes no painel uso.":::
 
@@ -194,4 +194,4 @@ Se você tiver várias ofertas que usam medidores personalizados, o relatório u
 - Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](usage-dashboard.md).
 - Para obter uma lista de suas solicitações de download nos últimos 30 dias, confira [Painel de Downloads em análises do marketplace comercial](./partner-center-portal/downloads-dashboard.md).
 - Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e Microsoft AppSource, consulte [classificações & análises painel de análise no Partner Center](./partner-center-portal/ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [terminologia e perguntas comuns sobre a análise do Marketplace comercial](./partner-center-portal/faq-terminology.md).
+- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [terminologia e perguntas comuns sobre a análise do Marketplace comercial](./analytics-faq.md).
