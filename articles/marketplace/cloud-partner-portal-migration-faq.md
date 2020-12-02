@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: f0546a76974e429b625ba03fdf4598da7d32c990
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433354"
+ms.locfileid: "96455661"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Cloud Partner para o Partner Center
 
@@ -85,8 +85,8 @@ Para os tipos de oferta com suporte no Partner Center, todas as ofertas foram mo
 | Dynamics 365 for Operations | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta do Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
 | Aplicativo do Power BI | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar um aplicativo Power bi para AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Módulo do IoT Edge | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar, configurar e publicar uma oferta de módulo IOT Edge no Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Contêiner | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de contêiner do Azure](partner-center-portal/create-azure-container-offer.md). |
-| Serviço de consultoria | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço de consultoria](partner-center-portal/create-consulting-service-offer.md). |
+| Contêiner | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de contêiner do Azure](./create-azure-container-offer.md). |
+| Serviço de consultoria | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço de consultoria](./create-consulting-service-offer.md). |
 | Serviço gerenciado | Yes | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de serviço gerenciado](partner-center-portal/create-new-managed-service-offer.md). |
 | Serviço gerenciado do Dynamics NAV | No | A Microsoft desenvolveu o serviço gerenciado do Dynamics NAV no [dynamics 365 Business central](/dynamics365/business-central/)e, portanto, listamos as ofertas dinâmicas de serviço gerenciado do Dynamics NAV do AppSource. Essas ofertas não são mais detectáveis pelos clientes e não foram movidas para o Partner Center. Para disponibilizar suas ofertas no AppSource, adapte-as às ofertas do Dynamics 365 Business central e envie-as no [Partner Center](https://partner.microsoft.com/). Saiba mais em [criar uma oferta do Dynamics 365 Business central](partner-center-portal/create-new-business-central-offer.md). |
 | Cortana Intelligence | No | A Microsoft evoluiu o mapa de estrada do produto para Cortana Intelligence, portanto, nós a listamos Cortana Intelligence ofertas ao vivo da AppSource. Essas ofertas não são mais detectáveis pelos clientes e não foram movidas para o Partner Center. Para disponibilizar suas ofertas no mercado comercial, adapte suas ofertas para ofertas de software como serviço (SaaS) e envie-as para o [Partner Center](https://partner.microsoft.com/). Saiba mais na [lista de verificação de criação de oferta de SaaS no Partner Center](./plan-saas-offer.md). |

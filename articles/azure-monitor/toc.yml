@@ -1143,6 +1143,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Grafo
               href: platform/workbooks-graph-visualizations.md
+            - name: Mapeamento
+              href: platform/workbooks-map-visualizations.md
             - name: Colmeia
               href: platform/workbooks-honey-comb.md
             - name: Barra de composição

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b625a81ff328e6760ec0ad8d9acb5735f402df73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843699"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455628"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
 
@@ -98,7 +98,7 @@ Use a proteção de rede adaptável da central de segurança do Azure para recom
 
 - [Como restringir endereços IP de entrada](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -1286,7 +1286,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 - [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

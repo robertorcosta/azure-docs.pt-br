@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990084"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454506"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo mostra como criar e popular uma instância do Azure Active Directory (Azure AD) e, em seguida, usar o Azure AD com o [banco de dados SQL do](sql-database-paas-overview.md)Azure, o [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e o [azure Synapse Analytics (anteriormente SQL data warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Azure Active Directory autenticação](authentication-aad-overview.md).
+Este artigo mostra como criar e popular uma instância do Azure Active Directory (Azure AD) e, em seguida, usar o Azure AD com o [banco de dados SQL do Azure](sql-database-paas-overview.md), o [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e o [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Azure Active Directory autenticação](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Métodos de autenticação do Azure AD
 
@@ -190,7 +190,7 @@ Para provisionar um administrador do AD do Azure, execute os seguintes comandos 
 
 Os cmdlets usados para provisionar e gerenciar o administrador do Azure AD para o SQL Instância Gerenciada estão listados na tabela a seguir:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Provisiona um administrador do Azure AD para o Instância Gerenciada do SQL na assinatura atual. (Deve ser da assinatura atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador do Azure AD para o Instância Gerenciada do SQL na assinatura atual. |
@@ -279,7 +279,7 @@ Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell ins
 
 Cmdlets usados para provisionar e gerenciar o administrador do Azure AD para o banco de dados SQL e o Azure Synapse:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisiona um administrador de Azure Active Directory para o servidor que hospeda o banco de dados SQL ou o Azure Synapse. (Deve ser da assinatura atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador de Azure Active Directory do servidor que hospeda o banco de dados SQL ou o Azure Synapse.|

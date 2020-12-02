@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f90299daed46d06dad9ab37103e3b8f53763ed4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841233"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454381"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurar a autenticação multifator para SQL Server Management Studio e Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo mostra como usar a autenticação multifator (MFA) do Azure Active Directory (Azure AD) com o SQL Server Management Studio (SSMS). O Azure AD MFA pode ser usado ao conectar o SSMS ou o SqlPackage.exe ao [banco de dados SQL do](sql-database-paas-overview.md)Azure, [Azure SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md) e [azure Synapse Analytics (anteriormente SQL data warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral da autenticação multifator, consulte [autenticação universal com o banco de dados SQL, sql instância gerenciada e Azure Synapse (suporte do SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).
+Este artigo mostra como usar a autenticação multifator (MFA) do Azure Active Directory (Azure AD) com o SQL Server Management Studio (SSMS). O Azure AD MFA pode ser usado ao conectar o SSMS ou o SqlPackage.exe ao [banco de dados SQL do](sql-database-paas-overview.md)Azure, [Azure SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral da autenticação multifator, consulte [autenticação universal com o banco de dados SQL, sql instância gerenciada e Azure Synapse (suporte do SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
-> O banco de dados do Azure SQL, o Azure SQL Instância Gerenciada e o Azure Synapse (anteriormente SQL Data Warehouse) são mencionados coletivamente no restante deste artigo como bancos de dados, e o servidor está se referindo ao [servidor](logical-servers.md) que hospeda os bancos de dados do Azure SQL Database e do Synapse.
+> No banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse são referenciados coletivamente no restante deste artigo como bancos de dados, e o servidor está se referindo ao [servidor](logical-servers.md) que hospeda os bancos de dados do SQL Azure e do Azure Synapse.
 
 ## <a name="configuration-steps"></a>Etapas de configuração
 

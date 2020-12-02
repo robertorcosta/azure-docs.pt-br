@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 17648b9bc973285764bb0bd6242506122a043780
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317479"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454261"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -78,7 +78,7 @@ Não há suporte para a configuração de chave Customer-Managed no portal do Az
 
 Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. O `status` em resposta contém pode ser um dos seguintes: ' InProgress ', ' atualizando ', ' excluindo ', ' Succeeded ' ou ' Failed ', incluindo o código de erro.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 N/D
 
@@ -153,7 +153,7 @@ Atualize keyvaultproperties no cluster com detalhes do identificador de chave.
 
 A operação é assíncrona e pode demorar um pouco para ser concluída.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 N/D
 
@@ -277,7 +277,7 @@ Quando você coloca seu próprio armazenamento (BYOS) e o vincula ao seu espaço
 
 Vincular uma conta de armazenamento para *consulta* ao seu espaço de trabalho-- *salvas* as consultas de pesquisas são salvas em sua conta de armazenamento. 
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 N/D
 
@@ -321,7 +321,7 @@ Após a configuração, qualquer nova consulta de *pesquisa salva* será salva n
 
 Vincular uma conta de armazenamento para *alertas* ao seu espaço de trabalho-as consultas de *alertas de log* são salvas em sua conta de armazenamento. 
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 N/D
 
@@ -373,7 +373,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
 - **Obter todos os clusters em um grupo de recursos**
   
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -435,7 +435,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
 - **Obter todos os clusters em uma assinatura**
 
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -468,7 +468,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
   Quando o volume de dados para seus espaços de trabalho vinculados é alterado ao longo do tempo e você deseja atualizar o nível de reserva de capacidade adequadamente. Siga o [cluster de atualização](#update-cluster-with-key-identifier-details) e forneça seu novo valor de capacidade. Ele pode estar no intervalo de 1000 a 3000 GB por dia e em etapas de 100. Para um nível superior a 3000 GB por dia, acesse o contato da Microsoft para habilitá-lo. Observe que você não precisa fornecer o corpo da solicitação REST completa, mas deve incluir o SKU:
 
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -509,7 +509,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
   
   Siga o [cluster de atualização](#update-cluster-with-key-identifier-details) e forneça o novo valor de billtype. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o *billingType*:
 
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -543,7 +543,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
   Esta operação é assíncrona e pode um tempo para ser concluída.
 
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -572,7 +572,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
   
   Execute a operação get no espaço de trabalho e observe se a propriedade *clusterResourceId* está presente na resposta em *recursos*. Um espaço de trabalho vinculado terá a propriedade *clusterResourceId* .
 
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -603,7 +603,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
   
   A operação de desvinculação é assíncrona e pode levar até 90 minutos para ser concluída.
 
-  # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
   N/D
 
@@ -656,6 +656,12 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
 - O link do espaço de trabalho para o cluster falhará se ele estiver vinculado a outro cluster.
 
+- A Lockbox não está disponível atualmente na China. 
+
+- A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões com suporte. Você pode verificar se o cluster está configurado para criptografia dupla por uma solicitação GET no cluster e observar o valor da `"isDoubleEncryptionEnabled"` propriedade – é `true` para clusters com criptografia dupla habilitada. 
+  - Se você criar um cluster e receber um erro "<Region-Name> não dá suporte à criptografia dupla para clusters.", você ainda poderá criar o cluster sem criptografia dupla. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` a propriedade no corpo da solicitação REST.
+  - A configuração de criptografia dupla não pode ser alterada após a criação do cluster.
+
 ## <a name="troubleshooting"></a>Solução de problemas
 
 - Comportamento com disponibilidade do Key Vault
@@ -682,10 +688,6 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 - Algumas operações são longas e podem demorar um pouco para serem concluídas--são elas: criação de cluster, atualização de chave de cluster e exclusão de cluster. Você pode verificar o status da operação de duas maneiras:
   1. ao usar o REST, copie o Azure-AsyncOperation valor da URL da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
   2. Enviar solicitação GET para cluster ou espaço de trabalho e observar a resposta. Por exemplo, espaço de trabalho desvinculado não terá o *clusterResourceId* em *recursos*.
-
-- A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões com suporte. Você pode verificar se o cluster está configurado para criptografia dupla por uma solicitação GET no cluster e observar o valor da `"isDoubleEncryptionEnabled"` propriedade – é `true` para clusters com criptografia dupla habilitada. 
-  - Se você criar um cluster e receber um erro "<Region-Name> não dá suporte à criptografia dupla para clusters.", você ainda poderá criar o cluster sem criptografia dupla. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` no corpo da solicitação REST.
-  - A configuração de criptografia dupla não pode ser alterada após a criação do cluster.
 
 - Mensagens de erro
   
