@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325087"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500760"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -84,7 +84,7 @@ Quando você provisiona um disco de armazenamento premium, ao contrário do arma
 
 SSD Premium tamanhos menores que p30 agora oferecem intermitência de disco e podem estourar seus IOPS por disco até 3.500 e sua largura de banda de até 170 MB/s. A intermitência é automatizada e opera com base em um sistema de crédito. Os créditos são acumulados automaticamente em um Bucket de intermitência quando o tráfego de disco está abaixo do destino de desempenho provisionado e os créditos são consumidos automaticamente quando o tráfego ultrapassa o destino, até o limite de intermitência máximo. O limite máximo de intermitência define o teto de IOPS de disco & largura de banda, mesmo se você tiver créditos de intermitência a serem consumidos. A intermitência de disco fornece melhor tolerância a alterações imprevisíveis de padrões de e/s. Você pode aproveitá-lo melhor para inicialização de disco do so e aplicativos com tráfego com picos.    
 
-O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](linux/disk-bursting.md). 
+O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](./disk-bursting.md). 
 
 ### <a name="transactions"></a>Transactions
 

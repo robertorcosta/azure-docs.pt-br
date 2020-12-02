@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147457"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887205"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -90,7 +90,7 @@ Para obter mais informações, confira [Trocas e reembolsos via autoatendimento 
 - **Instância de Máquina Virtual Reservada** – uma reserva abrange apenas os custos de computação de máquina virtual e de serviços de nuvem. Não cobre encargos adicionais de software, Windows, rede nem armazenamento.
 - **Capacidade reservada de Armazenamento do Azure**: uma reserva abrange a capacidade de contas de armazenamento padrão para armazenamento de blobs ou do Azure Data Lake Storage Gen2. A reserva não abrange a largura de banda nem as taxas de transação.
 - **Capacidade reservada do Azure Cosmos DB** – cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede.
-- **vCore reservado do Banco de Dados SQL** – apenas os custos de computação são incluídos com uma reserva. A licença do SQL é cobrada separadamente.
+- **vCore reservado do Banco de Dados SQL** – abrange a Instância Gerenciada de SQL e o Pool Elástico de Banco de Dados SQL/banco de dados individual. Apenas os custos de computação são incluídos em uma reserva. A licença do SQL é cobrada separadamente. 
 - **Azure Synapse Analytics** – uma reserva abrange o uso da cDWU. Ela não abrange os encargos de armazenamento nem de rede associados ao uso do Azure Synapse Analytics.
 - **Azure Databricks** – uma reserva abrange apenas o uso de DBU. Outros encargos, como computação, armazenamento e rede, são aplicados separadamente.
 - **Imposto de selo do Serviço de Aplicativo** – uma reserva cobre o uso do imposto de selo. Ela não se aplica a funções de trabalho, de forma que todos os outros recursos associados ao selo são cobrados separadamente.

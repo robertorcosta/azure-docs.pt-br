@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9998c4a9c37d30a35acaad8972b9345c5e251e42
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bd0c2e720736feb9faf129237ba960dedda08c6f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500981"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure
 
@@ -44,7 +44,7 @@ Este artigo se concentra em como migrar de uma única instalação do ASCS/SCS p
 Para saber mais sobre limites do balanceador de carga, confira a seção "IP de front-end privado por balanceador de carga" em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 > [!IMPORTANT]
-> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.  
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 

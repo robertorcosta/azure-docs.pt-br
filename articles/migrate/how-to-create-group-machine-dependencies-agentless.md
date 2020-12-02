@@ -3,12 +3,12 @@ title: Configurar a análise de dependência sem agente na avaliação do servid
 description: Configure a análise de dependência sem agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 722ad4cc27132815c1416331aaf0691754ccee05
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337686"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500777"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências do computador (sem agente)
 
@@ -31,7 +31,7 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
 
 - [Examine](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operacionais com suporte e as permissões necessárias.
 - Verifique se você:
-    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](how-to-add-tool-first-time.md) um agora.
+    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](./create-manage-projects.md) um agora.
     - Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment ao projeto.
     - Configure um [dispositivo de migrações para Azure](migrate-appliance.md) para descobrir computadores locais. [Configure um dispositivo](how-to-set-up-appliance-vmware.md) para VMs VMware. O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor.
 - Verifique se as ferramentas do VMware (posterior à 10,2) estão instaladas em cada VM que você deseja analisar.
@@ -48,9 +48,9 @@ Adicione a conta de usuário ao dispositivo.
 
 1. Abra o aplicativo de gerenciamento de dispositivo. 
 2. Navegue até o painel **fornecer detalhes do vCenter** .
-3. Em **descobrir aplicativo e dependências em VMs** , clique em **Adicionar credenciais**
-3. Escolha o **sistema operacional** , forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
-6. Clique em **Salvar**.
+3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
+3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
+6. Clique em **Save** (Salvar).
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -59,7 +59,7 @@ Adicione a conta de usuário ao dispositivo.
 
 Escolha os computadores nos quais você deseja habilitar a descoberta de dependência. 
 
-1. Em **migrações para Azure: avaliação de servidor** , clique em **servidores descobertos**.
+1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
 3. Clique em **adicionar servidores**.
 4. Na página **adicionar servidores** , escolha o dispositivo que está descobrindo os computadores relevantes.
@@ -72,7 +72,7 @@ Você pode visualizar dependências em cerca de seis horas após iniciar a desco
 
 ## <a name="visualize-dependencies"></a>Visualizar dependências
 
-1. Em **migrações para Azure: avaliação de servidor** , clique em **servidores descobertos**.
+1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Pesquise o computador que você deseja exibir.
 3. Na coluna **dependências** , clique em **Exibir dependências**
 4. Altere o período de tempo para o qual você deseja exibir o mapa usando a lista suspensa **duração de tempo** .
@@ -93,7 +93,7 @@ Você pode visualizar dependências em cerca de seis horas após iniciar a desco
 
 ## <a name="export-dependency-data"></a>Exportar dados de dependência
 
-1. Em **migrações para Azure: avaliação de servidor** , clique em **servidores descobertos**.
+1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
 3. Clique em **Exportar dependências do aplicativo**.
 4. Na página **Exportar dependências de aplicativo** , escolha o dispositivo que está descobrindo os computadores relevantes.
@@ -127,7 +127,7 @@ Porta de destino | Número da porta no computador de destino
 
 Escolha os computadores nos quais você deseja parar a descoberta de dependência. 
 
-1. Em **migrações para Azure: avaliação de servidor** , clique em **servidores descobertos**.
+1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
 3. Clique em **remover servidores**.
 3. Na página **remover servidores** , escolha o **dispositivo** que está descobrindo as VMs nas quais você procura parar a descoberta de dependência.

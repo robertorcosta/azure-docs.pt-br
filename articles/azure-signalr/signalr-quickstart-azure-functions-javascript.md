@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: 02bcbf0b4f6f6021c157a8ba3c5d2783fc94f1aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 061dce01d2437d04d371ac65c115a1d95136fb5d
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425313"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874688"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Início Rápido: Usar o JavaScript para criar uma sala de chat com o Azure Functions e o Serviço do SignalR
 
@@ -32,21 +32,21 @@ O Serviço do Azure SignalR permite que você adicione funcionalidades em tempo 
 > [!NOTE]
 > Este início rápido pode ser executado no macOS, Windows ou Linux.
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar o aplicativo do Azure Functions
 
@@ -64,7 +64,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
 1. Renomeie *local.settings.sample.json* como *local.settings.json*.
 
-1. Em **local.settings.json** , cole a cadeia de conexão no valor da configuração **AzureSignalRConnectionString**. Salve o arquivo.
+1. Em **local.settings.json**, cole a cadeia de conexão no valor da configuração **AzureSignalRConnectionString**. Salve o arquivo.
 
 1. As funções JavaScript são organizadas em pastas. Há dois arquivos em cada pasta: *function.json* define as associações que são usadas na função, e *index.js* é o corpo da função. Há duas funções de gatilho HTTP nesse aplicativo de funções:
 
@@ -78,16 +78,16 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
     ```
 
     ![Criar Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
-
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+    
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)
+Está com problemas? Experimente o [guia de solução de problemas](signalr-howto-troubleshoot-guide.md) ou [fale conosco](https://aka.ms/asrs/qsjs).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -96,4 +96,3 @@ Neste início rápido, você criou e executou um aplicativo sem servidor em temp
 > [!div class="nextstepaction"]
 > [Implantar o Azure Functions com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
 
-[Está com problemas? Fale conosco.](https://aka.ms/asrs/qsjs)

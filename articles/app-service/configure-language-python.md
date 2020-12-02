@@ -2,19 +2,19 @@
 title: Configurar aplicativos Python do Linux
 description: Saiba como configurar um contêiner do Python no qual aplicativos Web são executados, usando o portal do Azure e a CLI do Azure.
 ms.topic: quickstart
-ms.date: 11/06/2020
+ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425908"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873838"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar um aplicativo Python do Linux para o Serviço de Aplicativo do Azure
 
-Este artigo descreve como o [Serviço de Aplicativo do Azure](overview.md) executa aplicativos Python e como você pode personalizar o comportamento do Serviço de Aplicativo quando necessário. Os aplicativos Python precisam ser implantados com todos os módulos [pip](https://pypi.org/project/pip/) necessários.
+Este artigo descreve como o [Serviço de Aplicativo do Azure](overview.md) executa aplicativos Python, como você pode migrar aplicativos existentes para o Azure e como pode personalizar o comportamento do Serviço de Aplicativo quando necessário. Os aplicativos Python precisam ser implantados com todos os módulos [pip](https://pypi.org/project/pip/) necessários.
 
 O mecanismo de implantação do Serviço de Aplicativo ativará de maneira automática um ambiente virtual e executará `pip install -r requirements.txt` quando você implantar um [repositório Git](deploy-local-git.md) ou um [pacote zip](deploy-zip.md).
 
@@ -94,7 +94,31 @@ Para obter mais informações sobre como o Serviço de Aplicativo executa e cria
 > [!NOTE]
 > Sempre use caminhos relativos em todos os scripts de pré e pós-compilação porque o contêiner de compilação no qual o Oryx é executado será diferente do contêiner de runtime no qual o aplicativo será executado. Nunca confie no posicionamento exato da pasta do projeto do aplicativo dentro do contêiner (por exemplo, que a pasta foi colocada em *site/wwwroot*).
 
-## <a name="production-settings-for-django-apps"></a>Configurações de produção para aplicativos Django
+## <a name="migrate-existing-applications-to-azure"></a>Migrar aplicativos existentes para o Azure
+
+Os aplicativos Web existentes podem ser reimplantados para o Azure da seguinte maneira:
+
+1. **Repositório de origem**: mantenha seu código-fonte em um repositório adequado, como o GitHub, que permite configurar a implantação contínua posteriormente neste processo.
+    1. O arquivo *requirements.txt* precisa estar na raiz do seu repositório para que o Serviço de Aplicativo instale automaticamente os pacotes necessários.    
+
+1. **Banco de dados**: se seu aplicativo depende de um banco de dados, provisione os recursos necessários no Azure também. Confira o [Tutorial: Implantar um aplicativo Web Django com PostgreSQL – criar um banco de dados](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) para obter um exemplo.
+
+1. **Recursos do serviço de aplicativo**: crie um grupo de recursos, o Plano do Serviço de Aplicativo e o aplicativo Web do Serviço de Aplicativo para hospedar seu aplicativo. Você pode fazer isso com mais facilidade realizando uma implantação inicial do seu código por meio do comando `az webapp up` da CLI do Azure, conforme mostrado no [Tutorial: Implantar um aplicativo Web Django com PostgreSQL – implantar o código](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Substitua os nomes do grupo de recursos, do Plano do Serviço de Aplicativo e do aplicativo Web para que eles sejam mais adequados para seu aplicativo.
+
+1. **Variáveis de ambiente**: se seu aplicativo exigir variáveis de ambiente, crie [configurações do aplicativo do Serviço de Aplicativo](configure-common.md#configure-app-settings) equivalentes. Essas configurações do Serviço de Aplicativo aparecem para seu código como variáveis de ambiente, conforme descrito em [Acessar variáveis de ambiente](#access-app-settings-as-environment-variables).
+    - As conexões de banco de dados, por exemplo, são geralmente gerenciadas por meio dessas configurações, conforme mostrado no [Tutorial: Implantar um aplicativo Web Django com PostgreSQL – configurar variáveis para conectar o banco de dados](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Confira [Configurações de produção para aplicativos Django](#production-settings-for-django-apps) para obter configurações específicas para aplicativos Django típicos.
+
+1. **Inicialização do aplicativo**: examine a seção [Processo de inicialização do contêiner](#container-startup-process) mais adiante neste artigo para entender como o Serviço de Aplicativo tenta executar seu aplicativo. O Serviço de Aplicativo usa o servidor Web Gunicorn por padrão, que precisa ter a capacidade de localizar seu objeto de aplicativo ou a *pasta wsgi.py*. Se necessário, você pode [Personalizar o comando de inicialização](#customize-startup-command).
+
+1. **Implantação contínua**: configure a implantação contínua, conforme descrito em [Implantação contínua para o Serviço de Aplicativo do Azure](deploy-continuous-deployment.md) se estiver usando a implantação do Azure Pipelines ou do Kudu, ou [Fazer a implantação no Serviço de Aplicativo usando o GitHub Actions](deploy-github-actions.md) se estiver usando ações do GitHub.
+
+1. **Ações personalizadas**: para executar ações no contêiner do Serviço de Aplicativo que hospeda seu aplicativo, como migrações do banco de dados Django, você pode [conectar-se ao contêiner por meio de SSH](configure-linux-open-ssh-session.md). Para obter um exemplo de como executar migrações do banco de dados Django, confira [Tutorial: Implantar um aplicativo Web Django com PostgreSQL – executar migração de banco de dados](tutorial-python-postgresql-app.md#run-django-database-migrations).
+    - Ao usar a implantação contínua, você pode executar essas ações usando comandos pós-build conforme descrito anteriormente em [Personalizar a automação de build](#customize-build-automation).
+
+Com essas etapas concluídas, você deve poder confirmar as alterações no repositório de origem e fazer com que essas atualizações sejam implantadas automaticamente no Serviço de Aplicativo.
+
+### <a name="production-settings-for-django-apps"></a>Configurações de produção para aplicativos Django
 
 Para um ambiente de produção como o Serviço de Aplicativo do Azure, os aplicativos Django deverão seguir a [Lista de verificação de implantação](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) do Django (djangoproject.com).
 

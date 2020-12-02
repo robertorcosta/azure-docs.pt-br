@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 5c028fc1abd77bda1a41857a7a7c77da1ad1b2d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb864837e9063aa39827abf61f7efece4c909118
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026946"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509324"
 ---
 As imagens de VM (máquina virtual) padronizadas permitem que as organizações migrem para a nuvem e garantam consistência nas implantações. As imagens normalmente incluem definições de segurança e de configuração, bem como o software necessário. Configurar seu próprio pipeline de geração de imagens requer tempo, infraestrutura e configuração, mas com o Construtor de Imagens de VM do Azure, basta fornecer uma configuração simples que descreva sua imagem e enviá-la ao serviço para que a imagem seja criada e distribuída.
  
@@ -84,7 +84,7 @@ Depois que você tiver a identidade, precisará conceder permissões a ela. Para
 As permissões são explicadas em mais detalhes [aqui](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements) e os exemplos mostram como isso é implementado.
 
 > [!Note]
-> Anteriormente, com o AIB, você usaria o SPN do AIB e concederia as permissões de SPN aos grupos de recursos de imagem. Estamos nos distanciando desse modelo para possibilitar futuras funcionalidades. Desde 26 de maio de 2020, o Construtor de Imagens não aceita modelos que não têm uma identidade atribuída pelo usuário. Os modelos existentes precisarão ser reenviados para o serviço com uma [identidade de usuário](../articles/virtual-machines/linux/image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#identity). Os exemplos aqui já mostram como você pode criar uma identidade atribuída pelo usuário e adicioná-las a um modelo. Para obter mais informações, examine esta [documentação](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) sobre essa alteração e atualizações sobre lançamentos.
+> Anteriormente, com o AIB, você usaria o SPN do AIB e concederia as permissões de SPN aos grupos de recursos de imagem. Estamos nos distanciando desse modelo para possibilitar futuras funcionalidades. Desde 26 de maio de 2020, o Construtor de Imagens não aceita modelos que não têm uma identidade atribuída pelo usuário. Os modelos existentes precisarão ser reenviados para o serviço com uma [identidade de usuário](../articles/virtual-machines/linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#identity). Os exemplos aqui já mostram como você pode criar uma identidade atribuída pelo usuário e adicioná-las a um modelo. Para obter mais informações, examine esta [documentação](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) sobre essa alteração e atualizações sobre lançamentos.
 
 ## <a name="costs"></a>Custos
 Você incorrerá em alguns custos de computação, rede e armazenamento ao criar, compilar e armazenar imagens com o Construtor de Imagens do Azure. Esses custos são semelhantes aos custos incorridos na criação manual de imagens personalizadas. Para os recursos, você será cobrado segundo as suas tarifas do Azure. 

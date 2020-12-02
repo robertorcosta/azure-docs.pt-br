@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/16/2020
+ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115170"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887188"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Solução de problemas de ausência de assinaturas qualificadas
 
@@ -27,9 +27,9 @@ Este artigo ajuda você a solucionar o problema da mensagem de erro *Nenhuma ass
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
-1. Na área **Selecione o produto que deseja comprar** , expanda a lista **Assinatura para cobrança** para ver o motivo pelo qual uma assinatura específica não está qualificada para comprar uma instância reservada. A imagem a seguir mostra exemplos de motivos pelos quais uma reserva não pode ser comprada.  
+1. Na área **Selecione o produto que deseja comprar**, expanda a lista **Assinatura para cobrança** para ver o motivo pelo qual uma assinatura específica não está qualificada para comprar uma instância reservada. A imagem a seguir mostra exemplos de motivos pelos quais uma reserva não pode ser comprada.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Exemplo mostrando os motivos pelos quais uma reserva não pode ser comprada" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
 
 ## <a name="cause"></a>Causa
@@ -37,7 +37,7 @@ Este artigo ajuda você a solucionar o problema da mensagem de erro *Nenhuma ass
 Para comprar uma instância reservada do Azure, você precisa ter, pelo menos, uma assinatura que atenda aos seguintes requisitos:
 
 - A assinatura precisa ser de um tipo de oferta compatível. Os tipos de ofertas compatíveis são: Pagamento conforme o uso, CSP (Provedor de Soluções de Nuvem), Microsoft Azure Enterprise ou Contrato de Cliente da Microsoft.
-- Você precisa ser proprietário da assinatura.
+- Você precisa ser um proprietário ou comprador de reserva na assinatura.
 
 Quando você não tiver uma assinatura que atenda aos requisitos, receberá o erro `No eligible subscriptions`.
 
@@ -55,15 +55,13 @@ This subscription is not eligible for reservation benefit an cannot be used to p
 
 ### <a name="cause-2"></a>Causa 2
 
-Você precisa ser proprietário da assinatura. Você não é proprietário da assinatura. Quando você seleciona uma assinatura da qual não é proprietário, o erro a seguir é exibido.
+Você precisa ser um proprietário ou comprador de reserva na assinatura. Quando você não tem permissões suficientes, você vê o erro a seguir.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Exemplo mostrando a mensagem de erro &quot;Você não tem acesso de proprietário na assinatura&quot;" :::
 
 ## <a name="solution"></a>Solução
 

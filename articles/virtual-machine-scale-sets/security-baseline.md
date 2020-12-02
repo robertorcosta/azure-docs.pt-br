@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5c00d08fcaeed8eba5b9732c9196b9abddc32b36
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843257"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500709"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança do Azure para conjuntos de dimensionamento de máquinas virtuais
 
@@ -76,7 +76,7 @@ Você também pode implantar o WAF (firewall do aplicativo Web) do Azure na fren
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para limitar a exposição de Máquinas Virtuais do Windows aos endereços IP aprovados por um período limitado. Além disso, use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -284,7 +284,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -318,7 +318,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Instruções para integração de servidores Linux à central de segurança do Azure](../security-center/quickstart-onboard-machines.md)
 
-* [O link a seguir fornece as diretrizes de segurança recomendadas da Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](../virtual-machines/linux/security-recommendations.md)
+* [O link a seguir fornece as diretrizes de segurança recomendadas da Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](../virtual-machines/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -472,7 +472,7 @@ Para máquinas virtuais do Linux, você pode configurar manualmente o log do con
 
 **Orientação**: definir configurações de diagnóstico para Azure Active Directory enviar os logs de auditoria e os logs de entrada para um espaço de trabalho log Analytics. Além disso, use Azure Monitor para examinar os logs e executar consultas em dados de log de máquinas virtuais do Azure.
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -756,7 +756,7 @@ Atualmente, os controles de aplicativo adaptáveis não estão disponíveis para
 
 * [Uma introdução à Automação do Azure](../automation/automation-intro.md)
 
-* [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking.md)
+* [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking/overview.md)
 
 * [Visão geral da configuração do estado de automação do Azure](../automation/automation-dsc-overview.md)
 
@@ -1036,7 +1036,7 @@ Você precisará de uma ferramenta de terceiros para proteção contra malware n
 
 * [Proteção Avançada contra Ameaças do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../virtual-machines/linux/security-recommendations.md)
+* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../virtual-machines/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1190,7 +1190,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 * [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

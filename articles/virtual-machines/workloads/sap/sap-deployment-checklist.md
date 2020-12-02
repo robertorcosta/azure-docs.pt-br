@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950356"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500930"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -243,8 +243,8 @@ Nesta fase, colete o que você experimentou e aprendeu durante suas implantaçõ
     - O armazenamento Premium do Azure é usado para discos sensíveis à latência ou onde o [SLA de uma única VM de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) é necessário.
     - O Acelerador de Gravação do Azure está implantado corretamente.
         - Certifique-se de que, dentro das VMs, espaços de armazenamento ou conjuntos de distribuição foram criados corretamente em discos que precisam de Acelerador de Gravação.
-        - Verifique a [configuração do RAID de software no Linux](../../linux/configure-raid.md).
-        - Verifique a [configuração do LVM em VMs do Linux no Azure](../../linux/configure-lvm.md).
+        - Verifique a [configuração do RAID de software no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Verifique a [configuração do LVM em VMs do Linux no Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - Os [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) são usados exclusivamente.
     - As VMs foram implantadas nos conjuntos de disponibilidade e Zonas de Disponibilidade corretos.
     - A [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) é habilitada nas VMs usadas na camada de aplicativo SAP e na camada do DBMS SAP.

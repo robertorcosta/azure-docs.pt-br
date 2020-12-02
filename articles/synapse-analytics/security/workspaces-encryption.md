@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455177"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501049"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Criptografia para espaços de trabalho do Azure Synapse Analytics
 
@@ -47,13 +47,13 @@ Os dados nos seguintes componentes do Synapse são criptografados com a chave ge
 Os espaços de trabalho podem ser configurados para habilitar a criptografia dupla com uma chave gerenciada pelo cliente no momento da criação do espaço de trabalho. Selecione a opção "habilitar criptografia dupla usando uma chave gerenciada pelo cliente" na guia "segurança" ao criar seu novo espaço de trabalho. Você pode optar por inserir um URI de identificador de chave ou selecionar em uma lista de cofres de chaves na **mesma região** que o espaço de trabalho. A Key Vault em si precisa ter a **proteção de limpeza habilitada**.
 
 > [!IMPORTANT]
-> No momento, a definição de configuração para criptografia dupla não pode ser alterada depois que o espaço de trabalho é criado.
+> A definição de configuração para a criptografia dupla não pode ser alterada depois que o espaço de trabalho é criado.
 
 :::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Este diagrama mostra a opção que deve ser selecionada para habilitar um espaço de trabalho para criptografia dupla com uma chave gerenciada pelo cliente.":::
 
 ### <a name="key-access-and-workspace-activation"></a>Acesso à chave e ativação do espaço de trabalho
 
-O modelo de criptografia Synapse do Azure com chaves gerenciadas pelo cliente envolve o espaço de trabalho acessando as chaves em Azure Key Vault para criptografar e descriptografar conforme necessário. As chaves tornam-se acessíveis para o espaço de trabalho por meio de uma política de acesso ou acesso Azure Key Vault RBAC (versão[prévia](../../key-vault/general/rbac-guide.md)). Ao conceder permissões por meio de uma política de acesso Azure Key Vault, escolha a opção "somente aplicativo" durante a criação da política.
+O modelo de criptografia Synapse do Azure com chaves gerenciadas pelo cliente envolve o espaço de trabalho acessando as chaves em Azure Key Vault para criptografar e descriptografar conforme necessário. As chaves tornam-se acessíveis para o espaço de trabalho por meio de uma política de acesso ou acesso Azure Key Vault RBAC (versão[prévia](../../key-vault/general/rbac-guide.md)). Ao conceder permissões por meio de uma política de acesso de Azure Key Vault, escolha a opção ["somente aplicativo"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante a criação da política (selecione a identidade gerenciada do espaço de trabalho e não a adicione como um aplicativo autorizado).
 
  A identidade gerenciada do espaço de trabalho deve receber as permissões necessárias no cofre de chaves antes que o espaço de trabalho possa ser ativado. Essa abordagem em fases para a ativação do espaço de trabalho garante que os dados no espaço de trabalho sejam criptografados com a chave gerenciada pelo cliente. Observe que a criptografia pode ser habilitada ou desabilitada para pools dedicados do SQL – cada pool não está habilitado para criptografia por padrão.
 
@@ -76,6 +76,9 @@ Depois que o espaço de trabalho (com a criptografia dupla habilitada) for criad
 Você pode alterar a chave gerenciada pelo cliente usada para criptografar dados da página **criptografia** no portal do Azure. Aqui também, você pode escolher uma nova chave usando um identificador de chave ou selecionar os cofres de chaves aos quais você tem acesso na mesma região que o espaço de trabalho. Se você escolher uma chave em um cofre de chaves diferente daqueles usados anteriormente, conceda as permissões "Get", "encapsular" e "desencapsular" do espaço de trabalho no novo cofre de chaves. O espaço de trabalho validará seu acesso ao novo cofre de chaves e todos os dados no espaço de trabalho serão criptografados novamente com a nova chave.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Este diagrama mostra a seção criptografia de espaço de trabalho no portal do Azure.":::
+
+>[!IMPORTANT]
+>Ao alterar a chave de criptografia de um espaço de trabalho, mantenha a chave até substituí-la no espaço de trabalho por uma nova chave. Isso é para permitir a descriptografia de dados com a chave antiga antes que ela seja criptografada novamente com a nova chave.
 
 As políticas do Azure Key Vaults para rotação de chaves automática, periódica ou ações nas chaves podem resultar na criação de novas versões de chave. Você pode optar por criptografar novamente todos os dados no espaço de trabalho com a versão mais recente da chave ativa. Para criptografar novamente, altere a chave no portal do Azure para uma chave temporária e, em seguida, volte para a chave que você deseja usar para criptografia. Por exemplo, para atualizar a criptografia de dados usando a versão mais recente da chave de discagem ativa, altere a chave gerenciada pelo cliente do espaço de trabalho para a chave temporária, Key2. Aguarde a conclusão da criptografia com Key2. Em seguida, alterne a chave gerenciada pelo cliente do espaço de trabalho de volta para key1-os dados no espaço de trabalho serão criptografados novamente com a versão mais recente da key1.
 

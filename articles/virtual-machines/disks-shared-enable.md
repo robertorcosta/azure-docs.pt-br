@@ -8,12 +8,12 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683584"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500726"
 ---
 # <a name="enable-shared-disk"></a>Habilitar disco compartilhado
 
@@ -27,7 +27,7 @@ Se você estiver procurando informações conceituais sobre discos gerenciados q
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte as seções do [Windows](windows/disks-shared.md#windows) e do [Linux](linux/disks-shared.md#linux) do artigo conceitual para os sistemas operacionais com suporte.
+Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte as seções do [Windows](./disks-shared.md#windows) e do [Linux](./disks-shared.md#linux) do artigo conceitual para os sistemas operacionais com suporte.
 
 ## <a name="disk-sizes"></a>Tamanhos do disco
 

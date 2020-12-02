@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 1dcefefe02d91506c494cdf91e75ca951ccf43bb
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365458"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500743"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
@@ -41,10 +41,10 @@ Ao criar uma VM no portal do Azure, a configuração padrão é ter o diagnósti
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Captura de tela habilitando o diagnóstico de inicialização gerenciado durante a criação da VM.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Habilitar o diagnóstico de inicialização gerenciado usando a CLI
-O diagnóstico de inicialização com uma conta de armazenamento gerenciada tem suporte no CLI do Azure 2.12.0 e posterior. Se você não inserir um nome ou URI para uma conta de armazenamento, uma conta gerenciada será usada. Para obter mais informações e exemplos de código, consulte a [documentação da CLI para o diagnóstico de inicialização](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest&preserve-view=true).
+O diagnóstico de inicialização com uma conta de armazenamento gerenciada tem suporte no CLI do Azure 2.12.0 e posterior. Se você não inserir um nome ou URI para uma conta de armazenamento, uma conta gerenciada será usada. Para obter mais informações e exemplos de código, consulte a [documentação da CLI para o diagnóstico de inicialização](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Habilitar o diagnóstico de inicialização gerenciado usando modelos de Azure Resource Manager (ARM)
-Tudo depois da versão da API 2020-06-01 dá suporte ao diagnóstico de inicialização gerenciado. Para obter mais informações, consulte [exibição da instância de diagnóstico de inicialização](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
+Tudo depois da versão da API 2020-06-01 dá suporte ao diagnóstico de inicialização gerenciado. Para obter mais informações, consulte [exibição da instância de diagnóstico de inicialização](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
 
 ```ARM Template
             "name": "[parameters('virtualMachineName')]",
