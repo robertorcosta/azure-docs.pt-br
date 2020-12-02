@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172793"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485494"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
 As políticas de posicionamento são regras adicionais que podem ser usadas para administrar o posicionamento de serviço em alguns cenários específicos, menos comuns. Alguns exemplos desses cenários são:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Atualmente, a política só tem suporte para serviços sem estado com o [modo de ativação do pacote de serviço](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess.
+> Atualmente, a política só tem suporte para serviços sem estado com o [modo de ativação do pacote de serviço](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Usar um valor alto de [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) com essa política de posicionamento pode levar a atualizações de aplicativo paralisadas. Por exemplo, se você tiver um cluster de cinco nós e definir InstanceCount = 10, terá duas instâncias em cada nó. Se você definir MinInstanceCount = 9, uma tentativa de atualização do aplicativo poderá ficar presa; com MinInstanceCount = 8, isso pode ser evitado.
+> Usar um valor alto de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) com essa política de posicionamento pode levar a atualizações de aplicativo paralisadas. Por exemplo, se você tiver um cluster de cinco nós e definir InstanceCount = 10, terá duas instâncias em cada nó. Se você definir MinInstanceCount = 9, uma tentativa de atualização do aplicativo poderá ficar presa; com MinInstanceCount = 8, isso pode ser evitado.
 >
 
 ## <a name="next-steps"></a>Próximas etapas
