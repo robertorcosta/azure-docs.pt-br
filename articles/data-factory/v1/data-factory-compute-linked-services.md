@@ -3,20 +3,20 @@ title: Ambientes de computação com suporte do Azure Data Factory versão 1
 description: Saiba mais sobre os ambientes de computação que você pode usar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para transformar ou processar dados.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 27210dad3e32d4a308310ff114499ca468c4deac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f970b66bd30ef2faf705d2fb41825bb81bbb8c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452267"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496085"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes de computação com suporte do Azure Data Factory versão 1
 > [!NOTE]
@@ -122,13 +122,13 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 | Propriedade                     | Descrição                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Defina a propriedade de tipo como **HDInsightOnDemand**. | Sim      |
-| clusterSize                  | O número de nós de trabalho e de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeçalho, além do número de nós de trabalho que você especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um cluster de nó de 4-worker leva 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, mais 2\*4 = 8 núcleos para nós de cabeçalho). Para obter detalhes sobre a camada de Standard_D3, consulte [Criar clusters do Hadoop com base em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Yes      |
-| timeToLive                   | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda fica ativo quando uma execução de atividade é concluída, se não houver nenhum outro trabalho ativo no cluster.<br /><br />Por exemplo, se uma execução de atividade demorar 6 minutos e **TimeToLive** for definido como 5 minutos, o cluster permanecerá ativo por 5 minutos após os 6 minutos de processamento da execução da atividade. Se outra execução da atividade é executada na janela de 6 minutos, ela é processada pelo mesmo cluster.<br /><br />Criar um cluster do HDInsight sob demanda é uma operação cara (pode levar algum tempo). Use essa configuração conforme necessário para melhorar o desempenho de uma fábrica de dados com a reutilização de um cluster do HDInsight sob demanda.<br /><br />Se você definir o valor **timeToLive** como **0**, o cluster é excluído assim que terminar de executar a atividade. No entanto, se você definir um valor alto, o cluster pode permanecer ocioso, resultando desnecessariamente em altos custos. É importante definir o valor apropriado com base em suas necessidades.<br /><br />Se o valor **timeToLive** estiver definido corretamente, vários pipelines podem compartilhar a instância do cluster HDInsight sob demanda. | Yes      |
+| clusterSize                  | O número de nós de trabalho e de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeçalho, além do número de nós de trabalho que você especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um cluster de nó de 4-worker leva 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, mais 2\*4 = 8 núcleos para nós de cabeçalho). Para obter detalhes sobre a camada de Standard_D3, consulte [Criar clusters do Hadoop com base em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
+| timeToLive                   | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda fica ativo quando uma execução de atividade é concluída, se não houver nenhum outro trabalho ativo no cluster.<br /><br />Por exemplo, se uma execução de atividade demorar 6 minutos e **TimeToLive** for definido como 5 minutos, o cluster permanecerá ativo por 5 minutos após os 6 minutos de processamento da execução da atividade. Se outra execução da atividade é executada na janela de 6 minutos, ela é processada pelo mesmo cluster.<br /><br />Criar um cluster do HDInsight sob demanda é uma operação cara (pode levar algum tempo). Use essa configuração conforme necessário para melhorar o desempenho de uma fábrica de dados com a reutilização de um cluster do HDInsight sob demanda.<br /><br />Se você definir o valor **timeToLive** como **0**, o cluster é excluído assim que terminar de executar a atividade. No entanto, se você definir um valor alto, o cluster pode permanecer ocioso, resultando desnecessariamente em altos custos. É importante definir o valor apropriado com base em suas necessidades.<br /><br />Se o valor **timeToLive** estiver definido corretamente, vários pipelines podem compartilhar a instância do cluster HDInsight sob demanda. | Sim      |
 | Versão                      | A versão do cluster do HDInsight. Para versões de HDInsight permitidas, consulte [Versões do HDInsight com suporte](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). Se esse valor não é especificado, é usada a [versão mais recente de padrão HDI](../../hdinsight/hdinsight-component-versioning.md). | Não       |
-| linkedServiceName            | O serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. O cluster HDInsight é criado na mesma região que a conta de armazenamento.<p>Atualmente, não é possível criar um cluster HDInsight sob demanda que use um Azure Data Lake Store como o armazenamento. Se você deseja armazenar os dados de resultado do processo do HDInsight no Data Lake Store, use a Atividade de Cópia para copiar os dados do armazenamento de Blob para o Data Lake Store. </p> | Yes      |
+| linkedServiceName            | O serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. O cluster HDInsight é criado na mesma região que a conta de armazenamento.<p>Atualmente, não é possível criar um cluster HDInsight sob demanda que use um Azure Data Lake Store como o armazenamento. Se você deseja armazenar os dados de resultado do processo do HDInsight no Data Lake Store, use a Atividade de Cópia para copiar os dados do armazenamento de Blob para o Data Lake Store. </p> | Sim      |
 | additionalLinkedServiceNames | Especifica as contas de armazenamento adicional para o serviço vinculado do HDInsight. O Data Factory registra as contas de armazenamento em seu nome. Essas contas de armazenamento devem estar na mesma região que o cluster HDInsight. O cluster HDInsight é criado na mesma região que a conta de armazenamento que é especificada pela propriedade **linkedServiceName**. | Não       |
 | osType                       | O tipo de sistema operacional. Os valores permitidos são **Linux** e **Windows**. Se esse valor não for especificado, é usado **Linux**.  <br /><br />É altamente recomendável usar clusters HDInsight com base em Linux. A data de baixa do HDInsight no Windows é 31 de julho de 2018. | Não       |
-| hcatalogLinkedServiceName    | O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda é criado usando o banco de dados SQL como o metastore. | No       |
+| hcatalogLinkedServiceName    | O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda é criado usando o banco de dados SQL como o metastore. | Não       |
 
 #### <a name="example-linkedservicenames-json"></a>Exemplo: LinkedServiceNames JSON
 
@@ -151,7 +151,7 @@ Para a configuração granular do cluster HDInsight sob demanda, você pode espe
 | mapReduceConfiguration | Especifica os parâmetros de configuração do MapReduce (mapred-site.xml) para o cluster HDInsight. | Não       |
 | oozieConfiguration     | Especifica os parâmetros de configuração do Oozie (oozie-site.xml) para o cluster HDInsight. | Não       |
 | stormConfiguration     | Especifica os parâmetros de configuração do Storm (storm-site.xml) para o cluster HDInsight. | Não       |
-| yarnConfiguration      | Especifica os parâmetros de configuração do YARN (yarn-site.xml) para o cluster HDInsight. | No       |
+| yarnConfiguration      | Especifica os parâmetros de configuração do YARN (yarn-site.xml) para o cluster HDInsight. | Não       |
 
 #### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exemplo: Configuração de cluster HDInsight sob demanda com propriedades avançadas
 
@@ -199,7 +199,7 @@ Para especificar o tamanho do cabeçalho, dados e nós ZooKeeper, use as seguint
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Define o tamanho do nó de cabeçalho. O valor padrão é **Standard_D3**. Para obter detalhes, consulte [Especificar tamanho de nó](#specify-node-sizes). | Não       |
 | dataNodeSize      | Define o tamanho do nó de dados. O valor padrão é **Standard_D3**. | Não       |
-| zookeeperNodeSize | Define o tamanho do nó ZooKeeper. O valor padrão é **Standard_D3**. | No       |
+| zookeeperNodeSize | Define o tamanho do nó ZooKeeper. O valor padrão é **Standard_D3**. | Não       |
 
 #### <a name="specify-node-sizes"></a>Especificar tamanho de nó
 Para obter valores de cadeia de caracteres que você deve especificar para as propriedades descritas na seção anterior, consulte [Tamanhos de máquina virtual](../../virtual-machines/sizes.md). Os valores devem estar de acordo com os cmdlets e APIs referenciados em [Tamanhos de máquina virtual](../../virtual-machines/sizes.md). O tamanho do nó de dados Grande (padrão) tem 7 GB de memória. Isso pode não ser suficiente para seu cenário. 
@@ -261,7 +261,7 @@ Você pode criar um serviço vinculado HDInsight para registrar seu próprio clu
 | clusterUri        | A URI do cluster HDInsight.        | Sim      |
 | Nome de Usuário          | O nome da conta de usuário a ser usado para se conectar a um cluster HDInsight existente. | Sim      |
 | password          | A senha para a conta de usuário.   | Sim      |
-| linkedServiceName | O nome do serviço vinculado de armazenamento que refere-se ao armazenamento de Blob usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Se o cluster HDInsight tem acesso ao Data Lake Store, você pode acessar dados no Data Lake Store de scripts de Hive ou Pig. </p> | Yes      |
+| linkedServiceName | O nome do serviço vinculado de armazenamento que refere-se ao armazenamento de Blob usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Se o cluster HDInsight tem acesso ao Data Lake Store, você pode acessar dados no Data Lake Store de scripts de Hive ou Pig. </p> | Sim      |
 
 ## <a name="azure-batch-linked-service"></a>Serviço vinculado do Lote do Azure
 Você pode criar um serviço vinculado do Lote para registrar um pool de Lote de máquinas virtuais (VMs) para uma fábrica de dados. Você pode executar atividades personalizadas do .NET usando o Lote ou o HDInsight.
@@ -309,7 +309,7 @@ Outra opção é fornecer a ponta de extremidade **batchUri**. Por exemplo:
 | accountName       | O nome da conta do Lote.         | Sim      |
 | accessKey         | A chave de acesso para a conta do Lote.  | Sim      |
 | poolName          | O nome do pool de máquinas virtuais.    | Sim      |
-| linkedServiceName | O nome do serviço vinculado de armazenamento associado a este Lote de serviço vinculado. Esse serviço vinculado é usado para arquivos de preparo que são necessários para executar a atividade e para armazenar logs de execução da atividade. | Yes      |
+| linkedServiceName | O nome do serviço vinculado de armazenamento associado a este Lote de serviço vinculado. Esse serviço vinculado é usado para arquivos de preparo que são necessários para executar a atividade e para armazenar logs de execução da atividade. | Sim      |
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio (clássico)
 Você pode criar um serviço vinculado de Azure Machine Learning Studio (clássico) para registrar um ponto de extremidade de Pontuação de lote (clássico) de estúdio em um data factory.
@@ -346,8 +346,8 @@ A tabela a seguir descreve as propriedades genéricas que são usadas na defini�
 | type                 | Defina a propriedade de tipo como **AzureDataLakeAnalytics**. | Sim                                      |
 | accountName          | O nome de conta do Data Lake Analytics.  | Sim                                      |
 | dataLakeAnalyticsUri | O URI do Data Lake Analytics.           | Não                                       |
-| subscriptionId       | A ID de assinatura do Azure.                    | No<br /><br />(Se não for especificada, é usada a assinatura da fábrica de dados.) |
-| resourceGroupName    | O nome do grupo de recursos do Azure.                | No<br /><br /> (Se não for especificado, é usado o grupo de recursos da fábrica de dados.) |
+| subscriptionId       | A ID de assinatura do Azure.                    | Não<br /><br />(Se não for especificada, é usada a assinatura da fábrica de dados.) |
+| resourceGroupName    | O nome do grupo de recursos do Azure.                | Não<br /><br /> (Se não for especificado, é usado o grupo de recursos da fábrica de dados.) |
 
 ### <a name="authentication-options"></a>Opções de autenticação
 Para o seu serviço vinculado do Data Lake Analytics, você pode escolher entre autenticação usando uma entidade de serviço ou uma credencial do usuário.
@@ -390,8 +390,8 @@ Para autenticação de credenciais de usuário para o Data Lake Analytics, espec
 
 | Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
-| autorização | No Editor do Data Factory, selecione o botão **Autorizar**. Insira as credenciais que atribuem a URL de autorização gerada automaticamente para essa propriedade. | Yes      |
-| sessionID     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Yes      |
+| autorização | No Editor do Data Factory, selecione o botão **Autorizar**. Insira as credenciais que atribuem a URL de autorização gerada automaticamente para essa propriedade. | Sim      |
+| sessionID     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim      |
 
 **Exemplo: autenticação de credenciais do usuário**
 ```json
