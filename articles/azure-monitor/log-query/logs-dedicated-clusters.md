@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874637"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488027"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
-Azure Monitor os clusters dedicados de logs são uma opção de implantação que está disponível para atender melhor aos clientes de alto volume. Os clientes que ingerirem mais de 4 TB de dados por dia usarão clusters dedicados. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nesses clusters.
+Azure Monitor os clusters dedicados de logs são uma opção de implantação que habilita o recurso avançado para os clientes do Azure Monitor logs. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nesses clusters.
 
-Além do suporte para alto volume, há outros benefícios do uso de clusters dedicados:
+Os recursos que exigem clusters dedicados são:
 
-- **Limite de taxa** – um cliente pode ter mais [limites de taxa de ingestão](../service-limits.md#data-ingestion-volume-rate) apenas no cluster dedicado.
-- **Recursos** – determinados recursos da empresa estão disponíveis apenas em clusters dedicados, especificamente CMK (chaves gerenciadas pelo cliente) e suporte de lockbox. 
-- **Consistência** – os clientes têm seus próprios recursos dedicados e, portanto, não há nenhuma influência de outros clientes em execução na mesma infraestrutura compartilhada.
-- **Eficiência de custo** – pode ser mais econômico usar o cluster dedicado, já que as camadas de reserva de capacidade atribuídas levam em conta toda a ingestão de cluster e se aplicam a todos os seus espaços de trabalho, mesmo que algumas delas sejam pequenas e não elegíveis para o desconto de reserva de capacidade.
-- As consultas **entre espaços de trabalho** são executadas mais rapidamente se todos os espaços de trabalho estiverem no mesmo cluster.
+- **[Chaves gerenciadas pelo cliente](../platform/customer-managed-keys.md)** – criptografe os dados do cluster usando chaves que são fornecidas e controladas pelo cliente.
+- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** -os clientes podem controlar as solicitações de acesso dos engenheiros de suporte da Microsoft para dados.
+- A **[criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protege contra um cenário em que um dos algoritmos ou chaves de criptografia pode ser comprometido. Nesse caso, a camada adicional de criptografia continua a proteger seus dados.
+- **[Vários espaços de trabalho](../log-query/cross-workspace-query.md)** – se um cliente estiver usando mais de um espaço de trabalho para produção, poderá fazer sentido usar o cluster dedicado. As consultas entre espaços de trabalho serão executadas mais rapidamente se todos os espaços de trabalho estiverem no mesmo cluster. Também pode ser mais econômico usar o cluster dedicado, pois as camadas de reserva de capacidade atribuídas levam em conta toda a ingestão de cluster e se aplicam a todos os seus espaços de trabalho, mesmo que algumas delas sejam pequenas e não elegíveis para o desconto de reserva de capacidade.
 
 Os clusters dedicados exigem que os clientes sejam confirmados usando uma capacidade de pelo menos 1 TB de ingestão de dados por dia. A migração para um cluster dedicado é simples. Não há perda de dados ou interrupção de serviço. 
 
@@ -89,7 +88,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Chamar* 
+*Call* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -186,7 +185,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 
 Por exemplo: 
 
-*Chamar*
+*Call*
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview

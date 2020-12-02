@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965350"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486650"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
@@ -37,7 +37,7 @@ Neste exemplo, a versão do produto e o layout do sistema de arquivos são usado
 - Banco de dados do Azure para MySQL (versão: 8.0.15)
 - Conector da API do MySQL C-libmysqlclient (versão: 6.1.11)
 
-| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Agrupar  | Armazenamento                    |
+| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | O sistema de arquivos para instalação da instância do SAP BOBI, aplicativo Web Tomcat padrão e drivers de banco de dados (se necessário) | Diretrizes de dimensionamento do SAP | bl1adm | sapsys | Disco Premium gerenciado-SSD |
 | /usr/sap/frsinput  | O diretório de montagem é para os arquivos compartilhados em todos os hosts BOBI que serão usados como diretório de repositório do arquivo de entrada  | Necessidade comercial         | bl1adm | sapsys | Azure NetApp Files         |
@@ -585,7 +585,7 @@ A implementação dessa solução varia de acordo com a natureza da configuraç�
 
 Alta disponibilidade refere-se a um conjunto de tecnologias que podem minimizar as interrupções de ti, fornecendo continuidade de negócios de aplicativos/serviços por meio de componentes redundantes, tolerantes a falhas ou protegidos por failover dentro do mesmo data center. Em nosso caso, os data centers estão dentro de uma região do Azure. O artigo [arquitetura e cenários de alta disponibilidade para o SAP](sap-high-availability-architecture-scenarios.md) fornece uma visão inicial de diferentes técnicas de alta disponibilidade e recomendações oferecidas no Azure para aplicativos SAP, que complementam as instruções nesta seção.
 
-Com base no resultado de dimensionamento da plataforma SAP BOBI, você precisa projetar o cenário e determinar a distribuição de componentes de BI em sub-redes e máquinas virtuais do Azure. O nível de redundância na arquitetura distribuída depende do RTO (objetivo de tempo de recuperação) necessário e do RPO (objetivo de ponto de recuperação). A SAP BOBI Platform inclui diferentes camadas e componentes em cada camada deve ser projetado para obter redundância. Assim, se um componente falhar, haverá pouca ou nenhuma interrupção no aplicativo SAP BOBI. Por exemplo,
+Com base no resultado de dimensionamento da plataforma SAP BOBI, você precisa projetar o cenário e determinar a distribuição de componentes de BI em sub-redes e máquinas virtuais do Azure. O nível de redundância na arquitetura distribuída depende do RTO (objetivo de tempo de recuperação) necessário e do RPO (objetivo de ponto de recuperação). A SAP BOBI Platform inclui diferentes camadas e componentes em cada camada deve ser projetado para obter redundância. Assim, se um componente falhar, haverá pouca ou nenhuma interrupção no aplicativo SAP BOBI. Por exemplo:
 
 - Servidores de aplicativos redundantes, como servidores de aplicativos de BI e servidor Web
 - Componentes exclusivos como banco de dados CMS, servidor de repositório de arquivos, Load Balancer
@@ -615,7 +615,7 @@ Para outra implantação de DBMS para banco de dados CMS, consulte os [guias de 
 
 O FRS (servidor de repositório de arquivos) refere-se aos diretórios de disco em que o conteúdo como relatórios, universos e conexões são armazenados. Ele está sendo compartilhado entre todos os servidores de aplicativos do sistema. Portanto, você deve ter certeza de que ele está altamente disponível.
 
-No Azure, você pode escolher [arquivos premium do Azure](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para compartilhamento de arquivos que são projetados para serem altamente disponíveis e altamente duráveis por natureza. Para obter mais informações, consulte a seção [redundância](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) para arquivos do Azure.
+No Azure, você pode escolher [arquivos premium do Azure](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para compartilhamento de arquivos que são projetados para serem altamente disponíveis e altamente duráveis por natureza. Para obter mais informações, consulte a seção [redundância](../../../storage/files/storage-files-planning.md#redundancy) para arquivos do Azure.
 
 > [!NOTE]
 > O protocolo SMB para arquivos do Azure está em disponibilidade geral, mas o suporte do protocolo NFS para arquivos do Azure está atualmente em versão prévia. Para obter mais informações, consulte o [suporte do NFS 4,1 para arquivos do Azure está agora em visualização](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -667,7 +667,7 @@ Azure Site Recovery serviço pode ser usado para replicar máquinas virtuais que
 
   Você pode usar Azure NetApp Files replicação entre regiões, que está atualmente em versão [prévia](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) que usa a tecnologia de® SnapMirror do NetApp. Portanto, somente os blocos alterados são enviados pela rede em um formato compactado e eficiente. Essa tecnologia proprietária minimiza a quantidade de dados necessária para replicar entre as regiões, o que poupa custos de transferência de dados. Ele também reduz o tempo de replicação para que você possa obter um RPO (objetivo de ponto de restauração) menor. Consulte [requisitos e considerações para usar a replicação entre regiões](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) para obter mais informações.
 
-- **Os arquivos premium do Azure** oferecem suporte apenas localmente com redundância local (LRS) e ZRS (armazenamento com redundância de zona). Para a estratégia de DR de arquivos premium do Azure, você pode usar [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Os arquivos premium do Azure** oferecem suporte apenas localmente com redundância local (LRS) e ZRS (armazenamento com redundância de zona). Para a estratégia de DR de arquivos premium do Azure, você pode usar [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### <a name="cms-database"></a>Banco de dados CMS
 
@@ -695,4 +695,4 @@ A seguir, a recomendação para a recuperação de desastre de cada camada usada
 - [Configurar a recuperação de desastre para uma implantação de aplicativo SAP de várias camadas](../../../site-recovery/site-recovery-sap.md)
 - [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP](planning-guide.md)
 - [Implantação de Máquinas Virtuais do Azure para SAP](deployment-guide.md)
-- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](dbms-guide.md)
+- [Implantação do DBMS de Máquinas Virtuais do Azure para SAP](./dbms_guide_general.md)

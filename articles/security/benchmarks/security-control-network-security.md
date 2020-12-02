@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd69f239a1c65040c44da776186ab8d955f5e333
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3a232f8e8c35e265a8243ac79e465c03f6b9650e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693168"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487857"
 ---
 # <a name="security-control-network-security"></a>Controle de segurança: segurança de rede
 
@@ -76,7 +76,7 @@ Use o acesso à rede just in time da central de segurança do Azure para configu
 
 Use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-- [Como configurar a proteção contra DDoS](../../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 - [Como implantar o Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 

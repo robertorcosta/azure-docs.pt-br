@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348068"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488061"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -130,9 +130,11 @@ A configuração descrita neste artigo destina-se ao acesso ao RDS por meio da W
 
 | Método de autenticação | Configuração de cliente com suporte |
 | --------------------- | ------------------------------ |
-| Pré-autenticação    | Web da área de trabalho remota-Windows 7/10 usando o Internet Explorer ou [Edge Chromium modo IE](/deployedge/edge-ie-mode) + complemento ActiveX do RDS <br /> *Observe que o portal meus aplicativos só dá suporte à borda.* |
+| Pré-autenticação    | Web da área de trabalho remota-Windows 7/10 usando Internet Explorer * ou [Edge Chromium IE Mode](/deployedge/edge-ie-mode) + RDS ActiveX complemento |
 | Pré-autenticação    | Cliente Web RD-navegador da Web compatível com HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v 55.0 e posterior) |
 | Passagem | Qualquer outro sistema operacional que dê suporte ao aplicativo de Área de Trabalho Remota da Microsoft |
+
+* O modo do IE Chromium do Edge é necessário quando o portal meus aplicativos é usado para acessar o aplicativo Área de Trabalho Remota.  
 
 O fluxo de pré-autenticação oferece mais benefícios de segurança que o fluxo de passagem. Com a pré-autenticação, você pode usar os recursos de autenticação do Azure AD, como logon único, acesso condicional e verificação em duas etapas para seus recursos locais. Você também pode garantir que somente tráfego autenticado alcance sua rede.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 86f3ef8ccac83cdc939cff5572dd81e78137d396
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968716"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486735"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition no Azure
 
@@ -207,12 +207,12 @@ Durante a solicitação inicial, o servidor de aplicativos se conecta ao diretor
 
 Ao implantar suas cargas de trabalho do Oracle no Azure, a Microsoft cuida de toda a aplicação de patch no nível do sistema operacional do host. Qualquer manutenção planejada no nível do sistema operacional é comunicada aos clientes com antecedência para permitir que o cliente tenha essa manutenção planejada. Dois servidores de duas Zonas de Disponibilidade diferentes nunca são corrigidos simultaneamente. Consulte [gerenciar a disponibilidade de máquinas virtuais](../../manage-availability.md) para obter mais detalhes sobre a manutenção da VM e aplicação de patches. 
 
-A aplicação de patch no sistema operacional da máquina virtual pode ser automatizada usando a [Gerenciamento de atualizações de automação do Azure](../../../automation/update-management/update-mgmt-overview.md). Aplicar patches e manter seu banco de dados Oracle pode ser automatizado e agendado usando [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou a [automação do Azure gerenciamento de atualizações](../../../automation/update-management/update-mgmt-overview.md) para minimizar o tempo de inatividade. Veja [entrega contínua e implantações azuis/verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como elas podem ser usadas no contexto de seus bancos de dados Oracle.
+A aplicação de patch no sistema operacional da máquina virtual pode ser automatizada usando a [Gerenciamento de atualizações de automação do Azure](../../../automation/update-management/overview.md). Aplicar patches e manter seu banco de dados Oracle pode ser automatizado e agendado usando [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou a [automação do Azure gerenciamento de atualizações](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Veja [entrega contínua e implantações azuis/verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como elas podem ser usadas no contexto de seus bancos de dados Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Considerações sobre arquitetura e design
 
 - Considere o uso da [máquina virtual com memória](../../sizes-memory.md) de hiperthread otimizada com [vCPUs básica restrita](../../../virtual-machines/constrained-vcpu.md) para sua VM Oracle Database para economizar nos custos de licenciamento e maximizar o desempenho. Use vários discos Premium ou ultra (discos gerenciados) para desempenho e disponibilidade.
-- Ao usar discos gerenciados, o nome do disco/dispositivo pode ser alterado em reinicializações. É recomendável que você use o UUID do dispositivo em vez do nome para garantir que as montagens persistam entre as reinicializações. Encontre mais informações [aqui](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
+- Ao usar discos gerenciados, o nome do disco/dispositivo pode ser alterado em reinicializações. É recomendável que você use o UUID do dispositivo em vez do nome para garantir que as montagens persistam entre as reinicializações. Encontre mais informações [aqui](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Use zonas de disponibilidade para obter alta disponibilidade na região.
 - Considere o uso de discos ultra (quando disponíveis) ou Premium para seu banco de dados Oracle.
 - Considere configurar um banco de dados Oracle em espera em outra região do Azure usando o Oracle Data Guard.

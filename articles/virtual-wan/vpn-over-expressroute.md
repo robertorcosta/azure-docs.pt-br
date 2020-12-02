@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023510"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487500"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Criptografia do ExpressRoute: IPsec sobre ExpressRoute para WAN virtual
 
@@ -95,7 +95,7 @@ O recurso do site é o mesmo que os sites VPN não ExpressRoute para uma WAN vir
 
    Se o BGP estiver habilitado, ele será aplicado a todas as conexões criadas para este site no Azure. Configurar o BGP em uma WAN virtual é equivalente a configurar o BGP em um gateway de VPN do Azure. 
    
-   Seu endereço de par de BGP local *não deve* ser o mesmo que o endereço IP de sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site de VPN. Use um endereço IP diferente no dispositivo VPN para o IP de par no nível de protocolo BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, ele *não pode* ser um APIPA (169,254.*x*. *x*). Especifique esse endereço no gateway de rede local correspondente que representa o local. Para saber os pré-requisitos do BGP, confira [Sobre o BGP com o Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Seu endereço de par de BGP local *não deve* ser o mesmo que o endereço IP de sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site de VPN. Use um endereço IP diferente no dispositivo VPN para o IP de par no nível de protocolo BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, ele *não pode* ser um APIPA (169,254.*x*. *x*). Especifique esse endereço no site VPN correspondente que representa o local. Para saber os pré-requisitos do BGP, confira [Sobre o BGP com o Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Selecione **Avançar: examinar + criar >** para verificar os valores de configuração e criar o site VPN. Se você selecionou **hubs** para se conectar, a conexão será estabelecida entre a rede local e o gateway de VPN de Hub.
 
@@ -115,7 +115,7 @@ Depois de criar o site VPN e conectar-se ao Hub, use as seguintes etapas para co
 1. Para **usar o endereço IP privado do Azure**, selecione **Sim**. A configuração configura o gateway de VPN do hub para usar endereços IP privados dentro do intervalo de endereços do Hub no gateway para essa conexão, em vez dos endereços IP públicos. Isso garantirá que o tráfego da rede local percorra os caminhos de emparelhamento privado do ExpressRoute em vez de usar a Internet pública para essa conexão VPN. A captura de tela a seguir mostra a configuração:
 
    :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Configuração para usar um endereço IP privado para a conexão VPN" border="false":::
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Depois de salvar as alterações, o gateway de VPN de Hub usará os endereços IP privados no gateway de VPN para estabelecer as conexões IPsec/IKE com o dispositivo VPN local no ExpressRoute.
 
@@ -234,7 +234,7 @@ Se você precisar de instruções para configurar o dispositivo, poderá usar as
 
 Crie uma conexão para monitorar a comunicação entre uma VM (máquina virtual) do Azure e um site remoto. Para obter informações sobre como configurar um monitor de conexão, consulte [Monitorar a comunicação de rede](~/articles/network-watcher/connection-monitor.md). O campo de origem é o IP da VM no Azure e o IP de destino é o IP do site.
 
-## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. limpar recursos
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. Limpar os recursos
 
 Quando você não precisar mais desses recursos, poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Execute o seguinte comando do PowerShell e substitua `myResourceGroup` pelo nome do seu grupo de recursos:
 
