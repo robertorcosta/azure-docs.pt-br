@@ -3,20 +3,20 @@ title: Invocar programas Spark do Azure Data Factory
 description: Saiba como invocar programas Spark em um Azure Data Factory usando a atividade MapReduce.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359944"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495065"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -60,7 +60,7 @@ Estas são as etapas típicas para criar um pipeline do data factory com uma ati
 
 1. Carregue **test.py** para a pasta **pyFiles** no contêiner **adfspark** em seu armazenamento de blobs. Crie o contêiner e a pasta, caso eles não existam.
 
-### <a name="create-a-data-factory"></a>Criar uma data factory
+### <a name="create-a-data-factory"></a>Criar um data factory
 Para criar um data factory, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
@@ -273,7 +273,7 @@ Como getDebugInfo é definido como **Sempre**, você vê uma subpasta log na pas
 Para obter uma solução de problemas adicional, execute as seguintes etapas:
 
 
-1. Ir para `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Acesse `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Aplicativo de interface do usuário do YARN](media/data-factory-spark/yarnui-application.png)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d2493a3a1e4fbb49c0b7f6dad29771b6e9faae8e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 15a23ab5b05ad1093069b4297ad1d292beeb3a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146800"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494946"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta disponibilidade com os serviços de mídia e vídeo por demanda (VOD)
 
@@ -26,7 +26,7 @@ ms.locfileid: "93146800"
 
 ## <a name="high-availability-for-vod"></a>Alta disponibilidade para VOD
 
-Há um padrão de design de alta disponibilidade chamado [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) na documentação da arquitetura do Azure. Ele descreve como os recursos duplicados são implantados em regiões geográficas diferentes para fornecer escalabilidade e resiliência.  Você pode usar os serviços do Azure para criar uma arquitetura desse tipo para cobrir muitas considerações de design de alta disponibilidade, como redundância, monitoramento de integridade, balanceamento de carga e backup e recuperação de dados.  Uma dessas arquiteturas é descrita abaixo com detalhes sobre cada serviço usado na solução, bem como como os serviços individuais podem ser usados para criar uma arquitetura de alta disponibilidade para seu aplicativo VOD.
+Há um padrão de design de alta disponibilidade chamado [Geodes](/azure/architecture/patterns/geodes) na documentação da arquitetura do Azure. Ele descreve como os recursos duplicados são implantados em regiões geográficas diferentes para fornecer escalabilidade e resiliência.  Você pode usar os serviços do Azure para criar uma arquitetura desse tipo para cobrir muitas considerações de design de alta disponibilidade, como redundância, monitoramento de integridade, balanceamento de carga e backup e recuperação de dados.  Uma dessas arquiteturas é descrita abaixo com detalhes sobre cada serviço usado na solução, bem como como os serviços individuais podem ser usados para criar uma arquitetura de alta disponibilidade para seu aplicativo VOD.
 
 ### <a name="sample"></a>Amostra
 
@@ -55,7 +55,7 @@ Este diagrama de alto nível mostra a arquitetura do exemplo fornecido para ajud
 
 [![Diagrama ](media/media-services-high-availability-encoding/high-availability-architecture.svg) de arquitetura de alto nível do VOD (vídeo por demanda)](media/media-services-high-availability-encoding/high-availability-architecture.svg#lightbox)
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Melhores práticas
 
 ### <a name="regions"></a>Regiões
 
@@ -87,4 +87,4 @@ Este diagrama de alto nível mostra a arquitetura do exemplo fornecido para ajud
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Confira [exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
+* Confira [exemplos de código](/samples/browse/?products=azure-media-services)

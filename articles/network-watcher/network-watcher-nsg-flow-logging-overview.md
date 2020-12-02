@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018096"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493977"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -59,7 +59,7 @@ Os logs de fluxo são a fonte de verdade para todas as atividades de rede em seu
 **Conceitos fundamentais**
 
 - Redes definidas por software são organizadas em redes virtuais (VNETs) e sub-redes. A segurança dessas VNets e sub-redes pode ser gerenciada usando um NSG.
-- Um NSG (grupo de segurança de rede) contém uma lista de _regras de segurança_ que permitem ou negam o tráfego de rede em recursos aos quais ele está conectado. NSGs pode ser associado a sub-redes, VMs individuais ou adaptadores de rede (NIC) individuais conectados às VMs (Gerenciador de recursos). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- Um NSG (grupo de segurança de rede) contém uma lista de _regras de segurança_ que permitem ou negam o tráfego de rede em recursos aos quais ele está conectado. NSGs pode ser associado a sub-redes, VMs individuais ou adaptadores de rede (NIC) individuais conectados às VMs (Gerenciador de recursos). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Todos os fluxos de tráfego em sua rede são avaliados usando as regras no NSG aplicável.
 - O resultado dessas avaliações são os logs de fluxo NSG. Os logs de fluxo são coletados por meio da plataforma Azure e não exigem nenhuma alteração nos recursos do cliente.
 - Observação: as regras são de dois tipos – terminando & não terminando, cada um com diferentes comportamentos de log.

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494436"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -31,14 +31,14 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada 
 2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
 3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
    - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (https://<*endereço IP do host*>/UI).
-   - Em **Home**  >  **inventário**doméstico, selecione **arquivo**  >  **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
+   - Em **Home**  >  **inventário** doméstico, selecione **arquivo**  >  **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
 4. Se a implantação ainda falhar, entre em contato com o suporte do Migrações para Azure.
 
 ## <a name="cant-connect-to-the-internet"></a>Não é possível conectar à Internet
 
 Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 
-- Forneça as credenciais de autorização se o proxy precisar delas.
+- Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
 - Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione [essas URLs](migrate-appliance.md#url-access) a uma lista de permissões.
 - Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](./migrate-appliance.md).
 
@@ -80,7 +80,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
     - [Saiba mais](./migrate-appliance.md#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 - O erro 60039, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" pode ocorrer se o registro falhar porque o projeto de migrações para Azure usado para registrar o dispositivo não foi encontrado.
     - No portal do Azure e verifique se o projeto existe no grupo de recursos.
-    - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Saiba como](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) criar um novo projeto.
+    - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Saiba como](./create-manage-projects.md#create-a-project-for-the-first-time) criar um novo projeto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Erro 60030/60031: falha na operação de gerenciamento de Key Vault
 
@@ -98,7 +98,7 @@ Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operaç
 - Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: falha na operação do Azure AD 
-Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize um dos seguintes procedimentos:
+Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize uma destas ações:
 
 - Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
 - Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31463855ffe24a4e8766dcefaa6397f890d9dcac
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7a79ace9739d212b1284b2cb8f0b1d3c7f3c7f5e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435056"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494454"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Linha de base de segurança do Azure para migrações para Azure
 
@@ -24,7 +24,7 @@ Para ver como a migração do Azure é completamente mapeada para o benchmark de
 
 ## <a name="identity-management"></a>Gerenciamento de Identidades
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de identidades](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de identidades](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: padronizar o Azure Active Directory como o sistema central de identidade e autenticação
 
@@ -42,7 +42,7 @@ O Azure AD dá suporte à identidade externa que permite aos usuários sem um co
 
 - [Como criar e configurar uma instância do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Usar provedores de identidade externos para o aplicativo](/azure/active-directory/b2b/identity-providers) 
+- [Usar provedores de identidade externos para o aplicativo](../active-directory/external-identities/identity-providers.md) 
 
 - [O que é a classificação de segurança de identidade no Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -102,9 +102,9 @@ O ATP (Proteção Avançada contra Ameaças) do Azure é uma solução de segura
 
 - [Relatórios de atividades de auditoria no Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../security-center/security-center-identity-access.md) 
 
@@ -118,7 +118,7 @@ O ATP (Proteção Avançada contra Ameaças) do Azure é uma solução de segura
 
 ## <a name="privileged-access"></a>Acesso privilegiado
 
-*Para obter mais informações, confira o [Azure Security Benchmark: acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Para obter mais informações, confira o [Azure Security Benchmark: acesso privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: restringir o acesso administrativo a sistemas críticos para os negócios
 
@@ -160,7 +160,7 @@ Alguns serviços do Azure dão suporte a usuários e funções locais que não s
 
 Você deve verificar se as credenciais (como senha, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas pelos indivíduos que têm autorização para usá-las somente em uma emergência.
 
-- [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](../active-directory/roles/security-emergency-access.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -196,7 +196,7 @@ Use funções internas para alocar a permissão e somente crie uma função pers
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, confira o [Azure Security Benchmark: proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Para obter mais informações, confira o [Azure Security Benchmark: proteção de dados](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-2-protect-sensitive-data"></a>DP-2: proteger dados confidenciais
 
@@ -250,7 +250,7 @@ A ferramenta de migração de servidor no Azure migra os dados dos discos de ser
 
 ## <a name="asset-management"></a>Gerenciamento de Ativos
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de ativos](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: garantir que a equipe de segurança tenha visibilidade dos riscos de ativos
 
@@ -280,7 +280,7 @@ As migrações para Azure não permitem a execução de um aplicativo ou instala
 
 - [Gerenciamento de inventário de ativos da central de segurança do Azure](../security-center/asset-inventory.md) 
 
-- [Guia de decisão de marcação e nomenclatura de recurso](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Guia de decisão de marcação e nomenclatura de recurso](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -341,7 +341,7 @@ A Central de Segurança do Azure também pode fornecer alertas sobre algumas ati
 
 - [Habilitar o Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Proteção contra ameaças na Central de Segurança do Azure](/azure/security-center/threat-protection)
+- [Proteção contra ameaças na Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -381,7 +381,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, confira o [Azure Security Benchmark: resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Para obter mais informações, confira o [Azure Security Benchmark: resposta a incidentes](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: preparação – atualizar o processo de resposta a incidentes do Azure
 
@@ -463,7 +463,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -504,7 +504,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 ## <a name="governance-and-strategy"></a>Governança e estratégia
 
-*Para obter mais informações, confira o [Azure Security Benchmark: governança e estratégia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Para obter mais informações, confira o [Azure Security Benchmark: governança e estratégia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: definir a estratégia de proteção de dados e gerenciamento de ativos 
 
@@ -529,11 +529,11 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 -   Padrões de criptografia apropriados
 
 Para saber mais, consulte as referências a seguir:
-- [Recomendação da arquitetura de segurança do Azure – Armazenamento, dados e criptografia](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recomendação da arquitetura de segurança do Azure – Armazenamento, dados e criptografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Conceitos básicos de segurança do Azure – Segurança, criptografia e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -684,5 +684,5 @@ Para saber mais, consulte as referências a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)
