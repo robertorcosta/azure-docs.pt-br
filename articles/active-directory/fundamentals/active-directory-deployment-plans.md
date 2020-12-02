@@ -2,66 +2,34 @@
 title: Planos de implantação - Azure Active Directory | Microsoft Docs
 description: Fornece orientação de ponta a ponta sobre como implantar recursos do Azure Active Directory.
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836811"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498074"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD)? Os planos de implantação do Azure AD orientam você pelo valor de negócios, considerações de planejamento e procedimentos operacionais necessários para implantar com êxito recursos comuns do Azure AD.
 
 Em qualquer uma das páginas do plano, use a funcionalidade imprimir para PDF do navegador para criar uma versão offline atualizada da documentação.
-## <a name="include-the-right-stakeholders"></a>Incluir os participantes certos
-
-Ao iniciar o planejamento da implantação para um novo recurso, é importante incluir os principais acionistas em sua organização. Recomendamos que você identifique e documente a pessoa ou as pessoas que atendem a cada uma das funções a seguir e trabalhe com elas para determinar seu envolvimento no projeto.  
-
-As funções podem incluir o seguinte 
-
-|Função |Descrição |
-|-|-|
-|Usuário final|Um grupo representativo de usuários para os quais a funcionalidade será implementada. Geralmente, visualiza as alterações em um programa piloto.
-|Gerente de suporte de ti|O departamento de ti oferece suporte à organização que pode fornecer informações sobre a compatibilidade dessa mudança de uma perspectiva de assistência técnica.  
-|Arquiteto de identidade ou administrador global do Azure|Representante da equipe de gerenciamento de identidades responsável pela definição de como essa alteração é alinhada com a infra-estrutura principal de gerenciamento de identidades em sua organização.|
-|Proprietário da empresa do aplicativo |O proprietário geral da empresa dos aplicativos afetados, que podem incluir o gerenciamento de acesso.Também pode fornecer informações sobre a experiência do usuário e a utilidade dessa alteração da perspectiva de um usuário final.
-|Proprietário da segurança|Um representante da equipe de segurança que pode se desconectar que o plano atenderá aos requisitos de segurança de sua organização.|
-|Gerenciador de Conformidade|A pessoa na sua organização responsável por garantir a conformidade com requisitos corporativos, industriais ou governamentais.|
-
-**Os níveis de envolvimento podem incluir:**
-
-- **R** esponsible para implementar o plano e o resultado do projeto 
-
-- **Um** pproval do plano e do resultado do projeto 
-
-- **C** para o plano e o resultado do projeto 
-
-- **Eu** nformed o plano e o resultado do projeto
-
-
-## <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto
-Um piloto permite que você teste com um pequeno grupo antes de ativar um recurso para todos. Certifique-se de que, como parte de seu teste, cada caso de uso em sua organização seja totalmente testado. É melhor ter como alvo um grupo específico de usuários piloto antes de redistribuir para sua organização como um todo.
-
-Na sua primeira onda, destinada a ti, usabilidade e outros usuários apropriados que podem testar e fornecer comentários. Esses comentários devem ser usados para desenvolver ainda mais as comunicações e as instruções que você envia para os usuários e fornecer informações sobre os tipos de problemas que sua equipe de suporte pode ver. 
-
-Ampliar a distribuição para grupos maiores de usuários deve ser executado aumentando o escopo dos grupos de destino. Isso pode ser feito por meio de [Associação de grupo dinâmico](../enterprise-users/groups-dynamic-membership.md)ou adicionando usuários manualmente aos grupos de destino.
 
 
 ## <a name="deploy-authentication"></a>Implantar autenticação
 
 | Funcionalidade | Descrição|
 | -| -|
-| [Autenticação Multifator](../authentication/howto-mfa-getstarted.md)| A MFA (autenticação multifator) do Azure AD é a solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure AD MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de entrada simples. |
+| [Autenticação Multifator](../authentication/howto-mfa-getstarted.md)| A MFA (Autenticação Multifator) do Azure AD é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, a MFA do Azure AD ajuda a proteger o acesso a seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de logon simples. |
 | [Acesso Condicional](../conditional-access/plan-conditional-access.md)| Com o Acesso Condicional, você pode implementar decisões de controle de acesso automatizado sobre quem pode acessar os aplicativos de nuvem com base em condições. |
 | [Redefinição de senha de autoatendimento](../authentication/howto-sspr-deployment.md)| A redefinição de senha de autoatendimento ajuda os usuários a redefinir suas senhas sem a intervenção do administrador, quando e onde eles precisam. |
 | [Sem senha](../authentication/howto-authentication-passwordless-deployment.md) | Implementar a autenticação com senha usando o aplicativo Microsoft Authenticator ou as chaves de segurança FIDO2 em sua organização |
@@ -98,3 +66,36 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
 | [Relatórios e monitoramento](../reports-monitoring/plan-monitoring-and-reporting.md)| O design de sua solução de monitoramento e relatório do Azure AD depende dos seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação certa. |
 | [Revisões de acesso](../governance/deploy-access-reviews.md) | As revisões de acesso são uma parte importante da sua estratégia de governança, permitindo que você conheça e gerencie quem tem acesso e ao que eles têm acesso. Este artigo ajuda você a planejar e implantar revisões de acesso para atingir suas condições de segurança e colaboração desejadas. |
+
+## <a name="include-the-right-stakeholders"></a>Incluir os participantes certos
+
+Ao iniciar o planejamento da implantação para um novo recurso, é importante incluir os principais acionistas em sua organização. Recomendamos que você identifique e documente a pessoa ou as pessoas que atendem a cada uma das funções a seguir e trabalhe com elas para determinar seu envolvimento no projeto.  
+
+As funções podem incluir o seguinte 
+
+|Função |Descrição |
+|-|-|
+|Usuário final|Um grupo representativo de usuários para os quais a funcionalidade será implementada. Geralmente, visualiza as alterações em um programa piloto.
+|Gerente de suporte de ti|O departamento de ti oferece suporte à organização que pode fornecer informações sobre a compatibilidade dessa mudança de uma perspectiva de assistência técnica.  
+|Arquiteto de identidade ou administrador global do Azure|Representante da equipe de gerenciamento de identidades responsável pela definição de como essa alteração é alinhada com a infra-estrutura principal de gerenciamento de identidades em sua organização.|
+|Proprietário da empresa do aplicativo |O proprietário geral da empresa dos aplicativos afetados, que podem incluir o gerenciamento de acesso.Também pode fornecer informações sobre a experiência do usuário e a utilidade dessa alteração da perspectiva de um usuário final.
+|Proprietário da segurança|Um representante da equipe de segurança que pode se desconectar que o plano atenderá aos requisitos de segurança de sua organização.|
+|Gerenciador de Conformidade|A pessoa na sua organização responsável por garantir a conformidade com requisitos corporativos, industriais ou governamentais.|
+
+**Os níveis de envolvimento podem incluir:**
+
+- **R** esponsible para implementar o plano e o resultado do projeto 
+
+- **Um** pproval do plano e do resultado do projeto 
+
+- **C** para o plano e o resultado do projeto 
+
+- **Eu** nformed o plano e o resultado do projeto
+
+
+## <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto
+Um piloto permite que você teste com um pequeno grupo antes de ativar um recurso para todos. Certifique-se de que, como parte de seu teste, cada caso de uso em sua organização seja totalmente testado. É melhor ter como alvo um grupo específico de usuários piloto antes de redistribuir para sua organização como um todo.
+
+Na sua primeira onda, destinada a ti, usabilidade e outros usuários apropriados que podem testar e fornecer comentários. Esses comentários devem ser usados para desenvolver ainda mais as comunicações e as instruções que você envia para os usuários e fornecer informações sobre os tipos de problemas que sua equipe de suporte pode ver. 
+
+Ampliar a distribuição para grupos maiores de usuários deve ser executado aumentando o escopo dos grupos de destino. Isso pode ser feito por meio de [Associação de grupo dinâmico](../enterprise-users/groups-dynamic-membership.md)ou adicionando usuários manualmente aos grupos de destino.

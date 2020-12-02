@@ -4,26 +4,26 @@ description: Saiba como configurar o controle do código-fonte no Azure Data Fac
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 37982d1c28d445d40fa9d53a2a1eb076fbbf7f2f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: d219ff8469c471a37deb47e0f217292d70e8f0f9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566700"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497105"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Por padrão, a UX (experiência de interface do usuário) do Azure Data Factory faz a autenticação diretamente no serviço de Data Factory. Essa experiência tem as seguintes limitações:
 
-- O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações. A única maneira de salvar as alterações é por meio do botão **Publicar Tudo** , e todas as alterações são publicadas diretamente no serviço de Data Factory.
+- O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações. A única maneira de salvar as alterações é por meio do botão **Publicar Tudo**, e todas as alterações são publicadas diretamente no serviço de Data Factory.
 - O serviço de Data Factory não está otimizado para colaboração e controle de versão.
 
 Para fornecer uma experiência de criação melhor, o Azure Data Factory permite que você configure um repositório Git com o Azure Repos ou o GitHub. O Git é um sistema de controle de versão que facilita o controle de alterações e a colaboração. Este artigo descreverá como configurar e trabalhar em um repositório git juntamente com as práticas recomendadas de realce e um guia de solução de problemas.
@@ -203,7 +203,7 @@ Depois de seguir essas etapas, sua fábrica poderá se conectar a repositórios 
 
 ## <a name="version-control"></a>Controle de versão
 
-Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_ ) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
+Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
 ### <a name="creating-feature-branches"></a>Criando branches de recurso
 

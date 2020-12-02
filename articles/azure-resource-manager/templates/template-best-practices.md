@@ -2,13 +2,13 @@
 title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos do Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar os modelos.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809248"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497972"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
 
@@ -28,7 +28,7 @@ Você também está limitado a:
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Grupo de recursos
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
@@ -87,8 +87,6 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
    },
    ```
 
-* Não use um parâmetro para a versão de API de um tipo de recurso. Os valores e propriedades do recurso podem variar de acordo com o número de versão. O IntelliSense em um editor de código não pode determinar o esquema correto quando a versão da API é definida como um parâmetro. Em vez disso, codifique a versão da API no modelo.
-
 * Use `allowedValues` com moderação. Usá-lo somente quando você deve verificar se alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
 * Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomeação adicionando o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se você incluir um parâmetro nomeado **ResourceGroupName** no modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**.
@@ -146,8 +144,6 @@ As seguintes informações podem ser úteis quando você trabalha com [variávei
 
 * Use variáveis para valores que você construir de um arranjo complexo de funções de modelo. O modelo é mais fácil de ler quando a expressão complexa aparece somente em variáveis.
 
-* Não use variáveis para `apiVersion` em um recurso. A versão da API determina o esquema do recurso. Muitas vezes, é possível alterar a versão sem alterar as propriedades do recurso.
-
 * Não é possível usar a função [reference](template-functions-resource.md#reference) na seção de **variáveis** do modelo. A função **reference** deriva seu valor do estado de runtime do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função **reference** diretamente na seção **resources** ou **outputs** do modelo.
 
 * Inclua variáveis em nomes de recurso que devem ser exclusivos.
@@ -155,6 +151,16 @@ As seguintes informações podem ser úteis quando você trabalha com [variávei
 * Use uma [loop de cópia em variáveis](copy-variables.md) para criar um padrão repetido de objetos JSON.
 
 * Remover variáveis não utilizadas.
+
+## <a name="api-version"></a>Versão da API
+
+Defina a `apiVersion` propriedade como uma versão de API embutida em código para o tipo de recurso. Ao criar um novo modelo, recomendamos que você use a versão mais recente da API para um tipo de recurso. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/).
+
+Quando o modelo funciona conforme o esperado, recomendamos que você continue usando a mesma versão de API. Usando a mesma versão de API, você não precisa se preocupar com alterações significativas que podem ser introduzidas em versões posteriores.
+
+Não use um parâmetro para a versão da API. As propriedades e os valores do recurso podem variar por versão da API. O IntelliSense em um editor de código não pode determinar o esquema correto quando a versão da API é definida como um parâmetro. Se você passar uma versão de API que não corresponde às propriedades em seu modelo, a implantação falhará.
+
+Não use variáveis para a versão da API. Em particular, não use a [função de provedores](template-functions-resource.md#providers) para obter dinamicamente as versões da API durante a implantação. A versão da API recuperada dinamicamente pode não corresponder às propriedades em seu modelo.
 
 ## <a name="resource-dependencies"></a>Dependências de recursos
 

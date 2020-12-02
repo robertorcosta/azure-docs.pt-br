@@ -2,13 +2,13 @@
 title: Visão geral de modelos
 description: Descreve os benefícios usando modelos de Azure Resource Manager (modelos ARM) para a implantação de recursos.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 12/01/2020
+ms.openlocfilehash: da091d09f6d242d4b98903a8dcd76fe305e578b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96342321"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497989"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
@@ -80,13 +80,13 @@ Quando você implanta um modelo, o Resource Manager converte o modelo em operaç
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
+    "apiVersion": "2019-04-01",
     "name": "mystorageaccount",
     "location": "westus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "Storage",
+    "kind": "StorageV2",
     "properties": {}
   }
 ]
@@ -96,17 +96,19 @@ Converte a definição para a seguinte operação de API REST, que é enviada pa
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
 REQUEST BODY
 {
   "location": "westus",
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage",
+  "kind": "StorageV2",
   "properties": {}
 }
 ```
+
+Observe que o **apiVersion** que você definiu no modelo para o recurso é usado como a versão de API para a operação REST. Você pode implantar o modelo repetidamente e ter confiança de que ele continuará a funcionar. Usando a mesma versão de API, você não precisa se preocupar com alterações significativas que podem ser introduzidas em versões posteriores.
 
 ## <a name="template-design"></a>Design de modelo
 
@@ -114,7 +116,7 @@ Como você define grupos de recursos e modelos é de sua responsabilidade e de c
 
 ![modelo de três camadas](./media/overview/3-tier-template.png)
 
-Mas, você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode reutilizar esses modelos facilmente para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. A imagem a seguir mostra como implantar uma solução de três camadas com o modelo pai que inclui três modelos aninhados.
+Mas, você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode reutilizar esses modelos facilmente para soluções diferentes. Para implantar uma solução específica, você cria um modelo principal que vincula todos os modelos necessários. A imagem a seguir mostra como implantar uma solução de três camadas com o modelo pai que inclui três modelos aninhados.
 
 ![modelo de camadas aninhadas](./media/overview/nested-tiers-template.png)
 

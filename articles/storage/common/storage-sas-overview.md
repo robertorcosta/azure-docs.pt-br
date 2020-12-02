@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: cc3a2a1ee28ad3c1fdefad08c8ec133ad45cb408
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435052"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498176"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -97,7 +97,7 @@ A tabela a seguir resume como cada tipo de token SAS é autorizado.
 
 | Tipo de SAS | Tipo de autorização |
 |-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD |
 | SAS do serviço | Chave compartilhada |
 | SAS da conta | Chave compartilhada |
 
@@ -191,7 +191,7 @@ Para começar a usar as assinaturas de acesso compartilhado, consulte os artigos
 
 ### <a name="service-sas"></a>SAS do serviço
 
-- [Criar uma SAS de serviço para um contêiner ou BLOB com .NET](../blobs/storage-blob-service-sas-create-dotnet.md)
+- [Criar uma SAS de serviço para um contêiner ou BLOB com .NET](../blobs/sas-service-create.md)
 
 ### <a name="account-sas"></a>SAS da conta
 

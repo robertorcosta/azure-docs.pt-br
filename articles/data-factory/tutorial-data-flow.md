@@ -1,19 +1,19 @@
 ---
 title: Transformar dados usando um fluxo de dados de mapeamento
 description: Este tutorial fornece instruções passo a passo para usar Azure Data Factory para transformar dados com o fluxo de dados de mapeamento
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2019
-ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555903"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497037"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
 
@@ -43,25 +43,25 @@ O arquivo que estamos transformando neste tutorial é MoviesDB.csv, que pode ser
 Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um pipeline no data factory.
 
 1. Abra o **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **criar um recurso**  >  **integração**  >  **Data Factory** :
+2. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
 
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. Na página **Novo data factory** , em **Nome** , insira **ADFTutorialDataFactory**.
+3. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
 
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
      ![Novo data factory](./media/doc-common-process/name-not-available-error.png)
 4. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
-5. Em **Grupo de Recursos** , use uma das seguintes etapas:
+5. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
     a. Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
 
     b. Selecione **Criar novo** e insira o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
-6. Em **Versão** , selecione **V2**.
-7. Em **Local** , informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+6. Em **Versão**, selecione **V2**.
+7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
 8. Selecione **Criar**.
 9. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **Ir para o recurso** para navegar até a página do Data Factory.
 10. Clique em **Criar e Monitorar** para iniciar a IU do Azure Data Factory em uma guia separada.
@@ -70,7 +70,7 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
 
 Nesta etapa, você criará um pipeline que contém uma atividade de fluxo de dados.
 
-1. Na página **Introdução** , selecione **Criar pipeline**.
+1. Na página **Introdução**, selecione **Criar pipeline**.
 
    ![Criar um pipeline](./media/doc-common-process/get-started-page.png)
 
@@ -109,7 +109,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
 1. Depois de voltar à tela de criação do conjunto de arquivos, insira onde o arquivo está localizado no campo **caminho do arquivo** . Neste tutorial, o arquivo moviesDB.csv está localizado em contêiner-dados de exemplo. Como o arquivo tem cabeçalhos, marque **a primeira linha como cabeçalho**. Selecione **do repositório/conexão** para importar o esquema de cabeçalho diretamente do arquivo no armazenamento. Toque em OK quando terminar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset4.png)
+    ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
 1. Se o cluster de depuração for iniciado, vá para a guia **visualização de dados** da transformação origem e clique em **Atualizar** para obter um instantâneo dos dados. Você pode usar a visualização de dados para verificar se a transformação está configurada corretamente.
 
     ![Captura de tela que mostra onde você pode visualizar seus dados para verificar se a transformação está configurada corretamente.](media/tutorial-data-flow/dataflow4.png)

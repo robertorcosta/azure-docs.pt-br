@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997555"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498057"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar links embutidos em código para aplicativos publicados com o Azure Proxy de Aplicativo do AD
 
@@ -86,28 +86,28 @@ Há dois tipos comuns de links internos em aplicativos locais:
 - **Links internos relativos** que apontam para um recurso compartilhado em uma estrutura de arquivo local como `/claims/claims.html`. Esses links funcionam automaticamente em aplicativos que são publicados por meio do Proxy de Aplicativo e continuam funcionando com ou sem a conversão de link. 
 - **Links internos** embutidos em código para outros aplicativos locais como `http://expenses` ou arquivos publicados como `http://expenses/logo.jpg` . O recurso de conversão de link funciona em links internos embutidos em código e os altera para apontar para as URLs externas que os usuários remotos precisam seguir.
 
-A lista completa de marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
-* um
-* áudio
-* base
-* botão
-* div
-* embed
-* formulário
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* MenuItem
-* meta
-* objeto
-* Script
-* source
-* rastrear
-* video
+A lista completa de atributos em marcas de código HTML que o proxy de aplicativo dá suporte à conversão de links para o incluem:
+* a (href)
+* áudio (src)
+* base (href)
+* botão (formaaction)
+* div (dados-plano de fundo, estilo, dados-src)
+* Inserir (src)
+* formulário (ação)
+* quadro (src)
+* cabeçalho (perfil)
+* HTML (manifesto)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* Input (forma, src, value)
+* link (href)
+* MenuItem (ícone)
+* meta (conteúdo)
+* objeto (arquivo morto, dados, codebase)
+* script (src)
+* origem (src)
+* Track (src)
+* vídeo (src, pôster)
 
 Além disso, no CSS, o atributo URL também é traduzido.
 

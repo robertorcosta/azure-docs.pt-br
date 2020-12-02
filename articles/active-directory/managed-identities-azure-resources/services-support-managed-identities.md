@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: eee711917a732bfc24b10db82c75786fd9734b57
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555678"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498023"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -291,8 +291,8 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 |Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
-| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Visualização | ![Disponível][check] |
 
 Veja a lista a seguir para configurar a identidade gerenciada para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure (em regiões em que estiverem disponíveis):
 
@@ -308,8 +308,8 @@ Veja a lista a seguir para configurar a identidade gerenciada para Conjuntos de 
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
-| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Visualização | Visualização |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Visualização | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Visualização | ![Disponível][check] |
 
 Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Virtuais do Azure (em regiões em que estiverem disponíveis):
 

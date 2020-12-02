@@ -3,20 +3,20 @@ title: Monitorar data factories usando o Azure Monitor
 description: Saiba como usar Azure Monitor para monitorar pipelines de Data Factory do/Azure habilitando logs de diagnóstico com informações de Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: af274c9c50b514befb4a3ce5930877edf964d976
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638084"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497887"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -34,9 +34,9 @@ Para saber mais, confira [Visão geral do Azure Monitor](../azure-monitor/overvi
 
 Data Factory armazena dados de execução de pipeline por apenas 45 dias. Use Azure Monitor se desejar manter esses dados por mais tempo. Com o monitor, você pode rotear os logs de diagnóstico para análise em vários destinos diferentes.
 
-* **Conta de armazenamento** : Salve os logs de diagnóstico em uma conta de armazenamento para auditoria ou inspeção manual. Você pode usar as configurações de diagnóstico para especificar o tempo de retenção em dias.
-* **Hub de eventos** : transmita os logs para os hubs de eventos do Azure. Os logs tornam-se entrada para uma solução de serviço de parceiro/análise personalizada, como Power BI.
-* **Log Analytics** : analise os logs com log Analytics. A integração do Data Factory com o Azure Monitor é útil nos seguintes cenários:
+* **Conta de armazenamento**: Salve os logs de diagnóstico em uma conta de armazenamento para auditoria ou inspeção manual. Você pode usar as configurações de diagnóstico para especificar o tempo de retenção em dias.
+* **Hub de eventos**: transmita os logs para os hubs de eventos do Azure. Os logs tornam-se entrada para uma solução de serviço de parceiro/análise personalizada, como Power BI.
+* **Log Analytics**: analise os logs com log Analytics. A integração do Data Factory com o Azure Monitor é útil nos seguintes cenários:
   * Você deseja escrever consultas complexas em um conjunto avançado de métricas que são publicadas pelo Data Factory para monitorar. Você pode criar alertas personalizados nessas consultas via monitor.
   * Você quer monitorar os data factories. Você pode rotear dados de várias fábricas de dados para um único espaço de trabalho de monitoramento.
 
@@ -46,19 +46,19 @@ Você também pode usar uma conta de armazenamento ou um namespace de Hub de eve
 
 Crie ou adicione configurações de diagnóstico para seu data factory.
 
-1. No portal, vá para monitor. Selecione **configurações** configurações de  >  **diagnóstico** .
+1. No portal, vá para monitor. Selecione **configurações** configurações de  >  **diagnóstico**.
 
 1. Selecione o data factory para o qual você deseja definir uma configuração de diagnóstico.
 
-1. Se não existir nenhuma configuração no data factory selecionado, você será solicitado a criar uma configuração. Selecione **Ativar diagnóstico** .
+1. Se não existir nenhuma configuração no data factory selecionado, você será solicitado a criar uma configuração. Selecione **Ativar diagnóstico**.
 
    ![Criar uma configuração de diagnóstico se não existir nenhuma configuração](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   Se houver configurações existentes no data factory, você verá uma lista de configurações já configuradas no data factory. Selecione **Adicionar configuração de diagnóstico** .
+   Se houver configurações existentes no data factory, você verá uma lista de configurações já configuradas no data factory. Selecione **Adicionar configuração de diagnóstico**.
 
    ![Adicionar uma configuração de diagnóstico se houver configurações](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. Dê um nome à sua configuração, selecione **Enviar para log Analytics** e, em seguida, selecione um espaço de trabalho no **espaço de trabalho log Analytics** .
+1. Dê um nome à sua configuração, selecione **Enviar para log Analytics** e, em seguida, selecione um espaço de trabalho no **espaço de trabalho log Analytics**.
 
     * No modo de _diagnóstico do Azure_ , os logs de diagnóstico fluem para a tabela _AzureDiagnostics_ .
 
@@ -75,14 +75,14 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
 
       Você pode selecionar vários logs relevantes para suas cargas de trabalho para enviar para Log Analytics tabelas. Por exemplo, se você não usar SQL Server Integration Services (SSIS), não será necessário selecionar nenhum log do SSIS. Se você quiser registrar em log as operações de início/parada/manutenção do SSIS Integration Runtime (IR), poderá selecionar logs de IR do SSIS. Se você invocar execuções de pacote SSIS via T-SQL no SQL Server Management Studio (SSMS), SQL Server Agent ou outras ferramentas designadas, poderá selecionar logs de pacote SSIS. Se você invocar execuções de pacote SSIS por meio de executar atividades de pacote SSIS em pipelines do ADF, poderá selecionar todos os logs.
 
-    * Se você selecionar as _biométricas_ , várias métricas de ADF serão disponibilizadas para você monitorar ou gerar alertas no, incluindo as métricas para atividades de ADF, pipeline e execuções de gatilho, bem como para operações de ir do SSIS e execuções de pacote SSIS.
+    * Se você selecionar as _biométricas_, várias métricas de ADF serão disponibilizadas para você monitorar ou gerar alertas no, incluindo as métricas para atividades de ADF, pipeline e execuções de gatilho, bem como para operações de ir do SSIS e execuções de pacote SSIS.
 
    ![Nomeie suas configurações e selecione um espaço de trabalho do log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_ . Para obter mais informações, consulte [log Analytics limitações conhecidas](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Clique em **Salvar** .
+1. Selecione **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações dessa data factory. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 
@@ -94,7 +94,7 @@ Essa solução fornece um resumo da integridade geral do seu Data Factory, com o
 * Capacidade de analisar data factory execuções de atividade por tipo
 * Resumo de data factory pipeline superior, erros de atividade
 
-1. Vá para o **Azure Marketplace** , escolha filtro de **análise** e procure **Azure data Factory Analytics (versão prévia)**
+1. Vá para o **Azure Marketplace**, escolha filtro de **análise** e procure **Azure data Factory Analytics (versão prévia)**
 
    ![Vá para "Azure Marketplace", insira "filtro de análise" e selecione "análise de Azure Data Factory (versão prévia")](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
@@ -102,7 +102,7 @@ Essa solução fornece um resumo da integridade geral do seu Data Factory, com o
 
    ![Detalhes sobre "análise de Azure Data Factory (versão prévia)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-1. Selecione **criar** e, em seguida, criar ou selecionar o **espaço de trabalho log Analytics** .
+1. Selecione **criar** e, em seguida, criar ou selecionar o **espaço de trabalho log Analytics**.
 
    ![Criando uma nova solução](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
@@ -127,7 +127,7 @@ Você pode visualizar as métricas anteriores, examinar as consultas por trás d
 ![Representação gráfica das execuções de pipeline por data factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> A análise de Azure Data Factory (versão prévia) envia logs de diagnóstico para tabelas _de destino específicas do recurso_ . Você pode escrever consultas nas seguintes tabelas: _ADFPipelineRun_ , _ADFTriggerRun_ e _ADFActivityRun_ .
+> A análise de Azure Data Factory (versão prévia) envia logs de diagnóstico para tabelas _de destino específicas do recurso_ . Você pode escrever consultas nas seguintes tabelas: _ADFPipelineRun_, _ADFTriggerRun_ e _ADFActivityRun_.
 
 ## <a name="data-factory-metrics"></a>Métricas de Data Factory
 
@@ -269,18 +269,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | **storageAccountId** |String | A ID de recurso da conta de armazenamento para a qual você deseja enviar os logs de diagnóstico. |
 | **serviceBusRuleId** |String | A ID da regra de barramento de serviço do namespace do barramento de serviço no qual você deseja que os hubs de eventos sejam criados para os logs de diagnóstico de streaming. A ID da regra tem o formato `{service bus resource ID}/authorizationrules/{key name}` .|
 | **workspaceId** | Tipo complexo | Uma matriz de detalhamentos de tempo de métrica e suas políticas de retenção. O valor desta propriedade está vazio. |
-|**Métricas**| Valores de parâmetro da execução do pipeline a serem passados para o pipeline invocado| Um objeto JSON que mapeia nomes de parâmetro para valores de argumento. |
+|**métricas**| Valores de parâmetro da execução do pipeline a serem passados para o pipeline invocado| Um objeto JSON que mapeia nomes de parâmetro para valores de argumento. |
 | **logs**| Tipo complexo| O nome de uma categoria de log de diagnóstico para um tipo de recurso. Para obter a lista de categorias de log de diagnóstico para um recurso, execute uma operação obter diagnóstico-configurações. |
 | **category**| String| Uma matriz de categorias de log e suas políticas de retenção. |
 | **timeGrain** | String | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor da propriedade deve ser `PT1M` , que especifica um minuto. |
-| **habilitado**| Booliano | Especifica se a coleta da categoria de métrica ou de log está habilitada para este recurso. |
+| **habilitado**| Boolean | Especifica se a coleta da categoria de métrica ou de log está habilitada para este recurso. |
 | **retentionPolicy**| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou de log. Esta propriedade é usada somente para contas de armazenamento. |
-|**dias**| Int| O número de dias para manter as métricas ou os logs. Se o valor da propriedade for 0, os logs serão mantidos para sempre. Esta propriedade é usada somente para contas de armazenamento. |
+|**dias**| int| O número de dias para manter as métricas ou os logs. Se o valor da propriedade for 0, os logs serão mantidos para sempre. Esta propriedade é usada somente para contas de armazenamento. |
 
 ##### <a name="response"></a>Resposta
 
@@ -442,7 +442,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](/rest/
 }
 ```
 
-| Propriedade | Type | Descrição | Exemplo |
+| Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
 | **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
 | **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -488,7 +488,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](/rest/
 }
 ```
 
-| Propriedade | Type | Descrição | Exemplo |
+| Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
 | **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
 | **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -531,7 +531,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](/rest/
 }
 ```
 
-| Propriedade | Type | Descrição | Exemplo |
+| Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
 | **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
 | **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -568,7 +568,7 @@ Aqui estão os atributos de log das operações de início/parada/manutenção d
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                   | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                   | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | O nome da operação de IR do SSIS                            | `Start/Stop/Maintenance` |
@@ -608,7 +608,7 @@ Aqui estão os atributos de log das condições relacionadas às mensagens de ev
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                          | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                          | Exemplo                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -658,7 +658,7 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                        | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                        | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -707,7 +707,7 @@ Aqui estão os atributos de log das estatísticas de executável que são gerado
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                      | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                      | Exemplo                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -752,7 +752,7 @@ Aqui estão os atributos de log das estatísticas de tempo de execução para co
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                         | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                         | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -800,7 +800,7 @@ Aqui estão os atributos de log de movimentação de dados em cada segmento de p
 }
 ```
 
-| Propriedade                     | Type   | Descrição                                                        | Exemplo                        |
+| Propriedade                     | Tipo   | Descrição                                                        | Exemplo                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | Isso é definido como `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
@@ -829,7 +829,7 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
 * Não há nenhuma coluna de "nível".
 * A coluna dinâmica "Propriedades" é preservada como o tipo de blob JSON dinâmico a seguir.
 
-    | Azure Monitor coluna | Log Analytics coluna | Type |
+    | Azure Monitor coluna | Log Analytics coluna | Tipo |
     | --- | --- | --- |
     | $. Properties. UserProperties | UserProperties | Dinâmico |
     | $. Properties. Anotações | Anotações | Dinâmico |
@@ -839,9 +839,9 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Erro. mensagem | ErrorMessage | string |
     | $. Properties. Ao | Erro | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
-    | $. Properties. Parâmetro | parâmetros | Dinâmico |
+    | $. Properties. Parâmetro | Parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |
-    | $. Properties. Sinalizadores | Marcas | Dinâmico |
+    | $. Properties. Sinalizadores | Marcações | Dinâmico |
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Monitorar operações do SSIS com o Azure Monitor
 
