@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350391"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488775"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ As métricas e os logs que você pode coletar são discutidos nas seções a seg
 
 O Azure Cosmos DB fornece uma experiência personalizada para trabalhar com métricas. Você pode analisar as métricas para o Azure Cosmos DB com métricas de outros serviços do Azure usando o Metrics Explorer abrindo **Métricas** no menu **Azure Monitor**. Consulte [Introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) para obter detalhes sobre como usar essa ferramenta. Você também pode fazer check-out de como monitorar a [latência do lado do servidor](monitor-server-side-latency.md), o uso da unidade de [solicitação](monitor-request-unit-usage.md)e o uso da [unidade de solicitação normalizada](monitor-normalized-request-units.md) para seus recursos de Azure Cosmos DB.
 
-Para obter uma lista das métricas de plataforma coletadas para Azure Cosmos DB, consulte o artigo [monitoramento de métricas de referência de dados de Azure Cosmos DB] monitor-Cosmos-DB-Reference. MD # Metrics).
+Para obter uma lista das métricas de plataforma coletadas para Azure Cosmos DB, consulte o artigo [monitoramento Azure Cosmos DB métricas de referência de dados](monitor-cosmos-db-reference.md#metrics) .
 
 Todas as métricas para o Azure Cosmos DB estão no namespace **Métricas padrão do Cosmos DB**. Você pode usar as seguintes dimensões com essas métricas ao adicionar um filtro a um gráfico:
 

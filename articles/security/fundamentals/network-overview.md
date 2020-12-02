@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699858"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489761"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -332,7 +332,7 @@ A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte
 
 Saiba mais:
 
-* [visão geral da proteção contra DDoS](../../virtual-network/ddos-protection-overview.md)
+* [visão geral da proteção contra DDoS](../../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="azure-front-door"></a>Porta da frente do Azure
 
@@ -391,7 +391,7 @@ Saiba mais:
 
 * [TAP de rede virtual](../../virtual-network/virtual-network-tap-overview.md)
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 

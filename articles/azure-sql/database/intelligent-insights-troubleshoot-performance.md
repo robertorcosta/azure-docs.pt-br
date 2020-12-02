@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782953"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488820"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada com Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,7 +41,7 @@ Intelligent Insights detecta automaticamente problemas de desempenho com base em
 | [Aumento de MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho. | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho. |
 | [Contenção de pagelatch](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho. | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do banco de dados. |
 | [Índice Ausente](intelligent-insights-troubleshoot-performance.md#missing-index) | O índice ausente foi detectado, afetando o desempenho. | Foi detectada a ausência do índice, afetando o desempenho do banco de dados. |
-| [Nova Consulta](intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada uma nova consulta afetando o desempenho geral. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
+| [Nova consulta](intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada uma nova consulta afetando o desempenho geral. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
 | [Aumento da Estatística de Espera](intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Foram detectados tempos de espera de banco de dados maiores que afetam o desempenho. | Foi detectado um aumento dos tempos de espera, afetando o desempenho do banco de dados. |
 | [Contenção de TempDB](intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho. | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do banco de dados. |
 | [Escassez de DTU do pool elástico](intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A escassez de eDTUs disponíveis no pool elástico está afetando o desempenho. | Não disponível para o Azure SQL Instância Gerenciada porque ele usa o modelo vCore. |
@@ -210,7 +210,7 @@ No banco de dados SQL do Azure, considere o uso de [análise de desempenho de co
 
 Esse padrão de desempenho detectável indica uma degradação de desempenho da carga de trabalho no qual o baixo desempenho de consultas é identificado em comparação com a linha de base da carga de trabalho dos últimos sete dias.
 
-Nesse caso, o sistema não pode classificar as consultas com baixo desempenho em outras categorias de desempenho detectáveis padrão, mas ele detectou a estatística de espera responsável pela regressão. Portanto, ela as considera consultas com *estatísticas de espera elevadas* , em que a estatística de espera responsável pela regressão também é exposta.
+Nesse caso, o sistema não pode classificar as consultas com baixo desempenho em outras categorias de desempenho detectáveis padrão, mas ele detectou a estatística de espera responsável pela regressão. Portanto, ela as considera consultas com *estatísticas de espera elevadas*, em que a estatística de espera responsável pela regressão também é exposta.
 
 ### <a name="troubleshooting"></a>Solução de problemas
 

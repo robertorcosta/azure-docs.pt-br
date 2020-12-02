@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369487"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490968"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para a API da Pesquisa Visual do Bing
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
-> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Este artigo descreve os parâmetros e atributos de solicitações enviadas à API da Pesquisa Visual do Bing, bem como o objeto de resposta. 
 
@@ -78,7 +78,7 @@ As solicitações precisam ser enviadas como apenas solicitações HTTP POST.
 
 Veja a seguir os parâmetros de consulta que devem ser especificados pela solicitação. No mínimo, você deve incluir o `mkt` parâmetro de consulta:
 
-| Nome | Valor | Type | Obrigatório |
+| Nome | Valor | Tipo | Obrigatório |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | Um código de país de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se você definir esse parâmetro, também precisará especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing usa o primeiro idioma compatível encontrado na lista de idiomas e combina o idioma com o código do país especificado para determinar o mercado do qual os resultados são retornados. Se a lista de idiomas não incluir um idioma compatível, o Bing encontrará o idioma e o mercado mais próximos que dão suporte à solicitação. Ou ele pode usar um mercado agregado ou padrão para os resultados, em vez daquele especificado.<br /><br /> Você deverá usar esse parâmetro de consulta e o parâmetro de consulta `Accept-Language` somente se especificar vários idiomas; caso contrário, use os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Esse parâmetro e o parâmetro de consulta [](#mkt)mkt&mdash; são mutuamente exclusivos – não especifique ambos. | String | Não       |
 | <a name="mkt"></a>mkt   | O mercado do qual os resultados são obtidos. <br /><br /> **Observação:** Você sempre deve especificar o mercado, se for conhecido. A especificação do mercado ajuda o Bing a encaminhar a solicitação e retornar uma resposta apropriada e ideal.<br /><br /> Esse parâmetro e o parâmetro de consulta [](#cc)cc&mdash; são mutuamente exclusivos – não especifique ambos. | String | Sim      |

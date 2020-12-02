@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 205a290d2483a032ed6b5579dbedd555f9f6d02f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00d0aa10f2beda3d7b8508e5ca823e020dc79d95
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005513"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489132"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS
 
@@ -203,7 +203,7 @@ Os nomes de host e os endereços IP para o cenário apresentado são:
 SAP ASCS, SAP SCS e o novo SAP ERS2, use o nome de host virtual e endereços IP virtuais. No Azure, é necessário um [balanceador de carga](../../../load-balancer/load-balancer-overview.md) para usar um endereço IP virtual. É altamente recomendável usar o [balanceador de carga padrão](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 > [!IMPORTANT]
-> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
 
 
 A lista a seguir mostra a configuração do balanceador de carga (A) SCS/ERS. A configuração para SAP ASCS e ERS2 no executada no mesmo balanceador de carga do Azure.  

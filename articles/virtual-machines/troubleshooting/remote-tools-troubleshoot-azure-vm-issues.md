@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5974388c096c9bc8693c5fc2cf918989c6eadd3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509079"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488724"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Use ferramentas remotas para solucionar problemas do VM do Azure
 
@@ -180,7 +180,7 @@ Execute o seguinte comando com base no local do computador cliente:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Para uma VM Azure Resource Manager, primeiro adicione um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows](../windows/portal-create-fqdn.md). Em seguida, execute o seguinte comando:
+  * Para uma VM Azure Resource Manager, primeiro adicione um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows](../create-fqdn.md). Em seguida, execute o seguinte comando:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

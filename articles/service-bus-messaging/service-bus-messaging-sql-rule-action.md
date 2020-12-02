@@ -3,16 +3,16 @@ title: Sintaxe da ação SQL da regra de assinatura do barramento de serviço do
 description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são gravadas na sintaxe baseada em linguagem SQL que é executada em uma mensagem.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808840"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489387"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxe da ação SQL da regra de assinatura
 
-Uma *ação SQL* é usada para manipular metadados de mensagem depois que uma mensagem é selecionada por um filtro de uma regra de assinatura. É uma expressão de texto que se baseia em um subconjunto do padrão SQL-92. As expressões de ação são usadas com o `sqlExpression` elemento da propriedade ' action ' de um barramento de serviço `Rule` em um [modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento de CLI do Azure `az servicebus topic subscription rule create` comando [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) e várias funções de SDK que permitem o gerenciamento de regras de assinatura.
+Uma *ação SQL* é usada para manipular metadados de mensagem depois que uma mensagem é selecionada por um filtro de uma regra de assinatura. É uma expressão de texto que se baseia em um subconjunto do padrão SQL-92. As expressões de ação são usadas com o `sqlExpression` elemento da propriedade ' action ' de um barramento de serviço `Rule` em um [modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento de CLI do Azure `az servicebus topic subscription rule create` comando [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) e várias funções de SDK que permitem o gerenciamento de regras de assinatura.
   
   
 ```  

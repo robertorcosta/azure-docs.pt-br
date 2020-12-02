@@ -3,12 +3,12 @@ title: Configure sua própria chave para criptografar dados do barramento de ser
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST do barramento de serviço do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 32fcdad28b06df1763ab1efb1740d87d0b247b0a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 35680819350582062dd4227c65f9e72ae8b3ee5c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843393"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489693"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -42,7 +42,7 @@ Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurar um cofre de chaves com chaves
 
-Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente ao namespace do barramento de serviço do Azure. O barramento de serviço dá suporte apenas a Azure Key Vault. Se você habilitar a opção **criptografia com chave gerenciada pelo cliente** na seção anterior, precisará ter a chave importada para Azure Key Vault. Além disso, as chaves devem ter **exclusão reversível** e **não limpar** configuradas para a chave. Essas configurações podem ser configuradas usando o [PowerShell](../key-vault/general/soft-delete-powershell.md) ou a [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
+Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente ao namespace do barramento de serviço do Azure. O barramento de serviço dá suporte apenas a Azure Key Vault. Se você habilitar a opção **criptografia com chave gerenciada pelo cliente** na seção anterior, precisará ter a chave importada para Azure Key Vault. Além disso, as chaves devem ter **exclusão reversível** e **não limpar** configuradas para a chave. Essas configurações podem ser configuradas usando o [PowerShell](../key-vault/general/key-vault-recovery.md) ou a [CLI](../key-vault/general/key-vault-recovery.md).
 
 1. Para criar um novo cofre de chaves, siga o guia de [início rápido](../key-vault/general/overview.md)do Azure Key Vault. Para obter mais informações sobre como importar chaves existentes, consulte [sobre chaves, segredos e certificados](../key-vault/general/about-keys-secrets-certificates.md).
 1. Para ativar a exclusão reversível e limpar a proteção ao criar um cofre, use o comando [AZ keyvault Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) .
