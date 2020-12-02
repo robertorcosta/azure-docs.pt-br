@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f8ec80d178af274c285371b4f53820eb9e41ccf7
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748869"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519154"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -27,11 +27,14 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 
 O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Atualmente, não há suporte para o Azure China 21Vianet.
-
 ## <a name="limitations"></a>Limitações
 
-* Atualmente, não há suporte para clusters particulares.
+Os clusters privados só têm suporte nas seguintes regiões:
+ *  Leste dos EUA
+ *  Oeste dos EUA
+ *  Oeste dos EUA 2
+ *  Centro-Norte dos EUA
+ *  Centro-Oeste dos EUA
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
@@ -48,7 +51,7 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 
 Para criar um novo cluster com o SLA de tempo de atividade, use a CLI do Azure.
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus* :
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 # Create a resource group

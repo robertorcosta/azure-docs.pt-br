@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510260"
+ms.locfileid: "96519205"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do Azure HDInsight para Apache HBase
 
@@ -36,7 +36,7 @@ O recurso de gravações aceleradas resolve o problema de latências de gravaç�
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como habilitar gravações aceleradas para o HBase no HDInsight
 
-Para criar um novo cluster HBase com o recurso de gravações aceleradas, siga as etapas em [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) até chegar à **etapa 3, armazenamento**. Em **configurações do metastore**, marque a caixa de seleção ao lado de **habilitar gravações aceleradas do HBase**. Em seguida, continue com as etapas restantes para a criação do cluster.
+Para criar um novo cluster HBase com o recurso de gravações aceleradas, siga as etapas em [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Na guia **noções básicas** , selecione tipo de cluster como HBase, especifique uma versão de componente e, em seguida, clique na caixa de seleção ao lado de **habilitar gravações aceleradas do HBase**. Em seguida, continue com as etapas restantes para a criação do cluster.
 
 ![Habilitar a opção de gravações aceleradas para o Apache HBase do HDInsight](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
