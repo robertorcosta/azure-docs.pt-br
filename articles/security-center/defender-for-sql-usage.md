@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: a80747a88087e1ad3a70f198a260e41a6848e34f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445662"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512270"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure defender para SQL Servers em computadores 
 
@@ -30,7 +30,7 @@ Você receberá alertas quando ocorrerem atividades suspeitas no banco de dados 
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|O **Azure defender para SQL Servers em computadores** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Versões do SQL protegidas:|SQL Server do Azure (todas as versões cobertas pelo suporte da Microsoft)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China Gov, outros Gov|
@@ -68,7 +68,7 @@ Ambos são descritos abaixo.
 
         ![Localizando seu espaço de trabalho não padrão por título](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. Defina a opção para o **Azure defender para SQL Servers no plano de computadores (versão prévia)** como **ativado**. 
+1. Defina a **opção para o** **Azure defender para SQL Servers em computadores** que planejam. 
 
     ![Página de preços da central de segurança com planos opcionais](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -79,7 +79,7 @@ Ambos são descritos abaixo.
 
 
 1. Opcionalmente, configure a notificação por email para alertas de segurança. 
-    Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas da central de segurança são gerados. O email contém um link direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. Para obter mais informações, consulte [configurar notificações por email para alertas de segurança](security-center-provide-security-contact-details.md).
+    Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas da central de segurança são gerados. O email contém um SK direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. Para obter mais informações, consulte [configurar notificações por email para alertas de segurança](security-center-provide-security-contact-details.md).
 
 
 

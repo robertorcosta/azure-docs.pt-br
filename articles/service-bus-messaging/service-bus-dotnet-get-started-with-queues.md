@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4335c1e81ead36d14ee1794fffbdd4cc1ff72a0a
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029601"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498720"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (.NET)
 Neste tutorial, você criará um aplicativo de console .NET Core para enviar e receber mensagens em uma fila do Barramento de Serviço usando o pacote **Azure.Messaging.ServiceBus**. 
@@ -63,8 +63,7 @@ Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)*
     public static async Task Main(string[] args)
     {    
         const int numberOfMessages = 10;
-        queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
+        
         Console.WriteLine("======================================================");
         Console.WriteLine("Press ENTER key to exit after sending all the messages.");
         Console.WriteLine("======================================================");
@@ -73,8 +72,6 @@ Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)*
         await SendMessagesAsync(numberOfMessages);
 
         Console.ReadKey();
-
-        await queueClient.CloseAsync();
     }
     ```
 1. Diretamente após o método `Main()`, adicione o seguinte método `SendMessagesAsync()` que realiza o trabalho de enviar o número de mensagens especificado pelo método `numberOfMessagesToSend` (atualmente definido como 10):
@@ -292,5 +289,4 @@ Confira os seguintes exemplos e a documentação:
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para .NET – Leiame](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exemplos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Referência da API REST](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [Referência da API REST](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

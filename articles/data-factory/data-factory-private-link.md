@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632678"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511467"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Link privado do Azure para Azure Data Factory
 
@@ -41,7 +41,7 @@ Vários canais de comunicação são necessários entre Azure Data Factory e a r
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Um plano de controle, exigido pelo Data Factory criação e monitoramento. |
 | `*.{region}.datafactory.azure.net` | 443 | Necessárias para que o runtime de integração auto-hospedada se conecte ao serviço do Data Factory. |
-| `*.servicebus.windows.net` | 443 | Exigido pelo tempo de execução de integração auto-hospedado para criação interativa. |
+| `*.servicebus.windows.net` | 443 | Exigido pelo runtime de integração auto-hospedada para criação interativa. |
 | `download.microsoft.com` | 443 | Exigido pelo runtime de integração auto-hospedada para fazer o download das atualizações. |
 
 Com o suporte ao link privado para Azure Data Factory, você pode:
@@ -53,10 +53,10 @@ As comunicações para Azure Data Factory serviço passam pelo link privado e aj
 ![Diagrama de link privado para a arquitetura de Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
 Habilitar o serviço de vínculo privado para cada um dos canais de comunicação anteriores oferece a seguinte funcionalidade:
-- **Com suporte** :
+- **Com suporte**:
    - Você pode criar e monitorar o data factory em sua rede virtual, mesmo se você bloquear todas as comunicações de saída.
    - As comunicações de comando entre o tempo de execução de integração auto-hospedado e o serviço de Azure Data Factory podem ser executadas com segurança em um ambiente de rede privada. O tráfego entre o tempo de execução de integração auto-hospedado e o serviço de Azure Data Factory passa por um link privado. 
-- **Não tem suporte no momento** :
+- **Não tem suporte no momento**:
    - A criação interativa que usa um tempo de execução de integração auto-hospedado, como conexão de teste, lista de pastas de pesquisa e lista de tabelas, obter esquema e Visualizar dados, passa por um link privado.
    - A nova versão do tempo de execução de integração auto-hospedado pode ser baixada automaticamente do centro de download da Microsoft se você habilitar a atualização automática.
 
@@ -65,6 +65,33 @@ Habilitar o serviço de vínculo privado para cada um dos canais de comunicaçã
 
 > [!WARNING]
 > Ao criar um serviço vinculado, verifique se suas credenciais estão armazenadas em um cofre de chaves do Azure. Caso contrário, as credenciais não funcionarão quando você habilitar o link privado no Azure Data Factory.
+
+## <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
+Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o Data Factory é atualizado para um alias em um subdomínio com o prefixo ' privatelink '. Por padrão, também criamos uma [zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-overview), correspondente ao subdomínio ' privatelink ', com os registros de recurso de DNS a para os pontos de extremidade privados.
+
+Quando você resolve a URL do ponto de extremidade data factory de fora da VNet com o ponto de extremidade privado, ele é resolvido para o ponto de extremidade público do serviço de data factory. Quando resolvido da VNet que hospeda o ponto de extremidade privado, a URL do ponto de extremidade de armazenamento é resolvida para o endereço IP do ponto de extremidade privado.
+
+Para o exemplo ilustrado acima, os registros de recurso de DNS para o Data Factory ' datafactorya ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
+
+| Nome | Type | Valor |
+| ---------- | -------- | --------------- |
+| Datafactorya. {região}. datafactory. Azure. net | CNAME   | Datafactorya. {região}. privatelink. datafactory. Azure. net |
+| Datafactorya. {região}. privatelink. datafactory. Azure. net | CNAME   | Ponto de extremidade público do serviço de data factory < > |
+| Ponto de extremidade público do serviço de data factory < >  | A | < endereço IP público do serviço data factory > |
+
+Os registros de recurso DNS para datafactorya, quando resolvidos na VNet que hospeda o ponto de extremidade privado, serão:
+
+| Nome | Type | Valor |
+| ---------- | -------- | --------------- |
+| Datafactorya. {região}. datafactory. Azure. net | CNAME   | Datafactorya. {região}. privatelink. datafactory. Azure. net |
+| Datafactorya. {região}. privatelink. datafactory. Azure. net   | A | < endereço IP do ponto de extremidade privado > |
+
+Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN do ponto de extremidade de Data Factory para o endereço IP do ponto de extremidade privado. Você deve configurar o servidor DNS para delegar seu subdomínio de vínculo privado à zona DNS privada para a VNet ou configurar os registros a para ' datafactorya. {região}. privatelink. datafactory. Azure. net ' com o endereço IP do ponto de extremidade privado.
+
+Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
+- [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para Azure Data Factory
 Você pode criar pontos de extremidade privados usando [o portal do Azure](../private-link/create-private-endpoint-portal.md).

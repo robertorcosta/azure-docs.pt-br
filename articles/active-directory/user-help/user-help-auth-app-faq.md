@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833955"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512198"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -32,6 +32,14 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 **P**: o registro de um dispositivo está concordando para dar acesso à empresa ou ao serviço ao meu dispositivo?
 
 **R**: registrar um dispositivo dá ao seu dispositivo acesso aos serviços da sua organização e não permite que sua organização acesse seu dispositivo.
+
+## <a name="too-many-app-permissions"></a>Muitas permissões de aplicativo
+
+**P**: por que o aplicativo solicita tantas permissões?
+
+**R**: aqui está a lista completa de permissões que podem ser solicitadas e como elas são usadas pelo aplicativo. As permissões específicas que você verá dependem do tipo de telefone que você tem.
+
+- **Local**. Às vezes, sua organização deseja saber seu local antes de permitir que você acesse determinados recursos. O aplicativo solicitará essa permissão somente se sua organização tiver uma política que exija o local. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Suporte a APNs herdado preterido
 
@@ -110,7 +118,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **R**: não, as notificações só funcionam com contas da Microsoft e contas de Azure Active Directory. Se seu trabalho ou escola usa contas do Azure AD, eles podem desativar esse recurso.
 
-### <a name="backup-and-recovery"></a>Backup e recuperação
+### <a name="backup-and-recovery"></a>Backup e descoberta
 
 **P**: Eu recebi um novo dispositivo ou restaurei meu dispositivo de um backup. Como fazer configurar minhas contas no autenticador novamente?
 

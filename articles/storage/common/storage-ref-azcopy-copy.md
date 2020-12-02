@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781729"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512147"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -107,6 +107,14 @@ Carregar arquivos e diretórios usando um token SAS e caracteres curinga (*):
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Carregue arquivos e diretórios na conta de armazenamento do Azure e defina as marcas codificadas da cadeia de caracteres de consulta no BLOB. 
+
+- Para definir as marcas {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, use a seguinte sintaxe: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Chaves e valores são codificados em URL e os pares chave-valor são separados por um e comercial (' & ')
+
+- Ao definir marcas nos BLOBs, há permissões adicionais (' T' para marcas) em SAS sem a qual o serviço dará erro de autorização.
 
 Baixe um único arquivo usando a autenticação OAuth. Se você ainda não fez logon no AzCopy, execute o `azcopy login` comando antes de executar o comando a seguir.
 
@@ -214,9 +222,19 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina as marcas codificadas de cadeia de caracteres de consulta no BLOB. 
+
+- Para definir as marcas {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, use a seguinte sintaxe: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Chaves e valores são codificados em URL e os pares chave-valor são separados por um e comercial (' & ')
+    
+- Ao definir marcas nos BLOBs, há permissões adicionais (' T' para marcas) em SAS sem a qual o serviço dará erro de autorização.
+
 ## <a name="options"></a>Opções
 
 **--backup** Ativa o Windows ' SeBackupPrivilege para carregamentos ou SeRestorePrivilege para downloads, para permitir que o AzCopy Veja e Leia todos os arquivos, independentemente de suas permissões do sistema de arquivos e restaure todas as permissões. Requer que a conta que executa o AzCopy já tenha essas permissões (por exemplo, tenha direitos de administrador ou seja um membro do `Backup Operators` grupo). Esse sinalizador ativa os privilégios que a conta já tem.
+
+**--as marcas de blob** definem as marcas em BLOBs para categorizar os dados em sua conta de armazenamento.
 
 **--blob-Type** cadeia de caracteres define o tipo de blob no destino. Isso é usado para carregar BLOBs e ao copiar entre contas (padrão `Detect` ). Os valores válidos incluem `Detect`, `BlockBlob`, `PageBlob` e `AppendBlob`. Ao copiar entre contas, um valor de `Detect` faz com que o AzCopy use o tipo de blob de origem para determinar o tipo do blob de destino. Ao carregar um arquivo, `Detect` determina se o arquivo é um VHD ou um arquivo VHDX com base na extensão de arquivo. Se o arquivo for ether a um VHD ou arquivo VHDX, AzCopy tratará o arquivo como um blob de páginas. (padrão "detectar")
 
@@ -304,6 +322,6 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [azcopy](storage-ref-azcopy.md)

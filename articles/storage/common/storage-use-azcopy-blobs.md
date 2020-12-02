@@ -4,16 +4,16 @@ description: Este artigo contém uma coleção de comandos de exemplo AzCopy que
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c9c271fed094bf4777af73d588551f66f4db6f5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792847"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512113"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -52,10 +52,11 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Fazer upload de um arquivo
+> * Carregar um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório 
 > * Carregar arquivos específicos
+> * Carregar um arquivo com marcas de índice
 
 > [!TIP]
 > Você pode ajustar sua operação de carregamento usando sinalizadores opcionais. Aqui estão alguns exemplos.
@@ -67,7 +68,7 @@ Esta seção contém os seguintes exemplos:
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
-### <a name="upload-a-file"></a>Fazer upload de um arquivo
+### <a name="upload-a-file"></a>Carregar um arquivo
 
 |    |     |
 |--------|-----------|
@@ -153,6 +154,27 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-after` 
 
 Para referência detalhada, consulte os documentos de referência de [cópia do azcopy](storage-ref-azcopy-copy.md) .
 
+### <a name="upload-a-file-with-index-tags"></a>Carregar um arquivo com marcas de índice
+
+Você pode carregar um arquivo e adicionar [marcas de índice de BLOB (versão prévia)](../blobs/storage-manage-find-blobs.md) ao blob de destino.  
+
+Se você estiver usando a autorização do Azure AD, sua entidade de segurança deverá receber a função de [proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou deverá receber a permissão para a operação do provedor de `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure. Se você estiver usando um token SAS (assinatura de acesso compartilhado), esse token deverá fornecer acesso às marcas do blob por meio da `t` permissão SAS.
+
+Para adicionar marcas, use a `--blob-tags` opção junto com um par chave-valor codificado por URL. Por exemplo, para adicionar uma chave `my tag` e um valor `my tag value` , você adicionaria `--blob-tags='my%20tag=my%20tag%20value'` ao parâmetro de destino. 
+
+Separe várias marcas de índice usando um e comercial ( `&` ).  Por exemplo, se você quiser adicionar uma chave `my second tag` e um valor `my second tag value` , a cadeia de caracteres de opção completa será `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` .
+
+Os exemplos a seguir mostram como usar a `--blob-tags` opção.
+
+|    |     |
+|--------|-----------|
+| **Carregar um arquivo** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Carregar um diretório** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
+| **Carregar conteúdo do diretório** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> Se você especificar um diretório para a origem, todos os BLOBs copiados para o destino terão as mesmas marcas que você especificar no comando.
+
 ## <a name="download-files"></a>Baixar arquivos
 
 Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para baixar BLOBs, diretórios e contêineres em seu computador local.
@@ -199,7 +221,7 @@ Este exemplo resulta em um diretório chamado `C:\myDirectory\myBlobDirectory` q
 
 ### <a name="download-the-contents-of-a-directory"></a>Baixar o conteúdo de um diretório
 
-Você pode baixar o conteúdo de um diretório sem copiar o próprio diretório contido usando o símbolo curinga (*).
+Você pode fazer download do conteúdo de um diretório sem copiar o próprio diretório usando o símbolo curinga (*).
 
 > [!NOTE]
 > Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico.
@@ -297,6 +319,7 @@ Esta seção contém os seguintes exemplos:
 > * Copiar um diretório para outra conta de armazenamento
 > * Copiar um contêiner para outra conta de armazenamento
 > * Copiar todos os contêineres, diretórios e arquivos para outra conta de armazenamento
+> * Copiar BLOBs para outra conta de armazenamento com marcas de índice
 
 Esses exemplos também funcionam com contas que têm um namespace hierárquico. O [acesso de vários protocolos no data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) permite que você use a mesma sintaxe de URL ( `blob.core.windows.net` ) nessas contas.
 
@@ -321,6 +344,9 @@ Use a mesma sintaxe de URL ( `blob.core.windows.net` ) para contas que têm um n
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Exemplo** (namespace hierárquico) | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
+> [!NOTE]
+> Se os blobs de origem tiverem marcas de índice e você quiser manter essas marcas, você precisará reaplicá-las aos blobs de destino. Para obter informações sobre como definir marcas de índice, consulte a seção [copiar BLOBs para outra conta de armazenamento com marcas de índice](#copy-between-accounts-and-add-index-tags) deste artigo.  
+
 ### <a name="copy-a-directory-to-another-storage-account"></a>Copiar um diretório para outra conta de armazenamento
 
 Use a mesma sintaxe de URL ( `blob.core.windows.net` ) para contas que têm um namespace hierárquico.
@@ -341,6 +367,9 @@ Use a mesma sintaxe de URL ( `blob.core.windows.net` ) para contas que têm um n
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 | **Exemplo** (namespace hierárquico)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
+> [!NOTE]
+> Se os blobs de origem tiverem marcas de índice e você quiser manter essas marcas, você precisará reaplicá-las aos blobs de destino. Para obter informações sobre como definir marcas de índice, consulte a seção [copiar BLOBs para outra conta de armazenamento com marcas de índice](#copy-between-accounts-and-add-index-tags) deste artigo. 
+
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Copiar todos os contêineres, diretórios e BLOBs para outra conta de armazenamento
 
 Use a mesma sintaxe de URL ( `blob.core.windows.net` ) para contas que têm um namespace hierárquico.
@@ -350,6 +379,36 @@ Use a mesma sintaxe de URL ( `blob.core.windows.net` ) para contas que têm um n
 | **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 | **Exemplo** (namespace hierárquico)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+
+> [!NOTE]
+> Se os blobs de origem tiverem marcas de índice e você quiser manter essas marcas, você precisará reaplicá-las aos blobs de destino. Para obter informações sobre como definir marcas de índice, consulte a seção **copiar BLOBs para outra conta de armazenamento com marcas de índice** abaixo. 
+
+<a id="copy-between-accounts-and-add-index-tags"></a>
+
+### <a name="copy-blobs-to-another-storage-account-with-index-tags"></a>Copiar BLOBs para outra conta de armazenamento com marcas de índice
+
+Você pode copiar BLOBs para outra conta de armazenamento e adicionar [marcas de índice de BLOB (versão prévia)](../blobs/storage-manage-find-blobs.md) ao blob de destino.
+
+Se você estiver usando a autorização do Azure AD, sua entidade de segurança deverá receber a função de [proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou deverá receber a permissão para a operação do provedor de `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) por meio de uma função personalizada do Azure. Se você estiver usando um token SAS (assinatura de acesso compartilhado), esse token deverá fornecer acesso às marcas do blob por meio da `t` permissão SAS.
+
+Para adicionar marcas, use a `--blob-tags` opção junto com um par chave-valor codificado por URL. 
+
+Por exemplo, para adicionar uma chave `my tag` e um valor `my tag value` , você adicionaria `--blob-tags='my%20tag=my%20tag%20value'` ao parâmetro de destino. 
+
+Separe várias marcas de índice usando um e comercial ( `&` ).  Por exemplo, se você quiser adicionar uma chave `my second tag` e um valor `my second tag value` , a cadeia de caracteres de opção completa será `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` .
+
+Os exemplos a seguir mostram como usar a `--blob-tags` opção.
+
+|    |     |
+|--------|-----------|
+| **Blob** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Diretório** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Contêiner** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Conta** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> Se você especificar um diretório, um contêiner ou uma conta para a origem, todos os BLOBs copiados para o destino terão as mesmas marcas que você especificar no comando. 
+
 
 ## <a name="synchronize-files"></a>Sincronizar arquivos
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630270"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512164"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -137,7 +137,7 @@ Provavelmente, você precisará implantar várias contas de armazenamento do Azu
 
 Você pode usar a mesma assinatura usada para sua implantação do StorSimple ou outra. A única limitação é que sua assinatura deve estar no mesmo locatário Azure Active Directory que a assinatura do StorSimple. Considere mover a assinatura do StorSimple para o locatário correto antes de iniciar uma migração. Você só pode mover a assinatura inteira. Os recursos individuais do StorSimple não podem ser movidos para um locatário ou assinatura diferente.
 
-#### <a name="resource-group"></a>Grupo de recursos
+#### <a name="resource-group"></a>Resource group
 
 Os grupos de recursos estão ajudando com a organização de recursos e permissões de gerenciamento de administração. Saiba mais sobre [grupos de recursos no Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -175,7 +175,7 @@ Há várias configurações de replicação disponíveis. Saiba mais sobre os di
 Escolha uma das duas opções a seguir:
 
 * *LRS (armazenamento com redundância local)*.
-* *ZRS (armazenamento com redundância de zona)* , que não está disponível em todas as regiões do Azure.
+* *ZRS (armazenamento com redundância de zona)*, que não está disponível em todas as regiões do Azure.
 
 > [!NOTE]
 > Somente os tipos de redundância LRS e ZRS são compatíveis com os grandes compartilhamentos de arquivos do Azure 100-TiB-Capacity.
@@ -320,8 +320,8 @@ No final da fase 3, você terá executado os trabalhos do serviço de transforma
 
 Há duas estratégias principais para acessar seus compartilhamentos de arquivos do Azure:
 
-* **Sincronização de arquivos do Azure** : [implante sincronização de arquivos do Azure](#deploy-azure-file-sync) em uma instância local do Windows Server. Sincronização de Arquivos do Azure tem todas as vantagens de um cache local, assim como o StorSimple.
-* **Acesso direto ao compartilhamento** : [implantar acesso direto ao compartilhamento](#deploy-direct-share-access). Use essa estratégia se o cenário de acesso para um determinado compartilhamento de arquivos do Azure não se beneficiar do cache local ou se você não tiver mais a capacidade de hospedar uma instância do Windows Server local. Aqui, seus usuários e aplicativos continuarão a acessar compartilhamentos SMB pelo protocolo SMB. Esses compartilhamentos não estão mais em um servidor local, mas diretamente na nuvem.
+* **Sincronização de arquivos do Azure**: [implante sincronização de arquivos do Azure](#deploy-azure-file-sync) em uma instância local do Windows Server. Sincronização de Arquivos do Azure tem todas as vantagens de um cache local, assim como o StorSimple.
+* **Acesso direto ao compartilhamento**: [implantar acesso direto ao compartilhamento](#deploy-direct-share-access). Use essa estratégia se o cenário de acesso para um determinado compartilhamento de arquivos do Azure não se beneficiar do cache local ou se você não tiver mais a capacidade de hospedar uma instância do Windows Server local. Aqui, seus usuários e aplicativos continuarão a acessar compartilhamentos SMB pelo protocolo SMB. Esses compartilhamentos não estão mais em um servidor local, mas diretamente na nuvem.
 
 Você já deve ter decidido qual é a melhor opção para você na [fase 1](#phase-1-prepare-for-migration) deste guia.
 
@@ -418,8 +418,8 @@ Quando você usa Sincronização de Arquivos do Azure para um compartilhamento d
 Você pode usar o portal do Azure para ver quando o namespace foi totalmente entregue.
 
 * Entre no portal do Azure e vá para o grupo de sincronização. Verifique o status de sincronização do seu grupo de sincronização e do ponto de extremidade do servidor.
-* A direção interessante é baixar. Se o ponto de extremidade do servidor for provisionado recentemente, ele mostrará a **sincronização inicial** , o que indica que o namespace ainda está sendo encerrado.
-Após essa alteração para qualquer coisa, exceto a **sincronização inicial** , o namespace será totalmente preenchido no servidor. Agora você pode continuar com um RoboCopy local.
+* A direção interessante é baixar. Se o ponto de extremidade do servidor for provisionado recentemente, ele mostrará a **sincronização inicial**, o que indica que o namespace ainda está sendo encerrado.
+Após essa alteração para qualquer coisa, exceto a **sincronização inicial**, o namespace será totalmente preenchido no servidor. Agora você pode continuar com um RoboCopy local.
 
 #### <a name="windows-server-event-viewer"></a>Visualizador de Eventos do Windows Server
 
@@ -429,7 +429,7 @@ Você também pode usar o Visualizador de Eventos em sua instância do Windows S
 1. Vá para e abra **Microsoft\FileSync\Agent\Telemetry**.
 1. Procure o **evento 9102** mais recente, que corresponde a uma sessão de sincronização concluída.
 1. Selecione **detalhes** e confirme que você está observando um evento em que o valor de **SyncDirection** é **baixado**.
-1. Para o momento em que o namespace concluiu o download para o servidor, haverá um único evento com **cenário** , o valor **FullGhostedSync** e **HRESULT**  =  **0**.
+1. Para o momento em que o namespace concluiu o download para o servidor, haverá um único evento com **cenário**, o valor **FullGhostedSync** e **HRESULT**  =  **0**.
 1. Se você perder esse evento, também poderá procurar outros **eventos 9102** com o **SyncDirection**  =  **Download** e o **cenário**  =  **"RegularSync"**. A localização de um desses eventos também indica que o namespace concluiu o download e a sincronização progrediu para sessões de sincronização regulares, se há alguma coisa a ser sincronizada ou não no momento.
 
 ### <a name="a-final-robocopy"></a>Um RoboCopy final
@@ -448,7 +448,7 @@ Neste ponto, há diferenças entre sua instância local do Windows Server e o di
 O RoboCopy tem vários parâmetros. O exemplo a seguir demonstra um comando concluído e uma lista de motivos para escolher esses parâmetros.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Plano de fundo:
@@ -475,6 +475,14 @@ Plano de fundo:
    :::column-end:::
    :::column span="1":::
       Saídas para a janela do console. Usado em conjunto com a saída para um arquivo de log.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Omite o log de progresso para manter o log legível.
    :::column-end:::
 :::row-end:::
 :::row:::

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488172"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511994"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -84,7 +84,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
 * O Azure NetApp Files dá suporte à [assinatura LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), que permite a transmissão segura de tráfego LDAP entre o serviço de Azure NetApp Files e os [controladores de domínio de Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)de destino. Se você estiver seguindo as diretrizes do Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) para autenticação LDAP, habilite o recurso de assinatura ldap no Azure NetApp files marcando a caixa **assinatura LDAP** na janela [ingressar Active Directory](#create-an-active-directory-connection) . 
 
-    A configuração de [Associação de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) não tem nenhum efeito no serviço de Azure NetApp files. 
+    A configuração de [Associação de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) sozinha não tem nenhum efeito no serviço de Azure NetApp files. No entanto, se você usar a associação de canal LDAP e o LDAP seguro (por exemplo, LDAPs ou `start_tls` ), a criação do volume SMB falhará.
 
 Confira as [Perguntas frequentes sobre SMB](./azure-netapp-files-faqs.md#smb-faqs) do Azure NetApp Files para obter informações adicionais sobre o AD. 
 
@@ -119,10 +119,10 @@ Outras considerações de AADDS que se aplicam ao Azure NetApp Files:
 
 Ao criar uma conexão do Active Directory, observe as seguintes especificações para o AADDS:
 
-* Você pode encontrar informações sobre **DNS primário** , **DNS secundário** e **Nome de Domínio DNS do AD** no menu AADDS.  
+* Você pode encontrar informações sobre **DNS primário**, **DNS secundário** e **Nome de Domínio DNS do AD** no menu AADDS.  
 Para servidores DNS, dois endereços IP serão usados para configurar a conexão do Active Directory. 
 * O **caminho da unidade organizacional** é `OU=AADDC Computers`.  
-Essa configuração é definida em **Conexões do Active Directory** em **Conta do NetApp** :
+Essa configuração é definida em **Conexões do Active Directory** em **Conta do NetApp**:
 
   ![Caminho da unidade organizacional](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 

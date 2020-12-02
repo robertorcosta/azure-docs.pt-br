@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492005"
+ms.locfileid: "96512062"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -74,11 +74,12 @@ Se o aplicativo que você está usando for de thread único, essa configuração
 
 ### <a name="cause"></a>Causa
 
-A VM (máquina virtual) do cliente pode estar localizada em uma região diferente do compartilhamento de arquivos.
+A VM (máquina virtual) do cliente pode estar localizada em uma região diferente do compartilhamento de arquivos. Outro motivo para alta latência pode ser devido à latência causada pelo cliente ou pela rede.
 
 ### <a name="solution"></a>Solução
 
 - Execute o aplicativo de uma VM que está localizada na mesma região que o compartilhamento de arquivos.
+- Para sua conta de armazenamento, examine as métricas de transação **SuccessE2ELatency** e  **SuccessServerLatency** por meio de **Azure monitor** em portal do Azure. Uma grande diferença entre os valores de métricas SuccessE2ELatency e SuccessServerLatency é uma indicação de latência que provavelmente é causada pela rede ou pelo cliente. Consulte [métricas de transação](storage-files-monitoring-reference.md#transaction-metrics) na referência de dados de monitoramento de arquivos do Azure.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>O cliente não consegue obter a taxa de transferência máxima com suporte pela rede
 
