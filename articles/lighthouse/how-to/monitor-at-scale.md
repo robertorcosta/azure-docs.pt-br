@@ -3,12 +3,12 @@ title: Monitorar recursos delegados em escala
 description: Saiba como usar efetivamente os logs de Azure Monitor de maneira escalonável nos locatários do cliente que você está gerenciando.
 ms.date: 10/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e5c98b3b62a8fbc953a29cf51ac527e5de21110
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735854"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461513"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados em escala
 
@@ -44,7 +44,7 @@ Depois de implantar suas políticas, os dados serão registrados nos espaços de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Explore esta [pasta de trabalho de exemplo criada pelo MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que controla os relatórios de conformidade de patch [consultando gerenciamento de atualizações logs](../../automation/update-management/update-mgmt-query-logs.md) em vários espaços de trabalho do log Analytics. 
+- Explore esta [pasta de trabalho de exemplo criada pelo MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que controla os relatórios de conformidade de patch [consultando gerenciamento de atualizações logs](../../automation/update-management/query-logs.md) em vários espaços de trabalho do log Analytics. 
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml).
 - Saiba mais sobre [os logs de Azure monitor](../../azure-monitor/platform/data-platform-logs.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).

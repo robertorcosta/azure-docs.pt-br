@@ -11,19 +11,19 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672080"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462122"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Ele fornece recursos avançados para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos de dado.
+A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Fornece as funcionalidades avançadas para descobrir, classificar, rotular e relatar os dados confidenciais nos seus bancos de dados.
 
 Seus dados mais confidenciais podem incluir informações comerciais, financeiras, de saúde ou pessoais. Descobrir e classificar esses dados pode desempenhar uma função dinâmica na abordagem de proteção de informações da sua organização. Isso pode servir como infraestrutura para:
 
@@ -55,8 +55,8 @@ Esta seção descreve as etapas para:
 
 A classificação inclui dois atributos de metadados:
 
-- **Rótulos** : os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna.  
-- **Tipos de informações** : atributos que fornecem informações mais granulares sobre o tipo de dados armazenados na coluna.
+- **Rótulos**: os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna.  
+- **Tipos de informações**: atributos que fornecem informações mais granulares sobre o tipo de dados armazenados na coluna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definir e personalizar sua taxonomia de classificação
 
@@ -77,7 +77,9 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 
-1. Vá para **descoberta de dados & classificação** no título segurança em seu painel de banco de dados SQL do Azure. A guia Visão geral inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 4](#step-4).
+1. Vá para **descoberta de dados & classificação** no título **segurança** em seu painel de banco de dados SQL do Azure. A guia Visão geral inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 4](#step-4).
+
+    ![Visão geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para baixar um relatório no formato do Excel, selecione **Exportar** no menu superior do painel.
 
@@ -91,7 +93,9 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
    - Para aceitar uma recomendação para uma coluna específica, marque a caixa de seleção na coluna à esquerda da linha relevante. Para marcar todas as recomendações como aceitas, marque a caixa de seleção mais à esquerda no cabeçalho da tabela de recomendações.
 
-   - Para aplicar as recomendações selecionadas, selecione **aceitar recomendações selecionadas** .
+   - Para aplicar as recomendações selecionadas, selecione **aceitar recomendações selecionadas**.
+
+   ![Recomendações para classificação](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. Você também pode classificar colunas manualmente, como uma alternativa ou além da classificação baseada em recomendação:
 
@@ -101,11 +105,14 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
    1. Selecione **Adicionar classificação** na parte inferior da janela de contexto.
 
-1. Para concluir sua classificação e rotular de forma persistente (marca) as colunas do banco de dados com os novos metadados de classificação, selecione **salvar** no menu superior da janela.
+   ![Adicionar a classificação manualmente](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Para concluir sua classificação e rotular de forma persistente (marca) as colunas do banco de dados com os novos metadados de classificação, selecione **salvar** na página **classificação** .
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados confidenciais
 
-Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Veja um exemplo:
+Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Aqui está um exemplo:
 
 ![Log de auditoria](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 

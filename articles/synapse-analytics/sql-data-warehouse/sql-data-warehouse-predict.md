@@ -1,6 +1,6 @@
 ---
 title: Pontuar modelos de aprendizado de máquina com previsão
-description: Saiba como pontuar modelos de aprendizado de máquina usando a função de previsão T-SQL no Synapse SQL.
+description: Saiba como pontuar modelos de aprendizado de máquina usando a função de previsão T-SQL no pool SQL dedicado.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325385"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460535"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Pontuar modelos de aprendizado de máquina com previsão
 
-Synapse SQL fornece a capacidade de pontuar modelos de aprendizado de máquina usando a linguagem T-SQL familiar. Com a [previsão](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)do T-SQL, você pode trazer seus modelos de aprendizado de máquina existentes treinados com dados históricos e pontua-los dentro dos limites de segurança do seu data warehouse. A função PREDICT usa um modelo de [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esse recurso elimina a etapa de mover dados valiosos para fora do data warehouse para pontuação. Ele visa capacitar os profissionais de dados a implantar facilmente modelos de aprendizado de máquina com a interface T-SQL familiar, bem como colaborar perfeitamente com cientistas de dados trabalhando com a estrutura certa para sua tarefa.
+O pool SQL dedicado fornece a capacidade de pontuar modelos de aprendizado de máquina usando a linguagem T-SQL familiar. Com a [previsão](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)do T-SQL, você pode trazer seus modelos de aprendizado de máquina existentes treinados com dados históricos e pontua-los dentro dos limites de segurança do seu data warehouse. A função PREDICT usa um modelo de [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esse recurso elimina a etapa de mover dados valiosos para fora do data warehouse para pontuação. Ele visa capacitar os profissionais de dados a implantar facilmente modelos de aprendizado de máquina com a interface T-SQL familiar, bem como colaborar perfeitamente com cientistas de dados trabalhando com a estrutura certa para sua tarefa.
 
 > [!NOTE]
 > Atualmente, não há suporte para essa funcionalidade no pool SQL sem servidor.
@@ -31,9 +31,9 @@ A funcionalidade requer que o modelo seja treinado fora do Synapse SQL. Depois d
 
 ## <a name="training-the-model"></a>Treinando o modelo
 
-Synapse SQL espera um modelo pré-treinado. Tenha em mente os seguintes fatores ao treinar um modelo de aprendizado de máquina que é usado para executar previsões no Synapse SQL.
+O pool SQL dedicado espera um modelo pré-treinado. Lembre-se dos seguintes fatores ao treinar um modelo de aprendizado de máquina que é usado para executar previsões no pool do SQL dedicado.
 
-- Synapse SQL só dá suporte a modelos de formato ONNX. ONNX é um formato de modelo de software livre que permite que você troque modelos entre várias estruturas para habilitar a interoperabilidade. Você pode converter seus modelos existentes no formato ONNX usando estruturas que dão suporte a ele nativamente ou que convertidam pacotes disponíveis. Por exemplo, o pacote [sklearn-onnx](https://github.com/onnx/sklearn-onnx) converte os modelos scikit-Learn para onnx. O [repositório GitHub ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format) fornece uma lista de estruturas e exemplos com suporte.
+- O pool SQL dedicado só dá suporte a modelos de formato ONNX. ONNX é um formato de modelo de software livre que permite que você troque modelos entre várias estruturas para habilitar a interoperabilidade. Você pode converter seus modelos existentes no formato ONNX usando estruturas que dão suporte a ele nativamente ou que convertidam pacotes disponíveis. Por exemplo, o pacote [sklearn-onnx](https://github.com/onnx/sklearn-onnx) converte os modelos scikit-Learn para onnx. O [repositório GitHub ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format) fornece uma lista de estruturas e exemplos com suporte.
 
    Se você estiver usando o [ml automatizado](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) para treinamento, certifique-se de definir o parâmetro *enable_onnx_compatible_models* como true para produzir um modelo de formato onnx. O [Notebook Machine Learning automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) mostra um exemplo de como usar o AutoML para criar um modelo de aprendizado de máquina do formato ONNX.
 
@@ -47,7 +47,7 @@ Synapse SQL espera um modelo pré-treinado. Tenha em mente os seguintes fatores 
 
 ## <a name="loading-the-model"></a>Carregando o modelo
 
-O modelo é armazenado em uma tabela de usuário do SQL do Synapse como uma cadeia de caracteres hexadecimal. Colunas adicionais, como ID e descrição, podem ser adicionadas à tabela modelo para identificar o modelo. Use varbinary (max) como o tipo de dados da coluna de modelo. Este é um exemplo de código para uma tabela que pode ser usada para armazenar modelos:
+O modelo é armazenado em uma tabela de usuário do pool do SQL dedicada como uma cadeia de caracteres hexadecimal. Colunas adicionais, como ID e descrição, podem ser adicionadas à tabela modelo para identificar o modelo. Use varbinary (max) como o tipo de dados da coluna de modelo. Este é um exemplo de código para uma tabela que pode ser usada para armazenar modelos:
 
 ```sql
 -- Sample table schema for storing a model and related data
@@ -66,7 +66,7 @@ GO
 
 ```
 
-Depois que o modelo for convertido em uma cadeia de caracteres hexadecimal e a definição de tabela especificada, use o [comando de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) ou o polybase para carregar o modelo na tabela SQL Synapse. O exemplo de código a seguir usa o comando de cópia para carregar o modelo.
+Depois que o modelo for convertido em uma cadeia de caracteres hexadecimal e a definição de tabela especificada, use o [comando de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) ou o polybase para carregar o modelo na tabela de pools SQL dedicada. O exemplo de código a seguir usa o comando de cópia para carregar o modelo.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location

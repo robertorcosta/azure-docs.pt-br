@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917912"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460064"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault ao Link Privado do Azure
 
@@ -226,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Verifique se você tem um recurso de Zona DNS Privada. 
     1. Você precisa ter um recurso de Zona DNS Privada com o nome exato: privatelink.vaultcore.azure.net. 
-    2. Para saber como configurá-lo, confira o link a seguir. [Zonas DNS Privadas](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Para saber como configurá-lo, confira o link a seguir. [Zonas DNS Privadas](../../dns/private-dns-privatednszone.md)
     
 * Confirme se a Zona DNS Privada não está vinculada à Rede Virtual. Se o endereço IP público ainda está sendo retornado, talvez seja esse o problema. 
     1. Se a Zona DNS Privada não estiver vinculada à rede virtual, a consulta DNS proveniente da rede virtual retornará o endereço IP público do cofre de chaves. 
     2. Navegue até o recurso Zona DNS Privada no portal do Azure e clique na opção Links de rede virtual. 
     4. A rede virtual que executará chamadas para o cofre de chaves deve estar listada. 
     5. Se não estiver, adicione-a. 
-    6. Para ver as etapas detalhadas, confira o documento a seguir [Vincular Rede Virtual a Zona DNS Privada](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Para ver as etapas detalhadas, confira o documento a seguir [Vincular Rede Virtual a Zona DNS Privada](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Verifique se não há um registro A ausente para o cofre de chaves na Zona DNS Privada. 
     1. Navegue até a página da Zona DNS Privada. 

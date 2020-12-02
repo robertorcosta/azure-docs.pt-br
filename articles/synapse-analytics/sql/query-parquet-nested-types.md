@@ -1,6 +1,6 @@
 ---
-title: Consultar tipos aninhados do parquet usando o pool SQL sem servidor (visualização)
-description: Neste artigo, você aprenderá a consultar os tipos aninhados do parquet usando o pool SQL sem servidor (versão prévia).
+title: Consultar tipos aninhados do parquet usando o pool SQL sem servidor
+description: Neste artigo, você aprenderá a consultar os tipos aninhados do parquet usando o pool SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685708"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462564"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o pool SQL sem servidor (versão prévia) na análise de Synapse do Azure
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o pool SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics. A consulta lerá os tipos aninhados parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor no Azure Synapse Analytics. A consulta lerá os tipos aninhados parquet.
 Tipos aninhados são estruturas complexas que representam objetos ou matrizes. Tipos aninhados podem ser armazenados em: 
 - [Parquet](query-parquet-files.md), onde você pode ter várias colunas complexas que contêm matrizes e objetos.
 - [Arquivos JSON](query-json-files.md)hierárquicos, nos quais você pode ler um documento JSON complexo como uma única coluna.

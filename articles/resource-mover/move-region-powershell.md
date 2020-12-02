@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/30/2020
 ms.author: raynew
-ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 0aca0e49d72025686cf44d434fa7a43ae0c86e0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543843"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461103"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Mover recursos entre regiões no PowerShell
 
@@ -61,7 +61,7 @@ Connect-AzAccount – Subscription "<subscription-id>"
 Crie um grupo de recursos para manter os metadados da coleção de movimentação e as informações de configuração.
 
 ```azurepowershell-interactive
-# Sign in to an Azure subscription
+# Create the resource group for metadata
 New-AzResourceGroup -Name MoveCollection-centralus-westcentralus -Location "East US 2"
 ```
 
@@ -89,7 +89,7 @@ While(((Get-AzResourceProvider -ProviderNamespace Microsoft.Migrate)| where {$_.
 
 O objeto Movecollection armazena metadados e informações de configuração sobre os recursos que você deseja mover.
 
-- Para que o objeto Movecollection acesse a assinatura na qual o serviço Azure Resource mover está localizado, ele precisa de uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como MSI (identificador de serviço gerenciado)) que é confiável para a assinatura.
+- Para que o objeto Movecollection acesse a assinatura na qual o serviço do Azure Resource mover está localizado, ele precisa de uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como identidade de serviço gerenciada (MSI)) que é confiável para a assinatura.
 - A identidade é atribuída à função colaborador ou administrador de acesso do usuário para a assinatura de origem.
 - Para atribuir uma função à identidade, você precisa de uma função na assinatura (como proprietário ou administrador de acesso do usuário), com estas permissões:
     -  Microsoft.Authorization/roleAssignments/write
@@ -98,7 +98,7 @@ O objeto Movecollection armazena metadados e informações de configuração sob
 
 ```azurepowershell-interactive
 # Create a MoveCollection object
-New-AzResourceMoverMoveCollection -Name "MoveCollection-centralus-westcentralus " -ResourceGroupName "RegionMoveRG-centralus-westcentralus " -SubscriptionId "<subscription-id>" -SourceRegion "centralus" -TargetRegion "westcentralus" -Location  "East US 2" -IdentityType SystemAssigned
+New-AzResourceMoverMoveCollection -Name "MoveCollection-centralus-westcentralus" -ResourceGroupName "RegionMoveRG-centralus-westcentralus" -SubscriptionId "<subscription-id>" -SourceRegion "centralus" -TargetRegion "westcentralus" -Location  "East US 2" -IdentityType SystemAssigned
 ```
 **Saída esperada**:
 
@@ -115,7 +115,7 @@ Defina a ID da assinatura, recupere a entidade de identidade do objeto Movecolle
 $subscriptionId = "<subscription-id>"
 
 # Retrieve the principal managed identity of the MoveCollection
-$moveCollection = Get-AzResourceMoverMoveCollection -SubscriptionId $subscriptionId -ResourceGroupName "RegionMoveRG-centralus-westcentralus " -Name "MoveCollection-centralus-westcentralus "
+$moveCollection = Get-AzResourceMoverMoveCollection -SubscriptionId $subscriptionId -ResourceGroupName "RegionMoveRG-centralus-westcentralus" -Name "MoveCollection-centralus-westcentralus"
 
 # Set the IdentityPrincipalID
 $identityPrincipalId = $moveCollection.IdentityPrincipalId
@@ -124,7 +124,6 @@ $identityPrincipalId = $moveCollection.IdentityPrincipalId
 New-AzRoleAssignment -ObjectId $identityPrincipalId -RoleDefinitionName Contributor -Scope "/subscriptions/$subscriptionId"
 
 New-AzRoleAssignment -ObjectId $identityPrincipalId -RoleDefinitionName "User Access Administrator" -Scope "/subscriptions/$subscriptionId"
-
 ```
 
 ## <a name="add-resources-to-the-move-collection"></a>Adicionar recursos à coleção de movimentação
@@ -143,7 +142,7 @@ Get-AzResource -Name PSDemoVM -ResourceGroupName PSDemoRM
 
 ```azurepowershell-interactive
 # Add the resource to the move collection
-New-AzResourceMoverMoveResource -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -MoveCollectionName “MoveCollection-centralus-westcentralus ” -SourceId “/subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/PSDemoRM/providers/Microsoft.Compute/virtualMachines/PSDemoVM” -Name “PSDemoVM” -ResourceSettingResourceType “ Microsoft.Compute/virtualMachines” -ResourceSettingTargetResourceName “PSDemoVM”
+New-AzResourceMoverMoveResource -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “MoveCollection-centralus-westcentralus” -SourceId “/subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/PSDemoRM/providers/Microsoft.Compute/virtualMachines/PSDemoVM” -Name “PSDemoVM” -ResourceSettingResourceType “Microsoft.Compute/virtualMachines” -ResourceSettingTargetResourceName “PSDemoVM”
 ```
 
 **Expected output** 
@@ -169,7 +168,7 @@ Se o recurso que você deseja mover tiver dependências de outros recursos, voc�
 
 ```azurepowershell-interactive
 # Identify dependencies
-Get-AzResourceMoverUnresolvedDependency -MoveCollectionName “MoveCollection-centralus-westcentralus ” -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -SubscriptionId  “<subscription-id>”
+Get-AzResourceMoverUnresolvedDependency -MoveCollectionName “MoveCollection-centralus-westcentralus” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -SubscriptionId  “<subscription-id>”
 ```
 
 **Saída esperada**
@@ -192,8 +191,7 @@ Recupere o nome da NIC e o tipo e adicione-o à coleção.
 
 ```azurepowershell-interactive
 # Get the NIC name and resource type
-Get-AzResource -ResourceId “/subscriptions/ <subscription-id> /resourcegroups/psdemorm/providers/microsoft.network/networkinterfaces/psdemovm62”
-
+Get-AzResource -ResourceId “/subscriptions/<subscription-id>/resourcegroups/psdemorm/providers/microsoft.network/networkinterfaces/psdemovm62”
 ```
 
 **Saída esperada**
@@ -204,7 +202,7 @@ Agora, adicione a NIC à coleção move. Este exemplo fornece o mesmo nome para 
 
 ```azurepowershell-interactive
 # Add the NIC to the collection. 
-New-AzResourceMoverMoveResource -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “MoveCollection-centralus-westcentralus ” -SourceId “/subscriptions/<subscription-id>/resourceGroups/PSDemoRM/providers/Microsoft.Network/networkInterfaces/psdemovm62” -Name “psdemovm62” -ResourceSettingResourceType “Microsoft.Network/networkInterfaces” -ResourceSettingTargetResourceName “psdemovm62”
+New-AzResourceMoverMoveResource -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “MoveCollection-centralus-westcentralus” -SourceId “/subscriptions/<subscription-id>/resourceGroups/PSDemoRM/providers/Microsoft.Network/networkInterfaces/psdemovm62” -Name “psdemovm62” -ResourceSettingResourceType “Microsoft.Network/networkInterfaces” -ResourceSettingTargetResourceName “psdemovm62”
 ```
 
 **Saída esperada**
@@ -230,7 +228,7 @@ New-AzResourceMoverMoveResource -SubscriptionId “<subscription-id>” -Resourc
 Verifique se há dependências ausentes.
 
 ```azurepowershell-interactive
-Get-AzResourceMoverUnresolvedDependency -MoveCollectionName “MoveCollection-centralus-westcentralus ” -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -SubscriptionId  “<subscription-id>”
+Get-AzResourceMoverUnresolvedDependency -MoveCollectionName “MoveCollection-centralus-westcentralus” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -SubscriptionId  “<subscription-id>”
 ```
 
 **Saída**
@@ -243,7 +241,7 @@ Há dependências ausentes adicionais.
 
 ```azurepowershell-interactive
 # Identify dependencies
-Get-AzResourceMoverUnresolvedDependency -MoveCollectionName “MoveCollection-centralus-westcentralus ” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -SubscriptionId  “<subscription-id>”
+Get-AzResourceMoverUnresolvedDependency -MoveCollectionName “MoveCollection-centralus-westcentralus” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -SubscriptionId  “<subscription-id>”
 ```
 
 **Saída esperada**
@@ -273,7 +271,7 @@ Antes de poder preparar os recursos de origem, você precisa preparar e mover o 
 
 ```azurepowershell-interactive
 # Prepare the source resource group
-Invoke-AzResourceMoverPrepare -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -MoveCollectionName “MoveCollection-centralus-westcentralus ” -MoveResource “PSDemoRM”
+Invoke-AzResourceMoverPrepare -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “MoveCollection-centralus-westcentralus” -MoveResource “PSDemoRM”
 ```
 
 **Saída esperada**
@@ -284,16 +282,17 @@ Invoke-AzResourceMoverPrepare -SubscriptionId “<subscription-id>” -ResourceG
 
 ```azurepowershell-interactive
 # Initiate move
-Invoke-AzResourceMoverInitiateMove -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -MoveCollectionName “MoveCollection-centralus-westcentralus ” -MoveResource “PSDemoRM”
+Invoke-AzResourceMoverInitiateMove -SubscriptionId “<subscription-id>” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “MoveCollection-centralus-westcentralus” -MoveResource “PSDemoRM”
+```
 
-**Expected output**
+**Saída esperada**
 
-![Output text after initiating move of the source resource group](./media/move-region-powershell/initiate-move-resource-group.png)
+![Texto de saída depois de iniciar a movimentação do grupo de recursos de origem](./media/move-region-powershell/initiate-move-resource-group.png)
 
 
 ```azurepowershell-interactive
 # Commit move
-Invoke-AzResourceMoverCommit -SubscriptionId “<subscription-id” -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -MoveCollectionName “PS-centralus-
+Invoke-AzResourceMoverCommit -SubscriptionId “<subscription-id” -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “PS-centralus-
 westcentralus-demoRM” -MoveResource “PSDemoRM”
 ```
 
@@ -308,7 +307,7 @@ Depois que o grupo de recursos de origem for movido para a região de destino, r
 
 ```azurepowershell-interactive
 # Retrieve resources in the collection
-Get-AzResourceMoverMoveResource  -SubscriptionId “ <subscription-id> “ -ResourceGroupName “RegionMoveRG-centralus-westcentralus ” -MoveCollectionName “MoveCollection-centralus-westcentralus ”   | Where-Object {  $_.MoveStatusMoveState -eq “PreparePending” } | Select Name
+Get-AzResourceMoverMoveResource  -SubscriptionId “<subscription-id>“ -ResourceGroupName “RegionMoveRG-centralus-westcentralus” -MoveCollectionName “MoveCollection-centralus-westcentralus”   | Where-Object {  $_.MoveStatusMoveState -eq “PreparePending” } | Select Name
 ```
 **Saída esperada**
 
@@ -339,8 +338,9 @@ Depois de preparar os recursos, inicie a movimentação.
 # Initiate the move 
 Invoke-AzResourceMoverInitiateMove -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus   -MoveResource $('psdemovm62', 'PSDemoVM-ip', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’)
 ```
-**Expected output** 
- Saída ![ esperada Texto de saída após iniciar movimentação de recursos](./media/move-region-powershell/initiate-resource-move.png)
+**Saída esperada**
+
+![Texto de saída após iniciar movimentação de recursos](./media/move-region-powershell/initiate-resource-move.png)
 
 ## <a name="discard-or-commit-the-move"></a>Descartar ou confirmar a movimentação
 
@@ -357,8 +357,9 @@ Para descartar a movimentação:
 # Discard the move 
 Invoke-AzResourceMoverDiscard -SubscriptionId  <subscription-id> `-ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus   -MoveResource $('psdemovm62', 'PSDemoVM-ip', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’)
 ```
-**Expected output** 
- Saída ![ esperada Texto de saída após descartar a movimentação](./media/move-region-powershell/discard-move.png)
+**Saída esperada**
+
+![Texto de saída após descartar a movimentação](./media/move-region-powershell/discard-move.png)
 
 
 ### <a name="commit"></a>Commit

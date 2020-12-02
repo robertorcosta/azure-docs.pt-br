@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: c7f4cba10117efef4099b3524b49cae313593a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442702"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461258"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de dados de arquivos para banco de dados
 
@@ -55,7 +55,7 @@ O modelo define os dois seguintes parâmetros:
     ![Revisar o pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se você escolheu o **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** como o destino de dados na **etapa 2** mencionado acima, você deve inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo polybase do Azure Synapse Analytics (anteriormente SQL data warehouse). Como mostra a captura de tela a seguir, o modelo gera automaticamente um *Caminho de armazenamento* para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
+    > Se você escolheu o **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** como o destino de dados na **etapa 2** mencionado acima, você deve inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo polybase do Azure Synapse Analytics. Como mostra a captura de tela a seguir, o modelo gera automaticamente um *Caminho de armazenamento* para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
         
     ![Configuração do Polybase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

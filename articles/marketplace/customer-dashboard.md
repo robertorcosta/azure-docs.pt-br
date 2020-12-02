@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564864"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460484"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Painel de clientes na análise de Marketplace comercial
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre o painel clientes no Partner Center. Ess
 Para acessar o painel clientes no Partner Center, em **Marketplace comercial** , selecione **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **clientes**.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [terminologia de análise do Marketplace comercial e perguntas comuns](./partner-center-portal/faq-terminology.md).
+> Para obter definições detalhadas de terminologia de análise, consulte [terminologia de análise do Marketplace comercial e perguntas comuns](./analytics-faq.md).
 
 ## <a name="customers-dashboard"></a>Painel dos clientes
 
@@ -58,7 +58,7 @@ Nesta seção, você encontrará a tendência de crescimento de seus clientes pa
 
 [![Ilustra o widget clientes na página clientes.](./media/customer-dashboard/customers-widget.png)](./media/customer-dashboard/customers-widget.png#lightbox)
 
-Há três _tipos de clientes_ : novos, existentes e rotativos.
+Há três _tipos de clientes_: novos, existentes e rotativos.
 
 - Um cliente novo adquiriu uma ou mais ofertas pela primeira vez no mês selecionado.
 - Um cliente existente adquiriu uma ou mais ofertas antes do mês selecionado.
@@ -180,4 +180,4 @@ Os filtros da página Clientes são aplicados no nível da página Clientes. Voc
 - Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](./usage-dashboard.md).
 - Para obter uma lista de suas solicitações de download nos últimos 30 dias, confira [Painel de Downloads em análises do marketplace comercial](./partner-center-portal/downloads-dashboard.md).
 - Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e Microsoft AppSource, consulte [classificações & análises painel de análise no Partner Center](./partner-center-portal/ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [terminologia e perguntas comuns sobre a análise do Marketplace comercial](./partner-center-portal/faq-terminology.md).
+- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [terminologia e perguntas comuns sobre a análise do Marketplace comercial](./analytics-faq.md).

@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324883"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461840"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o CLI do Azure: habilitar Transparent Data Encryption com chave gerenciada pelo cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo explica como usar uma chave de Azure Key Vault para Transparent Data Encryption (TDE) no banco de dados SQL do Azure ou no Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para saber mais sobre a integração da TDE com o Azure Key Vault - Suporte a Bring Your Own Key (BYOK), visite [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-overview.md).
+Este artigo explica como usar uma chave de Azure Key Vault para Transparent Data Encryption (TDE) no banco de dados SQL do Azure ou no Azure Synapse Analytics. Para saber mais sobre a integração da TDE com o Azure Key Vault - Suporte a Bring Your Own Key (BYOK), visite [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 > [!NOTE] 
 > O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública**. Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).

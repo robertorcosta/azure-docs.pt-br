@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 225afcbafeaf7213b4f040a07d709d33e46b44f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 364d9c20c0bfce1f31103ddf6df0c8d7b228eca2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996280"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461770"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -112,7 +112,7 @@ Para o Banco de Dados do Azure para MySQL, o recurso de regras da rede virtual t
 
 - As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
-- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse do Azure (anteriormente SQL data warehouse
+- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para MySQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e análise de Synapse
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 

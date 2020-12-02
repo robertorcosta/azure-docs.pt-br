@@ -1,6 +1,6 @@
 ---
-title: Pastas de consulta e vários arquivos usando o pool SQL sem servidor (visualização)
-description: O pool SQL sem servidor (visualização) dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows.
+title: Pastas de consulta e vários arquivos usando o pool SQL sem servidor
+description: O pool SQL sem servidor dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684552"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462624"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários arquivos  
 
-Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor no Azure Synapse Analytics.
 
 O pool SQL sem servidor dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows. No entanto, há maior flexibilidade, já que vários curingas são permitidos.
 

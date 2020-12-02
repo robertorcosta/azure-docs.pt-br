@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412095"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461586"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrar o Hub IoT do monitoramento de operações para Azure Monitor logs de recursos
 
@@ -29,15 +29,15 @@ Para atualizar o Hub IoT no portal do Azure, primeiro crie uma configuração de
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 
-1. No painel esquerdo, em **monitoramento** , selecione **configurações de diagnóstico**. Em seguida, selecione **Adicionar configuração de diagnóstico**.
+1. No painel esquerdo, em **monitoramento**, selecione **configurações de diagnóstico**. Em seguida, selecione **Adicionar configuração de diagnóstico**.
 
    :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="Captura de tela que realça as Configurações do diagnóstico na seção Monitoramento.":::
 
 1. No painel **configuração de diagnóstico** , dê um nome à configuração de diagnóstico.
 
-1. Em **detalhes da categoria** , selecione as categorias para as operações que você deseja monitorar. Para obter mais informações sobre as categorias de operações disponíveis com o Hub IoT, consulte [logs de recursos](monitor-iot-hub-reference.md#resource-logs).
+1. Em **detalhes da categoria**, selecione as categorias para as operações que você deseja monitorar. Para obter mais informações sobre as categorias de operações disponíveis com o Hub IoT, consulte [logs de recursos](monitor-iot-hub-reference.md#resource-logs).
 
-1. Em **detalhes de destino** , escolha onde você deseja enviar os logs. Você pode selecionar qualquer combinação desses destinos:
+1. Em **detalhes de destino**, escolha onde você deseja enviar os logs. Você pode selecionar qualquer combinação desses destinos:
 
    * Arquivar em uma conta de armazenamento
    * Transmitir para um hub de eventos
@@ -49,9 +49,9 @@ Para atualizar o Hub IoT no portal do Azure, primeiro crie uma configuração de
 
 1. Clique em **Salvar** para salvar as configurações.
 
-As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado. Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](/azure/azure-monitor/platform/platform-logs-overview).
+As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado. Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-Para obter informações mais detalhadas sobre como criar configurações de diagnóstico, incluindo com o PowerShell e o CLI do Azure, consulte [configurações de diagnóstico](/azure/azure-monitor/platform/diagnostic-settings) na documentação do Azure monitor.
+Para obter informações mais detalhadas sobre como criar configurações de diagnóstico, incluindo com o PowerShell e o CLI do Azure, consulte [configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) na documentação do Azure monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Desligue o monitoramento de operações
 

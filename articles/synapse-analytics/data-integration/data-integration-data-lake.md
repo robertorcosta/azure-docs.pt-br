@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974452"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461492"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingerir dados em Azure Data Lake Storage Gen2 
 
@@ -72,4 +72,4 @@ Nesta etapa, você aciona manualmente o pipeline publicado na etapa anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a integração de dados para o Synapse Analytics, consulte o artigo [ingerir dados em um pool de SQL dedicado](data-integration-sql-pool.md) .
+Para obter mais informações sobre a integração de dados para o Azure Synapse Analytics, consulte o artigo [ingerir dados em um pool de SQL dedicado](data-integration-sql-pool.md) .

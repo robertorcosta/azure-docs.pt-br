@@ -1,6 +1,6 @@
 ---
-title: Consultar arquivos CSV usando o pool SQL sem servidor (visualização)
-description: Neste artigo, você aprenderá a consultar arquivos CSV únicos com formatos de arquivo diferentes usando o pool SQL sem servidor (versão prévia).
+title: Consultar arquivos CSV usando o pool SQL sem servidor
+description: Neste artigo, você aprenderá a consultar arquivos CSV únicos com formatos de arquivo diferentes usando o pool SQL sem servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685640"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462593"
 ---
 # <a name="query-csv-files"></a>Consultar arquivos CSV
 
-Neste artigo, você aprenderá a consultar um único arquivo CSV usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics. Arquivos CSV podem ter diferentes formatos: 
+Neste artigo, você aprenderá a consultar um único arquivo CSV usando o pool SQL sem servidor no Azure Synapse Analytics. Arquivos CSV podem ter diferentes formatos: 
 
 - Com e sem linha de cabeçalho
 - Com valores delimitados por tabulação e vírgula
@@ -47,8 +47,8 @@ from openrowset(
 A opção `firstrow` é usada para ignorar a primeira linha no arquivo CSV que representa o cabeçalho nesse caso. Verifique se você pode acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada, você precisará configurar a [credencial de nível de servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Se o arquivo CSV contiver caracteres UTF-8, verifique se você está usando algum agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ).
-> A incompatibilidade entre a codificação de texto no arquivo e o agrupamento pode causar erros de conversão inesperados.
+> Se o arquivo CSV contiver caracteres UTF-8, verifique se você está usando um agrupamento de banco de dados UTF-8 (por exemplo, `Latin1_General_100_CI_AS_SC_UTF8` ).
+> Uma incompatibilidade entre a codificação de texto no arquivo e o agrupamento pode causar erros de conversão inesperados.
 > Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Uso da fonte de dados

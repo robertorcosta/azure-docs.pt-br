@@ -3,18 +3,18 @@ title: Configurações de conectividade para o banco de dados SQL do Azure e o A
 description: Este artigo explica a opção de versão do protocolo TLS e o proxy versus as configurações de redirecionamento para o banco de dados SQL do Azure e a análise de Synapse do Azure.
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 9856d71a6398bcea5b979788846afce17e7955f7
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412963"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462176"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configurações de conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ As configurações de conectividade podem ser acessadas na tela **firewalls e re
 
 ## <a name="deny-public-network-access"></a>Negar acesso à rede pública
 
-Quando **negar acesso à rede pública** é definido como **Sim** , somente as conexões por meio de pontos de extremidade privados são permitidas. Quando essa configuração é **não** (padrão), os clientes podem se conectar usando pontos de extremidade públicos (com regras de firewall baseadas em IP ou com regras de firewall baseadas em rede virtual) ou pontos de extremidade privados (usando o link privado do Azure), conforme descrito na [visão geral de acesso à rede](network-access-controls-overview.md).
+Quando **negar acesso à rede pública** é definido como **Sim**, somente as conexões por meio de pontos de extremidade privados são permitidas. Quando essa configuração é **não** (padrão), os clientes podem se conectar usando pontos de extremidade públicos (com regras de firewall baseadas em IP ou com regras de firewall baseadas em rede virtual) ou pontos de extremidade privados (usando o link privado do Azure), conforme descrito na [visão geral de acesso à rede](network-access-controls-overview.md).
 
  ![Diagrama mostrando a conectividade quando negar acesso à rede pública está definido como Sim versus quando negar acesso à rede pública está definido como não.][2]
 
@@ -48,7 +48,7 @@ Please set up private endpoints and retry the operation.
 > [!NOTE]
 > Para definir regras de firewall de rede virtual em um servidor lógico que já foi configurado com pontos de extremidade privados, defina **negar acesso à rede pública** como **não**.
 
-Quando **negar acesso à rede pública** é definido como **Sim** , somente as conexões por meio de pontos de extremidade privados são permitidas. Todas as conexões por meio de pontos de extremidade públicos serão negadas com uma mensagem de erro semelhante a:  
+Quando **negar acesso à rede pública** é definido como **Sim**, somente as conexões por meio de pontos de extremidade privados são permitidas. Todas as conexões por meio de pontos de extremidade públicos serão negadas com uma mensagem de erro semelhante a:  
 
 ```output
 Error 47073
@@ -57,7 +57,7 @@ The public network interface on this server is not accessible.
 To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
-Quando **negar acesso à rede pública** estiver definido como **Sim** , qualquer tentativa de adicionar ou atualizar regras de firewall será negada com uma mensagem de erro semelhante a:
+Quando **negar acesso à rede pública** estiver definido como **Sim**, qualquer tentativa de adicionar ou atualizar regras de firewall será negada com uma mensagem de erro semelhante a:
 
 ```output
 Error 42101
@@ -104,12 +104,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 A configuração de versão mínima do [protocolo TLS](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permite que os clientes escolham qual versão do TLS seu banco de dados SQL usa.
 
-Atualmente, damos suporte a TLS 1,0, 1,1 e 1,2. A definição de uma versão mínima do TLS garante que versões mais recentes do TLS sejam suportadas. Por exemplo, escolher uma versão de TLS maior que 1,1 significa que somente as conexões com TLS 1,1 e 1,2 são aceitas e as conexões com TLS 1,0 são rejeitadas. Depois de testar para confirmar que seus aplicativos dão suporte a ele, é recomendável definir a versão mínima do TLS como 1,2. Esta versão inclui correções para vulnerabilidades em versões anteriores e é a versão mais recente do TLS com suporte no banco de dados SQL do Azure.
+No momento, damos suporte ao TLS 1.0, 1.1 e 1.2. A definição de uma versão mínima do TLS garante compatibilidade com as versões mais recentes do TLS. Por exemplo, escolher uma versão do TLS superior à 1.1 significa que somente as conexões com o TLS 1.1 e 1.2 são aceitas e as conexões com o TLS 1.0 não são aceitas. Depois de você confirmar que os aplicativos dão suporte ao protocolo, é recomendável definir a versão mínima do TLS como 1.2. Essa versão inclui a correção das vulnerabilidades de versões anteriores, além de ser a versão mais recente do TLS compatível no banco de dados SQL do Azure.
 
 > [!IMPORTANT]
 > O padrão para a versão mínima do TLS é permitir todas as versões. Depois de aplicar uma versão do TLS, não é possível reverter para o padrão.
 
-Para clientes com aplicativos que dependem de versões mais antigas do TLS, é recomendável definir a versão mínima do TLS de acordo com os requisitos de seus aplicativos. Para clientes que dependem de aplicativos para se conectarem usando uma conexão não criptografada, recomendamos não definir nenhuma versão mínima de TLS.
+Para clientes com aplicativos que dependem de versões anteriores do TLS, é recomendável definir a versão mínima do TLS de acordo com os requisitos dos aplicativos. Para clientes que dependem de aplicativos para se conectarem usando uma conexão não criptografada, recomendamos não definir uma versão mínima do TLS.
 
 Para obter mais informações, consulte [Considerações sobre TLS para conectividade de banco de dados SQL](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 

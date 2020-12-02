@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c85989dc02bddd136c56a81993df7a507a84d3b4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961321"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460286"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conectar-se aos serviços de armazenamento no Azure
 
@@ -80,7 +80,7 @@ Atualmente, os armazenamentos de dados dão suporte ao armazenamento de informa�
 
 Recomendamos criar um armazenamento de dados para um [contêiner de blob do Azure](../storage/blobs/storage-blobs-introduction.md). Tanto o armazenamento Standard quanto o Premium estão disponíveis para blobs. Embora o armazenamento Premium seja mais caro, suas velocidades de taxa de transferência mais rápidas podem melhorar a velocidade de seus treinamentos, especialmente se você treina um grande conjunto de dados. Para obter informações sobre o custo de contas de armazenamento, confira a [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-O [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) é criado sobre o Armazenamento de Blobs do Azure e projetado para análise corporativa de Big Data. Uma parte fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../storage/blobs/data-lake-storage-namespace.md) para armazenamento de Blobs. O namespace hierárquico organiza objetos/arquivos em uma hierarquia de diretórios para acesso eficiente a dados.
+O [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é criado sobre o Armazenamento de Blobs do Azure e projetado para análise corporativa de Big Data. Uma parte fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../storage/blobs/data-lake-storage-namespace.md) para armazenamento de Blobs. O namespace hierárquico organiza objetos/arquivos em uma hierarquia de diretórios para acesso eficiente a dados.
 
 ## <a name="storage-access-and-permissions"></a>Acesso e permissões de armazenamento
 
@@ -112,7 +112,7 @@ Você pode encontrar informações de chave de conta, token SAS e entidade de se
 > * Se você precisar alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS), certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Permissões
 
-Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. 
+Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. 
 * Para **acesso de leitura** de dados, suas credenciais de autenticação devem ter um mínimo de permissões de lista e leitura para contêineres e objetos. 
 
 * Para **acesso de gravação** de dados, permissões de gravação e adição também são necessárias.

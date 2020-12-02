@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cda99bfcb883dd42aa813d6edb922f2701ed1fe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352194"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461277"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
 
@@ -578,7 +578,7 @@ Onde o link privado está disponível, use pontos de extremidade privados para p
 
 **Orientação**: se o armazenamento de dados de nuvem oferecer suporte a HTTPS ou TLS, todas as transferências de dados entre serviços de movimentação de dados no data Factory e um armazenamento de dados de nuvem serão por meio do canal seguro HTTPS ou TLS. A versão do TLS usada é a 1.2.
 
-Todas as conexões com o banco de dados SQL do Azure e a análise de Synapse do Azure (anteriormente SQL Data Warehouse) exigem Criptografia (SSL/TLS) enquanto os dados estão em trânsito de e para o Database. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como verdadeira na cadeia de conexão. Para Armazenamento do Azure, é possível usar HTTPS na cadeia de conexão.
+Todas as conexões com o banco de dados SQL do Azure e o Azure Synapse Analytics exigem Criptografia (SSL/TLS), enquanto os dados estão em trânsito para e do banco. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como verdadeira na cadeia de conexão. Para Armazenamento do Azure, é possível usar HTTPS na cadeia de conexão.
 
 * [Noções básicas sobre criptografia em trânsito no Azure Data Factory](./data-movement-security-considerations.md)
 

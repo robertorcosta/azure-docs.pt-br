@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 066ffff5979e658a7c06fe10bd668a9fac839a14
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342171"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460837"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -176,6 +176,7 @@ Você pode encontrar a lista completa dos tipos de recursos com suporte neste [a
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](alerts-metric.md)
+- [Saiba como criar alertas no Azure Agent Metrics Explorer](./metrics-charts.md#create-alert-rules)
 - [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Saiba mais sobre grupos de ação](action-groups.md)
 - [Saiba mais sobre o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md)

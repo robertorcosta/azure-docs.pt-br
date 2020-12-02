@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312262"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461332"
 ---
-# <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexão ao workspace do Azure Synapse usando links privados (versão prévia)
+# <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Conectar-se ao espaço de trabalho Synapse do Azure usando links privados
 
 Este artigo ensinará como criar um ponto de extremidade privado para seu espaço de trabalho Synapse do Azure. Veja [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/) para saber mais.
 
@@ -34,7 +34,7 @@ Na próxima tela, selecione **+ ponto de extremidade privado**.
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Etapa 3: Selecione os detalhes da assinatura e da região
 
-Na guia **Noções básicas** da janela **Criar um ponto de extremidade privado** , escolha a **Assinatura** e o **Grupo de recursos**. Dê um **Nome** ao ponto de extremidade privado que você deseja criar. Selecione a **Região** onde você deseja criar o ponto de extremidade privado.
+Na guia **Noções básicas** da janela **Criar um ponto de extremidade privado**, escolha a **Assinatura** e o **Grupo de recursos**. Dê um **Nome** ao ponto de extremidade privado que você deseja criar. Selecione a **Região** onde você deseja criar o ponto de extremidade privado.
 
 Os pontos de extremidade privados são criados em uma sub-rede. A assinatura, o grupo de recursos e a região selecionados filtram as sub-redes do ponto de extremidade privado. Selecione **Avançar: Recurso >** quando concluído.
 ![Selecionar detalhes da assinatura e da região 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
@@ -48,7 +48,7 @@ Selecione o workspace do Azure Synapse como o **Recurso**. Cada workspace do Azu
 Selecione **Avançar: Configuração** para avançar para a próxima parte da configuração.
 ![Selecionar detalhes da assinatura e da região 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
 
-Na guia **Configuração** , selecione a **Rede virtual** e a **Sub-rede** nas quais o ponto de extremidade privado deve ser criado. Também é necessário criar um registro DNS que é mapeado para o ponto de extremidade privado.
+Na guia **Configuração**, selecione a **Rede virtual** e a **Sub-rede** nas quais o ponto de extremidade privado deve ser criado. Também é necessário criar um registro DNS que é mapeado para o ponto de extremidade privado.
 
 Selecione **Sim** para **Integrar com a zona DNS privada** para integrar seu ponto de extremidade privado a uma zona DNS privada. Se você não tiver uma zona DNS privada associada à sua Rede Virtual do Microsoft Azure, uma nova zona DNS privada será criada. Selecione **Revisar + Criar** quando concluído.
 

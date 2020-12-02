@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187095"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459662"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Este documento fornece orientação sobre como resolver requisitos comuns de seg
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implantação não abordadas neste guia
 
-- Azure Synapse Analytics (antigo SQL Data Warehouse)
+- Azure Synapse Analytics
 - VMs do SQL do Azure (IaaS)
 - SQL Server
 
@@ -112,7 +112,7 @@ O gerenciamento de identidade central oferece os seguintes benefícios:
 > - O token de acesso do AD do Azure é armazenado em cache no lado do cliente e seu tempo de vida depende da configuração do token. Confira o artigo [tempos de vida de token configuráveis no Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientação sobre como solucionar problemas de autenticação do Azure AD, consulte o seguinte blog: [solução de problemas do Azure ad](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação multifator do Azure AD
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação Multifator do Azure AD
 
 > Mencionado em: #2 de prática de OSA, controle de acesso ISO (AC)
 

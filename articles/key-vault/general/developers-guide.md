@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013965"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460807"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -120,7 +120,7 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para 
 - Como implantar certificados em VMs de Key Vault- [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) -um aplicativo de nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado para essa VM atualmente?
 - [Implantar Certificado do Aplicativo Web do Azure por meio do Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Atribuir uma política de acesso (Portal do PowerShell da[CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [Portal](assign-access-policy-portal.md)). 
-- [Como usar a exclusão reversível do Key Vault com CLI](soft-delete-cli.md) orienta pela utilização e ciclo de vida de um cofre de chaves e de vários objetos de cofre de chaves com a exclusão reversível habilitada.
+- [Como usar a exclusão reversível do Key Vault com CLI](./key-vault-recovery.md) orienta pela utilização e ciclo de vida de um cofre de chaves e de vários objetos de cofre de chaves com a exclusão reversível habilitada.
 - [Como transmitir valores seguros (como senhas) durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md) - Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um Cofre de Chaves do Azure e fazer referência ao valor em outros modelos do Resource Manager.
 
 ## <a name="integrated-with-key-vault"></a>Introdução ao Cofre de Chaves

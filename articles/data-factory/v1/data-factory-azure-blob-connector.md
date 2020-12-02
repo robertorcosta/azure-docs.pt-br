@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001707"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462646"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copie os dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -31,7 +31,7 @@ ms.locfileid: "96001707"
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para o Armazenamento de Blobs do Azure. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 ## <a name="overview"></a>Visão geral
-Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer armazenamento de dados do coletor com suporte. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como fontes ou coletores na atividade de cópia. Por exemplo, você pode mover dados **de** um SQL Server banco de dado ou de um banco do dados SQL do Azure **para** um armazenamento de BLOBs do Azure. E, você pode copiar dados **do armazenamento de** BLOBs do Azure **para** o Azure Synapse Analytics (anteriormente SQL data warehouse) ou uma coleção de Azure Cosmos DB.
+Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer armazenamento de dados do coletor com suporte. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como fontes ou coletores na atividade de cópia. Por exemplo, você pode mover dados **de** um SQL Server banco de dado ou de um banco do dados SQL do Azure **para** um armazenamento de BLOBs do Azure. E, você pode copiar dados **do armazenamento de** BLOBs do Azure **para** o Azure Synapse Analytics ou uma coleção de Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -334,7 +334,7 @@ Você deverá ver dois serviços vinculados. Um para a origem e o outro para o d
 
 Para obter mais informações sobre o serviço vinculado do Armazenamento do Azure, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties).
 
-#### <a name="datasets"></a>Conjunto de dados
+#### <a name="datasets"></a>Conjuntos de dados
 Há dois conjuntos de dados: um conjunto de dados de entrada e um conjunto de dados de saída. O tipo do conjunto de dados está definido como **AzureBlob** para ambos.
 
 O conjunto de dados de entrada aponta para a pasta **input** do contêiner de blobs **adfblobconnector**. A propriedade **external** está definida como **true** para este conjunto de dados, pois os dados não são gerados pelo pipeline com a atividade de cópia que usa esse conjunto de dados como entrada.

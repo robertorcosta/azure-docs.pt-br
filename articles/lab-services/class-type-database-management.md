@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659821"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462421"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurar um laboratório para ensinar o gerenciamento de bancos de dados relacionais
 
@@ -20,7 +20,7 @@ Neste artigo, mostraremos como configurar um modelo de máquina virtual em um la
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).  Você também pode usar uma conta de laboratório existente.
+Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).  Você também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
@@ -41,7 +41,7 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 
 ## <a name="template-machine-configuration"></a>Configuração da máquina de modelo
 
-Para instalar o MySQL no Windows Server 2019, você pode seguir as etapas mencionadas em [instalar e executar o MySQL Community Server em uma máquina virtual](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Para instalar o MySQL no Windows Server 2019, você pode seguir as etapas mencionadas em [instalar e executar o MySQL Community Server em uma máquina virtual](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 é pré-instalado na imagem de máquina virtual que escolhemos ao criar o novo laboratório.
 

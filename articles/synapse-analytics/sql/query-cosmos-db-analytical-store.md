@@ -9,14 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: eda05cbdf2f5b077fd6cf217a00cc58b1c6eda27
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 439337233e24dfcae2c8c911a9224fd3394d6846
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986633"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462686"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor na visualização do link Synapse do Azure
+
+> [!IMPORTANT]
+> O suporte do pool SQL sem servidor para o link Synapse do Azure para Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Um pool SQL sem servidor permite analisar dados em seus contêineres de Azure Cosmos DB que são habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma grande variedade de ferramentas de consulta de Business Intelligence (BI) e ad hoc por meio da interface T-SQL.
 

@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145592"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461187"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
@@ -47,7 +47,7 @@ Para executar o REST no arquivo do Azure digital gêmeos Swagger, siga estas eta
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi* . Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
+Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi*. Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
 
 O REST oferece suporte a uma ampla variedade de geradores de código de linguagem.
 
@@ -64,7 +64,7 @@ Aqui estão as etapas para fazer isso:
 3. No Gerenciador de soluções, selecione o projeto *ADTApi* da solução gerada e escolha *Adicionar > item existente...*
 4. Localize a pasta na qual você gerou o SDK e selecione os arquivos no nível raiz
 5. Pressione "OK"
-6. Adicione uma pasta ao projeto (selecione o projeto com o botão direito do mouse em Gerenciador de Soluções e escolha *adicionar > nova pasta* )
+6. Adicione uma pasta ao projeto (selecione o projeto com o botão direito do mouse em Gerenciador de Soluções e escolha *adicionar > nova pasta*)
 7. Nomear os *modelos* de pasta
 8. Selecione a pasta *modelos* no Gerenciador de soluções e selecione *Adicionar > item existente...*
 9. Selecione os arquivos na pasta *modelos* do SDK gerado e pressione "OK"
@@ -73,7 +73,7 @@ Para compilar o SDK com êxito, seu projeto precisará destas referências:
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Para adicioná-los, abra *ferramentas > Gerenciador de pacotes nuget > gerenciar pacotes NuGet para solução...* .
+Para adicioná-los, abra *ferramentas > Gerenciador de pacotes nuget > gerenciar pacotes NuGet para solução...*.
 
 1. No painel, certifique-se de que a guia *procurar* esteja selecionada
 2. Pesquisar *Microsoft. REST*
@@ -102,7 +102,7 @@ Aqui está um trecho de código que tenta adicionar um entrelaçamento e captura
 ```csharp
 try
 {
-    await client.DigitalTwins.AddAsync(id, initData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
     Console.WriteLine($"Created a twin successfully: {id}");
 }
 catch (ErrorResponseException e)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899666"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462169"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -86,7 +86,7 @@ Para carregar conjuntos de valores no intervalo de terabytes, a latência de red
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-O Azure Synapse Analytics (anteriormente conhecido como SQL DW) é uma opção apropriada para armazenar resultados preparados. Você pode usar o Azure HDInsight para executar esses serviços para o Azure Synapse Analytics.
+O Azure Synapse Analytics é uma opção apropriada para armazenar resultados preparados. Você pode usar o Azure HDInsight para executar esses serviços para o Azure Synapse Analytics.
 
 O Azure Synapse Analytics é um repositório de banco de dados relacional otimizado para cargas de trabalho analíticas. Ele é escalado com base em tabelas particionadas. Tabelas podem ser particionadas em vários nós. Os nós são selecionados no momento da criação. Eles podem ser dimensionados após o fato, mas isso é um processo ativo que pode exigir a movimentação de dados. Para obter mais informações, consulte [gerenciar computação no Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

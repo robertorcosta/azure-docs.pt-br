@@ -10,15 +10,15 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2e76f48466d084d448cceea0490e44041e7d062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: f61f2932ad9c6342a81ec05df335e9ea4d659fce
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212132"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461973"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Conectar-se ao pool SQL do Synapse com o sqlcmd
+# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conectar-se ao pool do SQL no Azure Synapse Analytics com sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -32,10 +32,10 @@ Use o utilitário de linha de comando [sqlcmd] [sqlcmd] para se conectar e consu
 
 ## <a name="1-connect"></a>1. Conectar
 
-Para começar a usar o [sqlcmd] [sqlcmd], abra o prompt de comando e insira **sqlcmd** seguido pela cadeia de conexão para o banco de dados do pool SQL. A cadeia de conexão precisará dos seguintes parâmetros:
+Para começar a usar o [sqlcmd] [sqlcmd], abra o prompt de comando e insira **sqlcmd** seguido pela cadeia de conexão para o pool do SQL. A cadeia de conexão precisará dos seguintes parâmetros:
 
 * **Servidor (-S):** servidor no formato `<`Nome do Servidor`>`.database.windows.net
-* **Banco de dados (-d):** Nome do banco de dados.
+* **Banco de dados (-d):** Nome do pool SQL.
 * **Habilitar identificadores entre aspas (-I):** Os identificadores entre aspas devem ser habilitados para se conectar a uma instância do pool SQL.
 
 Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:

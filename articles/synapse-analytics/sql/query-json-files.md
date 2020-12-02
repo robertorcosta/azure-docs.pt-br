@@ -1,5 +1,5 @@
 ---
-title: Consultar arquivos JSON usando o pool SQL sem servidor (visualização)
+title: Consultar arquivos JSON usando o pool SQL sem servidor
 description: Esta seção explica como ler arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685623"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462610"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON usando [OPENROWSET](develop-openrowset.md). 
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON usando [OPENROWSET](develop-openrowset.md). 
 - Arquivos JSON padrão em que vários documentos JSON são armazenados como uma matriz JSON.
 - Arquivos JSON delimitados por linha, onde os documentos JSON são separados por caractere de nova linha. As extensões comuns para esses tipos de arquivos são `jsonl` , `ldjson` e `ndjson` .
 

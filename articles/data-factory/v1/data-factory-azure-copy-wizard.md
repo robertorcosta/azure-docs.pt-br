@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2d6ee8357698e4af59f44579ce7f2c3aa82991c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340315"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462210"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 
@@ -48,7 +48,7 @@ O assistente foi projetado com o Big Data em mente desde o começo, com suporte 
 O esquema de dados de entrada pode não coincidir com o esquema dos dados de saída em alguns casos. Nesse cenário, você precisa mapear as colunas do esquema de origem para colunas do esquema de destino.
 
 > [!TIP]
-> Ao copiar dados do SQL Server ou do banco de dados SQL do Azure para o Azure Synapse Analytics (anteriormente SQL Data Warehouse), se a tabela não existir no repositório de destino, Data Factory suporte à criação de tabela automática usando o esquema de origem. Saiba mais em [mover dados de e para a análise de Synapse do Azure usando Azure data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Ao copiar dados do SQL Server ou do banco de dados SQL do Azure para o Azure Synapse Analytics, se a tabela não existir no repositório de destino, Data Factory suporte à criação de tabela automática usando o esquema de origem. Saiba mais em [mover dados de e para a análise de Synapse do Azure usando Azure data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Use uma lista suspensa para selecionar uma coluna do esquema de origem a ser mapeada para uma coluna no esquema de destino. O Assistente de Cópia tenta entender seu padrão para mapeamento de coluna. Ele aplica o mesmo padrão ao restante das colunas, de modo que você não precisa selecionar cada uma das colunas individualmente para concluir o mapeamento do esquema. Se preferir, você pode substituir esses mapeamentos usando as listas suspensas para mapear as colunas individualmente. O padrão se torna mais preciso à medida que você mapeia mais colunas. O Assistente de Cópia atualiza constantemente o padrão e, por fim, atinge o padrão certo para o mapeamento de coluna que você deseja atingir.     
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000820"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461218"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia Delta de um banco de dados com uma tabela de controle
 
@@ -140,7 +140,7 @@ O modelo define os seguintes parâmetros:
 
     Você verá que apenas as novas linhas foram copiadas para o destino.
 
-15. Adicional Se você selecionar o Azure Synapse Analytics (anteriormente conhecido como SQL DW) como o destino de dados, você também deverá fornecer uma conexão com o armazenamento de BLOBs do Azure para preparo, o que é exigido pelo polybase do Azure Synapse Analytics (anteriormente SQL Data Warehouse). O modelo irá gerar um caminho de contêiner para você. Após a execução do pipeline, verifique se o contêiner foi criado no armazenamento de BLOBs.
+15. Adicional Se você selecionar o Azure Synapse Analytics como o destino de dados, também deverá fornecer uma conexão com o armazenamento de BLOBs do Azure para preparo, que é exigido pelo polybase do Azure Synapse Analytics. O modelo irá gerar um caminho de contêiner para você. Após a execução do pipeline, verifique se o contêiner foi criado no armazenamento de BLOBs.
     
     ![Configurar o Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     
