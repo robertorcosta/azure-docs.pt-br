@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95993352"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512317"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -54,9 +54,9 @@ Consulte a tabela abaixo para ver quais recursos podem ser usados de forma assí
 > [!NOTE]
 > Você precisará de um recurso de Análise de Texto usando um tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) padrão (S) se desejar usar `/analyze` os `/health` pontos de extremidade ou.
 
-1.  Primeiro, vá para a [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso de análise de texto, se você ainda não tiver um. Escolha o tipo de preço Standard (S) se desejar usar os `/analyze` pontos de `/health` extremidade ou.
+1.  Primeiro, vá para a [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso de análise de texto, se você ainda não tiver um. Escolha o **tipo de preço Standard (S)** se desejar usar os `/analyze` pontos de `/health` extremidade ou.
 
-2.  Selecione a região que você deseja usar no ponto de extremidade para usar.
+2.  Selecione a região que você deseja usar para o ponto de extremidade.  Observe que os `/analyze` `/health` pontos de extremidade e estão disponíveis apenas nas seguintes regiões: oeste dos EUA 2, leste dos EUA 2, EUA Central, Europa Setentrional e Europa Ocidental.
 
 3.  Crie o recurso Análise de Texto e vá para a "chaves e folha de ponto de extremidade" à esquerda da página. Copie a chave a ser usada posteriormente quando você chamar as APIs. Você o adicionará posteriormente como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
 
@@ -198,7 +198,7 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 |--|--|--|
 | Detecção de idioma | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Análise de sentimento | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| Mineração de opinião | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
+| Mineração de opiniões | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
 | Extração de frases-chave | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | Reconhecimento de entidade nomeada-geral | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | Reconhecimento de entidade nomeada-PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
@@ -217,7 +217,7 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 |--|--|--|
 | Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | Delete (excluir) | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
 
 --- 
 

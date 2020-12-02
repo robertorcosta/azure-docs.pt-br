@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488027"
+ms.locfileid: "96512215"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
-Azure Monitor os clusters dedicados de logs são uma opção de implantação que habilita o recurso avançado para os clientes do Azure Monitor logs. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nesses clusters.
+Os Azure Monitor logs de clusters dedicados são uma opção de implantação que habilita recursos avançados para clientes do Azure Monitor logs. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nesses clusters.
 
 Os recursos que exigem clusters dedicados são:
 
@@ -48,11 +48,11 @@ O nível de reserva de capacidade do cluster é configurado por meio de programa
 
 Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao configurar o cluster. 
 
-1. **Cluster**: nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada workspace associado a um cluster são agregadas para calcular a fatura diária do cluster. 
+1. **Cluster**: nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. 
 
 2. **Espaços de trabalho**: os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster (após a contabilização de alocações por nó da [central de segurança do Azure](../../security-center/index.yml) para cada espaço de trabalho).
 
-Observe que, se o seu espaço de trabalho estiver usando o tipo de preço herdado por nó, quando ele estiver vinculado a um cluster, ele será cobrado com base nos dados ingeridos em relação à reserva de capacidade do cluster e não mais por nó. As alocações de dados por nó da central de segurança do Azure continuarão a ser aplicadas.
+Se o seu espaço de trabalho estiver usando o tipo de preço herdado por nó, quando ele estiver vinculado a um cluster, ele será cobrado com base nos dados ingeridos em relação à reserva de capacidade do cluster e não mais por nó. As alocações de dados por nó da central de segurança do Azure continuarão a ser aplicadas.
 
 Mais detalhes são cobrados para Log Analytics clusters dedicados estão disponíveis [aqui]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
