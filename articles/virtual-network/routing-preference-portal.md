@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d9f318ef18b7ffb49a95ce495c09f1fa46ec1a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231804"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491308"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configurar a preferência de roteamento para um endereço IP público usando o portal do Azure
 
-Este artigo mostra como configurar a [preferência de roteamento](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) por meio da rede de ISP (opção da**Internet** ) para um endereço IP público. Depois de criar o endereço IP público, você pode associá-lo aos seguintes recursos do Azure para os tráfegos de entrada e saída para a Internet:
+Este artigo mostra como configurar a [preferência de roteamento](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) por meio da rede de ISP (opção da **Internet** ) para um endereço IP público. Depois de criar o endereço IP público, você pode associá-lo aos seguintes recursos do Azure para os tráfegos de entrada e saída para a Internet:
 
 * Máquina virtual
 * Conjunto de escala de máquina virtual
@@ -37,12 +37,6 @@ Por padrão, a preferência de roteamento para o endereço IP público é defini
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
-
-## <a name="register-the-feature-for-your-subscription"></a>Registrar recurso para sua assinatura
-O recurso Preferência de Roteamento está atualmente na versão prévia. Registre o recurso para sua assinatura usando o Azure PowerShell da seguinte maneira:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Criar um endereço IP público com uma preferência de roteamento
 1. Entre no [portal do Azure](https://preview.portal.azure.com/).

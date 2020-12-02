@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 095a97d27439c54e2ade96e3a40349a0d95b9c11
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843087"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492226"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança do Azure para Site Recovery
 
@@ -22,7 +22,7 @@ Para ver como Site Recovery é completamente mapeado para o benchmark de seguran
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança de rede](../security/benchmarks/security-control-network-security.md).*
+*Para obter mais informações, confira o [Azure Security Benchmark: Segurança de Rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
@@ -52,7 +52,7 @@ Incorpore qualquer uma das definições de Azure Policy internas relacionadas à
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas. 
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md) 
 
 - [Como criar uma rede virtual do Azure](../virtual-network/quick-create-portal.md) 
 
@@ -164,9 +164,9 @@ Visualize e consulte os resultados do log e configure alertas para executar aç�
 
 **Diretrizes**: nenhuma função é atribuída por padrão. Eles precisam ser atribuídos explicitamente com base na necessidade dos negócios. Qualquer atribuição de função pode ser verificada com a CLI do PowerShell ou Azure Active Directory (Azure AD) para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -270,7 +270,7 @@ Gerencie com eficiência associações de grupo, acesso a aplicativos empresaria
 
 Crie um processo para revisar o acesso do usuário regularmente para garantir que somente os usuários com revisões de acesso concluídas tenham acesso contínuo. 
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -286,7 +286,7 @@ Você tem acesso à atividade de entrada do Azure AD, auditoria e fontes de log 
 
 Simplifique ainda mais esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando os logs de auditoria e de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados em um espaço de trabalho Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -312,7 +312,7 @@ Empregue recursos de proteção de identidade do Azure AD para detecção de com
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
+*Para obter mais informações, confira o [Azure Security Benchmark: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
@@ -431,7 +431,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 - [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -505,7 +505,7 @@ Compreender como criar e gerenciar políticas no Azure é importante para manter
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -530,7 +530,7 @@ Compreender como criar e gerenciar políticas no Azure é importante para manter
 **Diretrizes**: defina e implemente configurações de segurança padrão para seu cofre de serviços de recuperação com Azure Policy. 
 
 Use Azure Policy aliases no namespace "Microsoft. Recoveryservices" para criar políticas personalizadas para auditoria ou impor a configuração dos recursos do cofre dos serviços de recuperação do serviço Site Recovery.
-- [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Use Azure Policy aliases no namespace "Microsoft. Recoveryservices" para criar p
 
 **Orientação**: escolha Azure Repos para armazenar e gerenciar seu código com segurança se você estiver usando definições de Azure Policy personalizadas para seus cofres de serviços de recuperação e recursos relacionados.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação do Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -608,7 +608,7 @@ Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade 
 
 Identidades gerenciadas permitem que você se autentique em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Key Vault, sem nenhuma credencial em seu código.
 
-- [Como integrar com identidades gerenciadas do Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [Como integrar com identidades gerenciadas do Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md?tabs=core2x)
 
 - [Como habilitar a identidade gerenciada do sistema no cofre dos serviços de recuperação](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
@@ -638,7 +638,7 @@ Use a detecção de ameaças da central de segurança para serviços de dados pa
 
 - [Entender o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-- [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](/azure/security-center/threat-protection)
+- [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -656,7 +656,7 @@ Todos os recursos de armazenamento usados por Site Recovery serviços de metadad
 
 Isso está fora do escopo do cliente e a equipe de Site Recovery cuida internamente. O cliente pode fazer backup Key Vault chaves no Azure.
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -666,7 +666,7 @@ Isso está fora do escopo do cliente e a equipe de Site Recovery cuida intername
 
 **Diretrizes**: testar periodicamente restaurações de chaves gerenciadas pelo cliente de backup.
 
-- [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -676,7 +676,7 @@ Isso está fora do escopo do cliente e a equipe de Site Recovery cuida intername
 
 **Orientação**: os dados são criptografados em repouso usando criptografia do serviço de armazenamento (SSE) com máquinas virtuais baseadas em IaaS (infraestrutura como serviço) do Azure. Habilite a exclusão reversível no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -684,7 +684,7 @@ Isso está fora do escopo do cliente e a equipe de Site Recovery cuida intername
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
+*Para obter mais informações, confira o [Azure Security Benchmark: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -712,7 +712,7 @@ Marque as assinaturas claramente (por exemplo, produção, não produção) e cr
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -778,5 +778,5 @@ Use o conector de dados da central de segurança para transmitir os alertas para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a [visão geral do benchmark de segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

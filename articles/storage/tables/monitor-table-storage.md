@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: da6a1f4590257d43d2604913f2cbcedf29ea1eb6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844822"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491767"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitorando o armazenamento de tabelas do Azure
 
@@ -46,7 +46,7 @@ O armazenamento de tabelas do Azure coleta os mesmos tipos de dados de monitoram
 
 Consulte [referência de dados de monitoramento de armazenamento de tabelas do Azure](monitor-table-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e logs criadas pelo armazenamento de tabelas do Azure.
 
-As métricas e os logs do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. O Azure Monitor não tem suporte a contas de armazenamento clássicas. Se você quiser usar as métricas ou os logs nas contas de armazenamento clássicas, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+As métricas e os logs do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. O Azure Monitor não tem suporte a contas de armazenamento clássicas. Se você quiser usar as métricas ou os logs nas contas de armazenamento clássicas, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Você pode continuar usando logs e métricas clássicos se desejar. Na verdade, as métricas e os logs clássicos estão disponíveis em paralelo com as métricas e os logs no Azure Monitor. O suporte permanece disponível até que o Armazenamento do Microsoft Azure encerre o serviço nas métricas e nos logs herdados.
 
@@ -73,7 +73,7 @@ Para obter diretrizes gerais, consulte [criar configuração de diagnóstico par
 
 ### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 
 2. Navegue para sua conta de armazenamento.
 

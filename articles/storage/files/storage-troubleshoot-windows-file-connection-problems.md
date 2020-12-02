@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188710"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492039"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solucionar problemas de arquivos do Azure no Windows (SMB)
 
@@ -147,7 +147,7 @@ O erro 1816 ocorre quando você atinge o limite superior de identificadores aber
 
 ### <a name="solution"></a>Solução
 
-Reduza o número de identificadores abertos simultâneos fechando alguns identificadores e tentando novamente. Para obter mais informações, consulte [armazenamento do Microsoft Azure lista de verificação de desempenho e escalabilidade](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Reduza o número de identificadores abertos simultâneos fechando alguns identificadores e tentando novamente. Para obter mais informações, consulte [armazenamento do Microsoft Azure lista de verificação de desempenho e escalabilidade](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 Para exibir identificadores abertos para um compartilhamento de arquivos, diretório ou arquivo, use o cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) do PowerShell.  
 
@@ -262,7 +262,7 @@ Você pode ver o desempenho lento ao tentar transferir arquivos para o Serviço 
 - Se você não tiver um requisito mínimo de tamanho de E / S específico, recomendamos usar 1 MiB como o tamanho de E / S para um desempenho ideal.
 -   Se você sabe o tamanho final de um arquivo que você está estendendo com gravações e o seu software não tem problemas de compatibilidade com o final ainda não escrito desse arquivo que contém zeros, defina o tamanho do arquivo antecipadamente em vez de realizar cada gravação como uma gravação de extensão.
 -   Use o método de cópia correto:
-    -   Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para qualquer transferência entre dois compartilhamentos de arquivos.
+    -   Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre dois compartilhamentos de arquivos.
     -   Use o [Robocopy](./storage-files-deployment-guide.md#robocopy) entre compartilhamentos de arquivos e um computador local.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Considerações para Windows 8.1 ou Windows Server 2012 R2
@@ -401,7 +401,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 O cmdlet executa essas verificações abaixo em sequência e fornece diretrizes para falhas:
 1. CheckADObjectPasswordIsCorrect: Verifique se a senha configurada na identidade do AD que representa a conta de armazenamento corresponde à da conta de armazenamento kerb1 ou à chave kerb2. Se a senha estiver incorreta, você poderá executar [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) para redefinir a senha. 
 2. CheckADObject: Confirme se há um objeto no Active Directory que representa a conta de armazenamento e tem o SPN (nome da entidade de serviço) correto. Se o SPN não estiver configurado corretamente, execute o cmdlet Set-AD retornado no cmdlet debug para configurar o SPN.
-3. CheckDomainJoined: valide se o computador cliente está ingressado no domínio no AD. Se seu computador não estiver ingressado no domínio no AD, consulte este [artigo](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) para obter instruções de ingresso no domínio.
+3. CheckDomainJoined: valide se o computador cliente está ingressado no domínio no AD. Se seu computador não estiver ingressado no domínio no AD, consulte este [artigo](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) para obter instruções de ingresso no domínio.
 4. CheckPort445Connectivity: Verifique se a porta 445 está aberta para conexão SMB. Se a porta necessária não estiver aberta, consulte a ferramenta de solução de problemas [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para problemas de conectividade com os arquivos do Azure.
 5. CheckSidHasAadUser: Verifique se o usuário conectado do AD está sincronizado com o Azure AD. Se você quiser procurar se um usuário específico do AD está sincronizado com o Azure AD, você pode especificar o-UserName e-Domain nos parâmetros de entrada. 
 6. CheckGetKerberosTicket: tentativa de obter um tíquete Kerberos para conectar-se à conta de armazenamento. Se não houver um token Kerberos válido, execute o cmdlet klist Get CIFS/Storage-Account-Name. File. Core. Windows. net e examine o código de erro para raiz, causando a falha de recuperação do tíquete.

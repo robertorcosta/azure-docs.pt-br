@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: dead1d29392f203f5617c9caf430ff952f02f9bc
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6cc67a6af9e11e5667479eadfe277d400c2d4947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317496"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492209"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -258,7 +258,7 @@ Armazenamento quente| Não
 Blobs de bloco | Não
 Criptografia em repouso (SSE)| Sim
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
-Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
+Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md).
 Armazenamento Premium | Sim
 Opção de transferência segura | Sim
 Serviço de importação/exportação | Não

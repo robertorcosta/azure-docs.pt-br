@@ -6,12 +6,12 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0a6449e6b728ee690dd6ddee192868aaeb3511ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911032"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492413"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Configurar registro de contêiner interno para o Red Hat OpenShift 4 no Azure
 
@@ -26,9 +26,9 @@ Neste artigo, você configurará o registro de imagem de contêiner interno para
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo assumiu que você tem um cluster de ARO existente. Se você precisar de um cluster toa, consulte o tutorial toa, [criar um cluster do Azure Red Hat OpenShift 4](/azure/openshift/tutorial-create-cluster). Certifique-se de criar o cluster com o `--pull-secret` argumento para `az aro create` .  Isso é necessário para configurar Azure Active Directory autenticação e o registro de contêiner interno.
+Este artigo assumiu que você tem um cluster de ARO existente. Se você precisar de um cluster toa, consulte o tutorial toa, [criar um cluster do Azure Red Hat OpenShift 4](./tutorial-create-cluster.md). Certifique-se de criar o cluster com o `--pull-secret` argumento para `az aro create` .  Isso é necessário para configurar Azure Active Directory autenticação e o registro de contêiner interno.
 
-Depois de ter o cluster, conecte-se ao cluster seguindo as etapas em [conectar-se a um cluster do Azure Red Hat OpenShift 4](/azure/openshift/tutorial-connect-cluster).
+Depois de ter o cluster, conecte-se ao cluster seguindo as etapas em [conectar-se a um cluster do Azure Red Hat OpenShift 4](./tutorial-connect-cluster.md).
    * Certifique-se de seguir as etapas em "instalar a CLI do OpenShift", pois usaremos o `oc` comando mais adiante neste artigo.
    * Anote a URL do console de cluster, que se parece com `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` . Os valores para `<random>` e `<region>` serão usados posteriormente neste artigo.
    * Observe as `kubeadmin` credenciais. Eles também serão usados posteriormente neste artigo.

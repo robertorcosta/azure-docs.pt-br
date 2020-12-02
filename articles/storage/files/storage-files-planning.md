@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e60ba773c5ef750f027c2e0b1528409c71eeb4b8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011669"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492107"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -99,13 +99,13 @@ A exclusão reversível para compartilhamentos de arquivos (visualização) é u
 Para obter mais informações sobre exclusão reversível, consulte [impedir a exclusão acidental de dados](./storage-files-prevent-file-share-deletion.md).
 
 ### <a name="backup"></a>Backup
-Você pode fazer backup do compartilhamento de arquivos do Azure por meio de [instantâneos de compartilhamento](./storage-snapshots-files.md), que são cópias de ponto no tempo somente leitura do seu compartilhamento. Os instantâneos são incrementais, o que significa que eles contêm tantos dados quantos foram alterados desde o instantâneo anterior. Você pode ter até 200 instantâneos por compartilhamento de arquivos e mantê-los por até 10 anos. Você pode pegar esses instantâneos manualmente no portal do Azure, por meio do PowerShell ou da CLI (interface de linha de comando), ou pode usar o [backup do Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json). Os instantâneos são armazenados no compartilhamento de arquivos, o que significa que, se você excluir o compartilhamento de arquivos, os instantâneos também serão excluídos. Para proteger os backups de instantâneo contra exclusão acidental, verifique se a exclusão reversível está habilitada para seu compartilhamento.
+Você pode fazer backup do compartilhamento de arquivos do Azure por meio de [instantâneos de compartilhamento](./storage-snapshots-files.md), que são cópias de ponto no tempo somente leitura do seu compartilhamento. Os instantâneos são incrementais, o que significa que eles contêm tantos dados quantos foram alterados desde o instantâneo anterior. Você pode ter até 200 instantâneos por compartilhamento de arquivos e mantê-los por até 10 anos. Você pode pegar esses instantâneos manualmente no portal do Azure, por meio do PowerShell ou da CLI (interface de linha de comando), ou pode usar o [backup do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Os instantâneos são armazenados no compartilhamento de arquivos, o que significa que, se você excluir o compartilhamento de arquivos, os instantâneos também serão excluídos. Para proteger os backups de instantâneo contra exclusão acidental, verifique se a exclusão reversível está habilitada para seu compartilhamento.
 
-O [backup do Azure para compartilhamentos de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) manipula o agendamento e a retenção de instantâneos. Seus recursos de GFS (avô-pai-filho) significam que você pode usar instantâneos diários, semanais, mensais e anuais, cada um com seu próprio período de retenção distinto. O backup do Azure também orquestra a habilitação da exclusão reversível e usa um bloqueio de exclusão em uma conta de armazenamento assim que qualquer compartilhamento de arquivos dentro dele é configurado para backup. Por fim, o backup do Azure fornece determinados recursos de monitoramento e alerta importantes que permitem aos clientes ter uma exibição consolidada de seus bens de backup.
+O [backup do Azure para compartilhamentos de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) manipula o agendamento e a retenção de instantâneos. Seus recursos de GFS (avô-pai-filho) significam que você pode usar instantâneos diários, semanais, mensais e anuais, cada um com seu próprio período de retenção distinto. O backup do Azure também orquestra a habilitação da exclusão reversível e usa um bloqueio de exclusão em uma conta de armazenamento assim que qualquer compartilhamento de arquivos dentro dele é configurado para backup. Por fim, o backup do Azure fornece determinados recursos de monitoramento e alerta importantes que permitem aos clientes ter uma exibição consolidada de seus bens de backup.
 
 Você pode executar restaurações em nível de item e de compartilhamento no portal do Azure usando o backup do Azure. Tudo o que você precisa fazer é escolher o ponto de restauração (um instantâneo específico), o arquivo ou diretório específico, se relevante, e depois o local (original ou alternativo) no qual você deseja restaurar. O serviço de backup lida com a cópia dos dados do instantâneo e mostra o progresso da restauração no Portal.
 
-Para obter mais informações sobre backup, consulte [sobre o backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Para obter mais informações sobre backup, consulte [sobre o backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### <a name="advanced-threat-protection-for-azure-files-preview"></a>Proteção avançada contra ameaças para arquivos do Azure (versão prévia)
 A ATP (proteção avançada contra ameaças) para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que fornece alertas quando detecta atividade anômala em sua conta de armazenamento, por exemplo, tentativas incomuns de acessar a conta de armazenamento. ATP também executa a análise de reputação de hash de malware e alertará sobre o malware conhecido. Você pode configurar ATP em um nível de assinatura ou de conta de armazenamento por meio da central de segurança do Azure. 

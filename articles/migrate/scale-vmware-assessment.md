@@ -3,12 +3,12 @@ title: Avalie grandes números de VMs VMware para migração para o Azure com mi
 description: Descreve como avaliar grandes números de VMs VMware para migração para o Azure usando o serviço migrações para Azure. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0be7a7ea4afc400787456533689fe00b1db1c116
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314110"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492923"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
 
@@ -88,7 +88,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 1. Criar projetos de migrações para Azure.
 2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Saiba mais](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
 

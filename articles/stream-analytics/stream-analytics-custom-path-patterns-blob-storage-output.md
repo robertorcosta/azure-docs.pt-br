@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531348"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491665"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamento de saída de blob personalizado do Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Campo personalizado ou atributos de entrada melhoram os fluxos de trabalho de pr
 
 ### <a name="partition-key-options"></a>Opções de chave de partição
 
-A chave de partição ou o nome da coluna, usado para particionar dados de entrada, pode conter caracteres alfanuméricos com espaços, sublinhados e hifens. Não é possível usar campos aninhados como uma chave de partição, a menos que usados em conjunto com aliases. A chave de partição deve ser NVARCHAR (MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade 1,2 ou superior). Para obter mais informações, consulte [Azure Stream Analytics tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+A chave de partição ou o nome da coluna, usado para particionar dados de entrada, pode conter caracteres alfanuméricos com espaços, sublinhados e hifens. Não é possível usar campos aninhados como uma chave de partição, a menos que usados em conjunto com aliases. A chave de partição deve ser NVARCHAR (MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade 1,2 ou superior). Para obter mais informações, consulte [Azure Stream Analytics tipos de dados](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemplo
 

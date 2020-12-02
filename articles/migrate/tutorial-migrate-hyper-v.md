@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 2d31c5b90f37f336b48118e4f4adde4777f8cf4a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302562"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493114"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -45,7 +45,6 @@ Antes de iniciar este tutorial, você deverá:
 4. É recomendável que você [avalie as VMs do Hyper-V](tutorial-assess-hyper-v.md) antes de migrá-las para o Azure, mas isso não é obrigatório.
 5. Vá para o projeto criado ou [crie um projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 6. Verifique as permissões para sua conta do Azure. Sua conta do Azure precisa de permissões para criar uma VM e gravar em um disco gerenciado do Azure.
-
 
 ## <a name="download-and-install-the-provider"></a>Baixar e instalar o provedor
 

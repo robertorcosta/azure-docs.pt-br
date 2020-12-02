@@ -6,23 +6,23 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336056"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492618"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Ler réplicas no banco de dados do Azure para MySQL-servidor flexível
 
 > [!IMPORTANT]
 > Ler réplicas no banco de dados do Azure para MySQL-o servidor flexível está em versão prévia.
 
-O MySQL é um dos mecanismos de banco de dados populares para a execução de aplicativos Web e móveis de escala da Internet. Muitos de nossos clientes o utilizam para seus serviços de treinamento online, serviços de streaming de vídeo, soluções de pagamento digital, plataformas de comércio eletrônico, serviços de jogos, portais de notícias, governo e sites de saúde. Esses serviços são necessários para servir e dimensionar conforme o tráfego no aplicativo Web ou móvel aumenta.
+O MySQL é um dos mecanismos de banco de dados populares para a execução de aplicativos Web e móveis de escala da Internet. Muitos de nossos clientes o utilizam para os serviços de treinamento online, serviços de streaming de vídeo, soluções de pagamento digital, plataformas de comércio eletrônico, serviços de jogos, portais de notícias, governo e sites de saúde. Esses serviços são necessários para serem fornecidos e dimensionados conforme o tráfego no aplicativo Web ou móvel aumenta.
 
-No lado dos aplicativos, o aplicativo é normalmente desenvolvido em Java ou php e migrado para ser executado em conjuntos de dimensionamento de máquinas virtuais do Azure ou serviços de Azure App ou são incluídos em contêineres para serem executados no AKS (serviço de kubernetes do Azure). Com o conjunto de dimensionamento de máquinas virtuais, o serviço de aplicativo ou o AKS como infraestrutura subjacente, o dimensionamento de aplicativos é simplificado com o provisionamento instantâneo de novas VMs e a replicação de componentes sem estado de aplicativos para atender às solicitações, mas com frequência, o banco de dados acaba sendo um afunilamento como componente com estado centralizado.
+No lado dos aplicativos, o aplicativo é normalmente desenvolvido em Java ou php e migrado para ser executado em conjuntos de dimensionamento de máquinas virtuais do Azure ou serviços de Azure App ou são incluídos em contêineres para serem executados no AKS (serviço de kubernetes do Azure). Com o conjunto de dimensionamento de máquinas virtuais, o Serviço de Aplicativo ou o AKS como infraestrutura subjacente, a escala do aplicativo é simplificada provisionando instantaneamente novas VMs e replicando os componentes de aplicativos sem estado para atender às solicitações, mas geralmente o banco de dados acaba sendo um gargalo como componente com estado centralizado.
 
-O recurso de réplica de leitura permite replicar dados de um servidor do Azure para servidores flexíveis para um servidor somente leitura. Você pode replicar do servidor de origem para até **10** réplicas. As réplicas são atualizadas de forma assíncrona usando a tecnologia de replicação baseada em posição do arquivo binário nativo (log binário) do mecanismo MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+O recurso de réplica de leitura permite replicar dados de um servidor flexível do Banco de Dados do Azure para MySQL para um servidor somente leitura. Você pode replicar do servidor de origem para até **10** réplicas. As réplicas são atualizadas de forma assíncrona usando a tecnologia de replicação baseada em posição do arquivo binário nativo (log binário) do mecanismo MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Réplicas são novos servidores que você gerencia de forma semelhante ao banco de dados do Azure de origem para servidores flexíveis do MySQL. Você incorrerá em cobranças de cada réplica de leitura com base na computação provisionada no vCores e no armazenamento em GB/mês. Para obter mais informações, consulte [preços](./concepts-compute-storage.md#pricing).
 
@@ -55,7 +55,7 @@ Se um servidor de origem não tiver servidores de réplica existentes, a origem 
 Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para MySQL é criado. O novo servidor é preenchido com os dados que estavam no servidor de origem. O tempo de criação depende da quantidade de dados na origem e da hora desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas.
 
 > [!NOTE]
-> As réplicas de leitura são criadas com a mesma configuração de servidor que a origem. A configuração do servidor de réplica pode ser alterada depois de criada. O servidor de réplica é sempre criado no mesmo grupo de recursos, no mesmo local e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar a origem.
+> As réplicas de leitura são criadas com a mesma configuração de servidor que a origem. A configuração do servidor de réplica pode ser alterada depois de criada. O servidor de réplica é sempre criado no mesmo grupo de recursos, no mesmo local e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) após a criação. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar a origem.
 
 Saiba como [criar uma réplica de leitura no portal do Azure](how-to-read-replicas-portal.md).
 
@@ -65,7 +65,7 @@ Na criação, uma réplica herda o método de conectividade do servidor de orige
 
 A réplica herda a conta do administrador do servidor de origem. Todas as contas de usuário no servidor de origem são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor de origem.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor flexível do banco de dados do Azure para MySQL. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin** , você pode se conectar à réplica usando a CLI do mysql:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor flexível do banco de dados do Azure para MySQL. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando a CLI do mysql:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin -p
@@ -118,7 +118,7 @@ Depois que o aplicativo processar leituras e gravações com êxito, você terá
 |:-|:-|
 | Réplica no servidor com HA com redundância de zona habilitada | Sem suporte |
 | Replicação de leitura entre regiões | Sem suporte |
-| Preços | O custo da execução do servidor de réplica é baseado na região em que o servidor de réplica está em execução |
+| Preço | O custo da execução do servidor de réplica é baseado na região em que o servidor de réplica está em execução |
 | Reinicialização do servidor de origem | Quando você cria uma réplica para uma fonte que não tem réplicas existentes, a origem será reiniciada primeiro para se preparar para a replicação. Leve isso em consideração e execute essas operações durante um período de fora de pico |
 | Novas réplicas | Uma réplica de leitura é criada como um novo servidor flexível do banco de dados do Azure para MySQL. Um servidor existente não pode se tornar uma réplica. Não é possível criar uma réplica de outra réplica de leitura |
 | Configuração da réplica | Uma réplica é criada usando a mesma configuração de servidor que a origem. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor de origem: geração de computação, vCores, armazenamento e período de retenção de backup. A camada de computação também pode ser alterada de forma independente.<br> <br> **IMPORTANTE**  <br> -Antes que uma configuração de servidor de origem seja atualizada para novos valores, atualize a configuração de réplica para valores iguais ou maiores. Esta ação garante que a réplica possa acompanhar as alterações realizadas na origem. <br/> As configurações de método e parâmetro de conectividade são herdadas do servidor de origem para a réplica quando a réplica é criada. As regras da réplica são independentes posteriormente. |
@@ -126,7 +126,7 @@ Depois que o aplicativo processar leituras e gravações com êxito, você terá
 | Servidores de origem e autônomos excluídos | Quando um servidor de origem é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas se tornam servidores autônomos automaticamente e podem aceitar leituras e gravações. O próprio servidor de origem é excluído. |
 | Contas de usuário | Os usuários no servidor de origem são replicados para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário disponíveis no servidor de origem. |
 | Parâmetros do Servidor | Para impedir que os dados fiquem fora de sincronia e evitar possíveis perdas de dados ou danos, alguns parâmetros de servidor estão bloqueados para serem atualizados ao usar réplicas de leitura. <br> Os seguintes parâmetros de servidor estão bloqueados nos servidores de origem e de réplica:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> O parâmetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado nos servidores de réplica. <br> Para atualizar um dos parâmetros acima no servidor de origem, exclua os servidores de réplica, atualize o valor do parâmetro na origem e recrie as réplicas. |
-| Outros | -Não há suporte para a criação de uma réplica de uma réplica. <br> -As tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações. <br>-Verifique se as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a origem e as réplicas.<br>-Examinar a lista completa de limitações de replicação do MySQL na [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
+| Outro | -Não há suporte para a criação de uma réplica de uma réplica. <br> -As tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações. <br>-Verifique se as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a origem e as réplicas.<br>-Examinar a lista completa de limitações de replicação do MySQL na [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

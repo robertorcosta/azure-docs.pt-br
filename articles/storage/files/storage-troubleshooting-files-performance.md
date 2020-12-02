@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916484"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492005"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -159,7 +159,7 @@ As cargas de trabalho que dependem da criação de um grande número de arquivos
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Nenhum.
+- nenhuma.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou do servidor 2012 R2
 
@@ -196,7 +196,7 @@ Alterações recentes nas definições de configuração de Multichannel do SMB 
 
 ### <a name="cause"></a>Causa  
 
-A notificação de alteração de arquivo de número alto em compartilhamentos de arquivos pode resultar em latências altas significativas. Isso normalmente ocorre com sites hospedados em compartilhamentos de arquivos com estrutura de diretório aninhada profunda. Um cenário típico é o aplicativo Web hospedado pelo IIS em que a notificação de alteração de arquivo é configurada para cada diretório na configuração padrão. Cada alteração ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) no compartilhamento que o cliente SMB está registrado para envia uma notificação de alteração do serviço de arquivo para o cliente, que usa recursos do sistema e emite piora com o número de alterações. Isso pode causar a limitação de compartilhamento e, portanto, resultar em maior latência do cliente. 
+A notificação de alteração de arquivo de número alto em compartilhamentos de arquivos pode resultar em latências altas significativas. Isso normalmente ocorre com sites hospedados em compartilhamentos de arquivos com estrutura de diretório aninhada profunda. Um cenário típico é o aplicativo Web hospedado pelo IIS em que a notificação de alteração de arquivo é configurada para cada diretório na configuração padrão. Cada alteração ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) no compartilhamento que o cliente SMB está registrado para envia uma notificação de alteração do serviço de arquivo para o cliente, que usa recursos do sistema e emite piora com o número de alterações. Isso pode causar a limitação de compartilhamento e, portanto, resultar em maior latência do cliente. 
 
 Para confirmar, você pode usar as métricas do Azure no portal- 
 

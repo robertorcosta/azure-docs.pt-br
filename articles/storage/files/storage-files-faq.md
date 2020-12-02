@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629488"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492124"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que podem ser acessados por meio do [protocolo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão do setor e do [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -22,7 +22,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 1. A seção de comentários deste artigo.
 2. [Página de P e R da Microsoft para Armazenamento do Microsoft Azure](/answers/topics/azure-file-storage.html).
 3. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda** , selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
+4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 
 ## <a name="general"></a>Geral
 * <a id="why-files-useful"></a>
@@ -184,7 +184,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
     - A Sincronização de Arquivos do Azure preserva e replica todas as ACLs discricionárias ou DACLs (sejam elas baseadas no Active Directory ou locais) para todos os pontos de extremidade do servidor aos quais ela é sincronizada. 
     
-    Você pode consultar [Autorizar acesso ao Armazenamento do Microsoft Azure](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) para ver uma representação abrangente de todos os protocolos compatíveis nos serviços do Armazenamento do Microsoft Azure. 
+    Você pode consultar [Autorizar acesso ao Armazenamento do Microsoft Azure](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver uma representação abrangente de todos os protocolos compatíveis nos serviços do Armazenamento do Microsoft Azure. 
     
 * <a id="encryption-at-rest"></a>
 **Como garantir que o compartilhamento de arquivos do Azure está criptografado em repouso?**  

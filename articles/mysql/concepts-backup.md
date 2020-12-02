@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433267"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492804"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -38,11 +38,11 @@ Os backups de log de transações ocorrem a cada cinco minutos.
 O armazenamento de uso geral é o armazenamento de back-end com suporte ao [uso geral](concepts-pricing-tiers.md) e ao servidor da [camada com otimização de memória](concepts-pricing-tiers.md) . Para servidores com armazenamento de uso geral de até 4 TB, os backups completos ocorrem uma vez a cada semana. Os backups diferenciais ocorrem duas vezes por dia. Os backups de log de transações ocorrem a cada cinco minutos. Os backups no armazenamento de uso geral até o armazenamento de 4 TB não são baseados em instantâneo e consomem largura de banda de e/s no momento do backup. Para bancos de dados grandes (> 1 TB) em armazenamento de 4 TB, recomendamos que você considere
 
 - Provisionamento de mais IOPs para considerar o backup IOs ou
-- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure.
+- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](./concepts-pricing-tiers.md#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
 
-Em um subconjunto de [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
+Em um subconjunto de [regiões do Azure](./concepts-pricing-tiers.md#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 
 Os backups de instantâneo diferenciais ocorrem pelo menos uma vez por dia. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Os backups de instantâneo diferenciais ocorrem a cada 24 horas, a menos que o log de transações (binlog no MySQL) exceda 50 GB desde o último backup diferencial. Em um dia, são permitidos no máximo seis instantâneos diferenciais.
 

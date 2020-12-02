@@ -4,12 +4,12 @@ description: Saiba como executar uma migração baseada em agente de VMs VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 437dbce1c577b5d837ad0c70e8e8865ba59cf9e6
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302753"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492990"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
@@ -133,7 +133,6 @@ Verifique se os servidores e as VMs VMware cumprem os requisitos para a migraç�
 
 > [!NOTE]
 > A migração baseada em agente com a Migração de Servidor de Migrações para Azure baseia-se nos recursos do serviço do Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação do Site Recovery.
-
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o dispositivo de replicação
 

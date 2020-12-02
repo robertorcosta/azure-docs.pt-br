@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: f31a883a2b10f37d6a4a7a91fff37739e340ac60
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 73d88f69057dc6fe39f6329e89eb72ecebf853f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348841"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491971"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como usar o armazenamento de filas do C++
 
@@ -23,7 +23,7 @@ ms.locfileid: "93348841"
 
 ## <a name="overview"></a>Visão geral
 
-Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem **inserir** , **exibir** , **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
+Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
 
 > [!NOTE]
 > Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -60,7 +60,7 @@ Adicione as seguintes instruções include à parte superior do arquivo C++ no q
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
 
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar em um aplicativo cliente, você deve fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de acesso de armazenamento para a conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey* . Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [sobre contas de armazenamento do Azure](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json). Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
+Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar em um aplicativo cliente, você deve fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de acesso de armazenamento para a conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey* . Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [sobre contas de armazenamento do Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
 ```cpp
 // Define the connection-string with your values.
@@ -181,7 +181,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 
 ## <a name="how-to-de-queue-the-next-message"></a>Como remover a próxima mensagem da fila
 
-Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get_message** , você recebe a próxima mensagem em uma fila. Uma mensagem retornada de **get_message** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Para concluir a remoção da mensagem da fila, você também deve chamar **Delete_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **Delete_message** logo após a mensagem ser processada.
+Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get_message**, você recebe a próxima mensagem em uma fila. Uma mensagem retornada de **get_message** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Para concluir a remoção da mensagem da fila, você também deve chamar **Delete_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **Delete_message** logo após a mensagem ser processada.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -203,7 +203,7 @@ queue.delete_message(dequeued_message);
 
 ## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Como: aproveitar as opções adicionais para remover mensagens da fila
 
-Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get_messages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get_messages** , qualquer mensagem não excluída ficará visível novamente.
+Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get_messages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get_messages**, qualquer mensagem não excluída ficará visível novamente.
 
 ```cpp
 // Retrieve storage account from connection-string.

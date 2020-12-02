@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556617"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492277"
 ---
-# <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso do Azure
+# <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso
 
 O Microsoft Azure inclui ferramentas para proteger os dados de acordo com as necessidades de segurança e conformidade de sua empresa. Este documento se concentra em:
 
@@ -60,7 +60,7 @@ Conforme descrito anteriormente, a meta da criptografia em repouso é que os dad
 
 ![Componentes](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Cofre de Chave do Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 O local de armazenamento das chaves de criptografia e controle de acesso a essas chaves é central para um modelo de criptografia em repouso. As chaves precisam ser altamente seguras, mas gerenciáveis por usuários especificados e disponíveis para serviços específicos. Para os serviços do Azure, o Azure Key Vault é a solução de armazenamento de chave recomendada e fornece uma experiência de gerenciamento comum em todos os serviços. As chaves são armazenadas e gerenciadas em cofres de chaves e o acesso a um cofre de chave pode ser fornecido para usuários ou serviços. O Azure Key Vault fornece suporte a criação de chaves do cliente ou importação de chaves do cliente para uso em cenários de chave de criptografia de cliente gerenciado.
 
