@@ -8,11 +8,11 @@ ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
 ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363894"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171952"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -29,7 +29,7 @@ Antes de começar, sinta-se à vontade para experimentar o [Personalizador com e
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Como o Personalizador seleciona o melhor item de conteúdo?
 
-O Personalizador usa o **aprendizado por reforço** para selecionar o melhor item ( _ação_ ) com base no comportamento coletivo e nas pontuações de recompensa entre todos os usuários. As ações são os itens de conteúdo, como artigos de notícias, filmes específicos ou produtos.
+O Personalizador usa o **aprendizado por reforço** para selecionar o melhor item (_ação_) com base no comportamento coletivo e nas pontuações de recompensa entre todos os usuários. As ações são os itens de conteúdo, como artigos de notícias, filmes específicos ou produtos.
 
 A chamada de **Classificação** usa o item de ação, em conjunto com recursos da ação, bem como recursos de contexto para selecionar o item de ação superior:
 
@@ -57,7 +57,7 @@ O Personalizador usou o aprendizado por reforço para selecionar a melhor ação
 
 ## <a name="when-to-use-personalizer"></a>Quando usar o Personalizador
 
-A [API](https://go.microsoft.com/fwlink/?linkid=2092082) de **Classificação** do Personalizador será chamada sempre que o seu aplicativo apresentar conteúdo. Isso é conhecido como um **evento** , indicado com uma _ID do evento_.
+A [API](https://go.microsoft.com/fwlink/?linkid=2092082) de **Classificação** do Personalizador será chamada sempre que o seu aplicativo apresentar conteúdo. Isso é conhecido como um **evento**, indicado com uma _ID do evento_.
 
 A **API** de [Recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) do Personalizador pode ser chamada em tempo real ou atrasada para se adequar melhor à sua infraestrutura. Você determina a pontuação de recompensa com base em suas necessidades empresariais. A pontuação de recompensa está entre 0 e 1. Ela pode ter um valor único, como 1 para bom e 0 para ruim ou um número produzido por um algoritmo criado considerando suas metas e métricas empresariais.
 
@@ -87,8 +87,8 @@ Como o Personalizador usa informações coletivas quase em tempo real para retor
 
 1. Adicione o Personalizador ao aplicativo, site ou sistema:
     1. Adicione uma chamada de **Classificação** para o Personalizador em seu aplicativo, site ou sistema para determinar o melhor item de _conteúdo_ antes que o conteúdo seja mostrado ao usuário.
-    1. Exiba o melhor item de _conteúdo_ , que é a _ID da ação de recompensa_ retornada, para o usuário.
-    1. Aplique a _lógica de negócios_ às informações coletadas sobre como o usuário se comportou para determinar a pontuação de **recompensa** , como:
+    1. Exiba o melhor item de _conteúdo_, que é a _ID da ação de recompensa_ retornada, para o usuário.
+    1. Aplique a _lógica de negócios_ às informações coletadas sobre como o usuário se comportou para determinar a pontuação de **recompensa**, como:
 
     |Comportamento|Pontuação de recompensa calculada|
     |--|--|

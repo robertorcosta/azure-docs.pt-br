@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a245dae4405706c37b3c142963d325925d089830
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912813"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001432"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Node.js
 
@@ -274,4 +274,4 @@ A resposta agora inclui atributos de face. Por exemplo:
 Neste início rápido, você escreveu um script Node.js que chama o serviço de Detecção Facial do Azure para detectar rostos em uma imagem e retornar os atributos. Em seguida, explore a documentação de referência de API de Detecção Facial para saber mais.
 
 > [!div class="nextstepaction"]
-> [API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
