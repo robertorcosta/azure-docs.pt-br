@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461307"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Identidade gerenciada do workspace do Azure Synapse (versão prévia)
+# <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerenciada do workspace do Azure Synapse
 
 Neste artigo, você aprenderá sobre a identidade gerenciada no workspace do Azure Synapse.
 
@@ -48,7 +48,7 @@ Inicie o **Azure Synapse Studio** e selecione a guia **Gerenciar** no painel de 
 
 ![Criação de serviço vinculado 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-Na janela **Novo serviço vinculado** , digite *Azure Data Lake Storage Gen2*. Selecione o tipo de recurso **Azure Data Lake Storage Gen2** na lista abaixo e escolha **Continuar**.
+Na janela **Novo serviço vinculado**, digite *Azure Data Lake Storage Gen2*. Selecione o tipo de recurso **Azure Data Lake Storage Gen2** na lista abaixo e escolha **Continuar**.
 
 ![Criação de serviço vinculado 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 

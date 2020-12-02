@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: c16fc475e4982724ebc9f4f55301b6fc56dfb7c7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95017002"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461550"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Início Rápido: Criar um Azure Key Vault e uma chave usando o modelo do ARM (versão prévia)
 
@@ -26,7 +26,7 @@ ms.locfileid: "95017002"
 Para concluir este artigo, será preciso:
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- O usuário precisaria ter uma função interna do RBAC atribuída, por ex. colaborador. [Saiba mais aqui](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- O usuário precisaria ter uma função interna do RBAC atribuída, por ex. colaborador. [Saiba mais aqui](../../role-based-access-control/role-assignments-portal.md)
 - Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar permissões. O procedimento a seguir obtém a ID do objeto (GUID).
 
     1. Execute o comando do Azure PowerShell ou CLI do Azure a seguir selecionando **Experimentar** e colando o script no painel do shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar**.

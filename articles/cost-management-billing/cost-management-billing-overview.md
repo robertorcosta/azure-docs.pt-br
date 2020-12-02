@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contentperfq2
-ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1dca2fa938c26ba45f162fae962aec0bfaf6cef7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677384"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353027"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Gerenciamento de Custos do Azure + Cobrança?
 
@@ -43,11 +43,11 @@ Uma conta de cobrança é criada quando você se inscreve para usar o Azure. Voc
 
 Atualmente, o portal do Azure dá suporte aos seguintes tipos de contas de cobrança:
 
-- **Programa Microsoft Online Services** : Uma conta de cobrança individual para o Programa Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma conta gratuita do Azure, uma conta com taxas pagas conforme o uso ou como assinante do Visual Studio.
+- **Programa Microsoft Online Services**: Uma conta de cobrança individual para o Programa Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma conta gratuita do Azure, uma conta com taxas pagas conforme o uso ou como assinante do Visual Studio.
 
-- **Contrato Enterprise** : Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um EA (Contrato Enterprise) para usar o Azure.
+- **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um EA (Contrato Enterprise) para usar o Azure.
 
-- **Contrato de Cliente da Microsoft** : Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma conta com taxas pagas conforme o uso ou atualizam sua conta gratuita do Azure, também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
+- **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma conta com taxas pagas conforme o uso ou atualizam sua conta gratuita do Azure, também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Escopos para contas de cobrança
 Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenciar a cobrança. É nele que você gerencia dados de cobrança, pagamentos, faturas e realiza o gerenciamento geral da conta.
@@ -108,7 +108,7 @@ O Cloudyn é um serviço do Azure relacionado ao Gerenciamento de Custos que ser
 O Azure tem outras ferramentas que não fazem parte do conjunto de recursos de Gerenciamento de Custos do Azure + Cobrança. No entanto, elas têm um papel importante no processo de gerenciamento de custos. Para saber mais sobre essas ferramentas, consulte os links a seguir.
 
 - [Calculadora de preço do Azure](https://azure.microsoft.com/pricing/calculator/): use essa ferramenta para estimar seus custos iniciais de nuvem.
-- [Azure Migrate](/azure/migrate/migrate-services-overview) - Avalie sua carga de trabalho atual do data center para obter insights sobre o que é necessário de uma solução de substituição do Azure.
+- [Azure Migrate](../migrate/migrate-services-overview.md) - Avalie sua carga de trabalho atual do data center para obter insights sobre o que é necessário de uma solução de substituição do Azure.
 - [Azure Advisor](../advisor/advisor-overview.md) - Identifique VMs não usadas e receba recomendações sobre compras de instâncias reservadas do Azure.
 - [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) - Use suas licenças atuais do Windows Server ou do SQL Server no local para VMs no Azure para salvar.
 

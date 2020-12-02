@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685844"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445912"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -45,13 +45,13 @@ Para adicionar um segredo ao cofre, siga estas etapas:
 1. Clique em **Gerar/Importar**.
 1. Na tela **Criar um segredo**, escolha os seguintes valores:
     - **Opções de upload**: Manual.
-    - **Nome**: Digite um nome para o segredo. O nome do segredo precisa ser exclusivo dentro de um Key Vault. O nome deve ser uma sequência de 1 a 127 caracteres, que começam com uma letra e contêm somente 0 – 9, a – z, A – Z e -. Para obter mais informações sobre Nomenclatura, confira [Objetos, identificadores e controle de versão do Key Vault](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)
+    - **Nome**: Digite um nome para o segredo. O nome do segredo precisa ser exclusivo dentro de um Key Vault. O nome deve ser uma sequência de 1 a 127 caracteres, que começam com uma letra e contêm somente 0 – 9, a – z, A – Z e -. Para obter mais informações sobre Nomenclatura, confira [Objetos, identificadores e controle de versão do Key Vault](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
     - **Valor**: digite um valor para o segredo. As APIs do Key Vault aceitam e retornam valores do segredo como cadeias de caracteres. 
     - Deixe os outros valores com seus padrões. Clique em **Criar**.
 
 Quando receber a mensagem de que o segredo foi criado com êxito, clique nele na lista. 
 
-Para obter mais informações sobre atributos de segredos, confira [Sobre segredos do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets)
+Para obter mais informações sobre atributos de segredos, confira [Sobre segredos do Azure Key Vault](./about-secrets.md)
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar um segredo do Key Vault
 
@@ -75,7 +75,7 @@ Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Ke
 3. Na caixa **DIGITE O NOME DO GRUPO DE RECURSOS:** , digite o nome do grupo de recursos e selecione **Excluir**.
 
 > [!NOTE]
-> É importante observar que depois que um segredo, uma chave, um certificado ou um cofre de chaves for excluído, ele permanecerá recuperável por um período configurável de 7 a 90 dias calendários. Se nenhuma configuração for especificada, o período de recuperação padrão será definido como 90 dias. Isso fornece aos usuários tempo suficiente para perceber uma exclusão de segredo acidental e responder. Para obter mais informações sobre como excluir e recuperar cofres de chaves e objetos do cofre de chaves, confira [Visão geral da exclusão temporária do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
+> É importante observar que depois que um segredo, uma chave, um certificado ou um cofre de chaves for excluído, ele permanecerá recuperável por um período configurável de 7 a 90 dias calendários. Se nenhuma configuração for especificada, o período de recuperação padrão será definido como 90 dias. Isso fornece aos usuários tempo suficiente para perceber uma exclusão de segredo acidental e responder. Para obter mais informações sobre como excluir e recuperar cofres de chaves e objetos do cofre de chaves, confira [Visão geral da exclusão temporária do Azure Key Vault](../general/soft-delete-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

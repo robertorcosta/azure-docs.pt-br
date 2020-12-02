@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150118"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344276"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -30,7 +30,7 @@ Você pode trocar sua reserva no [portal do Azure](https://portal.azure.com/#bla
 
 1. Selecione as reservas que deseja reembolsar e selecione **Trocar**.  
     [![Exemplo de imagem mostrando reservas a serem devolvidas](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
-1. Selecione o produto de VM que você deseja comprar e digite uma quantidade. Verifique se o novo total de compra é maior que o total de devolução. [Determine o tamanho correto antes da compra](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+1. Selecione o produto de VM que você deseja comprar e digite uma quantidade. Verifique se o novo total de compra é maior que o total de devolução. [Determine o tamanho correto antes da compra](../../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     [![Exemplo de imagem mostrando o produto da VM a ser comprado com uma troca](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png#lightbox)
 1. Examine e conclua a transação.  
     [![Exemplo de imagem mostrando o produto da VM a ser comprado com uma troca, concluindo a devolução](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)

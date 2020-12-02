@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 15e45143d1da5ac405b3e408df197ab04b4dea39
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412265"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348952"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -44,33 +44,33 @@ Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azu
 - Administrador de departamento (somente leitura)
 - Proprietário da conta
 
-Cada função tem um grau variável de limites e permissões de usuário. Para obter mais informações, confira [Estrutura da organização e permissões por função](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
+Cada função tem um grau variável de limites e permissões de usuário. Para obter mais informações, confira [Estrutura da organização e permissões por função](./understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
 ## <a name="activate-your-enrollment-create-a-subscription-and-other-administrative-tasks"></a>Ativar seu registro, criar uma assinatura e outras tarefas administrativas
 
-Para obter mais informações sobre como ativar seu registro, criar um departamento ou uma assinatura, adicionar administradores e proprietários de conta e outras tarefas administrativas, confira [Administração do Portal do EA do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
+Para obter mais informações sobre como ativar seu registro, criar um departamento ou uma assinatura, adicionar administradores e proprietários de conta e outras tarefas administrativas, confira [Administração do Portal do EA do Azure](./ea-portal-administration.md).
 
-Se você quiser saber mais sobre como transferir uma assinatura Enterprise para uma assinatura Paga Conforme o Uso, confira [Transferências do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
+Se você quiser saber mais sobre como transferir uma assinatura Enterprise para uma assinatura Paga Conforme o Uso, confira [Transferências do Azure Enterprise](./ea-transfers.md).
 
 ## <a name="view-usage-summary-and-download-reports"></a>Exibir resumo de uso e baixar relatórios
 
 Você pode gerenciar e agir sobre a fatura do EA do Azure. A fatura representa a cobrança e deve ser examinada quanto à precisão.
 
-Para ver o resumo de uso, baixar relatórios e gerenciar as faturas de registro, confira [Faturas de registro do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+Para ver o resumo de uso, baixar relatórios e gerenciar as faturas de registro, confira [Faturas de registro do Azure Enterprise](./ea-portal-enrollment-invoices.md).
 
 ## <a name="now-that-youre-familiar-with-the-basics-here-are-some-additional-links-to-help-you-get-onboarded"></a>Agora que você está familiarizado com os conceitos básicos, aqui estão alguns links adicionais para ajudá-lo a se integrar
 
-[Os preços do EA do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) fornecem detalhes sobre como o uso é calculado e passa pelos encargos de vários serviços do Azure no Contrato Enterprise em que os cálculos são mais complexos.
+[Os preços do EA do Azure](./ea-pricing-overview.md) fornecem detalhes sobre como o uso é calculado e passa pelos encargos de vários serviços do Azure no Contrato Enterprise em que os cálculos são mais complexos.
 
-Se você quiser saber como as reservas do Azure para instâncias reservadas de VM podem ajudar você a economizar dinheiro com seu Registro Enterprise, confira [instâncias reservadas de VM do EA do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations).
+Se você quiser saber como as reservas do Azure para instâncias reservadas de VM podem ajudar você a economizar dinheiro com seu Registro Enterprise, confira [instâncias reservadas de VM do EA do Azure](./ea-portal-vm-reservations.md).
 
-Para obter informações sobre quais APIs REST usar com o registro do Azure Enterprise e uma explicação sobre como resolver problemas comuns com APIs REST, confira [APIs REST do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Para obter informações sobre quais APIs REST usar com o registro do Azure Enterprise e uma explicação sobre como resolver problemas comuns com APIs REST, confira [APIs REST do Azure Enterprise](./ea-portal-rest-apis.md).
 
-[Os contratos e as emendas do EA do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) descrevem como os contratos e as emendas do EA do Azure podem afetar o acesso, o uso e os pagamentos dos serviços do Azure.
+[Os contratos e as emendas do EA do Azure](./ea-portal-agreements.md) descrevem como os contratos e as emendas do EA do Azure podem afetar o acesso, o uso e os pagamentos dos serviços do Azure.
 
-O [Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) explica como os clientes e parceiros do EA podem ver os encargos do marketplace e habilitar as compras no Azure Marketplace.
+O [Azure Marketplace](./ea-azure-marketplace.md) explica como os clientes e parceiros do EA podem ver os encargos do marketplace e habilitar as compras no Azure Marketplace.
 
-Para obter explicações sobre as tarefas comuns que um administrador do EA de parceiro realiza no Portal do EA do Azure, confira [Administração do Portal do EA do Azure para parceiros](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration).
+Para obter explicações sobre as tarefas comuns que um administrador do EA de parceiro realiza no Portal do EA do Azure, confira [Administração do Portal do EA do Azure para parceiros](./ea-partner-portal-administration.md).
 
 ## <a name="get-started-on-azure-ea---faq"></a>Introdução às perguntas frequentes do EA do Azure
 
@@ -132,7 +132,7 @@ Você pode criar quantos departamentos forem necessários em seu registro do EA 
 
 Depois de criar departamentos e assinaturas, você poderá ver os dados no relatório de uso. Essas informações podem ajudá-lo a acompanhar o uso e gerenciar custos e gastos no nível do departamento.
 
-Você também pode acessar os dados de uso por meio da API de relatórios. Para obter informações detalhadas e o código de exemplo, confira as [APIs REST do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Você também pode acessar os dados de uso por meio da API de relatórios. Para obter informações detalhadas e o código de exemplo, confira as [APIs REST do Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Posso definir uma cota de gastos e receber alertas à medida que me aproximar do meu limite?
 
@@ -144,7 +144,7 @@ Para definir sua cota de gastos, selecione um departamento e, em seguida, seleci
 
 Se você usar _grupos de recursos_ e _marcas_, essas informações serão rastreadas no nível de serviço e você poderá acessá-las no arquivo detalhado de uso (CSV) para download. Confira a opção [baixar o relatório de uso](https://ea.azure.com/report/downloadusage) no Azure Enterprise Portal.
 
-Você também pode acessar o uso por meio da API. Para obter informações detalhadas e o código de exemplo, confira as [APIs REST do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Você também pode acessar o uso por meio da API. Para obter informações detalhadas e o código de exemplo, confira as [APIs REST do Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Você só pode aplicar marcas em recursos com suporte a operações do Azure Resource Manager. Se você tiver criado uma máquina virtual, uma rede virtual ou um armazenamento por meio do modelo de implantação clássica (como por meio do portal clássico), não poderá aplicar uma marcação a esse recurso. Para dar suporte à marcação, implante esses recursos novamente por meio do Resource Manager. Todos os outros recursos oferecem suporte à marcação.
