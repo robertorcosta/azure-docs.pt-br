@@ -3,18 +3,18 @@ title: Pipelines e atividades no Azure Data Factory
 description: Aprenda sobre pipelines e atividades no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003048"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500064"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -57,7 +57,7 @@ Atividades de transformação de dados | Ambiente de computação
 [Streaming do Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Atividades do Azure Machine Learning Studio (clássico): Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
-[Procedimento armazenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou SQL Server
+[Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL do Azure, Azure Synapse Analytics ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Atividade personalizada](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -109,11 +109,11 @@ Veja como um pipeline é definido no formato JSON:
 Marca | Descrição | Type | Obrigatório
 --- | ----------- | ---- | --------
 name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | Sim
-descrição | Especifique o texto descrevendo para que o pipeline é usado. | String | No
+descrição | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
 atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Array | Sim
-parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Lista | No
-simultaneidade | O número máximo de execuções simultâneas que o pipeline pode ter. Por padrão, não há nenhum máximo. Se o limite de simultaneidade for atingido, as execuções de pipeline adicionais serão enfileiradas até que as anteriores sejam concluídas | Número | No 
-annotations | Uma lista de marcas associadas ao pipeline | Array | No
+parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Lista | Não
+simultaneidade | O número máximo de execuções simultâneas que o pipeline pode ter. Por padrão, não há nenhum máximo. Se o limite de simultaneidade for atingido, as execuções de pipeline adicionais serão enfileiradas até que as anteriores sejam concluídas | Número | Não 
+annotations | Uma lista de marcas associadas ao pipeline | Array | Não
 
 ## <a name="activity-json"></a>Atividade JSON
 A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois tipos principais de atividades: atividades de execução e de controle.
@@ -147,9 +147,9 @@ name | Nome da atividade. Especifique um nome que represente a ação executada 
 descrição | Texto que descreve para que a atividade é usada | Sim
 type | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-flow-activities) para diferentes tipos de atividade. | Sim
 linkedServiceName | Nome do serviço vinculado usado pela atividade.<br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. | Sim para atividade do HDInsight, Azure Machine Learning Studio (clássica) atividade de Pontuação de lote, atividade de procedimento armazenado. <br/><br/>Não para todas as outros
-typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | No
-policy | Políticas que afetam o comportamento de tempo de execução da atividade. Essa propriedade inclui um comportamento de tempo limite e de repetição. Se não for especificado, serão usados valores padrão. Para obter mais informações, consulte a seção [Política de atividade](#activity-policy). | No
-dependsOn | Esta propriedade é usada para definir as dependências de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte a seção [Dependência de atividade](#activity-dependency) | No
+typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não
+policy | Políticas que afetam o comportamento de tempo de execução da atividade. Essa propriedade inclui um comportamento de tempo limite e de repetição. Se não for especificado, serão usados valores padrão. Para obter mais informações, consulte a seção [Política de atividade](#activity-policy). | Não
+dependsOn | Esta propriedade é usada para definir as dependências de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte a seção [Dependência de atividade](#activity-dependency) | Não
 
 ### <a name="activity-policy"></a>Política de atividade
 Políticas afetam o comportamento de tempo de execução de uma atividade, oferecendo opções de configurabilidade. Políticas de atividade só estão disponíveis para atividades de execução.
@@ -211,8 +211,8 @@ Marca | Descrição | Obrigatório
 name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Sim</li><ul>
 descrição | Texto que descreve para que a atividade é usada | Sim
 type | Tipo da atividade. Consulte as seções [atividades de movimentação de dados](#data-movement-activities), atividades de transformação de [dados](#data-transformation-activities)e atividades de [controle](#control-flow-activities) para diferentes tipos de atividades. | Sim
-typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | No
-dependsOn | Essa propriedade é usada para definir a dependência de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte [dependência de atividade](#activity-dependency). | No
+typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não
+dependsOn | Essa propriedade é usada para definir a dependência de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte [dependência de atividade](#activity-dependency). | Não
 
 ### <a name="activity-dependency"></a>Dependência de atividade
 A dependência de atividade define como as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuar executando a próxima tarefa. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.

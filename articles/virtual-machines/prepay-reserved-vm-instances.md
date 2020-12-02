@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 5df56b304463ab981026fbe0c82d831d83d702c3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f23d1fb0162abf05fba97c2f6fb02be9238fabd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500352"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances-linux"></a>Economize custos com instâncias de VM reservadas do Azure (Linux)
 
@@ -86,7 +86,7 @@ As instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos 
 
 ## <a name="buy-a-reserved-vm-instance"></a>Comprar uma Instância de VM Reservada
 
-Você pode comprar uma instância de VM reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md).
+Você pode comprar uma instância de VM reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md).
 Esses requisitos se aplicam à compra de uma instância de VM reservada:
 
 - Você deve estar em uma função de proprietário para pelo menos uma assinatura de EA ou uma assinatura com uma taxa pré-paga.
@@ -136,7 +136,7 @@ Você não pode fazer os seguintes tipos de alterações após a compra, diretam
 - Uma região de reserva existente
 - SKU
 - Quantidade
-- Duration
+- Duração
 
 No entanto, você pode *trocar* uma reserva se desejar fazer alterações.
 
@@ -158,6 +158,4 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
     - [Noções básicas sobre o uso de reserva para uma assinatura com taxas pagas conforme o uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Entender o uso de reserva para seu registro de empresa](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Custos de software do Windows não estão incluídos nas reservas](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+    - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](/partner-center/azure-reservations)

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 234c70fffb6f353c670d23624cc446fdaf6bd886
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701816"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498958"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Exemplos de código JavaScript para o Azure Pesquisa Cognitiva
 
 Saiba mais sobre os exemplos de código do JavaScript que demonstram os recursos e a funcionalidade do Azure Pesquisa Cognitiva. Os repositórios primários são os seguintes:
 
-| Repositório | Description |
+| Repositório | Descrição |
 |------------|-------------|
 | [Azure-SDK-for-js/árvore/mestre/SDK/pesquisa/pesquisa-documentos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Exemplos produzidos pela equipe do SDK do Azure que acompanha a biblioteca de cliente do Azure.Search.Documents no SDK. Você também pode examinar os [testes de unidade](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) da biblioteca de cliente para ver como várias APIs são chamadas. |
 | [Azure-Samples/Azure-Search-JavaScript-Samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Exemplos de código que acompanham artigos de instruções, incluindo o [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).|
@@ -55,7 +55,7 @@ O SDK também fornece exemplos do TypeScript, listados aqui para sua conveniênc
 
 ## <a name="documentation-samples"></a>Amostras de documentação
 
-Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/).
+Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](./index.yml).
 
 | Exemplos | Descrição | 
 |---------|-------------|

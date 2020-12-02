@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500267"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solucionar problemas de galerias de imagens compartilhadas no Azure
 
@@ -137,7 +137,7 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 
 *Não há suporte para o tipo de conta de armazenamento ZRS nesta região.*  
 **Causa**: você escolheu o ZRS (armazenamento com redundância de zona padrão) em uma região que ainda não oferece suporte a ele.  
-**Solução alternativa**: altere o tipo de conta de armazenamento para **Premium \_ LRS** ou **Standard \_ LRS**. Verifique nossa documentação para obter a [lista mais recente de regiões](/azure/storage/common/storage-redundancy#zone-redundant-storage) com a visualização de ZRS habilitada.
+**Solução alternativa**: altere o tipo de conta de armazenamento para **Premium \_ LRS** ou **Standard \_ LRS**. Verifique nossa documentação para obter a [lista mais recente de regiões](../storage/common/storage-redundancy.md#zone-redundant-storage) com a visualização de ZRS habilitada.
 
 ## <a name="creating-or-updating-image-versions"></a>Criando ou atualizando versões de imagem ##
 

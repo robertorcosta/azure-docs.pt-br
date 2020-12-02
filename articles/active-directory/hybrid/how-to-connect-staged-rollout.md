@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836386"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500216"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -66,6 +66,8 @@ Os cenários a seguir têm suporte para distribuição em etapas. O recurso só 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
 Os cenários a seguir não têm suporte para distribuição em etapas.
+
+- Aplicativos ou serviços de nuvem usam autenticação herdada, como POP3 e SMTP.
 
 - Alguns aplicativos enviam o parâmetro de consulta “domain_hint” para o Azure AD durante a autenticação. Esses fluxos continuarão, e os usuários que estiverem habilitados para a distribuição em etapas continuarão a usar a federação para autenticação.
 

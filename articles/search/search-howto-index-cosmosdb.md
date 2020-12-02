@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: aed1aa03527481014a63c636181725b91b17a1e8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: be7c6ec9dbc577143e6c7219580f42c876f536bc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003881"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499961"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados do Cosmos DB usando um indexador no Azure Cognitive Search 
 
@@ -24,13 +24,13 @@ ms.locfileid: "96003881"
 > [As versões de visualização da API REST](search-api-preview.md) fornecem esses recursos. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
 
 > [!WARNING]
-> Somente as coleções Cosmos DB com uma [política de indexação](/azure/cosmos-db/index-policy) definida como [consistente](/azure/cosmos-db/index-policy#indexing-mode) são suportadas pelo Azure pesquisa cognitiva. A indexação de coleções com uma política de indexação lenta não é recomendada e pode resultar em dados ausentes. Não há suporte para coleções com indexação desabilitadas.
+> Somente as coleções Cosmos DB com uma [política de indexação](../cosmos-db/index-policy.md) definida como [consistente](../cosmos-db/index-policy.md#indexing-mode) são suportadas pelo Azure pesquisa cognitiva. A indexação de coleções com uma política de indexação lenta não é recomendada e pode resultar em dados ausentes. Não há suporte para coleções com indexação desabilitadas.
 
 Este artigo mostra como configurar um [indexador](search-indexer-overview.md) Azure Cosmos DB para extrair conteúdo e torná-lo pesquisável no Azure pesquisa cognitiva. Este fluxo de trabalho cria um índice de Pesquisa Cognitiva do Azure e o carrega com o texto existente extraído do Azure Cosmos DB. 
 
-Como a terminologia pode ser confusa, vale a pena observar que [Azure Cosmos DB indexação](/azure/cosmos-db/index-overview) e a [indexação do Azure pesquisa cognitiva](search-what-is-an-index.md) são operações distintas, exclusivas para cada serviço. Antes de iniciar a indexação de Pesquisa Cognitiva do Azure, seu banco de dados Azure Cosmos DB já deve existir e conter dados.
+Como a terminologia pode ser confusa, vale a pena observar que [Azure Cosmos DB indexação](../cosmos-db/index-overview.md) e a [indexação do Azure pesquisa cognitiva](search-what-is-an-index.md) são operações distintas, exclusivas para cada serviço. Antes de iniciar a indexação de Pesquisa Cognitiva do Azure, seu banco de dados Azure Cosmos DB já deve existir e conter dados.
 
-O indexador Cosmos DB no Azure Pesquisa Cognitiva pode rastrear [itens de Azure Cosmos DB](../cosmos-db/databases-containers-items.md#azure-cosmos-items) acessados por meio de protocolos diferentes. 
+O indexador Cosmos DB no Azure Pesquisa Cognitiva pode rastrear [itens de Azure Cosmos DB](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) acessados por meio de protocolos diferentes. 
 
 + Para a [API do SQL](../cosmos-db/sql-query-getting-started.md), que está em disponibilidade geral, você pode usar o [portal](#cosmos-indexer-portal), a [API REST](/rest/api/searchservice/indexer-operations)ou o [SDK do .net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) para criar a fonte de dados e o indexador.
 
@@ -130,7 +130,7 @@ Você pode usar a API REST para indexar Azure Cosmos DB dados, seguindo um fluxo
 > [!NOTE]
 > Para indexação de dados de Cosmos DB API Gremlin ou Cosmos DB API do Cassandra você deve primeiro solicitar acesso às visualizações controladas preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). Depois que sua solicitação for processada, você receberá instruções sobre como usar a [API REST versão 2020-06-30-Preview](search-api-preview.md) para criar a fonte de dados.
 
-No início deste artigo, é mencionado que [Azure Cosmos DB indexação](/azure/cosmos-db/index-overview) e indexação de [indexação do Azure pesquisa cognitiva](search-what-is-an-index.md) são operações distintas. Para a indexação de Cosmos DB, por padrão, todos os documentos são indexados automaticamente, exceto pelo API do Cassandra. Se você desativar a indexação automática, os documentos poderão ser acessados somente por meio de seus links automáticos ou por consultas usando a ID do documento. A indexação de Pesquisa Cognitiva do Azure requer que Cosmos DB indexação automática seja ativada na coleção que será indexada pelo Azure Pesquisa Cognitiva. Ao se inscrever para a versão prévia do indexador Cosmos DB API do Cassandra, você receberá instruções sobre como configurar a indexação de Cosmos DB.
+No início deste artigo, é mencionado que [Azure Cosmos DB indexação](../cosmos-db/index-overview.md) e indexação de [indexação do Azure pesquisa cognitiva](search-what-is-an-index.md) são operações distintas. Para a indexação de Cosmos DB, por padrão, todos os documentos são indexados automaticamente, exceto pelo API do Cassandra. Se você desativar a indexação automática, os documentos poderão ser acessados somente por meio de seus links automáticos ou por consultas usando a ID do documento. A indexação de Pesquisa Cognitiva do Azure requer que Cosmos DB indexação automática seja ativada na coleção que será indexada pelo Azure Pesquisa Cognitiva. Ao se inscrever para a versão prévia do indexador Cosmos DB API do Cassandra, você receberá instruções sobre como configurar a indexação de Cosmos DB.
 
 > [!WARNING]
 > O Azure Cosmos DB é a próxima geração do DocumentDB. Anteriormente, com a versão **2017-11-11** da API, você poderia usar a `documentdb` sintaxe. Isso significa que você pode especificar o tipo de fonte de dados como `cosmosdb` ou `documentdb` . A partir da versão de API **2019-05-06** , o portal e as APIs de pesquisa cognitiva do Azure só dão suporte à `cosmosdb` sintaxe conforme instruído neste artigo. Isso significa que o tipo de fonte de dados deve `cosmosdb` se você quiser se conectar a um ponto de extremidade Cosmos DB.

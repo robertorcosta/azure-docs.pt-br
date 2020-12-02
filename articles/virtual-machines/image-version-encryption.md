@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504315"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499281"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
@@ -211,7 +211,7 @@ Ao criar a versão da imagem no portal, você pode usar a guia **criptografia** 
 
 
 1. Na página **criar uma imagem de versão** , selecione a guia **criptografia** .
-2. Em **tipo de criptografia** , selecione **criptografia em repouso com uma chave gerenciada pelo cliente** ou **criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente**. 
+2. Em **tipo de criptografia**, selecione **criptografia em repouso com uma chave gerenciada pelo cliente** ou **criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente**. 
 3. Para cada disco na imagem, selecione um conjunto de criptografia na lista suspensa **conjunto de criptografia de disco** . 
 
 ### <a name="create-the-vm"></a>Criar a VM
@@ -220,6 +220,6 @@ Você pode criar uma VM com base em uma versão de imagem e usar chaves gerencia
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [Criptografia de disco do lado do servidor](./windows/disk-encryption.md).
+Saiba mais sobre [Criptografia de disco do lado do servidor](./disk-encryption.md).
 
 Para obter informações sobre como fornecer informações do plano de compra, consulte [fornecer informações do plano de compra do Azure Marketplace ao criar imagens](marketplace-images.md).

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c1d21d88ed49cb14aa9f964791154f001a40fbe2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701850"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499570"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Exemplos de código Java para o Azure Pesquisa Cognitiva
 
 Saiba mais sobre os exemplos de código Java que demonstram os recursos e a funcionalidade do Azure Pesquisa Cognitiva. Os repositórios primários são os seguintes:
 
-| Repositório | Description |
+| Repositório | Descrição |
 |------------|-------------|
 | [Azure-SDK-para-Java/árvore/mestre/SDK/pesquisa/Azure-Search-Documents/src/Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) | Exemplos produzidos pela equipe do SDK do Azure que acompanha a biblioteca de cliente do Azure.Search.Documents no SDK. Você também pode examinar os [testes de unidade](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/test) da biblioteca de cliente para ver como várias APIs são chamadas. |
 | [Azure-Samples/Azure-Search-java-Samples](https://github.com/Azure-Samples/azure-search-java-samples) | Exemplos de código que acompanham artigos de instruções. Os **exemplos neste repositório ainda não foram atualizados para usar o SDK do Azure para Java**. Atualmente, esses exemplos chamam APIs REST no código Java.|
@@ -43,7 +43,7 @@ O SDK do Azure para Java inclui vários exemplos e uma [página de introdução]
 
 ## <a name="documentation-samples"></a>Amostras de documentação
 
-Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/).
+Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](./index.yml).
 
 | Exemplos | Descrição | 
 |---------|-------------|

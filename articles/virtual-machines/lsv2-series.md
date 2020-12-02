@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652917"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498414"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -51,7 +51,7 @@ Intermitência: com suporte<br>
 
 <sup>4</sup> VMs da série Lsv2 não fornecem o cache de host para o disco de dados uma vez que não beneficiam as cargas de trabalho Lsv2.
 
-<sup>5</sup> as VMs da série Lsv2 podem aumentar o [desempenho do disco](linux/disk-bursting.md) por até 30 minutos por vez. 
+<sup>5</sup> as VMs da série Lsv2 podem aumentar o [desempenho do disco](./disk-bursting.md) por até 30 minutos por vez. 
 
 <sup>6</sup> VMs com mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte:
 

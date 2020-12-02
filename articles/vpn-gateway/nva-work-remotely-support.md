@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499672"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabalhando remotamente: considerações sobre NVA (solução de virtualização de rede) para trabalho remoto
 
@@ -64,3 +64,6 @@ A maioria dos principais parceiros de NVA publicou orientação sobre o dimensio
 [Fortinet COVID-19 atualizações para clientes e parceiros](https://www.fortinet.com/covid-19.html "Atualizações do COVID-19 para clientes e parceiros")
 
 [Centro de respostas do Palo Alto Networks COVID-19](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Centro de respostas do Palo Alto Networks COVID-19")
+
+[Kemp habilitar o trabalho remoto e a experiência do aplicativo de Always-On para continuidade dos negócios](https://kemptechnologies.com/remote-work-always-on-application-experience-business-continuity/ "Kemp habilitar o trabalho remoto e a experiência do aplicativo de Always-On para continuidade dos negócios")
+

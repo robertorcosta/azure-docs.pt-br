@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 6d20f02b846c7ae47aef395694aef2bc5732957e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cc11c21eda243df1298286c4745588bc492e955d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978638"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498482"
 ---
 # <a name="azure-vm-powershell-samples-for-creating-and-managing-linux-vms"></a>Exemplos do PowerShell de VM do Azure para criar e gerenciar VMs Linux
 
@@ -36,6 +36,6 @@ A tabela a seguir inclui links para amostras de scripts do PowerShell que criam 
 | [Copie um instantâneo para a mesma ou para uma assinatura diferente](../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copia um instantâneo para a mesma ou uma assinatura diferente que está na mesma região do instantâneo pai. |
 |**Monitorar máquinas virtuais**||
 | [Monitorar uma VM com logs do Azure Monitor](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual, instala o agente Log Analytics e a VM em um espaço de trabalho do Log Analytics.  |
-| [Copie um disco gerenciado para a mesma ou para uma assinatura diferente](../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Copia um disco gerenciado para a mesma ou uma assinatura diferente que está na mesma região que o disco gerenciado pai.
+| [Copie um disco gerenciado para a mesma ou para uma assinatura diferente](../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copia um disco gerenciado para a mesma ou uma assinatura diferente que está na mesma região que o disco gerenciado pai.
 | [Coletar detalhes sobre todas as VMs em uma assinatura com o PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um CSV que contém o Nome da VM, o Nome do Grupo de Recursos, a Região, a Rede Virtual, a Sub-rede, o Endereço IP Privado, o Tipo de SO e o Endereço IP Público das VMs na assinatura fornecida.
 | | |

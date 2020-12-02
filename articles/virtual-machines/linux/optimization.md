@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e3551834e7664d5036fa8a5e0497e5a37f61c2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370229"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498499"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar sua VM do Linux no Azure
 É fácil criar uma máquina virtual (VM) Linux desde a linha de comando ou do portal. Este tutorial mostra como garantir que você configurou uma VM para otimizar o desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -150,9 +150,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 O Ubuntu 18.04 com o kernel ajustado pelo Azure usa agendadores de E/S de várias filas. Nesse cenário, `none` é a seleção adequada em vez de `noop`. Para obter mais informações, consulte [Agendadores de E/S do Ubuntu](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Usando o RAID de software para alcançar I/Ops mais altos
-Se suas cargas de trabalho exigem mais IOps que um único disco pode fornecer, você precisa usar uma configuração RAID de software de vários discos. Como o Azure já executa a resiliência do disco na camada de malha local, você obterá o maior nível de desempenho de uma configuração de distribuição de RAID-0.  Provisione e crie discos no ambiente do Azure e anexe-os à sua VM Linux antes do particionamento, da formatação e da montagem das unidades.  Mais detalhes sobre como definir uma configuração de RAID de software em sua VM Linux no Azure podem ser encontrados no documento **[Configuração do RAID de software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+Se suas cargas de trabalho exigem mais IOps que um único disco pode fornecer, você precisa usar uma configuração RAID de software de vários discos. Como o Azure já executa a resiliência do disco na camada de malha local, você obterá o maior nível de desempenho de uma configuração de distribuição de RAID-0.  Provisione e crie discos no ambiente do Azure e anexe-os à sua VM Linux antes do particionamento, da formatação e da montagem das unidades.  Mais detalhes sobre como definir uma configuração de RAID de software em sua VM Linux no Azure podem ser encontrados no documento **[Configuração do RAID de software no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-Como alternativa a uma configuração de RAID tradicional, você também pode optar por instalar o LVM (gerenciador de volumes lógicos) para configurar um número de discos físicos em um único volume de armazenamento lógico distribuído. Nesta configuração, as leituras e gravações são distribuídas para vários discos contidos no grupo de volumes (semelhante ao RAID0). Por motivos de desempenho, é provável que você queira distribuir seus volumes lógicos para que as leituras e gravações utilizem todos os seus discos de dados conectados.  Mais detalhes sobre como configurar um volume lógico distribuído na sua VM Linux no Azure podem ser encontrados no documento **[Configurar LVM em uma VM Linux no Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+Como alternativa a uma configuração de RAID tradicional, você também pode optar por instalar o LVM (gerenciador de volumes lógicos) para configurar um número de discos físicos em um único volume de armazenamento lógico distribuído. Nesta configuração, as leituras e gravações são distribuídas para vários discos contidos no grupo de volumes (semelhante ao RAID0). Por motivos de desempenho, é provável que você queira distribuir seus volumes lógicos para que as leituras e gravações utilizem todos os seus discos de dados conectados.  Mais detalhes sobre como configurar um volume lógico distribuído na sua VM Linux no Azure podem ser encontrados no documento **[Configurar LVM em uma VM Linux no Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Próximas etapas
 Lembre-se de que, como com todas as discussões de otimização, você precisará executar testes antes e após cada alteração para medir o impacto que elas causarão.  A otimização é um processo passo a passo que tem resultados distintos em computadores diferentes no seu ambiente.  O que funciona para uma configuração pode não funcionar para outras.
@@ -160,4 +160,4 @@ Lembre-se de que, como com todas as discussões de otimização, você precisar�
 Alguns links úteis para recursos adicionais:
 
 * [Guia do usuário do agente Linux para o Azure](../extensions/agent-linux.md)
-* [Configurar RAID de software no Linux](configure-raid.md)
+* [Configurar RAID de software no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid)

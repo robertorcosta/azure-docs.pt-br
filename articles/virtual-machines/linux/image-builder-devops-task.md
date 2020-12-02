@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968660"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499247"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa DevOps do serviço do construtor de imagem do Azure
 
@@ -139,7 +139,7 @@ Selecione o botão **Compilar caminho** para escolher a pasta de Build que você
 
 O exemplo a seguir explica como isso funciona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selecionando Adicionar um artefato no pipeline de lançamento.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Uma estrutura de diretório que mostra A hierarquia.":::
 
 
 * Os arquivos do Windows existem no `C:\` . Um diretório chamado `buildArtifacts` é criado, o que inclui o `webapp` diretório.
@@ -194,10 +194,10 @@ O exemplo a seguir explica como isso funciona:
     
 #### <a name="total-length-of-image-build"></a>Comprimento total da compilação da imagem
 
-O comprimento total não pode ser alterado na tarefa de pipeline DevOps ainda. Ele usa o padrão de 240 minutos. Se você quiser aumentar o [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), poderá usar uma tarefa AZ CLI no pipeline de lançamento. Configure a tarefa para copiar um modelo e enviá-lo. Para obter um exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou use AZ PowerShell.
+O comprimento total não pode ser alterado na tarefa de pipeline DevOps ainda. Ele usa o padrão de 240 minutos. Se você quiser aumentar o [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), poderá usar uma tarefa AZ CLI no pipeline de lançamento. Configure a tarefa para copiar um modelo e enviá-lo. Para obter um exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou use AZ PowerShell.
 
 
-#### <a name="storage-account"></a>Conta de armazenamento
+#### <a name="storage-account"></a>Conta de Armazenamento
 
 Selecione a conta de armazenamento que você criou nos pré-requisitos. Se você não o vir na lista, o Image Builder não terá permissões para ele.
 
@@ -314,7 +314,7 @@ Se houver uma falha de compilação, a tarefa DevOps não excluirá o grupo de r
 
 Você verá um erro no log do DevOps para a tarefa do construtor de imagens de VM e verá o local de personalização. log. Por exemplo:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selecionando Adicionar um artefato no pipeline de lançamento.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemplo de erro de tarefa DevOps que mostra uma falha.":::
 
 Para obter mais informações sobre solução de problemas, consulte [solucionar problemas do serviço do construtor de imagem do Azure](image-builder-troubleshoot.md). 
 
@@ -330,7 +330,7 @@ template name:  t_1556938436xxx
 
 ```
 
-O artefato de recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando você terminar de solucionar o problema, exclua o artefato. Se estiver excluindo usando o portal do Azure, dentro do grupo de recursos, selecione **Mostrar tipos ocultos**para exibir o artefato.
+O artefato de recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando você terminar de solucionar o problema, exclua o artefato. Se estiver excluindo usando o portal do Azure, dentro do grupo de recursos, selecione **Mostrar tipos ocultos** para exibir o artefato.
 
 
 ## <a name="next-steps"></a>Próximas etapas

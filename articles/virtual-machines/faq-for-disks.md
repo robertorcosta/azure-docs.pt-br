@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843988"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499315"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -151,7 +151,7 @@ A reserva de discos do Azure fornece a opção de comprar SSDs Premium nas SKUs 
 As reservas são feitas na forma de discos, não de capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obterá um único disco P80, ou seja, não é possível dividir essa reserva específica em dois discos menores de P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) diferentes.
 
 **Como a reserva de discos do Azure funciona?**     
-A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de discos não pode ser aplicada a SKUs diferentes, mas uma instância de VM pode. Confira [Economizar custos com Instâncias de VM Reservadas do Azure](./linux/prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM.     
+A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de discos não pode ser aplicada a SKUs diferentes, mas uma instância de VM pode. Confira [Economizar custos com Instâncias de VM Reservadas do Azure](./prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM.     
 
 **Posso usar meu armazenamento de dados adquirido por meio da reserva de discos do Azure em várias regiões?**     
 A reserva de discos do Azure é adquirida para uma região e uma SKU específicas (como P30 no Leste dos EUA 2) e, portanto, não pode ser usada fora desses constructos. Você sempre pode comprar uma reserva de discos do Azure adicional para suas necessidades de armazenamento em disco em outras regiões ou SKUs.    

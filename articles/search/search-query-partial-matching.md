@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935765"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499536"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa de termo parcial e padrões com caracteres especiais (curinga, Regex, padrões)
 
@@ -160,7 +160,7 @@ Se você estiver avaliando analisadores ou avançando com uma configuração esp
 
 Os analisadores internos ou predefinidos podem ser especificados pelo nome em uma `analyzer` propriedade de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo a seguir demonstra como você definiria o `whitespace` analisador em um campo. 
 
-Para outros cenários e para saber mais sobre outros analisadores internos, consulte a [lista de analisadores predefinidos](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Para outros cenários e para saber mais sobre outros analisadores internos, consulte a [lista de analisadores predefinidos](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e594dab3e4bf36fedee7a068068934501ca02f24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499859"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Linha de base de segurança do Azure para Azure Pesquisa Cognitiva
 
@@ -64,7 +64,7 @@ O Pesquisa Cognitiva também dá suporte à funcionalidade de segurança de rede
 
 **Orientação**: a pesquisa cognitiva não fornece um recurso específico para combater um ataque de negação de serviço distribuído, mas você pode habilitar a proteção contra DDoS Standard nas redes virtuais associadas ao serviço de pesquisa cognitiva para proteção geral.
 
-- [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -223,7 +223,7 @@ Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Lo
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Saiba mais sobre o Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Saiba mais sobre o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -275,7 +275,7 @@ Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Lo
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como CLI do Azure, Azure PowerShell ou portal do Azure.
+**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
 Pesquisa Cognitiva funções estão associadas a permissões que dão suporte a tarefas de gerenciamento de nível de serviço.  Essas funções não concedem acesso ao ponto de extremidade de serviço. Acesso a operações no ponto de extremidade, (como gerenciamento de índice, preenchimento de índice e consultas em dados de pesquisa), use chaves de API para autenticar a solicitação.
 
@@ -522,7 +522,7 @@ A Microsoft gerencia a infraestrutura subjacente para Pesquisa Cognitiva e imple
 
 - [Configurar chaves gerenciadas pelo cliente para criptografia de dados no Azure Pesquisa Cognitiva](./search-security-manage-encryption-keys.md)
 
-- [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md)
+- [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -956,7 +956,7 @@ Habilite a exclusão reversível e a proteção de limpeza no Key Vault para pro
 
 - [Fazer backup e restaurar um índice de Pesquisa Cognitiva do Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Como habilitar a exclusão reversível e limpar a proteção no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Como habilitar a exclusão temporária e a proteção de limpeza no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Exclusão reversível para o armazenamento de BLOBs do Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
@@ -1044,9 +1044,9 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem, serviços e aplicativos gerenciados pela Microsoft.
+**Diretrizes**: siga as regras de teste de penetração Microsoft Cloud do Engagement para garantir que seus testes de penetração não estejam violando as políticas da Microsoft. Use a estratégia da Microsoft, a execução de Equipes Vermelhas e os testes de penetração de sites online na infraestrutura, nos serviços e nos aplicativos de nuvem gerenciados pela Microsoft.
 - [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
-- [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

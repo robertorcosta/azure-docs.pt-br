@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076609"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499740"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 
@@ -70,7 +70,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Aqui `sdc` está o disco que desejamos, porque ele é 50g. Se você não tiver certeza de qual disco ele se baseia apenas no tamanho, poderá ir para a página VM no portal, selecionar **discos**e verificar o número de LUN para o disco em **discos de dados**. 
+Aqui `sdc` está o disco que desejamos, porque ele é 50g. Se você não tiver certeza de qual disco ele se baseia apenas no tamanho, poderá ir para a página VM no portal, selecionar **discos** e verificar o número de LUN para o disco em **discos de dados**. 
 
 
 ### <a name="format-the-disk"></a>Formatar o disco
@@ -182,4 +182,4 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](optimization.md) .
-* Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](configure-raid.md) para obter desempenho adicional.
+* Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) para obter desempenho adicional.

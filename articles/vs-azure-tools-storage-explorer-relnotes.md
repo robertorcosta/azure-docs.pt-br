@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520995"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499655"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas sobre a versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -559,7 +559,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
         
 ### <a name="new"></a>Novo
 
-* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
   * Criar e excluir contêiner
   * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
@@ -628,7 +628,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
         
 ### <a name="new"></a>Novo
 
-* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
   * Criar e excluir contêiner
   * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
@@ -683,7 +683,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 
 ### <a name="new"></a>Novo
 
-* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
   * Criar e excluir contêiner
   * Gerenciar propriedades do contêiner e permissões (lado esquerdo)

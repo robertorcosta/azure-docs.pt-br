@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412639"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498873"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Controle de segurança: inventário e gerenciamento de ativos
 
@@ -100,7 +100,7 @@ Use o Controle de Alterações (monitoramento de integridade de arquivo) e o inv
 
 - [Como usar o monitoramento de integridade de arquivo](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Entender Controle de Alterações do Azure](../../automation/change-tracking.md)
+- [Entender Controle de Alterações do Azure](../../automation/change-tracking/overview.md)
 
 - [Como habilitar o inventário de máquina virtual do Azure](../../automation/automation-tutorial-installed-software.md)
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d068365cc8197a579c0b043d3fff2da3d54eb803
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686653"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498992"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Exemplos de código .NET (C#) para o Azure Pesquisa Cognitiva
 
@@ -44,7 +44,7 @@ O SDK do Azure para .NET inclui vários exemplos e um [Leiame de exemplos](https
 
 ## <a name="documentation-samples"></a>Amostras de documentação
 
-Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/).
+Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](./index.yml).
 
 | Exemplos | Descrição |
 |---------|-------------|
@@ -63,6 +63,6 @@ Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cog
 | Exemplos | Descrição |
 |---------|-------------|
 | [Azure-Search-Power-Skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Código-fonte para habilidades personalizadas consumíveis que você pode incorporar em suas soluções ganhas.  |
-| [Acelerador de solução de mineração de conhecimento](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Inclui modelos, arquivos de suporte e relatórios analíticos para ajudá-lo a desenvolver um protótipo de uma solução de mineração de conhecimento de ponta a ponta.  |
+| [Acelerador de solução de mineração de conhecimento](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Inclui modelos, arquivos de suporte e relatórios analíticos para ajudá-lo a desenvolver um protótipo de uma solução de mineração de conhecimento de ponta a ponta.  |
 | [Repositório de aplicativos de pesquisa do Covid-19](https://github.com/liamca/covid19search) | Repositório de código-fonte para o [aplicativo de pesquisa Covid-19](https://covid19search.azurewebsites.net/) baseado em pesquisa cognitiva |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Saiba mais sobre a [solução JFK](https://www.microsoft.com/ai/ai-lab-jfk-files). |

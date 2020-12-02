@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498856"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestado de inicialização e host medidos
 Este artigo descreve como a Microsoft garante a integridade e a segurança dos hosts por meio do atestado medido de inicialização e host.
 
 ## <a name="measured-boot"></a>Inicialização medida
 
-O [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) é um componente de auditoria criptograficamente seguro e de prova de adulteração com o firmware fornecido por terceiros confiáveis. O log de configuração de inicialização contém medidas de cadeia de hash registradas nos registros de configuração de plataforma (PCR) quando o host sofreu a seqüência de inicialização. A figura a seguir mostra esse processo de gravação. Adicionar incrementalmente uma medição anteriormente com hash ao hash da próxima medição e executar o algoritmo de hash na União realiza o encadeamento de hash.
+O [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) é um componente de auditoria criptograficamente seguro e de prova de adulteração com o firmware fornecido por terceiros confiáveis. O log de configuração de inicialização contém medidas de cadeia de hash registradas nos registros de configuração de plataforma (PCR) quando o host sofreu a seqüência de inicialização. A figura a seguir mostra esse processo de gravação. Adicionar incrementalmente uma medição anteriormente com hash ao hash da próxima medição e executar o algoritmo de hash na União realiza o encadeamento de hash.
 
 ![Diagrama que mostra a cadeia de hash do serviço de atestado de host.](./media/measured-boot-host-attestation/hash-chaining.png)
 
@@ -56,6 +56,6 @@ Para saber mais sobre o que fazemos para impulsionar a integridade e a seguranç
 
 - [Segurança do firmware](firmware.md)
 - [Inicialização segura](secure-boot.md)
-- [O Cerberus do projeto](project-cerberus.md)
+- [Projeto Cerberus](project-cerberus.md)
 - [Criptografia em repouso](encryption-atrest.md)
 - [Segurança do hipervisor](hypervisor.md)

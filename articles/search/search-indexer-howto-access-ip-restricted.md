@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0be69b72cc068d017202b0694e24fb4573172dba
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101385"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499944"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configurar regras de firewall IP para permitir conexões do indexador (Pesquisa Cognitiva do Azure)
 
@@ -90,5 +90,5 @@ As regras de firewall levam 5-10 minutos para serem atualizadas, após os quais 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar firewalls do armazenamento do Azure](../storage/common/storage-network-security.md)
-- [Configurar o firewall IP para Cosmos DB](../cosmos-db/firewall-support.md)
+- [Configurar o firewall IP para Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Configurar o firewall IP para o Azure SQL Server](../azure-sql/database/firewall-configure.md)

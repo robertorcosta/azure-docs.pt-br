@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498465"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Linux
 
@@ -78,7 +78,7 @@ Você também pode implantar o WAF (firewall do aplicativo Web) do Azure na fren
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para limitar a exposição de Máquinas Virtuais do Linux aos endereços IP aprovados por um período limitado. Além disso, use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-* [Como configurar a proteção contra DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar o Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -278,7 +278,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -308,7 +308,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Instruções para integração de servidores Linux à central de segurança do Azure](../../security-center/quickstart-onboard-machines.md)
 
-* [O link a seguir fornece as diretrizes de segurança recomendadas da Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](./security-recommendations.md)
+* [O link a seguir fornece as diretrizes de segurança recomendadas da Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](../security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -458,7 +458,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 **Orientação**: definir configurações de diagnóstico para Azure Active Directory enviar os logs de auditoria e os logs de entrada para um espaço de trabalho log Analytics. Além disso, use Azure Monitor para examinar os logs e executar consultas em dados de syslog de autenticação de máquinas virtuais do Azure.
 
-* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Compreender o workspace do Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como integrar os logs de atividades do Azure ao Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -586,7 +586,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Diretrizes**: discos virtuais em máquinas virtuais do Linux (VM) são criptografados em repouso usando a criptografia do lado do servidor ou o Ade (Azure Disk Encryption). Azure Disk Encryption aproveita o recurso DM-Crypt do Linux para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada. A criptografia do lado do servidor com chaves gerenciadas pelo cliente aprimora o ADE, permitindo usar quaisquer tipos de sistema operacional e imagens para as VMs, criptografando dados no serviço de armazenamento.
 
-* [Criptografia do lado do servidor de Azure Managed disks](../windows/disk-encryption.md)
+* [Criptografia do lado do servidor de Azure Managed disks](../disk-encryption.md)
 
 * [VMs do Azure Disk Encryption para Linux](./disk-encryption-overview.md)
 
@@ -618,7 +618,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Instruções para integração de servidores Linux à central de segurança do Azure](../../security-center/quickstart-onboard-machines.md)
 
-* [Diretrizes de segurança recomendadas da Microsoft](./security-recommendations.md)
+* [Diretrizes de segurança recomendadas da Microsoft](../security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -628,9 +628,9 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Diretrizes**: Use a solução de gerenciamento de atualizações do Azure para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas com suporte.
 
-* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/overview.md)
 
-* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -640,9 +640,9 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Orientação**: você pode usar uma solução de gerenciamento de patches de terceiros. Você pode usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas com suporte.
 
-* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solução Gerenciamento de Atualizações no Azure](../../automation/update-management/overview.md)
 
-* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerenciar atualizações e patches para suas VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -1016,7 +1016,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Orientação**: você precisará de uma ferramenta de terceiros para proteção contra malware na máquina virtual Linux do Azure.
 
-* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](./security-recommendations.md)
+* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1034,7 +1034,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Orientação**: você precisará de uma ferramenta de terceiros para proteção contra malware na máquina virtual Linux do Azure.
 
-* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](./security-recommendations.md)
+* [Como configurar o Microsoft antimalware para serviços de nuvem e máquinas virtuais](../security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1186,7 +1186,7 @@ Se você estiver usando o Azure Disk Encryption, poderá restaurar a VM do Azure
 
 * [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud o agrupamento vermelho](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

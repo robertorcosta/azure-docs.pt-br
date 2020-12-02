@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3c40e4c7b00a5c78872a60af25e3b19fe08f324
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466034"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499774"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando recursos de espaço de trabalho Synapse em um pool SQL dedicado existente (antigo SQL DW)
 
@@ -44,7 +44,7 @@ As informações a seguir serão aplicadas ao usar um SQL DW dedicado (anteriorm
 
 - **Segurança de rede** Se o espaço de trabalho Synapse que você habilitou em seu pool SQL dedicado existente (anteriormente conhecido como SQL DW) estiver habilitado para proteção de pós-infiltração de dados. Crie uma conexão de ponto de extremidade privada gerenciada do espaço de trabalho para o SQL Server lógico. Aprove a solicitação de conexão de ponto de extremidade privada para permitir comunicações entre o servidor e o espaço de trabalho.
 - **Estúdio** Pools SQL no **Hub de dados** um espaço de trabalho habilitado para pool de SQL dedicado (anteriormente conhecido como SQL DW) pode ser identificado por meio da dica de ferramenta no Hub de dados. 
-- **criando um novo pool de SQL dedicado (antigo SQL DW)** Novos pools de SQL dedicados podem ser criados por meio do espaço de trabalho Synapse e do estúdio depois que o recurso de espaço de trabalho tiver sido habilitado e o provisionamento de um novo pool ocorrerá no SQL Server lógico. Os novos recursos serão exibidos no portal e no estúdio quando o provisionamento for concluído.      
+- **Criando um novo pool de SQL dedicado (antigo SQL DW)** Novos pools de SQL dedicados podem ser criados por meio do espaço de trabalho Synapse e do estúdio depois que o recurso de espaço de trabalho tiver sido habilitado e o provisionamento de um novo pool ocorrerá no SQL Server lógico. Os novos recursos serão exibidos no portal e no estúdio quando o provisionamento for concluído.      
 
 ## <a name="next-steps"></a>Próximas etapas
 Habilitar [recursos de espaço de trabalho Synapse](workspace-connected-create.md) em seu pool SQL dedicado existente (anteriormente SQL DW)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024306"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499128"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Fala do Bing para o serviço de fala
 
@@ -26,7 +26,7 @@ Este artigo descreve as diferenças entre as APIs de Fala do Bing e o serviço d
 Uma única chave de assinatura do serviço de fala concede acesso aos recursos a seguir. Cada um deles é medido separadamente e, portanto, você será cobrado somente pelos recursos que usar.
 
 * [Conversão de fala em texto](speech-to-text.md)
-* [Conversão de fala em texto personalizada](https://cris.ai)
+* [Conversão de fala em texto Personalizada](https://cris.ai)
 * [Conversão de texto em fala](text-to-speech.md)
 * [Conversão de texto em vozes de fala personalizada](./how-to-custom-voice-create-voice.md)
 * [Tradução de fala](speech-translation.md) (não inclui [Tradução de texto](../translator/translator-info-overview.md))
@@ -79,7 +79,7 @@ Como começar a usar o SDK de Fala:
 
 Os clientes de Fala do Bing devem entrar em contato com o atendimento ao cliente abrindo um [tíquete de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Você também pode entrar em contato conosco caso sua necessidade de suporte precise de um [plano de suporte técnico](https://azure.microsoft.com/support/plans/).
 
-Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)do serviço de fala.
+Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suporte](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)do serviço de fala.
 
 ## <a name="next-steps"></a>Próximas etapas
 

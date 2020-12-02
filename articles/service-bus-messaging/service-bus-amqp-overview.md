@@ -3,12 +3,12 @@ title: Visão geral do AMQP 1,0 no barramento de serviço do Azure
 description: Saiba como o barramento de serviço do Azure dá suporte a Advanced Message Queuing Protocol (AMQP), um protocolo padrão aberto.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: 85943344fd8f20cf3a73af5d637b65676584f93f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e585fcc905d1651d49008b623b01a6c2f8a04fcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022160"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498771"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
 O serviço de nuvem do barramento de serviço do Azure usa o [protocolo de enfileiramento de mensagens avançado (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) como seus principais meios de comunicação. A Microsoft tem participado de parceiros em todo o setor, clientes e fornecedores de agentes de mensagens concorrentes, desenvolver e evoluir AMQP na última década, com novas extensões sendo desenvolvidas no [comitê técnico de AMQP da Oasis](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 é um padrão ISO e IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -64,11 +64,11 @@ O diagrama a seguir ilustra um exemplo de implantação no qual clientes Java em
 
 Todas as bibliotecas de cliente do barramento de serviço com suporte disponíveis por meio do SDK do Azure usam o AMQP 1,0.
 
-- [Barramento de serviço do Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Bibliotecas do barramento de serviço do Azure para Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Barramento de serviço do Azure para .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Bibliotecas do barramento de serviço do Azure para Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Provedor do barramento de serviço do Azure para Java JMS 2,0](how-to-use-java-message-service-20.md)
-- [Módulos do barramento de serviço do Azure para JavaScript e TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Bibliotecas do barramento de serviço do Azure para Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [Módulos do barramento de serviço do Azure para JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Bibliotecas do barramento de serviço do Azure para Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
@@ -89,4 +89,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
 [Usando o Barramento de Serviço do Java com AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Instalando o Apache QPID Proton-C em uma VM Linux do Azure]:: 
+[Instalando o Apache QPID Proton-C em uma VM Linux do Azure]::

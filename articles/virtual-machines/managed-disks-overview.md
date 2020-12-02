@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3b0acd683309ceb105c49dc5b0bd493ce2e461b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289361"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500420"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -71,7 +71,7 @@ Os discos gerenciados oferecem dois tipos diferentes de criptografia. O primeiro
 
 A criptografia no servidor fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da sua organização. A criptografia no servidor está habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. (Os discos temporários, por outro lado, não são criptografados pela criptografia do lado do servidor, a menos que você habilite a criptografia no host; consulte [Funções de disco: discos temporários](#temporary-disk)).
 
-Você poderá permitir que o Azure gerencie as chaves para você (essas são chaves gerenciadas pela plataforma) ou você poderá gerenciar as chaves por conta própria (essas são chaves gerenciadas pelo cliente). Veja o artigo [Criptografia no lado do servidor do Armazenamento em Disco do Azure](windows/disk-encryption.md) para obter detalhes.
+Você poderá permitir que o Azure gerencie as chaves para você (essas são chaves gerenciadas pela plataforma) ou você poderá gerenciar as chaves por conta própria (essas são chaves gerenciadas pelo cliente). Veja o artigo [Criptografia no lado do servidor do Armazenamento em Disco do Azure](./disk-encryption.md) para obter detalhes.
 
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
@@ -96,7 +96,7 @@ Esse disco tem uma capacidade máxima de 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
+A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
 
 Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela criptografia do servidor, a menos que você habilite a criptografia no host.
 

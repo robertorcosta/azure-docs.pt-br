@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842729"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498788"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
@@ -34,7 +34,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 |Serviço|Descrição|
 |--------|--------|
 |[Central de &nbsp;Segurança&nbsp; do Azure](../../security-center/security-center-introduction.md)| Uma solução de proteção de carga de trabalho de nuvem que fornece gerenciamento de segurança e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida.|
-|[Azure Key Vault](../../key-vault/general/overview.md)| Um repositório de segredos seguro para as senhas, cadeias de caracteres de conexão e outras informações necessárias para manter seus aplicativos funcionando. |
+|[Cofre da Chave do Azure](../../key-vault/general/overview.md)| Um repositório de segredos seguro para as senhas, cadeias de caracteres de conexão e outras informações necessárias para manter seus aplicativos funcionando. |
 |[Logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)|Um serviço de monitoramento que coleta a telemetria e outros dados e fornece um mecanismo de linguagem e análise de consulta para fornecer insights operacionais para seus aplicativos e recursos. Pode ser usado sozinho ou com outros serviços, como a Central de Segurança. |
 |[Laboratórios de desenvolvimento/teste do Azure](../../devtest-labs/devtest-lab-overview.md)|Um serviço que ajuda os desenvolvedores e testadores a rapidamente criar ambientes no Azure, minimizando o desperdício e controlando custos.  |
 
@@ -64,7 +64,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Auditoria do banco de dados SQL do Azure](../../azure-sql/database/auditing-overview.md)|Um recurso de auditoria do banco de dados SQL que rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure.  |
 
 
-## <a name="identity-and-access-management"></a>Gerenciamento de identidades e acesso
+## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
 |Serviço|Descrição|
 |------|--------|
 | [&nbsp;Controle de acesso baseado em função do Azure &nbsp;](../../role-based-access-control/role-assignments-portal.md)|Um recurso de controle de acesso projetado para permitir que os usuários acessem apenas os recursos necessários para acesso com base em suas funções dentro da empresa.  |
@@ -91,5 +91,5 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Gerenciador de Tráfego do Azure](../../traffic-manager/traffic-manager-overview.md)| Um balanceador de carga do DNS global.|
 | [Proxy de aplicativo do Azure](../../active-directory/manage-apps/application-proxy.md)| Um front-end de autenticação usado para proteger o acesso remoto para aplicativos da web hospedados no local. |
 |[Firewall do Azure](../../firewall/overview.md)|Um serviço de segurança de rede gerenciado baseado em nuvem que protege os recursos da Rede Virtual do Azure.|
-|[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicativo, fornece defesa contra ataques DDoS.|
+|[Proteção contra DDoS do Azure](../../ddos-protection/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicativo, fornece defesa contra ataques DDoS.|
 |[Pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado de rede virtual e a identidade da VNet aos serviços do Azure através de uma conexão direta.|
