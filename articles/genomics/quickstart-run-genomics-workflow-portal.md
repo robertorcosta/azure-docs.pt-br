@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4beb1c31f34ec4e8d26228cfe4f30f5109a1b60c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 85665dbda2ed11ffa04b71e4317f2b34b83d317f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394536"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349360"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho por meio do serviço Microsoft Genomics
 
@@ -112,7 +112,7 @@ O serviço do Microsoft Genomics espera leituras finais emparelhadas (arquivos f
 [https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz)
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
-Em sua conta de armazenamento, você precisa criar um contêiner de blob para seus dados de entrada e um segundo contêiner de blob para os dados de saída.  Carregue os dados de entrada em seu contêiner de blob de entrada. Várias ferramentas podem ser usadas para fazer isso, incluindo [Gerenciador de Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) ou [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
+Em sua conta de armazenamento, você precisa criar um contêiner de blob para seus dados de entrada e um segundo contêiner de blob para os dados de saída.  Carregue os dados de entrada em seu contêiner de blob de entrada. Várias ferramentas podem ser usadas para fazer isso, incluindo [Gerenciador de Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) ou [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Execute um fluxo de trabalho por meio do serviço do Microsoft Genomics usando o cliente do Python `msgen`
 
@@ -125,7 +125,7 @@ Caso deseje executar o GATK4, defina o parâmetro `process_name` como `gatk4`.
 
 Por padrão, o serviço Genomics gera arquivos VCF. Caso deseje obter uma saída gVCF em vez de uma saída VCF (equivalente a `-emitRefConfidence` no GATK 3.x e `emit-ref-confidence` no GATK 4.x), adicione o parâmetro `emit_ref_confidence` ao *config.txt* e defina-o como `gvcf`, conforme mostrado na figura anterior.  Para alterá-la novamente para a saída VCF, remova-a do arquivo *config.txt* ou defina o parâmetro `emit_ref_confidence` como `none`. 
 
-O `bgzip` é uma ferramenta que compacta o arquivo vcf ou gvcf, e o `tabix` cria um índice para o arquivo compactado. Por padrão, o serviço Genomics executa `bgzip` seguido por `tabix` na saída ".g.vcf", mas não executa essas ferramentas por padrão na saída ".vcf". Quando executado, o serviço produz os arquivos ".gz" (saída do bgzi) e ".tbi" (saída do tabix). O argumento é um booliano, que é definido como false por padrão na saída ".vcf" e como true por padrão na saída ".g.vcf". Para usar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (execute o bgzip e o tabix) ou `false`. Para usar esse argumento no arquivo *config.txt* , adicione `bgzip_output: true` ou `bgzip_output: false` ao arquivo.
+O `bgzip` é uma ferramenta que compacta o arquivo vcf ou gvcf, e o `tabix` cria um índice para o arquivo compactado. Por padrão, o serviço Genomics executa `bgzip` seguido por `tabix` na saída ".g.vcf", mas não executa essas ferramentas por padrão na saída ".vcf". Quando executado, o serviço produz os arquivos ".gz" (saída do bgzi) e ".tbi" (saída do tabix). O argumento é um booliano, que é definido como false por padrão na saída ".vcf" e como true por padrão na saída ".g.vcf". Para usar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (execute o bgzip e o tabix) ou `false`. Para usar esse argumento no arquivo *config.txt*, adicione `bgzip_output: true` ou `bgzip_output: false` ao arquivo.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Envie o seu fluxo de trabalho por meio do serviço do Microsoft Genomics usando o cliente do Python `msgen`
 

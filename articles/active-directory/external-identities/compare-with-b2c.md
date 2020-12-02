@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420cc2bc38d079fa95f6b90ed20cb31e994f4ea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027067"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173066"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>O que são identidades externas no Azure Active Directory?
 
@@ -51,7 +51,7 @@ Proteja e gerencie clientes e parceiros além dos limites organizacionais com Id
 
 ## <a name="about-multitenant-applications"></a>Sobre aplicativos multilocatários
 
-Se você estiver fornecendo um aplicativo como um serviço e não quiser gerenciar as contas de usuário dos seus clientes, um aplicativo multilocatário provavelmente será a escolha certa para você. Quando você desenvolve aplicativos destinados a outros locatários do Azure AD, você pode direcionar usuários de uma organização (locatário único) ou usuários de qualquer organização que já tenha um locatário do Azure AD (aplicativos multilocatários). Os registros de aplicativo no Azure AD são um locatário único por padrão, mas você pode tornar seu registro multilocatário. Esse aplicativo multilocatário é registrado uma vez por você no próprio Azure AD. Mas qualquer usuário do Azure AD de qualquer organização pode usar o aplicativo sem trabalho adicional de sua parte. Para obter mais informações, confira [Gerenciar a identidade em aplicativos multilocatários](https://docs.microsoft.com/azure/architecture/multitenant-identity/), [Guia de Instruções](../develop/howto-convert-app-to-be-multi-tenant.md).
+Se você estiver fornecendo um aplicativo como um serviço e não quiser gerenciar as contas de usuário dos seus clientes, um aplicativo multilocatário provavelmente será a escolha certa para você. Quando você desenvolve aplicativos destinados a outros locatários do Azure AD, você pode direcionar usuários de uma organização (locatário único) ou usuários de qualquer organização que já tenha um locatário do Azure AD (aplicativos multilocatários). Os registros de aplicativo no Azure AD são um locatário único por padrão, mas você pode tornar seu registro multilocatário. Esse aplicativo multilocatário é registrado uma vez por você no próprio Azure AD. Mas qualquer usuário do Azure AD de qualquer organização pode usar o aplicativo sem trabalho adicional de sua parte. Para obter mais informações, confira [Gerenciar a identidade em aplicativos multilocatários](/azure/architecture/multitenant-identity/), [Guia de Instruções](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

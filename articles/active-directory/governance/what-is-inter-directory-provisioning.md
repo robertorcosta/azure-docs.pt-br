@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbca2d00d10b6595b8a1d13251dd88c65667541
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134873"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168501"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>O que é provisionamento entre diretórios?
 
@@ -35,7 +35,7 @@ Atualmente, o Azure AD dá suporte a três métodos para realizar o provisioname
 
 - O [Provisionamento de Nuvem do Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) – um novo agente da Microsoft criado para atender às suas metas de identidade híbrida e atingi-las.  Ele fornece uma experiência de provisionamento entre diretórios leves entre o Active Directory e o Azure AD.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) – solução de gerenciamento de acesso e identidade local da Microsoft que ajuda a gerenciar usuários, credenciais, políticas e acesso em sua organização. Além disso, o MIM fornece provisionamento entre diretórios avançado para obter ambientes de identidade híbrida para o Active Directory, o Azure AD e outros diretórios.
+- [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) – solução de gerenciamento de acesso e identidade local da Microsoft que ajuda a gerenciar usuários, credenciais, políticas e acesso em sua organização. Além disso, o MIM fornece provisionamento entre diretórios avançado para obter ambientes de identidade híbrida para o Active Directory, o Azure AD e outros diretórios.
 
 ### <a name="key-benefits"></a>Principais benefícios
 
@@ -45,7 +45,7 @@ Essa funcionalidade de provisionamento entre diretórios oferece os seguintes be
 - [Autenticação de passagem](../hybrid/how-to-connect-pta.md) – um método de entrada que permite que os usuários usem a mesma senha localmente e na nuvem, mas não exige a infraestrutura adicional de um ambiente federado.
 - [Integração de federação](../hybrid/how-to-connect-fed-whatis.md) – pode ser usada para configurar um ambiente híbrido usando uma infraestrutura do AD FS local. Ela também fornece recursos de gerenciamento do AD FS, como renovação de certificado e implantações adicionais de servidor do AD FS.
 - [Sincronização](../hybrid/how-to-connect-sync-whatis.md) – responsável pela criação de usuários, grupos e outros objetos.  Também é responsável por garantir que as informações de identidade dos usuários e grupos locais correspondam às da nuvem.  Essa sincronização também inclui os hashes de senha.
-- [Monitoramento de Integridade](../hybrid/whatis-hybrid-identity-health.md) – pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
+- [Monitoramento de Integridade](../hybrid/whatis-azure-ad-connect.md) – pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
 
 
 ## <a name="next-steps"></a>Próximas etapas 

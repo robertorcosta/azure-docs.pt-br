@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88235393"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174723"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o provisionamento de usuários automatizado no aplicativo SaaS no Azure AD?
 
@@ -59,7 +59,7 @@ O Azure AD apresenta suporte pré-integrado para vários sistemas de recursos hu
 
    ![Logotipo do Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Se você quiser solicitar um novo aplicativo para provisionamento, poderá [solicitar que seu aplicativo seja integrado à nossa galeria de aplicativos](../azuread-dev/howto-app-gallery-listing.md). Para uma solicitação de provisionamento de usuários, exigimos que o aplicativo tenha um ponto de extremidade em conformidade com SCIM. Solicite que o fornecedor do aplicativo siga o padrão SCIM para que possamos integrar o aplicativo à nossa plataforma rapidamente.
+   Se você quiser solicitar um novo aplicativo para provisionamento, poderá [solicitar que seu aplicativo seja integrado à nossa galeria de aplicativos](../develop/v2-howto-app-gallery-listing.md). Para uma solicitação de provisionamento de usuários, exigimos que o aplicativo tenha um ponto de extremidade em conformidade com SCIM. Solicite que o fornecedor do aplicativo siga o padrão SCIM para que possamos integrar o aplicativo à nossa plataforma rapidamente.
 
 * **Aplicativos compatíveis com SCIM 2.0**. Para obter informações sobre como se conectar genericamente a aplicativos que implementam APIs de gerenciamento de usuários com base em SCIM 2.0, confira [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários](use-scim-to-provision-users-and-groups.md).
 

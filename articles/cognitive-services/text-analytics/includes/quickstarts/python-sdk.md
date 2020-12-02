@@ -117,7 +117,7 @@ Estes snippets de código mostram como realizar as seguintes tarefas com a bibli
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimento](#sentiment-analysis)
-* [Mineração de opinião](#opinion-mining)
+* [Mineração de opiniões](#opinion-mining)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Reconhecimento de Informações de Identificação Pessoal](#personally-identifiable-information-recognition) 

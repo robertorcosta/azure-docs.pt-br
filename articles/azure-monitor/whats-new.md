@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534493"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185888"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais são as novidades da documentação do Azure Monitor?
 
@@ -230,7 +230,7 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 - [Chave gerenciada pelo cliente do Azure Monitor](platform/customer-managed-keys.md) – adicionadas mensagens de erro e a seção de configuração de CMK para consultas.
 - [API do Coletor de Dados HTTP do Azure Monitor](platform/data-collector-api.md) – adicionado exemplo do Python 3.
 - [Otimize as consultas de log no Azure Monitor](log-query/query-optimization.md) – adicionada seção sobre como evitar várias verificações de dados ao usar subconsultas.
-- [Tutorial: Introdução às consultas do Log Analytics](log-query/get-started-portal.md) – vídeo adicionado.
+- [Tutorial: Introdução às consultas do Log Analytics](./log-query/log-analytics-tutorial.md) – vídeo adicionado.
 
 ### <a name="platform-logs"></a>Logs de plataforma
 - [Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](platform/diagnostic-settings.md) – vídeo adicionado.

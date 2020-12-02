@@ -149,7 +149,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 * [Autenticação de cliente](#client-authentication)
 * [Análise de Sentimento](#sentiment-analysis) 
-* [Mineração de opinião](#opinion-mining)
+* [Mineração de opiniões](#opinion-mining)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Vinculação de entidade](#entity-linking)

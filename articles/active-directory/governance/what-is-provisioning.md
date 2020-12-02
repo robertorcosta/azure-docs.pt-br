@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134896"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172445"
 ---
 # <a name="what-is-provisioning"></a>O que é provisionamento?
 
@@ -59,7 +59,7 @@ Para obter mais informações, confira [O que é provisionamento controlado por 
 
 ![provisionamento de aplicativos](media/what-is-provisioning/cloud-3b.png)
 
-No Azure AD, o termo **[provisionamento de aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refere-se à criação automática de cópias de identidades de usuário nos aplicativos que os usuários precisam acessar, para aplicativos que têm o próprio armazenamento de dados, distintos do Azure AD ou do Active Directory. Além de criar identidades de usuário, o provisionamento de aplicativos inclui a manutenção e a remoção de identidades de usuário desses aplicativos à medida que o status ou as funções do usuário mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) e [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), pois cada um desses aplicativos tem o próprio repositório de usuários distinto do Azure AD.
+No Azure AD, o termo **[provisionamento de aplicativos](../app-provisioning/user-provisioning.md)** refere-se à criação automática de cópias de identidades de usuário nos aplicativos que os usuários precisam acessar, para aplicativos que têm o próprio armazenamento de dados, distintos do Azure AD ou do Active Directory. Além de criar identidades de usuário, o provisionamento de aplicativos inclui a manutenção e a remoção de identidades de usuário desses aplicativos à medida que o status ou as funções do usuário mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md) e [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), pois cada um desses aplicativos tem o próprio repositório de usuários distinto do Azure AD.
 
 Para obter mais informações, confira [O que é provisionamento de aplicativos?](what-is-app-provisioning.md)
 

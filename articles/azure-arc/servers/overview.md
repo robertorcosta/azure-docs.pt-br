@@ -4,12 +4,12 @@ description: Saiba como usar servidores habilitados para Azure Arc para gerencia
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578715"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183389"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores habilitados para Azure Arc?
 
@@ -29,7 +29,7 @@ Quando você conecta seu computador a servidores habilitados para Azure Arc, ele
 
 - Simplifique a implantação com outros serviços do Azure, como o [State Configuration](../../automation/automation-dsc-overview.md) da Automação do Azure e workspace do Log Analytics do Azure Monitor usando as [extensões de VM do Azure](manage-vm-extensions.md) com suporte para seu computador Windows ou Linux não Azure. Isso inclui a execução da instalação de software ou a configuração pós-implantação usando a Extensão de Script Personalizado.
 
-- Usar o [Gerenciamento de Atualizações](../../automation/update-management/update-mgmt-overview.md) na Automação do Azure para gerenciar as atualizações do sistema operacional nos servidores Windows e Linux
+- Usar o [Gerenciamento de Atualizações](../../automation/update-management/overview.md) na Automação do Azure para gerenciar as atualizações do sistema operacional nos servidores Windows e Linux
 
     > [!NOTE]
     > Neste momento, não há suporte para habilitar o Gerenciamento de Atualizações diretamente de um servidor habilitado para Arc. Confira [Habilitar o Gerenciamento de Atualizações em sua conta de automação](../../automation/update-management/enable-from-automation-account.md) para entender os requisitos e como habilitá-los para o servidor.

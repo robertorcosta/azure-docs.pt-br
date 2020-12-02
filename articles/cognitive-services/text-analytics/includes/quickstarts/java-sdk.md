@@ -150,7 +150,7 @@ O cliente de Análise de Texto é um objeto `TextAnalyticsClient` que se autenti
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimento](#sentiment-analysis) 
-* [Mineração de opinião](#opinion-mining)
+* [Mineração de opiniões](#opinion-mining)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Vinculação de entidade](#entity-linking)

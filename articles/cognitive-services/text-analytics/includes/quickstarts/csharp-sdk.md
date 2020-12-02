@@ -175,7 +175,7 @@ Se estiver usando a versão `3.x` do serviço, use uma instância `TextAnalytics
 ## <a name="code-examples"></a>Exemplos de código
 
 * [Análise de sentimento](#sentiment-analysis)
-* [Mineração de opinião](#opinion-mining)
+* [Mineração de opiniões](#opinion-mining)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Vinculação de entidade](#entity-linking)
