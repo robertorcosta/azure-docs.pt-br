@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990118"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518729"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do firewall do aplicativo Web do Azure (WAF)
 
 As políticas de firewall do aplicativo Web contêm todas as configurações de WAF e configurações. Isso inclui exclusões, regras personalizadas, regras gerenciadas e assim por diante. Essas políticas são então associadas a um gateway de aplicativo (global), um ouvinte (por site) ou uma regra baseada em caminho (por URI) para que eles entrem em vigor.
-
-> [!NOTE]
-> As políticas por URI do WAF (firewall do aplicativo Web) do Azure estão em visualização pública.
-> 
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Talvez alguns recursos não tenham suporte, tenham recursos restritos ou não estejam disponíveis em todos os locais do Azure. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Não há limite para o número de políticas que você pode criar. Quando você cria uma política, ela deve estar associada a um gateway de aplicativo para entrar em vigor. Ele pode ser associado a qualquer combinação de gateways de aplicativo, ouvintes e regras baseadas em caminho.
 

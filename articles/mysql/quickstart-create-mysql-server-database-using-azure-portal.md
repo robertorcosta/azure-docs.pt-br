@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542245"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492600"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -45,7 +45,7 @@ Será necessário ter uma assinatura ativa do Azure. Caso você não tenha uma a
    Nome do servidor | **mydemoserver** | Insira um nome exclusivo. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele precisa conter de 3 a 63 caracteres.
    Fonte de dados |**Nenhuma** | Selecione **Nenhum** para criar um novo servidor do zero. Selecione **Backup** somente se você estiver restaurando de um backup geográfico de um servidor existente.
    Location |A localização desejada | Selecione uma localização na lista.
-   Versão | A última versão principal| Use a última versão principal. Confira [todas as versões compatíveis](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+   Versão | A última versão principal| Use a última versão principal. Confira [todas as versões compatíveis](../postgresql/concepts-supported-versions.md).
    Computação + armazenamento | Usar os padrões| O tipo de preço padrão é **Uso Geral** com **4 vCores** e armazenamento de **100 GB**. A retenção de backup é definida como **7 dias**, com a opção de backup **Geograficamente Redundante**.<br/>Examine a página de [preços](https://azure.microsoft.com/pricing/details/mysql/) e atualize os padrões, se necessário.
    Nome de usuário do administrador | **mydemoadmin** | Insira o nome de usuário administrador do servidor. Não é possível usar os termos **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public** como nome de usuário administrador.
    Senha | Uma senha | Uma nova senha para o usuário administrador do servidor. A senha deve ter de 8 a 128 caracteres de comprimento com uma combinação de letras maiúsculas ou minúsculas, números e caracteres não alfanuméricos (!, $, #, % e assim por diante).
@@ -67,7 +67,7 @@ Será necessário ter uma assinatura ativa do Azure. Caso você não tenha uma a
 
 Por padrão, o novo servidor é protegido com um firewall. Para se conectar, você deve fornecer acesso ao IP executando estas etapas:
 
-1. Acesse **Segurança de conexão**, no painel esquerdo do recurso de servidor. Se você não souber como encontrar o recurso, confira [Como abrir um recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+1. Acesse **Segurança de conexão**, no painel esquerdo do recurso de servidor. Se você não souber como encontrar o recurso, confira [Como abrir um recurso](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Captura de tela que mostra a página Segurança da conexão > Regra de firewall.":::
@@ -151,9 +151,9 @@ Para excluir o servidor, você pode selecionar **Excluir** na página **Visão G
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
->[Criar um aplicativo PHP no Windows com o MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Criar um aplicativo PHP no Windows com o MySQL](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[Criar aplicativo PHP no Linux com o MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Criar aplicativo PHP no Linux com o MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [Não conseguiu encontrar o que estava procurando? Fale conosco.](https://aka.ms/mysql-doc-feedback)

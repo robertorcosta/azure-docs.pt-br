@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 42e15da2fd31d163bc8822a347101704b27e1222
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913374"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492379"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para PostgreSQL usando o portal do Azure
 
@@ -65,7 +65,7 @@ Acesse o [portal do Azure](https://portal.azure.com/) para criar um banco de dad
 [Está com problemas? Fale conosco.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="configure-a-firewall-rule"></a>Configurar uma regra de firewall
-Por padrão, o servidor que você cria não é publicamente acessível. Você precisa conceder permissões ao seu endereço IP. Acesse o recurso de servidor no portal do Azure e selecione **Segurança da conexão** no menu do lado esquerdo do recurso de servidor. Caso não tenha certeza de como localizar seu recurso, confira [Abrir recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Por padrão, o servidor que você cria não é publicamente acessível. Você precisa conceder permissões ao seu endereço IP. Acesse o recurso de servidor no portal do Azure e selecione **Segurança da conexão** no menu do lado esquerdo do recurso de servidor. Caso não tenha certeza de como localizar seu recurso, confira [Abrir recursos](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Captura de tela que mostra as regras de firewall da segurança de conexão.":::

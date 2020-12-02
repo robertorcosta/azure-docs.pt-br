@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
-ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/2/2020
+ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016319"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518508"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -24,7 +24,7 @@ O programa de venda conjunta está disponível para **software criado com sua pr
 
     ![Diagrama mostrando como a venda de vendas ocorre quando os clientes potenciais são compartilhados, aceitos e ganhos em relação aos clientes gerenciados pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **Co-vender incentivados** As soluções de IP podem ganhar incentivos para os vendedores de campo da Microsoft quando são vendidos em colaboração com as equipes de vendas da Microsoft, além dos benefícios do Marketplace listados abaixo.</li></ul>
+- **Co-vender incentivados** As ofertas de IP podem obter incentivos para os vendedores de campo da Microsoft quando eles são vendidos em colaboração com as equipes de vendas da Microsoft, além dos benefícios do Marketplace listados abaixo.</li></ul>
 
 ## <a name="marketplace-benefits-for-incentivized-offers"></a>Benefícios do Marketplace para ofertas do incentivados
 
@@ -67,7 +67,7 @@ Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as e
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Esta imagem mostra a seção de listagem da guia de venda conjunta.":::  
 
-1. Forneça detalhes sobre sua oferta e o material de upload na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta. (*Obrigatório: cliente One-pager e apresentação do cliente.*)
+1. Forneça detalhes sobre sua oferta e o material de upload na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta. *(Obrigatório: solução/oferta One-pager e solução/oferta de baralho. Necessário para obter o IP do Azure co-vender o status do incentivados: diagrama da arquitetura de referência.)*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a seção de documentos na guia de venda conjunta.":::
 

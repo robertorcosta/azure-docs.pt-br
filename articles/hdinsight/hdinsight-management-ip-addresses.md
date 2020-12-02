@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547802"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518780"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
@@ -32,7 +32,7 @@ As seções a seguir discutem os endereços IP específicos que devem ser permit
 
 ## <a name="azure-dns-service"></a>Serviço DNS do Azure
 
-Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso de __168.63.129.16__ na porta 53. Para obter mais informações, consulte o documento [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se você estiver usando o DNS personalizado, ignore esta etapa.
+Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso a __168.63.129.16__ na porta 53 para TCP e UDP. Para obter mais informações, consulte o documento [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se você estiver usando o DNS personalizado, ignore esta etapa.
 
 ## <a name="health-and-management-services-all-regions"></a>Serviços de integridade e gerenciamento: todas as regiões
 
@@ -57,7 +57,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*: 443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*: 443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*: 443 | Entrada |
-| &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*: 443 | Entrada |
+| &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | \*: 443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*: 443 | Entrada |
 | Canada | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*: 443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |

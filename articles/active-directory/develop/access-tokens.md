@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: b1ce076befc325fef7717c0404b31dadff952af6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433284"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518236"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
@@ -75,7 +75,7 @@ Os JWTs (Token Web JSON) são divididos em três partes:
 
 Cada parte é separada por um ponto (`.`) e codificada em Base64 separadamente.
 
-As declarações estão presentes somente se existe um valor para preenchê-lo. Seu aplicativo não deve usar uma dependência em uma declaração que esteja presente. Os exemplos incluem `pwd_exp` (nem todos os locatários exigem que as senhas expirem) e `family_name` os fluxos ([credencial do cliente] (v2-oauth2-Client-creds-Grant-Flow.MD) estão em nome dos aplicativos que não têm nomes). As declarações usadas para validação do token de acesso sempre estarão presentes.
+As declarações estão presentes somente se existe um valor para preenchê-lo. Seu aplicativo não deve usar uma dependência em uma declaração que esteja presente. Os exemplos incluem `pwd_exp` (nem todos os locatários exigem que as senhas expirem) e `family_name` (os fluxos de[credencial do cliente](v2-oauth2-client-creds-grant-flow.md) estão em nome dos aplicativos que não têm nomes). As declarações usadas para validação do token de acesso sempre estarão presentes.
 
 Algumas declarações são usadas para ajudar o Azure AD a proteger tokens no caso de reutilização. Elas são marcadas como não sendo para consumo público na descrição como "Opacas". Essas declarações podem ou não aparecer em um token, e novas declarações podem ser adicionadas sem aviso prévio.
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452908"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519086"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -90,47 +90,59 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**.
 
-Para saber mais sobre mensagens mortas, consulte [*conceitos: rotas de eventos*](concepts-route-events.md#dead-letter-events).
+Para saber mais sobre mensagens mortas, consulte [*conceitos: rotas de eventos*](concepts-route-events.md#dead-letter-events). Para obter instruções sobre como configurar um ponto de extremidade com mensagens mortas, continue no restante desta seção.
 
 #### <a name="set-up-storage-resources"></a>Configurar recursos de armazenamento
 
-Antes de definir o local de mensagens mortas, você deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [contêiner](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado em sua conta do Azure. Você fornecerá a URL para esse contêiner ao criar o ponto de extremidade posteriormente.
-A letra de inatividade é fornecida como uma URL de contêiner com um [token SAS](../storage/common/storage-sas-overview.md). Esse token precisa apenas `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Antes de definir o local de mensagens mortas, você deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [contêiner](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado em sua conta do Azure. 
+
+Você fornecerá a URL para esse contêiner ao criar o ponto de extremidade posteriormente. O local de mensagens mortas será fornecido ao ponto de extremidade como uma URL de contêiner com um [token SAS](../storage/common/storage-sas-overview.md). Esse token precisa `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
 
 Siga as etapas abaixo para configurar esses recursos de armazenamento em sua conta do Azure, para se preparar para configurar a conexão de ponto de extremidade na próxima seção.
 
-1. Siga [Este artigo](../storage/common/storage-account-create.md?tabs=azure-portal) para criar uma conta de armazenamento e salvar o nome da conta de armazenamento para usá-la mais tarde.
-2. Crie um contêiner usando [Este artigo](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) e salve o nome do contêiner para usá-lo mais tarde, ao configurar a conexão entre o contêiner e o ponto de extremidade.
-3. Em seguida, crie um token SAS para sua conta de armazenamento. Comece navegando até sua conta de armazenamento na [portal do Azure](https://ms.portal.azure.com/#home) (você pode encontrá-la por nome com a barra de pesquisa do Portal).
-4. Na página conta de armazenamento, escolha link de _assinatura de acesso compartilhado_ na barra de navegação à esquerda para selecionar as permissões corretas para gerar o token SAS.
-5. Para _serviços permitidos_ e _tipos de recursos permitidos_, selecione as configurações desejadas. Você precisará selecionar pelo menos uma caixa em cada categoria. Para permissões permitidas, escolha **gravar** (você também pode selecionar outras permissões, se desejar).
-Defina as configurações restantes, mas você gostaria de.
-6. Em seguida, selecione o botão _gerar cadeia de conexão e SAS_ para gerar o token SAS. Isso irá gerar vários valores de cadeia de conexão e SAS na parte inferior da mesma página, sob as seleções de configuração. Role para baixo para exibir os valores e use o ícone Copiar para área de transferência para copiar o valor do **token SAS** . Salve-o para uso posterior.
+1. Siga as etapas em [*criar uma conta de armazenamento*](../storage/common/storage-account-create.md?tabs=azure-portal) para criar uma **conta de armazenamento** em sua assinatura do Azure. Anote o nome da conta de armazenamento para usá-lo mais tarde.
+2. Siga as etapas em [*criar um contêiner*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) para criar um **contêiner** dentro da nova conta de armazenamento. Anote o nome do contêiner para usá-lo mais tarde.
+3. Em seguida, crie um **token SAS** para sua conta de armazenamento que o ponto de extremidade pode usar para acessá-lo. Comece navegando até sua conta de armazenamento na [portal do Azure](https://ms.portal.azure.com/#home) (você pode encontrá-la por nome com a barra de pesquisa do Portal).
+4. Na página conta de armazenamento, escolha o link _assinatura de acesso compartilhado_ na barra de navegação à esquerda para iniciar a configuração do token SAS.
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Página conta de armazenamento no portal do Azure mostrando toda a seleção de configuração para gerar um token SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Página conta de armazenamento no portal do Azure" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copie o token SAS para usar no segredo de mensagens mortas." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+1. Na *página assinatura de acesso compartilhado*, em *serviços permitidos* e *tipos de recursos permitidos*, selecione quaisquer configurações que desejar. Você precisará selecionar pelo menos uma caixa em cada categoria. Em *permissões permitidas*, escolha **gravar** (você também pode selecionar outras permissões, se desejar).
+1. Defina quaisquer valores desejados para as configurações restantes.
+1. Quando tiver terminado, selecione o botão _gerar cadeia de conexão e SAS_ para gerar o token SAS. 
 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Página conta de armazenamento no portal do Azure mostrando toda a seleção de configuração para gerar um token SAS e realçar o botão ' gerar cadeia de conexão e SAS '" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+
+1. Isso irá gerar vários valores de cadeia de conexão e SAS na parte inferior da mesma página, sob as seleções de configuração. Role para baixo para exibir os valores e use o ícone *copiar para área de transferência* para copiar o valor do **token SAS** . Salve-o para uso posterior.
+
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copie o token SAS para usar no segredo de mensagens mortas." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    
 #### <a name="configure-the-endpoint"></a>Configurar o ponto de extremidade
 
-Os pontos de extremidade de mensagens mortas são criados usando APIs de Azure Resource Manager. Ao criar um ponto de extremidade, use a [documentação Azure Resource Manager APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para preencher os parâmetros de solicitação necessários. Além disso, adicione o `deadLetterSecret` ao objeto Properties no **corpo** da solicitação, que contém uma URL de contêiner e um token SAS para sua conta de armazenamento.
+Para criar um ponto de extremidade com mensagens mortas habilitadas, você precisará criar o ponto de extremidade usando as APIs de Azure Resource Manager. 
+
+1. Primeiro, use a [documentação de APIs de Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar uma solicitação para criar um ponto de extremidade e preencher os parâmetros de solicitação necessários. 
+
+1. Em seguida, adicione um `deadLetterSecret` campo ao objeto Properties no **corpo** da solicitação. Defina esse valor de acordo com o modelo abaixo, que recolocará uma URL do nome da conta de armazenamento, do nome do contêiner e do valor do token SAS que você coletou na [seção anterior](#set-up-storage-resources).
       
-```json
-{
-  "properties": {
-    "endpointType": "EventGrid",
-    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-    "accessKey1": "xxxxxxxxxxx",
-    "accessKey2": "xxxxxxxxxxx",
-    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-  }
-}
-```
+    ```json
+    {
+      "properties": {
+        "endpointType": "EventGrid",
+        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+        "accessKey1": "xxxxxxxxxxx",
+        "accessKey2": "xxxxxxxxxxx",
+        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+      }
+    }
+    ```
+1. Envie a solicitação para criar o ponto de extremidade.
+
 Para obter mais informações sobre como estruturar essa solicitação, consulte a documentação da API REST do Azure digital gêmeos: [pontos de extremidade – DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 
-Mensagens mortas serão armazenadas no seguinte formato em sua conta de armazenamento:
+Depois que o ponto de extremidade com mensagens mortas estiver configurado, mensagens mortas serão armazenadas no seguinte formato em sua conta de armazenamento:
 
 `{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
 

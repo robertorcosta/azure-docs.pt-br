@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317215"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494691"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -31,7 +31,7 @@ Há duas versões do serviço de Migrações para Azure:
 
 ## <a name="upgrade-between-versions"></a>Upgrade entre versões
 
-Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](how-to-add-tool-first-time.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
+Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](./create-manage-projects.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
 
 ## <a name="find-projects-from-previous-version"></a>Localizar projetos da versão anterior
 
@@ -219,7 +219,7 @@ Para usar a visualização de dependência, associe um espaço de trabalho do Lo
 
 Depois de configurar um espaço de trabalho, baixe e instale agentes em cada computador local que deseja avaliar. Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o [gateway do Log Analytics](../azure-monitor/platform/gateway.md) nelas.
 
-1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas**e selecione a máquina exigida.
+1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas** e selecione a máquina exigida.
 2. Na coluna **Dependências**, clique em **Instalar agentes**.
 3. Na página **Dependências**, baixe e instale o MMA (Microsoft Monitoring Agent) e o Agente de dependência em cada VM que você deseja avaliar.
 4. Copie a ID e a chave do workspace. Você precisará delas quando instalar o MMA na máquina local.
@@ -308,7 +308,7 @@ Para executar as consultas do Kusto:
 4. Crie sua consulta para coletar dados de dependência usando os logs do Azure Monitor. Encontre consultas de exemplo na próxima seção.
 5. Execute a consulta clicando em Executar. 
 
-[Saiba mais](../azure-monitor/log-query/get-started-portal.md) sobre como codificar consultas Kusto. 
+[Saiba mais](../azure-monitor/log-query/log-analytics-tutorial.md) sobre como codificar consultas Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Consultas aos logs do Azure Monitor de exemplo
 

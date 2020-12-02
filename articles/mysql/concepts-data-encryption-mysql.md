@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492685"
+ms.locfileid: "96518797"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados do Banco de Dados do Azure para MySQL com uma chave gerenciada pelo cliente
 
@@ -61,7 +61,7 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente armaz
 Veja a seguir os requisitos para configurar o Key Vault:
 
 * O Key Vault e o Banco de Dados do Azure para MySQL precisam pertencer ao mesmo locatário do Azure AD (Azure Active Directory). Não há suporte para interações do servidor e do Key Vault entre locatários. Mover Key Vault recurso posteriormente requer que você reconfigure a criptografia de dados.
-* Habilite a [exclusão reversível] ((.. /Key-Vault/General/Soft-Delete-Overview.MD) no cofre de chaves com o período de retenção definido como **90 dias** para proteger contra perda de dados se ocorrer uma exclusão de chave acidental (ou Key Vault). Os recursos excluídos por software são retidos por 90 dias por padrão, a menos que o período de retenção seja definido explicitamente como <= 90 dias. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure).
+* Habilite o recurso de [exclusão reversível](../key-vault/general/soft-delete-overview.md) no cofre de chaves com o período de retenção definido como **90 dias** para proteger contra perda de dados se ocorrer uma exclusão de chave acidental (ou Key Vault). Os recursos excluídos por software são retidos por 90 dias por padrão, a menos que o período de retenção seja definido explicitamente como <= 90 dias. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure).
 * Habilite o recurso [limpar proteção](../key-vault/general/soft-delete-overview.md#purge-protection) no cofre de chaves com o período de retenção definido como **90 dias**. A proteção de limpeza só poderá ser habilitada quando a exclusão reversível estiver habilitada. Ele pode ser ativado via CLI do Azure ou PowerShell. Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que o período de retenção tenha passado. Os cofres e objetos excluídos por software ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
 * Conceda o acesso do Banco de Dados do Azure para MySQL ao cofre de chaves com as permissões get, wrapKey e unwrapKey usando a identidade gerenciada exclusiva. No portal do Azure, a identidade exclusiva do ' serviço ' é criada automaticamente quando a criptografia de dados é habilitada no MySQL. Confira[Configurar a criptografia de dados para MySQL](howto-data-encryption-portal.md) para obter instruções passo a passo quando estiver usando o portal do Azure.
 
@@ -70,8 +70,8 @@ Veja a seguir os requisitos para configurar a chave gerenciada pelo cliente:
 * A chave gerenciada pelo cliente a ser usada para criptografar a DEK só pode ser assimétrica, RSA 2048.
 * A data de ativação da chave (se definida) precisa ser uma data e uma hora no passado. A data de validade não foi definida.
 * A chave precisa estar no estado *Habilitado*.
-* A chave deve ter a [exclusão reversível](../key-vault/general/soft-delete-overview.md) com o período de retenção definido como **90 dias**.
-* O Kay deve ter a [proteção de limpeza habilitada](../key-vault/general/soft-delete-overview.md#purge-protection).
+* A chave deve ter a [exclusão reversível](../key-vault/general/soft-delete-overview.md) com o período de retenção definido como **90 dias**. Isso define implicitamente o atributo de chave necessário recoveryLevel: "recuperável". Se a retenção estiver definida para < 90 dias, recoveryLevel: "CustomizedRecoverable", que não é o requisito, portanto, certifique-se de definir o período de retenção como **90 dias**.
+* A chave deve ter a [proteção de limpeza habilitada](../key-vault/general/soft-delete-overview.md#purge-protection).
 * Se você estiver [importando uma chave existente](/rest/api/keyvault/ImportKey/ImportKey) para o cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Recomendações

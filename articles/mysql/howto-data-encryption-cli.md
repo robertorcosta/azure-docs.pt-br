@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435817"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519035"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Criptografia de dados para o Azure Database para MySQL usando o CLI do Azure
 
@@ -24,7 +24,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
 * Crie um cofre de chaves e uma chave para usar para uma chave gerenciada pelo cliente. Habilite também a proteção de limpeza e a exclusão reversível no cofre de chaves.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * No Azure Key Vault criado, crie a chave que será usada para a criptografia de dados do banco de dado do Azure para MySQL.
@@ -55,7 +55,8 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
   * Sem data de validade
   * Não desabilitado
   * Executar operações **Get**, **Wrap** e **Unwrap**
-  * atributo recoverylevel definido como **recuperável**.
+  * atributo recoverylevel definido como **recuperável** (isso requer a exclusão reversível habilitada com o período de retenção definido como 90 dias)
+  * Limpeza de proteção habilitada
 
 Você pode verificar os atributos acima da chave usando o seguinte comando:
 

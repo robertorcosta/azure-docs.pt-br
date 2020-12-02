@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 56bed63a9030135966a208dd1ad9b4c45cde328d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811706"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498686"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Início Rápido: Tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure/service-bus de versão prévia
 Neste tutorial, você aprenderá a usar o pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) em um programa JavaScript para enviar mensagens a um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço para esse tópico.
@@ -208,4 +208,4 @@ Confira os seguintes exemplos e a documentação:
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). A pasta **javascript** traz exemplos de JavaScript, e a pasta **typescript** contém exemplos de TypeScript. 
-- [Documentação de referência de azure-servicebus](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [Documentação de referência de azure-servicebus](/javascript/api/overview/azure/service-bus)

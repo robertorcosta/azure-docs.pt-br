@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7af49b31aed3794d204b653f0ebfd66283c26cd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501373"
+ms.locfileid: "96518253"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Data vazamento Protection para espaços de trabalho do Azure Synapse Analytics
 Este artigo explicará a proteção de dados vazamento no Azure Synapse Analytics
@@ -25,7 +25,7 @@ Espaços de trabalho do Azure Synapse Analytics dão suporte à habilitação da
 >Você não pode alterar a configuração do espaço de trabalho para rede virtual gerenciada e proteção vazamento de dados depois que o espaço de trabalho é criado.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Gerenciando saída de dados de espaço de trabalho Synapse para destinos aprovados
-Depois que o espaço de trabalho é criado com o vazamento de dados habilitado, os proprietários do recurso de espaço de trabalho podem gerenciar a lista de locatários do Azure AD aprovados para o espaço de trabalho. Os usuários com as [permissões corretas](./access-control.md) no espaço de trabalho podem usar o Synapse Studio para criar solicitações de conexão de ponto de extremidade privado gerenciado para recursos nos locatários do Azure ad aprovados do espaço de trabalho. A criação do ponto de extremidade privado gerenciado será bloqueada se o usuário tentar criar uma conexão de ponto de extremidade privada para um recurso em um locatário não aprovado.
+Depois que o espaço de trabalho é criado com o vazamento de dados habilitado, os proprietários do recurso de espaço de trabalho podem gerenciar a lista de locatários do Azure AD aprovados para o espaço de trabalho. Os usuários com as [permissões corretas](./synapse-workspace-access-control-overview.md) no espaço de trabalho podem usar o Synapse Studio para criar solicitações de conexão de ponto de extremidade privado gerenciado para recursos nos locatários do Azure ad aprovados do espaço de trabalho. A criação do ponto de extremidade privado gerenciado será bloqueada se o usuário tentar criar uma conexão de ponto de extremidade privada para um recurso em um locatário não aprovado.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Espaço de trabalho de exemplo com a proteção de vazamento de dados habilitada
 Vamos usar um exemplo para ilustrar a proteção de vazamento de dados para espaços de trabalho do Synapse. A contoso tem recursos do Azure no locatário A e no locatário B e é necessário que esses recursos se conectem com segurança. Um espaço de trabalho Synapse foi criado no locatário A com o locatário B adicionado como um locatário do Azure AD aprovado. O diagrama mostra as conexões de ponto de extremidade privado com as contas de armazenamento do Azure no locatário A e o locatário B que foram aprovados pelos proprietários da conta de armazenamento. O diagrama também mostra a criação de ponto de extremidade particular bloqueado. A criação desse ponto de extremidade privado foi bloqueada como direcionada a uma conta de armazenamento do Azure no locatário do Azure AD da Fabrikam, que não é um locatário do Azure AD aprovado para o espaço de trabalho da contoso. 
