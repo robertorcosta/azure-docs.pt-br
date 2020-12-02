@@ -1,6 +1,6 @@
 ---
-title: Melhorar o desempenho do índice columnstore
-description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas em cada rowgroup.
+title: Melhorar o desempenho do índice columnstore para o pool do SQL dedicado
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas em cada rowgroup no pool SQL dedicado.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797761"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453711"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximizando a qualidade do rowgroup para índices columnstore no pool SQL dedicado 
 
 A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.  Use estes métodos para melhorar as taxas de compactação e o desempenho da consulta em índices columnstore.
 
@@ -99,7 +99,7 @@ O máximo de memória necessário para compactar um rowgroup é aproximadamente
 
 As cadeias de caracteres longas são compactadas com um método de compactação projetado para a compactação de texto. Esse método de compactação usa um *dicionário* para armazenar os padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada coluna de cadeia de caracteres longa no rowgroup.
 
-Para uma discussão aprofundada sobre os requisitos de memória columnstore, consulte o vídeo [Synapse o dimensionamento do pool SQL: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para uma discussão aprofundada sobre os requisitos de memória columnstore, confira o vídeo [conjunto de pools de SQL dedicado: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Maneiras de reduzir os requisitos de memória
 
@@ -122,7 +122,7 @@ Requisitos de memória adicionais para a compactação de cadeia de caracteres:
 
 ### <a name="avoid-over-partitioning"></a>Evitar o excesso de particionamento
 
-Os índices Columnstore criam um ou mais rowgroups por partição. Para o pool do SQL no Azure Synapse Analytics, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada.
+Os índices Columnstore criam um ou mais rowgroups por partição. Para o pool SQL dedicado no Azure Synapse Analytics, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada.
 
 Se a tabela tiver um número excessivo de partições, talvez não haja linhas suficientes para preencher os rowgroups. A falta de linhas não cria pressão de memória durante a compactação. Mas, ele leva a grupos de colunas que não atingem o melhor desempenho de consulta columnstore.
 
@@ -165,4 +165,4 @@ Para aumentar a concessão de memória para uma consulta de carga, você pode au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para encontrar mais maneiras de melhorar o desempenho do pool SQL, consulte a [visão geral de desempenho](cheat-sheet.md).
+Para encontrar mais maneiras de melhorar o desempenho do pool SQL dedicado, consulte a [visão geral de desempenho](cheat-sheet.md).

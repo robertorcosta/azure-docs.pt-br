@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: acc98cd2a724abc779954a5f22c73a5a7c6b9db4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 3fb24c3809099550406e8c5ad4cc4c58fbee3999
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302440"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453085"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Linha de base de segurança do Azure para Azure Lighthouse
 
@@ -22,7 +22,7 @@ Para ver como o Azure Lighthouse é completamente mapeado para o benchmark de se
 
 ## <a name="identity-management"></a>Gerenciamento de Identidades
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de identidades](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de identidades](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: padronizar o Azure Active Directory como o sistema central de identidade e autenticação
 
@@ -36,15 +36,15 @@ Com o Azure Lighthouse, os usuários designados em um locatário de gerenciament
 
 - [Como criar e configurar uma instância do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Usar provedores de identidade externos para o aplicativo](/azure/active-directory/b2b/identity-providers) 
+- [Usar provedores de identidade externos para o aplicativo](../active-directory/external-identities/identity-providers.md) 
 
-- [O que é a pontuação segura de identidade em Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [O que é a classificação de segurança de identidade no Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: gerenciar identidades de aplicativos de forma segura e automática
+### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: gerenciar identidades de aplicativo de maneira segura e automática
 
 **Diretrizes**: as identidades gerenciadas do Azure podem ser autenticadas nos serviços e recursos do Azure que dão suporte à autenticação do Azure AD. A autenticação é habilitada por meio de regras de concessão de acesso predefinidas, evitando credenciais embutidas no código-fonte ou arquivos de configuração. Com o Azure Lighthouse, os usuários com a função de administrador de acesso do usuário na assinatura de um cliente podem criar uma identidade gerenciada no locatário desse cliente. Embora essa função não seja geralmente suportada com o Azure Lighthouse, ela pode ser usada nesse cenário específico, permitindo que os usuários com essa permissão atribuam uma ou mais funções internas específicas a identidades gerenciadas.
 
@@ -90,7 +90,7 @@ Provedores de serviço usando o Azure Lighthouse podem encaminhar logs do Azure 
 
 - [Relatórios de atividade de auditoria no Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Gerenciar espaços de trabalho do Azure Sentinel em escala](how-to/manage-sentinel-workspaces.md)
 
@@ -100,7 +100,7 @@ Provedores de serviço usando o Azure Lighthouse podem encaminhar logs do Azure 
 
 **Responsabilidade**: Cliente
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso a recursos do Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso aos recursos do Azure com base em condições
 
 **Diretrizes**: o Azure Lighthouse não dá suporte a uma capacidade de acesso condicional para recursos de cliente delegados. No locatário de gerenciamento, use o acesso condicional do Azure AD para obter controle de acesso mais granular com base em condições definidas pelo usuário, como exigir logons de usuário de determinados intervalos de IP para usar a MFA (autenticação multifator). Um gerenciamento de sessão de autenticação granular também pode ser usado por meio da política de acesso condicional do Azure AD para diferentes casos de uso. 
 
@@ -118,7 +118,7 @@ Você deve exigir MFA para todos os usuários em seu locatário de gerenciamento
 
 ## <a name="privileged-access"></a>Acesso privilegiado
 
-*Para obter mais informações, confira o [Azure Security Benchmark: acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Para obter mais informações, confira o [Azure Security Benchmark: acesso privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: proteger e limitar os usuários altamente privilegiados
 
@@ -126,7 +126,7 @@ Você deve exigir MFA para todos os usuários em seu locatário de gerenciamento
 
 Para acessar dados do log de atividades no nível do locatário, uma conta deve ser atribuída à função interna do leitor de monitoramento do Azure no escopo raiz (/). Como a função leitor de monitoramento no escopo raiz é um nível amplo de acesso, recomendamos que você atribua essa função a uma conta de entidade de serviço, em vez de a um usuário individual ou a um grupo. Essa atribuição deve ser executada por um usuário que tenha a função de administrador global com acesso elevado adicional. Esse acesso elevado deve ser adicionado imediatamente antes de fazer a atribuição de função e, em seguida, removido quando a atribuição for concluída.
 
-- [Permissões da função Administrador no Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Permissões da função Administrador no Azure AD](../active-directory/roles/permissions-reference.md)
 
 - [Atribuindo acesso para monitorar dados do log de atividades no nível do locatário](how-to/monitor-delegation-changes.md)
 
@@ -182,9 +182,9 @@ Observação: alguns serviços do Azure dão suporte a usuários e funções loc
 
 **Diretrizes**: o Azure Lighthouse é integrado com Azure Active Directory para gerenciar seus recursos. Para evitar que seja bloqueado acidentalmente da sua organização do Azure AD, configure uma conta de acesso de emergência para acesso quando contas administrativas normais não puderem ser usadas. As contas de acesso de emergência geralmente são altamente privilegiadas e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas à emergência ou cenários de urgência em que as contas administrativas normais não podem ser usadas.
 
-Você deve garantir que as credenciais (como senha, certificado ou cartão inteligente) para contas de acesso de emergência sejam mantidas seguras e conhecidas apenas para indivíduos que estão autorizados a usá-las somente em uma emergência.
+Você deve verificar se as credenciais (como senha, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas pelos indivíduos que têm autorização para usá-las somente em uma emergência.
 
-- [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](../active-directory/roles/security-emergency-access.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -204,7 +204,7 @@ Você deve garantir que as credenciais (como senha, certificado ou cartão intel
 
 ### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: usar estações de trabalho com acesso privilegiado
 
-**Diretrizes**: estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviço críticos. Dependendo dos seus requisitos, você pode usar estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para executar tarefas administrativas com o Azure Lighthouse em ambientes de produção. Use Azure Active Directory, a ATP (proteção avançada contra ameaças) do Microsoft defender e/ou Microsoft Intune para implantar uma estação de trabalho de usuário segura e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas centralmente para impor configuração segura, incluindo autenticação forte, linhas de base de software e hardware e acesso lógico restrito à rede. 
+**Diretrizes**: estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviços críticos. Dependendo dos seus requisitos, você pode usar estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para executar tarefas administrativas com o Azure Lighthouse em ambientes de produção. Use o Azure Active Directory, o Microsoft ATP (Proteção Avançada contra Ameaças) e/ou o Microsoft Intune para implantar uma estação de trabalho do usuário protegida e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas centralmente para impor configuração segura, incluindo autenticação forte, linhas de base de software e hardware e acesso lógico restrito à rede. 
 
 - [Entender as estações de trabalho com acesso privilegiado](../active-directory/devices/concept-azure-managed-workstation.md)
 
@@ -236,7 +236,7 @@ Para delegar recursos do cliente a um locatário de gerenciamento, uma implanta�
 
 ## <a name="asset-management"></a>Gerenciamento de Ativos
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de ativos](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: garantir que a equipe de segurança tenha visibilidade dos riscos de ativos
 
@@ -256,7 +256,7 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 **Responsabilidade**: Cliente
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: garantir que a equipe de segurança tenha acesso ao inventário de ativos e metadados
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: verificar se a equipe de segurança tem acesso ao inventário de ativos e metadados
 
 **Orientação**: as equipes de segurança dos clientes podem examinar os logs de atividades para ver a atividade realizada pelos provedores de serviços que usam o Azure Lighthouse. 
 
@@ -270,9 +270,9 @@ Se um provedor de serviços quiser permitir que sua equipe de segurança examine
 
 **Responsabilidade**: Cliente
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar apenas os serviços aprovados do Azure
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar somente serviços do Azure aprovados
 
-**Diretrizes**: Use Azure Policy para auditar e restringir quais serviços os usuários podem provisionar em seu ambiente. Use o grafo de recursos do Azure para consultar e descobrir recursos em suas assinaturas. Você também pode usar Azure Monitor para criar regras para disparar alertas quando um serviço não aprovado for detectado.
+**Diretrizes**: Use Azure Policy para auditar e restringir quais serviços os usuários podem provisionar em seu ambiente. Use o Azure Resource Graph para consultar e descobrir recursos dentro das assinaturas deles. Você também poderá usar o Azure Monitor para criar regras para disparar alertas quando um serviço não aprovado for detectado.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -316,7 +316,7 @@ Use o recurso de detecção de ameaças interna da central de segurança do Azur
 
 Além disso, use o Azure Sentinel para criar regras de análise, que comparam as ameaças que correspondem a critérios específicos no ambiente do cliente. As regras geram incidentes quando os critérios são correspondidos, para que você possa investigar cada incidente. O Azure Sentinel também pode importar inteligência de ameaças de terceiros para aprimorar seu recurso de detecção de ameaças. 
 
-- [Proteção contra ameaças na Central de Segurança do Azure](/azure/security-center/threat-protection)
+- [Proteção contra ameaças na Central de Segurança do Azure](../security-center/azure-defender.md)
 
 - [Guia de referência de alertas de segurança da central de segurança do Azure](../security-center/alerts-reference.md)
 
@@ -346,7 +346,7 @@ A Central de Segurança do Azure também pode fornecer alertas sobre algumas ati
 
 - [Habilitar o Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Proteção contra ameaças na Central de Segurança do Azure](/azure/security-center/threat-protection)
+- [Proteção contra ameaças na Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -398,7 +398,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção de armazenamento de log
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção do armazenamento de log
 
 **Diretrizes**: no momento, o Azure Lighthouse não produz nenhum log relacionado à segurança. Os clientes que desejam exibir a atividade do provedor de serviços podem configurar a retenção de log de acordo com os requisitos de conformidade, regulamentação e negócios. 
 
@@ -418,7 +418,7 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, confira o [Azure Security Benchmark: resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Para obter mais informações, confira o [Azure Security Benchmark: resposta a incidentes](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: preparação – atualizar o processo de resposta a incidentes do Azure
 
@@ -444,9 +444,9 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 
 ### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: detecção e análise – criar incidentes com base em alertas de alta qualidade
 
-**Diretrizes**: Verifique se você tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Isso permite que você aprenda as lições dos últimos incidentes e priorize os alertas para os analistas, de modo a não perderem tempo em falsos positivos. 
+**Diretrizes**: verifique se você tem um processo para criar alertas de alta qualidade e medir a qualidade de alertas. Isso permite que você aprenda as lições dos últimos incidentes e priorize os alertas para os analistas, de modo a não perderem tempo em falsos positivos. 
 
-Alertas de alta qualidade podem ser criados com base na experiência dos últimos incidentes, fontes de comunidade validadas e ferramentas projetadas para gerar e limpar alertas, combinando e correlacionando diferentes fontes de sinal. 
+Alertas de alta qualidade podem ser criados com base na experiência com incidentes passados, fontes de comunidade validadas e ferramentas projetadas para gerar e limpar alertas, focando e correlacionando várias fontes de sinal. 
 
 A central de segurança do Azure fornece alertas de alta qualidade em vários ativos do Azure. Use o conector de dados da ASC para transmitir os alertas para o Azure Sentinel. Com o Azure Sentinel, você pode criar regras de alertas avançadas a fim de gerar incidentes automaticamente para uma investigação. 
 
@@ -500,7 +500,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -544,7 +544,7 @@ Você pode usar plantas do Azure para automatizar a implantação e a configura�
 
 **Responsabilidade**: Cliente
 
-### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: sustentar configurações seguras para os serviços do Azure
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: manter configurações seguras para os serviços do Azure
 
 **Diretrizes**: o Azure Lighthouse dá suporte a políticas específicas de serviço que estão disponíveis na central de segurança do Azure para auditar e impor configurações de seus recursos do Azure. Isso pode ser configurado na central de segurança do Azure ou em iniciativas de Azure Policy.
 
@@ -583,7 +583,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 ## <a name="governance-and-strategy"></a>Governança e estratégia
 
-*Para obter mais informações, confira o [Azure Security Benchmark: governança e estratégia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Para obter mais informações, confira o [Azure Security Benchmark: governança e estratégia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: definir a estratégia de proteção de dados e gerenciamento de ativos 
 
@@ -601,18 +601,18 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 -   Estratégia de controle de acesso obrigatório de acordo com a classificação de dados organizacionais
 
--   Uso de recursos de proteção de dados nativos e de terceiros do Azure
+-   Uso de funcionalidades de proteção de dados de terceiros e nativas do Azure
 
 -   Requisitos de criptografia de dados para casos de uso em trânsito e em repouso
 
 -   Padrões de criptografia apropriados
 
 Para saber mais, consulte as referências a seguir:
-- [Recomendação da arquitetura de segurança do Azure – Armazenamento, dados e criptografia](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recomendação da arquitetura de segurança do Azure – Armazenamento, dados e criptografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Conceitos básicos de segurança do Azure – Segurança, criptografia e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-incident-response)
 
@@ -726,7 +726,7 @@ Para saber mais, consulte as referências a seguir:
 
 ### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: definir uma estratégia de log e resposta a ameaças
 
-**Diretriz**: estabeleça uma estratégia de log e resposta a ameaças para detectar e corrigir as ameaças rapidamente, atendendo aos requisitos de conformidade. Priorize o fornecimento de analistas com alertas de alta qualidade e experiências integradas para que eles possam se concentrar em ameaças em vez de integração e etapas manuais. 
+**Diretriz**: estabeleça uma estratégia de log e resposta a ameaças para detectar e corrigir as ameaças rapidamente, atendendo aos requisitos de conformidade. Priorize o fornecimento de alertas de alta qualidade e experiências perfeitas aos analistas para que eles possam se concentrar em ameaças em vez de etapas manuais e de integração. 
 
 Essa estratégia deve incluir diretrizes documentadas, políticas e padrões para os seguintes elementos: 
 
@@ -762,5 +762,5 @@ Para saber mais, consulte as referências a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

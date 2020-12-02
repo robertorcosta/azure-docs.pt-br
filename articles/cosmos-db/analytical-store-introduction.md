@@ -1,24 +1,21 @@
 ---
-title: O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
+title: O que é Azure Cosmos DB repositório analítico?
 description: Saiba mais sobre o repositório transacional (baseado em linha) e analítico (baseado em coluna) do Azure Cosmos DB. Benefícios do repositório analítico, impacto no desempenho para cargas de trabalho de larga escala e sincronização automática de dados do repositório transacional para o repositório analítico
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337399"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452843"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB repositório analítico (versão prévia)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é Azure Cosmos DB repositório analítico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> O repositório analítico do Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB repositório analítico é um repositório de coluna totalmente isolado para habilitar a análise em larga escala contra dados operacionais em seu Azure Cosmos DB, sem nenhum impacto em suas cargas de trabalho transacionais. 
 
@@ -36,7 +33,7 @@ Os pipelines de ETL também se tornam complexos ao lidar com atualizações dos 
 
 O repositório analítico do Azure Cosmos DB aborda os desafios de complexidade e latência que ocorrem com os pipelines de ETL tradicionais. O repositório analítico do Azure Cosmos DB pode sincronizar automaticamente seus dados operacionais em um repositório de coluna separado. O formato de repositório de coluna é adequado para consultas analíticas em larga escala a serem executadas de maneira otimizada, resultando na melhoria da latência dessas consultas.
 
-Agora, ao usar o Link do Azure Synapse, você pode criar soluções de HTAP sem ETL ao vincular diretamente ao repositório analítico do Azure Cosmos DB a partir do Synapse Analytics. Isso permite que você execute análises de larga escala quase em tempo real em seus dados operacionais.
+Usando o link Synapse do Azure, agora você pode criar soluções de HTAP sem ETL vinculando diretamente a Azure Cosmos DB repositório analítico do Azure Synapse Analytics. Isso permite que você execute análises de larga escala quase em tempo real em seus dados operacionais.
 
 ## <a name="features-of-analytical-store"></a>Recursos do repositório analítico 
 
@@ -181,10 +178,10 @@ A autenticação com o repositório analítico é igual a de um repositório tra
 
 O repositório analítico é otimizado para fornecer escalabilidade, elasticidade e desempenho para cargas de trabalho analíticas sem qualquer dependência dos tempos de execução de computação. A tecnologia de armazenamento é autogerenciada para otimizar suas cargas de trabalho de análise se esforços manuais.
 
-Ao desacoplar o sistema de repositório analítico do sistema de computação analítica, os dados no repositório analítico do Azure Cosmos DB podem ser consultados simultaneamente em diferentes runtimes de análise com suporte do Azure Synapse Analytics. A partir de hoje, o Synapse Analytics tem suporte para o Apache Spark e o SQL sem servidor com o repositório analítico do Azure Cosmos DB.
+Ao desacoplar o sistema de repositório analítico do sistema de computação analítica, os dados no repositório analítico do Azure Cosmos DB podem ser consultados simultaneamente em diferentes runtimes de análise com suporte do Azure Synapse Analytics. A partir de hoje, o Azure Synapse Analytics dá suporte a Apache Spark e a pool de SQL sem servidor com Azure Cosmos DB repositório analítico.
 
 > [!NOTE]
-> Você só pode ler o repositório analítico usando o tempo de execução do Synapse Analytics. Você pode gravar os dados de volta no seu repositório transacional como uma camada de serviço.
+> Você só pode ler do repositório analítico usando o tempo de execução da análise de Synapse do Azure. Você pode gravar os dados de volta no seu repositório transacional como uma camada de serviço.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Preços
 
@@ -194,10 +191,7 @@ O repositório analítico segue um modelo de preço baseado em consumo no qual v
 
 * Operações de gravação analítica: a sincronização totalmente gerenciada de atualizações de dados operacionais para o repositório analítico a partir do repositório transacional (sincronização automática).
 
-* Operações de leitura analítica: as operações de leitura executadas no repositório analítico do Synapse Analytics Spark e tempos de execução sem SQL Server.
-
-> [!NOTE]
-> Azure Cosmos DB repositório analítico está disponível atualmente na visualização pública gratuita de quaisquer encargos.
+* Operações de leitura analítica: as operações de leitura executadas no armazenamento analítico do pool Spark do Azure Synapse Analytics e tempos de execução do pool SQL sem servidor.
 
 O preço do repositório analítico é separado do modelo de preços do repositório transacional. Não há nenhum conceito de RUs provisionadas no repositório analítico. Consulte a [página de preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter detalhes completos sobre o modelo de preços do repositório analítico.
 

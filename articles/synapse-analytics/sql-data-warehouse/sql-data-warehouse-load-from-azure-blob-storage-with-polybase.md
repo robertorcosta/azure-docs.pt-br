@@ -1,28 +1,28 @@
 ---
-title: Carregar dados de varejo da Contoso para Synapse SQL
-description: Use os comandos do polybase e do T-SQL para carregar duas tabelas dos dados de varejo da Contoso no Synapse SQL.
+title: Carregar dados de varejo da Contoso para pools de SQL dedicados
+description: Use os comandos polybase e T-SQL para carregar duas tabelas dos dados de varejo da Contoso em pools SQL dedicados.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461690"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452880"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de varejo da Contoso para Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carregar dados de varejo da Contoso em pools dedicados do SQL no Azure Synapse Analytics
 
-Neste tutorial, você aprenderá a usar os comandos do polybase e do T-SQL para carregar duas tabelas dos dados de varejo da Contoso no Synapse SQL.
+Neste tutorial, você aprenderá a usar os comandos do polybase e do T-SQL para carregar duas tabelas dos dados de varejo da Contoso em pools do SQL dedicados.
 
-Neste tutorial, você vai:
+Neste tutorial, você irá:
 
 1. Configurar PolyBase para carregar do armazenamento de blobs do Azure
 2. Carregar dados públicos em seu banco de dados
@@ -30,11 +30,11 @@ Neste tutorial, você vai:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para executar este tutorial, você precisa de uma conta do Azure que já tenha um SQL Synapse. Se você não tiver um data warehouse provisionado, consulte [criar um data warehouse e definir regra de firewall no nível de servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta do Azure que já tenha um pool SQL dedicado. Se você não tiver um data warehouse provisionado, consulte [criar um data warehouse e definir regra de firewall no nível de servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurar a fonte de dados
 
-O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objeto externo são armazenadas em Synapse SQL. Os dados são armazenados externamente.
+O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objeto externo são armazenadas em pools SQL dedicados. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compactação columnstore
 
-Por padrão, o SQL Synapse armazena a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes motivos pelos quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
+Por padrão, os pools SQL dedicados armazenam a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes motivos pelos quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
 
 Para otimizar o desempenho da consulta e a compactação columnstore após um carregamento, recrie a tabela para forçar o índice columnstore a compactar todas as linhas.
 

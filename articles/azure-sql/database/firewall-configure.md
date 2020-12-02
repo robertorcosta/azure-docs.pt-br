@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841097"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452493"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Banco de dados SQL do Azure e regras de firewall de IP do Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando você cria um novo servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics chamado *MySqlServer*, por exemplo, um firewall de nível de servidor bloqueia todo o acesso ao ponto de extremidade público para o servidor (que pode ser acessado em *MySqlServer.Database.Windows.net*). Para simplificar, o *banco de dados SQL* é usado para fazer referência ao banco de dados SQL e ao Azure Synapse Analytics (anteriormente SQL data warehouse).
+Quando você cria um novo servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics chamado *MySqlServer*, por exemplo, um firewall de nível de servidor bloqueia todo o acesso ao ponto de extremidade público para o servidor (que pode ser acessado em *MySqlServer.Database.Windows.net*). Para simplificar, o *banco de dados SQL* é usado para fazer referência ao banco de dados SQL e ao Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Este artigo *não* se aplica à *Instância Gerenciada de SQL do Azure*. Para obter informações sobre a configuração de rede, consulte [conectar seu aplicativo ao Azure SQL instância gerenciada](../managed-instance/connect-application-instance.md).

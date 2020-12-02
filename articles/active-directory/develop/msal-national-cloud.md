@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348400"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453600"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -83,7 +83,7 @@ Para habilitar seu aplicativo MSAL.js para nuvens soberanas:
 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)**.
 1. Este tutorial requer que você habilite o [fluxo de concessão implícito](v2-oauth2-implicit-grant-flow.md). No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
 1. Em **Configurações avançadas**, em **Concessão implícita**, marque as caixas de seleção **Tokens de ID** e **Tokens de Acesso**. Tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Etapa 2: configurar seu servidor Web ou projeto
 
@@ -150,9 +150,9 @@ Para habilitar seu aplicativo MSAL Python para nuvens soberanas:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Chamar o Microsoft Graph requer uma URL de ponto de extremidade de grafo específica que depende de qual nuvem você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Chamar a API de Microsoft Graph requer uma URL de ponto de extremidade específica para a nuvem que você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Aqui está um exemplo de um ponto de extremidade de grafo, com escopo:
+    Aqui está um exemplo de um ponto de extremidade Microsoft Graph, com escopo:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Aqui está uma autoridade de exemplo:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Chamar o Microsoft Graph requer uma URL de ponto de extremidade de grafo específica que depende de qual nuvem você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Chamar a API de Microsoft Graph requer uma URL de ponto de extremidade específica para a nuvem que você está usando. Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, consulte [Microsoft Graph e pontos de extremidade raiz de serviço do Gerenciador de gráficos](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Aqui está um exemplo de um ponto de extremidade de grafo, com escopo:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre:
+Consulte [pontos de extremidade de autenticação de nuvem nacional](authentication-national-cloud.md) para obter uma lista de URLs de portal do Azure e pontos de extremidade de token para cada nuvem.
 
-- [Autenticação em nuvens nacionais](authentication-national-cloud.md)
+Documentação da nuvem nacional:
+
 - [Azure Governamental](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemanha](../../germany/index.yml)

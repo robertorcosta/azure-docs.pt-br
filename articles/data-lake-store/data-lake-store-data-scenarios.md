@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: fe911ac8985f9997125eb5149348b50a7fa83222
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109248"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452245"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Usar o Azure Data Lake Storage Gen1 para exigências de big data
 
@@ -38,7 +38,7 @@ Esta seção destaca as diferentes fontes de dados e as diferentes maneiras que 
 ### <a name="ad-hoc-data"></a>Dados ad hoc
 Representam conjuntos de dados menores que são usados para criar protótipos de um aplicativo de big data. Há diferentes maneiras de ingerir dados ad hoc, dependendo da fonte dos dados.
 
-| fonte de dados | Ingeri-la usando |
+| Fonte de dados | Ingeri-la usando |
 | --- | --- |
 | Computador local |<ul> <li>[Azure portal](data-lake-store-get-started-portal.md)</li> <li>[PowerShell do Azure](data-lake-store-get-started-powershell.md)</li> <li>[CLI do Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usando as ferramentas do Data Lake para o Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Blob de Armazenamento do Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp em execução no cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
@@ -130,5 +130,5 @@ Você pode usar uma combinação de serviços para criar representações visuai
 
 ![Visualizar dados no Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados no Data Lake Storage Gen1")
 
-* Você pode começar usando [Azure data Factory para mover dados de data Lake Storage Gen1 para o Azure Synapse Analytics (anteriormente SQL data warehouse)](../data-factory/copy-activity-overview.md)
+* Você pode começar usando [Azure data Factory para mover dados de data Lake Storage Gen1 para o Azure Synapse Analytics](../data-factory/copy-activity-overview.md)
 * Depois disso, você pode [integrar Power bi com o Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) para criar uma representação visual dos dados.

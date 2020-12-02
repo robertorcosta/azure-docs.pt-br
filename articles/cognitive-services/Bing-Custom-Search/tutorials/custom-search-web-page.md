@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a789cb3fde05d12a8793196043f1c246bbab6559
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081103"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342406"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Compilar uma página da Web de pesquisa personalizada
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
-> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Por exemplo, se você for proprietário de um site de artes marciais que oferece uma experiência de pesquisa, será possível especificar os domínios, os subsites e as páginas da Web que o Bing pesquisará. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados gerais da pesquisa que podem conter conteúdo irrelevante. 
 
@@ -52,7 +52,7 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
   
 3. Entre no portal usando uma conta Microsoft (MSA). Se você não tiver uma MSA, clique em **Criar uma conta Microsoft**. Se essa for a primeira vez que estiver usando o portal, serão solicitadas permissões para acessar os dados. Clique em **Sim**.  
   
-4. Após entrar, clique em **Nova pesquisa personalizada**. Na janela **Criar uma instância de pesquisa personalizada** , insira um nome que seja significativo e descreva o tipo de conteúdo que a pesquisa retornará. É possível alterar o nome a qualquer momento.  
+4. Após entrar, clique em **Nova pesquisa personalizada**. Na janela **Criar uma instância de pesquisa personalizada**, insira um nome que seja significativo e descreva o tipo de conteúdo que a pesquisa retornará. É possível alterar o nome a qualquer momento.  
   
    ![Captura de tela da caixa Criar uma nova instância de pesquisa personalizada](../media/newCustomSrch.png)  
   
@@ -65,7 +65,7 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 Para incluir resultados de websites ou URLs específicos, adicione-os à guia **Ativo**.
 
-1. Na página **Configuração** , clique na guia **Ativo** e insira o URL de um ou mais sites que você deseja incluir em sua pesquisa.
+1. Na página **Configuração**, clique na guia **Ativo** e insira o URL de um ou mais sites que você deseja incluir em sua pesquisa.
 
     ![Captura de tela da guia ativa do Editor de definição](../media/customSrchEditor.png)
 
@@ -86,7 +86,7 @@ Para excluir resultados de websites ou URLs específicos, adicione-os à guia **
 
 Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da Web só será fixada se a cadeia de consulta do usuário corresponder à cadeia de consulta do marcador com base na condição de correspondência do marcador. Somente páginas da Web indexadas serão exibidas nas pesquisas. Para obter mais informações, confira [Definir a exibição personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
-1. Na página **Configuração** , clique na guia **Fixado** e insira a página da web e o termo de consulta da página da Web que você deseja que sejam retornados como o resultado principal.  
+1. Na página **Configuração**, clique na guia **Fixado** e insira a página da web e o termo de consulta da página da Web que você deseja que sejam retornados como o resultado principal.  
   
 2. Por padrão, a cadeia de caracteres de consulta do usuário deve corresponder exatamente à cadeia de caracteres de consulta do seu pin para que o Bing retorne a página como o resultado principal. Para alterar a condição de correspondência, edite o pin (clique no ícone de lápis), clique em exata na **condição de correspondência de consulta** coluna e selecione a condição de correspondência é adequada para seu aplicativo.  
   
@@ -141,19 +141,19 @@ O restante deste tutorial ilustra a **Opção 1: snippet JavaScript**.
 
 1. Abra o **Visual Studio** no seu computador.  
   
-2. No menu **Arquivo** , selecione **Novo** e depois **Projeto**.  
+2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.  
   
-3. Na janela **Novo Projeto** , selecione **Aplicativo Web Visual C#/Web/ASP.NET Core** , nomeie o projeto e clique em **OK**.  
+3. Na janela **Novo Projeto**, selecione **Aplicativo Web Visual C#/Web/ASP.NET Core**, nomeie o projeto e clique em **OK**.  
   
    ![Captura de tela da janela novo projeto](./media/custom-search-new-project.png)  
   
-4. Na janela, **Aplicativo Web New ASP.NET Core** , selecione **Aplicativo Web** e clique em **OK**.  
+4. Na janela, **Aplicativo Web New ASP.NET Core**, selecione **Aplicativo Web** e clique em **OK**.  
   
    ![Captura de tela da janela de novo aplicativo Web](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Editar index.cshtml
 
-1. No **Gerenciador de Soluções** , expanda **Páginas** e clique duas vezes em **index.cshtml** para abrir o arquivo.  
+1. No **Gerenciador de Soluções**, expanda **Páginas** e clique duas vezes em **index.cshtml** para abrir o arquivo.  
   
    ![Captura de tela do Solution Explorer com páginas expandidas e index.cshtml selecionado](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
@@ -179,7 +179,7 @@ O restante deste tutorial ilustra a **Opção 1: snippet JavaScript**.
    <div id="customSearch"></div>
    ```  
   
-4. Na página **Hosted UI** , role para baixo até a seção intitulada **Consuming the UI**. Clique no *Endpoints* para acessar o snippet de JavaScript. Você também pode obter o snippet clicando **produção** e, em seguida, a guia **hospedado de interface do usuário**.
+4. Na página **Hosted UI**, role para baixo até a seção intitulada **Consuming the UI**. Clique no *Endpoints* para acessar o snippet de JavaScript. Você também pode obter o snippet clicando **produção** e, em seguida, a guia **hospedado de interface do usuário**.
   
    <!-- Get new screenshot after prod gets new bits
    ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
@@ -202,7 +202,7 @@ O restante deste tutorial ilustra a **Opção 1: snippet JavaScript**.
    </div>
    ```  
   
-6. No **Gerenciador de Soluções** , clicar com o botão direito do mouse em **wwwroot** e clique em **Exibir no Navegador**.  
+6. No **Gerenciador de Soluções**, clicar com o botão direito do mouse em **wwwroot** e clique em **Exibir no Navegador**.  
   
    ![Captura de tela do explorador de soluções selecionando Visualizar no navegador no menu de contexto do wwwroot](./media/custom-search-webapp-view-in-browser.png)  
 

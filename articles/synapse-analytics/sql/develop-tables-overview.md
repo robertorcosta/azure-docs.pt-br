@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324530"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452738"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Projetar tabelas usando o Synapse SQL no Azure Synapse Analytics
 
-Este documento inclui os principais conceitos para a criação de tabelas com o pool SQL dedicado e o pool SQL sem servidor (visualização).  
+Este documento inclui os principais conceitos para a criação de tabelas com o pool SQL dedicado e o pool SQL sem servidor.  
 
-O [pool SQL sem servidor (visualização)](on-demand-workspace-overview.md) é um serviço de consulta sobre os dados no seu data Lake. Ele não tem armazenamento local para ingestão de dados. O [pool SQL dedicado](best-practices-sql-pool.md) representa uma coleção de recursos analíticos que estão sendo provisionados ao usar o SQL Synapse. O tamanho de um pool SQL dedicado é determinado por DWU (unidades de data warehouse).
+O [pool SQL sem servidor](on-demand-workspace-overview.md) é um serviço de consulta sobre os dados no data Lake. Ele não tem armazenamento local para ingestão de dados. O [pool SQL dedicado](best-practices-sql-pool.md) representa uma coleção de recursos analíticos que estão sendo provisionados ao usar o SQL Synapse. O tamanho do pool de SQL dedicado é determinado pelas DWU (unidades de data warehouse).
 
 A tabela a seguir lista os tópicos que são relevantes para o pool do SQL dedicado vs. pool de SQL sem servidor:
 
-| Tópico                                                        | pool de SQL dedicado | pool SQL sem servidor |
+| Tópico                                                        | pool de SQL dedicado | Pool de SQL sem servidor |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Determinar a categoria da tabela](#determine-table-category)        | Sim                | Não                      |
 | [Nomes de esquema](#schema-names)                                | Sim                | Sim                     |

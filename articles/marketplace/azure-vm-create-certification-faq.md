@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5124e7084a8e878e54e594424ec0926410f002ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682478"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452675"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -46,7 +46,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -68,7 +68,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -201,7 +201,7 @@ Envie novamente a solicitação com um tamanho menor ou igual a 1023 GB.
 
 Consulte as regras a seguir para obter limitações no tamanho do disco do sistema operacional. Ao enviar qualquer solicitação, verifique se o tamanho do disco do sistema operacional está dentro da limitação do Linux ou do Windows.
 
-|SO|Tamanho de VHD recomendado|
+|Sistema operacional|Tamanho de VHD recomendado|
 |---|---|
 |Linux|30 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
@@ -224,7 +224,7 @@ Você pode verificar a versão do arquivo de imagem de `C:\windows\system32\driv
 
 A tabela a seguir mostra a versão mínima com patch do Windows Server: 
 
-|SO|Versão|
+|Sistema operacional|Versão|
 |---|---|
 |Windows servindo 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
@@ -319,7 +319,7 @@ Para enviar sua solicitação com a imagem de SSH desabilitada para o processo d
     
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM com uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa com uma URL SAS.|
@@ -474,13 +474,13 @@ Se todas as imagens obtidas do Azure Marketplace forem reutilizadas, o VHD do si
 
 * Para o **Windows**, você generaliza as imagens do Windows usando o `sysreptool` .
 
-  Para obter mais informações sobre a `sysreptool` ferramenta, consulte [visão geral do Sysprep (preparação do sistema)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  Para obter mais informações sobre a `sysreptool` ferramenta, consulte [visão geral do Sysprep (preparação do sistema)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## <a name="datadisk-errors"></a>Erros de disco
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro do|Motivo|Solução|
+|Erro|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número de unidade lógica (LUN) inválido quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer porque um disco de dados não está localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada.|

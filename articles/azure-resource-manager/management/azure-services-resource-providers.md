@@ -2,19 +2,21 @@
 title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436820"
+ms.locfileid: "96452636"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
 Este artigo mostra como os namespaces do provedor de recursos são mapeados para os serviços do Azure.
 
 ## <a name="match-resource-provider-to-service"></a>Corresponder provedor de recursos ao serviço
+
+Os provedores de recursos marcados com **-Registered** são registrados por padrão para sua assinatura. Para obter mais informações, consulte [Registration](#registration).
 
 | Namespace do provedor de recursos | Serviço do Azure |
 | --------------------------- | ------------- |
@@ -135,7 +137,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Serviço de Emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal- [registrado](#registration) | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft. Portal- [registrado](#registration) | [Portal do Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |

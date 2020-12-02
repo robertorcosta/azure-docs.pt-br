@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7420a7c6355fbcd70ce57fbb36ab29d1241df31f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453326"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorando no Banco de Dados do Azure para MariaDB
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
@@ -25,7 +25,7 @@ Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 
-|Métrica|Nome de exibição da métrica|Unidade|Description|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
@@ -67,7 +67,6 @@ Saiba mais sobre como configurar notificações no documento de [notificações 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 - Consulte [Como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - Saiba mais sobre [notificações de manutenção planejada](./concepts-planned-maintenance-notification.md) no banco de dados do Azure para MariaDB.
-

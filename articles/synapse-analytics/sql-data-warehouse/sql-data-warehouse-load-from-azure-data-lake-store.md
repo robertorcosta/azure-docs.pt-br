@@ -1,26 +1,26 @@
 ---
 title: Tutorial para carregar dados do Azure Data Lake Storage
-description: Use a instrução de cópia para carregar dados de Azure Data Lake Storage para Synapse SQL.
+description: Use a instrução de cópia para carregar dados de Azure Data Lake Storage para pools de SQL dedicados.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 06/07/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 73d19df546f2ff0e9e9180c94567bd334b44bedd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4886cf6c24e7e96676b9ca5e74b431685cd5a8bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482801"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452870"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Carregamento de dados do Azure Data Lake Storage para o SQL do Synapse
+# <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carregar dados de Azure Data Lake Storage em pools dedicados do SQL no Azure Synapse Analytics
 
-Este guia descreve como usar a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para carregar dados de Azure data Lake Storage. Para obter exemplos rápidos sobre como usar a instrução de cópia em todos os métodos de autenticação, visite a seguinte documentação: [carregar dados com segurança usando Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+Este guia descreve como usar a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para carregar dados de Azure data Lake Storage. Para obter exemplos rápidos sobre como usar a instrução de cópia em todos os métodos de autenticação, visite a seguinte documentação: [carregar dados com segurança usando pools de SQL dedicados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
 
 > [!NOTE]  
 > Para fornecer comentários ou relatar problemas na instrução de cópia, envie um email para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com .
@@ -38,12 +38,12 @@ Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS]
 
 Para este tutorial, você precisa do:
 
-* Um pool de SQL. Veja [Criação de um pool de SQL e dados de consulta](create-data-warehouse-portal.md).
+* Um pool SQL dedicado. Consulte [criar um pool de SQL dedicado e dados de consulta](create-data-warehouse-portal.md).
 * Uma conta do Data Lake Storage. Veja [Introdução ao Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Para essa conta de armazenamento, você precisará configurar ou especificar uma das seguintes credenciais a serem carregadas: uma chave de conta de armazenamento, chave de assinatura de acesso compartilhado (SAS), um usuário de aplicativo do Azure Directory ou um usuário do AAD que tem a função do Azure apropriada para a conta de armazenamento.
 
 ## <a name="create-the-target-table"></a>Criar a tabela de destino
 
-Conecte-se ao seu pool SQL e crie a tabela de destino para a qual você carregará. Neste exemplo, estamos criando uma tabela de dimensões de produto.
+Conecte-se ao seu pool SQL dedicado e crie a tabela de destino para a qual será carregada. Neste exemplo, estamos criando uma tabela de dimensões de produto.
 
 ```sql
 -- A: Create the target table
@@ -65,7 +65,7 @@ WITH
 
 ## <a name="create-the-copy-statement"></a>Criar a instrução de cópia
 
-Conecte-se ao seu pool SQL e execute a instrução COPY. Para obter uma lista completa de exemplos, visite a seguinte documentação: [carregar dados com segurança usando o SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+Conecte-se ao pool dedicado do SQL e execute a instrução de cópia. Para obter uma lista completa de exemplos, visite a seguinte documentação: [carregar dados com segurança usando pools de SQL dedicados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
 
 ```sql
 -- B: Create and execute the COPY statement

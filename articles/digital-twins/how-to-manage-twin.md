@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540960"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452976"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -99,7 +99,7 @@ Você pode acessar os detalhes de qualquer tipo de informações digitais chaman
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Essa chamada retorna dados de texto cruzado como um tipo de objeto fortemente tipado, como `BasicDigitalTwin` . Aqui está um exemplo de como usar isso para exibir os detalhes de entrelaçamento:
+Essa chamada retorna dados de texto cruzado como um tipo de objeto fortemente tipado, como `BasicDigitalTwin` . `BasicDigitalTwin` é uma classe auxiliar de serialização incluída no SDK, que retornará os metadados e as propriedades principais de entrelaçamento no formulário previamente analisado. Aqui está um exemplo de como usar isso para exibir os detalhes de entrelaçamento:
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -117,7 +117,7 @@ Somente as propriedades que foram definidas pelo menos uma vez são retornadas q
 
 Para recuperar vários gêmeos usando uma única chamada à API, consulte os exemplos de API de consulta em [*instruções: consultar o gráfico de entrelaçamento*](how-to-query-graph.md).
 
-Considere o modelo a seguir (escrito na [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define uma *lua* :
+Considere o modelo a seguir (escrito na [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define uma *lua*:
 
 ```json
 {
@@ -176,21 +176,7 @@ As propriedades definidas de 10 digitais são retornadas como propriedades de n�
     - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
     - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
 
-Você pode analisar o JSON retornado para o tipo de entrelaçamento usando uma biblioteca de análise de JSON de sua escolha, como `System.Text.Json` .
-
-Você também pode usar a classe auxiliar de serialização `BasicDigitalTwin` que está incluída no SDK, que retornará os metadados e as propriedades principais de entrelaçamento no formulário previamente analisado. Veja um exemplo:
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-Você pode ler mais sobre as classes auxiliares de serialização em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
+Você pode ler mais sobre as classes auxiliares de `BasicDigitalTwin` serialização [*, como em How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Exibir todos os gêmeos digitais
 
@@ -274,7 +260,7 @@ Por exemplo, considere o seguinte documento de patch JSON que substitui o campo 
 
 Esta operação só terá sucesso se o tipo de atualização digital estiver sendo modificado pelo patch estiver em conformidade com o novo modelo. 
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 1. Imagine um "up digital" com um modelo de *foo_old*. *foo_old* define uma propriedade necessária *em massa*.
 2. O novo modelo *foo_new* define uma propriedade em massa e adiciona uma nova *temperatura* de propriedade necessária.
 3. Após o patch, o FileUp digital deve ter uma propriedade Mass e de temperatura. 

@@ -1,6 +1,6 @@
 ---
-title: Proteger um banco de dados
-description: Dicas para proteger um pool SQL dedicado e desenvolver soluções no Azure Synapse Analytics.
+title: Proteger um pool SQL dedicado (anteriormente conhecido como SQL DW)
+description: Dicas para proteger um pool SQL dedicado (anteriormente conhecido como SQL DW) e desenvolver soluções no Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce09488e2323aada5f99494ef3920681b685ec0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317700"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453639"
 ---
-# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Proteger um pool SQL dedicado no Azure Synapse Analytics
+# <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Proteger um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "93317700"
 > * [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-Este artigo explicará as noções básicas de como proteger seu pool SQL dedicado. Em particular, este artigo apresenta recursos para limitar o acesso, proteger dados e monitorar atividades usando o pool do SQL dedicado.
+Este artigo explicará as noções básicas de como proteger seu pool SQL dedicado (anteriormente conhecido como SQL DW). Em particular, este artigo apresenta recursos para limitar o acesso, proteger dados e monitorar atividades usando o pool dedicado do SQL (anteriormente conhecido como SQL DW).
 
 ## <a name="connection-security"></a>Segurança da conexão
 
@@ -35,15 +35,15 @@ A Segurança da Conexão refere-se a como você restringe e protege as conexões
 
 As regras de firewall são usadas pelo [SQL Server lógico](../../azure-sql/database/logical-servers.md) e seus bancos de dados para rejeitar tentativas de conexão de endereços IP que não foram explicitamente aprovados. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o portal do Azure, a API REST ou o PowerShell.
 
-Como prática recomendada, você deve restringir os intervalos de endereços IP permitidos por meio do firewall de nível de servidor o máximo possível.  Para acessar seu pool SQL dedicado do seu computador local, verifique se o firewall na rede e no computador local permite a comunicação de saída na porta TCP 1433.  
+Como prática recomendada, você deve restringir os intervalos de endereços IP permitidos por meio do firewall de nível de servidor o máximo possível.  Para acessar seu pool SQL dedicado (anteriormente conhecido como SQL DW) do seu computador local, verifique se o firewall na rede e no computador local permite a comunicação de saída na porta TCP 1433.  
 
-O Azure Synapse Analytics usa regras de firewall de IP no nível de servidor. Ele não dá suporte a regras de firewall de IP no nível de banco de dados. Para obter mais informações, consulte [regras de firewall do banco de dados SQL do Azure](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+O pool de SQL dedicado (anteriormente conhecido como SQL DW) usa regras de firewall de IP no nível de servidor. Ele não dá suporte a regras de firewall de IP no nível de banco de dados. Para obter mais informações, consulte [regras de firewall do banco de dados SQL do Azure](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-As conexões com seu pool SQL dedicado são criptografadas por padrão.  A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
+As conexões com seu pool SQL dedicado (anteriormente conhecido como SQL DW) são criptografadas por padrão.  A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
 
 ## <a name="authentication"></a>Autenticação
 
-A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O pool SQL dedicado atualmente dá suporte à autenticação SQL Server com um nome de usuário e senha e com Azure Active Directory.
+A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O pool de SQL dedicado (anteriormente conhecido como SQL DW) atualmente dá suporte à autenticação SQL Server com um nome de usuário e senha e com Azure Active Directory.
 
 Quando você criou o servidor para seu banco de dados, você especificou um logon de "administrador do servidor" com um nome de usuário e senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo", por meio da Autenticação do SQL Server.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Em seguida, conecte-se ao seu **banco de dados do pool SQL dedicado** com o logon de administrador do servidor e crie um usuário de banco de dados com base no logon do servidor que você criou.
+Em seguida, conecte-se ao seu **pool SQL dedicado (anteriormente conhecido como SQL DW)** com o logon de administrador do servidor e crie um usuário de banco de dados com base no logon do servidor que você criou.
 
 ```sql
 -- Connect to the database and create a database user
@@ -96,7 +96,7 @@ O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da 
 
 ## <a name="encryption"></a>Criptografia
 
-A Transparent Data Encryption (TDE) ajuda a proteger contra a ameaça de atividades mal-intencionadas Criptografando e descriptografando seus dados em repouso. Quando você criptografa seus banco de dados, os arquivos de log de transações e backups associados são criptografados sem exigir nenhuma alteração em seus aplicativos. A TDE criptografa o armazenamento de um banco de dados inteiro, usando uma chave simétrica chamada de chave de criptografia de banco de dados.
+A Transparent Data Encryption (TDE) ajuda a proteger contra a ameaça de atividades mal-intencionadas Criptografando e descriptografando seus dados em repouso. Quando você criptografa seus banco de dados, os arquivos de log de transações e backups associados são criptografados sem exigir nenhuma alteração em seus aplicativos. A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados.
 
 No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado é o AES-256. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -104,4 +104,4 @@ Você pode criptografar o banco de dados usando o [portal do Azure](sql-data-war
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter detalhes e exemplos sobre como se conectar ao seu warehouse com protocolos diferentes, consulte [conectar-se ao pool do SQL dedicado](../sql/connect-overview.md).
+Para obter detalhes e exemplos sobre como se conectar ao seu warehouse com protocolos diferentes, consulte [conectar-se ao pool dedicado do SQL (anteriormente conhecido como SQL DW)](sql-data-warehouse-connect-overview.md).

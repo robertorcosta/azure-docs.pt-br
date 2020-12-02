@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5631cbdd0b1eae343899be2147720d980e605dbb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010242"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452715"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário 
 Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Área de Trabalho Virtual do Windows por usuário (licenças de assinatura do usuário ou licenças complementares de assinatura do usuário), os direitos de hospedagem multilocatário para Windows 10 permitem que você coloque suas licenças do Windows 10 na nuvem e execute máquinas virtuais do Windows 10 no Azure sem necessidade de pagar por outra licença. Para obter mais informações, consulte [Hospedagem multilocatário para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -24,7 +24,7 @@ Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Áre
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implantando a imagem do Windows 10 do Azure Marketplace 
-Para implantações de modelo do Azure Resource Manager, da CLI e do Powershell, a imagem do Windows 10 pode ser encontrada com o publishername, oferta e SKU a seguir.
+Para implantações de modelo do PowerShell, CLI e Azure Resource Manager, a imagem do Windows 10 pode ser encontrada com o PublisherName, oferta, SKU a seguir.
 
 | Sistema operacional  |      PublisherName      |  Oferta | Sku |
 |:----------|:-------------:|:------|:------|
@@ -33,6 +33,15 @@ Para implantações de modelo do Azure Resource Manager, da CLI e do Powershell,
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualificar para direitos de Hospedagem de vários locatários 
+Para se qualificar para direitos de hospedagem multilocatários e executar imagens do Windows 10 em usuários do Azure, é necessário ter uma das seguintes assinaturas: 
+
+-   Microsoft 365 E3/E5/F3/a3/a5
+-   Windows 10 Enterprise E3/e5 
+-   Educação do Windows 10 a3/a5
+-   Windows VDA E3/e5
+
+
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Carregando o VHD do Windows 10 no Azure
 Se você está carregando um VHD de 10 Windows generalizado, observe o que Windows 10 não tem uma conta de administrador interno habilitada por padrão. Para habilitar a conta de administrador interno, inclua o comando a seguir como parte da extensão do script personalizado.
 
@@ -40,7 +49,7 @@ Se você está carregando um VHD de 10 Windows generalizado, observe o que Windo
 Net user <username> /active:yes
 ```
 
-O snippet do PowerShell a seguir marca todas as contas de administrador como ativas, incluindo a conta de administrador interno. Esse exemplo é útil se o nome de usuário da conta de administrador interno é desconhecido.
+O trecho do PowerShell a seguir é marcar todas as contas de administrador como ativas, incluindo o administrador interno. Esse exemplo é útil se o nome de usuário da conta de administrador interno é desconhecido.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)

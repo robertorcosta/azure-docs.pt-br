@@ -8,27 +8,27 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 38c7072472a13d7fe3d529933ca17a51e6a86733
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3e4d0513808cdc44fc71e182a07fa6b050d182ee
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577797"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452516"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planejar um modelo de solução para uma oferta de aplicativo do Azure
 
 Este artigo explica os requisitos para publicar um plano de modelo de solução para uma oferta de Aplicativo Azure. Um plano de modelo de solução é um dos dois tipos de planos com suporte nas ofertas de Aplicativo Azure. Para obter informações sobre a diferença entre esses dois tipos de plano, consulte [tipos de planos](plan-azure-application-offer.md#plans). Se você ainda não tiver feito isso, leia [planejar uma oferta de aplicativo do Azure](plan-azure-application-offer.md).
 
-O tipo de plano de modelo de solução requer um [modelo de Azure Resource Manager (modelo ARM)](/azure/azure-resource-manager/templates/overview) para implantar automaticamente sua infraestrutura de solução.
+O tipo de plano de modelo de solução requer um [modelo de Azure Resource Manager (modelo ARM)](../azure-resource-manager/templates/overview.md) para implantar automaticamente sua infraestrutura de solução.
 
 ## <a name="solution-template-requirements"></a>Requisitos de modelo de solução
 
 | Requisitos | Detalhes |
 | ------------ | ------------- |
 | Cobrança e medição | Os planos de modelo de solução não são pagos, mas podem ser usados para implantar ofertas de VM pagas que são cobradas pelo Microsoft Commercial Marketplace. Os recursos que o modelo ARM da solução implanta são configurados na assinatura do Azure do cliente. As máquinas virtuais pagas conforme o uso são transacionadas com o cliente pela Microsoft e cobradas por meio da assinatura do Azure do cliente. <br><br> Para cobrança de BYOL (traga sua própria licença), embora a Microsoft Bille os custos de infraestrutura incorridos na assinatura do cliente, você leva suas tarifas de licenciamento de software com o cliente diretamente. |
-| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. Para obter mais informações, consulte:<ul><li>[Criar um ativo técnico de VM do Azure](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (para VHDs do Windows)</li><li>[Distribuições do Linux endossadas no Azure](/azure/virtual-machines/linux/endorsed-distros) (para VHDs do Linux).</li></ul> |
+| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. Para obter mais informações, consulte:<ul><li>[Criar um ativo técnico de VM do Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs do Windows)</li><li>[Distribuições do Linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md) (para VHDs do Linux).</li></ul> |
 | Atribuição de uso do cliente | É necessário habilitar a atribuição de uso do cliente em todos os modelos de solução publicados no Azure Marketplace. Para obter mais informações sobre a atribuição de uso do cliente e como habilitá-la, consulte [atribuição de uso do cliente do parceiro do Azure](azure-partner-customer-usage-attribution.md). |
-| Usar discos gerenciados | O [Managed disks](/azure/virtual-machines/windows/managed-disks-overview) é a opção padrão para discos persistentes de VMs de IaaS (infraestrutura como serviço) no Azure. Você deve usar discos gerenciados em modelos de solução.<ul><li>Para atualizar seus modelos de solução, siga as orientações em [usar discos gerenciados em Azure Resource Manager modelos](/azure/virtual-machines/using-managed-disks-template-deployments)e use os [exemplos](https://github.com/Azure/azure-quickstart-templates)fornecidos.</li><li>Para publicar o VHD como uma imagem no Azure Marketplace, importe o VHD subjacente dos discos gerenciados para uma conta de armazenamento usando o [Azure PowerShell](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) ou o [CLI do Azure](/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)</ul> |
+| Usar discos gerenciados | O [Managed disks](../virtual-machines/managed-disks-overview.md) é a opção padrão para discos persistentes de VMs de IaaS (infraestrutura como serviço) no Azure. Você deve usar discos gerenciados em modelos de solução.<ul><li>Para atualizar seus modelos de solução, siga as orientações em [usar discos gerenciados em Azure Resource Manager modelos](../virtual-machines/using-managed-disks-template-deployments.md)e use os [exemplos](https://github.com/Azure/azure-quickstart-templates)fornecidos.</li><li>Para publicar o VHD como uma imagem no Azure Marketplace, importe o VHD subjacente dos discos gerenciados para uma conta de armazenamento usando o [Azure PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) ou o [CLI do Azure](../virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)</ul> |
 | Pacote de implantação | Você precisará de um pacote de implantação que permitirá que os clientes implantem seu plano. Se você criar vários planos que exigem a mesma configuração técnica, poderá usar o mesmo pacote de plano. Para obter detalhes, consulte a próxima seção: pacote de implantação. |
 |||
 
@@ -38,8 +38,8 @@ O pacote de implantação contém todos os arquivos de modelo necessários para 
 
 Todos os aplicativos do Azure devem incluir esses dois arquivos na pasta raiz de um arquivo. zip:
 
-- Um arquivo de modelo do Resource Manager chamado [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Este modelo define os recursos a serem implantados na assinatura do Azure do cliente. Para obter exemplos de modelos do Resource Manager, consulte a [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou o [GitHub correspondente: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates).
-- Uma definição de interface do usuário para a experiência de criação do aplicativo do Azure denominada [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview). Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
+- Um arquivo de modelo do Resource Manager chamado [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Este modelo define os recursos a serem implantados na assinatura do Azure do cliente. Para obter exemplos de modelos do Resource Manager, consulte a [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou o [GitHub correspondente: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates).
+- Uma definição de interface do usuário para a experiência de criação do aplicativo do Azure denominada [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
 
 Os tamanhos máximos de arquivo com suporte são:
 
@@ -50,7 +50,7 @@ Todas as novas ofertas de aplicativos do Azure devem incluir um GUID [atribuiç�
 
 ## <a name="azure-regions"></a>Regiões do Azure
 
-Você pode publicar seu plano na região pública do Azure, na região do Azure governamental ou em ambos. Antes de publicar para o [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners), teste e valide seu plano no ambiente, pois certos pontos de extremidade podem ser diferentes. Para configurar e testar seu plano, solicite uma conta de avaliação do [Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/).
+Você pode publicar seu plano na região pública do Azure, na região do Azure governamental ou em ambos. Antes de publicar para o [Azure Government](../azure-government/documentation-government-manage-marketplace-partners.md), teste e valide seu plano no ambiente, pois certos pontos de extremidade podem ser diferentes. Para configurar e testar seu plano, solicite uma conta de avaliação do [Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 Você, como editor, é responsável por eventuais controles de conformidade, medidas de segurança e melhores práticas. O Azure Government usa datacenters isolados fisicamente e redes (localizadas apenas nos EUA).
 
