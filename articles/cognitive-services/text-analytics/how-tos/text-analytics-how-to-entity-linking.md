@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957088"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558973"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -31,7 +31,7 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 ## <a name="personally-identifiable-information-pii"></a>PII (Informações de Identificação Pessoal)
 
-O recurso PII faz parte do NER e pode identificar e redação entidades confidenciais no texto associado a uma pessoa individual, como: número de telefone, endereço de email, endereço para correspondência, número do passaporte.  
+O recurso PII faz parte do NER e pode identificar e redação entidades confidenciais no texto associado a uma pessoa individual, como: número de telefone, endereço de email, endereço para correspondência, número do passaporte.
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Recursos e versões de reconhecimento de entidade nomeada
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512317"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558990"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -52,9 +52,9 @@ Consulte a tabela abaixo para ver quais recursos podem ser usados de forma assí
 
 
 > [!NOTE]
-> Você precisará de um recurso de Análise de Texto usando um tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) padrão (S) se desejar usar `/analyze` os `/health` pontos de extremidade ou.
+> * Você precisará de um recurso de Análise de Texto usando um tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) padrão (S) se desejar usar `/analyze` os `/health` pontos de extremidade ou.
 
-1.  Primeiro, vá para a [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso de análise de texto, se você ainda não tiver um. Escolha o **tipo de preço Standard (S)** se desejar usar os `/analyze` pontos de `/health` extremidade ou.
+1.  Primeiro, vá para a [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso de análise de texto, se você ainda não tiver um. Escolha o **tipo de preço Standard (S)** se desejar usar os `/analyze` pontos de `/health` extremidade ou. O `/analyze` ponto de extremidade está incluído em seu [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 2.  Selecione a região que você deseja usar para o ponto de extremidade.  Observe que os `/analyze` `/health` pontos de extremidade e estão disponíveis apenas nas seguintes regiões: oeste dos EUA 2, leste dos EUA 2, EUA Central, Europa Setentrional e Europa Ocidental.
 

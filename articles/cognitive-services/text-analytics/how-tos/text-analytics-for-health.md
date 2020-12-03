@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952753"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559007"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -28,6 +28,8 @@ O Análise de Texto for Health é um recurso do serviço de API de Análise de T
 
 * A API baseada na Web (assíncrona) 
 * Um contêiner do Docker (síncrono)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## <a name="features"></a>Recursos
 
@@ -48,7 +50,7 @@ A extração de relações identifica conexões significativas entre os conceito
 > ![Renovar integridade](../media/ta-for-health/health-relation-extraction.png)
 
 
-### <a name="entity-linking"></a>[Vinculação de Identidade](#tab/entity-linking)
+### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
 
 A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos. Por exemplo, o sistema de idiomas médicos unificados (UMLS).
 
@@ -106,7 +108,7 @@ Análise de Texto para integridade produz um resultado de qualidade mais alta qu
 
 Você deve ter documentos JSON neste formato: ID, texto e idioma. 
 
-O tamanho do documento deve ser inferior a 5.120 caracteres. Para obter o número máximo de documentos permitidos em uma coleção, consulte o artigo [limites de dados](../concepts/data-limits.md?tabs=version-3) em conceitos. A coleção é enviada no corpo da solicitação.
+O tamanho do documento deve ser inferior a 5.120 caracteres. Para obter o número máximo de documentos permitidos em uma coleção, confira o artigo [Limites de dados](../concepts/data-limits.md?tabs=version-3) em Conceitos. A coleção é enviada no corpo da solicitação.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Estruturar a solicitação de API para a API Web assíncrona hospedada
 

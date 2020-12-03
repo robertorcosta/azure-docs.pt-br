@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: b286533da90565429f96c5701aaa72dab0fb21d0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/03/2020
+ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551823"
+ms.locfileid: "96558157"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -36,13 +36,7 @@ O alcance usa as mesmas classificações, também conhecidas como tipos de infor
 > Embora as classificações sejam correspondidas diretamente (um número de seguro social tem uma classificação de **número de previdência social**), os rótulos de sensibilidade são aplicados quando uma ou mais classificações e cenários são encontrados em conjunto. 
 > 
 
-Os rótulos de sensibilidade no Azure alcance podem ser usados para:
-
-- **Aplicar rótulos automaticamente** a arquivos e colunas de banco de dados
-
-- **Controle** quem pode e não pode acessar seus dados
-
-- **Impor configurações de proteção**, como criptografia, em dados rotulados
+Os rótulos de sensibilidade no Azure alcance podem ser usados para aplicar rótulos automaticamente a arquivos e colunas de banco de dados.
 
 Para obter mais informações, consulte:
 

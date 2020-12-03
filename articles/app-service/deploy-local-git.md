@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741307"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558667"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do git local no serviço Azure App
 
@@ -31,9 +31,9 @@ Para seguir as etapas neste guia de instruções:
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-with-kudu-build-server"></a>Implantar com o servidor de Build do kudu
 
@@ -80,7 +80,7 @@ Use a URL que retorna para implantar seu aplicativo na próxima etapa.
    git remote add azure <url>
    ```
    
-1. Envie por push para o Azure remoto com `git push azure master` . 
+1. Envie por push para o Azure remoto com `git push azure main` . 
    
 1. Na janela **Gerenciador de credenciais do git** , insira sua [senha de usuário de implantação](#configure-a-deployment-user), não sua senha de logon do Azure.
    
@@ -100,26 +100,26 @@ Se sua conta tiver as permissões necessárias, você poderá configurar Azure P
 
 Para habilitar a implantação do git local para seu aplicativo com Azure Pipelines (versão prévia):
 
-1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos** . 
+1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos**. 
 
 1. Selecione seu aplicativo de serviço Azure App e selecione **central de implantação** no menu à esquerda.
    
-1. Na página **centro de implantação** , selecione **git local** e, em seguida, selecione **continuar** . 
+1. Na página **centro de implantação** , selecione **git local** e, em seguida, selecione **continuar**. 
    
    ![Selecione git local e, em seguida, selecione continuar](media/app-service-deploy-local-git/portal-enable.png)
    
-1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar** . 
+1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar**. 
    
    ![Selecione Azure Pipelines (versão prévia) e, em seguida, selecione continuar.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. Na página **Configurar** , configure uma nova organização de DevOps do Azure ou especifique uma organização existente e, em seguida, selecione **continuar** .
+1. Na página **Configurar** , configure uma nova organização de DevOps do Azure ou especifique uma organização existente e, em seguida, selecione **continuar**.
    
    > [!NOTE]
    > Se sua organização do Azure DevOps existente não estiver listada, talvez seja necessário vinculá-la à sua assinatura do Azure. Para obter mais informações, consulte [definir o pipeline de liberação de CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/)do plano do serviço de aplicativo, você poderá ver uma página **implantar na preparação** . Escolha se deseja [habilitar os slots de implantação](deploy-staging-slots.md)e, em seguida, selecione **continuar** .
+1. Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/)do plano do serviço de aplicativo, você poderá ver uma página **implantar na preparação** . Escolha se deseja [habilitar os slots de implantação](deploy-staging-slots.md)e, em seguida, selecione **continuar**.
    
-1. Na página **Resumo** , examine as configurações e selecione **concluir** .
+1. Na página **Resumo** , examine as configurações e selecione **concluir**.
    
 1. Quando o pipeline do Azure estiver pronto, copie a URL do repositório git da página **centro de implantação** para usar na próxima etapa. 
    
@@ -131,7 +131,7 @@ Para habilitar a implantação do git local para seu aplicativo com Azure Pipeli
    git remote add azure <url>
    ```
    
-1. Envie por push para o Azure remoto com `git push azure master` . 
+1. Envie por push para o Azure remoto com `git push azure main` . 
    
 1. Na página **Gerenciador de credenciais do git** , entre com seu nome de usuário do VisualStudio.com. Para obter outros métodos de autenticação, consulte [visão geral da autenticação de Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
    
@@ -149,10 +149,10 @@ Você poderá ver as seguintes mensagens de erro comuns ao usar o Git para publi
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|O aplicativo não está em funcionamento.|inicie o aplicativo no portal do Azure. A implantação do git não está disponível quando o aplicativo Web é interrompido.|
 |`Couldn't resolve host 'hostname'`|As informações de endereço para o remoto ' Azure ' estão incorretas.|use o comando `git remote -v` para listar todos os remotes (remotos), juntamente com a URL associada. Verifique se a URL do remote do 'azure' está correta. Se necessário, remova e recrie esse remoto usando a URL correta.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Você não especificou uma ramificação durante `git push` ou não definiu o `push.default` valor em `.gitconfig` .|Execute `git push` novamente, especificando o Branch mestre: `git push azure master` .|
-|`src refspec [branchname] does not match any.`|Você tentou enviar por push para um Branch que não seja o mestre no remoto ' Azure '.|Execute `git push` novamente, especificando o Branch mestre: `git push azure master` .|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Você não especificou uma ramificação durante `git push` ou não definiu o `push.default` valor em `.gitconfig` .|Execute `git push` novamente, especificando o Branch principal: `git push azure main` .|
+|`src refspec [branchname] does not match any.`|Você tentou enviar por push para um Branch que não seja o principal no remoto ' Azure '.|Execute `git push` novamente, especificando o Branch principal: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|esse erro poderá ocorrer se você tentar efetuar push de um repositório Git de grande porte por HTTPS.|Altere a configuração do git no computador local para torná-la `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Você implantou um aplicativo Node.js com um _package.jsno_ arquivo que especifica módulos adicionais necessários.|Examine as `npm ERR!` mensagens de erro antes desse erro para obter mais contexto sobre a falha. Veja a seguir as causas conhecidas desse erro e as `npm ERR!` mensagens correspondentes:<br /><br />**package.jsmalformados no arquivo** : `npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|Você implantou um aplicativo Node.js com um _package.jsno_ arquivo que especifica módulos adicionais necessários.|Examine as `npm ERR!` mensagens de erro antes desse erro para obter mais contexto sobre a falha. Veja a seguir as causas conhecidas desse erro e as `npm ERR!` mensagens correspondentes:<br /><br />**package.jsmalformados no arquivo**: `npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

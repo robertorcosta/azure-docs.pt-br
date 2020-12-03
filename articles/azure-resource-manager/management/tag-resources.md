@@ -2,14 +2,14 @@
 title: Marcar recursos, grupos de recursos e assinaturas para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972548"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558140"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
@@ -26,9 +26,11 @@ Para obter recomendações sobre como implementar uma estratégia de marcação,
 
 ## <a name="required-access"></a>Acesso necessário
 
-Para aplicar marcas a um recurso, você deve ter acesso de gravação ao tipo de recurso **Microsoft. Resources/Tags** . A função de [colaborador de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) permite aplicar marcas a uma entidade sem ter acesso à própria entidade. Atualmente, a função de colaborador de marca não pode aplicar marcas a recursos ou grupos de recursos por meio do Portal. Ele pode aplicar marcas às assinaturas por meio do Portal. Ele dá suporte a todas as operações de marca por meio do PowerShell e da API REST.  
+Há duas maneiras de obter o acesso necessário aos recursos de marca.
 
-A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário para aplicar marcas a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Você pode ter acesso de gravação ao tipo de recurso **Microsoft. Resources/Tags** . Esse acesso permite marcar qualquer recurso, mesmo que você não tenha acesso ao próprio recurso. A função de [colaborador de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) concede esse acesso. Atualmente, a função de colaborador de marca não pode aplicar marcas a recursos ou grupos de recursos por meio do Portal. Ele pode aplicar marcas às assinaturas por meio do Portal. Ele dá suporte a todas as operações de marca por meio do PowerShell e da API REST.  
+
+- Você pode ter acesso de gravação ao próprio recurso. A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) concede o acesso necessário para aplicar marcas a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-Para adicionar marcas a um recurso que já tem marcas, use **AZ tag update**. Defina o parâmetro **--Operation** para **mesclar**.
+Para adicionar marcas a um recurso que já tem marcas, use `az tag update` . Defina o parâmetro de `--operation` a `Merge`.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-Quando você define o parâmetro **--Operation** como **replace**, as marcas existentes são substituídas pelo novo conjunto de marcas.
+Quando você define o `--operation` parâmetro como `Replace` , as marcas existentes são substituídas pelo novo conjunto de marcas.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>Remover marcas
 
-Para remover marcas específicas, use **AZ tag update** e Set **--Operation** para **excluir**. Passe as marcas que você deseja excluir.
+Para remover marcas específicas, use `az tag update` e defina `--operation` como `Delete` . Passe as marcas que você deseja excluir.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

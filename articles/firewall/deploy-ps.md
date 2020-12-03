@@ -4,15 +4,15 @@ description: Neste artigo, você aprenderá a implantar e configurar o Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 12/02/2020
+ms.date: 12/03/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: ca4e313d4836764009feccf5acfaefe48b01b55e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e39e27dbeb9394d19a9d7fd8791c147e11a56bdb
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531755"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558871"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure usando o Azure PowerShell
 

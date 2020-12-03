@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531217"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559058"
 ---
 # <a name="azure-monitor-logs-overview"></a>Visão geral dos Logs do Azure Monitor
 Os logs de Azure Monitor são um recurso de Azure Monitor que coleta e organiza dados de log e de desempenho de [recursos monitorados](../monitor-reference.md). Dados de fontes diferentes, como [logs de plataforma](platform-logs-overview.md) de serviços do Azure, dados de log e de desempenho de [agentes de máquinas virtuais](agents-overview.md)e dados de uso e desempenho de [aplicativos](../app/app-insights-overview.md) podem ser consolidados em um único espaço de trabalho para que possam ser analisados juntos usando uma linguagem de consulta sofisticada capaz de analisar rapidamente milhões de registros. Você pode executar uma consulta simples que recupera apenas um conjunto específico de registros ou executar uma análise de dados sofisticada para identificar padrões críticos em seus dados de monitoramento. Trabalhar com consultas de log e seus resultados interativamente usando Log Analytics, usá-las em uma regra de alerta para ser notificada proativamente sobre problemas ou visualizar seus resultados em uma pasta de trabalho ou painel.
@@ -42,7 +42,7 @@ Depois de criar um espaço de trabalho Log Analytics, você deve configurar font
 
 
 ## <a name="log-analytics-workspaces"></a>Workspaces do Log Analytics
-Os dados coletados por logs de Azure Monitor são armazenados em mais um [log Analytics espaços de trabalho](./design-logs-deployment.md). O espaço de trabalho define a localização geográfica dos dados, direitos de acesso que definem quais usuários podem acessar dados e definições de configuração, como o tipo de preço e a retenção de dados.  
+Os dados coletados por logs de Azure Monitor são armazenados em um ou mais [espaços de trabalho do log Analytics](./design-logs-deployment.md). O espaço de trabalho define a localização geográfica dos dados, direitos de acesso que definem quais usuários podem acessar dados e definições de configuração, como o tipo de preço e a retenção de dados.  
 
 Você deve criar pelo menos um espaço de trabalho para usar logs de Azure Monitor. Um único espaço de trabalho pode ser suficiente para todos os seus dados de monitoramento ou pode optar por criar vários espaços de trabalho, dependendo de seus requisitos. Por exemplo, você pode ter um espaço de trabalho para seus dados de produção e outro para teste. 
 

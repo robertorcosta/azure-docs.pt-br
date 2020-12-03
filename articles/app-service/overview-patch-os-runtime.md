@@ -4,12 +4,12 @@ description: Saiba como Azure App serviço atualiza o sistema operacional e os t
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833479"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558480"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
 
@@ -51,7 +51,7 @@ As substituições e atualizações de runtime são anunciadas aqui:
 
 ### <a name="new-patch-updates"></a>Novas atualizações de patch
 
-As atualizações de patch para .NET, PHP, SDK do Java ou para a versão Tomcat/Jetty são aplicadas automaticamente, substituindo a instalação existente pela nova versão. As atualizações de patch do Node.js são instaladas lado a lado com as versões existentes (de modo semelhante às versões principais e secundárias na próxima seção). As novas versões de patch do Python podem ser instaladas manualmente por meio de [extensões do site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), lado a lado com as instalações internas do Python.
+Atualizações de patch para .NET, PHP, SDK do Java ou versão do Tomcat são aplicadas automaticamente, substituindo a instalação existente pela versão mais recente. As atualizações de patch do Node.js são instaladas lado a lado com as versões existentes (de modo semelhante às versões principais e secundárias na próxima seção). As novas versões de patch do Python podem ser instaladas manualmente por meio de [extensões do site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), lado a lado com as instalações internas do Python.
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e secundárias
 
