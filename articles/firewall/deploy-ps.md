@@ -4,15 +4,15 @@ description: Neste artigo, você aprenderá a implantar e configurar o Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 11/12/2020
+ms.date: 12/02/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ca4e313d4836764009feccf5acfaefe48b01b55e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660229"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531755"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure usando o Azure PowerShell
 
@@ -65,7 +65,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Criar uma rede virtual e um host do Azure Bastion
 
-Esta rede virtual tem quatro sub-redes:
+Essa rede virtual tem três sub-redes:
 
 > [!NOTE]
 > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
@@ -226,7 +226,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
 
-1. Execute os seguintes comandos:
+1. Execute os comandos a seguir:
 
    ```
    Invoke-WebRequest -Uri https://www.google.com

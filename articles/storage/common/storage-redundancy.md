@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658579"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531776"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
-A redundância do Armazenamento do Azure sempre armazena várias cópias dos seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas de hardware transitórias, interrupções de energia ou rede e desastres naturais de grandes proporções. A redundância garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas.
+A redundância do Armazenamento do Azure sempre armazena várias cópias dos seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas de hardware transitórias, interrupções de energia ou rede e desastres naturais de grandes proporções. A redundância garante que sua conta de armazenamento atenda às suas metas de disponibilidade e durabilidade mesmo diante de falhas.
 
-Ao decidir qual opção de redundância é melhor para seu cenário, considere os benefícios comparativos entre custos menores e maior disponibilidade e durabilidade. Os fatores que ajudam a determinar qual opção de redundância você deve escolher incluem:  
+Ao decidir qual opção de redundância é melhor para seu cenário, considere as compensações entre custos menores e maior disponibilidade. Os fatores que ajudam a determinar qual opção de redundância você deve escolher incluem:  
 
 - Como os dados são replicados na região primária
 - Se seus dados são replicados para uma segunda região que está geograficamente distante para a região primária, para proteger contra desastres regionais
@@ -51,7 +51,7 @@ O LRS é uma boa opção para os seguintes cenários:
 
 O armazenamento com redundância de zona (ZRS) replica seus dados do Armazenamento do Azure de forma síncrona em três zonas de disponibilidade do Azure na região primária. Cada zona de disponibilidade é um local físico separado com energia, resfriamento e rede independentes. O ZRS oferece durabilidade para objetos de dados do Armazenamento do Azure de, pelo menos, 99,9999999999% (doze noves) em um dado ano.
 
-Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona. Se uma zona ficar indisponível, o Azure assumirá as atualizações de rede, como a reapontação de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando os dados antes que as atualizações sejam concluídas. Ao criar aplicativos para ZRS, siga práticas para manipulação de falha transitórias, incluindo a implementação de políticas de novas tentativas com retirada exponencial.
+Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona. Se uma zona se tornar indisponível, o Azure realizará atualizações da rede, como a reposição de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando os dados antes que as atualizações sejam concluídas. Ao criar aplicativos para ZRS, siga práticas para manipulação de falha transitórias, incluindo a implementação de políticas de novas tentativas com retirada exponencial.
 
 Uma solicitação de gravação para uma conta de armazenamento que está usando o ZRS ocorre de forma síncrona. A operação de gravação retorna com êxito somente depois que os dados são gravados em todas as réplicas nas três zonas de disponibilidade.
 
@@ -153,11 +153,9 @@ A tabela a seguir descreve os principais parâmetros para cada opção de redund
 
 | Parâmetro | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Porcentagem de durabilidade dos objetos em um determinado ano<sup>1</sup> | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
-| SLA de disponibilidade para solicitações de leitura<sup>1</sup> | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
-| SLA de disponibilidade para solicitações de gravação<sup>1</sup> | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
-
-<sup>1</sup> Para obter informações sobre as garantias do Armazenamento do Azure para durabilidade e disponibilidade, confira o [SLA do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+| Porcentagem de durabilidade dos objetos em um determinado ano | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
+| Disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
+| Disponibilidade para solicitações de gravação | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Cenário de durabilidade e disponibilidade durante interrupções
 

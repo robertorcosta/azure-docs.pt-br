@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499604"
+ms.locfileid: "96530877"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurar chaves gerenciadas pelo cliente para criptografia de dados no Azure Pesquisa Cognitiva
 
-O Azure Pesquisa Cognitiva criptografa automaticamente o conteúdo indexado em repouso com [chaves gerenciadas pelo serviço](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Se for necessária mais proteção, você poderá complementar a criptografia padrão com uma camada de criptografia adicional usando as chaves que você cria e gerencia no Azure Key Vault. Este artigo orienta você pelas etapas de configuração da criptografia CMK.
+O Azure Pesquisa Cognitiva criptografa automaticamente o conteúdo indexado em repouso com [chaves gerenciadas pelo serviço](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Se for necessária mais proteção, você poderá complementar a criptografia padrão com uma camada de criptografia adicional usando as chaves que você cria e gerencia no Azure Key Vault. Este artigo orienta você pelas etapas de configuração da criptografia de chave gerenciada pelo cliente.
 
-A criptografia CMK depende [Azure Key Vault](../key-vault/general/overview.md). Você pode criar suas próprias chaves de criptografia e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves de criptografia. Com Azure Key Vault, você também pode auditar o uso da chave se [habilitar o registro em log](../key-vault/general/logging.md).  
+A criptografia de chave gerenciada pelo cliente depende do [Azure Key Vault](../key-vault/general/overview.md). Você pode criar suas próprias chaves de criptografia e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves de criptografia. Com Azure Key Vault, você também pode auditar o uso da chave se [habilitar o registro em log](../key-vault/general/logging.md).  
 
 A criptografia com chaves gerenciadas pelo cliente é aplicada a índices individuais ou mapas de sinônimos quando esses objetos são criados e não é especificado no próprio nível de serviço de pesquisa. Somente novos objetos podem ser criptografados. Você não pode criptografar o conteúdo que já existe.
 
@@ -31,7 +31,7 @@ As chaves nem todos precisam estar no mesmo cofre de chaves. Um único serviço 
 
 ## <a name="double-encryption"></a>Criptografia dupla
 
-Para serviços criados após 1º de agosto de 2020 e em regiões específicas, o escopo da criptografia CMK inclui discos temporários, obtendo [criptografia dupla completa](search-security-overview.md#double-encryption), disponível atualmente nestas regiões: 
+Para serviços criados após 1º de agosto de 2020 e em regiões específicas, o escopo da criptografia de chave gerenciada pelo cliente inclui discos temporários, obtendo [criptografia dupla completa](search-security-overview.md#double-encryption), atualmente disponível nessas regiões: 
 
 + Oeste dos EUA 2
 + Leste dos EUA
@@ -39,13 +39,13 @@ Para serviços criados após 1º de agosto de 2020 e em regiões específicas, o
 + Gov. dos EUA – Virgínia
 + Governo dos EUA do Arizona
 
-Se você estiver usando uma região diferente ou um serviço criado antes de 1º de agosto, a criptografia do CMK será limitada apenas ao disco de dados, excluindo os discos temporários usados pelo serviço.
+Se você estiver usando uma região diferente ou um serviço criado antes de 1º de agosto, a criptografia de chave gerenciada será limitada apenas ao disco de dados, excluindo os discos temporários usados pelo serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 As ferramentas e os serviços a seguir são usados neste cenário.
 
-+ O [Azure pesquisa cognitiva](search-create-service-portal.md) em uma [camada Faturável](search-sku-tier.md#tiers) (básica ou acima, em qualquer região).
++ O [Azure pesquisa cognitiva](search-create-service-portal.md) em uma [camada Faturável](search-sku-tier.md#tier-descriptions) (básica ou acima, em qualquer região).
 + [Azure Key Vault](../key-vault/general/overview.md), você pode criar um cofre de chaves usando [portal do Azure](../key-vault//general/quick-create-portal.md), [CLI do Azure](../key-vault//general/quick-create-cli.md)ou [Azure PowerShell](../key-vault//general/quick-create-powershell.md). na mesma assinatura que o Pesquisa Cognitiva do Azure. O cofre de chaves deve ter a proteção de exclusão e **limpeza** **reversível** habilitada.
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Se você não tiver uma, [Configure um novo locatário](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -56,7 +56,7 @@ Você deve ter um aplicativo de pesquisa que possa criar o objeto criptografado.
 
 ## <a name="1---enable-key-recovery"></a>1-Habilitar recuperação de chave
 
-Devido à natureza da criptografia com chaves gerenciadas pelo cliente, ninguém poderá recuperar seus dados se a chave do cofre de chaves do Azure for excluída. Para evitar a perda de dados causada por exclusões de chave Key Vault acidental, a exclusão reversível e a proteção de limpeza devem ser habilitadas no cofre de chaves. A exclusão reversível é habilitada por padrão, de modo que você só encontrará problemas se o tiver desabilitado propositadamente. A proteção de limpeza não é habilitada por padrão, mas é necessária para a criptografia do Azure Pesquisa Cognitiva CMK. Para obter mais informações, consulte visões gerais de exclusão e [limpeza](../key-vault/general/soft-delete-overview.md#purge-protection) [reversível](../key-vault/general/soft-delete-overview.md) .
+Devido à natureza da criptografia com chaves gerenciadas pelo cliente, ninguém poderá recuperar seus dados se a chave do cofre de chaves do Azure for excluída. Para evitar a perda de dados causada por exclusões de chave Key Vault acidental, a exclusão reversível e a proteção de limpeza devem ser habilitadas no cofre de chaves. A exclusão reversível é habilitada por padrão, de modo que você só encontrará problemas se o tiver desabilitado propositadamente. A proteção de limpeza não é habilitada por padrão, mas é necessária para a criptografia de chave gerenciada pelo cliente no Pesquisa Cognitiva. Para obter mais informações, consulte visões gerais de exclusão e [limpeza](../key-vault/general/soft-delete-overview.md#purge-protection) [reversível](../key-vault/general/soft-delete-overview.md) .
 
 Você pode definir as duas propriedades usando o portal, o PowerShell ou os comandos CLI do Azure.
 
@@ -377,7 +377,7 @@ As condições que irão impedi-lo de adotar essa abordagem simplificada incluem
 
 ## <a name="work-with-encrypted-content"></a>Trabalhar com conteúdo criptografado
 
-Com a criptografia CMK, você perceberá a latência para indexação e consultas devido ao trabalho extra de criptografia/descriptografia. O Azure Pesquisa Cognitiva não registra a atividade de criptografia, mas você pode monitorar o acesso à chave por meio do registro em log do Key Vault. Recomendamos que você [habilite o registro em log](../key-vault/general/logging.md) como parte da configuração do Key Vault.
+Com a criptografia de chave gerenciada pelo cliente, você notará a latência para indexação e consultas devido ao trabalho extra de criptografia/descriptografia. O Azure Pesquisa Cognitiva não registra a atividade de criptografia, mas você pode monitorar o acesso à chave por meio do registro em log do Key Vault. Recomendamos que você [habilite o registro em log](../key-vault/general/logging.md) como parte da configuração do Key Vault.
 
 Espera-se que a rotação de chaves ocorra ao longo do tempo. Sempre que você gira as chaves, é importante seguir esta sequência:
 

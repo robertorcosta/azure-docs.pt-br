@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736469"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531132"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -63,10 +63,8 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 | Recuperação de desastre | [Backups com redundância geográfica do Azure](automated-backups-overview.md) |
 | Escala de Leitura | [Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)](read-scale-out.md) |
 | ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
-| Migração de SQL Server para o banco de dados SQL do Azure | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
+| Migração de SQL Server para o banco de dados SQL do Azure. No entanto, Sincronização de Dados SQL pode ser usado após a conclusão da migração, para garantir que a origem e o destino sejam mantidos em sincronia.  | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
-
-
 
 ## <a name="how-it-works"></a>Como ele funciona
 

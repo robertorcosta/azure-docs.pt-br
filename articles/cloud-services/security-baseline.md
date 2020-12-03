@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7deee88210acf700916961be7c4ccaf9477accf8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 100871ab2188aa638c4c9f2b058021706c7741bb
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353435"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531897"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Linha de base de segurança do Azure para serviços de nuvem do Azure
 
@@ -36,7 +36,7 @@ Serviços de Nuvem do Microsoft Azure (clássico) não pode ser colocado em Azur
 
 - [Visão geral do Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md)
 
-- [Emparelhamento de rede virtual](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Emparelhamento de rede virtual](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -58,7 +58,7 @@ Habilite logs de fluxo do grupo de segurança de rede e envie os logs para uma c
 
 - [Arquivo de configuração de serviços de nuvem](schema-cscfg-file.md)
 
-- [Lista de serviços com suporte pelo Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Lista de serviços com suporte pelo Azure Policy](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -89,9 +89,9 @@ Impeça o tráfego de entrada para a URL padrão ou o nome de seus serviços de 
 
 Configure uma regra de negação de aplicação para atribuições de administrador de assinatura clássica. Por padrão, após a definição de um ponto de extremidade interno, a comunicação poderá fluir de qualquer função para o ponto de extremidade interno de uma função sem qualquer restrição. Para restringir a comunicação, adicione um elemento NetworkTrafficRules ao elemento ServiceDefinition no arquivo de definição de serviço.
 
-- [Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Proteção contra DDOS do Azure](./cloud-services-connectivity-and-networking-faq.md?amp;preserve-view=#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Proteção contra DDOS do Azure](./cloud-services-connectivity-and-networking-faq.md?preserve-view=true#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
 - [Bloquear um endereço IP específico](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
@@ -107,7 +107,7 @@ Configure o log de fluxo em um grupo de segurança de rede. Examine os detalhes 
 
 - [Configurar o log de fluxo em um grupo de segurança de rede](../virtual-machines/extensions/network-watcher-linux.md)
 
-- [Para obter mais informações sobre como configurar logs de fluxo, visite](/cli/azure/azure-services-the-azure-cli-can-manage?amp;preserve-view=)
+- [Para obter mais informações sobre como configurar logs de fluxo, visite](/cli/azure/azure-services-the-azure-cli-can-manage?preserve-view=)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -231,13 +231,13 @@ Exiba o histórico de alterações de alguns eventos no log de atividades dentro
 
 Os serviços de nuvem do Azure podem ser monitorados por Application Insights para disponibilidade, desempenho, falhas e uso. É possível adicionar gráficos personalizados ao Application Insights, para que você veja os dados mais importantes. Os dados da instância de função podem ser coletados usando o SDK do Application Insights em seu projeto de serviços de nuvem do Azure. 
 
-- [Ativar o diagnóstico no Visual Studio antes da implantação](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=#to-turn-on-diagnostics-in-visual-studio-before-deployment)
+- [Ativar o diagnóstico no Visual Studio antes da implantação](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
 - [Exibir histórico de alterações](../azure-monitor/platform/activity-log.md#view-change-history)
 
 - [Application Insights para o serviço de nuvem do Azure (clássico)](../azure-monitor/app/cloudservices.md)
 
-- [Configurar o diagnóstico para o serviço de nuvem do Azure (clássico) e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?amp;preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
+- [Configurar o diagnóstico para o serviço de nuvem do Azure (clássico) e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true&toc=%2fazure%2fcloud-services%2ftoc.json)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -289,7 +289,7 @@ A extensão Diagnóstico do Azure coleta e armazena dados em uma conta de Armaze
 
 **Diretrizes**: Microsoft antimalware para Azure, protege os serviços de nuvem do Azure e as máquinas virtuais. Você tem a opção de implantar soluções de segurança de terceiros além, como paredes de fogo de aplicativo Web, firewalls de rede, Antimalware, sistemas de prevenção e detecção de intrusão (IDS ou IPS) e muito mais.
 
-- [Quais são os recursos e as funcionalidades que os IPS/IDS e DDOS básico do Azure fornecem](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Quais são os recursos e as funcionalidades que os IPS/IDS e DDOS básico do Azure fornecem](./cloud-services-configuration-and-management-faq.md?preserve-view=true#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -840,7 +840,7 @@ Habilite a extensão Antimalware com um script do PowerShell na tarefa de inicia
 
 Escolha o recurso de controle de aplicativo adaptável na central de segurança do Azure, uma solução inteligente, automatizada e de ponta a ponta. Ele ajuda a proteger seus computadores contra malware e permite bloquear ou alertar tentativas de execução de aplicativos mal-intencionados, incluindo aqueles que, de outra forma, podem ser perdidos por soluções antimalware.
 
-- [Como posso adicionar uma extensão antimalware para meus serviços de nuvem do Azure de forma automatizada](./cloud-services-configuration-and-management-faq.md?amp;preserve-view=#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Como posso adicionar uma extensão antimalware para meus serviços de nuvem do Azure de forma automatizada](./cloud-services-configuration-and-management-faq.md?preserve-view=true#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
 - [Cenários de implantação de antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 

@@ -1,27 +1,29 @@
 ---
-title: Adicionar uma camada de símbolo aos mapas do Android | Mapas do Microsoft Azure
-description: Saiba como adicionar um marcador a um mapa. Veja um exemplo que usa o SDK do Android do Azure Maps para adicionar uma camada de símbolo que contém dados baseados em pontos de uma fonte de dados.
+title: Adicionar uma camada de símbolo a um mapa usando o Azure Maps SDK do Android
+description: Saiba como adicionar um marcador a um mapa. Veja um exemplo que usa o Microsoft Azure Maps SDK do Android para adicionar uma camada de símbolo que contém dados baseados em pontos de uma fonte de dados.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/24/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: acd5f06a5383308ce736f2860810ebee7e5bce28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 300a7968b2072459d6d7709e4d89388e1bcf59f3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897102"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531200"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma camada de símbolo a um mapa usando o Azure Maps SDK do Android
 
 Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de símbolo em um mapa usando o SDK do Android do Azure Maps.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir as etapas deste artigo, você precisa instalar o [Azure Maps SDK do Android](./how-to-use-android-map-control-library.md) para carregar um mapa.
+1. [Fazer uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
+3. Baixe e instale o [SDK do Android do Azure Maps](./how-to-use-android-map-control-library.md).
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
@@ -62,7 +64,7 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
         //Create a point feature and add it to the data source.
         dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
     
-        //Add a custom image icon to the map resources.
+        //Add a red custom image icon to the map resources.
         map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
     
         //Create a symbol layer and add it to the map.
@@ -71,8 +73,6 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
         });
     
     ```
-    
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele adiciona um **recurso** que contém uma geometria de ponto a ele. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** usa texto ou ícones para renderizar dados baseados em pontos encapsulados na fonte de dados como símbolo no mapa. Em seguida, uma camada de símbolo é criada e a fonte de dados é passada para ela para renderização e, em seguida, é adicionada às camadas do mapa.
     
     Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve se parecer com o seguinte:
     
@@ -165,19 +165,17 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
         }
     }
     ```
-    
-Neste ponto, se você executar seu aplicativo, verá um marcador no mapa, como mostrado aqui:
 
-<center>
+Ao executar o aplicativo, você deverá ver um marcador no mapa, como mostrado aqui:
 
-![Marcador de mapa do Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Marcador de mapa do Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)
 
 > [!TIP]
 > Por padrão, as camadas de símbolo otimizam a renderização de símbolos, ocultando os símbolos que se sobrepõem. À medida que você amplia, os símbolos ocultos se tornam visíveis. Para desabilitar esse recurso e renderizar todos os símbolos em todos os momentos, defina a `iconAllowOverlap` opção como `true` .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para adicionar mais coisas ao mapa, consulte:
+Para adicionar mais dados ao mapa, consulte:
 
 > [!div class="nextstepaction"]
 > [Adicionar formas a um mapa do Android](./how-to-add-shapes-to-android-map.md)

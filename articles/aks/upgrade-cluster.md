@@ -4,12 +4,12 @@ description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azur
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683226"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531336"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -121,6 +121,64 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
+## <a name="set-auto-upgrade-channel-preview"></a>Definir canal de atualização automática (versão prévia)
+
+Além de atualizar manualmente um cluster, você pode definir um canal de atualização automática em seu cluster. Os seguintes canais de atualização estão disponíveis:
+
+* *nenhum*, que desabilita atualizações automáticas e mantém o cluster em sua versão atual do kubernetes. Esse é o padrão e será usado se nenhuma opção for especificada.
+* *patch*, que atualizará automaticamente o cluster para a versão de patch mais recente com suporte quando estiver disponível enquanto mantém a versão secundária a mesma. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster será atualizado para *1.17.9*.
+* *estável*, que atualizará automaticamente o cluster para a versão de patch mais recente com suporte na versão secundária *N-1*, em que *N* é a versão secundária mais recente com suporte. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster será atualizado para *1.18.6*.
+* *rápido*, que atualizará automaticamente o cluster para a versão mais recente do patch com suporte na versão secundária mais recente com suporte. Nos casos em que o cluster está em uma versão de kubernetes que está em uma versão secundária *n-2* em que *n* é a versão secundária mais recente com suporte, o cluster primeiro atualiza para a versão de patch mais recente com suporte em *n-1* versão secundária. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster primeiro será atualizado para *1.18.6* e, em seguida, será atualizado para *1.19.1*.
+
+> [!NOTE]
+> Atualização automática de cluster atualiza somente para versões GA do kubernetes e não será atualizada para versões de visualização.
+
+A atualização automática de um cluster segue o mesmo processo que a atualização manual de um cluster. Para obter mais detalhes, consulte [atualizar um cluster AKs][upgrade-cluster].
+
+A atualização automática de cluster para clusters AKS é um recurso de visualização.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Registre o `AutoUpgradePreview` sinalizador de recurso usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+Demora alguns minutos para o status exibir *Registrado*. Verifique o status do registro usando o comando [AZ Feature List][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use o comando [AZ Extension Add][az-extension-add] para instalar a extensão *AKs-Preview* e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Para definir o canal de atualização automática ao criar um cluster, use o parâmetro de *canal de atualização automática* , semelhante ao exemplo a seguir.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+Para definir o canal de atualização automática no cluster existente, atualize o parâmetro de *canal de atualização automática* , semelhante ao exemplo a seguir.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Este artigo mostrou como atualizar um cluster do AKS existente. Para saber mais sobre como implantar e gerenciar clusters do AKS, confira os tutoriais.
@@ -137,6 +195,10 @@ Este artigo mostrou como atualizar um cluster do AKS existente. Para saber mais 
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447850"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530707"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Solução de problemas do pool de SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 
@@ -45,6 +45,7 @@ Este artigo lista problemas comuns de solução de problemas no pool dedicado do
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | A exportação de cadeias de caracteres vazias usando CETAS resultará em valores nulos nos arquivos parquet e ORC. Observação Se você estiver exportando cadeias de caracteres vazias de colunas com restrições NOT NULL, CETAS resultará em registros rejeitados e a exportação poderá potencialmente falhar. | Remova cadeias de caracteres vazias ou a coluna incorreta na instrução SELECT de seu CETAS. |
+| Não há suporte para o carregamento de um valor fora do intervalo de 0-127 em uma coluna tinyint para o formato de arquivo parquet e ORC. | Especifique um tipo de dados maior para a coluna de destino.           |
 
 ## <a name="performance"></a>Desempenho
 

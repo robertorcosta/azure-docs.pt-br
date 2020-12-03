@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8b75345743bb398458752d03f853738df713b4f9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456444"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531566"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estratégias de carregamento de dados para o pool de SQL dedicado no Azure Synapse Analytics
 
@@ -119,8 +119,9 @@ Use o seguinte mapeamento de tipo de dados SQL ao carregar arquivos parquet:
 | [Tipo complexo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
-> - Atualmente, os pools do SQL dedicados não dão suporte a tipos de dados parquet com a precisão MICROs e NANOs. 
-> - Você poderá enfrentar o seguinte erro se os tipos não corresponderem entre parquet e SQL ou se você tiver tipos de dados parquet sem suporte:  **"HdfsBridge:: recordReaderFillBuffer-erro inesperado encontrado ao preencher buffer de leitor de registro: ClassCastException:..."**
+>- Atualmente, os pools do SQL dedicados não dão suporte a tipos de dados parquet com a precisão MICROs e NANOs. 
+>- Você poderá enfrentar o seguinte erro se os tipos não corresponderem entre parquet e SQL ou se você tiver tipos de dados parquet sem suporte: **"HdfsBridge:: recordReaderFillBuffer-erro inesperado encontrado ao preencher buffer de leitor de registro: ClassCastException:..."**
+>- Não há suporte para o carregamento de um valor fora do intervalo de 0-127 em uma coluna tinyint para o formato de arquivo parquet e ORC.
 
 Para obter um exemplo de criação de objetos externos, consulte [criar tabelas externas](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 

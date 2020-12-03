@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a1159da782a8cb822bf726173ad0d0bcd9da844a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9cbce00e2c2743aec57cd857b6f38d20bce33698
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460892"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532900"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -70,17 +70,17 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Serviço de Backup do Azure|Permite backup e restauração de chaves e segredos relevantes durante o backup de Máquinas Virtuais do Azure, usando o [Backup do Azure](../../backup/backup-overview.md).|
 |Exchange Online e SharePoint Online|Permite acesso à chave de cliente para Criptografia do Serviço de Armazenamento do Azure com [Chave de Cliente](/microsoft-365/compliance/customer-key-overview).|
 |Proteção de Informações do Azure|Permitir acesso à chave de locatário para [Proteção de Informações do Azure.](/azure/information-protection/what-is-information-protection)|
-|Serviço de aplicativo do Azure|[Implanta o Certificado do Aplicativo Web do Azure por meio do Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
+|Serviço de Aplicativo do Azure|[Implanta o Certificado do Aplicativo Web do Azure por meio do Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Banco de Dados SQL do Azure|[Transparent Data Encryption com suporte de Bring your own Key para o banco de dados SQL do Azure e o Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Armazenamento do Azure|[Criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Gerenciamento de API do Azure|[Implantar certificados para o domínio personalizado de Key Vault usando o MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Fábrica de dados do Azure|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Hubs de eventos do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
+|Hubs de Eventos do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
 |Barramento de Serviço do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Importação/Exportação do Azure| [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação](../../storage/common/storage-import-export-encryption-key-portal.md)
-|Registro de Contêiner do Azure|[Criptografia do registro usando chaves gerenciadas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transferir artefatos para outro registro](../../container-registry/container-registry-transfer-images.md)
+|Registro de Contêiner do Azure|[Criptografia do registro usando chaves gerenciadas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > Você deve configurar as políticas relevantes de acesso ao cofre de chaves para permitir que os serviços correspondentes tenham acesso ao Key Vault.

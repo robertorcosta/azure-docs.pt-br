@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de bloco ao Android Maps | Mapas do Microsoft Azure
-description: Saiba como adicionar uma camada de bloco a um mapa. Veja um exemplo que usa o Azure Maps SDK do Android para adicionar uma sobreposição de radar meteorológico a um mapa.
+title: Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
+description: Saiba como adicionar uma camada de bloco a um mapa. Veja um exemplo que usa o Microsoft Azure Maps SDK do Android para adicionar uma sobreposição de radar meteorológico a um mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532669"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
 
@@ -37,7 +37,7 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 * `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
 * `{subdomain}` -Um espaço reservado para os valores de subdomínio, se o valor de subdomínio for especificado.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](./how-to-use-android-map-control-library.md) para carregar um mapa.
 

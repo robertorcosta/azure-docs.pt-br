@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7a3351654bb912eb7a4b532e636ca02fdf08a14d
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 30da040a977f8052f227f19e975915cbbe915102
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301555"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532560"
 ---
 # <a name="azure-security-baseline-for-azure-advisor"></a>Linha de base de segurança do Azure para o Azure Advisor
 
@@ -41,7 +41,7 @@ Observe que o Azure AD dá suporte a identidades externas, que permitem aos usu�
 
 - [Usar provedores de identidade externos para o aplicativo](../active-directory/external-identities/identity-providers.md) 
 
-- [O que é a pontuação segura de identidade em Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [O que é a classificação de segurança de identidade no Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -97,13 +97,13 @@ O ATP (Proteção Avançada contra Ameaças) do Azure é uma solução de segura
 
 **Responsabilidade**: Cliente
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso a recursos do Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso aos recursos do Azure com base em condições
 
 **Diretrizes**: o Azure Advisor dá suporte ao recurso de acesso condicional do Azure Active Directory (Azure AD) para um controle de acesso mais granular com base em condições definidas pelo usuário. Por exemplo, logons de usuário de determinados intervalos de IP precisarão usar a autenticação multifator para logon. A política de gerenciamento de sessão de autenticação granular também pode ser usada para diferentes casos de uso.
 
 - [Visão geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md) 
 
-- [Políticas de acesso condicional comum](../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
+- [Políticas comuns de acesso condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
 
 - [Configurar o gerenciamento de sessão de autenticação com acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
@@ -151,7 +151,7 @@ Observe que alguns serviços do Azure dão suporte a usuários e funções locai
 
 ### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: usar estações de trabalho com acesso privilegiado
 
-**Diretrizes**: estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviço críticos. 
+**Diretrizes**: estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviços críticos. 
 
 Use estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para tarefas administrativas. Escolha Azure Active Directory (Azure AD), a ATP (proteção avançada contra ameaças) do Microsoft defender, incluindo Microsoft Intune para implantar uma estação de trabalho de usuário segura e gerenciada para tarefas administrativas. 
 
@@ -251,7 +251,7 @@ Além disso, habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiro
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção de armazenamento de log
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção do armazenamento de log
 
 **Orientação**: Verifique se as contas de armazenamento ou os espaços de trabalho log Analytics usados para armazenar os logs do supervisor do Azure têm o período de retenção de log definido de acordo com os regulamentos de conformidade da sua organização.
 No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use o armazenamento do Azure, Data Lake ou Log Analytics contas de espaço de trabalho para armazenamento de longo prazo e arquivamento.
@@ -414,11 +414,11 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 -   Padrões de criptografia apropriados
 
 Para saber mais, consulte as referências a seguir:
-- [Recomendação da arquitetura de segurança do Azure – Armazenamento, dados e criptografia](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recomendação da arquitetura de segurança do Azure – Armazenamento, dados e criptografia](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Conceitos básicos de segurança do Azure – Segurança, criptografia e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 

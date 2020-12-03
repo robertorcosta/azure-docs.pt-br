@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781440"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532221"
 ---
 # <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,7 +30,7 @@ Por exemplo, um representante de serviço em um centro de chamada pode identific
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos do mascaramento de dados dinâmicos
 
-Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a folha **máscara de dados dinâmicos** em **segurança** no painel configuração do SQL Database. Este recurso não pode ser definido usando o portal para o Azure Synapse (use o PowerShell ou a API REST) ou o SQL Instância Gerenciada. Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a folha **máscara de dados dinâmicos** em **segurança** no painel configuração do SQL Database. Este recurso não pode ser definido usando o portal para SQL Instância Gerenciada (use o PowerShell ou a API REST). Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmico
 

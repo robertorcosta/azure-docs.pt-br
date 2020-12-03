@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55a1255ffa82aec8ea7b9e1ec2bbc6746b9b0636
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523372"
+ms.locfileid: "96531591"
 ---
 # <a name="synapse-rbac-roles"></a>Funções RBAC Synapse
 
@@ -28,12 +28,11 @@ Para os usuários familiarizados com as funções RBAC Synapse fornecidas durant
 - **Novos escopos de nível inferior** são introduzidos para várias funções.  Esses escopos permitem que as funções sejam restritas a recursos ou objetos específicos.
 
 >[!Note]
->- As novas funções e os escopos de nível inferior estão atualmente em versão prévia.  
->- As funções administrador Apache Spark e administrador do SQL serão preteridas em uma versão futura em favor das novas funções RBAC Synapse.  Você é incentivado a adotar as novas funções de visualização, que têm suporte total e para fornecer comentários sobre seu uso.
+>- As **novas funções e os escopos de nível inferior estão atualmente em versão prévia**.  Você é incentivado a usar essas novas funções e escopos, que têm suporte total e para fornecer comentários sobre seu uso.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Funções e escopos Synapse RBAC internos
 
-A tabela a seguir descreve cada função interna e os escopos em que essas funções podem ser usadas.
+A tabela a seguir descreve as funções internas e os escopos nos quais elas podem ser usadas.
 
 >[!Note]
 > Os usuários com qualquer função de RBAC Synapse em qualquer escopo têm automaticamente a função de usuário Synapse no escopo do espaço de trabalho. 

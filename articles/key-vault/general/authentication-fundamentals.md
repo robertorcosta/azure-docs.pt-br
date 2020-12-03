@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565816"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530911"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Conceitos básicos sobre a Autenticação do Key Vault
 
@@ -116,8 +116,6 @@ Key Vault atribuições de função são um conjunto de atribuições de funçã
 * As permissões do RBAC do Azure podem ser gerenciadas em escala, permitindo que os usuários tenham essas funções atribuídas em uma assinatura, grupo de recursos ou nível de cofre de chaves individuais. Um usuário terá as permissões de plano de dados para todos os cofres de chaves dentro do escopo da atribuição de RBAC do Azure. Isso elimina a necessidade de atribuir permissões de política de acesso individuais por usuário/aplicativo por cofre de chaves.
 
 * As permissões do RBAC do Azure são compatíveis com Privileged Identity Management ou PIM. Isso permite que você configure controles de acesso just-in-time para funções com privilégios como administrador de Key Vault. Essa é uma prática recomendada de segurança e segue a entidade de privilégio mínimo, eliminando o acesso à sua chave para seus cofres de chaves.
-
-* As permissões do RBAC do Azure são compatíveis com permissões granulares por objeto, para que você possa restringir um usuário de executar operações apenas em alguns dos objetos do cofre de chaves. Isso permite que vários aplicativos compartilhem um único cofre de chaves enquanto ainda isolam o acesso entre aplicativos.
 
 Para saber mais sobre o RBAC do Azure para Key Vault, consulte os seguintes documentos:
 

@@ -3,25 +3,27 @@ title: Mostrar dados de tráfego no mapa do Android | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá como exibir dados de tráfego em um mapa usando a SDK do Android de mapas de Microsoft Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/27/2020
+ms.date: 11/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895521"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532747"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando o Azure Maps SDK do Android
 
 Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra como exibir os dois tipos de dados de tráfego. Os dados de incidentes consistem em dados de ponto e de linha para coisas como construções, fechamentos de estrada e acidentes. Os dados de fluxo mostram métricas sobre o fluxo de tráfego em trânsito.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder mostrar o tráfego no mapa, você precisa [criar uma conta do Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [obter uma chave de assinatura](quick-demo-map-app.md#get-the-primary-key-for-your-account). Em seguida, você precisa instalar o [SDK do Android do Azure Maps](./how-to-use-android-map-control-library.md) e carregar um mapa.
+1. [Fazer uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
+3. Baixe e instale o [SDK do Android do Azure Maps](./how-to-use-android-map-control-library.md).
 
 ## <a name="incidents-traffic-data"></a>Dados de tráfego de incidentes
 
@@ -53,7 +55,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Use o trecho de código a seguir para definir dados de fluxo de tráfego. Semelhante ao código na seção anterior, passamos o valor de retorno do `flow` método para o `setTraffic` método. Há quatro valores que podem ser passados para `flow` , e cada valor poderia ser disparado `flow` para retornar o respectivo valor. O valor de retorno de `flow` será passado como o argumento para `setTraffic` . Consulte a tabela abaixo para obter estes quatro valores:
 
-|Valor do fluxo | Descrição|
+|Valor do fluxo | Description|
 | :-- | :-- |
 | Do trafficflow. NONE | Não exibe dados de tráfego no mapa |
 | Do trafficflow. RELATIVE | Mostra os dados de tráfego relativos à velocidade de fluxo livre da estrada |
@@ -73,7 +75,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Para obter os incidentes de um recurso específico, você pode usar o código a seguir. Quando um recurso é clicado, a lógica de código verifica incidentes e cria uma mensagem sobre o incidente. Uma mensagem é exibida na parte inferior da tela com os detalhes.
 
-1. Primeiro, você precisa editar o **layout de > res > activity_main.xml** , para que ele se pareça com o mostrado abaixo. Você pode substituir os `mapcontrol_centerLat` , `mapcontrol_centerLng` e `mapcontrol_zoom` pelos valores desejados. Lembre-se de que o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco.
+1. Primeiro, você precisa editar `res > layout > activity_main.xml` , para que ele se pareça com o mostrado abaixo. Você pode substituir os `mapcontrol_centerLat` , `mapcontrol_centerLng` e `mapcontrol_zoom` pelos valores desejados. Lembre-se de que o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -223,11 +225,9 @@ Para obter os incidentes de um recurso específico, você pode usar o código a 
 
 3. Depois de incorporar o código acima em seu aplicativo, você poderá clicar em um recurso e ver os detalhes dos incidentes de tráfego. Dependendo dos valores de latitude, longitude e nível de zoom usados no arquivo de **activity_main.xml** , você verá resultados semelhantes à imagem a seguir:
 
-   <center>
 
-   ![Incidente-tráfego no mapa](./media/how-to-show-traffic-android/android-traffic.png)
+    ![Incidente-tráfego no mapa](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## <a name="next-steps"></a>Próximas etapas
 

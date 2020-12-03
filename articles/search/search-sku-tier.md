@@ -7,19 +7,43 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/01/2020
+ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101266"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530486"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
-Quando você cria um serviço de Pesquisa Cognitiva do Azure, um [recurso é criado](search-create-service-portal.md) em um tipo de preço que é corrigido durante o tempo de vida do serviço. As camadas incluem gratuito, básico, Standard e otimizado para armazenamento. O padrão e o armazenamento otimizado estão disponíveis com várias configurações e capacidades.
+Ao [criar um serviço de pesquisa](search-create-service-portal.md), você escolhe um tipo de preço que é fixo para o tempo de vida do serviço. A camada selecionada determina:
 
-A maioria dos clientes começa com a camada gratuita para que eles possam avaliar o serviço. Após a avaliação, é comum criar um segundo serviço em uma das camadas mais altas para implantações de desenvolvimento e produção.
++ Quantidade de índices e outros objetos (limites máximos)
++ Tamanho e velocidade de partições (armazenamento físico)
++ Taxa Faturável, um custo fixo que também flexível com o número de partições e réplicas em uso
+
+Além disso, alguns [recursos premium](#premium-features) são fornecidos com requisitos de camada.
+
+## <a name="tier-descriptions"></a>Descrições da camada
+
+As camadas incluem **gratuito**, **básico**, **Standard** e **otimizado para armazenamento**. O padrão e o armazenamento otimizado estão disponíveis com várias configurações e capacidades.
+
+A captura de tela a seguir de portal do Azure mostra as camadas disponíveis, menos preços (que você pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). 
+
+![Tipos de preço do Azure Pesquisa Cognitiva](media/search-sku-tier/tiers.png "Tipos de preço do Azure Pesquisa Cognitiva")
+
+**Gratuito** cria um serviço de pesquisa limitado para projetos menores, como a execução de tutoriais e exemplos de código. Internamente, as réplicas e as partições são compartilhadas entre vários assinantes. Você não pode dimensionar um serviço gratuito ou executar cargas de trabalho significativas.
+
+**Básico** e **Standard** são as camadas faturáveis usadas com mais frequência, com **padrão** sendo o padrão. Com recursos dedicados sob seu controle, você pode implantar projetos maiores, otimizar o desempenho e aumentar a capacidade.
+
+Algumas camadas são otimizadas para determinados tipos de trabalho. Por exemplo, a **alta densidade padrão (S3 HD)** é um *modo de hospedagem* para S3, em que o hardware subjacente é otimizado para um grande número de índices menores e destina-se a cenários de multilocação. S3 HD tem o mesmo encargo por unidade que S3, mas o hardware é otimizado para leituras rápidas de arquivos em um grande número de índices menores.
+
+As camadas de **armazenamento otimizado** oferecem maior capacidade de armazenamento a um preço menor por TB do que as camadas padrão. A compensação primária é maior latência de consulta, que você deve validar para os requisitos de aplicativo específicos. Para saber mais sobre as considerações de desempenho dessa camada, consulte [Considerações sobre desempenho e otimização](search-performance-optimization.md).
+
+Você pode saber mais sobre as várias camadas na [página de preços](https://azure.microsoft.com/pricing/details/search/), no artigo limites de [serviço no Azure pesquisa cognitiva](search-limits-quotas-capacity.md) e na página do portal quando estiver provisionando um serviço.
+
+<a name="premium-features"></a>
 
 ## <a name="feature-availability-by-tier"></a>Disponibilidade de recursos por camada
 
@@ -35,34 +59,13 @@ A tabela a seguir descreve as restrições de recurso relacionadas à camada.
 
 A maioria dos recursos está disponível em todas as camadas, incluindo recursos gratuitos, mas que usam muitos recursos podem não funcionar bem, a menos que você forneça capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 
-## <a name="tiers"></a>Tiers
-
-As camadas são diferenciadas por:
-
-+ Quantidade de índices e indexadores (limites máximos)
-+ Tamanho e velocidade de partições (armazenamento físico)
-
-A camada selecionada determina a taxa faturável. A captura de tela a seguir de portal do Azure mostra as camadas disponíveis, menos preços (que você pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Gratuita**, **básica**e **Standard** são as camadas mais comuns.
-
-**Gratuito** cria um serviço de pesquisa limitado para projetos menores, incluindo guias de início rápido e tutoriais. Internamente, as réplicas e as partições são compartilhadas entre vários assinantes. Você não pode dimensionar um serviço gratuito ou executar cargas de trabalho significativas.
-
-**Básico** e **Standard** são as camadas faturáveis usadas com mais frequência, com **padrão** sendo o padrão. Com recursos dedicados sob seu controle, você pode implantar projetos maiores, otimizar o desempenho e definir a capacidade.
-
-![Tipos de preço do Azure Pesquisa Cognitiva](media/search-sku-tier/tiers.png "Tipos de preço do Azure Pesquisa Cognitiva")
-
-Algumas camadas são otimizadas para determinados tipos de trabalho. Por exemplo, a **alta densidade padrão (S3 HD)** é um *modo de hospedagem* para S3, em que o hardware subjacente é otimizado para um grande número de índices menores e destina-se a cenários de multilocação. S3 HD tem o mesmo encargo por unidade que S3, mas o hardware é otimizado para leituras rápidas de arquivos em um grande número de índices menores.
-
-As camadas de **armazenamento otimizado** oferecem maior capacidade de armazenamento a um preço menor por TB do que as camadas padrão. A compensação primária é maior latência de consulta, que você deve validar para os requisitos de aplicativo específicos.  Para saber mais sobre as considerações de desempenho dessa camada, consulte [Considerações sobre desempenho e otimização](search-performance-optimization.md).
-
-Você pode saber mais sobre as várias camadas na [página de preços](https://azure.microsoft.com/pricing/details/search/), no artigo limites de [serviço no Azure pesquisa cognitiva](search-limits-quotas-capacity.md) e na página do portal quando estiver provisionando um serviço.
-
 ## <a name="billable-events"></a>Eventos faturáveis
 
 Uma solução criada no Azure Pesquisa Cognitiva pode gerar custos das seguintes maneiras:
 
-+ Custo do próprio serviço, executando 24x7, na configuração mínima (uma partição e réplica)
++ [Custo do próprio serviço](#service-costs) , executando 24x7, na configuração mínima (uma partição e réplica), na taxa base
 
-+ Adicionando capacidade (réplicas ou partições)
++ Adição de capacidade (réplicas ou partições), em que os custos aumentam em incrementos da taxa Faturável
 
 + Encargos de largura de banda (transferência de dados de saída)
 
@@ -87,7 +90,7 @@ Quando estiver estimando o custo de uma solução de pesquisa, tenha em mente qu
 O uso de [indexadores](search-indexer-overview.md) pode afetar a cobrança, dependendo do local dos seus serviços. Você pode eliminar os encargos de saída de dados inteiramente se criar o serviço de Pesquisa Cognitiva do Azure na mesma região que seus dados. Aqui estão algumas informações da [página de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + A Microsoft não cobra por nenhum dado de entrada para nenhum serviço no Azure, ou para qualquer dado de saída do Azure Pesquisa Cognitiva.
-+ Em soluções de multiatendimento, não há nenhum encargo para dados que cruzam a conexão quando todos os serviços estão na mesma região.
++ Em soluções de vários serviços, não há nenhum encargo para dados que cruzam a conexão quando todos os serviços estão na mesma região.
 
 Os encargos se aplicam a dados de saída se os serviços estiverem em regiões diferentes. Esses encargos não são, na verdade, parte da sua conta de Pesquisa Cognitiva do Azure. Eles são mencionados aqui porque, se você estiver usando os dados ou indexadores aprimorados de ia para efetuar pull de dados de regiões diferentes, verá os custos refletidos na sua fatura geral.
 
@@ -97,7 +100,7 @@ Para [aprimorar o ia](cognitive-search-concept-intro.md), você deve planejar [a
 
 | Operação | Impacto de cobrança |
 |-----------|----------------|
-| Quebra de documentos, extração de texto | Grátis |
+| Quebra de documentos, extração de texto | Gratuita |
 | Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas dos seus documentos. Em uma [configuração de indexador](/rest/api/searchservice/create-indexer#indexer-parameters), **imageaction** é o parâmetro que dispara a extração de imagem. Se **imageaction** for definido como "None" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagem está documentada na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) do Azure pesquisa cognitiva.|
 | [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa que se você executou a tarefa usando serviços cognitivas diretamente. |
 | Habilidades personalizadas | Uma habilidade personalizada é A funcionalidade que você fornece. O custo de usar uma habilidade personalizada depende totalmente de se o código personalizado está chamando outros serviços medidos. |
@@ -149,7 +152,7 @@ No Azure Pesquisa Cognitiva, a capacidade é estruturada como *réplicas* e *par
 
 ### <a name="evaluating-capacity"></a>Avaliando a capacidade
 
-A capacidade e os custos de executar o serviço são disponibilizados em mãos. As camadas impõem limites em dois níveis: armazenamento e recursos. Você deve pensar em ambos porque qualquer limite que atingir primeiro é o limite efetivo.
+A capacidade e os custos de executar o serviço são disponibilizados em mãos. As camadas impõem limites em dois níveis: armazenamento e conteúdo (número de índices, por exemplo). Você deve pensar em ambos porque qualquer limite que atingir primeiro é o limite efetivo.
 
 Os requisitos de negócios normalmente ditam o número de índices que você precisará. Por exemplo, você pode precisar de um índice global para um repositório de documentos grande. Ou talvez você precise de vários índices com base na região, no aplicativo ou no nicho de negócios.
 
