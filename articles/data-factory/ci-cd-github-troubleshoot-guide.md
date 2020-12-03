@@ -7,13 +7,13 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/27/2020
-ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/03/2020
+ms.openlocfilehash: d5cf39cf91b69574fc1423cfe0942b567cf9a278
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301953"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548198"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF 
 
@@ -58,7 +58,7 @@ O pipeline de CI/CD falha com o seguinte erro:
 
 #### <a name="recommendation"></a>Recomendação
 
-O erro ocorre porque muitas vezes excluímos um gatilho que é parametrizado, portanto, os parâmetros não estarão disponíveis no modelo ARM (porque o gatilho não existe mais). Como o parâmetro não está mais no modelo ARM, precisamos atualizar os parâmetros substituídos no pipeline DevOps. Caso contrário, cada vez que os parâmetros no modelo ARM forem alterados, eles deverão atualizar os parâmetros substituídos no pipeline DevOps (na tarefa de implantação).
+O erro ocorre porque muitas vezes excluímos um gatilho, que é parametrizado, portanto, os parâmetros não estarão disponíveis no modelo ARM (porque o gatilho não existe mais). Como o parâmetro não está mais no modelo ARM, precisamos atualizar os parâmetros substituídos no pipeline DevOps. Caso contrário, cada vez que os parâmetros no modelo ARM forem alterados, eles deverão atualizar os parâmetros substituídos no pipeline DevOps (na tarefa de implantação).
 
 ### <a name="updating-property-type-is-not-supported"></a>Não há suporte para a atualização do tipo de propriedade
 
@@ -107,7 +107,7 @@ Ao tentar publicar alterações em um Data Factory, você receberá a seguinte m
 
 Você desanexou a configuração do git e a configurou novamente com o sinalizador "importar recursos" selecionado, que define o Data Factory como "em sincronia". Isso significa que não há alterações para publicar.
 
-**Resolução**
+#### <a name="resolution"></a>Resolução
 
 Desanexe a configuração do git e configure-a novamente e certifique-se de não marcar a caixa de seleção "importar recursos existentes".
 

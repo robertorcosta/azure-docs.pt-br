@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b105c4c9ee0bd27af11fe09a0fd756467e30bb35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466038"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548181"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando recursos de espaço de trabalho Synapse para um pool SQL dedicado (antigo SQL DW)
 
@@ -24,7 +24,7 @@ Todos os usuários do SQL data warehouse agora podem acessar e usar uma instânc
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de habilitar os recursos do espaço de trabalho do Synapse no seu data warehouse, você deve garantir que tenha o seguinte
 - Direitos para criar e gerenciar os recursos do SQL hospedados no servidor lógico do SQL.
-- Direitos para criar recursos do Synapse.
+- Direitos para criar recursos do Azure Synapse.
 - Um administrador de Azure Active Directory identificado no servidor lógico
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure

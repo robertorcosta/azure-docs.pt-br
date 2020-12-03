@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463146"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549014"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gerenciar sua fatura em um aplicativo IoT Central
 
@@ -34,11 +34,11 @@ Para concluir esse processo de autoatendimento, execute estas etapas:
 
 1. Vá para a página de **preços** na seção **Administração** .
 
-    ![Estado de avaliação](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Estado de avaliação":::
 
 1. Selecione **converter para um plano pago**.
 
-    ![Converter a versão de avaliação](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Converter a versão de avaliação":::
 
 1. Selecione o Azure Active Directory apropriado e, em seguida, a assinatura do Azure a ser usada para seu aplicativo que usa um plano pago.
 
@@ -55,7 +55,7 @@ Na seção de preços, você pode atualizar ou fazer downgrade do plano de preç
 
 1. Vá para a página de **preços** na seção **Administração** .
 
-    ![Atualizar plano do prcing](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Atualizar plano de preços":::
 
 1. Selecione o **plano** e, em seguida, selecione **salvar** para atualizar ou fazer downgrade.
 

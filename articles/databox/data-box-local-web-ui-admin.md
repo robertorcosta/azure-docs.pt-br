@@ -6,34 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337280"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548931"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
 Este artigo descreve algumas das tarefas de configuração e gerenciamento executadas em dispositivos Data Box e Data Box Heavy. Você pode gerenciar os dispositivos Data Box e Data Box Heavy por meio da interface do usuário do portal do Azure e da interface do usuário da Web local do dispositivo. Este artigo concentra as tarefas executadas usando a interface do usuário da Web local.
 
-A interface do usuário da Web local para o Data Box e para Data Box Heavy é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da Web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, exibir logs de cópia e gerar um pacote de log para Suporte da Microsoft. Em um dispositivo Data Box Heavy com dois nós independentes, você pode acessar duas interfaces do site locais separadas correspondentes a cada nó do dispositivo.
-
-Este artigo inclui os seguintes tutoriais:
-
-- Gerar um pacote de suporte
-- Desligar ou reiniciar seu dispositivo
-- Baixar a BOM (lista de materiais) ou os arquivos de manifesto
-- Exibir a capacidade disponível no dispositivo
-- Ignorar a validação de soma de verificação
+A interface do usuário da Web local para Data Box e para Data Box Heavy é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da Web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, exibir logs de cópia, apagar dados locais do dispositivo e gerar um pacote de suporte para Suporte da Microsoft. Em um dispositivo Data Box Heavy com dois nós independentes, você pode acessar duas interfaces do site locais separadas correspondentes a cada nó do dispositivo.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Gerar pacote de suporte
 
-Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os logs do sistema. O Suporte da Microsoft usará esse pacote para solucionar o problema. Para gerar um pacote de suporte, execute as seguintes etapas:
+Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os logs do sistema. O Suporte da Microsoft usará esse pacote para solucionar o problema.
+
+Para gerar um pacote de suporte, execute as seguintes etapas:
 
 1. Na interface do usuário da Web local, acesse **contatar o suporte** e selecione **criar pacote de suporte**.
 
@@ -51,9 +45,29 @@ Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os lo
 
     ![Criar pacote de suporte 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+## <a name="erase-local-data-from-your-device"></a>Apagar dados locais do seu dispositivo
+
+Você pode usar a interface do usuário da Web local para apagar dados locais do seu dispositivo antes de retorná-lo para o datacenter do Azure.
+
+> [!IMPORTANT]
+> Uma apagamento de dados não pode ser revertida. Antes de apagar os dados locais do seu dispositivo, certifique-se de fazer backup dos arquivos.
+
+Para apagar dados locais do seu dispositivo, execute estas etapas:
+
+1. Na interface do usuário da Web local, vá para **apagamento de dados**.
+2. Insira a senha do dispositivo e selecione **apagar dados**.
+
+    ![Opção de apagamento de dados para um dispositivo](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. No prompt de confirmação, selecione **Sim** para continuar. Uma exclusão de dados pode levar até 50 minutos.
+
+   Certifique-se de fazer backup dos dados locais antes de apagá-los do dispositivo. Uma apagamento de dados não pode ser revertida.
+
+    ![Prompt de confirmação de apagamento de dados](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## <a name="shut-down-or-restart-your-device"></a>Desligar ou reiniciar seu dispositivo
 
-Você pode desligar ou reiniciar o dispositivo usando a interface do usuário da Web local. Nós recomendamos que antes de reiniciar, você coloque os compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos. Certifique-se de que a cópia de dados não esteja em andamento quando você desligar o dispositivo.
+Você pode desligar ou reiniciar o dispositivo usando a interface do usuário da Web local. É recomendável que, antes de reiniciar, você coloque os compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos. Certifique-se de que a cópia de dados não esteja em andamento quando você desligar o dispositivo.
 
 Para desligar o dispositivo, execute as etapas a seguir.
 
@@ -160,7 +174,7 @@ Esse arquivo contém a lista de todos os arquivos que foram copiados no Data Box
 Use o painel do dispositivo para exibir a capacidade disponível e é usada do dispositivo.
 
 1. Na interface do usuário da Web local, acesse **Exibir o painel**.
-2. Em **Conectar e copiar** , o espaço livre e usado no dispositivo é mostrado.
+2. Em **Conectar e copiar**, o espaço livre e usado no dispositivo é mostrado.
 
     ![Exibir a capacidade disponível](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
@@ -168,7 +182,7 @@ Use o painel do dispositivo para exibir a capacidade disponível e é usada do d
 
 As somas de verificação são geradas para os seus dados por padrão quando você se prepara para o envio. Em alguns casos raros, dependendo do tipo de dados (tamanhos de arquivo pequeno), o desempenho pode ser lento. Nesses casos, você pode ignorar a soma de verificação.
 
-A computação de soma de verificação durante a preparação para envio é feita somente para ordens de importação e não para ordens de exportação. 
+A computação de soma de verificação durante a preparação para envio é feita somente para ordens de importação e não para ordens de exportação.
 
 É altamente recomendado que você não desabilite a soma de verificação, a menos que o desempenho seja gravemente afetado.
 

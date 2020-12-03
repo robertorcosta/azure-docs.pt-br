@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542721"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548164"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de versão para Microsoft. ApplicationInsights. SnapshotCollector
 
@@ -22,6 +22,11 @@ Para obter relatórios de bugs e comentários, abra um problema no GitHub em htt
 
 ## <a name="release-notes"></a>Notas de versão
 
+## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
+Uma versão do ponto para resolver um problema descoberto em teste Azure App cenário de anexação de código do serviço.
+### <a name="changes"></a>Alterações
+- O destino do netcoreapp 3.0 agora depende de Microsoft. ApplicationInsights. AspNetCore >= 2.1.1 (anteriormente >= 2.1.2).
+
 ## <a name="1373"></a>[1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 Uma versão pontual para resolver alguns problemas de alto impacto.
 ### <a name="bug-fixes"></a>Correções de bug
@@ -30,9 +35,9 @@ Uma versão pontual para resolver alguns problemas de alto impacto.
 
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>Alterações
-O destino netcoreapp 2.0 de SnapshotCollector depende de Microsoft. ApplicationInsights. AspNetCore >= 2.1.1 (novamente). Isso reverte o comportamento de como ele era antes de 1.3.5. Tentamos atualizá-lo no 1.3.6, mas ele quebrou alguns cenários de serviço Azure App.
+- O destino netcoreapp 2.0 de SnapshotCollector depende de Microsoft. ApplicationInsights. AspNetCore >= 2.1.1 (novamente). Isso reverte o comportamento de como ele era antes de 1.3.5. Tentamos atualizá-lo no 1.3.6, mas ele quebrou alguns cenários de serviço Azure App.
 ### <a name="new-features"></a>Novos recursos
-Snapshot Collector lê e analisa o ConnectionString a partir da variável de ambiente APPLICATIONINSIGHTS_CONNECTION_STRING ou do TelemetryConfiguration. Basicamente, isso é usado para definir o ponto de extremidade para se conectar ao serviço de instantâneo. Para obter mais informações, consulte a [documentação cadeias de conexão](./sdk-connection-string.md).
+- Snapshot Collector lê e analisa o ConnectionString a partir da variável de ambiente APPLICATIONINSIGHTS_CONNECTION_STRING ou do TelemetryConfiguration. Basicamente, isso é usado para definir o ponto de extremidade para se conectar ao serviço de instantâneo. Para obter mais informações, consulte a [documentação cadeias de conexão](./sdk-connection-string.md).
 ### <a name="bug-fixes"></a>Correções de bug
 - Mudou para o uso de HttpClient para todos os destinos, exceto Net45 porque WebRequest falhou em alguns ambientes devido a um SecurityProtocol incompatível (requer TLS 1,2).
 
@@ -60,20 +65,20 @@ Snapshot Collector lê e analisa o ConnectionString a partir da variável de amb
 - Adicionar o coletor de instantâneos ficou mais fácil usando AddSnapshotCollector (). Encontre mais informações [aqui](./snapshot-debugger-appservice.md).
 - Use a configuração de MD5 do FISMA para verificar blocos de BLOB. Isso evita o algoritmo de criptografia MD5 padrão do .NET, que não está disponível quando o sistema operacional é definido para o modo compatível com FIPS.
 - Ignore .NET Framework quadros ao desotimizar as chamadas de função. Esse comportamento pode ser controlado pela definição de configuração DeoptimizeIgnoredModules.
-- Adicione `DeoptimizeMethodCount` uma definição de configuração que permita a desotimização de mais de uma chamada de função. Mais informações aqui
+- Adicione `DeoptimizeMethodCount` uma definição de configuração que permita a desotimização de mais de uma chamada de função. Mais informações podem ser obtidas aqui
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Permitir chaves de instrumentação estruturada.
 - Aumentar a robustez do SnapshotUploader-continuar a inicialização mesmo se os logs antigos do carregador não puderem ser movidos.
 - Reativada relatando telemetria adicional quando SnapshotUploader.exe é encerrada imediatamente (foi desabilitada no 1.3.3).
 - Simplifique a telemetria interna.
-- _Recurso experimental_ : planos de coleta do Snappoint: Adicione "snapshotOnFirstOccurence". Mais informações estão disponíveis [aqui](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- _Recurso experimental_: planos de coleta do Snappoint: Adicione "snapshotOnFirstOccurence". Mais informações estão disponíveis [aqui](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
 - Corrigido o bug que estava fazendo SnapshotUploader.exe parar de responder e não carregar instantâneos para aplicativos .NET Core.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
-- _Recurso experimental_ : planos de coleta do Snappoint. Mais informações estão disponíveis [aqui](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- _Recurso experimental_: planos de coleta do Snappoint. Mais informações estão disponíveis [aqui](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 - SnapshotUploader.exe sairá quando o tempo de execução descarrega o AppDomain do qual SnapshotCollector é carregado, em vez de aguardar a saída do processo. Isso melhora a confiabilidade do coletor quando hospedado no IIS.
 - Adicione configuração para permitir que várias instâncias de SnapshotCollector que estejam usando a mesma chave de instrumentação compartilhem o mesmo processo SnapshotUploader: ShareUploaderProcess (o padrão é `true` ).
 - Relatar telemetria adicional quando SnapshotUploader.exe for encerrada imediatamente.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933824"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548844"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Agregação de evento do defender para IoT
 
@@ -44,7 +44,7 @@ Para reduzir a superfície de memória do agente, sempre que o agente coletar um
 
 Os eventos são considerados idênticos somente quando as seguintes condições são atendidas:
 
-* Eventos de ProcessCreate-quando **CommandLine**, **executável**, **username**e **userid** são idênticos
+* Eventos de ProcessCreate-quando **CommandLine**, **executável**, **username** e **userid** são idênticos
 * Eventos de ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **endereço local**, **endereço remoto**, * * protocolo e **porta de destino** são idênticos
 * Eventos de ProcessTerminate-quando o **status** **executável** e de saída são idênticos
 
@@ -52,8 +52,8 @@ Os eventos são considerados idênticos somente quando as seguintes condições 
 
 Durante a agregação, as propriedades de evento que não são agregadas são descartadas e aparecem no log Analytics com um valor de 0.
 
-* Eventos ProcessCreate- **ProcessId**e **parentProcessId** são definidos como 0
-* Eventos ConnectionCreate- **ProcessId**e **porta de origem** são definidos como 0
+* Eventos ProcessCreate- **ProcessId** e **parentProcessId** são definidos como 0
+* Eventos ConnectionCreate- **ProcessId** e **porta de origem** são definidos como 0
 
 ## <a name="event-aggregation-based-alerts"></a>Alertas baseados em agregação de eventos
 

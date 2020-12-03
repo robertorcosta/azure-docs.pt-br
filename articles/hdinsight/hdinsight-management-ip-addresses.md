@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518780"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549031"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
@@ -27,6 +27,8 @@ Este artigo lista os endereços IP usados pelos serviços de integridade e geren
 Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure.  Alguns dos endereços IP para esses serviços são específicos da região e alguns deles se aplicam a todas as regiões do Azure. Talvez você também precise permitir o tráfego do serviço DNS do Azure se não estiver usando um DNS personalizado.
 
 Se você precisar de endereços IP para uma região não listada aqui, poderá usar a [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para localizar endereços IP para sua região. Se não for possível usar a API, baixe o [arquivo JSON da marca de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e procure a região desejada.
+
+O HDInsight faz a validação para essas regras com a criação e o dimensionamento do cluster para evitar erros adicionais. Se a validação não for aprovada, a criação e o dimensionamento falharão.
 
 As seções a seguir discutem os endereços IP específicos que devem ser permitidos.
 

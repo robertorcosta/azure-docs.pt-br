@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555429"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548504"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -150,8 +150,8 @@ O backup do Azure adicionou o recurso de restauração entre regiões para refor
 
 | Tipo de Gerenciamento de Backup | Com suporte                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Todas as regiões públicas do Azure e nuvens soberanas.  |
-| SQL/SAP HANA | Yes                                                          | Todas as regiões públicas, exceto França |
+| VM do Azure               | Sim.   Suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Todas as regiões públicas do Azure.  |
+| SQL/SAP HANA | Sim                                                          | Todas as regiões públicas, exceto França |
 | Agente do MARS/Local  | Não                                                           | N/D               |
 | AFS (compartilhamentos de arquivos do Azure)                 | Não                                                           | N/D               |
 

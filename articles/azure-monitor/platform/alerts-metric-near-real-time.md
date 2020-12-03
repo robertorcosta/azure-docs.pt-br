@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566479"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548232"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
@@ -85,7 +85,8 @@ Aqui está a lista completa de Azure Monitor fontes métricas com suporte dos al
 |Microsoft.Network/applicationGateways | Sim | Não | [Gateways de aplicativo](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | Sim | Não | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | Não | Não | [Zonas DNS](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/D | Não |[Circuitos do ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | Sim | Não |[Circuitos do ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Sim | Não |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (apenas para SKUs Standard)| Sim| Não | [Balanceadores de carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways| Não | Não | |
 |Microsoft. Network/privateEndpoints| Não | Não | |
@@ -95,7 +96,7 @@ Aqui está a lista completa de Azure Monitor fontes métricas com suporte dos al
 |Microsoft.OperationalInsights/workspaces| Sim | Não | [Workspaces do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft. emparelhamento/emparelhamentos | Sim | Não | [Emparelhamentos](./metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft. emparelhamento/peeringServices | Sim | Não | [Serviços de Emparelhamento](./metrics-supported.md#microsoftpeeringpeeringservices) |
-|Microsoft.PowerBIDedicated/capacities | Não | Não | [Capacities](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
+|Microsoft.PowerBIDedicated/capacities | Não | Não | [Capacidades](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
 |Microsoft.Relay/namespaces | Sim | Não | [Retransmissão](./metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | Não | Não | [Serviços Search](./metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Sim | Não | [Barramento de Serviço](./metrics-supported.md#microsoftservicebusnamespaces) |
@@ -107,6 +108,9 @@ Aqui está a lista completa de Azure Monitor fontes métricas com suporte dos al
 |Microsoft.StorageCache/caches | Sim | Não | |
 |Microsoft. StorageSync/storageSyncServices | Sim | Não | [Serviços de sincronização de armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sim | Não | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Sim | Não | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft. Synapse/Workspaces/bigDataPools | Sim | Não | [Pools de Apache Spark do Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft. Synapse/espaços de trabalho/sqlpools | Sim | Não | [Pools de SQL do Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft. VMWareCloudSimple/virtualMachines | Sim | Não | [Máquinas Virtuais de CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sim | Não | [Ambiente do Serviço de Aplicativo pools de várias funções](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sim | Não | [Ambiente do Serviço de Aplicativo pools de trabalho](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|

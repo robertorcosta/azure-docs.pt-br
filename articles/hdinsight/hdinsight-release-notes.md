@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350255"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548997"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de versão do Azure HDInsight
 
@@ -46,8 +46,9 @@ O tipo de cluster de serviços do HDInsight 3,6 ML será o fim do suporte até d
 ### <a name="disabled-vm-sizes"></a>Tamanhos de VM desabilitados
 A partir de novembro de 16 2020, o HDInsight bloqueará novos clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clientes existentes que usaram esses tamanhos de VM nos últimos três meses não serão afetados. A partir do formulário de janeiro de 9 2021, o HDInsight bloqueará todos os clientes que criam clusters usando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos de VM. Os clusters existentes serão executados como estão. Considere migrar para o HDInsight 4,0 para evitar a interrupção potencial do sistema/suporte.
 
-### <a name="behavior-changes"></a>Alterações de comportamento
-Nenhuma alteração de comportamento para esta versão.
+## <a name="behavior-changes"></a>Alterações de comportamento
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Adicionar a verificação de regra NSG antes da operação de dimensionamento
+O HDInsight adicionou NSGs (grupos de segurança de rede) e a verificação de rotas definidas pelo usuário (UDRs) com a operação de dimensionamento. A mesma validação é feita para o dimensionamento de cluster, além da criação do cluster. Essa validação ajuda a evitar erros imprevisíveis. Se a validação não for aprovada, o dimensionamento falhará. Saiba mais sobre como configurar o NSGs e o UDRs corretamente, consulte [endereços IP de gerenciamento do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 As alterações a seguir ocorrerão em versões futuras.

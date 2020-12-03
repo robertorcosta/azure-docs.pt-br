@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096310"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548912"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
@@ -69,7 +69,7 @@ Usando o Machine Learning, o mecanismo de detecção de violação de política 
 O mecanismo de detecção de malware industrial identifica comportamentos que indicam a presença de malware conhecido, como Conficker, energia preta, Havex, WannaCry, NotPetya e Triton. 
 
 #### <a name="anomaly-detection-engine"></a>Mecanismo de detecção de anomalias
-O mecanismo de detecção de anomalias detecta comportamentos e comunicações M2M (máquina a máquina) incomuns. Ao modelar redes ICS como sequências determinísticas de Estados e transições, a plataforma requer um período de aprendizado mais curto do que abordagens matemáticas genéricas ou análises originalmente desenvolvidas para ela em vez de OT. Ele também detecta anomalias mais rapidamente, com um mínimo de falsos positivos. Os alertas do mecanismo de detecção de anomalias incluem tentativas de logon SMB excessivas e alertas de verificação de PLC detectados.
+O mecanismo de detecção de anomalias detecta comportamentos e comunicações M2M (máquina a máquina) incomuns. Ao modelar redes ICS como sequências determinísticas de Estados e transições, a plataforma requer um período de aprendizado mais curto do que abordagens matemáticas genéricas ou análises originalmente desenvolvidas para ela em vez de OT. Ele também detecta anomalias mais rapidamente, com um mínimo de falsos positivos. Os alertas do mecanismo de detecção de anomalias incluem tentativas de entrada de SMB excessivas e alertas de verificação de PLC detectados.
 
 #### <a name="operational-incident-detection"></a>Detecção de incidente operacional
 A detecção de incidentes operacionais detecta problemas operacionais, como conectividade intermitente que pode indicar sinais de falha de equipamentos antecipados. Por exemplo, a suspeita de dispositivo ser desconectada (sem resposta) e o comando Siemens S7 Stop PLC recebe alertas.
