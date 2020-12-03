@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441606"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350204"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites Next.js estáticos renderizados na versão prévia dos Aplicativos Web Estáticos do Azure
 
@@ -29,9 +29,9 @@ Neste tutorial, você aprenderá a implantar um site estático gerado por [Next.
 
 Em vez de usar a CLI do Next.js para criar um aplicativo, você pode usar um repositório inicial que inclua um aplicativo Next.js já existente. Esse repositório apresenta um aplicativo Next.js com rotas dinâmicas, que realça um problema comum de implantação. As rotas dinâmicas precisam de uma configuração de implantação extra, que você aprenderá mais adiante.
 
-Para começar, crie um novo repositório em sua conta do GitHub utilizando um modelo de repositório. 
+Para começar, crie um novo repositório em sua conta do GitHub utilizando um modelo de repositório.
 
-1. Navegue até <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Navegue para [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Atribua ao repositório o nome **nextjs-starter**.
 1. Em seguida, clone o novo repositório em seu computador. Certifique-se de substituir `<YOUR_GITHUB_ACCOUNT_NAME>` pelo nome da sua conta.
 

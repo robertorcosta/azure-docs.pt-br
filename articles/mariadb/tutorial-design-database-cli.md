@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542483"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436650"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -30,11 +30,9 @@ O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacion
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-Você pode usar o Azure Cloud Shell no navegador ou [Instalar o Azure CLI]( /cli/azure/install-azure-cli) em seu próprio computador para executar os blocos de código neste tutorial.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 Se tiver várias assinaturas, escolha a que for adequada na qual existe o recurso ou onde ele é cobrado. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -174,10 +172,10 @@ Imagine que você excluiu acidentalmente essa tabela. Isso é algo que você nã
 
 Para a restauração, você precisa das seguintes informações:
 
-- Ponto de restauração: Selecione um ponto no tempo anterior à alteração do servidor. Deve ser maior ou igual ao valor de backup mais antigo do banco de dados de origem.
-- Servidor de destino: Forneça o novo nome do servidor para o qual deseja fazer a restauração
-- Servidor de origem: Forneça o nome do servidor do qual deseja fazer a restauração
-- Localização: Não é possível selecionar a região; por padrão, ela é a mesma do servidor de origem
+- Ponto de restauração: selecione um ponto no tempo anterior à alteração do servidor. Deve ser maior ou igual ao valor de backup mais antigo do banco de dados de origem.
+- Servidor de destino: forneça um novo nome de servidor no qual você deseja restaurar
+- Servidor de origem: forneça o nome do servidor do qual você quer fazer a restauração
+- Local: não é possível selecionar a região; por padrão, ela é igual ao servidor de origem
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

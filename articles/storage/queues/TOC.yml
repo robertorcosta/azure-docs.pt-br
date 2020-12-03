@@ -94,8 +94,6 @@
               href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Lista de verificação de desempenho e escalabilidade
           href: storage-performance-checklist.md
-    - name: Simultaneidade
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Monitorar e solucionar problemas
       items:
         - name: Monitorar o Armazenamento de Filas

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378985"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182012"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Aplicativo Móvel do Workday
 
@@ -33,13 +33,13 @@ Neste tutorial, você aprenderá a integrar o Azure AD (Azure Active Directory),
 Introdução:
 
 * integrate o Workday ao Azure AD.
-* Leia [Integração do SSO (logon único) do Azure Active Directory ao Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Leia [Integração do SSO (logon único) do Azure Active Directory ao Workday](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você vai configurar e testar as políticas de Acesso Condicional do Azure AD e o Intune com o Aplicativo Móvel do Workday.
 
-Para habilitar o SSO (logon único), configure o aplicativo Workday Federated com o Azure AD. Para saber mais, confira [Integração do SSO (logon único) do Azure Active Directory ao Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+Para habilitar o SSO (logon único), configure o aplicativo Workday Federated com o Azure AD. Para saber mais, confira [Integração do SSO (logon único) do Azure Active Directory ao Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > O Workday não é compatível com as políticas de proteção de aplicativo do Intune. É preciso usar o gerenciamento de dispositivo móvel para utilizar o Acesso Condicional.
@@ -182,4 +182,3 @@ Para que os dispositivos iOS só possam entrar por meio do Workday gerenciado pe
 6. Em **Plataforma**, escolha **Android**.
 7. Em **Aplicativo Associado**, escolha o aplicativo Workday para Android que você adicionou.
 8. Selecione **Configurações**. Em **Formato das configurações**, selecione **Inserir dados JSON**.
-
