@@ -11,18 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6a9f3b864bd8aba2140c7d32d4b5474ff7b95f88
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953093"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171221"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo de página única com o Azure AD B2C
 
 Este tutorial mostrará como usar o Azure AD B2C (Azure Active Directory B2C) para entrar em um SPA (aplicativo de página única) e conectar usuários a ele usando:
-* O [fluxo de código de autorização do OAuth 2.0](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (usando o [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* O [fluxo de concessão implícita do OAuth 2.0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (usando o [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+* O [fluxo de código de autorização do OAuth 2.0](./authorization-code-flow.md) (usando o [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* O [fluxo de concessão implícita do OAuth 2.0](./implicit-flow-single-page-application.md) (usando o [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 Neste tutorial, o primeiro de uma série de duas partes:
 
@@ -51,7 +51,7 @@ Além disso, você precisará do seguinte no ambiente de desenvolvimento local:
 
 ## <a name="update-the-application"></a>Atualizar o aplicativo
 
-No [segundo tutorial](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) concluído como parte dos pré-requisitos, você registrou um aplicativo de página única no Azure AD B2C. Para habilitar a comunicação com o exemplo de código neste tutorial, adicione uma URL de resposta (também chamada de URI de redirecionamento) ao registro de aplicativo.
+No [segundo tutorial](./tutorial-register-spa.md) concluído como parte dos pré-requisitos, você registrou um aplicativo de página única no Azure AD B2C. Para habilitar a comunicação com o exemplo de código neste tutorial, adicione uma URL de resposta (também chamada de URI de redirecionamento) ao registro de aplicativo.
 
 Para atualizar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](./app-registrations-training-guide.md).
 
