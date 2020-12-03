@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 22d2ddc65616bbeb0c511afa6f60bc12c6ec67ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: caad292f06710fca8d6f64476eead5dfcb164e9d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022024"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96537057"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
@@ -39,9 +39,11 @@ Os drivers de grade redistribuídos pelo Azure não funcionam em VMs da série n
 Observe que a extensão NVIDIA sempre instalará o driver mais recente. Fornecemos links para a versão anterior aqui para os clientes que têm dependência em uma versão mais antiga.
 
 Para o Windows Server 2019, o Windows Server 2016 e o Windows 10 (até o Build 2004):
-- [Grade 11,1 (452,39)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
-- [Grade 11,0 (451,48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (. exe) 
+- [Grade 11,2 (452,57)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
+- [Grade 11,1 (452,39)](https://download.microsoft.com/download/9/9/1/99186e1b-d27d-47d5-9957-175c88f4efbe/452.39_grid_win10_64bit_whql.exe) (. exe) 
 
 Para o Windows Server 2012 R2: 
-- [Grade 11,0 (451,48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (. exe) 
+- [Grade 11,0 (451,48)](https://download.microsoft.com/download/f/7/2/f729e28b-57b8-4141-b577-38d2390973ef/451.48_grid_server2012R2_64bit_international.exe) (. exe) 
 - [Grade 10,1 (442,66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (. exe)  
+
+Para obter a lista completa de todos os links de driver de grade NVIDIA anteriores, visite [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)

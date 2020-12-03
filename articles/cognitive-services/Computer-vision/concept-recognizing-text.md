@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013751"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532985"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -133,7 +133,7 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Ler 3,2 visualização adiciona estilo de linha de texto (somente idiomas latinos)
 A [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) gera um objeto de **aparência** que classifica se cada linha de texto é um estilo de impressão ou de manuscrito, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
 
-Comece a usar os [guias de início rápido do SDK de OCR pesquisa Visual computacional](./quickstarts-sdk/client-library.md) e leia os guias de início [rápido da API REST](./QuickStarts/CSharp-hand-text.md) para começar a integrar os recursos de OCR em seus aplicativos.
+Comece a usar a [API REST do pesquisa Visual computacional ou os guias de início rápido da biblioteca de cliente](./quickstarts-sdk/client-library.md) para começar a integrar os recursos de OCR em seus aplicativos.
 
 ## <a name="supported-languages-for-print-text"></a>Idiomas com suporte para imprimir texto
 A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso nos idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês.
@@ -197,7 +197,6 @@ Assim como acontece com todos os serviços cognitivas, os desenvolvedores que us
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Introdução aos guias de [início rápido do SDK do pesquisa Visual computacional Read](./quickstarts-sdk/client-library.md) em C#, Java, JavaScript ou Python.
-- Use os [guias de início rápido da API REST de leitura](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para saber como usar as APIs REST.
+- Introdução à [API REST do pesquisa Visual computacional ou aos guias de início rápido da biblioteca do cliente](./quickstarts-sdk/client-library.md).
 - Saiba mais sobre a [API REST de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado e japonês.

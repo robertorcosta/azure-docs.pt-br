@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b41062aed3947855137a89e91364cc8aeef6a432
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a75e55cd51890173b6733ab5f8c0f1bcbfeef0f5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541225"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532968"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicando as marcas de conteúdo para imagens
 
@@ -87,8 +87,7 @@ A resposta JSON a seguir ilustra o que o Computer Vision retorna ao marcar recur
 
 O recurso de marcação faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Tags` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o conteúdo da `"tags"` seção.
 
-* [Início rápido: SDK do .NET Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Início rápido: analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)
+* [Início rápido: Pesquisa Visual Computacional bibliotecas de cliente ou API REST](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>Próximas etapas
 

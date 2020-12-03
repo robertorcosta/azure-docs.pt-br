@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: c34240f55c091583cfed8c8fe966ae272d1fb453
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bb07827d26efce3ab3454f370afb116ba13eb19
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466153"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533801"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-mini-r-device"></a>Lista de verificação de implantação para o dispositivo mini R do Azure Stack Edge  
 
@@ -23,7 +23,7 @@ Use a lista de verificação a seguir para garantir que você tenha essas inform
 
 ## <a name="deployment-checklist"></a>Lista de verificação para implantação 
 
-| Estágio                             | Parâmetro                                                                                                                                                                                                                           | Detalhes                                                                                                           |
+| Fase                             | Parâmetro                                                                                                                                                                                                                           | Detalhes                                                                                                           |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | Gerenciamento de dispositivo               | <li>Assinatura do Azure</li><li>Provedores de recursos registrados</li><li>Conta de Armazenamento do Azure</li>|<li>Habilitado para Azure Stack o mini R/Gateway do Data Box do Edge, acesso de proprietário ou colaborador.</li><li>Em portal do Azure, vá para **página inicial > assinaturas > sua assinatura > provedores de recursos**. Pesquise `Microsoft.DataBoxEdge` e registre-se. Repita para `Microsoft.Devices` se implantar cargas de trabalho de IOT.</li><li>Precisa de credenciais de acesso</li> |
 | Instalação do dispositivo               | Cabos de alimentação no pacote. <br>Para nós, um cabo SVE 18/3 classificado para 125 V e 15 amps com um 15P de C13 do NEMA 5, com um conector de entrada para saída (Input to Output), é enviado. | Para obter mais informações, consulte a lista de [cabos de energia com suporte por país](azure-stack-edge-technical-specifications-power-cords-regional.md)  |
@@ -41,7 +41,7 @@ Use a lista de verificação a seguir para garantir que você tenha essas inform
 | Ativação  | Exigir chave de ativação do recurso Azure Stack Edge.    | Depois de gerada, a chave expira em 3 dias. |
 
 <!--
-| (Optional) MAC Address            | If MAC address needs to be whitelisted, get the address of the connected port from local UI of the device. |                                                                                                                   |
+| (Optional) MAC Address            | If MAC address needs to be approved, get the address of the connected port from local UI of the device. |                                                                                                                   |
 | (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 

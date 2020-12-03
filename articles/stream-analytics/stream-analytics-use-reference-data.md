@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/2/2020
+ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129721"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533597"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
@@ -37,7 +37,7 @@ Dados de referência são modelados como uma sequência de blobs (definidos na c
 
 ### <a name="configure-blob-reference-data"></a>Configurar dados de referência de blob
 
-Para configurar os dados de referência, você primeiro precisa criar uma entrada que seja do tipo **Dados de Referência** . A tabela a seguir explica cada propriedade que você precisará fornecer ao criar os entrada de dados de referência com sua descrição:
+Para configurar os dados de referência, você primeiro precisa criar uma entrada que seja do tipo **Dados de Referência**. A tabela a seguir explica cada propriedade que você precisará fornecer ao criar os entrada de dados de referência com sua descrição:
 
 |**Nome da propriedade**  |**Descrição**  |
 |---------|---------|
@@ -94,14 +94,14 @@ Com a opção de consulta delta, o Stream Analytics executa a consulta de instan
 
 ### <a name="configure-sql-database-reference"></a>Configurar a referência do Banco de Dados SQL
 
-Para configurar os dados de referência do Banco de Dados SQL, primeiro você precisará criar a entrada **Dados de Referência** . A tabela abaixo explica cada propriedade que você precisará fornecer ao criar a entrada de dados de referência com sua descrição. Para obter mais informações, confira [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
+Para configurar os dados de referência do Banco de Dados SQL, primeiro você precisará criar a entrada **Dados de Referência**. A tabela abaixo explica cada propriedade que você precisará fornecer ao criar a entrada de dados de referência com sua descrição. Para obter mais informações, confira [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
 
 Você pode usar o [Azure SQL instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como uma entrada de dados de referência. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](../azure-sql/managed-instance/public-endpoint-configure.md) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
 
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.|
-|Assinatura|Escolha sua assinatura|
+|Subscription|Escolha sua assinatura|
 |Banco de dados|O Banco de Dados SQL do Azure que contém os dados de referência. Para o SQL Instância Gerenciada, é necessário especificar a porta 3342. Por exemplo, *sampleserver.public.database.windows.net,3342*|
 |Nome de Usuário|O nome de usuário associado ao Banco de Dados SQL do Azure.|
 |Senha|A senha associada ao Banco de Dados SQL do Azure.|
@@ -111,13 +111,13 @@ Você pode usar o [Azure SQL instância gerenciada](../azure-sql/managed-instanc
 
 ## <a name="size-limitation"></a>Limitação de tamanho
 
-É recomendável usar conjuntos de valores de referência que sejam menores que 300 MB para obter o melhor desempenho. Há suporte para o uso de dados de referência com mais de 300 MB em trabalhos com 6 SUs ou mais. Essa funcionalidade está em versão prévia e não deve ser usada na produção. O uso de dados de referência muito grandes pode afetar o desempenho do seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento com estado, como agregações de janela, junções temporais e funções analíticas temporais, é esperado que o tamanho máximo compatível dos dados de referência diminua. Se o Azure Stream Analytics não pode carregar os dados de referência e realize operações complexas, o trabalho executará fora da memória e falhará. Nesses casos, a % de SU Métrica de utilização alcançará 100%    
+É recomendável usar conjuntos de valores de referência que sejam menores que 300 MB para obter o melhor desempenho. Os conjuntos de informações de referência 5 GB ou mais baixos têm suporte em trabalhos com 6 SUs ou mais. O uso de dados de referência muito grandes pode afetar a latência de ponta a ponta de seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento com estado, como agregações de janela, junções temporais e funções analíticas temporais, é esperado que o tamanho máximo compatível dos dados de referência diminua. Se o Azure Stream Analytics não pode carregar os dados de referência e realize operações complexas, o trabalho executará fora da memória e falhará. Nesses casos, a % de SU Métrica de utilização alcançará 100%    
 
 |**Número de unidades de streaming**  |**Tamanho recomendado**  |
 |---------|---------|
 |1   |50 MB ou mais baixo   |
 |3   |150 MB ou mais baixo   |
-|6 e além   |300 MB ou inferior. O uso de dados de referência com mais de 300 MB tem suporte na versão prévia e pode afetar o desempenho do seu trabalho.    |
+|6 e além   |5 GB ou inferior.    |
 
 O suporte para a compactação não está disponível para os dados de referência.
 

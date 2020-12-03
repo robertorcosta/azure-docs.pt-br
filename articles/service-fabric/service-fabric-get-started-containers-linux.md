@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Servic
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004221"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534073"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o comando a seguir:
+## <a name="login-to-docker-and-build-the-image"></a>Faça logon no Docker e crie a imagem
 
-```bash
+Em seguida, criaremos a imagem que executa seu aplicativo Web. Ao obter imagens públicas do Docker (como `python:2.7-slim` em nosso Dockerfile), é uma prática recomendada autenticar com sua conta do Hub do Docker em vez de fazer uma solicitação de pull anônima.
+
+> [!NOTE]
+> Ao fazer solicitações de pull anônimas frequentes, você pode ver erros de Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticados no Hub do Docker para evitar esses erros. Consulte [gerenciar conteúdo público com o registro de contêiner do Azure](../container-registry/buffer-gate-public-content.md) para obter mais informações.
+
+Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Em seguida, execute os comandos a seguir:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 

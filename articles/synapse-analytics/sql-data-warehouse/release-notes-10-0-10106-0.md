@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 18f8df90cd59a1fb32024ec93674fed7eb49519a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451978"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534039"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Pool de SQL dedicado (anteriormente conhecido como SQL DW) nas notas de versão do Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="dec-2020"></a>Dec 2020
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+|**Procedimento armazenado sp_rename para colunas (visualização)**|Renomear uma coluna sem um [CTAS](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) acabou de se tornar mais simples. O Azure Synapse SQL agora adicionou suporte para o procedimento armazenado do sistema sp_rename (versão prévia) para renomear uma coluna de não distribuição em uma tabela de usuário. Este recurso está atualmente em visualização e terá suporte em ferramentas na GA. Para obter detalhes, consulte [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Parâmetro adicional para a previsão de T-SQL**|Com essa nova versão, um parâmetro adicional necessário chamado ' RUNTIME ' é adicionado à instrução de previsão T-SQL existente. Para atualizar seus scripts existentes, consulte exemplos em [previsão do T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="oct-2020"></a>Outubro de 2020
 

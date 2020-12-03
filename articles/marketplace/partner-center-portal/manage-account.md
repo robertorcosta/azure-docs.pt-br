@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538369"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533937"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerenciar sua conta do marketplace comercial no Partner Center
 
@@ -239,7 +239,7 @@ Para adicionar um grupo totalmente novo à sua conta do Partner Center:
 4. Especifique as funções ou as permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar aqui, independentemente das funções/permissões associadas a cada conta individual.
 5. Selecione usuário(s) para o novo grupo na lista que aparecerá. Você pode usar a caixa de pesquisa para procurar usuários específicos.
 6. Quando terminar de selecionar usuários, selecione **Adicionar selecionado** para adicioná-los ao novo grupo.
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 Esse novo grupo será criado na conta corporativa da sua organização (locatário do Azure AD) também, não apenas na sua conta do Partner Center.
 
@@ -293,7 +293,7 @@ Se o seu aplicativo do Azure AD ler e gravar dados no Microsoft Azure AD, ele pr
 Os usuários da sua empresa podem receber as seguintes funções e permissões para o programa comercial do Marketplace no Partner Center:
 
 - **Proprietário**
-  - "Essa é a pessoa que criou a conta pela primeira vez e tem acesso completo a ela, incluindo a capacidade de criar e editar todos os usuários da conta e alterar todas as configurações financeiras e de conta. Normalmente, uma conta tem apenas um proprietário. "
+  - Essa é a pessoa que criou a conta pela primeira vez e tem acesso completo a ela, incluindo a capacidade de criar e editar todos os usuários da conta e alterar todas as configurações financeiras e de conta. Normalmente, uma conta tem apenas um proprietário.
 - **Gerente**
   - Pode acessar todos os recursos da conta Microsoft, exceto as configurações de imposto e pagamento
   - Pode gerenciar usuários, funções e contas corporativas (locatários)

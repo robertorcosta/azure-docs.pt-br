@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 86f687bd4fd8be93efbf77c883c723046c2c96d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bfe077a99a3e89efe5fe4257a646484fb3810da
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016108"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96536973"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
 
@@ -27,13 +27,15 @@ Os drivers NVIDIA CUDA para VMs das séries NC, NCv2, NCv3, ND e NDv2 (opcional 
 
 ### <a name="nvidia-grid-drivers"></a>Drivers NVIDIA GRID
 
-A Microsoft redistribui os instaladores de driver de grade NVIDIA para VMs de série NVv3 e NV usadas como estações de trabalho virtuais ou para aplicativos virtuais. Instale somente esses drivers de grade em VMs do Azure NV, apenas em sistemas operacionais listados na tabela a seguir. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure. Não é necessário você configurar um servidor de licença de software vGPU NVIDIA.
+A Microsoft redistribui os instaladores de driver de grade NVIDIA para VMs de série NVv3 e NV usadas como estações de trabalho virtuais ou para aplicativos virtuais. Instale somente esses drivers de grade em VMs do Azure NV, apenas em sistemas operacionais listados na tabela a seguir. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure. Você não precisa configurar um servidor de licença de software de vGPU NVIDIA.
 
 Os drivers de grade redistribuídos pelo Azure não funcionam em VMs da série não NV, como as VMs NC, NCv2, NCv3, ND e série NDv2.
 
-| Distribuição | Driver |
+|Distribuição|Driver|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 a 7,8, 8,0, 8,1<br/><br/>Com base em CentOS 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11,1, ramificação do driver [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 a 7,8, 8,0, 8,1<br/><br/>Com base em CentOS 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11,2, ramificação do driver [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
+
+Visite o [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) para obter a lista completa de todos os links de driver de grade NVIDIA anteriores.
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos do Red Hat pode afetar os termos de suporte do Red Hat. Consulte o [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).

@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301264"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533189"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -205,7 +205,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Resolução:** Execute a atividade de cópia novamente após alguns minutos.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (anteriormente SQL Data Warehouse)/Azure banco de dados SQL/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/banco de dados SQL do Azure/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Código de erro:  SqlFailedToConnect
 
@@ -488,7 +488,28 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Recomendação**:  Executar novamente o pipeline. Se a falha persistir, tente reduzir o paralelismo. Se isso não resolver, entre em contato com o suporte do Dynamics.
 
+## <a name="excel-format"></a>Formato do Excel
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tempo limite ou desempenho lento ao analisar arquivo grande do Excel
+
+- **Sintomas**:
+
+    1. Quando você cria o conjunto de dados do Excel e importa o esquema de conexão/armazenamento, visualização de planilhas, lista ou atualização de pastas de trabalho, você pode atingir um erro de tempo limite se o arquivo do Excel for grande em tamanho.
+    2. Quando você usa a atividade de cópia para copiar dados de um arquivo grande do Excel (>= 100 MB) para outro armazenamento de dados, você pode enfrentar um problema de desempenho ou OOM lento.
+
+- **Causa**: 
+
+    1. Para operações como importação de esquema, visualização de dados e listagem de planilhas no conjunto de dados do Excel, o tempo limite é 100s e estático. Para grandes arquivos do Excel, essas operações podem não ser concluídas dentro do valor de tempo limite.
+
+    2. A atividade de cópia do ADF lê o arquivo inteiro do Excel na memória e, em seguida, localiza a planilha e as células especificadas para ler os dados. Esse comportamento ocorre devido ao uso do ADF do SDK subjacente.
+
+- **Resolução**: 
+
+    1. Para importar o esquema, você pode gerar um arquivo de exemplo menor, que é um subconjunto do arquivo original, e escolher "importar esquema do arquivo de exemplo" em vez de "importar esquema da conexão/armazenamento".
+
+    2. Para listagem de workseet, no menu suspenso da planilha, você pode clicar em "Editar" e inserir o nome/índice da planilha em vez disso.
+
+    3. Para copiar arquivos grandes do Excel (>100MB) em outro repositório, você pode usar a origem do Excel de fluxo de dados que usa streaming de esporte e executar melhor.
 
 ## <a name="json-format"></a>Formato JSON
 

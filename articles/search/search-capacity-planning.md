@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660316"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533036"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajustar a capacidade de um serviço de Pesquisa Cognitiva do Azure
 
 Antes de [provisionar um serviço de pesquisa](search-create-service-portal.md) e bloqueá-lo em um tipo de preço específico, reserve alguns minutos para entender como a capacidade funciona e como você pode ajustar réplicas e partições para acomodar a flutuação de carga de trabalho.
 
-A capacidade é uma função da [camada escolhida](search-sku-tier.md) (camadas determinam as características de hardware) e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Você pode aumentar ou diminuir o número de réplicas ou partições individualmente. Dependendo da camada e do tamanho do ajuste, adicionar ou reduzir a capacidade pode levar de 15 minutos a várias horas.
+A capacidade é uma função da [camada escolhida](search-sku-tier.md) (camadas determinam as características de hardware) e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Depois que um serviço é criado, você pode aumentar ou diminuir o número de réplicas ou partições de forma independente. Os custos aumentarão com cada recurso físico adicional, mas assim que grandes cargas de trabalho forem concluídas, você poderá reduzir a escala para reduzir sua fatura. Dependendo da camada e do tamanho do ajuste, adicionar ou reduzir a capacidade pode levar de 15 minutos a várias horas.
 
 Ao modificar a alocação de réplicas e partições, é recomendável usar o portal do Azure. O portal impõe limites para combinações permitidas que ficam abaixo dos limites máximos de uma camada. No entanto, se você precisar de uma abordagem de provisionamento baseada em script ou em código, o [Azure PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](/rest/api/searchmanagement/services) são soluções alternativas.
 
@@ -36,7 +36,7 @@ A capacidade é expressa *em unidades de pesquisa* que podem ser alocadas em com
 
 O diagrama a seguir mostra a relação entre réplicas, partições, fragmentos e unidades de pesquisa. Ele mostra um exemplo de como um único índice é estendido em quatro unidades de pesquisa em um serviço com duas réplicas e duas partições. Cada uma das quatro unidades de pesquisa armazena apenas metade dos fragmentos do índice. As unidades de pesquisa na coluna esquerda armazenam a primeira metade dos fragmentos, que compõem a primeira partição, enquanto aquelas na coluna direita armazenam a segunda metade dos fragmentos, que compõem a segunda partição. Como há duas réplicas, há duas cópias de cada fragmento de índice. As unidades de pesquisa na linha superior armazenam uma cópia, que inclui a primeira réplica, enquanto aquelas na linha inferior armazenam outra cópia, compostando a segunda réplica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentados entre partições.&quot;:::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentados entre partições.":::
 
 O diagrama acima é apenas um exemplo. Muitas combinações de partições e réplicas são possíveis, até um máximo de 36 unidades de pesquisa de total.
 
@@ -44,7 +44,7 @@ No Pesquisa Cognitiva, o gerenciamento de fragmentos é um detalhe de implementa
 
 + A classificação de anomalias: as pontuações de pesquisa são calculadas primeiro no nível do fragmento e, em seguida, agregadas em um único conjunto de resultados. Dependendo das características do conteúdo do fragmento, as correspondências de um fragmento podem ter uma classificação maior do que as correspondências em outra. Se você observar classificações não intuitivas nos resultados da pesquisa, isso provavelmente ocorrerá devido aos efeitos da fragmentação, especialmente se os índices forem pequenos. Você pode evitar essas anomalias de classificação escolhendo [calcular pontuações globalmente em todo o índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), mas isso incorrerá em uma penalidade de desempenho.
 
-+ Anomalias de preenchimento automático: consultas de preenchimento automático, em que as correspondências são feitas nos primeiros vários caracteres de um termo parcialmente inserido, aceitam um parâmetro difuso que Forgives pequenos desvios na grafia. Para preenchimento automático, a correspondência difusa é restrita a termos dentro do fragmento atual. Por exemplo, se um fragmento contiver &quot;Microsoft&quot; e um termo parcial de &quot;Micor&quot; for inserido, o mecanismo de pesquisa corresponderá em &quot;Microsoft" nesse fragmento, mas não em outros fragmentos que contenham as partes restantes do índice.
++ Anomalias de preenchimento automático: consultas de preenchimento automático, em que as correspondências são feitas nos primeiros vários caracteres de um termo parcialmente inserido, aceitam um parâmetro difuso que Forgives pequenos desvios na grafia. Para preenchimento automático, a correspondência difusa é restrita a termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "Micor" for inserido, o mecanismo de pesquisa corresponderá em "Microsoft" nesse fragmento, mas não em outros fragmentos que contenham as partes restantes do índice.
 
 ## <a name="when-to-add-nodes"></a>Quando adicionar nós
 
