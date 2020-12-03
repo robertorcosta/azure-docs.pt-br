@@ -12,11 +12,11 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651438"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187265"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, você precisará:
 Antes de criar o hub de eventos e o aplicativo lógico, você precisa criar um grupo de recursos para gerenciá-los. O grupo de recursos deve estar no mesmo local que seu aplicativo **Análise do repositório - Fazer check-out** do IoT Central. Para criar um grupo de recursos:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. No painel de navegação esquerdo, selecione **Grupos de recursos**. Em seguida, selecione**Adicionar**.
+1. No painel de navegação esquerdo, selecione **Grupos de recursos**. Em seguida, selecione **Adicionar**.
 1. Para **Assinatura**, selecione o nome da assinatura do Azure na qual você deseja criar o aplicativo do IOT Central.
 1. Para o nome do **Grupo de recursos**, insira _de análise do repositório_*.
 1. Para a **Região**, selecione a mesma região que você escolheu para o aplicativo IoT Central.
@@ -380,7 +380,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **Modo de ex
     * Selecione **Análise do repositório - Fazer check-out** como o espaço de trabalho.
     * Insira **Sensor de Zona 1** como o conjunto de dados.
     * Selecione **RealTimeData** como a tabela.
-    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade**e **Temperatura**.
+    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade** e **Temperatura**.
     * Selecione o campo **Carimbo de data/hora** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **Conteúdo dinâmico**.
     * Selecione o campo **Umidade** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Selecione **umidade**.
     * Selecione o campo de **Temperatura** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **temperatura**.
@@ -392,7 +392,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **Modo de ex
     * Selecione **Análise do repositório - Fazer check-out** como o espaço de trabalho.
     * Selecione **Sensor de Zona 2** como o conjunto de dados.
     * Selecione **RealTimeData** como a tabela.
-    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade**e **Temperatura**.
+    * Selecione **Adicionar novo parâmetro** e, em seguida, selecione os campos **Carimbo de data/hora**, **Umidade** e **Temperatura**.
     * Selecione o campo **Carimbo de data/hora** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **Conteúdo dinâmico**.
     * Selecione o campo **Umidade** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Selecione **umidade**.
     * Selecione o campo de **Temperatura** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **temperatura**.

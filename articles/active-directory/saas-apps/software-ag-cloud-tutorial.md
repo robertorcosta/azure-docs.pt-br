@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 852fabfd1fe496064e6d13c21ba052ee6f96b79e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242906"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182323"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Software AG Cloud
 
@@ -151,10 +151,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 2. Acesse diretamente a URL de Logon do Software AG Cloud, na qual você iniciará o fluxo de logon.
 
-3. Use o Painel de Acesso da Microsoft. Quando você clicar no bloco do Software AG Cloud no Painel de Acesso, será redirecionado para a URL de Logon do Software AG Cloud. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Use o Painel de Acesso da Microsoft. Quando você clicar no bloco do Software AG Cloud no Painel de Acesso, será redirecionado para a URL de Logon do Software AG Cloud. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Software AG Cloud, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o Software AG Cloud, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

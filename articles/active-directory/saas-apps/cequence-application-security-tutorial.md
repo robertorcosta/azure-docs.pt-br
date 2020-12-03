@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: adcbed3178556c8cb37e053a6bbd203197c7d9ef
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c8d3147f6b327b0aa835418516417f2f54ba17dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369580"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179938"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cequence-application-security"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory com o Cequence Application Security
 
@@ -139,11 +139,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 2. Acesse a URL de Entrada do Cequence Application Security diretamente e inicie o fluxo de logon desse local.
 
-3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco Cequence Application Security do Painel de Acesso, você será redirecionado para a URL de Entrada do Cequence Application Security. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco Cequence Application Security do Painel de Acesso, você será redirecionado para a URL de Entrada do Cequence Application Security. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após configurar o Cequence Application Security, será possível impor o controle de sessão, que protegerá contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Após configurar o Cequence Application Security, será possível impor o controle de sessão, que protegerá contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 0775ef9ee511db30cf7be43261f2ec9a8f711649
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4a4eccf90756b9b34e024a0ece8e71b1c191c233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369572"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180720"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lucid-all-products"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory com o Lucid (todos os produtos)
 
@@ -143,11 +143,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em **Testar este aplicativo** no portal do Azure e conecte-se de modo automático ao Lucid (todos os produtos) para o qual você configurou o SSO 
 
-Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco Lucid (todos os produtos) do Painel de Acesso, caso o modo SP esteja configurado, você será redirecionado para a página de entrada do aplicativo a fim de iniciar o fluxo de logon. Caso o modo IDP esteja configurado, você será conectado de modo automático ao Lucid (todos os produtos) para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco Lucid (todos os produtos) do Painel de Acesso, caso o modo SP esteja configurado, você será redirecionado para a página de entrada do aplicativo a fim de iniciar o fluxo de logon. Caso o modo IDP esteja configurado, você será conectado de modo automático ao Lucid (todos os produtos) para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após configurar o Lucid (todos os produtos), será possível impor o controle de sessão, que protegerá contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Após configurar o Lucid (todos os produtos), será possível impor o controle de sessão, que protegerá contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

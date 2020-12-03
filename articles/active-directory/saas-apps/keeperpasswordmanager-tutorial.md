@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: integração do Azure Active Directory ao Gerenciador de Senhas Protetor e Cofre Digital
 
@@ -157,7 +157,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Você pode acessar diretamente a URL de logon do aplicativo e iniciar a entrada de lá.
 
-* Use o Painel de Acesso da Microsoft. Quando você selecionar o bloco do **Keeper Password Manager & Digital Vault** no Painel de Acesso, isso redirecionará você à URL de logon do aplicativo. Para obter mais informações sobre o Painel de Acesso, confira [Entrar e iniciar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Use o Painel de Acesso da Microsoft. Quando você selecionar o bloco do **Keeper Password Manager & Digital Vault** no Painel de Acesso, isso redirecionará você à URL de logon do aplicativo. Para obter mais informações sobre o Painel de Acesso, confira [Entrar e iniciar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

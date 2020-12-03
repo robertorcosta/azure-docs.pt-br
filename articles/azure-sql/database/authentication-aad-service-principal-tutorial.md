@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675035"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185633"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar usuários do Azure AD usando aplicativos do Azure AD
 
@@ -44,7 +44,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="assign-an-identity-to-the-azure-sql-logical-server"></a>Atribuir uma identidade ao servidor lógico do SQL do Azure
 
-1. Conecte-se ao Azure Active Directory. Você precisará localizar a sua ID de Locatário. Ela pode ser encontrada acessando o [portal do Azure](https://portal.azure.com) e o recurso **Azure Active Directory**. No painel de **Visão geral** , você precisa ver sua **ID de Locatário**. Execute o seguinte comando do PowerShell:
+1. Conecte-se ao Azure Active Directory. Você precisará localizar a sua ID de Locatário. Ela pode ser encontrada acessando o [portal do Azure](https://portal.azure.com) e o recurso **Azure Active Directory**. No painel de **Visão geral**, você precisa ver sua **ID de Locatário**. Execute o seguinte comando do PowerShell:
 
     - Substitua `<TenantId>` pela **ID de Locatário**.
 
@@ -82,7 +82,7 @@ Neste tutorial, você aprenderá como:
 
 1. Também é possível verificar a identidade acessando o [portal do Azure](https://portal.azure.com).
 
-    - No recurso **Azure Active Directory** , acesse **Aplicativos empresariais**. Digite o nome do seu servidor lógico do SQL. Você verá que ele tem uma **ID de Objeto** anexada ao recurso.
+    - No recurso **Azure Active Directory**, acesse **Aplicativos empresariais**. Digite o nome do seu servidor lógico do SQL. Você verá que ele tem uma **ID de Objeto** anexada ao recurso.
     
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/enterprise-applications-object-id.png" alt-text="object-id":::
 
@@ -95,7 +95,7 @@ Para conceder essa permissão necessária, execute o script a seguir.
 > [!NOTE] 
 > Esse script precisa ser executado por um `Global Administrator` ou um `Privileged Roles Administrator` do Azure AD.
 >
-> Na **versão prévia pública** , você pode atribuir a função `Directory Readers` a um grupo do Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que poderá ignorar a necessidade de um `Global Administrator` ou um `Privileged Roles Administrator` para conceder a função `Directory Readers`. Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
+> Na **versão prévia pública**, você pode atribuir a função `Directory Readers` a um grupo do Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que poderá ignorar a necessidade de um `Global Administrator` ou um `Privileged Roles Administrator` para conceder a função `Directory Readers`. Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
 
 - Substitua `<TenantId>` pelo `TenantId` coletado anteriormente.
 - Substitua `<server name>` pelo seu nome do servidor lógico do SQL. Se o nome do servidor for `myserver.database.windows.net`, substitua `<server name>` por `myserver`.
@@ -161,7 +161,7 @@ Para obter uma abordagem semelhante sobre como definir a permissão de **Leitore
 
 1. Siga o guia disponibilizado aqui para [registrar seu aplicativo e definir permissões](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
 
-    Certifique-se de adicionar as **permissões de aplicativo** , bem como as **permissões delegadas**.
+    Certifique-se de adicionar as **permissões de aplicativo**, bem como as **permissões delegadas**.
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Captura de tela que mostra a página de Registros de aplicativo do Azure Active Directory. Um aplicativo com o Nome de exibição AppSP é realçado.":::
 
@@ -169,7 +169,7 @@ Para obter uma abordagem semelhante sobre como definir a permissão de **Leitore
 
 2. Você também precisará criar um segredo do cliente para entrar. Siga o guia disponibilizado aqui para [carregar um certificado ou criar um segredo para entrar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
-3. Registre as informações a seguir, que serão obtidas do registro de aplicativo. Elas devem estar disponíveis em seu painel **Visão geral** :
+3. Registre as informações a seguir, que serão obtidas do registro de aplicativo. Elas devem estar disponíveis em seu painel **Visão geral**:
     - **ID do Aplicativo**
     - **ID do Locatário** – deve ser igual ao anterior
 
@@ -179,7 +179,7 @@ Para obter mais informações sobre como criar um aplicativo do Azure AD, confir
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Permissões necessárias para definir ou remover a definição do administrador do Azure AD
 
-Para que a entidade de serviço defina ou remova a definição de um administrador do Azure AD para o Azure SQL, é necessária uma permissão adicional de API. A permissão de API do aplicativo [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) precisará ser adicionada ao seu aplicativo no Azure AD.
+Para que a entidade de serviço defina ou remova a definição de um administrador do Azure AD para o Azure SQL, é necessária uma permissão adicional de API. A permissão de API do aplicativo [Directory.Read.All](/graph/permissions-reference#application-permissions-18) precisará ser adicionada ao seu aplicativo no Azure AD.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Permissões Directory.Reader.All no Azure AD":::
 
@@ -199,7 +199,7 @@ Depois que uma entidade de serviço for criada no Azure AD, crie o usuário no B
     GO
     ```
 
-2. Conceda a permissão `db_owner` para *AppSP* , a qual permite ao usuário criar outros usuários do Azure AD no banco de dados.
+2. Conceda a permissão `db_owner` para *AppSP*, a qual permite ao usuário criar outros usuários do Azure AD no banco de dados.
 
     ```sql
     EXEC sp_addrolemember 'db_owner', [AppSP]

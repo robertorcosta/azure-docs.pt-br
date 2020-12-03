@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743413"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184647"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configurar a computação no dispositivo de GPU Azure Stack Edge Pro
 
@@ -76,7 +76,7 @@ Para configurar a computação no Azure Stack Edge Pro, você criará um recurso
     
 Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge. No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
 
-Pode levar de 20 a 30 minutos para configurar a computação já que, nos bastidores, as máquinas virtuais e o cluster do Kubernetes estão sendo criados. 
+Pode levar de 20 a 30 minutos para configurar a computação já que, nos bastidores, as máquinas virtuais e o cluster do Kubernetes estão sendo criados. 
 
 Depois de você configurar com êxito a computação no portal do Azure, um cluster Kubernetes e um usuário padrão associado ao namespace de IoT (um namespace do sistema controlado pelo Azure Stack Edge Pro) passarão a existir. 
 

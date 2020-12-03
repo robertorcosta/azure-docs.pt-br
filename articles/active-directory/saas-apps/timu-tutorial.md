@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 68acc1ad45605512232ee3dae6f5027133270c01
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 903150a199bac1189274cadc9755b38873cde73e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686303"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182097"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timu"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TIMU
 
@@ -148,11 +148,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do TIMU, na qual você iniciará o fluxo de logon.
 
-* Use o Painel de Acesso da Microsoft. Quando você clicar no bloco do TIMU no Painel de Acesso, isso redirecionará você à URL de Logon do TIMU. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Use o Painel de Acesso da Microsoft. Quando você clicar no bloco do TIMU no Painel de Acesso, isso redirecionará você à URL de Logon do TIMU. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o TIMU, você poderá impor o controle de sessão, que protege contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o TIMU, você poderá impor o controle de sessão, que protege contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

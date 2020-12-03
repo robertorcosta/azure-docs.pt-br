@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 7823c63cf618808cb1ab4400c39f4bc64b7af338
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1cee4d2ad1bc7f362a045a5991624ec43521b8d2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427523"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341641"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Usar a ferramenta de migração de dados para migrar seus dados para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ Este tutorial fornece instruções sobre como usar a ferramenta Migração de Da
 
 * **[API do SQL](./introduction.md)** – você pode usar qualquer uma das opções de fonte fornecidas na ferramenta de Migração de Dados para importar dados em pequena escala. [Conheça as opções de migração para importar dados em grande escala](cosmosdb-migrationchoices.md).
 * **[API de Tabela](table-introduction.md)** – você pode usar a ferramenta de Migração de dados ou [AzCopy](table-import.md#migrate-data-by-using-azcopy) para importar dados. Para obter mais informações, consulte [Importar dados para uso com a API de tabela do Azure Cosmos DB](table-import.md).
-* **[API para MongoDB do Azure Cosmos DB](mongodb-introduction.md)** – a ferramenta de Migração de Dados não dá suporte à API do MongoDB do Azure Cosmos DB, seja como origem ou como destino. Se você desejar migrar os dados de ou para coleções no Azure Cosmos DB, veja [Como migrar dados do MongoDB para um banco de dados do Cosmos com uma API do MongoDB do Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para obter instruções. Você ainda pode usar a ferramenta de migração de dados para exportar dados do MongoDB para coleções de API do SQL do Azure Cosmos DB para uso com a API do SQL.
+* **[API para MongoDB do Azure Cosmos DB](mongodb-introduction.md)** – a ferramenta de Migração de Dados não dá suporte à API do MongoDB do Azure Cosmos DB, seja como origem ou como destino. Se você desejar migrar os dados de ou para coleções no Azure Cosmos DB, veja [Como migrar dados do MongoDB para um banco de dados do Cosmos com uma API do MongoDB do Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) para obter instruções. Você ainda pode usar a ferramenta de migração de dados para exportar dados do MongoDB para coleções de API do SQL do Azure Cosmos DB para uso com a API do SQL.
 * **[API do Cassandra](graph-introduction.md)** – a ferramenta de Migração de dados não é uma ferramenta de importação com suporte para contas de API do Cassandra. [Conheça as opções de migração para importar dados para a API do Cassandra](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
 * **[API do Gremlin](graph-introduction.md)** : a ferramenta de Migração de dados não é uma ferramenta de importação com suporte para contas de API do Gremlin atualmente. [Conheça as opções de migração para importar dados para a API do Gremlin](cosmosdb-migrationchoices.md#other-apis) 
 
@@ -70,8 +70,8 @@ Embora a ferramenta de importação inclua uma interface gráfica do usuário (d
 
 O código-fonte da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). É possível baixar e compilar a solução localmente ou [baixar um binário pré-compilado](https://aka.ms/csdmtool) e, em seguida, executar:
 
-* **Dtui.exe** : Versão da interface gráfica da ferramenta
-* **Dt.exe** : Versão de linha de comando da ferramenta
+* **Dtui.exe**: Versão da interface gráfica da ferramenta
+* **Dt.exe**: Versão de linha de comando da ferramenta
 
 ## <a name="select-data-source"></a>Selecione uma fonte de dados
 
@@ -131,7 +131,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a name="import-from-mongodb"></a><a id="MongoDB"></a>Importar do MongoDB
 
 > [!IMPORTANT]
-> Caso esteja importando para uma conta do Cosmos configurada com a API do MongoDB do Azure Cosmos DB, siga estas [instruções](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
+> Caso esteja importando para uma conta do Cosmos configurada com a API do MongoDB do Azure Cosmos DB, siga estas [instruções](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json).
 
 Com a opção de importador de origem do MongoDB, é possível importar de uma coleção do MongoDB individual e, como opção, filtrar documentos usando uma consulta e modificar a estrutura do documento usando uma projeção.  
 
@@ -159,7 +159,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a name="import-mongodb-export-files"></a><a id="MongoDBExport"></a>Importar arquivos de exportação do MongoDB
 
 > [!IMPORTANT]
-> Caso esteja importando para uma conta do Azure Cosmos DB com suporte para o MongoDB, siga estas [instruções](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
+> Caso esteja importando para uma conta do Azure Cosmos DB com suporte para o MongoDB, siga estas [instruções](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json).
 
 A opção do importador de origem de arquivo JSON de exportação do MongoDB permite que você importe um ou mais arquivos JSON produzidos por meio do utilitário mongoexport.  
 
@@ -386,7 +386,7 @@ A cadeia de conexão da conta do Azure Cosmos DB pode ser recuperada na página 
 > [!NOTE]
 > Use o comando Verify para garantir que a instância do Azure Cosmos DB especificada no campo de cadeia de conexão pode ser acessada.
 
-Para importar para uma única coleção, digite o nome da coleção da qual importar os dados e clique no botão Adicionar. Para importar para mais de uma coleção, insira o nome de cada coleção individualmente ou use a seguinte sintaxe para especificar mais de uma coleção: *collection_prefix* [start index - end index]. Ao especificar mais de uma coleção usando a sintaxe mencionada anteriormente, mantenha as seguintes diretrizes em mente:
+Para importar para uma única coleção, digite o nome da coleção da qual importar os dados e clique no botão Adicionar. Para importar para mais de uma coleção, insira o nome de cada coleção individualmente ou use a seguinte sintaxe para especificar mais de uma coleção: *collection_prefix*[start index - end index]. Ao especificar mais de uma coleção usando a sintaxe mencionada anteriormente, mantenha as seguintes diretrizes em mente:
 
 1. Somente padrões de nome de intervalo inteiro têm suporte. Por exemplo, a especificação de coleção [0-3] cria as seguintes coleções: collection0, collection1, collection2, collection3.
 2. Você pode usar uma sintaxe abreviada: collection[3] cria o mesmo conjunto de coleções mencionado na etapa 1.
@@ -445,7 +445,7 @@ O formato da cadeia de conexão do Azure Cosmos DB é:
 > [!NOTE]
 > Use o comando Verify para garantir que a instância do Azure Cosmos DB especificada no campo de cadeia de conexão pode ser acessada.
 
-Para importar para uma única coleção, digite o nome da coleção para a qual os dados serão importados, depois clique no botão Adicionar. Para importar para mais de uma coleção, insira o nome de cada coleção individualmente. Também é possível usar a sintaxe a seguir para especificar mais de uma coleção: *collection_prefix* [start index - end index]. Ao especificar mais de uma coleção por meio da sintaxe mencionada anteriormente, mantenha as seguintes diretrizes em mente:
+Para importar para uma única coleção, digite o nome da coleção para a qual os dados serão importados, depois clique no botão Adicionar. Para importar para mais de uma coleção, insira o nome de cada coleção individualmente. Também é possível usar a sintaxe a seguir para especificar mais de uma coleção: *collection_prefix*[start index - end index]. Ao especificar mais de uma coleção por meio da sintaxe mencionada anteriormente, mantenha as seguintes diretrizes em mente:
 
 1. Somente padrões de nome de intervalo inteiro têm suporte. Por exemplo, a especificação de coleção [0-3] cria as seguintes coleções: collection0, collection1, collection2, collection3.
 2. Você pode usar uma sintaxe abreviada: collection[3] cria o mesmo conjunto de coleções mencionado na etapa 1.

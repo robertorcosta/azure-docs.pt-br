@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 68ebd88be1a8c68df65557ae29fd50639df0aef5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e421efc4076ab075984022ccb5281d4b9e250c26
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133188"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178274"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hirebridge-ats"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hirebridge ATS
 
@@ -123,10 +123,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 1. Clique em Testar este aplicativo no portal do Azure e você será conectado automaticamente ao Hirebridge ATS para o qual configurou o SSO
 
-1. Use o Painel de Acesso da Microsoft. Quando você clicar no bloco do Hirebridge ATS no Painel de Acesso, será conectado automaticamente ao Hirebridge ATS para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Use o Painel de Acesso da Microsoft. Quando você clicar no bloco do Hirebridge ATS no Painel de Acesso, será conectado automaticamente ao Hirebridge ATS para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Hirebridge ATS, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o Hirebridge ATS, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

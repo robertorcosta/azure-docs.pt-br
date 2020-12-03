@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 9bebb11c3a1162a0a7b72140f7d3812f86f793ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791349"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181961"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integrar o SSO (logon único) do Azure AD ao NetSuite
 
@@ -253,7 +253,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 - Clique em Testar este aplicativo no portal do Azure e você será conectado automaticamente ao NetSuite, para o qual configurou o SSO
 
-- Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do NetSuite em Meus Aplicativos, você deverá ser conectado automaticamente ao NetSuite, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+- Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do NetSuite em Meus Aplicativos, você deverá ser conectado automaticamente ao NetSuite, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
