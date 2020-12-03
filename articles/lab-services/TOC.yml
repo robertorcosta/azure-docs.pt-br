@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Conceitos
   items:
-    - name: Visão geral dos laboratórios de sala de aula
+    - name: Visão geral dos laboratórios
       href: classroom-labs-overview.md
-    - name: Conceitos dos laboratórios de sala de aula
+    - name: Conceitos dos laboratórios
       href: classroom-labs-concepts.md
-    - name: Conceitos básicos da arquitetura de laboratórios de sala de aula
+    - name: Conceitos básicos da arquitetura de laboratórios
       href: classroom-labs-fundamentals.md
     - name: Limites de capacidade
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Usar o Lab Services para hackathon
           href: hackathon-labs.md
-        - name: Laboratórios de sala de aula – tipos de aula
+        - name: laboratórios – tipos de classes
           items:
             - name: Visão geral dos tipos de classe
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Carregar uma imagem personalizada na Galeria de Imagens Compartilhadas
           href: upload-custom-image-shared-image-gallery.md
-    - name: Criar e configurar laboratórios de sala de aula (educador)
+    - name: Criar e configurar os laboratórios (educador)
       items:
-        - name: Criar e gerenciar laboratórios de sala de aula
+        - name: Criar e gerenciar os laboratórios
           href: how-to-manage-classroom-labs.md
         - name: Usar o dashboard
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Acessar VMs do aluno na exibição do educador
           href: instructor-access-virtual-machines.md
-    - name: Conectar a VMs nos laboratórios de sala de aula (aluno)
+    - name: Conectar a VMs nos laboratórios (estudante)
       items:
-        - name: Acessar laboratórios de sala de aula
+        - name: Acessar os laboratórios
           href: how-to-use-classroom-lab.md
         - name: Conectar-se a VMs do Linux
           href: how-to-use-remote-desktop-linux-student.md

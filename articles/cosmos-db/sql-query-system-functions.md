@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340814"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546362"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funções do sistema (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  O Cosmos DB fornece muitas funções SQL internas. As categorias de funções internas estão listadas abaixo.  
   
-|Grupo de funções|Description|Operations|  
+|Grupo de funções|Descrição|Operations|  
 |--------------|-----------------|-----------------| 
 |[Funções de matriz](sql-query-array-functions.md)|As funções de matriz executam uma operação em um valor de matriz de entrada e retornam um valor numérico, booliano ou um valor de matriz. | [ARRAY_CONCAT](sql-query-array-concat.md), [ARRAY_CONTAINS](sql-query-array-contains.md), [ARRAY_LENGTH](sql-query-array-length.md) [ARRAY_SLICE](sql-query-array-slice.md) |
 |[Funções de data e hora](sql-query-date-time-functions.md)|As funções de data e hora permitem que você obtenha a data e a hora UTC atuais em duas formas; um carimbo de data/hora numérico cujo valor é a época do UNIX em milissegundos ou como uma cadeia de caracteres que está de acordo com o formato ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |
@@ -47,4 +47,4 @@ A principal diferença entre Cosmos DB funções e funções ANSI SQL é que Cos
 - [Funções de cadeia de caracteres](sql-query-string-functions.md)
 - [Funções de verificação de tipo](sql-query-type-checking-functions.md)
 - [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Agregações](sql-query-aggregate-functions.md)

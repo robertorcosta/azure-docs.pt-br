@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917153"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458839"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Executar experimentos usando o ML Automatizado do Azure e o Apache Spark
 
@@ -72,7 +72,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para obter algo menor usando os filtros ```start_date``` e ```end_date```. Isso aplica um filtro que retorna dados de um mês. Assim que filtrarmos o dataframe, executaremos a função ```describe()``` no novo dataframe para ver estatísticas resumidas de cada campo. 
+3. Dependendo do tamanho do pool do Spark, os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para obter algo menor usando os filtros ```start_date``` e ```end_date```. Isso aplica um filtro que retorna dados de um mês. Assim que filtrarmos o dataframe, executaremos a função ```describe()``` no novo dataframe para ver estatísticas resumidas de cada campo. 
 
    Com base nas estatísticas resumidas, vemos que há algumas irregularidades e exceções nos dados. Por exemplo, as estatísticas mostram que a distância mínima de viagem é menor que zero. Será necessário filtrar esses pontos de dados irregulares.
    

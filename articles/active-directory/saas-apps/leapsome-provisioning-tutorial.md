@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a0165e5191a8cd499b42c14704fdf4f0d79b3f6b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b7c1c995ead9a8d66cd11fb4579cc49e12b487df
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358534"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351581"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: Configurar o Leapsome para provisionamento automático de usuários
 
@@ -91,7 +91,7 @@ Antes de configurar o Leapsome para o provisionamento automático de usuário co
 Esta seção orienta você pelas etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Leapsome com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único com base em SAML para o Leapsome, seguindo as instruções fornecidas no [Tutorial do logon único do Leapsome](Leapsome-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares
+> Você também pode optar por habilitar o logon único baseado em SAML para o Leapsome seguindo as instruções fornecidas no [tutorial de logon único do Leapsome](Leapsome-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares
 
 ### <a name="to-configure-automatic-user-provisioning-for-leapsome-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Leapsome no Azure AD:
 

@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174808"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348187"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial – Criar um ponto de extremidade do SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -199,29 +199,21 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
   - [Criar Usuário](#create-user) ([Solicitação](#request) / [Resposta](#response))
   - [Obter Usuário](#get-user) ([Solicitação](#request-1) / [Resposta](#response-1))
   - [Obter Usuário por consulta](#get-user-by-query) ([Solicitação](#request-2) / [Resposta](#response-2))
-  - [Obter Usuário por consulta - Zero resultados](#get-user-by-query---zero-results) ([Solicitação](#request-3)
-/ [Resposta](#response-3))
-  - [Atualizar Usuário [Propriedades com vários valores]](#update-user-multi-valued-properties) ([Solicitação](#request-4) /  [Resposta](#response-4))
-  - [Atualizar Usuário [Propriedades de valor único]](#update-user-single-valued-properties) ([Solicitação](#request-5)
-/ [Resposta](#response-5)) 
-  - [Desabilitar Usuário](#disable-user) ([Solicitação](#request-14) / 
-[Resposta](#response-14))
-  - [Excluir Usuário](#delete-user) ([Solicitação](#request-6) / 
-[Resposta](#response-6))
+  - [Obter Usuário por consulta - Zero resultados](#get-user-by-query---zero-results) ([Solicitação](#request-3) / [Resposta](#response-3))
+  - [Atualizar Usuário [Propriedades com vários valores]](#update-user-multi-valued-properties) ([Solicitação](#request-4) / [Resposta](#response-4))
+  - [Atualizar Usuário [Propriedades de valor único]](#update-user-single-valued-properties) ([Solicitação](#request-5) / [Resposta](#response-5)) 
+  - [Desabilitar Usuário](#disable-user) ([Solicitação](#request-14) / [Resposta](#response-14))
+  - [Excluir Usuário](#delete-user) ([Solicitação](#request-6) / [Resposta](#response-6))
 
 
 [Operações de Grupo](#group-operations)
   - [Criar Grupo](#create-group) ([Solicitação](#request-7) / [Resposta](#response-7))
   - [Obter Grupo](#get-group) ([Solicitação](#request-8) / [Resposta](#response-8))
   - [Obter Grupo por displayName](#get-group-by-displayname) ([Solicitação](#request-9) / [Resposta](#response-9))
-  - [Atualizar Grupo [Atributos de não membro]](#update-group-non-member-attributes) ([Solicitação](#request-10) /
- [Resposta](#response-10))
-  - [Atualizar Grupo [Adicionar Membros]](#update-group-add-members) ([Solicitação](#request-11) /
-[Resposta](#response-11))
-  - [Atualizar Grupo [Remover Membros]](#update-group-remove-members) ([Solicitação](#request-12) /
-[Resposta](#response-12))
-  - [Excluir Grupo](#delete-group) ([Solicitação](#request-13) /
-[Resposta](#response-13))
+  - [Atualizar Grupo [Atributos de não membro]](#update-group-non-member-attributes) ([Solicitação](#request-10) / [Resposta](#response-10))
+  - [Atualizar Grupo [Adicionar Membros]](#update-group-add-members) ([Solicitação](#request-11) / [Resposta](#response-11))
+  - [Atualizar Grupo [Remover Membros]](#update-group-remove-members) ([Solicitação](#request-12) / [Resposta](#response-12))
+  - [Excluir Grupo](#delete-group) ([Solicitação](#request-13) / [Resposta](#response-13))
 
 ### <a name="user-operations"></a>Operações do Usuário
 
@@ -750,7 +742,7 @@ Barra mínima dos conjuntos de criptografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos de IP
-O serviço de provisionamento do Azure AD atualmente opera em Intervalos de IP para o AzureActiveDirectory, conforme listado [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). É possível adicionar os intervalos de IP listados na marca AzureActiveDirectory para permitir o tráfego do serviço de provisionamento do Azure AD em seu aplicativo. Observe que será necessário examinar com atenção a lista de intervalos de IP para os endereços computados. Um endereço como '40.126.25.32' poderá ser representado na lista de intervalos de IP como ' 40.126.0.0/18 '. Também é possível recuperar de maneira programática a lista de intervalos de IP usando a [API](/rest/api/virtualnetwork/servicetags/list) a seguir.
+O serviço de provisionamento do Azure AD atualmente opera em Intervalos de IP para o AzureActiveDirectory, conforme listado [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). É possível adicionar os intervalos de IP listados na marca AzureActiveDirectory para permitir o tráfego do serviço de provisionamento do Azure AD em seu aplicativo. Observe que será necessário examinar com atenção a lista de intervalos de IP para os endereços computados. Um endereço como '40.126.25.32' poderá ser representado na lista de intervalos de IP como ' 40.126.0.0/18 '. Também é possível recuperar de modo programático a lista de intervalos de IP usando a [API](/rest/api/virtualnetwork/servicetags/list) a seguir.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Etapa 3: Crie um ponto de extremidade do SCIM
 
@@ -1176,7 +1168,7 @@ Depois que o ciclo inicial for iniciado, você poderá selecionar **Logs de prov
 Se você estiver criando um aplicativo que será usado por mais de um locatário, poderá disponibilizá-lo na galeria de aplicativos do Azure AD. Isso permitirá que organizações descubram o aplicativo e configurem o provisionamento com facilidade. Publicar seu aplicativo na galeria do Azure AD e disponibilizar o provisionamento para outras pessoas é fácil. Confira as etapas [aqui](../develop/v2-howto-app-gallery-listing.md). A Microsoft trabalhará com você para integrar seu aplicativo em nossa galeria, testar seu ponto de extremidade e publicar [documentação](../saas-apps/tutorial-list.md) de integração para uso dos clientes.
 
 ### <a name="gallery-onboarding-checklist"></a>Lista de verificação de integração da galeria
-Siga a lista de verificação abaixo para garantir que seu aplicativo seja integrado de forma rápida e que os clientes tenham uma experiência de implantação livre de problemas. As informações serão coletadas quando você estiver realizando a integração à galeria. 
+Siga a lista de verificação abaixo para que seu aplicativo seja integrado de maneira rápida e que os clientes tenham uma experiência de implantação livre de problemas. As informações serão coletadas quando você estiver realizando a integração à galeria. 
 > [!div class="checklist"]
 > * Dar suporte a um ponto de extremidade de usuário e grupo do [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) (apenas um é necessário, mas ambos são recomendados)
 > * Dar suporte a pelo menos 25 solicitações por segundo e por locatário para garantir que usuários e grupos sejam provisionados e desprovisionados sem atraso (obrigatório)

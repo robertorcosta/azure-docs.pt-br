@@ -2,8 +2,10 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: Funções do Azure AD
+    - name: O que é o RBAC do Azure AD?
       href: custom-overview.md
+    - name: Entender as funções do Azure AD
+      href: concept-understand-roles.md
 - name: Inícios rápidos
   items:
     - name: Criar registros de aplicativo ilimitados
@@ -50,8 +52,6 @@
     - name: Funções personalizadas
       expanded: true
       items:
-        - name: Visão geral de funções personalizadas
-          href: custom-overview.md
         - name: Criar uma função personalizada
           href: custom-create.md
         - name: Exibir atribuições de função personalizadas

@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324914"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547144"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer backup e restaurar máquinas virtuais do Azure criptografadas
 
@@ -22,7 +22,11 @@ Por padrão, todos os discos em suas VMs são automaticamente criptografados em 
 
 ## <a name="encryption-using-customer-managed-keys"></a>Criptografia usando chaves gerenciadas pelo cliente
 
-Quando você criptografa discos com chaves gerenciadas personalizadas (CMK), a chave usada para criptografar os discos é armazenada no Azure Key Vault e é gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando CMK difere da criptografia Azure Disk Encryption (ADE). O ADE usa as ferramentas de criptografia do sistema operacional. A SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs. Para obter mais informações sobre criptografia de discos gerenciados com chaves gerenciadas pelo cliente, consulte [Este artigo](../virtual-machines/disk-encryption.md#customer-managed-keys).
+Quando você criptografa discos com chaves gerenciadas pelo cliente (CMK), a chave usada para criptografar os discos é armazenada no Azure Key Vault e é gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando CMK difere da criptografia Azure Disk Encryption (ADE). O ADE usa as ferramentas de criptografia do sistema operacional. A SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs.
+
+Você não precisa executar ações explícitas para backup ou restauração de VMs que usam chaves gerenciadas pelo cliente para criptografar seus discos. Os dados de backup para essas VMs armazenados no cofre serão criptografados com os mesmos métodos que a [criptografia usada no cofre](encryption-at-rest-with-cmk.md).
+
+Para obter mais informações sobre criptografia de discos gerenciados com chaves gerenciadas pelo cliente, consulte [Este artigo](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Suporte à criptografia usando ADE
 

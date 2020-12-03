@@ -14,12 +14,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c82ea3328938b42a26df03c7e83776e1a1a69b20
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 48c996b6c7d0024b256908565c57032fe3e18514
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557493"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545631"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrar SQL Server VM com extensão do agente IaaS do SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,7 +59,7 @@ Para registrar sua VM SQL Server com a extensão do agente IaaS do SQL, você de
 1. Vá para **Assinaturas** e selecione a assinatura de seu interesse.  
 1. Na página **assinaturas** , vá para **extensões**. 
 1. Insira **SQL** no filtro para abrir as extensões relacionadas ao SQL. 
-1. Selecione **Registrar** , **Registrar novamente** ou **Cancelar registro** de para o provedor **Microsoft.SqlVirtualMachine** , dependendo da ação desejada. 
+1. Selecione **Registrar**, **Registrar novamente** ou **Cancelar registro** de para o provedor **Microsoft.SqlVirtualMachine**, dependendo da ação desejada. 
 
    ![Modificar o provedor](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
 
@@ -104,7 +104,7 @@ Registre uma VM SQL Server no modo leve com o CLI do Azure:
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> 
   ```
 
 
@@ -119,7 +119,7 @@ Registre uma VM SQL Server no modo leve com Azure PowerShell:
           
   # Register SQL VM with 'Lightweight' SQL IaaS agent
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-    -LicenseType PAYG -SqlManagementType LightWeight  
+    -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
 
 ---
@@ -140,10 +140,10 @@ Para registrar sua VM SQL Server diretamente no modo completo (e possivelmente r
 
 ### <a name="noagent-management-mode"></a>Modo de gerenciamento NoAgent 
 
-SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 ( _não R2_ ) podem ser registrados com a extensão do SQL IaaS Agent no [modo noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Essa opção garante a conformidade e permite que a VM do SQL Server seja monitorada no portal do Azure com funcionalidade limitada.
+SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 (_não R2_) podem ser registrados com a extensão do SQL IaaS Agent no [modo noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Essa opção garante a conformidade e permite que a VM do SQL Server seja monitorada no portal do Azure com funcionalidade limitada.
 
 
-Para o **tipo de licença** , especifique: `AHUB` , `PAYG` ou `DR` . Para a **oferta de imagem** , especifique um `SQL2008-WS2008` ou `SQL2008R2-WS2008`
+Para o **tipo de licença**, especifique: `AHUB` , `PAYG` ou `DR` . Para a **oferta de imagem**, especifique um `SQL2008-WS2008` ou `SQL2008R2-WS2008`
 
 Para registrar seu SQL Server 2008 ( `SQL2008-WS2008` ) ou 2008 R2 ( `SQL2008R2-WS2008` ) na instância do Windows Server 2008, use o seguinte CLI do Azure ou Azure PowerShell trecho de código: 
 
@@ -186,7 +186,7 @@ $sqlvm.SqlManagementType
 
 ## <a name="upgrade-to-full"></a>Atualizar para completo  
 
-SQL Server VMs que registraram a extensão no modo *leve* podem ser atualizadas para _full_ usando o portal do Azure, o CLI do Azure ou o Azure PowerShell. As VMs do SQL Server no modo _NoAgent_ podem ser atualizadas para _completo_ depois que o sistema operacional é atualizado para o Windows 2008 R2 e superior. Não é possível fazer o downgrade – para isso, você precisará cancelar o [registro](#unregister-from-extension) da VM SQL Server da extensão do agente IaaS do SQL. Isso removerá o **recurso** da _máquina virtual do SQL_ , mas não excluirá a máquina virtual em si. 
+SQL Server VMs que registraram a extensão no modo *leve* podem ser atualizadas para _full_ usando o portal do Azure, o CLI do Azure ou o Azure PowerShell. As VMs do SQL Server no modo _NoAgent_ podem ser atualizadas para _completo_ depois que o sistema operacional é atualizado para o Windows 2008 R2 e superior. Não é possível fazer o downgrade – para isso, você precisará cancelar o [registro](#unregister-from-extension) da VM SQL Server da extensão do agente IaaS do SQL. Isso removerá o **recurso** da _máquina virtual do SQL_, mas não excluirá a máquina virtual em si. 
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -239,7 +239,7 @@ Para verificar o status de registro usando o portal do Azure, siga estas etapas:
 1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Vá para suas [VMs SQL Server](manage-sql-vm-portal.md).
 1. Selecione a VM do SQL Server na lista. Se sua VM de SQL Server não estiver listada aqui, provavelmente ela não foi registrada com a extensão do SQL IaaS Agent. 
-1. Ver o valor em **Status**. Se o **status** for **bem-sucedido** , o SQL Server VM foi registrado com êxito com a extensão do agente IaaS do SQL. 
+1. Ver o valor em **Status**. Se o **status** for **bem-sucedido**, o SQL Server VM foi registrado com êxito com a extensão do agente IaaS do SQL. 
 
    ![Verificar o status com o registro de RP do SQL](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
 
@@ -278,7 +278,7 @@ O cancelamento do registro da máquina virtual do SQL com a extensão do SQL Iaa
 
 Para cancelar o registro da VM SQL Server da extensão usando o portal do Azure, siga estas etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Navegue até o recurso de VM do SQL. 
   
    ![Recurso de máquinas virtuais do SQL](./media/sql-agent-extension-manually-register-single-vm/sql-vm-manage.png)

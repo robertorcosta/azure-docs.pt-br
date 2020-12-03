@@ -8,17 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 314ad3838fdc35925df20f651b80e4eeecd207db
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503582"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547093"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -143,12 +143,12 @@ cmdlet | Uso
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    Por exemplo: 
+    Por exemplo:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo: 
+4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -159,7 +159,7 @@ cmdlet | Uso
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Por exemplo: 
+   Por exemplo:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force

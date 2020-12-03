@@ -1,6 +1,6 @@
 ---
-title: Consultar o armazenamento de dados com o pool de SQL sem servidor (versão prévia)
-description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso de pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics.
+title: Consultar o armazenamento de dados com o pool de SQL sem servidor
+description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso de pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299574"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462659"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulte arquivos de armazenamento com o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar os arquivos de armazenamento com o pool de SQL sem servidor no Azure Synapse Analytics
 
-O pool de SQL sem servidor (versão prévia) permite que você consulte dados no seu data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
+O pool de SQL sem servidor permite que você consulte dados no data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
 
 - Área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, incluindo a maioria das [funções e operadores SQL](overview-features.md).
 - [CETAS](develop-tables-cetas.md) (CREATE EXTERNAL TABLE AS SELECT) cria uma [tabela externa](develop-tables-external-tables.md) e, em seguida, exporta em paralelo os resultados de uma instrução SELECT de Transact-SQL para o Armazenamento do Azure.
@@ -222,7 +222,7 @@ Você pode aprender mais sobre como consultar vários tipos de dados usando as c
 ### <a name="tools"></a>Ferramentas
 
 As ferramentas de que você precisa para emitir consultas:
-    - Azure Synapse Studio (versão prévia)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451423"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é o Banco de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -200,7 +200,7 @@ O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais 
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de banco de dados multiplataforma executada no Windows, no macOS e no Linux.|
 |[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Um aplicativo cliente gratuito e transferível para gerenciar qualquer infraestrutura SQL, do SQL Server ao Banco de Dados SQL.|
 |[SQL Server Data Tools no Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|Um aplicativo cliente gratuito que pode ser baixado para desenvolver bancos de dados relacionais do SQL Server, bancos de dados do Banco de Dados SQL do Azure, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o Azure Synapse Analytics (antigo SQL Data Warehouse).|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o Azure Synapse Analytics.|
 
 O Banco de Dados SQL permite a criação de aplicativos com Python, Java, Node.js, PHP, Ruby e .NET no macOS, Linux e Windows. O Banco de Dados SQL dá suporte às mesmas [bibliotecas de conexão](connect-query-content-reference-guide.md#libraries) do SQL Server.
 
