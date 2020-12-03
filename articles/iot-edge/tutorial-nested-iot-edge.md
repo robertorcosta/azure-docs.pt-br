@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: db77df29d1b9b0adf07c7da377c028dee5312617
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579191"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453053"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (versão prévia)
 
@@ -50,10 +50,10 @@ Este tutorial usa uma hierarquia de dois dispositivos para simplificar. Um dispo
 Para criar uma hierarquia de dispositivos IoT Edge, será necessário:
 
 * Um computador (Windows ou Linux) com conectividade com a Internet.
-* Dois dispositivos Linux a serem configurados como dispositivos IoT Edge. Se você não tiver dispositivos disponíveis, use [máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/).
-* Uma conta do Azure com uma assinatura válida. Se você não tiver uma [assinatura do Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Dois dispositivos Linux a serem configurados como dispositivos IoT Edge. Se você não tiver dispositivos disponíveis, use [máquinas virtuais do Azure](../virtual-machines/linux/index.yml).
+* Uma conta do Azure com uma assinatura válida. Se você não tiver uma [assinatura do Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou da camada Standard no Azure.
-* A CLI do Azure v2.3.1 com a extensão de IoT do Azure v0.10.6 ou superior instalada. Este tutorial usa o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Se você não estiver familiarizado com o Azure Cloud Shell, [confira um guia de início rápido para obter mais detalhes](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
+* A CLI do Azure v2.3.1 com a extensão de IoT do Azure v0.10.6 ou superior instalada. Este tutorial usa o [Azure Cloud Shell](../cloud-shell/overview.md). Se você não estiver familiarizado com o Azure Cloud Shell, [confira um guia de início rápido para obter mais detalhes](./quickstart-linux.md#use-azure-cloud-shell).
 
 Experimente também esse cenário seguindo o [exemplo do Azure IoT Edge para IoT Industrial](https://aka.ms/iotedge-nested-sample) com script, que implanta máquinas virtuais do Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
 
@@ -188,8 +188,8 @@ Instale o IoT Edge seguindo estas etapas nos dois dispositivos.
 1. Instalar o hsmlib e o daemon do IoT Edge <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -261,7 +261,7 @@ Conclua estas etapas e reinicie o serviço do IoT Edge para configurar seus disp
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -273,7 +273,7 @@ Conclua estas etapas e reinicie o serviço do IoT Edge para configurar seus disp
      type: "docker"
      env: {}
      config:
-       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc1"
+       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -305,7 +305,7 @@ No [portal do Azure](https://ms.portal.azure.com/):
 
 1. Selecione **Configurações de Runtime** ao lado do ícone de engrenagem.
 
-1. Em **Hub do Edge**, no campo de imagem, insira `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Em **Hub do Edge**, no campo de imagem, insira `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
    ![Editar a imagem do Hub do Edge](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
@@ -318,7 +318,7 @@ No [portal do Azure](https://ms.portal.azure.com/):
 
    ![Editar as variáveis de ambiente do Hub do Edge](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. Em **Agente do Edge**, no campo de imagem, insira `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1`. Selecione **Salvar**.
+1. Em **Agente do Edge**, no campo de imagem, insira `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2`. Selecione **Salvar**.
 
 1. Adicione o módulo do registro do Docker ao dispositivo de camada superior. Selecione **+ Adicionar** e escolha **Módulo do IoT Edge** na lista suspensa. Forneça o nome `registry` para o módulo do registro do Docker e insira `registry:latest` como o URI da imagem. Em seguida, adicione variáveis de ambiente e crie opções para apontar o módulo de registro local para o registro de contêiner da Microsoft a fim de baixar bidirecionalmente imagens de contêiner fornecê-las em registry:5000.
 
@@ -412,14 +412,14 @@ No [portal do Azure](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -478,7 +478,7 @@ No [portal do Azure](https://ms.portal.azure.com/):
 
 1. Selecione **Configurações de Runtime** ao lado do ícone de engrenagem.
 
-1. Em **Hub do Edge**, no campo de imagem, insira `$upstream:8000/azureiotedge-hub:1.2.0-rc1`.
+1. Em **Hub do Edge**, no campo de imagem, insira `$upstream:8000/azureiotedge-hub:1.2.0-rc2`.
 
 1. Adicione as seguintes variáveis de ambiente ao módulo do Hub do Edge:
 
@@ -487,7 +487,7 @@ No [portal do Azure](https://ms.portal.azure.com/):
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Em **Agente do Edge**, no campo de imagem, insira `$upstream:8000/azureiotedge-agent:1.2.0-rc1`. Selecione **Salvar**.
+1. Em **Agente do Edge**, no campo de imagem, insira `$upstream:8000/azureiotedge-agent:1.2.0-rc2`. Selecione **Salvar**.
 
 1. Adicione o módulo de sensor de temperatura. Selecione **+ Adicionar** e escolha **Módulo do Marketplace** na lista suspensa. Pesquise `Simulated Temperature Sensor` e selecione o módulo.
 
@@ -534,14 +534,14 @@ No [portal do Azure](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",

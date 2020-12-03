@@ -3,12 +3,12 @@ title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric
 description: Saiba como colocar um aplicativo existente do .NET em um contêiner usando o Visual Studio e depure os contêineres no Service Fabric localmente. O aplicativo colocado em um contêiner é enviado por push para um registro de contêiner do Azure e implantado em um cluster do Service Fabric. Quando implantado no Azure, o aplicativo usa o Banco de Dados SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8be9de495fa6bc5689a2dba5384f5df3112cbb38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889928"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485511"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Baixar e executar o Fabrikam Fiber CallCenter
 
-1. Baixe o aplicativo de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique no link **baixar arquivo**.  No diretório *sourceCode* no arquivo *fabrikam.zip* , extraia o arquivo *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* no seu computador.
+1. Baixe o aplicativo de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique no link **baixar arquivo**.  No diretório *sourceCode* no arquivo *fabrikam.zip*, extraia o arquivo *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* no seu computador.
 
 2. Verifique se o aplicativo Fabrikam fibra CallCenter é compilado e executado sem erros.  Inicie o Visual Studio como um **administrador** e abra o arquivo [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Pressione F5 para depurar e executar o aplicativo.
 
@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá como:
 
 2. Se solicitado, clique em **Sim** para alternar o Docker para contêineres do Windows agora.
 
-   Um novo projeto de aplicativo do Service Fabric **FabrikamFiber.CallCenterApplication** é criado na solução.  Um Dockerfile é adicionado ao projeto **FabrikamFiber.Web** existente.  Um diretório **PackageRoot** também é adicionado ao projeto **FabrikamFiber.Web** , que contém o manifesto do serviço e as configurações para o novo serviço FabrikamFiber.Web.
+   Um novo projeto de aplicativo do Service Fabric **FabrikamFiber.CallCenterApplication** é criado na solução.  Um Dockerfile é adicionado ao projeto **FabrikamFiber.Web** existente.  Um diretório **PackageRoot** também é adicionado ao projeto **FabrikamFiber.Web**, que contém o manifesto do serviço e as configurações para o novo serviço FabrikamFiber.Web.
 
    O contêiner agora está pronto para ser compilado e empacotado em um aplicativo do Service Fabric. Depois de compilar a imagem de contêiner no computador, você poderá enviá-la por push para qualquer registro de contêiner e efetuar pull dela em qualquer host para execução.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Atualizar a configuração da Web
 
-Novamente no projeto **FabrikamFiber.Web** , atualize a cadeia de conexão no arquivo **web.config** para que ela aponte para o SQL Server no contêiner.  Atualize a parte do *Servidor* da cadeia de conexão para o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net". No XML a seguir, você precisa atualizar somente o atributo `connectionString`. Os atributos `providerName` e `name` não precisam ser alterados.
+Novamente no projeto **FabrikamFiber.Web**, atualize a cadeia de conexão no arquivo **web.config** para que ela aponte para o SQL Server no contêiner.  Atualize a parte do *Servidor* da cadeia de conexão para o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net". No XML a seguir, você precisa atualizar somente o atributo `connectionString`. Os atributos `providerName` e `name` não precisam ser alterados.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -157,10 +157,10 @@ Ao criar o cluster:
 
 1. Clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** no Gerenciador de Soluções e escolha **Publicar**.
 2. Entre usando sua conta do Azure para que você possa ter acesso às assinaturas.
-3. Abaixo da lista suspensa de **Ponto de Extremidade de Conexão** , selecione a opção **Criar Cluster...** .
-4. Na caixa de diálogo **Criar cluster** , modifique as seguintes configurações:
+3. Abaixo da lista suspensa de **Ponto de Extremidade de Conexão**, selecione a opção **Criar Cluster...** .
+4. Na caixa de diálogo **Criar cluster**, modifique as seguintes configurações:
 
-    a. Especifique o nome do cluster no campo **Nome do Cluster** , bem como a assinatura e o local que você deseja usar. Anote o nome do seu grupo de recursos de cluster.
+    a. Especifique o nome do cluster no campo **Nome do Cluster**, bem como a assinatura e o local que você deseja usar. Anote o nome do seu grupo de recursos de cluster.
 
     b. Opcional: é possível modificar o número de nós. Por padrão, existem três nós, o mínimo necessário para testar cenários do Service Fabric.
 
@@ -169,9 +169,9 @@ Ao criar o cluster:
     d. Selecione a guia **Detalhes da VM**. Especifique a senha que você deseja usar para as VMs (máquinas virtuais) que compõem o cluster. O nome de usuário e a senha podem ser usados para se conectar remotamente às VMs. Você também deve selecionar um tamanho de máquina VM e pode alterar a imagem da VM, se necessário.
 
     > [!IMPORTANT]
-    > Escolha um SKU que dê suporte a contêineres em execução. O sistema operacional Windows Server nos seus nós de cluster devem ser compatíveis com o sistema operacional Windows Server do seu contêiner. Para obter mais informações, consulte [Compatibilidade do sistema operacional contêiner e do sistema operacional do host do Windows Server](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por padrão, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Contêineres com base nesta imagem serão executados em clusters criados com o Windows Server 2016 Datacenter com contêineres. No entanto, se você criar um cluster ou usar um cluster existente com base em uma versão diferente do Windows Server, você precisará alterar a imagem do SO na qual o contêiner se baseia. Abra o **dockerfile** no projeto **FabrikamFiber.Web** , comente qualquer instrução `FROM` existente baseada em uma versão anterior do Windows Server e adicione uma instrução `FROM` com base na marca da versão desejada da [página do DockerHub do Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore). Para obter informações adicionais sobre versões, linhas do tempo de suporte e controle de versão do Windows Server Core, confira [Informações de versão do Windows Server Core](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info). 
+    > Escolha um SKU que dê suporte a contêineres em execução. O sistema operacional Windows Server nos seus nós de cluster devem ser compatíveis com o sistema operacional Windows Server do seu contêiner. Para obter mais informações, consulte [Compatibilidade do sistema operacional contêiner e do sistema operacional do host do Windows Server](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por padrão, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Contêineres com base nesta imagem serão executados em clusters criados com o Windows Server 2016 Datacenter com contêineres. No entanto, se você criar um cluster ou usar um cluster existente com base em uma versão diferente do Windows Server, você precisará alterar a imagem do SO na qual o contêiner se baseia. Abra o **dockerfile** no projeto **FabrikamFiber.Web**, comente qualquer instrução `FROM` existente baseada em uma versão anterior do Windows Server e adicione uma instrução `FROM` com base na marca da versão desejada da [página do DockerHub do Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore). Para obter informações adicionais sobre versões, linhas do tempo de suporte e controle de versão do Windows Server Core, confira [Informações de versão do Windows Server Core](/windows-server/get-started/windows-server-release-info). 
 
-    e. Na guia **Avançado** , liste a porta do aplicativo que deverá ser aberta no balanceador de carga quando o cluster for implantado. Essa é a porta que você anotou antes de iniciar a criação do cluster. Você também pode adicionar uma chave existente do Application Insights a ser usada para direcionar os arquivos de log do aplicativo.
+    e. Na guia **Avançado**, liste a porta do aplicativo que deverá ser aberta no balanceador de carga quando o cluster for implantado. Essa é a porta que você anotou antes de iniciar a criação do cluster. Você também pode adicionar uma chave existente do Application Insights a ser usada para direcionar os arquivos de log do aplicativo.
 
     f. Quando você terminar de modificar as configurações, selecione o botão **Criar**.
 
@@ -229,7 +229,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
 
-Agora que o aplicativo está pronto, você poderá implantá-lo no cluster no Azure diretamente por meio do Visual Studio.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** e selecione **Publicar**.  Em **Ponto de extremidade de Conexão** , selecione o ponto de extremidade do cluster que você criou anteriormente.  Em **Registro de Contêiner do Azure** , selecione o registro de contêiner que você criou anteriormente.  Clique em **Publicar** para implantar o aplicativo no cluster no Azure.
+Agora que o aplicativo está pronto, você poderá implantá-lo no cluster no Azure diretamente por meio do Visual Studio.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** e selecione **Publicar**.  Em **Ponto de extremidade de Conexão**, selecione o ponto de extremidade do cluster que você criou anteriormente.  Em **Registro de Contêiner do Azure**, selecione o registro de contêiner que você criou anteriormente.  Clique em **Publicar** para implantar o aplicativo no cluster no Azure.
 
 ![aplicativo Publicar][publish-app]
 

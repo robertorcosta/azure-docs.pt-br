@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317201"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451253"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Azure Monitor
 O Metrics Explorer é um recurso do Azure Monitor no portal do Azure que permite criar gráficos com base em valores de métrica, correlacionar tendências visualmente e investigar picos e vales nos valores das métricas. Use o Metrics Explorer para investigar a integridade e o uso dos seus recursos do Azure ou para plotar gráficos de métricas personalizadas. 
@@ -85,5 +85,5 @@ Você pode personalizar o estilo do gráfico, o título e modificar as configura
 Agora que você aprendeu como trabalhar com métricas no Azure Monitor, saiba como usar as métricas para enviar alertas proativos.
 
 > [!div class="nextstepaction"]
-> [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../platform/alerts-metric.md)
+> [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

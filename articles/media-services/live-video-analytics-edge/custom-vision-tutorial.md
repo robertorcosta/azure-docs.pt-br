@@ -4,12 +4,12 @@ description: Saiba como usar a Visão Personalizada do Azure para criar um model
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4d9f82d99542bde216f0eaa1459d0f6c1a52659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358184"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498329"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analisar vídeos ao vivo com Análise Dinâmica de Vídeo no IoT Edge e na Visão Personalizada do Azure
 
@@ -194,7 +194,7 @@ Clique com o botão direito do mouse no dispositivo da Análise Dinâmica de Ví
 
 Se você abrir a topologia do grafo deste tutorial em um navegador, verá que o valor de `inferencingUrl` foi definido como `http://cv:80/image`. Essa configuração significa que o servidor de inferência retornará os resultados depois de detectar os caminhões de brinquedo, se houver, no vídeo ao vivo.
 
-1. No Visual Studio Code, abra a guia **Extensões** (ou selecione **CTRL+SHIFT+X** ) e procure Hub IoT do Azure.
+1. No Visual Studio Code, abra a guia **Extensões** (ou selecione **CTRL+SHIFT+X**) e procure Hub IoT do Azure.
 1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
     > [!div class="mx-imgBorder"]
@@ -391,6 +391,6 @@ Se pretender experimentar outros tutoriais ou guias de início rápido, mantenha
 Examine os desafios adicionais para usuários avançados:
 
 * Use uma [câmera IP](https://en.wikipedia.org/wiki/IP_camera) compatível com RTSP em vez de usar o simulador RTSP. Pesquise pelas câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products/). Procure dispositivos em conformidade com os perfis G, S ou T.
-* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md).
+* Use um dispositivo Linux AMD64 ou x64 em vez de usar uma VM Linux do Azure. Esse dispositivo precisa estar na mesma rede que a câmera IP. Siga as instruções em [Instalar o runtime do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md).
 
 Depois, registre o dispositivo no Hub IoT do Azure seguindo as instruções em [Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).

@@ -2,8 +2,8 @@
 title: Ramificação no pipeline do Azure Data Factory
 description: Aprenda a controlar o fluxo de dados no Azure Data Factory por ramificação e encadeamento de atividades.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637693"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496935"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -73,14 +73,14 @@ Crie um aplicativo conforme descrito em [Criar um aplicativo do Azure Active Dir
 Criar um aplicativo de console do .NET em C#:
 
 1. Inicie o Visual Studio e selecione **Criar um projeto**.
-1. Em **Criar um novo projeto** , escolha **Aplicativo de Console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
+1. Em **Criar um novo projeto**, escolha **Aplicativo de Console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
 1. Nomeie o projeto *ADFv2BranchTutorial*.
 1. Selecione **.NET versão 4.5.2** ou superior e, em seguida, selecione **Criar**.
 
 ### <a name="install-nuget-packages"></a>Instalar os pacotes NuGet
 
 1. Selecione **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
-1. No **Console do Gerenciador de Pacotes** , execute os comandos a seguir para instalar os pacotes. Veja o [pacote NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter detalhes.
+1. No **Console do Gerenciador de Pacotes**, execute os comandos a seguir para instalar os pacotes. Veja o [pacote NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter detalhes.
 
    ```powershell
    Install-Package Microsoft.Azure.Management.DataFactory
@@ -148,7 +148,7 @@ Criar um aplicativo de console do .NET em C#:
 
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Adicione um método `CreateOrUpdateDataFactory` ao arquivo *Program.cs* :
+1. Adicione um método `CreateOrUpdateDataFactory` ao arquivo *Program.cs*:
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -181,7 +181,7 @@ Criar um aplicativo de console do .NET em C#:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Criar um serviço vinculado do Armazenamento do Azure
 
-1. Adicione um método `StorageLinkedServiceDefinition` ao arquivo *Program.cs* :
+1. Adicione um método `StorageLinkedServiceDefinition` ao arquivo *Program.cs*:
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -213,7 +213,7 @@ Nesta seção, você criará dois conjuntos de dados: um para a origem e o outro
 
 Adicione um método que cria um *conjunto de dados de Blob do Azure*. Para obter mais detalhes e informações sobre propriedades compatíveis, confira [Propriedades do conjunto de dados de Blob do Azure](connector-azure-blob-storage.md#dataset-properties).
 
-Adicione um método `SourceBlobDatasetDefinition` ao arquivo *Program.cs* :
+Adicione um método `SourceBlobDatasetDefinition` ao arquivo *Program.cs*:
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -240,7 +240,7 @@ Observe o uso de parâmetros para *FolderPath*. `sourceBlobContainer` é o nome 
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Criar um conjunto de dados para um Blob do Azure de coletor
 
-1. Adicione um método `SourceBlobDatasetDefinition` ao arquivo *Program.cs* :
+1. Adicione um método `SourceBlobDatasetDefinition` ao arquivo *Program.cs*:
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -336,7 +336,7 @@ O fluxo de trabalho terá aparência semelhante à do exemplo a seguir:
 
 Esse conteúdo JSON se alinha com a classe `EmailRequest` que você criou na seção anterior.
 
-Adicione uma ação de `Office 365 Outlook – Send an email`. Para a ação **Enviar um email** , personalize o modo como você deseja formatar o email, usando as propriedades passadas no esquema JSON do **corpo** da solicitação. Aqui está um exemplo:
+Adicione uma ação de `Office 365 Outlook – Send an email`. Para a ação **Enviar um email**, personalize o modo como você deseja formatar o email, usando as propriedades passadas no esquema JSON do **corpo** da solicitação. Aqui está um exemplo:
 
 ![Designer de Aplicativo Lógico – ação de enviar email](media/tutorial-control-flow/customize-send-email-action.png)
 
