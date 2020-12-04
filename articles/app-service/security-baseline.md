@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 94ab7e235f0796277d65aebb33d9011fc76b74ce
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 3d84f0df44f17bdc7dd68aa9cae1f01b06d261b4
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532781"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601634"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança do Azure para o serviço de aplicativo
 
@@ -71,7 +71,7 @@ Use o Firewall do Azure para enviar tráfego e criar, impor e registrar polític
 
 - [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-- [Como habilitar o monitoramento e a proteção do serviço de aplicativo](/azure/security-center/defender-for-app-service-intro)
+- [Como habilitar o monitoramento e a proteção do serviço de aplicativo](/azure/security-center/defender-for-app-service-introduction)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

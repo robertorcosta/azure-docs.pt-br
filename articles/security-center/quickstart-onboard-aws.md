@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122504"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573503"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conectar as contas da AWS à Central de Segurança do Azure
 
@@ -48,6 +48,8 @@ Na captura de tela abaixo, você pode ver as contas da AWS exibidas no dashboard
 
 
 ## <a name="connect-your-aws-account"></a>Conectar-se à sua conta da AWS
+
+Siga as etapas abaixo para criar o conector de nuvem da AWS. 
 
 ### <a name="step-1-set-up-aws-security-hub"></a>Etapa 1. Configurar o Hub de Segurança da AWS:
 
@@ -160,7 +162,7 @@ O Gerenciador de Sistemas da AWS é necessário para automatizar tarefas nos rec
 
         Saiba mais sobre as Marcações do Azure em [Usar marcações para organizar os recursos do Azure e a hierarquia de gerenciamento](../azure-resource-manager/management/tag-resources.md).
 
-### <a name="step-7-confirmation"></a>Etapa 7. Confirmação
+### <a name="step-6-confirmation"></a>Etapa 6. Confirmação
 
 Quando o conector for criado com sucesso e o Hub de Segurança da AWS tiver sido configurado corretamente:
 

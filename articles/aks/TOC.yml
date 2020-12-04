@@ -146,6 +146,8 @@
           href: reduce-latency-ppg.md
         - name: Atualizar a imagem do nó
           href: node-image-upgrade.md
+        - name: Atualizar a imagem do nó automaticamente com GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Atualizações do SO para nó do processo
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS

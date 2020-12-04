@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 8492e2722e456b689e23041726f6eaf94e284c3b
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1ac5e32b454cfc1adafb1f54b01d2a1a302908a4
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93028114"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600428"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usar o aprendizado ativo para melhorar sua base de dados de conhecimento
 
@@ -25,16 +25,18 @@ O aprendizado ativo é compatível com a versão de runtime 4.4.0 e superior. Se
 
 ## <a name="turn-on-active-learning-for-alternate-questions"></a>Ativar o aprendizado ativo para perguntas alternativas
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
 O aprendizado ativo está desativado por padrão. Ative-o para ver sugestões de perguntas. Depois de ativar o aprendizado ativo, você precisa enviar informações do aplicativo cliente para QnA Maker. Para obter mais informações, consulte [o fluxo arquitetônico para usar GenerateAnswer e treinar APIs de um bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
 1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizado ativo são coletadas somente do ponto de extremidade de previsão da API GenerateAnswer. As consultas ao painel de teste no portal de QnA Maker não afetam o aprendizado ativo.
 
-1. Para ativar o aprendizado ativo no portal de QnA Maker, vá para o canto superior direito, selecione seu **nome** , vá para [**configurações de serviço**](https://www.qnamaker.ai/UserSettings).
+1. Para ativar o aprendizado ativo no portal de QnA Maker, vá para o canto superior direito, selecione seu **nome**, vá para [**configurações de serviço**](https://www.qnamaker.ai/UserSettings).
 
     ![Ative as alternativas de perguntas sugeridas do aprendizado ativo na página Configurações de serviço. Selecione seu nome de usuário no menu superior direito e, em seguida, selecione configurações de serviço.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
-1. Localize o serviço QnA Maker e, em seguida, ative o **aprendizado ativo** .
+1. Localize o serviço QnA Maker e, em seguida, ative o **aprendizado ativo**.
 
     > [!div class="mx-imgBorder"]
     > [![Na página Configurações de serviço, alterne o recurso de aprendizado ativo. Se não for possível alternar o recurso, talvez seja necessário atualizar seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
@@ -43,6 +45,12 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver sugestões de
     > A versão exata na imagem anterior é mostrada apenas como um exemplo. Sua versão pode ser diferente.
 
     Quando o **aprendizado ativo** é habilitado, a base de dados de conhecimento sugere novas perguntas em intervalos regulares com base em perguntas enviadas pelo usuário. Você pode desabilitar o **aprendizado ativo** desativando a configuração novamente.
+    
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
+
+Por padrão, o aprendizado ativo está **ativado** no QnA Maker gerenciado (versão prévia). Para ver as perguntas alternativas sugeridas, [use as opções de exibição](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
+
+---
 
 ## <a name="review-suggested-alternate-questions"></a>Revisar as perguntas alternativas sugeridas
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999987"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602607"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM em uma máquina virtual Linux do Azure  
 
@@ -33,7 +33,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um grupo de recursos, use o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Neste exemplo, um grupo de recursos chamado de *myResourceGroup* é criado na região *eastus*.
+Para criar um grupo de recursos, use o comando [AZ Group Create](/cli/azure/group) . Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Neste exemplo, um grupo de recursos chamado de *myResourceGroup* é criado na região *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -345,7 +345,7 @@ Para este tutorial, o usuário padrão é *grade* e o grupo padrão é *asmadmin
 
 Para baixar e preparar o software de infraestrutura em grade do Oracle, conclua as seguintes etapas:
 
-1. Baixe a infraestrutura em grade do Oracle da [página de download do Oracle ASM](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Baixe a infraestrutura em grade do Oracle da [página de download do Oracle ASM](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    No download intitulado **Banco de Dados Oracle 12c versão 1 Infraestrutura em Grade (12.1.0.2.0) para Linux x86-64**, baixe os dois arquivos .zip.
 

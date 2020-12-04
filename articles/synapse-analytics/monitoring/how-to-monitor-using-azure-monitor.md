@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f495de13c20aa2953f55e2837fab15a6c62e1083
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9032fcaf35265c791913f5b69fb0972bada6885f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466139"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602454"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use Azure Monitor com seu espaço de trabalho do Azure Synapse Analytics
 
@@ -107,7 +107,6 @@ Estes são os logs emitidos pelos espaços de trabalho do Azure Synapse Analytic
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | GatewayApiRequests             | Solicitações da API do gateway Synapse do Azure. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Operações de SRBAC (controle de acesso baseado em função) do Azure Synapse. |
-| SynapseBuiltinSqlPoolRequestsEnded   | BuiltInSqlReqsEnded    | Encerradas solicitações SQL sem servidor internas do Azure Synapse. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Logs de pool do SQL dedicados
 
@@ -174,7 +173,7 @@ Crie ou adicione configurações de diagnóstico para seu espaço de trabalho, p
     > [!NOTE]
     > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações para seu espaço de trabalho, pool de SQL dedicado ou pool de Apache Spark. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 

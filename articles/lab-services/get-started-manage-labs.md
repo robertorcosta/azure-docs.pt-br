@@ -3,12 +3,12 @@ title: Introdução ao Azure Lab Services
 description: Este artigo descreve como começar a usar o Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434423"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602658"
 ---
 # <a name="get-started-with-lab-services"></a>Introdução aos serviços de laboratório 
 
@@ -115,12 +115,8 @@ Os professores podem adicionar usuários de aluno a um laboratório e monitorar 
 
 1. No [site do Azure Lab Services](https://labs.azure.com/) , clique em **usuários** no lado esquerdo da janela.
 1. Na parte superior da janela, clique em **Adicionar usuários** e selecione **Adicionar por endereço de email**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="O botão ' Adicionar usuários '":::
 1. No painel **Adicionar usuários** que aparece à direita, insira os endereços de email dos alunos em linhas separadas ou em uma única linha, separados por ponto e vírgula.
 1. Clique em **Save** (Salvar).
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Adicionar alunos ao seu laboratório":::
 1. Sua lista de usuários agora será atualizada com emails, status, convite e horas de cota.
 
     Depois que os alunos forem registrados para um laboratório, seus nomes serão atualizados com o nome e o sobrenome de Azure Active Directory.

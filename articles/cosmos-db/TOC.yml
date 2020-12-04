@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Usar o Gerenciador de Armazenamento do Azure
           href: storage-explorer.md
-        - name: Usar o Azure Cosmos Explorer
+        - name: Usar o Azure Cosmos DB Explorer
           href: data-explorer.md
     - name: Análise e BI com o Link do Azure Synapse
       items:

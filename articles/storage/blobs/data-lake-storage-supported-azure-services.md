@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f9b1193a4eb2c7299cbfb0c729673b72d1e8fbad
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545819"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600380"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Serviços do Azure compatíveis com o Azure Data Lake Storage Gen2
 
@@ -44,6 +44,7 @@ Esta tabela lista os serviços do Azure que você pode usar com Azure Data Lake 
 |Azure Data Explorer|Disponível para o público geral|Sim|Sim|[Consultar dados em Azure Data Lake usando o Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Pesquisa Cognitiva do Azure|Visualização|Sim|Sim|[Indexar e Pesquisar Azure Data Lake Storage Gen2 documentos (visualização)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Rede de Distribuição de Conteúdo do Azure|Ainda não compatível|Não aplicável|Não aplicável|[Indexar e Pesquisar Azure Data Lake Storage Gen2 documentos (visualização)](../../cdn/cdn-overview.md)|
+|Banco de Dados SQL do Azure|Ainda não compatível|Não aplicável|Não aplicável|[O que é o Banco de Dados SQL do Azure?](/azure/azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>Confira também
 

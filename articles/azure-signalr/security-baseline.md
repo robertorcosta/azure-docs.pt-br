@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1760daceb27125add6e6f58cf0dac6cb61ff2c75
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 25e936aeadcc76d289d91e165548c7fb648f68b4
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296430"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600754"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Linha de base de segurança do Azure para serviço de Signaler do Azure
 
@@ -24,7 +24,7 @@ Para ver como o Azure Signalr é mapeado completamente para o benchmark de segur
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Para obter mais informações, confira o [Azure Security Benchmark: Segurança de Rede](/azure/security/benchmarks/security-controls-v2-network-security).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementar a segurança para tráfego interno
 
@@ -64,7 +64,7 @@ Para conectar duas ou mais redes virtuais no Azure juntas, use o emparelhamento 
 
 **Responsabilidade**: Cliente
 
-### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: estabelecer acesso de rede privada aos serviços do Azure
+### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: estabelecer o acesso de rede privada aos serviços do Azure
 
 **Orientação**: Use o link privado do Azure para habilitar o acesso privado ao serviço de signaler do Azure de suas redes virtuais sem cruzar a Internet.
 
@@ -108,7 +108,7 @@ O serviço de Signaler do Azure dá suporte apenas à autenticação do Azure AD
 - Colaborador do signalr
 - Leitor de AccessKey do signalr
 
-A proteção do Azure AD deve ser uma prioridade alta na prática de segurança de nuvem da sua organização. O Azure AD fornece uma pontuação segura de identidade para ajudá-lo a avaliar a postura de segurança de identidade em relação às recomendações de práticas recomendadas da Microsoft. Use a classificação para medir o alinhamento da sua configuração com as recomendações de melhores práticas e fazer aprimoramentos na sua postura de segurança.
+A proteção do Azure AD deve ser uma prioridade alta na prática de segurança de nuvem da sua organização. O Azure AD fornece uma classificação de segurança de identidade para ajudar você a avaliar a postura de segurança de identidade em relação às recomendações de melhores práticas da Microsoft. Use a classificação para medir o alinhamento da sua configuração com as recomendações de melhores práticas e fazer aprimoramentos na sua postura de segurança.
 
 O Azure AD dá suporte a identidades externas que permitem aos usuários sem um conta Microsoft entrar em seus aplicativos e recursos com sua identidade externa.
 
@@ -118,13 +118,13 @@ O Azure AD dá suporte a identidades externas que permitem aos usuários sem um 
 
 - [Usar provedores de identidade externos para o aplicativo](/azure/active-directory/b2b/identity-providers)
 
-- [O que é a pontuação segura de identidade em Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [O que é a classificação de segurança de identidade no Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: gerenciar identidades de aplicativos de forma segura e automática
+### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: gerenciar identidades de aplicativo de maneira segura e automática
 
 **Diretrizes**: o serviço do Azure signalr usa identidades gerenciadas do Azure para contas não humanas, como a que está chamando upstream em um cenário sem servidor. É recomendável usar o recurso de identidade gerenciada do Azure para acessar outros recursos do Azure. O serviço de sinalizador do Azure pode se autenticar nativamente nos serviços ou recursos do Azure que dão suporte à autenticação Azure Active Directory (AD do Azure) por meio da regra de concessão de acesso predefinida sem usar a credencial codificada no código-fonte ou nos arquivos de configuração.
 
@@ -198,13 +198,13 @@ O ATP (Proteção Avançada contra Ameaças) do Azure é uma solução de segura
 
 **Responsabilidade**: Cliente
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso a recursos do Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso aos recursos do Azure com base em condições
 
 **Diretrizes**: o serviço de signaler do Azure dá suporte ao acesso condicional do Azure Active Directory (Azure AD) para um controle de acesso mais granular com base em condições definidas pelo usuário, como logons de usuário de determinados intervalos de IP precisarão usar a MFA para logon. A política de gerenciamento de sessão de autenticação granular também pode ser usada para diferentes casos de uso.
 
 - [Visão geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md)
 
-- [Políticas de acesso condicional comum](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Políticas comuns de acesso condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
 - [Configurar o gerenciamento de sessão de autenticação com acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
@@ -289,7 +289,7 @@ Além disso, o Azure Privileged Identity Management também pode ser configurado
 
 **Diretrizes**: o serviço de signaler do Azure usa o Azure Active Directory (Azure AD) para gerenciar seus recursos. Para evitar que seja bloqueado acidentalmente da sua organização do Azure AD, configure uma conta de acesso de emergência para acesso quando contas administrativas normais não puderem ser usadas. As contas de acesso de emergência geralmente são altamente privilegiadas e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas à emergência ou cenários de urgência em que as contas administrativas normais não podem ser usadas.
 
-Você deve garantir que as credenciais (como senha, certificado ou cartão inteligente) para contas de acesso de emergência sejam mantidas seguras e conhecidas apenas para indivíduos que estão autorizados a usá-las somente em uma emergência.
+Você deve verificar se as credenciais (como senha, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas pelos indivíduos que têm autorização para usá-las somente em uma emergência.
 
 - [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
@@ -311,7 +311,7 @@ Você deve garantir que as credenciais (como senha, certificado ou cartão intel
 
 ### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: usar estações de trabalho com acesso privilegiado
 
-**Diretrizes**: estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviço críticos. Use estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para tarefas administrativas. Use Azure Active Directory, a ATP (proteção avançada contra ameaças) do Microsoft defender e/ou Microsoft Intune para implantar uma estação de trabalho de usuário segura e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas centralmente para impor configuração segura, incluindo autenticação forte, linhas de base de software e hardware, acesso lógico restrito e de rede.
+**Diretrizes**: estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviços críticos. Use estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para tarefas administrativas. Use o Azure Active Directory, o Microsoft ATP (Proteção Avançada contra Ameaças) e/ou o Microsoft Intune para implantar uma estação de trabalho do usuário protegida e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas de modo central para impor a configuração protegida, incluindo autenticação forte, linhas de base de software e hardware, acesso lógico restrito e de rede.
 
 - [Entender as estações de trabalho com acesso privilegiado](../active-directory/devices/concept-azure-managed-workstation.md)
 
@@ -386,7 +386,7 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 **Responsabilidade**: Cliente
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: garantir que a equipe de segurança tenha acesso ao inventário de ativos e metadados
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: verificar se a equipe de segurança tem acesso ao inventário de ativos e metadados
 
 **Orientação**: aplique marcas aos recursos, grupos de recursos e assinaturas do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
 
@@ -400,9 +400,9 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 **Responsabilidade**: Cliente
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar apenas os serviços aprovados do Azure
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar somente serviços do Azure aprovados
 
-**Diretrizes**: Use Azure Policy para auditar e restringir quais serviços os usuários podem provisionar em seu ambiente. Use o grafo de recursos do Azure para consultar e descobrir recursos em suas assinaturas. Você também pode usar Azure Monitor para criar regras para disparar alertas quando um serviço não aprovado for detectado.
+**Diretrizes**: Use Azure Policy para auditar e restringir quais serviços os usuários podem provisionar em seu ambiente. Use o Azure Resource Graph para consultar e descobrir recursos dentro das assinaturas deles. Você também poderá usar o Azure Monitor para criar regras para disparar alertas quando um serviço não aprovado for detectado.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -438,7 +438,7 @@ Remova os recursos do Azure quando eles não forem mais necessários.
 
 ## <a name="logging-and-threat-detection"></a>Log e detecção de ameaças
 
-*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: habilitar a detecção de ameaças para o gerenciamento de identidades e acesso do Azure
 
@@ -617,7 +617,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 ## <a name="posture-and-vulnerability-management"></a>Gerenciamento de postura e vulnerabilidades
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: estabelecer configurações seguras para os serviços do Azure 
 
@@ -637,7 +637,7 @@ Você pode usar os planos gráficos do Azure para automatizar a implantação e 
 
 **Responsabilidade**: Cliente
 
-### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: sustentar configurações seguras para os serviços do Azure
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: manter configurações seguras para os serviços do Azure
 
 **Orientação**: Use a central de segurança do Azure para monitorar sua linha de base de configuração e impor o uso de Azure Policy [Deny] e [implantar se não existir] para impor a configuração segura para o serviço de Signaler do Azure. A política de serviço do Azure Signalr inclui:
 
@@ -682,13 +682,13 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 ## <a name="backup-and-recovery"></a>Backup e recuperação
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: backup e recuperação](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
+*Para obter mais informações, confira o [Azure Security Benchmark: backup e recuperação](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
 
 ### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: reduzir o risco de perda de chaves
 
-**Diretrizes**: Verifique se você tem medidas em vigor para evitar e recuperar da perda de chaves. Habilite a exclusão reversível e a proteção de limpeza no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
+**Diretrizes**: Verifique se você tem medidas em vigor para evitar e recuperar da perda de chaves. Habilite a exclusão temporária e a proteção de limpeza no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-- [Como habilitar a exclusão reversível e limpar a proteção no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a exclusão temporária e a proteção de limpeza no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -728,9 +728,9 @@ Mais informações estão disponíveis nos links referenciados.
 
 - [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -758,7 +758,7 @@ Garanta que a estratégia de segmentação seja implementada de maneira consiste
 
 **Diretriz**: Meça e atenue continuamente os riscos para seus ativos individuais e o ambiente no qual eles estão hospedados. Priorize os ativos de alto valor e as superfícies de ataque altamente expostas, como aplicativos publicados, pontos de entrada e saída de rede, pontos de extremidade de usuário e administrador etc.
 
-- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -799,7 +799,7 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 Para saber mais, consulte as referências a seguir:
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Visão geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
@@ -827,7 +827,7 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-controls-v2-identity-management)
 
 - [Azure Security Benchmark – Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
@@ -861,9 +861,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Melhor prática de segurança do Azure 4 – Processo: atualizar processos de resposta a incidentes para a nuvem](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

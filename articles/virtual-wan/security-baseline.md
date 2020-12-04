@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7f75f764f378118f9a34c1eee467e78ac279e19c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 994cb250aff2079e32eeef6a0d22466a284481f5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029040"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602420"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Linha de base de segurança do Azure para WAN virtual
 
@@ -22,7 +22,7 @@ Para ver como a WAN virtual é totalmente mapeada para o benchmark de segurança
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Para obter mais informações, confira o [Azure Security Benchmark: Segurança de Rede](/azure/security/benchmarks/security-controls-v2-network-security).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementar a segurança para tráfego interno
 
@@ -159,7 +159,7 @@ Verifique se o nível mais alto do método de autenticação forte é usado para
 
 **Responsabilidade**: Compartilhado
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso a recursos do Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: restringir o acesso aos recursos do Azure com base em condições
 
 **Diretrizes**: habilitar a autenticação multifator do Azure Active Directory (Azure AD) para usuários VPN (ponto a site) usando a autenticação do Azure AD. Configure a autenticação multifator por usuário ou aproveite a autenticação multifator com acesso condicional. O acesso condicional permite um controle mais refinado sobre como um segundo fator deve ser promovido. Ele pode permitir a atribuição de autenticação multifator somente a VPN e excluir outros aplicativos vinculados ao locatário do Azure AD. 
 
@@ -173,7 +173,7 @@ Observe que a autenticação do Azure AD só está disponível para gateways usa
 
 **Responsabilidade**: Cliente
 
-### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: eliminar exposição de credencial não intencional
+### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: eliminar a exposição involuntária de credenciais
 
 **Diretrizes**: a VPN site a site na WAN virtual usa chaves pré-compartilhadas (PSK) que são descobertas, criadas e gerenciadas pelo cliente em seu Azure Key Vault. Implemente o verificador de credenciais para identificar as credenciais no código. O verificador de credenciais também encorajará a migração de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
 
@@ -181,7 +181,7 @@ Para o GitHub, você pode usar o recurso de verificação de segredo nativo para
 
 - [Como configurar o verificador de credenciais](https://secdevtools.azurewebsites.net/helpcredscan.html) 
 
-- [Verificação de segredo do GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+- [Verificação de segredos do GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -249,7 +249,7 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 **Responsabilidade**: Cliente
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: garantir que a equipe de segurança tenha acesso ao inventário de ativos e metadados
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: verificar se a equipe de segurança tem acesso ao inventário de ativos e metadados
 
 **Orientação**: aplique marcas aos recursos, grupos de recursos e assinaturas do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção. A WAN virtual do Azure também dá suporte a implantações de recursos baseados em Azure Resource Manager com as quais você pode exportar modelos de ativos. 
 
@@ -261,7 +261,7 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 **Responsabilidade**: Cliente
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar apenas os serviços aprovados do Azure
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar somente serviços do Azure aprovados
 
 **Diretrizes**: Use Azure monitor para criar regras para disparar alertas quando um serviço não aprovado for detectado. A WAN virtual reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma única interface operacional. Gateways de VPN de WAN virtual, gateways de ExpressRoute e firewall do Azure têm registro em log e métricas disponíveis por meio de Azure Monitor. 
  
@@ -284,7 +284,7 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 ## <a name="logging-and-threat-detection"></a>Log e detecção de ameaças
 
-*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: habilitar a detecção de ameaças para recursos do Azure
 
@@ -378,7 +378,7 @@ A segurança de WAN virtual do Azure é fornecida por meio do firewall do Azure.
 
 **Responsabilidade**: Compartilhado
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção de armazenamento de log
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurar a retenção do armazenamento de log
 
 **Diretrizes**: configure sua retenção de log de acordo com seus requisitos de conformidade, regulamentação e negócios. No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use o armazenamento do Azure, Data Lake ou Log Analytics contas de espaço de trabalho para armazenamento de longo prazo e arquivamento.
 
@@ -498,7 +498,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 ## <a name="posture-and-vulnerability-management"></a>Gerenciamento de postura e vulnerabilidades
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: realizar uma simulação de ataque regular
 
@@ -566,9 +566,9 @@ Para saber mais, consulte as referências a seguir:
 
 - [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -596,7 +596,7 @@ Garanta que a estratégia de segmentação seja implementada de maneira consiste
 
 **Diretriz**: Meça e atenue continuamente os riscos para seus ativos individuais e o ambiente no qual eles estão hospedados. Priorize os ativos de alto valor e as superfícies de ataque altamente expostas, como aplicativos publicados, pontos de entrada e saída de rede, pontos de extremidade de usuário e administrador etc.
 
-- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -637,7 +637,7 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 Para saber mais, consulte as referências a seguir:
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Visão geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
@@ -665,9 +665,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Azure Security Benchmark – Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark – Acesso privilegiado](/azure/security/benchmarks//security-controls-v2-privileged-access)
 
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -699,9 +699,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Melhor prática de segurança do Azure 4 – Processo: atualizar processos de resposta a incidentes para a nuvem](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

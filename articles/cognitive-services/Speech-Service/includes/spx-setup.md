@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025623"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546889"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -53,15 +53,19 @@ Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 
 Digite `spx` para ver a ajuda da CLI de Fala.
 
-#### <a name="docker-install"></a>[Instalação do Docker](#tab/dockerinstall)
-
-> [!NOTE]
-> <a href="https://www.docker.com/get-started" target="_blank">O Docker Desktop para sua plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a> precisa ser instalado.
+#### <a name="docker-install-windows-linux-macos"></a>[Instalação do Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
 Siga estas etapas para instalar a CLI de Fala em um contêiner do Docker:
 
-1. Em um novo prompt de comando ou terminal, digite este comando: `docker pull msftspeech/spx`
-2. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: `docker run -it --rm msftspeech/spx help`
+1. <a href="https://www.docker.com/get-started" target="_blank">Instale o Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> para sua plataforma, se ainda não estiver instalado.
+2. Em um novo prompt de comando ou terminal, digite este comando: 
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: 
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>Montar um diretório no contêiner
 
@@ -72,7 +76,7 @@ No Windows, digite este comando para criar um diretório local que possa ser usa
 
 `mkdir c:\spx-data`
 
-Ou então, no Linux ou no Mac, digite este comando em um terminal para criar um diretório e ver o caminho absoluto dele:
+Ou então, no Linux ou no macOS, digite este comando em um terminal para criar um diretório e ver o caminho absoluto dele:
 
 ```bash
 mkdir ~/spx-data
@@ -86,13 +90,17 @@ Você usará o caminho absoluto ao chamar a CLI de Fala.
 
 Esta documentação mostra o comando `spx` da CLI de Fala usado nas instalações que não são do Docker.
 Ao chamar o comando `spx` em um contêiner do Docker, você precisará montar um diretório no contêiner para o sistema de arquivos em que a CLI de Fala possa armazenar e localizar valores de configuração, bem como ler e gravar arquivos.
+
 No Windows, os comandos serão iniciados da seguinte maneira:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-No Linux ou no Mac, os comandos serão iniciados de maneira semelhante a esta:
-
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+No Linux ou no macOS, os comandos serão iniciados de maneira semelhante a esta:
+```shell   
+sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 > [!NOTE]
 > Substitua `/ABSOLUTE_PATH` pelo caminho absoluto mostrado pelo comando `pwd` na seção acima.
@@ -100,12 +108,43 @@ No Linux ou no Mac, os comandos serão iniciados de maneira semelhante a esta:
 Para usar o comando `spx` instalado em um contêiner, sempre insira o comando completo mostrado acima, seguido dos parâmetros da solicitação.
 Por exemplo, no Windows, este comando define a chave:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> Não é possível usar o microfone nem o alto-falante do computador durante a execução da CLI de Fala em um contêiner do Docker.
-> Para usar esses dispositivos, transmita os arquivos de áudio na CLI de Fala para gravação/reprodução fora do contêiner do Docker.
-> A ferramenta CLI de Fala pode acessar o diretório local configurado nas etapas acima.
+> [!WARNING]
+> Não é possível usar o microfone do computador durante a execução da CLI da Fala em um contêiner do Docker. No entanto, você pode ler e salvar arquivos de áudio em seu diretório montado local. 
+
+### <a name="optional-create-a-command-line-shortcut"></a>Opcional: Criar um atalho de linha de comando
+
+Se você estiver executando a CLI da Fala em um contêiner do Docker no Linux ou no macOS, poderá criar um atalho. 
+
+Siga estas instruções para criar um atalho:
+1. Abra `.bash_profile` com seu editor de texto favorito. Por exemplo:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Em seguida, adicione essa função à sua `.bash_profile`. Atualize essa função com o caminho correto para o diretório montado:
+   ```shell   
+   spx(){
+       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Origem do seu perfil:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Agora, em vez de executar `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`, você pode simplesmente digitar `spx`, seguido por argumentos. Por exemplo: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> Se você alterar o diretório montado que o Docker está referenciando, será necessário atualizar a função no `.bash_profile`.
 
 ***
 

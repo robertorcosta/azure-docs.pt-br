@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4075cb71cb4dae7ac506c16e3987070cfa10bb09
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919269"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602177"
 ---
 # <a name="build-resilience-with-device-states"></a>Crie resiliência com os Estados do dispositivo
 
@@ -44,7 +44,7 @@ Quando um PRT é usado para solicitar acesso a um aplicativo, suas declarações
 
 * Para dispositivos iOS e Android pessoais ou de propriedade da empresa, implante o [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Além da autenticação multifator e recursos de entrada sem senha, o aplicativo Microsoft Authenticator habilitará o logon único entre aplicativos nativos por meio da [autenticação orientada](../develop/brokered-auth.md) com menos prompts de autenticação para os usuários finais.
 
-* Para dispositivos iOS e Android pessoais ou de propriedade da empresa, use o [Gerenciamento de aplicativos móveis](https://docs.microsoft.com/mem/intune/apps/app-management.md) para acessar com segurança os recursos da empresa com menos solicitações de autenticação. 
+* Para dispositivos iOS e Android pessoais ou de propriedade da empresa, use o [Gerenciamento de aplicativos móveis](https://docs.microsoft.com/mem/intune/apps/app-management) para acessar com segurança os recursos da empresa com menos solicitações de autenticação. 
 
 * [Use o plug-in Microsoft Enterprise SSO para dispositivos Apple (versão prévia)](../develop/apple-sso-plugin.md). Isso registra o dispositivo e fornece SSO no navegador e em aplicativos nativos do Azure AD. 
 

@@ -1,5 +1,5 @@
 ---
-title: Versão prévia pública do ponto de extremidade da sincronização do Azure AD Connect V2 | Microsoft Docs
+title: Ponto de extremidade da sincronização de Azure AD Connect v2 | Microsoft Docs
 description: Este documento aborda as atualizações da API de pontos de extremidade da sincronização do Azure AD Connect v2.
 services: active-directory
 author: billmath
@@ -12,34 +12,24 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339414"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602097"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de ponto de extremidade da sincronização do Azure AD Connect V2 (versão prévia pública) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto de extremidade do Azure AD Connect Sync v2 
 A Microsoft implantou um novo ponto de extremidade (API) para o Azure AD Connect que aprimora o desempenho das operações de serviço de sincronização para o Azure Active Directory. Ao utilizar o novo ponto de extremidade V2, você experimentará ganhos de desempenho perceptíveis na exportação e na importação para o Azure AD. Esse novo ponto de extremidade dá suporte ao seguinte:
     
- -  grupos de sincronização com até 250 mil membros
+ - grupos de sincronização com até 250 mil membros
  - ganhos de desempenho na exportação e na importação para o Azure AD
  
 > [!NOTE]
 > Atualmente, o novo ponto de extremidade não tem um limite de tamanho de grupo configurado para grupos de Microsoft 365 que são gravados de volta. Isso pode ter um efeito no Active Directory e nas latências de ciclo de sincronização. É recomendável aumentar os tamanhos de grupo de modo incremental.  
 
-
 ## <a name="pre-requisites"></a>Pré-requisitos  
 Para usar o novo ponto de extremidade V2, você precisará usar o [Azure AD Connect versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior e seguir as etapas de implantação fornecidas abaixo para habilitar o ponto de extremidade V2 para seu servidor do Azure AD Connect.   
-
->[!NOTE]
->Atualmente, essa versão prévia pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais](../develop/authentication-national-cloud.md).
-
-### <a name="public-preview-limitations"></a>Limitações da visualização pública  
-Embora esta versão tenha passado por testes extensivos, você ainda poderá encontrar problemas. Uma das metas dessa versão prévia pública é encontrar e corrigir esses problemas.  
-
->[!IMPORTANT]
-> Embora o suporte seja fornecido para essa versão prévia pública, a Microsoft nem sempre poderá corrigir todos os problemas que você possa encontrar imediatamente. Por esse motivo, é recomendável que você use o seu melhor julgamento antes de implantar esta versão em seu ambiente de produção. 
 
 ## <a name="deployment-guidance"></a>Diretrizes de implantação 
 Será necessário implantar o [Azure AD Connect versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior para usar o ponto de extremidade V2. Use o link fornecido para download. 
@@ -184,17 +174,9 @@ Se você tiver habilitado o ponto de extremidade v2 e precisar reverter, siga es
 > Ao alternar de volta dos pontos de extremidade de v2 para v1, os grupos sincronizados com mais de 50 mil membros serão excluídos após a execução de uma sincronização completa, tanto para os grupos do AD provisionados para o Azure AD quanto para Microsoft 365 grupos unificados provisionados no AD. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes  
-**P: Um cliente pode usar esse recurso na produção?**   
-</br>Sim, isso pode ser usado em ambientes de produção, com a limitação mencionada anteriormente.
  
-**P: Com quem o cliente poderá entrar em contato quando algo der errado?**   
-</br>Se precisar de suporte ao usar esse recurso, você deverá abrir um caso de suporte. 
- 
-**P: Posso esperar atualizações frequentes na versão prévia pública?**   
-</br>Há um grau limitado de alterações em andamento durante uma versão prévia pública. Você deve avaliar esse risco ao implantar recursos em versão prévia pública na produção.  
- 
-**P: Qual o tempo para o próximo marco?**   
-</br>Os recursos em versão prévia pública podem ser retirados e possivelmente reprojetados antes de outras etapas.  
+**Quando o novo ponto de extremidade se tornará o padrão para atualizações e novas instalações?**  
+</br>Estamos planejando uma nova versão do AADConnect a ser publicada para download em janeiro de 2021. Esta versão usará o ponto de extremidade v2 por padrão e habilitará a sincronização de grupos maiores do que 50 mil withuot qualquer configuração adicional. Em seguida, esta versão será publicada para atualização automática para servidores qualificados.
  
 ## <a name="next-steps"></a>Próximas etapas
 

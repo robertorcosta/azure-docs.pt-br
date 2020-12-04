@@ -3,12 +3,12 @@ title: Tutorial – Lista de verificação de planejamento de rede
 description: Saiba mais sobre os pré-requisitos dos requisitos de rede e os detalhes sobre a conectividade de rede e as portas de rede para a Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 52f973ada23576fd6d542c40c9a9e63e6f270df3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948197"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575152"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planejamento de rede da Solução VMware no Azure 
 
@@ -47,9 +47,19 @@ As sub-redes:
 | Uso de rede             | Sub-rede | Exemplo          |
 | ------------------------- | ------ | ---------------- |
 | Gerenciamento de nuvem privada  | `/26`  | `10.10.0.0/26`   |
+| Migrações de Gerenciamento do HCX       | `/26`  | `10.10.0.64/26`  |
+| Alcance Global reservado     | `/26`  | `10.10.0.128/26` |
+| ExpressRoute reservado     | `/27`  | `10.10.0.192/27` |
+| Emparelhamento do ExpressRoute      | `/27`  | `10.10.0.224/27` |
+| Gerenciamento ESXi           | `/25`  | `10.10.1.0/25`   |
 | Rede do vMotion           | `/25`  | `10.10.1.128/25` |
-| Cargas de trabalho de VM              | `/24`  | `10.10.2.0/24`   |
-| Emparelhamento do ExpressRoute      | `/29`  | `10.10.3.8/29`   |
+| Rede de replicação       | `/25`  | `10.10.2.0/25`   |
+| vSAN                      | `/25`  | `10.10.2.128/25` |
+| HCX Uplink                | `/26`  | `10.10.3.0/26`   |
+| Reservado                  | `/26`  | `10.10.3.64/26`  |
+| Reservado                  | `/26`  | `10.10.3.128/26` |
+| Reservado                  | `/26`  | `10.10.3.192/26` |
+
 
 
 ## <a name="required-network-ports"></a>Portas de rede necessárias

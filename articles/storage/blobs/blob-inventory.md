@@ -4,18 +4,18 @@ description: O inventário de armazenamento do Azure é uma ferramenta para ajud
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 11/04/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 149fb9c888c54ea45d273890f3fe2cd59730fa01
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354930"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602675"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usar o inventário de blob do armazenamento do Azure para gerenciar dados de BLOB (versão prévia)
 
@@ -23,7 +23,7 @@ O recurso de inventário de blob de armazenamento do Azure fornece uma visão ge
 
 ## <a name="availability"></a>Disponibilidade
 
-O inventário de BLOBs tem suporte para contas de uso geral versão 2 (GPv2), armazenamento de blobs de blocos Premium e de Azure datalake Storage Gen2 (ADLS Gen2).
+O inventário de BLOBs tem suporte para contas de armazenamento de blob de blocos versão 2 (GPv2) e Premium de uso geral. Esse recurso tem suporte com ou sem o recurso de [namespace hierárquico](data-lake-storage-namespace.md) habilitado.
 
 ### <a name="preview-regions"></a>Regiões de visualização
 
@@ -87,9 +87,9 @@ Exiba o JSON para uma política de inventário selecionando a guia **exibição 
 
 | Nome do parâmetro | Tipo de parâmetro        | Observações | Necessário? |
 |----------------|-----------------------|-------|-----------|
-| destino    | String                | O contêiner de destino em que todos os arquivos de inventário serão gerados. O contêiner de destino já deve existir. | Yes |
-| Habilitado        | Boolean               | Usado para desabilitar a política inteira. Quando definido como **true**, o campo de nível de regra habilitado substitui esse parâmetro. Quando desabilitado, o inventário de todas as regras será desabilitado. | Yes |
-| regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Há suporte para até 10 regras. | Yes |
+| destino    | String                | O contêiner de destino em que todos os arquivos de inventário serão gerados. O contêiner de destino já deve existir. | Sim |
+| Habilitado        | Boolean               | Usado para desabilitar a política inteira. Quando definido como **true**, o campo de nível de regra habilitado substitui esse parâmetro. Quando desabilitado, o inventário de todas as regras será desabilitado. | Sim |
+| regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Há suporte para até 10 regras. | Sim |
 
 ## <a name="inventory-rules"></a>Regras de inventário
 
@@ -99,9 +99,9 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro                 | Observações | Necessário? |
 |----------------|--------------------------------|-------|-----------|
-| name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos que diferenciam maiúsculas de minúsculas. O nome deve ser exclusivo dentro de uma política. | Yes |
-| Habilitado        | Boolean                        | Um sinalizador que permite que uma regra seja habilitada ou desabilitada. O valor padrão é **true**. | Yes |
-| definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtros de regra. | Yes |
+| name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos que diferenciam maiúsculas de minúsculas. O nome deve ser exclusivo dentro de uma política. | Sim |
+| Habilitado        | Boolean                        | Um sinalizador que permite que uma regra seja habilitada ou desabilitada. O valor padrão é **true**. | Sim |
+| definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtros de regra. | Sim |
 
 O sinalizador **habilitado de inventário de blob** global tem precedência sobre o parâmetro *habilitado* em uma regra.
 
@@ -111,10 +111,10 @@ Vários filtros estão disponíveis para personalizar um relatório de inventár
 
 | Nome do filtro         | Tipo de filtro                     | Observações | Necessário? |
 |---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Matriz de valores de enumeração predefinidos | Os valores válidos são `blockBlob` e `appendBlob` para contas habilitadas para namespace hierárquico, e `blockBlob` , `appendBlob` e `pageBlob` para outras contas. | Yes |
-| prefixMatch         | Matriz de até 10 cadeias de caracteres para que os prefixos sejam correspondidos. Um prefixo deve começar com um nome de contêiner, por exemplo, "Container1/foo" | Se você não definir *prefixMatch* ou fornecer um prefixo vazio, a regra se aplicará a todos os BLOBs na conta de armazenamento. | No |
-| includeSnapshots    | Boolean                         | Especifica se o inventário deve incluir instantâneos. O padrão é **false**. | No |
-| includeBlobVersions | Boolean                         | Especifica se o inventário deve incluir versões de BLOB. O padrão é **false**. | No |
+| blobTypes           | Matriz de valores de enumeração predefinidos | Os valores válidos são `blockBlob` e `appendBlob` para contas habilitadas para namespace hierárquico, e `blockBlob` , `appendBlob` e `pageBlob` para outras contas. | Sim |
+| prefixMatch         | Matriz de até 10 cadeias de caracteres para que os prefixos sejam correspondidos. Um prefixo deve começar com um nome de contêiner, por exemplo, "Container1/foo" | Se você não definir *prefixMatch* ou fornecer um prefixo vazio, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
+| includeSnapshots    | Boolean                         | Especifica se o inventário deve incluir instantâneos. O padrão é **false**. | Não |
+| includeBlobVersions | Boolean                         | Especifica se o inventário deve incluir versões de BLOB. O padrão é **false**. | Não |
 
 Exiba o JSON para regras de inventário selecionando a guia **exibição de código** na seção **inventário de blob** do portal do Azure. Os filtros são especificados dentro de uma definição de regra.
 

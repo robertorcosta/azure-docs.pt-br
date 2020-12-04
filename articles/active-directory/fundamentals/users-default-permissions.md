@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433250"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602022"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [atribuições de função](active-directory-users-assign-role-azure-portal.md) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
@@ -32,7 +32,7 @@ O conjunto de permissões padrão recebido depende de se o usuário é um membro
 
 **Área** | **Permissões de usuário membro** | **Permissões de usuário convidado padrão** | **Permissões de usuário de convidado restrita (visualização)**
 ------------ | --------- | ---------- | ----------
-Usuários e contatos | <ul><li>Enumerar lista de todos os usuários e contatos<li>Ler todas as propriedades públicas de usuários e contatos</li><li>Convidar pessoas<li>Alterar a própria senha<li>Gerenciar o próprio número de celular<li>Gerenciar a própria foto<li>Invalidar os próprios tokens de atualização</li></ul> | <ul><li>Ler as próprias propriedades<li>Ler nome de exibição, email, nome de entrada, foto, nome principal de usuário e propriedades de tipo de usuário de outros usuários e contatos<li>Alterar a própria senha<li>Pesquisar outro usuário pelo nome de exibição, nome principal do usuário ou ObjectId (se permitido)<li>Gerenciador de leitura e informações de relatório direto de outros usuários</li></ul> | <ul><li>Ler as próprias propriedades<li>Alterar a própria senha</li></ul>
+Usuários e contatos | <ul><li>Enumerar lista de todos os usuários e contatos<li>Ler todas as propriedades públicas de usuários e contatos</li><li>Convidar pessoas<li>Alterar a própria senha<li>Gerenciar o próprio número de celular<li>Gerenciar a própria foto<li>Invalidar os próprios tokens de atualização</li></ul> | <ul><li>Ler as próprias propriedades<li>Ler nome de exibição, email, nome de entrada, foto, nome principal de usuário e propriedades de tipo de usuário de outros usuários e contatos<li>Alterar a própria senha<li>Pesquisar outro usuário por ObjectId (se permitido)<li>Gerenciador de leitura e informações de relatório direto de outros usuários</li></ul> | <ul><li>Ler as próprias propriedades<li>Alterar a própria senha</li></ul>
 Grupos | <ul><li>Criar grupos de segurança<li>Criar grupos de Microsoft 365<li>Enumerar lista de todos os grupos<li>Ler todas as propriedades de grupos<li>Ler associações de grupos não ocultos<li>Ler associações de grupo de Microsoft 365 ocultas para o grupo associado<li>Gerenciar propriedades, posse e associação de grupos pertencentes ao usuário<li>Adicionar convidados a grupos próprios<li>Gerenciar configurações de associação dinâmica<li>Excluir grupos próprios<li>Restaurar grupos de Microsoft 365 de propriedade</li></ul> | <ul><li>Ler propriedades de grupos não ocultos, incluindo associação e Propriedade (até mesmo grupos não associados)<li>Ler associações de grupo de Microsoft 365 ocultas para grupos associados<li>Pesquisar grupos por nome de exibição ou ObjectId (se permitido)</li></ul> | <ul><li>Ler ID de objeto para grupos Unidos<li>Ler associação e propriedade de grupos Unidos em alguns Microsoft 365 aplicativos (se permitido)</li></ul>
 Aplicativos | <ul><li>Registrar (criar) novo aplicativo<li>Enumerar lista de todos os aplicativos<li>Ler propriedades de aplicativos registrados e corporativos<li>Gerenciar propriedades do aplicativo, atribuições e credenciais para aplicativos próprios<li>Criar ou excluir senha de aplicativo do usuário<li>Excluir aplicativos próprios<li>Restaurar aplicativos próprios</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos
 Dispositivos</li></ul> | <ul><li>Enumerar lista de todos os dispositivos<li>Ler todas as propriedades de dispositivos<li>Gerenciar todas as propriedades de dispositivos próprios</li></ul> | Nenhuma permissão | Nenhuma permissão

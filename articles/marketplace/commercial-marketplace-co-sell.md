@@ -1,22 +1,22 @@
 ---
-title: Opção de venda conjunta no Partner Center | Azure Marketplace
-description: As informações fornecidas na guia de revenda de sua oferta serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente.
+title: Opção de venda conjunta no Marketplace comercial | Azure Marketplace
+description: As informações que você fornecer na guia co-venda com o Microsoft da sua oferta serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
-ms.openlocfilehash: f424cd85e26511f8fe3d863b1f2c77bc1e5e7537
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/04/2020
+ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581526"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602726"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de venda conjunta no Marketplace comercial
 
-Fornecer informações sobre a guia de venda é totalmente opcional. Ele é necessário para atingir o [status de incentivados de venda cofuncional e de cooperação de IP](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status). As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [co-vender com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Fornecer informações sobre a **co-vender com** a guia Microsoft é totalmente opcional. Ele é necessário para atingir o [status de incentivados de venda cofuncional e de cooperação de IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [co-vender com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 A opção de venda conjunta no Partner Center está disponível atualmente nos seguintes tipos de oferta.
 

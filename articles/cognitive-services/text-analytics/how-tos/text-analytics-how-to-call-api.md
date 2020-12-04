@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558990"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602777"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -260,6 +260,8 @@ Se você fez a chamada para os pontos assíncronos `/analyze` ou de `/health` ex
 3. Adicione o `Operation-Location` à solicitação.
 
 4. A resposta será um único documento JSON, com um item para cada ID de documento fornecida na solicitação.
+
+Observe que, para as operações ou assíncronas `/analyze` `/health` , os resultados da solicitação get na etapa 2 acima estão disponíveis por 24 horas a partir do momento em que o trabalho foi criado.  Esse tempo é indicado pelo `expirationDateTime` valor na resposta Get.  Após esse período de tempo, os resultados são limpos e não estão mais disponíveis para recuperação.    
 
 ## <a name="example-api-responses"></a>Exemplo de respostas de API
  

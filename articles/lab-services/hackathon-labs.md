@@ -3,12 +3,12 @@ title: Usar Azure Lab Services para Hackathon
 description: Este artigo descreve como usar Azure Lab Services para criar laboratórios que você pode usar para executar o hackathons.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434253"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602573"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Usar Azure Lab Services para seu próximo Hackathon
 A Azure Lab Services foi projetada para ser leve e fácil de usar para que você possa criar rapidamente um novo laboratório de VMs (máquinas virtuais) para seu Hackathon.  Use a lista de verificação a seguir para garantir que o Hackathon seja o mais tranqüila possível. Esta lista de verificação deve ser concluída pelo seu departamento de ti ou corpo docente responsável por criar e gerenciar seu laboratório de Hackathon. 
@@ -39,7 +39,7 @@ Para usar os serviços de laboratório para seu Hackathon, certifique-se de que 
 
 - **Decida se deseja restringir o acesso ao laboratório**. 
 
-    Ao adicionar usuários ao laboratório, há uma opção de acesso restrito habilitada por padrão. Esse recurso exige que você adicione todos os emails dos seus participantes do Hackathon à lista antes que eles possam registrar e acessar o laboratório usando o link de registro. Se você tiver um Hackathon em que não saiba quem os participantes estarão antes do evento, você pode optar por desabilitar a opção de acesso restrito, que permite que qualquer pessoa Registre-se no laboratório usando o link de registro. Para obter mais informações, consulte o [Guia de instruções sobre como adicionar usuários](how-to-configure-student-usage.md#add-users-to-a-lab).
+    Ao adicionar usuários ao laboratório, há uma opção de acesso restrito habilitada por padrão. Esse recurso exige que você adicione todos os emails dos seus participantes do Hackathon à lista antes que eles possam registrar e acessar o laboratório usando o link de registro. Se você tiver um Hackathon em que não saiba quem os participantes estarão antes do evento, você pode optar por desabilitar a opção de acesso restrito, que permite que qualquer pessoa Registre-se no laboratório usando o link de registro. Para obter mais informações, consulte o [Guia de instruções sobre como adicionar usuários](how-to-configure-student-usage.md).
 
 - **Verifique as configurações de agendamento, cota e desligamento** automático. 
 

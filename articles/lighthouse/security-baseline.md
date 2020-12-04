@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 10ad0b83f3c85b48f9d066e1feec8d8aac4dd057
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533665"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602301"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Linha de base de segurança do Azure para Azure Lighthouse
 
@@ -306,7 +306,7 @@ Se um provedor de serviços quiser permitir que sua equipe de segurança examine
 
 ## <a name="logging-and-threat-detection"></a>Log e detecção de ameaças
 
-*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: habilitar a detecção de ameaças para recursos do Azure
 
@@ -676,7 +676,7 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 -   Estratégia de correção em diferentes cenários de ameaças e ataques
 
--   Borda da Internet e a estratégia de entrada e saída/Azure/Security/benchmarks/Security-Controls-v2-Logging-Threat-Protection
+-   Borda da Internet e a estratégia de entrada e saída/Azure/Security/benchmarks/Security-Controls-v2-Logging-Threat-Detection
 -   Estratégia de interconectividade local e de nuvem híbrida
 
 -   Artefatos de segurança de rede atualizados (por exemplo, diagramas de rede, arquitetura de rede de referência)
@@ -748,7 +748,7 @@ Para saber mais, consulte as referências a seguir:
 
 - [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Melhor prática de segurança do Azure 4 – Processo: atualizar processos de resposta a incidentes para a nuvem](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

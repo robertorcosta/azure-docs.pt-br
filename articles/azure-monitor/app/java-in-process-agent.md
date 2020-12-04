@@ -3,12 +3,15 @@ title: Azure Monitor Application Insights Java
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem a necessidade de modificação de código. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 7046e4a1aeeda5e537208c79858c95c79e188348
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437194"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601128"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -22,7 +25,7 @@ Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0
 
 O agente 3,0 dá suporte a Java 8 e superior.
 
-## <a name="quickstart"></a>Início Rápido
+## <a name="quickstart"></a>Guia de Início Rápido
 
 **1. baixar o agente**
 
@@ -140,12 +143,12 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 
 |                     | Micrometer | Log4J, logback, JUL | SDK 2. x |
 |---------------------|------------|---------------------|---------|
-| **Eventos personalizados**   |            |                     |  Yes    |
+| **Eventos personalizados**   |            |                     |  Sim    |
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Yes    |
+| **Dependências**    |            |                     |  Sim    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Exibições de página**      |            |                     |  Yes    |
-| **Solicitações**        |            |                     |  Yes    |
+| **Exibições de página**      |            |                     |  Sim    |
+| **Solicitações**        |            |                     |  Sim    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
 Não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.

@@ -3,12 +3,12 @@ title: Trabalhar com proxies no Azure Functions
 description: Visão geral de como usar Proxies do Azure Functions
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020391"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601366"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -55,11 +55,11 @@ A configuração de um proxy não precisa ser estática. Você pode condicioná-
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Funções de local de referência
 Você pode usar `localhost` para fazer referência a uma função diretamente dentro do mesmo aplicativo de função, sem uma solicitação de proxy de ida e volta.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` fará referência a uma função disparada do HTTP local na rota`/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` fará referência a uma função disparada do HTTP local na rota`/api/httptriggerC#1`
 
  
 >[!Note]  
->Se sua função usar os níveis de autorização *função, administrador ou sys*, você precisará fornecer o código e o clientId, de acordo com a URL da função original. Nesse caso, a referência ficaria assim: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos armazenar essas chaves nas [configurações do aplicativo] e fazer referência a elas em seus proxies. Isso evita o armazenamento de segredos em seu código-fonte. 
+>Se sua função usar os níveis de autorização *função, administrador ou sys*, você precisará fornecer o código e o clientId, de acordo com a URL da função original. Nesse caso, a referência ficaria assim: `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos armazenar essas chaves nas [configurações do aplicativo] e fazer referência a elas em seus proxies. Isso evita o armazenamento de segredos em seu código-fonte. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parâmetros de solicitação de referência
 
@@ -241,7 +241,7 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Gatilhos HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

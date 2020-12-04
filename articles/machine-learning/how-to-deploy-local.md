@@ -10,14 +10,14 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 1d2e25f76d9a68eeb01a45c34651fe1537297980
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510566"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600346"
 ---
-# <a name="deploy-on-your-local-machines-models-trained-with-azure-machine-learning"></a>Implante em seus modelos de computadores locais treinados com Azure Machine Learning
+# <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implantar modelos treinados com o Azure Machine Learning em seus computadores locais 
 
 Este artigo descreve como usar seu computador local como um destino para treinamento ou implantação de modelos criados no Azure Machine Learning. Azure Machine Learning é flexível o suficiente para funcionar com a maioria das estruturas de aprendizado de máquina do Python. As soluções de aprendizado de máquina geralmente têm dependências complexas que podem ser difíceis de duplicar. Este artigo mostrará como balancear o controle total com facilidade de uso.
 

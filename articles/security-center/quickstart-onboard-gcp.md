@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372628"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573537"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conectar as contas da GCP à Central de Segurança do Azure
 
@@ -44,6 +44,8 @@ Na captura de tela abaixo, você pode ver os projetos da GCP exibidos no dashboa
 
 ## <a name="connect-your-gcp-account"></a>Conectar-se à sua conta da GCP
 
+Siga as etapas abaixo para criar o conector de nuvem da GCP. 
+
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Etapa 1. Configurar a Central de Comandos de Segurança da GCP com a Análise de Integridade da Segurança
 
 Para todos os projetos da GCP na sua organização, você também deverá:
@@ -68,26 +70,26 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
 
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Etapa 3. Criar uma conta de serviço dedicada para a integração da configuração de segurança
 
-1. No **Console da GCP** , selecione o projeto que deseja conectar à Central de Segurança.
-1. No **Menu de navegação** , nas opções **IAM e administração** , selecione **contas de serviço**.
+1. No **Console da GCP**, selecione o projeto que deseja conectar à Central de Segurança.
+1. No **Menu de navegação**, nas opções **IAM e administração**, selecione **contas de serviço**.
 1. Selecione **CRIAR CONTA DE SERVIÇO**.
 1. Insira um nome de conta e selecione **Criar**.
 1. Especifique a **Função** como **Visualizador de Administração da Central de Segurança** e selecione **Continuar**.
 1. A seção **Conceder aos usuários acesso a essa conta de serviço** é opcional. Selecione **Concluído**.
 1. Copie o **valor do Email** da conta de serviço criada e salve-o para uso posterior.
-1. No **Menu de navegação** , nas opções **IAM e administração** , selecione **IAM**
+1. No **Menu de navegação**, nas opções **IAM e administração**, selecione **IAM**
     1. Mude para o nível da organização.
     1. Selecione **AICIONAR**.
-    1. No campo **Novos membros** , cole o **valor do Email** copiado anteriormente.
+    1. No campo **Novos membros**, cole o **valor do Email** copiado anteriormente.
     1. Especifique a Função como **Visualizador de Administração da Central de Segurança** e selecione Salvar.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Configurando as permissões relevantes da GCP":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Etapa 4. Criar uma chave privada para a conta de serviço dedicada
 1. Mude para o nível de projeto.
-1. No **Menu de navegação** , nas opções **IAM e administração** , selecione **contas de serviço**.
+1. No **Menu de navegação**, nas opções **IAM e administração**, selecione **contas de serviço**.
 1. Abra a conta de serviço dedicada e selecione Editar.
-1. Na seção **Chaves** , selecione **ADICIONAR CHAVE** e depois **Criar nova chave**.
+1. Na seção **Chaves**, selecione **ADICIONAR CHAVE** e depois **Criar nova chave**.
 1. Na tela Criar chave privada, selecione **JSON** e depois **CRIAR**.
 1. Salve este arquivo JSON para uso posterior.
 
@@ -97,9 +99,9 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
 1. Selecione adicionar conta da GCP.
 1. Na página de integração, faça conforme mostrado a seguir e depois selecione **Próximo**.
     1. Valide a assinatura escolhida.
-    1. No campo **Nome de exibição** , insira um nome de exibição para o conector.
-    1. No campo **ID da organização** , insira a ID da organização. Se você não souber, confira [Criando e gerenciando as organizações](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-    1. Na caixa de arquivo **Chave privada** , navegue até o arquivo JSON baixado na [Etapa 4. Criar uma chave privada para a conta de serviço dedicada](#step-4-create-a-private-key-for-the-dedicated-service-account).
+    1. No campo **Nome de exibição**, insira um nome de exibição para o conector.
+    1. No campo **ID da organização**, insira a ID da organização. Se você não souber, confira [Criando e gerenciando as organizações](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. Na caixa de arquivo **Chave privada**, navegue até o arquivo JSON baixado na [Etapa 4. Criar uma chave privada para a conta de serviço dedicada](#step-4-create-a-private-key-for-the-dedicated-service-account).
 
 
 ### <a name="step-6-confirmation"></a>Etapa 6. Confirmação

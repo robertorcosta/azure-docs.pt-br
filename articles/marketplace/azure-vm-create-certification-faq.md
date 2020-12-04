@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452675"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602590"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -46,7 +46,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -201,9 +201,9 @@ Envie novamente a solicitação com um tamanho menor ou igual a 1023 GB.
 
 Consulte as regras a seguir para obter limitações no tamanho do disco do sistema operacional. Ao enviar qualquer solicitação, verifique se o tamanho do disco do sistema operacional está dentro da limitação do Linux ou do Windows.
 
-|Sistema operacional|Tamanho de VHD recomendado|
+|SO|Tamanho de VHD recomendado|
 |---|---|
-|Linux|30 GB a 1023 GB|
+|Linux|1 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
 
 Como as VMs permitem acesso ao sistema operacional subjacente, verifique se o tamanho do VHD é suficientemente grande para o VHD. Os discos não são expansíveis sem tempo de inatividade. Use um tamanho de disco de 30 GB a 50 GB.
@@ -224,7 +224,7 @@ Você pode verificar a versão do arquivo de imagem de `C:\windows\system32\driv
 
 A tabela a seguir mostra a versão mínima com patch do Windows Server: 
 
-|Sistema operacional|Versão|
+|SO|Versão|
 |---|---|
 |Windows servindo 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520655"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602250"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -28,7 +28,7 @@ A resposta oportuna a violações de política ou problemas de segurança realme
 
 A implementação inicial da avaliação de acesso contínuo se concentra no Exchange, nas equipes e no SharePoint Online.
 
-Para preparar seus aplicativos para usar o CAE, consulte [como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](/develop/app-resilience-continuous-access-evaluation.md).
+Para preparar seus aplicativos para usar o CAE, consulte [como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
 
 ### <a name="key-benefits"></a>Principais benefícios
 
@@ -146,7 +146,7 @@ Para CAE, só temos informações sobre locais nomeados baseados em IP nomeados.
 
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 
-O provedor de identidade e os provedores de recursos podem ver endereços IP diferentes. Essa incompatibilidade pode ocorrer devido a implementações de proxy de rede em sua organização ou configurações de IPv4/IPv6 incorretas entre o provedor de identidade e o provedor de recursos. Por exemplo: 
+O provedor de identidade e os provedores de recursos podem ver endereços IP diferentes. Essa incompatibilidade pode ocorrer devido a implementações de proxy de rede em sua organização ou configurações de IPv4/IPv6 incorretas entre o provedor de identidade e o provedor de recursos. Por exemplo:
 
 - Seu provedor de identidade vê um endereço IP do cliente.
 - O provedor de recursos vê um endereço IP diferente do cliente depois de passar por um proxy.

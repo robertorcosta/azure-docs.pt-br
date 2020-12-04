@@ -1,5 +1,5 @@
 ---
-title: Fazer solicitações com o postmaster
+title: Fazer solicitações com o Postman
 titleSuffix: Azure Digital Twins
 description: Saiba como configurar e usar o postmaster para testar as APIs do gêmeos digital do Azure.
 ms.author: baanders
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187856"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600482"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o postmaster para enviar solicitações para as APIs do Azure digital gêmeos
 
@@ -130,7 +130,7 @@ Para fazer uma solicitação de postmaster para uma das APIs do Azure digital g�
 
 Para continuar com uma consulta de exemplo, este artigo usará a API de consulta (e sua [documentação de referência](/rest/api/digital-twins/dataplane/query/querytwins)) para consultar todos os gêmeos digitais em uma instância.
 
-1. Obtenha a URL de solicitação e o tipo da documentação de referência. Para a API de consulta, é *post https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31*.
+1. Obtenha a URL de solicitação e o tipo da documentação de referência. Para a API de consulta, é *post `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`*.
 1. No postmaster, defina o tipo para a solicitação e insira a URL da solicitação, preenchendo espaços reservados na URL, conforme necessário. É aqui que você usará o nome do **host** da sua instância na seção [*pré-requisitos*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Nos detalhes da nova solicitação, a URL de consulta da documentação de referência foi preenchida na caixa URL de solicitação." lightbox="media/how-to-use-postman/postman-request-url.png":::
