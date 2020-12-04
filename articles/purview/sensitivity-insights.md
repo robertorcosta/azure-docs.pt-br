@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: beaa231eddd57e29578a1d69ee30af05ce7c8d0f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551509"
+ms.locfileid: "96575747"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informações de rótulo de confidencialidade sobre seus dados no Azure alcance
 
@@ -75,6 +75,7 @@ O alcance usa as mesmas classificações, também conhecidas como tipos de infor
    |**Rótulos principais aplicados em tabelas**     | Mostra os rótulos de sensibilidade mais importantes aplicados às tabelas de banco de dados em seu dado. |   
    |  **Rotulando atividade**  |  Exibe grafos separados para arquivos e tabelas, cada um mostrando o número de arquivos ou tabelas rotuladas no intervalo de tempo selecionado. <br>**Padrão**: 30 dias<br>Selecione o filtro de **tempo** acima dos grafos para selecionar um período de tempo diferente a ser exibido.    |
    |    |    |
+
 ## <a name="sensitivity-labeling-insights-drilldown"></a>Sensibilidade da confidencialidade das ideias
 
 Em qualquer uma das seguintes **confidencialidades de rótulo de insights** , selecione o link **Exibir mais** para detalhar para obter mais detalhes:
@@ -98,6 +99,7 @@ Siga um destes procedimentos para saber mais:
 |**Detalhar ainda mais**     | Para fazer uma busca detalhada em um rótulo específico, selecione um nome na coluna **rótulo de sensibilidade** para exibir o **rótulo por** relatório de origem. <br><br>Este relatório exibe dados para o rótulo selecionado, incluindo o nome da origem, o tipo de origem, a ID da assinatura e os números de arquivos e tabelas classificados.      |
 |**Procurar ativos**     |  Para navegar pelos ativos encontrados com um rótulo ou origem específico, selecione um ou mais rótulos ou fontes, dependendo do relatório que você está exibindo e, em seguida, selecione **procurar ativos** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: acima dos filtros. <br><br>Os resultados da pesquisa exibem todos os ativos rotulados encontrados para o filtro selecionado.  Para obter mais informações, consulte [Pesquisar o catálogo de dados do Azure alcance](how-to-search-catalog.md).       |
 | | |
+
 ## <a name="sensitivity-label-integration-with-microsoft-365-compliance"></a>Integração de rótulo de sensibilidade com conformidade de Microsoft 365
 
 Feche a integração com a [proteção de informações da Microsoft](/microsoft-365/compliance/information-protection) oferecida em Microsoft 365 significa que o alcance permite maneiras diretas de estender a visibilidade para seu estado de dados e classificar e rotular seus dados.
@@ -108,15 +110,9 @@ Para obter mais informações, consulte [rotular os dados automaticamente no Azu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os relatórios do Azure alcance Insight
-> [!div class="nextstepaction"]
-> [Ideias de Glossário](glossary-insights.md)
+Saiba mais sobre estes relatórios do Azure alcance Insight:
 
-> [!div class="nextstepaction"]
-> [Examinar informações](scan-insights.md)
-
-> [!div class="nextstepaction"]
-> [Informações de classificação](./classification-insights.md)
-
-> [!div class="nextstepaction"]
-> [Informações de extensão de arquivo](file-extension-insights.md)
+- [Ideias de Glossário](glossary-insights.md)
+- [Examinar informações](scan-insights.md)
+- [Informações de classificação](./classification-insights.md)
+- [Informações de extensão de arquivo](file-extension-insights.md)

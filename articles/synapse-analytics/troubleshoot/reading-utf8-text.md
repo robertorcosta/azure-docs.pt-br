@@ -6,13 +6,13 @@ ms.author: jrasnick
 ms.topic: troubleshooting
 ms.service: synapse-analytics
 ms.subservice: sql
-ms.date: 11/24/2020
-ms.openlocfilehash: 238880cb3f3628df7591e8d08e3057ebfd885900
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/03/2020
+ms.openlocfilehash: 70ce3c82790db0296d5359b5db2e6a323306c309
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465913"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576410"
 ---
 # <a name="troubleshoot-reading-utf-8-text-from-csv-or-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Solucionar problemas de leitura de texto UTF-8 de arquivos CSV ou parquet usando o pool SQL sem servidor no Azure Synapse Analytics
 
@@ -24,11 +24,30 @@ Quando o texto UTF-8 for lido de um arquivo CSV ou PARQUET usando o pool SQL sem
 
 A solução alternativa para esse problema é sempre usar o agrupamento UTF-8 ao ler texto UTF-8 de arquivos CSV ou PARQUET.
 
--   Em muitos casos, você só precisa definir o agrupamento UTF8 no banco de dados (operação de metadados).
--   Se você não especificou o agrupamento UTF8 em tabelas externas que lêem dados UTF8, será necessário recriar tabelas externas afetadas e definir o agrupamento UTF8 em colunas VARCHAR (operação de metadados).
+- Em muitos casos, você só precisa definir o agrupamento UTF8 no banco de dados (operação de metadados).
+
+   ```sql
+   alter database MyDB
+         COLLATE Latin1_General_100_BIN2_UTF8;
+   ```
+
+- Você pode definir explicitamente o agrupamento na coluna VARCHAR em OPENROWSET ou na tabela externa:
+
+   ```sql
+   select geo_id, cases = sum(cases)
+   from openrowset(
+           bulk 'latest/ecdc_cases.parquet', data_source = 'covid', format = 'parquet'
+       ) with ( cases int,
+                geo_id VARCHAR(6) COLLATE Latin1_General_100_BIN2_UTF8 ) as rows
+   group by geo_id
+   ```
+ 
+- Se você não especificou o agrupamento UTF8 em tabelas externas que lêem dados UTF8, será necessário recriar tabelas externas afetadas e definir o agrupamento UTF8 em colunas VARCHAR (operação de metadados).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Consultar arquivos parquet com Synapse SQL](../sql/query-parquet-files.md)
+* [Consultar arquivos CSV com Synapse SQL](../sql/query-single-csv-file.md)
 * [CETAS com Synapse SQL](../sql/develop-tables-cetas.md)
 * [Início Rápido: Usar o pool de SQL sem servidor](../quickstart-sql-on-demand.md)

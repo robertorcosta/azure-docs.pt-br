@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542109"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576580"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com Azure Machine Learning
 
@@ -45,25 +45,29 @@ Juntamente com o gerenciamento de cotas, você pode aprender a [planejar e geren
 
 Nesta seção, você aprenderá sobre os limites de cota padrão e máximo para os seguintes recursos:
 
++ Ativos de Azure Machine Learning
+  + Computação do Azure Machine Learning
+  + Pipelines de Azure Machine Learning
 + Máquinas virtuais
-+ Computação do Azure Machine Learning
-+ Pipelines de Azure Machine Learning
 + Instâncias de Contêiner do Azure
 + Armazenamento do Azure
 
 > [!IMPORTANT]
 > Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md) para todos os Azure.
 
-### <a name="virtual-machines"></a>Máquinas virtuais
-Cada assinatura do Azure tem um limite no número de máquinas virtuais em todos os serviços. Os núcleos de máquina virtual têm um limite regional total e um limite regional por série de tamanho. Ambos os limites são aplicados separadamente.
+### <a name="azure-machine-learning-assets"></a>Ativos de Azure Machine Learning
+Os seguintes limites de ativos se aplicam a cada espaço de trabalho. 
 
-Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30. Essa assinatura teria permissão para implantar 30 VMs a1 ou 30 VMs D1 ou uma combinação dos dois que não exceda um total de 30 núcleos.
+| **Recurso** | **Limite máximo** |
+| --- | --- |
+| Conjunto de dados | 10 milhões |
+| Execuções | 10 milhões |
+| Modelos | 10 milhões|
+| Artifacts | 10 milhões |
 
-Não é possível gerar limites para máquinas virtuais acima dos valores mostrados na tabela a seguir.
+Além disso, o **tempo de execução** máximo é de 30 dias e o número máximo de **métricas registradas por execução** é de 1 milhão.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
+#### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
 [Azure Machine Learning computação](concept-compute-target.md#azure-machine-learning-compute-managed) tem um limite de cota padrão no número de núcleos e no número de recursos de computação exclusivos permitidos por região em uma assinatura. Essa cota é separada da cota de núcleos de VM da seção anterior.
 
 [Solicite um aumento de cota](#request-quota-increases) para elevar os limites desta seção até o limite máximo mostrado na tabela.
@@ -90,13 +94,22 @@ A tabela a seguir mostra limites adicionais que você não pode exceder.
 <sup>1</sup> o tempo de vida máximo é a duração entre o momento em que uma execução é iniciada e quando ela é concluída. As execuções concluídas persistirão indefinidamente. Os dados para execuções não concluídas no tempo de vida máximo não estão acessíveis.
 <sup>2</sup> os trabalhos em um nó de baixa prioridade podem ser admitidos sempre que houver uma restrição de capacidade. Recomendamos que você implemente pontos de verificação em seu trabalho.
 
-### <a name="azure-machine-learning-pipelines"></a>Pipelines de Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>Pipelines de Azure Machine Learning
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) têm os limites a seguir.
 
 | **Recurso** | **Limite** |
 | --- | --- |
 | Etapas em um pipeline | 30,000 |
 | Espaços de trabalho por grupo de recursos | 800 |
+
+### <a name="virtual-machines"></a>Máquinas virtuais
+Cada assinatura do Azure tem um limite no número de máquinas virtuais em todos os serviços. Os núcleos de máquina virtual têm um limite regional total e um limite regional por série de tamanho. Ambos os limites são aplicados separadamente.
+
+Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30. Essa assinatura teria permissão para implantar 30 VMs a1 ou 30 VMs D1 ou uma combinação dos dois que não exceda um total de 30 núcleos.
+
+Não é possível gerar limites para máquinas virtuais acima dos valores mostrados na tabela a seguir.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="container-instances"></a>Instâncias de Contêiner
 

@@ -3,13 +3,12 @@ title: Autenticação baseada em certificado X. 509 em um Cluster Service Fabric
 description: Saiba mais sobre a autenticação baseada em certificado em clusters Service Fabric e como detectar, atenuar e corrigir problemas relacionados a certificados.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.custom: sfrev
-ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259022"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574761"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticação baseada em certificado X. 509 em clusters Service Fabric
 

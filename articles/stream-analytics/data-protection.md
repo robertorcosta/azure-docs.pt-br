@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/03/2020
+ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011397"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576479"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -41,7 +41,7 @@ Além disso, você pode optar por armazenar todos os ativos de dados (dados do c
 
 Stream Analytics emprega automaticamente os melhores padrões de criptografia em toda a sua infraestrutura para criptografar e proteger seus dados. Você pode simplesmente confiar Stream Analytics para armazenar com segurança todos os seus dados para que você não precise se preocupar com o gerenciamento da infraestrutura.
 
-Se você quiser usar chaves gerenciadas pelo cliente (CMK) para criptografar seus dados, poderá usar sua própria conta de armazenamento (uso geral v1 ou v2) para armazenar quaisquer ativos de dados privados que são necessários para o tempo de execução de Stream Analytics. Sua conta de armazenamento pode ser criptografada conforme necessário. Nenhum dos seus ativos de dados privados são armazenados permanentemente pela infraestrutura de Stream Analytics. 
+Se você quiser usar chaves gerenciadas pelo cliente para criptografar seus dados, poderá usar sua própria conta de armazenamento (uso geral v1 ou v2) para armazenar quaisquer ativos de dados privados que são necessários para o tempo de execução de Stream Analytics. Sua conta de armazenamento pode ser criptografada conforme necessário. Nenhum dos seus ativos de dados privados são armazenados permanentemente pela infraestrutura de Stream Analytics. 
 
 Essa configuração deve ser definida no momento da criação do trabalho de Stream Analytics e não pode ser modificada durante o ciclo de vida do trabalho. A modificação ou exclusão de armazenamento que está sendo usada pelo seu Stream Analytics não é recomendada. Se você excluir sua conta de armazenamento, excluirá permanentemente todos os ativos de dados privados, o que causará falha no trabalho. 
 
@@ -50,12 +50,9 @@ Não é possível atualizar ou alternar chaves para sua conta de armazenamento u
 
 ### <a name="configure-storage-account-for-private-data"></a>Configurar a conta de armazenamento para dados privados 
 
-
 Criptografe sua conta de armazenamento para proteger todos os seus dados e escolha explicitamente o local dos seus dados privados. 
 
 Para ajudá-lo a atender suas obrigações de conformidade em qualquer ambiente ou setor regulamentado, você pode ler mais sobre as [ofertas de conformidade da Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-
 
 Use as etapas a seguir para configurar sua conta de armazenamento para ativos de dados privados. Essa configuração é feita de seu trabalho de Stream Analytics, não da sua conta de armazenamento.
 
@@ -69,9 +66,15 @@ Use as etapas a seguir para configurar sua conta de armazenamento para ativos de
 
 1. Marque a caixa de seleção que diz *proteger todos os ativos de dados privados necessários para esse trabalho em minha conta de armazenamento*.
 
-1. Selecione uma conta de armazenamento da sua assinatura. Observe que essa configuração não pode ser modificada durante o ciclo de vida do trabalho. 
+1. Selecione uma conta de armazenamento da sua assinatura. Observe que essa configuração não pode ser modificada durante o ciclo de vida do trabalho. Você também não poderá adicionar essa opção depois que o trabalho for criado.
+
+1. Para autenticar com uma cadeia de conexão, selecione **cadeia de conexão** no menu suspenso modo de autenticação. A chave da conta de armazenamento é preenchida automaticamente de sua assinatura.
 
    ![Configurações de conta de armazenamento de dados particulares](./media/data-protection/storage-account-create.png)
+
+1. Para autenticar com a identidade gerenciada (versão prévia), selecione **identidade gerenciada** no menu suspenso modo de autenticação. Se você escolher identidade gerenciada, precisará adicionar seu trabalho de Stream Analytics à lista de controle de acesso da conta de armazenamento. Se você não der acesso ao trabalho, o trabalho não poderá executar nenhuma operação. Para obter mais informações sobre como conceder acesso, consulte [usar o RBAC do Azure para atribuir um acesso de identidade gerenciada a outro recurso](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+
+   :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Configurações de conta de armazenamento de dados particulares com autenticação de identidade gerenciada":::
 
 ## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Ativos de dados privados armazenados por Stream Analytics
 

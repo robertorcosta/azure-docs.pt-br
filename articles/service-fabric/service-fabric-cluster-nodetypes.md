@@ -4,13 +4,12 @@ description: Saiba como os tipos de nó do Azure Service Fabric estão relaciona
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.custom: sfrev
-ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df7ed9fa1f872cd9554dcf4c8880b7c9d5e53c4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561883"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576393"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
@@ -75,18 +74,18 @@ A seguir estão as descrições de propriedade:
 | **Nome** | **Valores permitidos** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 | name | string | Nome exclusivo para a extensão |
-| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
+| tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | editor | Microsoft. Azure. infabric | Nome do editor de extensão de Service Fabric |
-| clusterEndpont | cadeia de caracteres | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | cadeia de caracteres | Nome do nodeType |
+| clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
+| nodeTypeRef | string | Nome do nodeType |
 | durabilityLevel | bronze, prata, ouro, platina | Tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
-| nicPrefixOverride | cadeia de caracteres | Prefixo de sub-rede como "10.0.0.0/24" |
+| nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0/24" |
 | Osnames | string[] | Nomes comuns de certificados de cluster instalados |
-| x509StoreName | cadeia de caracteres | Nome do repositório onde o certificado de cluster instalado está localizado |
+| x509StoreName | string | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1,1 | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | cadeia de caracteres | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
+| Caminho | string | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

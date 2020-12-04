@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: ca57c1ae4797f69c1fe7034ddc4a47a3b0c1e602
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: d559496996d1cdc9052542977b26f5bd1925eefb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369947"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576070"
 ---
 # <a name="how-to-market-your-azure-application-offer"></a>Como comercializar sua oferta de Aplicativo Azure
 
@@ -23,7 +23,7 @@ Este artigo descreve as opções de marketing adicionais que você pode escolher
 
 Fornecer informações sobre a **co-vender com** a guia Microsoft é totalmente opcional. Mas é necessário alcançar o status pronto para venda e _pronto_ para venda de _IP_ . As equipes de vendas da Microsoft usam essas informações para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. As informações fornecidas nesta guia não estão disponíveis diretamente para os clientes.
 
-Para obter detalhes e instruções para configurar a guia de **venda conjunta com a Microsoft** , consulte a [opção de venda conjunta no Partner Center](partner-center-portal/commercial-marketplace-co-sell.md).
+Para obter detalhes e instruções para configurar a guia de **venda conjunta com a Microsoft** , consulte a [opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Revenda por meio de CSPs
 

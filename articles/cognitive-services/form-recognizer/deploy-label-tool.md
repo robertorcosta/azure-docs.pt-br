@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913102"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576546"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -35,15 +35,15 @@ A maneira mais rápida de começar a rotular dados é executar a ferramenta de r
 Antes de começar, é importante observar que há duas maneiras de implantar a ferramenta de rotulamento de exemplo em uma instância de contêiner do Azure (ACI). Ambas as opções são usadas para executar a ferramenta de rotulagem de exemplo com ACI: 
 
 * [Usando o portal do Azure](#azure-portal)
-* [Usando a CLI do Azure](#azure-cli)
+* [Usando o CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 Siga estas etapas para criar um novo recurso usando o portal do Azure: 
 
 1. Entre no [portal do Azure](https://portal.azure.com/signin/index/).
-2. Selecione **Criar um recurso** . 
-3. Em seguida, selecione **aplicativo Web** . 
+2. Selecione **Criar um recurso**. 
+3. Em seguida, selecione **aplicativo Web**. 
 
    > [!div class="mx-imgBorder"]
    > ![Selecionar aplicativo Web](./media/quickstarts/formre-create-web-app.png)
@@ -136,7 +136,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

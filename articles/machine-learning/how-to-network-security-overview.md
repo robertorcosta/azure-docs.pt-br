@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6398d23aeb0e26fbc336c0c1066078f327fa2f73
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325421"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576563"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -31,7 +31,7 @@ Estes são os outros artigos desta série:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
-+ [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
++ [Redes virtuais do Azure](../virtual-network/virtual-networks-overview.md)
 + [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
 + [Grupos de segurança de rede (NSG)](../virtual-network/network-security-groups-overview.md)
@@ -145,10 +145,11 @@ Se o armazenamento estiver em uma VNet, você deve primeiro executar etapas de c
 
 * Visualizar dados no estúdio.
 * Visualize dados no designer.
+* Implante um modelo no designer.
 * Envie um experimento do AutoML.
 * Inicie um projeto de rotulagem.
 
-Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). O estúdio dá suporte a contas de armazenamento usando pontos de extremidade de serviço ou pontos de extremidade privados.
+Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). O estúdio dá suporte a contas de armazenamento usando pontos de extremidade de serviço ou pontos de extremidade privados.
 
 ### <a name="limitations"></a>Limitações
 - [Rótulos de dados assistidos de ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não dão suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. Observe que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
