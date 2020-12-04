@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Bot de Reconhecimento vocal Node.js v4'
-description: Usando Node.js, crie um chat bot integrado com o LUIS (Reconhecimento vocal) neste tutorial. Este chat bot usa o aplicativo de Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com o Bot Framework versão 4 e o bot de aplicativo Web do Azure.
+description: Use este tutorial para criar um chatbot integrado ao LUIS (Reconhecimento vocal). Este chat bot usa o aplicativo de Recursos Humanos para implementar rapidamente uma solução de bot.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dd5f97f2b1c2ad51dda3446412cd936e45c5982e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018728"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436888"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Use um Bot de aplicativo Web habilitado com Reconhecimento vocal em Node.js
 

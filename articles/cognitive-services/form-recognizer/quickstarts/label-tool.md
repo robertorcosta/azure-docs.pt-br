@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360863"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009323"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -42,8 +42,17 @@ Para concluir este início rápido, é necessário ter:
 
 Para experimentar a Ferramenta de Rotulagem de Exemplo online do Reconhecimento de Formulários, vá para o [site FOTT](https://fott-preview.azurewebsites.net/).
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Ferramenta de Rotulagem de Exemplo do Reconhecimento de Formulários](https://fott-preview.azurewebsites.net/)
+> [Experimentar modelos predefinidos](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Experimentar modelos predefinidos](https://fott-preview.azurewebsites.net/)
+
+---
+
+Você precisará ter uma assinatura do Azure ([crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)), bem como um ponto de extremidade e uma chave de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) para experimentar o serviço Reconhecimento de Formulários. 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem de exemplo
@@ -68,8 +77,6 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
 
 
 
-
-
 1. Obtenha o contêiner de ferramentas de rotulagem de exemplo com o comando `docker pull`.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
     ```
     # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,7 +98,7 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
     ```
     # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
@@ -193,7 +200,7 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
    1. Clique em **+** para criar uma marca.
    1. Insira o nome da marca.
    1. Pressione Enter para salvar a marca.
-1. No editor principal, clique para selecionar as palavras dos elementos de texto realçados. Na _versão prévia v2.1_, você também pode clicar para selecionar _Marcas de Seleção_ como botões de opção e caixas de seleção como pares chave-valor. O Reconhecimento de Formulários identificará se a marca de seleção está "selecionada" ou "desmarcada" como o valor.
+1. No editor principal, clique para selecionar as palavras dos elementos de texto realçados. Na _v2.1 preview.2_, você também pode clicar para selecionar _Marcas de Seleção_ como botões de opção e caixas de seleção como pares chave-valor. O Reconhecimento de Formulários identificará se a marca de seleção está "selecionada" ou "desmarcada" como o valor.
 1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. As chaves de número são atribuídas como teclas de atalho para as 10 primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
     > [!Tip]
     > Lembre-se das dicas a seguir quando estiver rotulando seus formulários.

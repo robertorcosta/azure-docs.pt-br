@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: detecção de anomalias, machine learning, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016596"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999086"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
 
@@ -85,6 +85,10 @@ Você pode ler o artigo [Serviço de detecção de anomalias da série temporal 
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
+
+[Use contêineres do Detector de Anomalias](anomaly-detector-container-howto.md) para implantar recursos de API no local. Os contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="join-the-anomaly-detector-community"></a>Ingressar na comunidade do Detector de Anomalias
 

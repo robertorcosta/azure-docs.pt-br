@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358060"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187283"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Início Rápido – Explorar um cenário de exemplo dos Gêmeos Digitais do Azure usando o ADT Explorer
 
@@ -66,6 +66,7 @@ Caso contrário, instale a CLI do Azure local com estas etapas:
 1. Siga o processo descrito [neste link de instalação](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para concluir a instalação que corresponde ao seu sistema operacional.
 1. Abra uma janela do console no computador.
 1. Execute `az login` e siga os prompts de autenticação para entrar em sua conta do Azure.
+1. Última etapa possível: se você usa várias assinaturas do Azure nessa conta, defina o contexto de autenticação como a assinatura do Azure que contém a instância dos Gêmeos Digitais do Azure executando `az account set --subscription "<your-subscription-name-or-ID>"` (o nome ou o valor da ID da assinatura funcionará).
 
 Depois que você entrar, o ADT Explorer utilizará suas credenciais do Azure automaticamente quando você o executar na próxima seção.
 
@@ -90,7 +91,7 @@ Abra uma janela do console na localização da pasta **Azure_Digital_Twins__ADT_
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer realçando o ícone Entrar próximo à parte superior da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Insira a URL da instância dos Gêmeos Digitais do Azure coletada anteriormente na seção [Pré-requisitos](#prerequisites) no formato *https://{nome do host da instância}* .
+1. Insira a URL da instância dos Gêmeos Digitais do Azure coletada anteriormente na seção [Configurar uma instância dos Gêmeos Digitais do Azure](#set-up-an-azure-digital-twins-instance) no formato *https://{nome do host da instância}* .
 
 >[!NOTE]
 > Você pode revisitar ou editar essas informações a qualquer momento selecionando o mesmo ícone para abrir a caixa **Entrar** novamente. Ela manterá os valores que você passou.
@@ -108,7 +109,7 @@ Em seguida, você importará o cenário e o grafo de exemplo para o ADT Explorer
 
 A primeira etapa em uma solução dos Gêmeos Digitais do Azure é definir o vocabulário do ambiente. Você criará [modelos](concepts-models.md) personalizados que descrevem os tipos de entidade que existem no ambiente.
 
-Cada modelo é escrito em uma linguagem semelhante ao JSON-LD chamada DTDL (Digital Twin Definition Language). Cada modelo descreve um tipo de entidade em termos de suas *propriedades* , *telemetria* , *relações* e *componentes*. Posteriormente, você usará esses modelos como a base para os gêmeos digitais que representam instâncias específicas desses tipos.
+Cada modelo é escrito em uma linguagem semelhante ao JSON-LD chamada DTDL (Digital Twin Definition Language). Cada modelo descreve um tipo de entidade em termos de suas *propriedades*, *telemetria*, *relações* e *componentes*. Posteriormente, você usará esses modelos como a base para os gêmeos digitais que representam instâncias específicas desses tipos.
 
 Normalmente, ao criar um modelo, você executará três etapas:
 
@@ -125,7 +126,7 @@ Neste início rápido, os arquivos do modelo já foram escritos e validados para
 
 Siga estas etapas para carregar os modelos.
 
-1. Na caixa **EXIBIÇÃO DE MODELO** , selecione o ícone **Carregar um Modelo**.
+1. Na caixa **EXIBIÇÃO DE MODELO**, selecione o ícone **Carregar um Modelo**.
 
    :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Na caixa Exibição de Modelo, o ícone do meio é realçado. Ele mostra uma seta apontando para uma nuvem." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
@@ -166,7 +167,7 @@ Nesta seção, você carregará gêmeos criados previamente que estão conectado
 
 Siga estas etapas para importar o grafo.
 
-1. Na caixa **EXIBIÇÃO DE GRAFO** , selecione o ícone **Importar Grafo**.
+1. Na caixa **EXIBIÇÃO DE GRAFO**, selecione o ícone **Importar Grafo**.
 
    :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Na caixa Exibição de Grafo, um ícone é realçado. Ele mostra uma seta apontando para uma nuvem." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
@@ -196,7 +197,7 @@ Siga estas etapas para importar o grafo.
     :::column-end:::
    :::row-end:::
 
-5. O grafo agora foi carregado para o ADT Explorer. Para ver o grafo, selecione o botão **Executar Consulta** na caixa **EXPLORADOR DO GRAPH** , próximo à parte superior da janela do ADT Explorer.
+5. O grafo agora foi carregado para o ADT Explorer. Para ver o grafo, selecione o botão **Executar Consulta** na caixa **EXPLORADOR DO GRAPH**, próximo à parte superior da janela do ADT Explorer.
 
    :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="O botão Executar Consulta no canto superior direito da janela está realçado." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -313,7 +314,7 @@ Se planejar continuar com os tutoriais dos Gêmeos Digitais do Azure, você pode
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, exclua a pasta de exemplo do projeto, **Azure_Digital_Twins__ADT__explorer** , que você baixou no computador local. Talvez seja necessário excluir as versões zipadas e descompactadas.
+Por fim, exclua a pasta de exemplo do projeto, **Azure_Digital_Twins__ADT__explorer**, que você baixou no computador local. Talvez seja necessário excluir as versões zipadas e descompactadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

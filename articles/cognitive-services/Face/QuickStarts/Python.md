@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8a7812bfcbedc8307557b4fb0623cb8a72913419
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c58742bd04f21ea501fde95798245c81442e24c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95743031"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501168"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Python
 
@@ -34,9 +34,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API de Detecção Facial. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
-## <a name="run-the-jupyter-notebook"></a>Executar o Bloco de Anotações do Jupyter
+## <a name="run-the-jupyter-notebook"></a>Execute o Bloco de Anotações do Jupyter.
 
-Você pode executar este início rápido como um Jupyter Notebook no [MyBinder](https://mybinder.org). Para iniciar o associador, selecione o botão abaixo. Em seguida, siga as instruções no bloco de notas.
+Você pode executar este guia de início rápido como um Jupyter Notebook no [MyBinder](https://mybinder.org). Para iniciar o associador, selecione o botão abaixo. Em seguida, siga as instruções no bloco de notas.
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 

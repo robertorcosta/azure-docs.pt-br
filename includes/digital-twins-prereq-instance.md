@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 8ea371e25f149c52412153aa0b9c3b7475dc77fd
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96303600"
 ---
 Para trabalhar com os Gêmeos Digitais do Azure neste artigo, primeiro você precisa **configurar uma instância dos Gêmeos Digitais do Azure** e as permissões necessárias para usá-la. Se você já tiver uma instância dos Gêmeos Digitais do Azure configurada de algum trabalho anterior, poderá usar essa instância.

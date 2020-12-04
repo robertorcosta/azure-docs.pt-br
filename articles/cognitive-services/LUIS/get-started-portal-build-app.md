@@ -4,13 +4,13 @@ description: Neste início rápido, você criará as partes básicas de um aplic
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131440"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436667"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
 
@@ -20,13 +20,13 @@ Neste início rápido, você criará um aplicativo no portal do LUIS. Primeiro, 
 
 ## <a name="create-an-app"></a>Criar um aplicativo
 
-Para criar um aplicativo, clique em **+ Novo aplicativo**. 
+Para criar um aplicativo, selecione **+ Novo aplicativo**. 
 
 Na janela exibida, insira as seguintes informações:
 
 |Nome  |Descrição  |
 |---------|---------|
-|Nome     | Um nome para o seu aplicativo. Por exemplo, "automação residencial". Obrigatórios.        |
+|Nome     | Um nome para o aplicativo. Por exemplo, "automação residencial". Obrigatórios.        |
 |Cultura     | O idioma que o seu aplicativo compreende e fala. Obrigatórios.   |
 |Descrição | Uma descrição para o aplicativo. Opcional.
 |Recurso de previsão | O recurso de previsão que receberá consultas. Opcional. |
@@ -155,7 +155,7 @@ Use o painel **Teste** interativo no portal do LUIS para validar se a entidade �
    > [!div class="mx-imgBorder"]
    > ![Captura de tela do teste do novo enunciado no painel de teste](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   A primeira intenção prevista é corretamente **FindForm** , com uma confiança acima de 90% (0,977). A entidade **FormNumber** é extraída com um valor hrf-234098.
+   A primeira intenção prevista é corretamente **FindForm**, com uma confiança acima de 90% (0,977). A entidade **FormNumber** é extraída com um valor hrf-234098.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

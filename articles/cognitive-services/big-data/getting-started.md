@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363333"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460506"
 ---
 # <a name="getting-started"></a>Introdução
 
@@ -37,13 +37,13 @@ Os Serviços Cognitivos baseados em nuvem são algoritmos inteligentes hospedado
 
 Caso o seu aplicativo ou sua carga de trabalho use conjuntos de dados grandes, exija uma rede privada ou não possa entrar em contato com a nuvem, a comunicação com os serviços de nuvem pode ser impossível. Nessa situação, os Serviços Cognitivos em contêineres têm estes benefícios:
 
-* **Baixa Conectividade** : você pode implantar Serviços Cognitivos em contêineres em qualquer ambiente computacional, tanto na nuvem quanto fora dela. Se o seu aplicativo não puder entrar em contato com a nuvem, considere implantar Serviços Cognitivos em contêineres em seu aplicativo.
+* **Baixa Conectividade**: você pode implantar Serviços Cognitivos em contêineres em qualquer ambiente computacional, tanto na nuvem quanto fora dela. Se o seu aplicativo não puder entrar em contato com a nuvem, considere implantar Serviços Cognitivos em contêineres em seu aplicativo.
 
-* **Baixa Latência** : como os serviços em contêineres não exigem a comunicação de ida e volta para a nuvem, as respostas são retornadas com latências muito menores.
+* **Baixa Latência**: como os serviços em contêineres não exigem a comunicação de ida e volta para a nuvem, as respostas são retornadas com latências muito menores.
 
-* **Privacidade e Segurança de Dados** : você pode implantar serviços em contêineres em redes privadas, para que os dados confidenciais não saiam da rede.
+* **Privacidade e Segurança de Dados**: você pode implantar serviços em contêineres em redes privadas, para que os dados confidenciais não saiam da rede.
 
-* **Alta Escalabilidade** : os serviços em contêineres não têm "limites de taxa" e são executados em computadores gerenciados pelo usuário. Portanto, você pode dimensionar Serviços Cognitivos sem fim para lidar com cargas de trabalho muito maiores.
+* **Alta Escalabilidade**: os serviços em contêineres não têm "limites de taxa" e são executados em computadores gerenciados pelo usuário. Portanto, você pode dimensionar Serviços Cognitivos sem fim para lidar com cargas de trabalho muito maiores.
 
 Siga [este guia](../cognitive-services-container-support.md?tabs=luis) para criar um Serviços Cognitivos em contêineres.
 
@@ -65,14 +65,14 @@ O Azure Databricks é uma plataforma de análise baseada em Apache Spark com uma
     * instalar a biblioteca em um cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
-### <a name="synapse-analytics-optional"></a>Synapse Analytics (opcional)
+### <a name="azure-synapse-analytics-optional"></a>Azure Synapse Analytics (opcional)
 
-Opcionalmente, você pode usar o Synapse Analytics para criar um cluster do Spark. O Azure Synapse Analytics reúne o data warehousing e a análise de Big Data empresariais. Ele oferece a liberdade para consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados em escala. Para começar a usar o Synapse Analytics, siga estas etapas:
+Opcionalmente, você pode usar o Synapse Analytics para criar um cluster do Spark. O Azure Synapse Analytics reúne o data warehousing e a análise de Big Data empresariais. Ele oferece a liberdade para consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados em escala. Para começar a usar o Azure Synapse Analytics, siga estas etapas:
 
 1. [Criar um Workspace do Synapse (versão prévia)](../../synapse-analytics/quickstart-create-workspace.md).
 1. [Criar um Pool sem servidor do Apache Spark (versão prévia) usando o portal do Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-No Synapse Analytics, Big Data para Serviços Cognitivos é instalado por padrão.
+No Azure Synapse Analytics, o Big Data para Serviços Cognitivos está instalado por padrão.
 
 ### <a name="azure-kubernetes-service"></a>Serviço de Kubernetes do Azure
 
@@ -94,7 +94,7 @@ Primeiro, podemos criar um notebook no Azure Databricks. Para outros provedores 
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
-1. Na caixa de diálogo **Criar Notebook** , insira um nome, escolha **Python** como a linguagem e escolha o cluster Spark criado anteriormente.
+1. Na caixa de diálogo **Criar Notebook**, insira um nome, escolha **Python** como a linguagem e escolha o cluster Spark criado anteriormente.
 
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 

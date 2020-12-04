@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 28849620863f8593e5187dbef9fc6cc978de1824
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f944a793d721e93d818723eae25a9ce80d9c15bc
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961776"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96005071"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python
 
@@ -30,7 +30,7 @@ Para concluir este início rápido, é necessário ter:
 - Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Baixar e extrair *sample_data.zip*. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de blobs em uma conta de Armazenamento do Azure de camada de desempenho padrão.
 
 > [!NOTE]
-> Este início rápido usa documentos remotos acessados pela URL. Para usar arquivos locais, confira a [documentação de referência da v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) e a [documentação de referência da v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/TrainCustomModelAsync).
+> Este início rápido usa documentos remotos acessados pela URL. Para usar arquivos locais, confira a [documentação de referência da v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) e a [documentação de referência da v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/TrainCustomModelAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
@@ -308,7 +308,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -588,7 +588,7 @@ Quando o processo for concluído, você receberá uma resposta `202 (Success)` c
   }
 }
 ```
-# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1) 
+# <a name="v-2"></a>[v 2](#tab/v2-1) 
 ```json   
 {
   "status": "succeeded",
