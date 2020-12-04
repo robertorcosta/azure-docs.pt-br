@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 9f7d81423c75c3e1a51f5b5d5f37c54307488eb3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551463"
+ms.locfileid: "96576767"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Informações de Glossário sobre seus dados no Azure alcance
 
@@ -20,6 +20,7 @@ Este guia de instruções descreve como acessar, exibir e filtrar relatórios de
 
 Neste guia de instruções, você aprenderá a:
 
+> [!div class="checklist"]
 > - Ir para informações de sua conta do alcance
 > - Obtenha uma visão geral dos seus dados
 

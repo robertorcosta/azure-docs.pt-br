@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: alkohli
-ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548931"
+ms.locfileid: "96576818"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
-Este artigo descreve algumas das tarefas de configuração e gerenciamento executadas em dispositivos Data Box e Data Box Heavy. Você pode gerenciar os dispositivos Data Box e Data Box Heavy por meio da interface do usuário do portal do Azure e da interface do usuário da Web local do dispositivo. Este artigo concentra as tarefas executadas usando a interface do usuário da Web local.
+Este artigo descreve algumas das tarefas de configuração e gerenciamento executadas em dispositivos Data Box e Data Box Heavy. Você pode gerenciar os dispositivos Data Box e Data Box Heavy por meio da interface do usuário do portal do Azure e da interface do usuário da Web local do dispositivo. Este artigo se concentra nas tarefas executadas usando a interface do usuário da Web local.
 
-A interface do usuário da Web local para Data Box e para Data Box Heavy é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da Web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, exibir logs de cópia, apagar dados locais do dispositivo e gerar um pacote de suporte para Suporte da Microsoft. Em um dispositivo Data Box Heavy com dois nós independentes, você pode acessar duas interfaces do site locais separadas correspondentes a cada nó do dispositivo.
+A interface do usuário da Web local para o Data Box e para Data Box Heavy é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da Web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, exibir logs de cópia, apagar dados locais do dispositivo e gerar um pacote de suporte para Suporte da Microsoft. Em um dispositivo Data Box Heavy com dois nós independentes, você pode acessar duas interfaces do site locais separadas correspondentes a cada nó do dispositivo.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
@@ -29,21 +29,25 @@ Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os lo
 
 Para gerar um pacote de suporte, execute as seguintes etapas:
 
-1. Na interface do usuário da Web local, acesse **contatar o suporte** e selecione **criar pacote de suporte**.
+1. Na interface do usuário da Web local, acesse **contatar o suporte**. Opcionalmente, selecione **incluir despejo de memória**. Em seguida, selecione **criar pacote de suporte**.
+
+    Um despejo de memória é o conteúdo da memória do dispositivo, salvo após uma falha do sistema.
+
+    Você não deve selecionar a opção **incluir despejo de memória** , a menos que o suporte solicite uma. Leva muito tempo para coletar um pacote de suporte que inclui um despejo de memória e dados confidenciais são incluídos.
 
     ![Criar pacote de suporte 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. Um pacote de suporte será coletado. Essa operação leva alguns minutos.
+    Um pacote de suporte será coletado. Essa operação levará alguns minutos se você incluir apenas os logs do sistema. Se você incluir um despejo de memória, levará muito mais tempo.
 
     ![Criar pacote de suporte 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Quando a criação do pacote de suporte for concluída, selecione **baixar pacote de suporte**.
+2. Quando a criação do pacote de suporte for concluída, selecione **baixar pacote de suporte**.
+
+    ![Criar pacote de suporte 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
+
+3. Procure e escolha o local de download. Abra a pasta para exibir o conteúdo.
 
     ![Criar pacote de suporte 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
-
-4. Procure e escolha o local de download. Abra a pasta para exibir o conteúdo.
-
-    ![Criar pacote de suporte 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
 ## <a name="erase-local-data-from-your-device"></a>Apagar dados locais do seu dispositivo
 
@@ -72,6 +76,7 @@ Você pode desligar ou reiniciar o dispositivo usando a interface do usuário da
 Para desligar o dispositivo, execute as etapas a seguir.
 
 1. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
+
 2. Selecione **Desligar**.
 
     ![Desligar o Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -107,7 +112,7 @@ Antes de começar, siga estas etapas para baixar a BOM ou os arquivos de manifes
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. No explorador de arquivos, você verá que listas separadas de arquivos são geradas dependendo do protocolo usado para se conectar ao dispositivo e ao tipo de armazenamento do Azure usado.
+3. No explorador de arquivos, são geradas listas separadas de arquivos dependendo do protocolo usado para se conectar ao dispositivo e ao tipo de armazenamento do Azure usado.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Arquivos para o protocolo de conexão e o tipo de armazenamento](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -184,7 +189,7 @@ As somas de verificação são geradas para os seus dados por padrão quando voc
 
 A computação de soma de verificação durante a preparação para envio é feita somente para ordens de importação e não para ordens de exportação.
 
-É altamente recomendado que você não desabilite a soma de verificação, a menos que o desempenho seja gravemente afetado.
+É altamente recomendável que você não desabilite a soma de verificação, a menos que o desempenho seja seriamente afetado.
 
 1. No canto superior direito da interface do usuário da Web local do seu dispositivo, vá para **configurações**.
 
@@ -261,9 +266,9 @@ Para habilitar a transferência de ACLs para arquivos do Azure:
 
 ## <a name="enable-tls-11"></a>Habilitar TLS 1,1
 
-Por padrão, o Azure Data Box usa o protocolo TLS 1,2 para criptografia, pois é mais seguro do que o TSL 1,1. No entanto, se você ou seus clientes estiverem usando um navegador para acessar dados que não dão suporte a TLS 1,2, você poderá habilitar o TLS 1,1.
+Por padrão, o Azure Data Box usa o protocolo TLS 1,2 para criptografia porque é mais seguro do que o TSL 1,1. No entanto, se você ou seus clientes usarem um navegador para acessar dados que não dão suporte a TLS 1,2, você poderá habilitar o TLS 1,1.
 
-Para obter mais informações relacionadas ao TLS, consulte [segurança do gateway do Azure data Box](../databox-online/data-box-gateway-security.md).
+Para obter mais informações relacionadas ao TLS, consulte [segurança do gateway do Azure data Box](../databox-gateway/data-box-gateway-security.md).
 
 Para habilitar o TLS 1,1 em seu dispositivo do Azure:
 
