@@ -145,7 +145,11 @@
     - name: Gerenciar emparelhamentos
       items:
         - name: Habilitar e desabilitar emparelhamentos
-          href: expressroute-howto-reset-peering.md
+          items:
+            - name: Portal do Azure
+              href: expressroute-howto-reset-peering-portal.md
+            - name: Azure PowerShell
+              href: expressroute-howto-reset-peering.md
         - name: Mover do emparelhamento público para o emparelhamento da Microsoft
           href: how-to-move-peering.md
     - name: Criptografar tráfego nos circuitos
