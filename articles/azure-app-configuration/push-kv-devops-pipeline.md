@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7c0f886f23bc24eeed54043e9a7ee5fb1f645172
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183491"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572500"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Configurações de push para configuração de aplicativo com Azure Pipelines
 
@@ -27,7 +27,7 @@ A tarefa [push de configuração de Azure app](https://marketplace.visualstudio.
 
 ## <a name="create-a-service-connection"></a>Criar uma conexão de serviço
 
-Uma conexão de serviço permite que você acesse recursos em sua assinatura do Azure de seu projeto DevOps do Azure.
+Uma [conexão de serviço](/azure/devops/pipelines/library/service-endpoints) permite que você acesse recursos em sua assinatura do Azure de seu projeto DevOps do Azure.
 
 1. No Azure DevOps, vá para o projeto que contém o pipeline de destino e abra as **configurações do projeto** na parte inferior esquerda.
 1. Em **pipelines** , selecione **conexões de serviço** e selecione **nova conexão de serviço** no canto superior direito.
@@ -93,7 +93,7 @@ Os parâmetros a seguir são usados pela tarefa de push de configuração de apl
 
 Depois de preencher os parâmetros necessários, execute o pipeline. Todos os valores de chave no arquivo de configuração especificado serão carregados para a configuração do aplicativo.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se ocorrer um erro inesperado, os logs de depuração poderão ser habilitados definindo a variável de pipeline `system.debug` como `true` .
 

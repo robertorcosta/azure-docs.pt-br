@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458500"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571378"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina em Azure Machine Learning
 
@@ -93,8 +93,6 @@ A análise de texto baseada em métodos de aprendizado profundo envolve a análi
 
 As empresas usam o aprendizado profundo para executar a análise de texto para detectar o Insider Trading e a conformidade com as normas governamentais. Outro exemplo comum é a fraude de seguro: a análise de texto geralmente foi usada para analisar grandes quantidades de documentos para reconhecer as chances de uma declaração de seguro ser fraude. 
 
-Saiba como usar um modelo TensorFlow no Azure Machine Learning: [classificar dígitos manuscritos usando um modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Redes neurais artificial
 
 Redes neurais artificial são formadas por camadas de nós conectados. Os modelos de aprendizado profundo usam redes neurais que têm um grande número de camadas. 
@@ -107,7 +105,7 @@ A rede neural Feedforward é o tipo mais simples de rede neural artificial. Em u
 
 ### <a name="recurrent-neural-network"></a>Rede neural recorrente
 
-As redes neurais recorrentes são uma rede neural artificial amplamente usada. Essas redes salvam a saída de uma camada e as alimentam de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neurais recorrentes têm ótimos recursos de aprendizado. Eles são amplamente usados para tarefas complexas, como Previsão de série temporal, aprendizagem de manuscrito e reconhecimento de idioma.
+As redes neurais recorrentes são uma rede neural artificial amplamente usada. Essas redes salvam a saída de uma camada e as alimentam de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neurais recorrentes têm ótimos recursos de aprendizado. Eles são amplamente usados para tarefas complexas, como Previsão de série temporal, aprendizado de manuscrito e linguagem de reconhecimento.
 
 ### <a name="convolutional-neural-networks"></a>Redes neurais de revolução
 
@@ -118,6 +116,9 @@ As redes neurais de revolução foram usadas em áreas como reconhecimento de v�
 ## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir mostram mais opções para usar modelos de aprendizado aprofundado de software livre no [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Classificar dígitos manuscritos usando um modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classificar dígitos manuscritos usando um estimador TensorFlow e Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627873"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571055"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -36,7 +36,7 @@ Você deve ter o seguinte recurso instalado:
 
 O AKS usa várias identidades gerenciadas para serviços e Complementos internos.
 
-| Identidade                       | Name    | Caso de uso | Permissões padrão | Traga sua própria identidade
+| Identidade                       | Nome    | Caso de uso | Permissões padrão | Traga sua própria identidade
 |----------------------------|-----------|----------|
 | Painel de controle | não visível | Usado pelo AKS para recursos de rede gerenciados, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS | Função de colaborador para grupo de recursos de nó | Versão Prévia
 | Kubelet | Nome do cluster AKS – agentpool | Autenticação com o ACR (registro de contêiner do Azure) | NA (para kubernetes v 1.15 +) | Sem suporte no momento
@@ -105,23 +105,35 @@ Por fim, obtenha as credenciais para acessar o cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Atualizar um cluster AKS com base na entidade de serviço existente para identidades gerenciadas
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Atualizar um cluster AKS para identidades gerenciadas (versão prévia)
 
-Agora você pode atualizar um cluster AKS com identidades gerenciadas usando os comandos da CLI a seguir.
+Agora você pode atualizar um cluster AKS atualmente trabalhando com entidades de serviço para trabalhar com identidades gerenciadas usando os comandos da CLI a seguir.
 
-Primeiro, atualize a identidade atribuída ao sistema:
+Primeiro, registre o sinalizador de recurso para a identidade atribuída pelo sistema:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
+
+Atualize a identidade atribuída pelo sistema:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Em seguida, atualize a identidade atribuída ao usuário:
+Atualize a identidade atribuída pelo usuário:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Atualize a identidade atribuída pelo usuário:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Depois que o sistema atribuído ou as identidades atribuídas pelo usuário tiverem sido atualizadas para a identidade gerenciada, execute um `az nodepool upgrade --node-image-only` em seus nós para concluir a atualização para a identidade gerenciada.
+> Depois que as identidades atribuídas pelo sistema ou atribuídas pelo usuário tiverem sido atualizadas para a identidade gerenciada, execute um `az nodepool upgrade --node-image-only` em seus nós para concluir a atualização para a identidade gerenciada.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Traga seu próprio plano de controle MI (visualização)
 Uma identidade de plano de controle personalizado permite que o acesso seja concedido à identidade existente antes da criação do cluster. Isso permite cenários como usar uma VNET personalizada ou uma saída de UDR com uma identidade gerenciada.

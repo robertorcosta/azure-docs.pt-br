@@ -1,7 +1,7 @@
 ---
 title: Monitorar operações, eventos e contadores para o Load Balancer básico público
 titleSuffix: Azure Load Balancer
-description: Aprenda como habilitar eventos de alerta e analisar o log de status de integridade para o Public Basic Load Balancer
+description: Saiba como habilitar o registro em log para o Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6742723e24df83ac8112e224f1999f116ab82c94
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698318"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572772"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs do Azure Monitor para o Basic Load Balancer
+# <a name="azure-monitor-logs-for-the-standard-azure-load-balancer"></a>Logs de Azure Monitor para o Azure Load Balancer padrão
 
-Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas básicos de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal. Os logs podem ser transmitidos para um hub de eventos ou um espaço de trabalho Log Analytics. Todos os logs podem ser extraídos do armazenamento de BLOBs do Azure e exibidos em diferentes ferramentas, como Excel e Power BI.  Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
+Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de balanceadores de carga padrão. Os logs podem ser transmitidos para um hub de eventos ou um espaço de trabalho Log Analytics. Todos os logs podem ser extraídos do armazenamento de BLOBs do Azure e exibidos em diferentes ferramentas, como Excel e Power BI.  Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
-* **Logs de atividade:** Você pode usar [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) para exibir todas as atividades que estão sendo enviadas para suas assinaturas do Azure e seu status. Os logs de atividade são habilitados por padrão e podem ser exibidos no portal do Azure.
-* **Logs de eventos de alerta:** você pode usar esse log para ver quais alertas foram gerados para o balanceador de carga. O status do balanceador de carga é coletado a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.
-* **Logs de investigação de integridade:** Você pode usar esse log para exibir os problemas detectados pelo seu teste de integridade, como o número de instâncias no pool de back-end que não estão recebendo solicitações do balanceador de carga devido a falhas de investigação de integridade. Esse log é gravado quando há uma alteração no status de investigação de integridade.
+* **Logs de atividade:** Você pode usar [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) para exibir todas as atividades que estão sendo enviadas para suas assinaturas do Azure e seu status. Os logs de atividade são habilitados por padrão e podem ser exibidos no portal do Azure. Esses logs estão disponíveis para os balanceadores de carga básico e Standard.
+* **Métricas de Standard Load Balancer:** Você pode usar esse log para consultar as métricas exportadas como logs para o Azure Load Balancer padrão. Esses logs só estão disponíveis para balanceadores de carga padrão.
 
 > [!IMPORTANT]
-> **Os logs de eventos de investigação de integridade não estão funcionais no momento e estão listados nos [problemas conhecidos do Azure Load Balancer](whats-new.md#known-issues).** Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/management/deployment-models.md).
+> **Os logs de eventos de alertas de investigação de integridade e Load Balancer não estão funcionais no momento e estão listados nos [problemas conhecidos do Azure Load Balancer](whats-new.md#known-issues).** 
+
+> [!IMPORTANT]
+> Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 
@@ -75,94 +77,30 @@ Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver 
     3. Selecione o **espaço de trabalho log Analytics** na caixa de pull.
 
 
-8. Abaixo da seção **log** no painel **configurações de diagnóstico** , marque a caixa de seleção ao lado de ambos:
-   * **LoadBalancerAlertEvent**
-   * **LoadBalancerProbeHealthStatus**
+8.  Abaixo da seção **métrica** no painel **configurações de diagnóstico** , marque a caixa de seleção ao lado de: **biométricas**
 
-9.  Abaixo da seção **métrica** no painel **configurações de diagnóstico** , marque a caixa de seleção ao lado de:
-   * **Biometria**
-
-11. Verifique se tudo está correto e clique em **salvar** na parte superior do painel criar **configurações de diagnóstico** .
+9. Verifique se tudo está correto e clique em **salvar** na parte superior do painel criar **configurações de diagnóstico** .
 
 ## <a name="activity-log"></a>Log de atividades
 
-O log de atividades é gerado por padrão. Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
-
-## <a name="archive-to-storage-account-logs"></a>Arquivar logs da conta de armazenamento
-
-### <a name="alert-event-log"></a>Log de eventos de alerta
-
-Esse log só será gerado se você o tiver habilitado para cada balanceador de carga. Os dados são registrados no formato JSON e armazenados na conta de armazenamento especificada quando você habilitou o registro em log. O exemplo a seguir é de um evento.
-
-```json
-{
-    "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-    "category": "LoadBalancerAlertEvent",
-    "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-    "operationName": "LoadBalancerProbeHealthStatus",
-    "properties": {
-        "eventName": "Resource Limits Hit",
-        "eventDescription": "Ports exhausted",
-        "eventProperties": {
-            "public ip address": "40.117.227.32"
-        }
-    }
-}
-```
-
-A saída JSON mostra a propriedade *EventName* , que descreverá o motivo para o balanceador de carga ter criado um alerta. Nesse caso, o alerta gerado foi devido ao esgotamento da porta TCP causado pelos limites de NAT do IP de origem (SNAT).
-
-### <a name="health-probe-log"></a>Log de investigação de integridade
-
-Esse log só será gerado se você o tiver habilitado para cada balanceador de carga, conforme detalhado acima. Os dados são armazenados na conta de armazenamento especificada quando você habilitou o registro em log. Um contêiner denominado 'insights-logs-loadbalancerprobehealthstatus' é criado e os seguintes dados são registrados:
-
-```json
-{
-    "records":[
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 1,
-            "healthPercentage": 50.000000
-        }
-    },
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 0,
-            "healthPercentage": 100.000000
-        }
-    }]
-}
-```
-
-A saída JSON mostra no campo de propriedades as informações básicas do status da integridade da investigação. A propriedade *dipDownCount* mostra o número total de instâncias no back-end, que não estão recebendo tráfego de rede devido a respostas de investigação com falha.
+O log de atividades é gerado por padrão. Ele pode ser configurado para ser exportado em um nível de assinatura [seguindo as instruções neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
 
 ### <a name="view-and-analyze-the-activity-log"></a>Exibir e analisar o log de atividades
 
 Você pode exibir e analisar dados do log de atividades usando qualquer um dos seguintes métodos:
 
 * **Ferramentas do Azure:** Recupere informações do log de atividades por meio do Azure PowerShell, a CLI (interface de linha de comando) do Azure, a API REST do Azure ou o portal do Azure. Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/management/view-activity-logs.md) .
-* **Power bi:** Se você ainda não tiver uma conta de [Power bi](https:// .microsoft.com/pricing) , poderá experimentá-la gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), é possível analisar seus dados com painéis pré-configurados que ou é possível personalizar as exibições para elas se adequarem aos seus requisitos.
+* **Power bi:** Se você ainda não tiver uma conta de [Power bi](https://powerbi.microsoft.com/pricing) , poderá experimentá-la gratuitamente. Usando a [integração dos logs de auditoria do Azure para Power bi](https://powerbi.microsoft.com/integrations/azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados ou pode personalizar modos de exibição para atender às suas necessidades.
 
-### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Exibir e analisar o log de eventos de investigação de integridade
+## <a name="metrics-as-logs"></a>Métricas como logs
+Usando métricas para logs funcionalidade de exportação fornecida por Azure Monitor, você pode exportar suas métricas de Load Balancer. Essas métricas irão gerar uma entrada de log para cada intervalo de amostragem de um minuto.
 
-Conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para logs de investigação de eventos e de integridade. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-los no Excel, Power BI ou em qualquer outra ferramenta de visualização de dados.
+A métrica para a exportação de log está habilitada em um nível por recurso. Você pode habilitar esses logs acessando a folha configurações de diagnóstico, filtrando por grupo de recursos e selecionando o Load Balancer para o qual você gostaria de habilitar a exportação de métricas. Quando a página Load Balancer configurações de diagnóstico estiver ativa, selecione biométricas para exportar métricas qualificadas como logs.
+
+Consulte a seção [limitações](#limitations) deste artigo para obter limitações de exportação de métrica.
+
+### <a name="view-and-analyze-metrics-as-logs"></a>Exibir e analisar métricas como logs
+Depois de habilitar as biométricas nas configurações de diagnóstico de seu Standard Load Balancer, se estiver usando um hub de eventos ou Log Analytics espaço de trabalho, esses logs serão preenchidos na tabela AzureMonitor. Se estiver exportando para o armazenamento, conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para logs de investigação de eventos e de integridade. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-los no Excel, Power BI ou em qualquer outra ferramenta de visualização de dados. 
 
 > [!TIP]
 > Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
@@ -173,6 +111,13 @@ Quando as informações de diagnóstico são transmitidas para um hub de eventos
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 Os recursos no Azure podem ter suas informações de diagnóstico enviadas diretamente para um espaço de trabalho Log Analytics onde consultas complexas podem ser executadas em relação às informações para solução de problemas e análise.  Para obter mais informações, consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="limitations"></a>Limitações
+Atualmente, há as seguintes limitações ao usar o recurso de exportação de métricas para logs para balanceadores de carga:
+* As métricas são atualmente exibidas usando nomes internos quando exportadas como logs você pode encontrar o mapeamento na tabela abaixo
+* A dimensionalidade das métricas não é preservada. Por exemplo, com métricas como DipAvailability (status de investigação de integridade), você não poderá dividir ou exibir por endereço IP de back-end
+* As portas SNAT usadas e as métricas de portas SNAT alocadas não estão disponíveis no momento para exportação como logs
 
-[Entenda as investigações do balanceador de carga](load-balancer-custom-probe-overview.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Examine as métricas disponíveis para seu Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+* [Criar e testar consultas seguindo instruções de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* Forneça comentários sobre este artigo ou Load Balancer funcionalidade usando os links abaixo

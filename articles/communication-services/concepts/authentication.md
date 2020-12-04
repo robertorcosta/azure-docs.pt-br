@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832799"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571089"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar nos serviços de comunicação do Azure
 
@@ -27,7 +27,7 @@ A tabela a seguir descreve quais opções de autenticação têm suporte nas bib
 | Biblioteca do cliente | Chave de acesso    | Tokens de acesso do usuário |
 | -------------- | ------------- | ------------------ |
 | Administração | Com suporte     | Sem suporte      |
-| sms            | Com suporte     | Sem suporte      |
+| SMS            | Com suporte     | Sem suporte      |
 | Chat           | Sem suporte | Com suporte          |
 | Chamando        | Sem suporte | Com suporte          |
 
@@ -58,9 +58,9 @@ Se você não estiver usando uma biblioteca de cliente para fazer solicitações
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Gere uma assinatura HMAC-256 da cadeia de caracteres codificada em UTF-8 que você criou na etapa anterior. Em seguida, codifique os resultados como Base64. Observe que também é necessário decodificar a chave da conta de armazenamento em base64. Use o seguinte formato (mostrado como pseudocódigo):
+1. Gere uma assinatura HMAC-256 da cadeia de caracteres codificada em UTF-8 que você criou na etapa anterior. Em seguida, codifique os resultados como Base64. Observe que você também precisará decodificar a chave de acesso em base64. Use o seguinte formato (mostrado como pseudocódigo):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Especifique o cabeçalho de autorização da seguinte maneira:
     ```

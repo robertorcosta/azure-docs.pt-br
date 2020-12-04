@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 3e4c793e7822021fd1690d53a2d9df5399f3e6e2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518508"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572976"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -37,21 +37,23 @@ Ofertas que atingem o status de **incentivados de venda de IP do Azure para** ob
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Requisitos e etapas de publicação de venda conjunta
 
-A tabela a seguir lista as etapas e os requisitos para que seu Marketplace ofereça a oferta de co-venda pronta ou de venda de incentivados. Nem todos os tipos de oferta do Marketplace comercial são configuráveis para venda ainda no Partner Center. Você pode consultar a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter as informações mais recentes.
+Esta tabela lista as etapas e os requisitos para que sua oferta do Marketplace ofereça uma venda de incentivados de cooperação ou de venda. Nem todos os tipos de oferta do Marketplace comercial são configuráveis para venda ainda no Partner Center. Para obter a lista mais recente de tipos de oferta que dão suporte à televenda, confira [a opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md). 
 
 |Etapa    |Tipo de oferta    |Requisitos    |Status de venda conjunta    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>Crie uma conta no Partner Center e publique sua oferta no Marketplace comercial.</li>|Tudo|<ul><li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li></ul>| No mercado |
-|<ol start=2><li>Envie materiais de venda necessários.</li>|Ofertas de IP *com a* [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)|[Carregar materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-venda pronta|
-||Ofertas de IP *sem* [a opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)|<ul><li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.</li></ul>|Co-venda pronta|
+|<ol start=2><li>Envie materiais de venda necessários.</li>|Ofertas de IP *com a* [opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md)|[Carregar materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-venda pronta|
+||Ofertas de IP *sem* [a opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md)|<ul><li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.</li></ul>|Co-venda pronta|
 ||Serviços de Consultoria|<ul><li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.</li><li>Competência do Gold ativa.</li></ul>|Co-venda pronta|
-|<ol start=3><li>Qualificar-se para os incentivos de venda conjunta de IP</li>|Aplicativos do Azure, contêineres do Azure, módulos de IoT Edge, SaaS, VMs|Após a obtenção de uma venda pronta, há dois requisitos adicionais: <ul> Requisito 1: Obtenha um destes:<ul><li>*No nível da organização:* encontre ou exceda $100000 USD de receita consumida do Azure durante os 12 meses à direita.</li><li>*No nível da oferta:* receita cobrada do Marketplace cumulativo de us $ $100000.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve ser executado no Azure:<ul><li>Ofertas de IP *com* a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md): carregue um diagrama de arquitetura com seus documentos de venda conjuntas no Partner Center para análise.</li><li>Ofertas de IP *sem* a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md): carregue um diagrama de arquitetura para OCP GTM.|Incentivados de venda de IP do Azure|
+|<ol start=3><li>Qualificar-se para os incentivos de venda conjunta de IP</li>|Aplicativos do Azure, contêineres do Azure, módulos de IoT Edge, SaaS, VMs|Após a obtenção de uma venda pronta, há dois requisitos adicionais: <ul> Requisito 1: Obtenha um destes:<ul><li>*No nível da organização:* encontre ou exceda $100000 USD de receita consumida do Azure durante os 12 meses à direita.</li><li>*No nível da oferta:* receita cobrada do Marketplace cumulativo de us $ $100000.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve ser executado no Azure:<ul><li>Ofertas de IP *com* a [opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md): carregue um diagrama de arquitetura com seus documentos de venda conjuntas no Partner Center para análise.</li><li>Ofertas de IP *sem* a [opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md): carregue um diagrama de arquitetura para OCP GTM.|Incentivados de venda de IP do Azure|
 ||Dynamics|<ul><li>Você tem um registro ativo na camada Premium do ISV Connect.</li></ul>|Business Applications covenda incentivados|
 |||
 
+Para obter mais informações sobre os requisitos para as ofertas da solução de venda conjunta, consulte [requisitos 3000 para o status de venda conjunta](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status).
+
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Como enviar materiais de vendas em conjunto no Partner Center
 
-Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as etapas abaixo. Para obter mais detalhes, consulte [a opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as etapas abaixo. Para obter mais detalhes, consulte [a opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md).
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No painel esquerdo, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial e, em seguida, selecione a oferta que você deseja vender.
@@ -88,7 +90,7 @@ Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as e
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulte o status de venda de sua oferta
 
-Para ofertas com a [opção covenda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md), você pode ver o status de venda atual da sua oferta na página Visão geral da oferta:
+Para ofertas com a [opção covenda no Partner Center](commercial-marketplace-co-sell.md), você pode ver o status de venda atual da sua oferta na página Visão geral da oferta:
 
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o status de venda atual de ofertas.":::
 
@@ -96,5 +98,5 @@ Para ofertas com a [opção covenda no Partner Center](./partner-center-portal/c
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [venda com a Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Saiba mais sobre a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+- Saiba mais sobre a [opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md).
 - Leia o [manual da co-venda](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

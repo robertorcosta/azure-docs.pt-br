@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no gerenciamento de aplicativos Azure Active Directory
 description: Documentação nova e atualizada para o gerenciamento de aplicativos Azure Active Directory.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654002"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571004"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos Azure Active Directory: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de gerenciamento de aplicativos, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="new-articles"></a>Novos artigos
+- [Logon único baseado em cabeçalho para aplicativos locais com Aplicativo Azure AD proxy (versão prévia)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Gerenciamento de aplicativos Azure Active Directory: o que há de novo](whats-new-docs.md)
+- [Problemas ao entrar em aplicativos configurados para logon único baseado em SAML](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -65,7 +75,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 - [Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure](end-user-experiences.md)
 - [Como usar o acesso de aplicativo de autoatendimento](access-panel-manage-self-service-access.md)
 - [Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos](application-sign-in-other-problem-access-panel.md)
-- [Solucionar problemas de logon único baseado em senha no Azure AD](troubleshoot-password-based-sso.md)
+- [Solucionar problemas de logon único baseado em senha no Azure Active Directory](troubleshoot-password-based-sso.md)
 - [Planejar uma implantação do Azure Active Directory meus aplicativos](access-panel-deployment-plan.md)
 - [O que é SSO (logon único)?](what-is-single-sign-on.md)
 - [Tome medidas sobre aplicativos com privilégios elevados ou suspeitos no Azure Active Directory](manage-application-permissions.md)

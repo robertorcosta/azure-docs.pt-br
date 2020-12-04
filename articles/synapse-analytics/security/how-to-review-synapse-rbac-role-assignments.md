@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d6a0bdb9a6aaa2d9ca75ccd4a6d71e9046bee4a
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523381"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572177"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Como examinar as atribuições de função do RBAC Synapse
 
@@ -21,7 +21,10 @@ As funções RBAC Synapse são usadas para atribuir permissões a usuários, gru
 
 Este artigo explica como examinar as atribuições de função atuais para um espaço de trabalho.
 
-Com qualquer função RBAC Synapse, você pode listar as atribuições de função do RBAC Synapse para todos os escopos, incluindo atribuições para objetos aos quais você não tem acesso. Somente um administrador de Synapse pode conceder acesso de RBAC Synapse.   
+Com qualquer função RBAC Synapse, você pode listar as atribuições de função do RBAC Synapse para todos os escopos, incluindo atribuições para objetos aos quais você não tem acesso. Somente um administrador de Synapse pode conceder acesso de RBAC Synapse.  
+
+>[!Note]
+>Os usuários convidados (usuários de um locatário diferente do AD) não podem ver ou gerenciar atribuições de função, mesmo que tenham sido atribuídas à função de administrador Synapse.    
 
 ## <a name="open-synapse-studio"></a>Abrir o Synapse Studio  
 

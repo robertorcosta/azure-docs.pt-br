@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917538"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571123"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -258,7 +258,7 @@ Você pode optar por aceitar os canais de marketing e vendas com suporte da Micr
 
 - **Revenda por meio de CSPs**: Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Consulte [programa do provedor de soluções na nuvem](cloud-solution-providers.md) para obter mais informações.
 
-- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Consulte a [opção de venda em conjunto no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar sua oferta para avaliação.
+- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Consulte a [opção de venda em conjunto no Partner Center](commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar sua oferta para avaliação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

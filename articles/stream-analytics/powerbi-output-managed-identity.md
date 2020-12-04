@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489498"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573401"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)
 
 A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para Power bi fornece aos trabalhos de Stream Analytics acesso direto a um espaço de trabalho dentro de sua conta de Power bi. Esse recurso permite que as implantações de Stream Analytics trabalhos sejam totalmente automatizadas, já que não é mais necessário que um usuário faça logon interativamente no Power BI por meio do portal do Azure. Além disso, trabalhos de longa execução que gravam em Power BI agora têm melhor suporte, já que você não precisará reautorizar o trabalho periodicamente.
 
