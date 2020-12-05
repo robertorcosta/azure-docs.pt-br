@@ -2,7 +2,7 @@
 title: Resolver alertas do grupo de segurança de rede no Azure AD DS | Microsoft Docs
 description: Saiba como solucionar problemas e resolver alertas de configuração de grupo de segurança de rede para Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962778"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620249"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas de configuração de rede no Azure Active Directory Domain Services
 
@@ -80,7 +80,7 @@ Para adicionar uma regra de segurança ausente, conclua as seguintes etapas:
 1. Na portal do Azure, procure e selecione grupos de **segurança de rede**.
 1. Escolha o grupo de segurança de rede associado ao domínio gerenciado, como *AADDS-contoso.com-NSG*.
 1. Em **configurações** no painel esquerdo, clique em regras de *segurança de entrada* ou em *regras de segurança de saída* , dependendo de qual regra você precisa adicionar.
-1. Selecione **Adicionar**e crie a regra necessária com base na porta, no protocolo, na direção, etc. Quando estiver pronto, selecione **OK**.
+1. Selecione **Adicionar** e crie a regra necessária com base na porta, no protocolo, na direção, etc. Quando estiver pronto, selecione **OK**.
 
 Leva alguns minutos para que a regra de segurança seja adicionada e mostrada na lista.
 

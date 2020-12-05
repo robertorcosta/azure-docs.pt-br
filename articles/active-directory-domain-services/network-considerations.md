@@ -2,20 +2,20 @@
 title: Planejamento de rede e conexões para Azure AD Domain Services | Microsoft Docs
 description: Saiba mais sobre algumas das considerações de design de rede virtual e os recursos usados para conectividade quando você executa o Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 246da3a35396430bbda86e5a5e927a456618ac05
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175212"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619276"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure Active Directory Domain Services
 
@@ -108,7 +108,7 @@ Um [NSG (grupo de segurança de rede)](../virtual-network/network-security-group
 
 As regras do grupo de segurança de rede a seguir são necessárias para que o domínio gerenciado forneça serviços de autenticação e gerenciamento. Não edite ou exclua essas regras de grupo de segurança de rede para a sub-rede da rede virtual em que seu domínio gerenciado está implantado.
 
-| Número da porta | Protocolo | Fonte                             | Destino | Ação | Necessária | Finalidade |
+| Número da porta | Protocolo | Fonte                             | Destino | Ação | Obrigatório | Finalidade |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Allow  | Sim      | Sincronização com seu locatário do Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualquer         | Allow  | Sim      | Gerenciamento do seu domínio. |

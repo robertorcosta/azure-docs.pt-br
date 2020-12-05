@@ -1,20 +1,20 @@
 ---
 title: Migrar Azure AD Domain Services de uma rede virtual clássica | Microsoft Docs
 description: Saiba como migrar um domínio Azure AD Domain Services gerenciado existente do modelo de rede virtual clássica para uma rede virtual baseada no Resource Manager.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: joflore
-ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175365"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619361"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar Azure Active Directory Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
@@ -331,7 +331,7 @@ Como último recurso, Azure AD Domain Services pode ser restaurado do último ba
 
 Para restaurar o domínio gerenciado do backup, [abra um tíquete de caso de suporte usando o portal do Azure][azure-support]. Forneça a ID do diretório, o nome de domínio e o motivo da restauração. O processo de suporte e restauração pode levar vários dias para ser concluído.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você tiver problemas após a migração para o modelo de implantação do Gerenciador de recursos, examine algumas das seguintes áreas comuns de solução de problemas:
 

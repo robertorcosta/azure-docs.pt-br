@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602743"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621001"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Suporte ao protocolo TLS no Hub IoT
 
@@ -22,7 +22,7 @@ O TLS 1.0 e o 1.1 são considerados herdados e são planejados para substituiç�
 
 ## <a name="iot-hubs-server-tls-certificate"></a>Certificado TLS do servidor do Hub IoT
 
-Durante um handshake de TLS, o Hub IoT apresenta certificados de servidor com chave RSA para conectar clientes. Sua raiz é a CA raiz Baltimore Cybertrust. Recentemente, houve uma alteração nos emissores por novas ICAs (autoridades de certificação intermediárias). Para obter mais informações, consulte [atualização de certificado TLS do Hub IOT](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)
+Durante um handshake de TLS, o Hub IoT apresenta certificados de servidor com chave RSA para conectar clientes. Sua raiz é a CA raiz Baltimore Cybertrust. Recentemente, distribuímos uma alteração em nosso certificado do servidor TLS para que ele seja emitido agora por novas ICA (autoridades de certificação) intermediárias. Para obter mais informações, consulte [atualização de certificado TLS do Hub IOT](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificado TLS do servidor de criptografia de curva elíptica (ECC) (visualização)
 
@@ -31,7 +31,7 @@ O certificado TLS do servidor ECC do Hub IoT está disponível para visualizaç�
 Para visualizar o certificado do servidor ECC do Hub IoT:
 
 1. [Crie um novo hub IOT com o modo de visualização ativado](iot-hub-preview-mode.md).
-1. [Configure seu cliente](#tls-configuration-for-sdk-and-iot-edge) para incluir *apenas* conjuntos de codificação de ECDSA e *excluir* qualquer RSA. Estes são os conjuntos de codificação para a visualização pública do certificado ECC:
+1. [Configure seu cliente](#tls-configuration-for-sdk-and-iot-edge) para incluir *apenas* conjuntos de codificação de ECDSA e *excluir* qualquer RSA. Estes são os conjuntos de codificação com suporte para a visualização pública do certificado ECC:
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -133,7 +133,7 @@ Use esse recurso para especificar o comprimento máximo do fragmento de texto n�
 O suporte oficial do SDK para esse recurso de visualização pública ainda não está disponível. Para começar
 
 1. [Crie um novo hub IOT com o modo de visualização ativado](iot-hub-preview-mode.md).
-1. Configure seu cliente para definir `SSL_CTX_set_tlsext_max_fragment_length` um destes valores: 2 ^ 9, 2 ^ 10, 2 ^ 11 e 2 ^ 12.
+1. Ao usar o OpenSSL, chame [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) para especificar o tamanho do fragmento.
 1. Conecte seu cliente ao Hub IoT de visualização.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -2,14 +2,14 @@
 title: Criptografar o registro com uma chave gerenciada pelo cliente
 description: Saiba mais sobre a criptografia em repouso do registro de contêiner do Azure e como criptografar seu registro Premium com uma chave gerenciada pelo cliente armazenada no Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255013"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620421"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 
@@ -45,9 +45,6 @@ Ao configurar a criptografia do registro com uma chave gerenciada pelo cliente, 
 * **Atualizar automaticamente a versão da chave** – para atualizar automaticamente uma chave gerenciada pelo cliente quando uma nova versão estiver disponível no Azure Key Vault, omita a versão da chave ao habilitar a criptografia do registro com uma chave gerenciada pelo cliente. Quando um registro é criptografado com uma chave sem controle de versão, o registro de contêiner do Azure verifica regularmente o Key Vault em busca de uma nova versão de chave e atualiza a chave gerenciada pelo cliente dentro de 1 hora. O registro de contêiner do Azure usa automaticamente a versão mais recente da chave.
 
 * **Atualizar manualmente a versão da chave** -para usar uma versão específica de uma chave para a criptografia do registro, especifique essa versão de chave ao habilitar a criptografia do registro com uma chave gerenciada pelo cliente. Quando um registro é criptografado com uma versão de chave específica, o registro de contêiner do Azure usa essa versão para criptografia até que você gire manualmente a chave gerenciada pelo cliente.
-
-> [!NOTE]
-> No momento, você só pode usar o CLI do Azure para configurar o registro para atualizar automaticamente a versão da chave gerenciada pelo cliente. Ao usar o portal para habilitar a criptografia, você deve atualizar manualmente a versão da chave.
 
 Para obter detalhes, consulte [escolher a ID da chave com ou sem a versão da chave](#choose-key-id-with-or-without-key-version) e a [versão da chave de atualização](#update-key-version), mais adiante neste artigo.
 
@@ -252,7 +249,7 @@ Você usará o nome da identidade nas etapas posteriores.
 
 ### <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-Para obter as etapas para criar um cofre de chaves, consulte [início rápido: criar um Azure Key Vault com o portal do Azure](../key-vault/general/quick-create-portal.md).
+Para obter as etapas para criar um cofre de chaves, consulte [início rápido: criar um cofre de chaves usando o portal do Azure](../key-vault/general/quick-create-portal.md).
 
 Ao criar um cofre de chaves para uma chave gerenciada pelo cliente, na guia **noções básicas** , habilite a configuração **limpar proteção** . Essa configuração ajuda a evitar a perda de dados causada por exclusões de chave ou cofre de chaves acidentais.
 
@@ -279,13 +276,15 @@ Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac
     1. Atribuir acesso à **identidade gerenciada atribuída pelo usuário**.
     1. Selecione o nome do recurso de sua identidade gerenciada atribuída pelo usuário e selecione **salvar**.
 
-### <a name="create-key"></a>Chave Create
+### <a name="create-key-optional"></a>Criar chave (opcional)
+
+Opcionalmente, crie uma chave no cofre de chaves para ser usada para criptografar o registro. Siga estas etapas se desejar selecionar uma versão de chave específica como uma chave gerenciada pelo cliente. 
 
 1. Navegue até o cofre de chaves.
 1. Selecione **Configurações** > **Chaves**.
 1. Selecione **+Gerar/Importar** e insira um nome exclusivo para a chave.
 1. Aceite os valores padrão restantes e selecione **Criar**.
-1. Após a criação, selecione a chave e anote a versão da chave atual.
+1. Após a criação, selecione a chave e, em seguida, selecione a versão atual. Copie o **identificador de chave** para a versão de chave.
 
 ### <a name="create-azure-container-registry"></a>Crie um registro de contêiner do Azure
 
@@ -293,10 +292,11 @@ Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac
 1. Na guia **Informações Básicas**, selecione ou crie um grupo de recursos e insira o nome do Registro. Em **SKU**, selecione **Premium**.
 1. Na guia **Criptografia**, em **Chave gerenciada pelo cliente**, selecione **Habilitada**.
 1. Em **Identidade**, escolha a identidade gerenciada que você criou.
-1. Em **Criptografia**, escolha **Selecionar no Key Vault**.
-1. Na janela **Selecionar chave no Azure Key Vault**, selecione o cofre de chaves, a chave e a versão que você criou na seção anterior.
+1. Em **criptografia**, escolha uma das seguintes opções:
+    * Selecione **selecionar em Key Vault** e selecione um cofre de chaves e chave existentes ou **crie um novo**. A chave selecionada não tem controle de versão e habilita a rotação de chaves automática.
+    * Selecione **inserir URI de chave** e forneça um identificador de chave diretamente. Você pode fornecer um URI de chave com versão (para uma chave que deve ser girada manualmente) ou um URI de chave sem versão (que habilita a rotação de chaves automática). 
 1. Na guia **Criptografia**, escolha **Examinar + criar**.
-1. Selecione **criar** para criar a instância do registro.
+1. Escolha **Criar** para implantar a instância do Registro.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Criar um registro criptografado no portal do Azure":::
 
@@ -498,11 +498,11 @@ Por exemplo, para configurar uma nova chave:
 
 1. No portal, navegue até o Registro.
 1. Em **Configurações**, selecione **Criptografia** > **Alterar chave**.
-1. Selecione **selecionar chave**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Girar a chave no portal do Azure":::
-1. Na janela **Selecionar chave no Azure Key Vault**, escolha o cofre de chaves e a chave que você configurou anteriormente e, em **Versão**, escolha **Criar**.
-1. Na janela **Criar uma chave**, selecione **Gerar** e **Criar**.
+1. Em **criptografia**, escolha uma das seguintes opções:
+    * Selecione **selecionar em Key Vault** e selecione um cofre de chaves e chave existentes ou **crie um novo**. A chave selecionada não tem controle de versão e habilita a rotação de chaves automática.
+    * Selecione **inserir URI de chave** e forneça um identificador de chave diretamente. Você pode fornecer um URI de chave com versão (para uma chave que deve ser girada manualmente) ou um URI de chave sem versão (que habilita a rotação de chaves automática).
 1. Conclua a seleção de chave e escolha **Salvar**.
 
 ## <a name="revoke-key"></a>Revogar chave

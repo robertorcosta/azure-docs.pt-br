@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8530b74a63f4e5e2c04ff95a0106b896102dda2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994240"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618086"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (versão prévia)
 
@@ -38,9 +38,9 @@ Para usar as chaves de segurança para fazer logon em serviços e aplicativos We
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para visualização
 
-Dispositivos ingressados no Azure AD com os quais você faz o piloto devem executar o Windows 10 versão 1909 ou superior. A melhor experiência é no Windows 10 versão 1903 ou superior.
+Para dispositivos ingressados no Azure AD, a melhor experiência é no Windows 10 versão 1903 ou superior.
 
-Dispositivos ingressados no Azure AD híbrido devem executar o Windows 10 versão 2004 ou mais recente.
+Dispositivos ingressados no Azure AD híbrido devem executar o Windows 10 versão 2004 ou superior.
 
 ## <a name="enable-passwordless-authentication-method"></a>Habilitar método de autenticação com senha
 
@@ -68,7 +68,7 @@ Os recursos de registro para métodos de autenticação com senha contam com o r
 1. Escolha **dispositivo USB** ou **dispositivo NFC**.
 1. Prepare sua chave e escolha **Avançar**.
 1. Uma caixa será exibida e solicitará que o usuário crie/Insira um PIN para sua chave de segurança e, em seguida, execute o gesto necessário para a chave, biométrica ou toque.
-1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Próximo**.
+1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Avançar**.
 1. Clique em **concluído** para concluir o processo.
 
 ## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha

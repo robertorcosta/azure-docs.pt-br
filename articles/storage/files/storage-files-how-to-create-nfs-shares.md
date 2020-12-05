@@ -4,16 +4,16 @@ description: Saiba como criar um compartilhamento de arquivos do Azure que pode 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629454"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620930"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar um compartilhamento NFS
 
@@ -64,7 +64,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## <a name="verify-that-the-feature-is-registered"></a>Verificar se o recurso está registrado
+## <a name="verify-feature-registration"></a>Verificar o registro do recurso
 
 A aprovação de registro pode levar até uma hora. Para verificar se o registro foi concluído, use os seguintes comandos:
 
@@ -80,6 +80,34 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## <a name="verify-storage-account-kind"></a>Verificar tipo de conta de armazenamento
+
+Atualmente, apenas contas de armazenamento de fileseriais podem criar compartilhamentos NFS. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para verificar o tipo de conta de armazenamento que você tem, navegue até ela na portal do Azure. Em seguida, em sua conta de armazenamento, selecione **Propriedades**. Na folha Propriedades, examine o valor em **tipo de conta**, o valor deve ser **FileStorage**.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Para verificar se você tem uma conta de armazenamento de File, você pode usar o seguinte comando:
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+A saída deve ser **FileStorage**, se não for, a sua conta de armazenamento é do tipo incorreto. Para criar uma conta de **armazenamento** de arquivo, consulte [como criar um compartilhamento de arquivos premium do Azure](storage-how-to-create-premium-fileshare.md).
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+Para verificar se você tem uma conta de armazenamento de File, você pode usar o seguinte comando:
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+A saída deve conter **"Kind": "FileStorage"**, se não tiver, sua conta de armazenamento é do tipo incorreto. Para criar uma conta de **armazenamento** de arquivo, consulte [como criar um compartilhamento de arquivos premium do Azure](storage-how-to-create-premium-fileshare.md).
+
+---
 ## <a name="create-an-nfs-share"></a>Criar um compartilhamento NFS
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)

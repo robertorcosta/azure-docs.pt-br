@@ -10,14 +10,14 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646229"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618069"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure AD
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure Active Directory
 
 Para usar o SSO (logon único) baseado em senha em meus aplicativos, a extensão do navegador deve ser instalada. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha. Para saber mais sobre como usar meus aplicativos de uma perspectiva do usuário final, consulte [a ajuda do portal de meus aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
@@ -150,6 +150,13 @@ Se você tiver qualquer um desses problemas, faça o seguinte:
 - Certifique-se de que os usuários não estão tentando entrar no aplicativo de meus aplicativos enquanto estiverem no modo *Incognito*, *InPrivate* ou *Private*.
 - Tente o processo de captura manual novamente. Verifique se os marcadores vermelhos estão sobre os campos corretos.
 - Se o processo de captura manual parecer parar de responder ou a página de entrada não responder, tente o processo de captura manual novamente. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione a guia **console** . digite **Window. Location = "*&lt; a URL de entrada que você especificou ao configurar o aplicativo &gt;*"** e pressione Enter. Isso força um redirecionamento de página que encerra o processo de captura e armazena os campos que foram capturados.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Não consigo adicionar outro usuário ao meu aplicativo SSO baseado em senha
+
+O aplicativo SSO baseado em senha tem um limite de 48 usuários. Portanto, ele tem um limite de 48 chaves para pares de nome de usuário/senha por aplicativo.
+Se você quiser adicionar outros usuários, você pode:
+-   Adicionar instância adicional do aplicativo
+-   Remover usuários que não estão mais usando o aplicativo primeiro
 
 ## <a name="request-support"></a>Solicitar suporte 
 Se você receber uma mensagem de erro ao configurar o SSO e atribuir usuários, abra um tíquete de suporte. Inclua o máximo possível das seguintes informações:

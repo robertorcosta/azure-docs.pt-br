@@ -2,20 +2,20 @@
 title: Sincronização com escopo usando o PowerShell para Azure AD Domain Services | Microsoft Docs
 description: Saiba como usar o PowerShell do Azure AD para configurar a sincronização com escopo do Azure AD para um Azure Active Directory Domain Services domínio gerenciado
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
-ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967876"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619004"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services usando o PowerShell do Azure AD
 
@@ -175,7 +175,7 @@ Alterar o escopo da sincronização faz com que o domínio gerenciado sincronize
 
 Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado, execute `Select-GroupsToSync.ps1` o script e especifique a nova lista de grupos a serem sincronizados.
 
-No exemplo a seguir, os grupos para sincronizar não incluem mais *GroupName2*e agora incluem *GroupName3*.
+No exemplo a seguir, os grupos para sincronizar não incluem mais *GroupName2* e agora incluem *GroupName3*.
 
 > [!WARNING]
 > Você deve incluir o grupo de *Administradores de DC do AAD* na lista de grupos para sincronização com escopo. Se você não incluir esse grupo, o domínio gerenciado será inutilizável.

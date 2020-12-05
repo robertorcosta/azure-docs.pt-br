@@ -2,7 +2,7 @@
 title: Criar e usar políticas de senha no Azure AD Domain Services | Microsoft Docs
 description: Saiba como e por que usar políticas de senha refinadas para proteger e controlar senhas de contas em um domínio gerenciado do Azure AD DS.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: justinha
+ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393159"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619225"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de senha e conta em Azure Active Directory Domain Services domínios gerenciados
 
@@ -117,7 +117,7 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 
     ![Selecione os usuários e grupos aos quais aplicar a política de senha](./media/password-policy/fgpp-applies-to.png)
 
-1. As políticas de senha só podem ser aplicadas a grupos. Na caixa de diálogo **locais** , expanda o nome de domínio, como *aaddscontoso.com* , e selecione uma UO, como **usuários do AADDC**. Se você tiver uma UO personalizada que contenha um grupo de usuários que deseja aplicar, selecione essa UO.
+1. As políticas de senha só podem ser aplicadas a grupos. Na caixa de diálogo **locais** , expanda o nome de domínio, como *aaddscontoso.com*, e selecione uma UO, como **usuários do AADDC**. Se você tiver uma UO personalizada que contenha um grupo de usuários que deseja aplicar, selecione essa UO.
 
     ![Selecione a UO à qual o grupo pertence](./media/password-policy/fgpp-container.png)
 

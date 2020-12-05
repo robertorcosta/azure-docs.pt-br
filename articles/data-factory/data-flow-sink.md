@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350867"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621086"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -103,6 +103,10 @@ Por padrão, os dados são gravados em vários coletores em uma ordem não deter
 > Ao utilizar [pesquisas armazenadas em cache](./concepts-data-flow-expression-builder.md#cached-lookup), certifique-se de que sua ordenação de coletor tenha os coletores em cache definidos como 1, o mais baixo (ou primeiro) na ordenação.
 
 ![Ordenação de coletor personalizado](media/data-flow/cache-2.png "Ordenação de coletor personalizado")
+
+### <a name="sink-groups"></a>Grupos de coletor
+
+Você pode agrupar coletores aplicando o mesmo número de ordem para uma série de coletores. O ADF tratará esses coletores como grupos que podem ser executados em paralelo. As opções para execução paralela surgirão na atividade fluxo de dados do pipeline.
 
 ## <a name="error-row-handling"></a>Tratamento da linha de erros
 

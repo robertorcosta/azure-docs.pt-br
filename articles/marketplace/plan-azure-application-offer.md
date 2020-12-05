@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 4e256d97d055b56df8c917c841416e5c7eb52465
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 45bc3aaf5217c626e2593b4eda861eaace2a8be2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573520"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620402"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planejar uma oferta de Aplicativo Azure para o Marketplace comercial
 
@@ -210,7 +210,7 @@ Essa configuração será necessária se você quiser usar [evento de uso do lot
 Você pode optar por aceitar os canais de marketing e vendas com suporte da Microsoft. Ao criar sua oferta no Partner Center, você verá duas guias em direção ao final do processo:
 
 - **Revenda por meio de CSPs**: Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Consulte [programa do provedor de soluções na nuvem](./cloud-solution-providers.md) para obter mais informações.
-- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Consulte a [opção de venda em conjunto no Partner Center](commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar sua oferta para avaliação. Para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP, consulte [provedores de soluções de nuvem](cloud-solution-providers.md).
+- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Para obter informações detalhadas sobre como preparar sua oferta para avaliação, consulte [a opção de venda conjunta no Marketplace comercial](commercial-marketplace-co-sell.md). Para obter detalhes sobre os requisitos de venda de IP, consulte [requisitos para o status de televenda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP, consulte [provedores de soluções de nuvem](cloud-solution-providers.md).
 
 Para saber mais, confira [aumentar seu negócio na nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

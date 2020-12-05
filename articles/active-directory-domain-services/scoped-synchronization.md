@@ -2,7 +2,7 @@
 title: Sincronização com escopo para Azure AD Domain Services | Microsoft Docs
 description: Saiba como usar o portal do Azure para configurar a sincronização com escopo do Azure AD para um Azure Active Directory Domain Services domínio gerenciado
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 514932726d9283af0c3fb404f787a10057ce8842
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967844"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618902"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services usando o portal do Azure
 
@@ -83,7 +83,7 @@ Para desabilitar a sincronização com escopo baseado em grupo para um domínio 
 
 1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
 1. Selecione **sincronização** no menu do lado esquerdo.
-1. Altere o *tipo de sincronização* de **escopo** para **todos**e selecione **salvar escopo de sincronização**.
+1. Altere o *tipo de sincronização* de **escopo** para **todos** e selecione **salvar escopo de sincronização**.
 
 Alterar o escopo da sincronização faz com que o domínio gerenciado sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado são excluídos e a ressincronização pode levar algum tempo para ser concluída.
 
