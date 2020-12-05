@@ -4,12 +4,12 @@ description: Saiba como conectar seu aplicativo de funções a Application Insig
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175739"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607119"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -38,6 +38,9 @@ O agente do Azure Functions inclui uma *categoria* para cada log. A categoria in
 | **`Host.Results`** | **requests** | Esses logs gerados pelo tempo de execução indicam êxito ou falha de uma função. Todos esses logs são gravados no nível de `Information`. Se você filtrar `Warning` ou acima, não verá nenhum desses dados. |
 | **`Microsoft`** | **traces** | Categoria de log totalmente qualificada que reflete um componente de tempo de execução .NET invocado pelo host.  |
 | **`Worker`** | **traces** | Logs gerados pelo processo de trabalho de idioma para idiomas non-.NET. Os logs de trabalho de idioma também podem ser registrados em uma `Microsoft.*` categoria, como `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . Esses logs são gravados no `Information` nível.|
+
+> [!NOTE]
+> Para funções de biblioteca de classes do .NET, essas categorias pressupõem que você está usando `ILogger` e não `ILogger<T>` . Para saber mais, consulte a [documentação do Functions ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1. x](#tab/v1)
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d2cc8487f9864a27c1a2b02ef6e846bc43727e27
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958737"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608530"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux 
 
@@ -59,6 +59,10 @@ ms.locfileid: "94958737"
 Este artigo descreve como implantar um sistema de SAP HANA altamente disponível em uma configuração de expansão com o modo de espera no Azure Red Hat Enterprise Linux VMs (máquinas virtuais), usando [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para os volumes de armazenamento compartilhado.  
 
 Nas configurações de exemplo, comandos de instalação e assim por diante, a instância do HANA é **03** e a ID do sistema Hana é **HN1**. Os exemplos são baseados em HANA 2,0 SP4 e Red Hat Enterprise Linux para SAP 7,6. 
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *subordinado*, termos que a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
+
 
 Antes de começar, consulte as seguintes notas e documentos do SAP:
 
@@ -709,8 +713,8 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
 6. Para otimizar SAP HANA para o armazenamento de Azure NetApp Files subjacente, defina os seguintes parâmetros de SAP HANA:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit` **on**
-   - `async_write_submit_active` **on**
+   - `async_read_submit`**em**
+   - `async_write_submit_active`**em**
    - `async_write_submit_blocks`**todos**
 
    Para obter mais informações, consulte [aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp files][anf-sap-applications-azure]. 

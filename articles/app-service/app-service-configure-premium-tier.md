@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559109"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607867"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configurar a camada PremiumV3 para o serviço Azure App
 
@@ -82,7 +82,7 @@ Alguns planos do serviço de aplicativo não podem ser escalados verticalmente p
 Se seu aplicativo for executado em uma implantação do serviço de aplicativo em que **PremiumV3** não está disponível ou se seu aplicativo for executado em uma região que atualmente não dá suporte a **PremiumV3**, você precisará reimplantar seu aplicativo para tirar proveito do **PremiumV3**.  Você tem duas opções:
 
 - Crie um aplicativo em um novo grupo de recursos e com um novo plano do serviço de aplicativo. Ao criar o plano do serviço de aplicativo, selecione uma camada **PremiumV3** . Essa etapa garante que o plano do serviço de aplicativo seja implantado em uma unidade de implantação que dê suporte a **PremiumV3**. Em seguida, reimplante o código do aplicativo no aplicativo recém-criado. Mesmo que você dimensione o plano do serviço de aplicativo para uma camada mais baixa para economizar custos, você pode sempre dimensionar de volta para **PremiumV3** porque a unidade de implantação dá suporte a ele.
-- Se seu aplicativo já for executado em uma camada **Premium** existente, você poderá clonar seu aplicativo com todas as configurações do aplicativo, cadeias de conexão e a configuração de implantação em um novo plano do serviço de aplicativo que usa **PremiumV3**.
+- Se seu aplicativo já for executado em uma camada **Premium** existente, você poderá clonar seu aplicativo com todas as configurações do aplicativo, cadeias de conexão e a configuração de implantação em um novo grupo de recursos em um novo plano do serviço de aplicativo que usa **PremiumV3**.
 
     ![Captura de tela mostrando como clonar seu aplicativo.](media/app-service-configure-premium-tier/clone-app.png)
 

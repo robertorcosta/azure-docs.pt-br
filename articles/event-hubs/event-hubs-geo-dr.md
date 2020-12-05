@@ -3,15 +3,15 @@ title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Micr
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934065"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608343"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
-Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é crítico para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
+Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é crítico para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
 
 > [!NOTE]
 > O recurso de recuperação de desastre geográfico só está disponível para [SKUs padrão e dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/).  
@@ -65,7 +65,7 @@ Primeiro crie ou use um namespace primário existente e um novo namespace secund
 
 ### <a name="example"></a>Exemplo
 
-Em um exemplo desse cenário, considere uma solução de ponto de venda (PDV) que emita mensagens ou eventos. Os Hubs de Eventos transmitem esses eventos para uma solução de mapeamento ou de reformatação, que encaminha dados mapeado para outro sistema para processamento adicional. Nesse ponto, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão sobre quando fazer o failover e em qual parte depende do fluxo de dados em sua infraestrutura. 
+Em um exemplo desse cenário, considere uma solução de ponto de venda (PDV) que emita mensagens ou eventos. Os Hubs de Eventos transmitem esses eventos para uma solução de mapeamento ou de reformatação, que encaminha dados mapeado para outro sistema para processamento adicional. Nesse ponto, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão de quando e de qual parte fazer failover depende do fluxo de dados em sua infraestrutura. 
 
 Você pode automatizar o failover tanto com sistemas de monitoramento ou com soluções de monitoramento personalizadas. No entanto, essa automação precisa de planejamento e trabalho adicionais, o que está fora do escopo deste artigo.
 
@@ -96,7 +96,7 @@ O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 ## <a name="considerations"></a>Considerações
 
-Observe as seguintes considerações a serem lembradas quanto a esta versão:
+Observe as seguintes considerações para ter em mente:
 
 1. Por design, a recuperação de desastre geográfico dos Hubs de Eventos não replica os dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. É recomendável reiniciar o receptor de eventos com um dos seguintes métodos:
 
@@ -106,7 +106,7 @@ Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
 2. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover. 
  
-3. O fato de que nenhum dado seja replicado significa que sessões atualmente ativas não são replicadas. Além disso, a detecção duplicada e mensagens programadas podem não funcionar. Novas sessões, mensagens programadas e novas duplicatas funcionarão. 
+3. O fato de que nenhum dado é replicado significa que as sessões ativas atuais não são replicadas. Além disso, a detecção duplicada e mensagens programadas podem não funcionar. Novas sessões, mensagens programadas e novas duplicatas funcionarão. 
 
 4. O failover de uma infraestrutura complexa distribuída deve ser [testado](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) pelo menos uma vez. 
 

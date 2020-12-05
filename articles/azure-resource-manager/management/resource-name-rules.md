@@ -2,13 +2,13 @@
 title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 12/04/2020
+ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347787"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608309"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -596,6 +596,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, sublinhados, parênteses, hifens, pontos e caracteres unicode que correspondem à [documentação regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>Não pode terminar com ponto. |
 > | tagNames | recurso | 1–512 | Não é possível usar:<br>`<>%&\?/` |
 > | tagNames / tagValues | nome da tag | 1–256 | Todos os caracteres. |
+> | templateSpecs | grupo de recursos | 1-90 | Caracteres alfanuméricos, sublinhados, parênteses, hifens e pontos. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 

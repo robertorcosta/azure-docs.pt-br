@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 6fb1ef45ff4e77ab21480a1013a3cec6bcc7cfa1
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030893"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608615"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Instalar e usar o emulador de Azure Cosmos DB para desenvolvimento e teste locais
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -60,7 +60,7 @@ Como o emulador de Azure Cosmos DB fornece um ambiente emulado que é executado 
 Antes de instalar o emulador, verifique se você tem os seguintes requisitos de hardware e software:
 
 * Requisitos de software:
-  * Atualmente, há suporte para o Windows Server 2012 R2, o Windows Server 2016, o 2019 ou o Windows 8, o sistema operacional de 10 hosts. No momento, não há suporte para o sistema operacional host com Active Directory habilitado.
+  * No momento, há suporte para o SO Windows Server 2016, 2019 ou Windows 10 host. No momento, não há suporte para o sistema operacional host com Active Directory habilitado.
   * Sistema operacional de 64 bits
 
 * Requisitos mínimos de hardware:
@@ -302,7 +302,7 @@ Use as seguintes etapas se estiver trabalhando no Mac:
 
 A desabilitação da validação SSL só é recomendada para fins de desenvolvimento e não deve ser feita durante a execução em um ambiente de produção. Os exemplos a seguir mostram como desabilitar a validação SSL para aplicativos .NET e Node.js.
 
-# <a name="net-standard-21"></a>[.NET Standard 2.1 +](#tab/ssl-netstd21)
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
 
 Para qualquer aplicativo em execução em uma estrutura compatível com o .NET Standard 2,1 ou posterior, podemos aproveitar o `CosmosClientOptions.HttpClientFactory` :
 

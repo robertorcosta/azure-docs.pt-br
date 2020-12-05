@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 04dcf8edbce7782e6d196271bfa85f2f8d1c5ba3
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377184"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608326"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -59,7 +59,7 @@ Quando o portal cria o cofre de chaves, ele também adiciona uma política de ac
 
 - O outro caso em que isso pode ocorrer é quando um usuário (Usuário1) tentou configurar a replicação inicialmente e encontrou uma falha, mas o cofre de chaves já foi criado (e a política de acesso do usuário foi atribuída apropriadamente a esse usuário). Agora, posteriormente, um usuário diferente (Usuário2) tentará configurar a replicação, mas a operação configurar conta de armazenamento gerenciado ou gerar definição de SAS falhará, pois não há nenhuma política de acesso de usuário correspondente ao Usuário2 no cofre de chaves.
 
-**Resolução** : para resolver esse problema, crie uma política de acesso de usuário para Usuário2 no keyvault concedendo permissão de Usuário2 para configurar a conta de armazenamento gerenciado e gerar definições de SAS. O User2 pode fazer isso a partir de Azure PowerShell usando os cmdlets abaixo:
+**Resolução**: para resolver esse problema, crie uma política de acesso de usuário para Usuário2 no keyvault concedendo permissão de Usuário2 para configurar a conta de armazenamento gerenciado e gerar definições de SAS. O User2 pode fazer isso a partir de Azure PowerShell usando os cmdlets abaixo:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Sessão
 
@@ -139,7 +139,7 @@ O componente que está tentando replicar os dados para o Azure está inoperante 
     
     Esse comando tentará uma conexão TCP e retornará uma saída.
     
-     - Na saída, verifique o campo " _TcpTestSucceeded_ ". Se o valor for " _true_ ", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
+     - Na saída, verifique o campo "_TcpTestSucceeded_". Se o valor for "_true_", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
     
     **Resolução:** Se esse teste falhar, haverá um problema de conectividade entre o dispositivo migrações para Azure e o Azure Key Vault. Envolva sua equipe de rede local para verificar problemas de conectividade. Normalmente, pode haver algumas configurações de firewall que estão causando as falhas.
     
@@ -225,7 +225,7 @@ As possíveis causas incluem:
     
     Esse comando tentará uma conexão TCP e retornará uma saída.
     
-    1. Na saída, verifique o campo " _TcpTestSucceeded_ ". Se o valor for " _true_ ", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
+    1. Na saída, verifique o campo "_TcpTestSucceeded_". Se o valor for "_true_", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
     
     **Resolução:** Se esse teste falhar, haverá um problema de conectividade entre o dispositivo migrações para Azure e o Azure Key Vault. Envolva sua equipe de rede local para verificar problemas de conectividade. Normalmente, pode haver algumas configurações de firewall que estão causando as falhas.
     
@@ -242,7 +242,7 @@ Esse erro pode ser resolvido das duas maneiras a seguir:
 
 Um desses problemas conhecido que pode causar uma reinicialização CBT da máquina virtual no VMware vSphere 5,5 é descrito em [VMware KB 2048201: o controle de bloco alterado](https://go.microsoft.com/fwlink/?linkid=2138888) é redefinido após uma operação de armazenamento VMotion no vSphere 5. x. Se estiver usando o VMware vSphere 5.5, certifique-se de aplicar as atualizações descritas nesta KB.
 
-Como alternativa, você pode [redefinir o rastreamento de bloco alterado pelo VMware em uma máquina virtual usando o VMware PowerCLI.
+Como alternativa, você pode redefinir o rastreamento de bloco alterado pelo VMware em uma máquina virtual usando o VMware PowerCLI.
 
 ## <a name="an-internal-error-occurred"></a>Ocorreu um erro interno
 
@@ -276,7 +276,7 @@ Se você tiver uma máquina virtual com vários discos, poderá encontrar esse e
 
 Esse problema ocorre quando a geração de instantâneos para de responder. Quando esse problema ocorrer, você poderá ver a tarefa criar instantâneo parar às 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para superar esse problema.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensagem de erro: ocorreu um erro interno. [Falha ao consolidar os discos na VM _[motivos]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensagem de erro: ocorreu um erro interno. [Falha ao consolidar os discos na VM _[motivos]_]
 
 Quando consolidamos discos no final do ciclo de replicação, a operação falha. Siga as instruções em [KB do VMware](https://go.microsoft.com/fwlink/?linkid=2138970) selecionando o _motivo_ apropriado para resolver o problema.
 
