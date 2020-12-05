@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460979"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621409"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planejar um aplicativo gerenciado do Azure para uma oferta de aplicativo do Azure
 
@@ -90,7 +90,7 @@ Os preços são definidos em USD (USD = Estados Unidos dólar) são convertidos 
 O acesso JIT permite que você solicite acesso elevado a recursos de um aplicativo gerenciado para solução de problemas ou manutenção. Você sempre tem acesso somente leitura aos recursos, mas, para um período de tempo específico, você pode ter mais acesso. Para obter mais informações, consulte [Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
-> Informações que o usuário deve observar mesmo se skimmingBe certeza de atualizar o `createUiDefinition.json` arquivo para dar suporte a esse recurso.
+> Certifique-se de atualizar o arquivo de `createUiDefinition.json` para dar suporte a esse recurso.
 
 ## <a name="deployment-mode"></a>Modo de implantação
 
@@ -126,11 +126,11 @@ Você pode configurar um máximo de cinco políticas e apenas uma instância de 
 
 | Tipo de política | Parâmetros de política necessários |
 | ------------ | ------------- |
-| Criptografia do banco de dados SQL do Azure | No |
-| Configurações de auditoria do Azure SQL Server | Yes |
-| Azure Data Lake Store criptografia | No |
-| Configuração de diagnóstico de auditoria | Yes |
-| Conformidade do local do recurso de auditoria | No |
+| Criptografia do banco de dados SQL do Azure | Não |
+| Configurações de auditoria do Azure SQL Server | Sim |
+| Azure Data Lake Store criptografia | Não |
+| Configuração de diagnóstico de auditoria | Sim |
+| Conformidade do local do recurso de auditoria | Não |
 |||
 
 Para cada tipo de política que você adicionar, você deve associar a SKU de política padrão ou gratuita. A SKU Standard é necessária para as políticas de auditoria. Os nomes de política são limitados a 50 caracteres.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532985"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621528"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -61,7 +61,7 @@ A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 A segunda etapa é chamar a operação [obter resultados de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) . Essa operação usa como entrada a ID da operação que foi criada pela operação de leitura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 1 a 2 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação não foi iniciada. |
 | |  | em execução: a operação está sendo processada. |
@@ -147,7 +147,7 @@ A [Visualização pública da API de leitura 3,2](https://westus.dev.cognitive.m
 Atualmente, a operação de leitura dá suporte à extração de texto manuscrito exclusivamente em inglês.
 
 ## <a name="use-the-rest-api-and-sdk"></a>Usar a API REST e o SDK
-A [API REST de leitura 3. x](./QuickStarts/CSharp-hand-text.md) é a opção preferida para a maioria dos clientes devido à facilidade de integração e produtividade rápida pronta para uso. O Azure e o serviço de Pesquisa Visual Computacional tratam das necessidades de escala, desempenho, segurança de dados e conformidade enquanto você se concentra em atender às necessidades dos seus clientes.
+A [API REST de leitura 3. x](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) é a opção preferida para a maioria dos clientes devido à facilidade de integração e produtividade rápida pronta para uso. O Azure e o serviço de Pesquisa Visual Computacional tratam das necessidades de escala, desempenho, segurança de dados e conformidade enquanto você se concentra em atender às necessidades dos seus clientes.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Implantar no local com contêineres do Docker
 O [contêiner do Docker de leitura (versão prévia)](./computer-vision-how-to-install-containers.md) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.

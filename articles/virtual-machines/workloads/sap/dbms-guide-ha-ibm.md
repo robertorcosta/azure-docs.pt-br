@@ -8,17 +8,20 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 01f02efd36c51f3969ee53e9efc78fbe1664b187
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486531"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621375"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade do IBM DB2 LUW em VMs do Azure em SUSE Linux Enterprise Server com pacemaker
 
 O IBM DB2 para Linux, UNIX e Windows (LUW) na [configuração de alta disponibilidade e recuperação de desastres (HADR)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consiste em um nó que executa uma instância de banco de dados primário e pelo menos um nó que executa uma instância de banco de dados secundária. As alterações na instância do banco de dados primário são replicadas para uma instância de banco de dados secundária de forma síncrona ou assíncrona, dependendo de sua configuração. 
 
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *subordinado*, termos que a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
+   
 Este artigo descreve como implantar e configurar as VMs (máquinas virtuais) do Azure, instalar a estrutura de cluster e instalar o IBM DB2 LUW com a configuração do HADR. 
 
 O artigo não aborda como instalar e configurar o IBM DB2 LUW com o HADR ou a instalação do software SAP. Para ajudá-lo a realizar essas tarefas, fornecemos referências a manuais de instalação do SAP e IBM. Este artigo se concentra em partes específicas do ambiente do Azure. 
@@ -492,7 +495,7 @@ O arquivamento de log é executado somente pelo banco de dados primário. Se voc
 
 É recomendável configurar um compartilhamento NFS comum em que os logs são gravados de ambos os nós. O compartilhamento NFS precisa estar altamente disponível. 
 
-Você pode usar compartilhamentos NFS altamente disponíveis existentes para transportes ou um diretório de perfil. Para obter mais informações, confira:
+Você pode usar compartilhamentos NFS altamente disponíveis existentes para transportes ou um diretório de perfil. Para obter mais informações, consulte:
 
 - [Alta disponibilidade do NFS em VMs do Azure no SUSE Linux Enterprise Server][nfs-ha] 
 - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP](./high-availability-guide-suse-netapp-files.md)

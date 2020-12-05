@@ -3,15 +3,15 @@ title: Visão geral da solução de problemas de área de trabalho virtual do Wi
 description: Uma visão geral para solucionar problemas durante a configuração de um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009351"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621307"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de solução de problemas, comentários e suporte para área de trabalho virtual do Windows
 
@@ -45,7 +45,7 @@ Use a tabela a seguir para identificar e resolver os problemas que você pode en
 | Conectando clientes                                                                    | Consulte [conexões do serviço de área de trabalho virtual do Windows](troubleshoot-service-connection.md) e, se isso não resolver o problema, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md). |
 | Capacidade de resposta de aplicativos remotos ou área de trabalho                                      | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
 | Mensagens de licenciamento ou erros                                                          | Se os problemas estiverem vinculados a um aplicativo ou produto específico, entre em contato com a equipe responsável pelo produto. |
-| Problemas com métodos de autenticação de terceiros | Verifique se o provedor de terceiros dá suporte a cenários de área de trabalho virtual do Windows e aborde-os em relação a problemas conhecidos. |
+| Problemas com métodos ou ferramentas de autenticação de terceiros | Verifique se o provedor de terceiros dá suporte a cenários de área de trabalho virtual do Windows e aborde-os em relação a problemas conhecidos. |
 | Problemas ao usar o Log Analytics para área de trabalho virtual do Windows | Para problemas com o esquema de diagnóstico, [abra uma solicitação de suporte do Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Para consultas, visualização ou outros problemas no Log Analytics, selecione o tipo de problema apropriado em Log Analytics. |
 | Problemas ao usar aplicativos M365 | Contate o centro de administração do M365 com uma das [Opções de ajuda do centro de administração do M365](/microsoft-365/admin/contact-support-for-business-products/). |
 

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
-ms.openlocfilehash: 5299a049ab2cc2246a861dd3fb81f466b56afad3
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603116"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621698"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>Ativar o modo de visualização para o Hub IoT para tentar selecionar novos recursos
 
@@ -66,7 +66,7 @@ Depois de criado, um hub IoT no modo de visualização sempre mostra essa faixa,
 
 *Não* use um hub IOT no modo de visualização para produção. O modo de visualização destina-se *apenas* a visualizar os recursos selecionados listados na parte superior desta página. Algumas outras limitações do modo de visualização do Hub IoT são
 
-- Alguns recursos existentes do Hub IoT, como link privado, identidade gerenciada, fluxos de dispositivo e failover podem funcionar inesperadamente ou não.
+- Alguns recursos existentes do Hub IoT, como filtro IP, link privado, identidade gerenciada, fluxos de dispositivo e failover podem funcionar inesperadamente ou não.
 - Um hub IoT no modo de visualização não pode ser alterado ou atualizado para um hub IoT normal.
 - Não podemos garantir o [SLA do Hub IOT](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) normal-não use para produção.
 

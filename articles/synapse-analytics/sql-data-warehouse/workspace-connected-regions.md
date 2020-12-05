@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 13716210ae967c9d4a7f21fb5a6c4afdb9033be1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8a345c2feaeea933af3fdce591283716443fbfda
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466033"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621664"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Habilitando recursos de espaço de trabalho Synapse em um pool SQL dedicado (anteriormente conhecido como SQL DW) em sua região.
 
@@ -30,7 +30,7 @@ A tabela a seguir resume por região em que a capacidade de habilitar os recurso
 | Sul da Índia |31 de março de 2021 |
 | Oeste da Índia |31 de março de 2021 |
 | Oeste da Suíça |31 de março de 2021 |
-| Norte dos EAU |1º de junho de 2020 |1º de julho de 2020 |
+| Norte dos EAU |31 de março de 2021 |
 
 ## <a name="next-steps"></a>Próximas etapas
 Introdução ao [Synapse Workspace and Studio](../get-started.md).

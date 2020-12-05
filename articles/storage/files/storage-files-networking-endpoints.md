@@ -4,16 +4,16 @@ description: Saiba como configurar pontos de extremidade de rede de arquivos do 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629845"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621324"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos de extremidade de rede dos Arquivos do Azure
 
@@ -45,15 +45,26 @@ Você pode configurar seus pontos de extremidade para restringir o acesso à red
 
 A criação de um ponto de extremidade privado para sua conta de armazenamento resultará na implantação dos seguintes recursos do Azure:
 
-- **Um ponto de extremidade privado** : um recurso do Azure que representa o ponto de extremidade privado da conta de armazenamento. Considere-o como um recurso que conecta uma conta de armazenamento e uma interface de rede.
+- **Um ponto de extremidade privado**: um recurso do Azure que representa o ponto de extremidade privado da conta de armazenamento. Considere-o como um recurso que conecta uma conta de armazenamento e uma interface de rede.
 - **Uma NIC (adaptador de rede)** : o adaptador de rede que mantém um endereço IP privado dentro da rede virtual/sub-rede especificada. É exatamente o mesmo recurso que é implantado quando você implanta uma máquina virtual. No entanto, em vez de ser atribuído a uma VM, ele pertence ao ponto de extremidade privado.
-- **Uma zona DNS privada** : se você nunca tiver implantado um ponto de extremidade privado para essa rede virtual, uma nova zona DNS privada será implantada em sua rede virtual. Um registro DNS A também será criado para a conta de armazenamento nesta zona DNS. Se você já tiver implantado um ponto de extremidade privado nessa rede virtual, um novo registro A para a conta de armazenamento será adicionado à zona DNS existente. A implantação da zona DNS é opcional, mas altamente recomendada e necessária se você estiver montando os compartilhamentos de arquivo do Azure com uma entidade de serviço do AD ou usando a API FileREST.
+- **Uma zona DNS privada**: se você nunca tiver implantado um ponto de extremidade privado para essa rede virtual, uma nova zona DNS privada será implantada em sua rede virtual. Um registro DNS A também será criado para a conta de armazenamento nesta zona DNS. Se você já tiver implantado um ponto de extremidade privado nessa rede virtual, um novo registro A para a conta de armazenamento será adicionado à zona DNS existente. A implantação da zona DNS é opcional, mas altamente recomendada e necessária se você estiver montando os compartilhamentos de arquivo do Azure com uma entidade de serviço do AD ou usando a API FileREST.
 
 > [!Note]  
 > Este artigo usa o sufixo DNS da conta de armazenamento para as regiões Públicas do Azure, `core.windows.net`. Esse comentário também se aplica a nuvens soberanas do Azure, como a nuvem do Governo dos EUA para Azure e a nuvem do Azure China – só substitua os sufixos apropriados para seu ambiente. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+---
+
+## <a name="verify-connectivity"></a>Verificar conectividade
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Se tiver uma máquina virtual dentro de sua rede virtual ou se tiver configurado o encaminhamento de DNS conforme descrito em [Como configurar o encaminhamento DNS para Arquivos do Azure](storage-files-networking-dns.md), você poderá testar se o ponto de extremidade privado foi instalado corretamente executando os seguintes comandos do PowerShell, na linha de comando ou no terminal (funciona para Windows, Linux e macOS). Substitua `<storage-account-name>` pelo nome da conta de armazenamento apropriada:
 
@@ -74,7 +85,6 @@ Aliases:  storageaccount.file.core.windows.net
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 Se tiver uma máquina virtual dentro de sua rede virtual ou se tiver configurado o encaminhamento de DNS conforme descrito em [Como configurar o encaminhamento de DNS para Arquivos do Azure](storage-files-networking-dns.md), você poderá testar se o ponto de extremidade privado foi instalado corretamente executando os seguintes comandos:
 
@@ -101,7 +111,6 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
 Se tiver uma máquina virtual dentro de sua rede virtual ou se tiver configurado o encaminhamento de DNS conforme descrito em [Como configurar o encaminhamento de DNS para Arquivos do Azure](storage-files-networking-dns.md), você poderá testar se o ponto de extremidade privado foi instalado corretamente executando os seguintes comandos:
 
@@ -127,10 +136,9 @@ storageaccount.file.core.windows.net      canonical name = storageaccount.privat
 Name:   storageaccount.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
-
 ---
 
-### <a name="restrict-public-endpoint-access"></a>Restringir acesso de ponto de extremidade público
+## <a name="restrict-public-endpoint-access"></a>Restringir acesso de ponto de extremidade público
 
 Limitar o acesso ao ponto de extremidade público primeiro exige que você desabilite o acesso geral ao ponto de extremidade público. Desabilitar o acesso ao ponto de extremidade público não afeta pontos de extremidades privados. Depois que o ponto de extremidade público tiver sido desabilitado, você poderá selecionar redes ou endereços IP específicos que podem continuar a acessá-lo. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringe o acesso à rede para uma ou mais redes virtuais.
 

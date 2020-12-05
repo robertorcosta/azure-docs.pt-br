@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571123"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621596"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -250,15 +250,15 @@ O exemplo a seguir mostra uma divisão de exemplo de custos e pagamentos para de
 | A Microsoft paga para você 80% do seu custo de licença<br>`*` Para aplicativos SaaS qualificados, a Microsoft paga 90% do seu custo de licença| US $80,00 por mês<br>``*`` US $90,00 por mês |
 |||
 
-**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
+**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de vendas adicionais
 
 Você pode optar por aceitar os canais de marketing e vendas com suporte da Microsoft. Ao criar sua oferta no Partner Center, você verá duas guias em direção ao final do processo:
 
-- **Revenda por meio de CSPs**: Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Consulte [programa do provedor de soluções na nuvem](cloud-solution-providers.md) para obter mais informações.
+- **Revenda por meio de CSPs**: Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Para saber mais sobre esse programa, confira [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
 
-- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Consulte a [opção de venda em conjunto no Partner Center](commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar sua oferta para avaliação.
+- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Para obter detalhes sobre a qualificação para venda conjunta, consulte [requisitos para o status de televenda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Para obter informações detalhadas sobre como preparar sua oferta para avaliação, confira [a opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

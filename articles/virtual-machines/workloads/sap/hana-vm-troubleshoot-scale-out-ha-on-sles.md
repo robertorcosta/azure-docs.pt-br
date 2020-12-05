@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010020"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621545"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -45,6 +45,9 @@ Todos os testes para expansão do SAP HANA em combinação com a replicação de
 O SUSE publicou uma [descrição detalhada dessa configuração otimizada para desempenho][sles-hana-scale-out-ha-paper].
 
 Para tipos de máquinas virtuais compatíveis com expansão SAP HANA, verifique o [diretório IaaS certificado pelo SAP HANA][sap-hana-iaas-list].
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *subordinado*, termos que a Microsoft não usa mais. Quando esses termos forem removidos do software, nós os removeremos deste artigo.
 
 Houve um problema técnico com expansão do SAP HANA em combinação com várias sub-redes e vNICs e configuração de HSR. É obrigatório usar os patches mais recentes do SAP HANA 2.0 em que esse problema foi corrigido. Há suporte para as seguintes versões do SAP HANA: 
 

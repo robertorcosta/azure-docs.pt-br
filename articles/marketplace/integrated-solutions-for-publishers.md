@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450118"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621341"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -32,18 +32,17 @@ Para obter uma visão geral do programa de soluções integradas, assista ao [v�
 ## <a name="eligibility-criteria"></a>Critérios de qualificação
 
 * Os parceiros participantes devem ter uma ID MPN.
-* Os provedores de serviços participantes devem estar prontos para fazer venda conjunta.
-* Os fornecedores de software participantes devem estar prontos para venda conjunta de IP.
+* Os provedores de serviços participantes devem estar [prontos para venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Os fornecedores de software participantes devem ser [prontos para venda de IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Pelo menos um parceiro participante deve ter Competência Gold em uma das seguintes áreas:
-
-    * Desenvolvimento de aplicativo
-    * Integração de Aplicativo
-    * Gerenciamento do Ciclo de Vida do Aplicativo
-    * Plataforma de Nuvem
-    * Análise de Dados
-    * Datacenter
-    * Plataforma de dados
-    * DevOps
+    - Desenvolvimento de aplicativo
+    - Integração de Aplicativo
+    - Gerenciamento do Ciclo de Vida do Aplicativo
+    - Plataforma de Nuvem
+    - Análise de Dados
+    - Datacenter
+    - Plataforma de dados
+    - DevOps
 
 * A solução deve incluir pelo menos duas organizações parceiras, reunindo IP e serviços para que o cliente obtenha solução e experiência completas.
 * O IP do parceiro deve ser criado no Azure, no Dynamics 365 ou no Power Platform.

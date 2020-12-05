@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738315"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621256"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -90,7 +90,7 @@ Essa opção permite um estabelecer um preço mais alto ou mais baixo do que a o
 
 Cobramos uma taxa de serviço de loja padrão de 20% quando os clientes compram sua oferta de transação do mercado comercial. Para obter detalhes dessa taxa, consulte a seção 5C do [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-Para determinadas ofertas que você publica no Marketplace comercial, você pode se qualificar para uma taxa de serviço de armazenamento reduzida de 10%. Para que uma oferta seja qualificada, ela deve ter sido designada pela Microsoft como o Azure IP co-revenda incentivados. A qualificação deve ser atendida pelo menos cinco dias úteis antes do término de cada mês do calendário para receber a taxa de serviço do Marketplace reduzida para o mês.
+Para determinadas ofertas que você publica no Marketplace comercial, você pode se qualificar para uma taxa de serviço de armazenamento reduzida de 10%. Para que uma oferta seja qualificada, ela deve ter sido designada pela Microsoft como o Azure IP co-revenda incentivados. A qualificação deve ser atendida pelo menos cinco dias úteis antes do término de cada mês do calendário para receber a taxa de serviço do Marketplace reduzida para o mês. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 
 A taxa reduzida de serviço do Marketplace se aplica ao IP do Azure covenda de incentivados SaaS, VMs, aplicativos gerenciados e quaisquer outras soluções de IaaS pagas qualificadas disponibilizadas por meio do Marketplace comercial. As ofertas de SaaS pagas associadas a um aplicativo Microsoft Teams ou pelo menos dois suplementos Microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas em Microsoft AppSource também recebem esse desconto.
 

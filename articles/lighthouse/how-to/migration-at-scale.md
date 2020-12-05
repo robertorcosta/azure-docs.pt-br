@@ -1,14 +1,14 @@
 ---
 title: Gerenciar projetos de migração em escala com as migrações para Azure
 description: Saiba como usar efetivamente as migrações para Azure em recursos de cliente delegados.
-ms.date: 12/3/2020
+ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 184307814bd3ceae6047734946f79b0ba5cb2e10
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603104"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621562"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gerenciar projetos de migração em escala com as migrações para Azure
 
@@ -38,7 +38,7 @@ Essa abordagem minimiza a alternância de contexto para provedores de serviço q
 
 O fluxo de trabalho para esse modelo será semelhante ao seguinte:
 
-1. O cliente está [integrado ao Azure Lighthouse](onboard-customer.md). A função interna colaborador é necessária para a identidade que será usada com as migrações para Azure.
+1. O cliente está [integrado ao Azure Lighthouse](onboard-customer.md). A função interna colaborador é necessária para a identidade que será usada com as migrações para Azure. Consulte o modelo de exemplo [delegado-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para obter um exemplo usando essa função.
 1. O usuário designado entra no locatário de gerenciamento na portal do Azure e, em seguida, vai para migrações para Azure. Este usuário [cria um projeto de migrações para Azure](/migrate/create-manage-projects.md), selecionando a assinatura de cliente delegada apropriada.
 1. Em seguida, o usuário [executa as etapas para descoberta e avaliação](../../migrate/tutorial-discover-vmware.md).
 
@@ -60,13 +60,15 @@ Essa abordagem permite que os provedores de serviços iniciem projetos de avalia
 
 O fluxo de trabalho para esse modelo será semelhante ao seguinte:
 
-1. O cliente está [integrado ao Azure Lighthouse](onboard-customer.md). A função interna colaborador é necessária para a identidade que será usada com as migrações para Azure.
+1. O cliente está [integrado ao Azure Lighthouse](onboard-customer.md). A função interna colaborador é necessária para a identidade que será usada com as migrações para Azure. Consulte o modelo de exemplo [delegado-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para obter um exemplo usando essa função.
 1. O usuário designado entra no locatário de gerenciamento na portal do Azure e, em seguida, vai para migrações para Azure. Este usuário [cria um projeto de migrações para Azure](/migrate/create-manage-projects.md) em uma assinatura que pertence ao locatário de gerenciamento.
 1. Em seguida, o usuário [executa as etapas para descoberta e avaliação](../../migrate/tutorial-discover-vmware.md). As VMs locais serão descobertas e avaliadas no projeto de migração criado no locatário de gerenciamento e, em seguida, migradas a partir daí.
 
    Se você estiver gerenciando vários clientes no mesmo host do Hyper-V, poderá descobrir todas as cargas de trabalho ao mesmo tempo. As VMs específicas do cliente podem ser selecionadas no mesmo grupo, então uma avaliação pode ser criada e a migração pode ser executada selecionando a assinatura do cliente apropriada como destino de destino. Não é necessário limitar o escopo de descoberta e você pode manter uma visão geral completa de todas as cargas de trabalho do cliente em um projeto de migração.
 
 1. Quando estiver pronto, continue com a migração selecionando a assinatura de cliente delegada como destino de destino para replicar e migrar as cargas de trabalho. Os recursos recém-criados existirão na assinatura do cliente, enquanto os dados de avaliação e os recursos pertencentes ao projeto de migração permanecerão no locatário de gerenciamento.
+
+Observação: você deve modificar o arquivo de parâmetro para refletir seu ambiente antes de implantar https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate
 
 ## <a name="partner-recognition-for-customer-migrations"></a>Reconhecimento de parceiros para migrações de clientes
 

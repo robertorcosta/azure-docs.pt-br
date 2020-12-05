@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504689"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621494"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache do Azure para Redis com o link privado do Azure (visualização pública)
 Neste artigo, você aprenderá a criar uma rede virtual e um cache do Azure para a instância Redis com um ponto de extremidade privado usando o portal do Azure. Você também aprenderá a adicionar um ponto de extremidade privado a um cache do Azure existente para a instância do Redis.
@@ -41,7 +41,7 @@ Nesta seção, você criará um novo cache do Azure para a instância Redis com 
 
 3. Selecione **Adicionar** para criar uma rede virtual.
 
-4. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
+4. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
 
    | Configuração      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -54,11 +54,11 @@ Nesta seção, você criará um novo cache do Azure para a instância Redis com 
 
 6. Na guia **endereços IP** , especifique o **espaço de endereço IPv4** como um ou mais prefixos de endereço na notação CIDR (por exemplo, 192.168.1.0/24).
 
-7. Em **nome da sub-rede** , clique em **padrão** para editar as propriedades da sub-rede.
+7. Em **nome da sub-rede**, clique em **padrão** para editar as propriedades da sub-rede.
 
 8. No painel **Editar sub-rede** , especifique um **nome de sub-rede** , bem como o **intervalo de endereços de sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Ele deve estar contido no espaço de endereço da rede virtual.
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Selecione a guia **revisar + criar** ou clique no botão **revisar + criar** .
 
@@ -69,11 +69,11 @@ Para criar uma instância de cache, siga estas etapas.
 
 1. Volte para a home page do portal do Azure ou abra o menu da barra lateral e, em seguida, selecione **criar um recurso**. 
    
-1. Na página **Novo** , selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
+1. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecionar o Cache do Azure para Redis.":::
    
-1. Na página **Novo Cache Redis** , defina as configurações para o novo cache.
+1. Na página **Novo Cache Redis**, defina as configurações para o novo cache.
    
    | Configuração      | Valor sugerido  | DESCRIÇÃO |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -101,18 +101,18 @@ Para criar uma instância de cache, siga estas etapas.
 
 1. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
 
-1. Opcionalmente, na guia **Marcas** , insira o nome e o valor caso deseje categorizar o recurso. 
+1. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
 
 1. Selecione **Examinar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
 
 1. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
 
-A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução** , o cache estará pronto para uso. 
+A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução**, o cache estará pronto para uso. 
     
 > [!IMPORTANT]
 > 
-> Há um `publicNetworkAccess` sinalizador que é `Enabled` por padrão. 
-> Esse sinalizador destina-se a permitir que você opcionalmente permita o acesso de ponto de extremidade público e privado ao cache se ele estiver definido como `Enabled` . Se definido como `Disabled` , ele só permitirá acesso de ponto de extremidade privado. Você pode definir o valor como `Disabled` com a seguinte solicitação de patch.
+> Há um `publicNetworkAccess` sinalizador que é `Disabled` por padrão. 
+> Esse sinalizador destina-se a permitir que você opcionalmente permita o acesso de ponto de extremidade público e privado ao cache se ele estiver definido como `Enabled` . Se definido como `Disabled` , ele só permitirá acesso de ponto de extremidade privado. Você pode definir o valor para `Disabled` ou `Enabled` com a solicitação de patch a seguir. Edite o valor para refletir qual sinalizador você deseja para o seu cache.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -140,7 +140,7 @@ Para criar uma rede virtual, siga estas etapas.
 
 3. Selecione **Adicionar** para criar uma rede virtual.
 
-4. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
+4. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
 
    | Configuração      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -153,11 +153,11 @@ Para criar uma rede virtual, siga estas etapas.
 
 6. Na guia **endereços IP** , especifique o **espaço de endereço IPv4** como um ou mais prefixos de endereço na notação CIDR (por exemplo, 192.168.1.0/24).
 
-7. Em **nome da sub-rede** , clique em **padrão** para editar as propriedades da sub-rede.
+7. Em **nome da sub-rede**, clique em **padrão** para editar as propriedades da sub-rede.
 
 8. No painel **Editar sub-rede** , especifique um **nome de sub-rede** , bem como o **intervalo de endereços de sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Ele deve estar contido no espaço de endereço da rede virtual.
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Selecione a guia **revisar + criar** ou clique no botão **revisar + criar** .
 
@@ -179,7 +179,7 @@ Para criar um ponto de extremidade privado, siga estas etapas.
 
     :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Adicionar ponto de extremidade privado.":::
 
-5. Na **página criar um ponto de extremidade privado** , defina as configurações para seu ponto de extremidade privado.
+5. Na **página criar um ponto de extremidade privado**, defina as configurações para seu ponto de extremidade privado.
 
    | Configuração      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -198,7 +198,7 @@ Para criar um ponto de extremidade privado, siga estas etapas.
 
 10. Clique no botão **próximo: marcas** na parte inferior da página.
 
-11. Opcionalmente, na guia **Marcas** , insira o nome e o valor caso deseje categorizar o recurso.
+11. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso.
 
 12. Selecione **Examinar + criar**. Você é levado para a guia **revisar + criar** , na qual o Azure valida sua configuração.
 
@@ -212,8 +212,9 @@ Se o cache já for um cache injetado de VNet, os pontos de extremidade privados 
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Quais recursos não têm suporte com pontos de extremidade privados?
 Replicação geográfica, regras de firewall, suporte ao console do portal, vários pontos de extremidade por cache clusterizado, persistência para regras de firewall e redundância de zona. 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>Como posso alterar meu ponto de extremidade privado para ser desabilitado do acesso à rede pública?
-Há um `publicNetworkAccess` sinalizador que é `Enabled` por padrão. Esse sinalizador destina-se a permitir que você opcionalmente permita o acesso de ponto de extremidade público e privado ao cache se ele estiver definido como `Enabled` . Se definido como `Disabled` , ele só permitirá acesso de ponto de extremidade privado. Você pode definir o valor como `Disabled` com a seguinte solicitação de patch.
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Como posso alterar meu ponto de extremidade privado para ser desabilitado ou habilitado a partir do acesso à rede pública?
+Há um `publicNetworkAccess` sinalizador que é `Disabled` por padrão. Esse sinalizador destina-se a permitir que você opcionalmente permita o acesso de ponto de extremidade público e privado ao cache se ele estiver definido como `Enabled` . Se definido como `Disabled` , ele só permitirá acesso de ponto de extremidade privado. Você pode definir o valor para `Disabled` ou `Enabled` com a solicitação de patch a seguir. Edite o valor para refletir qual sinalizador você deseja para o seu cache.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {
