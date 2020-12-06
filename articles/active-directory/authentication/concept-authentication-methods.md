@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c5b2003a290152533a0a8c0f88fe8eb1a410ccf9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840010"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744322"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -43,7 +43,7 @@ A tabela a seguir descreve as considerações de segurança para os métodos de 
 | Chave de segurança do FIDO2 (versão prévia)   | Alta     | Alta      | Alta         |
 | Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alta         |
 | Tokens de software OATH           | Médio   | Médio    | Alta         |
-| sms                            | Média   | Alto      | Médio       |
+| SMS                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
 | Senha                       | Baixo      | Alto      | Alta         |
 
@@ -65,7 +65,7 @@ A tabela a seguir descreve quando um método de autenticação pode ser usado du
 | Chave de segurança do FIDO2 (versão prévia)   | Sim                    | MFA                       |
 | Tokens de hardware OATH (versão prévia) | Não                     | MFA                       |
 | Tokens de software OATH           | Não                     | MFA                       |
-| sms                            | Sim (versão prévia)          | MFA e o SSPR              |
+| SMS                            | Sim (versão prévia)          | MFA e o SSPR              |
 | Chamada de voz                     | Não                     | MFA e o SSPR              |
 | Senha                       | Sim                    |                           |
 
@@ -73,7 +73,7 @@ Todos esses métodos de autenticação podem ser configurados no portal do Azure
 
 Para saber mais sobre como funciona cada método de autenticação, consulte os seguintes artigos conceituais separados:
 
-* [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Aplicativo Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chave de segurança do FIDO2 (versão prévia)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokens de hardware OATH (versão prévia)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
@@ -93,7 +93,7 @@ Os seguintes métodos de verificação adicionais podem ser usados em determinad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, consulte o [tutorial para redefinição de senha de autoatendimento (SSPR)][tutorial-sspr] e [autenticação multifator do Azure ad][tutorial-azure-mfa].
+Para começar, confira o [tutorial da SSPR (redefinição de senha por autoatendimento)][tutorial-sspr] e a [Autenticação Multifator do Azure AD][tutorial-azure-mfa].
 
 Para saber mais sobre os conceitos de SSPR, confira [Como funciona a redefinição de senha self-service do Azure AD][concept-sspr].
 

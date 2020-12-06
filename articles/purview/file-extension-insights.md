@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 63bb235dcebc67b753e01dd8b193ef1a2b66787d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551818"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746277"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Informações de extensão de arquivo sobre seus dados do Azure alcance 
 
@@ -39,6 +39,9 @@ Para obter mais informações, consulte [gerenciar fontes de dados no Azure alca
 ## <a name="use-purview-file-extension-insights"></a>Usar informações de extensão de arquivo alcance
 
 Ao verificar seus ativos, o Azure alcance é capaz de detectar os tipos de arquivo encontrados em seu espaço de dados e fornecer mais detalhes sobre cada tipo de arquivo. Os detalhes incluem quantos arquivos de cada tipo você tem, onde esses arquivos são e se são verificáveis quanto a dados confidenciais.
+
+> [!NOTE]
+> Depois de ter examinado os tipos de origem, forneça informações de **extensão de arquivo** a algumas horas para refletir os novos ativos.
 
 **Para exibir informações de extensão de arquivo:**
 

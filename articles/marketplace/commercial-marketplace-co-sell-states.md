@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 09/02/2020
-ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 688fabb7138ad71a978051e742dd8397042ffcf1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581541"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744662"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-vender códigos de estado e província no Azure Marketplace
 
@@ -115,4 +115,4 @@ Este artigo lista os códigos de estado e província disponíveis ao fornecer in
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [opção de venda conjunta no Partner Center](./commercial-marketplace-co-sell.md).
+- Saiba mais sobre a [opção de venda conjunta no Marketplace comercial](./commercial-marketplace-co-sell.md).

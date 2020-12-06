@@ -4,12 +4,12 @@ description: Diagnóstico de transação de ponta a ponta do Application Insight
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002044"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746090"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
 
@@ -80,9 +80,7 @@ Motivos possíveis:
 
 * Os outros componentes são instrumentados com Application Insights?
 * Eles estão usando o SDK estável mais recente do Application Insights?
-* Se esses componentes são recursos separados do Application Insights, você precisou ter acesso à telemetria?
-
-Se você tiver acesso e os componentes estiverem instrumentados com os SDKs mais recentes do Application Insights, avise-nos através do canal de comentários superior direito.
+* Se esses componentes forem recursos Application Insights separados, você terá [acesso](resources-roles-access-control.md) necessário se tiver acesso e os componentes forem instrumentados com os SDKs de Application insights mais recentes, fale conosco por meio do canal de comentários superior direito.
 
 *Vejo linhas duplicadas para as dependências. Isso é esperado?*
 

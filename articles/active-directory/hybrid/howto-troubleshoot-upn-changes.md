@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172224"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744591"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planejar e solucionar problemas de alterações de nome principal de usuário no Azure Active Directory
 
-Um nome principal de usuário (UPN) é um atributo que é um padrão de comunicação da Internet para contas de usuário. Um UPN consiste em um prefixo UPN (o nome da conta de usuário) e um sufixo UPN (um nome de domínio de DNS). O prefixo une o sufixo usando o símbolo "@". Por exemplo, someone@example.com. Um UPN deve ser exclusivo entre todos os objetos de entidade de segurança em uma floresta de diretórios. 
+Um nome principal de usuário (UPN) é um atributo que é um padrão de comunicação da Internet para contas de usuário. Um UPN consiste em um prefixo UPN (o nome da conta de usuário) e um sufixo UPN (um nome de domínio de DNS). O prefixo une o sufixo usando o símbolo " \@ ". Por exemplo, someone@example.com. Um UPN deve ser exclusivo entre todos os objetos de entidade de segurança em uma floresta de diretórios. 
 
 **Este artigo pressupõe que você está usando o UPN como o identificador de usuário. Ele aborda o planejamento de alterações de UPN e a recuperação de problemas que podem resultar de alterações de UPN.**
 

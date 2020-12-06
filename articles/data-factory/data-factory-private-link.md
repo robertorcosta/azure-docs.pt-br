@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511467"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746330"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Link privado do Azure para Azure Data Factory
 
@@ -77,14 +77,14 @@ Para o exemplo ilustrado acima, os registros de recurso de DNS para o Data Facto
 | ---------- | -------- | --------------- |
 | Datafactorya. {região}. datafactory. Azure. net | CNAME   | Datafactorya. {região}. privatelink. datafactory. Azure. net |
 | Datafactorya. {região}. privatelink. datafactory. Azure. net | CNAME   | Ponto de extremidade público do serviço de data factory < > |
-| Ponto de extremidade público do serviço de data factory < >  | A | < endereço IP público do serviço data factory > |
+| Ponto de extremidade público do serviço de data factory < >  | Um | < endereço IP público do serviço data factory > |
 
 Os registros de recurso DNS para datafactorya, quando resolvidos na VNet que hospeda o ponto de extremidade privado, serão:
 
 | Nome | Type | Valor |
 | ---------- | -------- | --------------- |
 | Datafactorya. {região}. datafactory. Azure. net | CNAME   | Datafactorya. {região}. privatelink. datafactory. Azure. net |
-| Datafactorya. {região}. privatelink. datafactory. Azure. net   | A | < endereço IP do ponto de extremidade privado > |
+| Datafactorya. {região}. privatelink. datafactory. Azure. net   | Um | < endereço IP do ponto de extremidade privado > |
 
 Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN do ponto de extremidade de Data Factory para o endereço IP do ponto de extremidade privado. Você deve configurar o servidor DNS para delegar seu subdomínio de vínculo privado à zona DNS privada para a VNet ou configurar os registros a para ' datafactorya. {região}. privatelink. datafactory. Azure. net ' com o endereço IP do ponto de extremidade privado.
 
@@ -96,20 +96,26 @@ Para obter mais informações sobre como configurar seu próprio servidor DNS pa
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para Azure Data Factory
 Você pode criar pontos de extremidade privados usando [o portal do Azure](../private-link/create-private-endpoint-portal.md).
 
+Você pode escolher se deseja conectar seu tempo de execução de integração auto-hospedado para Azure Data Factory por meio de ponto de extremidade público ou ponto de extremidade privado. 
+
+![Captura de tela do bloqueio de acesso público de Integration Runtime auto-hospedados.](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 Você também pode ir para sua data factory do Azure no portal do Azure e criar um ponto de extremidade privado, como mostrado aqui:
 
 ![Captura de tela do painel "conexões de ponto de extremidade privado" para criar um ponto de extremidade privado.](./media/data-factory-private-link/create-private-endpoint.png)
 
+Na etapa de **recurso**, selecione **Microsoft. datafactory/fábricas** como **tipo de recurso**. E se você quiser criar um ponto de extremidade privado para comunicações de comando entre o tempo de execução de integração auto-hospedado e o serviço de Azure Data Factory, selecione **DataFactory** como um **subrecurso de destino**.
 
-Se você quiser bloquear o acesso público ao data factory do Azure e permitir acesso somente por meio do link privado, desabilite o acesso à rede para Azure Data Factory no portal do Azure, conforme mostrado aqui:
-
-![Captura de tela do painel "acesso à rede" para criar um ponto de extremidade privado.](./media/data-factory-private-link/disable-network-access.png)
+![Captura de tela do painel "conexões de ponto de extremidade privado" para selecionar o recurso.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > A desabilitação do acesso à rede pública é aplicável somente ao tempo de execução de integração auto-hospedado, não a Azure Integration Runtime e SQL Server Integration Services (SSIS) Integration Runtime.
 
+Se você quiser criar um ponto de extremidade privado para criação e monitoramento do data factory em sua rede virtual, selecione **portal** como **subrecurso de destino**.
+
 > [!NOTE]
-> Você ainda pode acessar o portal de Azure Data Factory por meio de uma rede pública depois de desabilitar o acesso à rede pública.
+> Você ainda pode acessar o portal de Azure Data Factory por meio de uma rede pública depois de criar um ponto de extremidade privado para o Portal.
 
 ## <a name="next-steps"></a>Próximas etapas
 

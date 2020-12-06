@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180652"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745360"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
@@ -293,7 +293,7 @@ No [portal do Azure](https://portal.azure.com/), primeiro você [criará um grup
 
 Autorização explícita de usuário no AD FS:
 
-![Captura de tela mostra a caixa de diálogo Editar regra para a regra de declaração permitir administradores de domínio com um tipo de declaração de entrada de S primário I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Captura de tela mostra a caixa de diálogo Editar regra para a regra permitir uma declaração de usuário específica com um tipo de declaração de entrada de S primário I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 É assim que a regra é mapeada para o Azure AD:
 

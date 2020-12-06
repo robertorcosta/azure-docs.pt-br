@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9563ed283229eb6f43d036629cfe8b84fcde25fc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839872"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744047"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>Como funciona: autenticação multifator do Azure AD
 
@@ -26,13 +26,13 @@ Se você usar apenas uma senha para autenticar um usuário, isso deixará um vet
 
 ![Imagem conceitual das diferentes formas de autenticação multifator](./media/concept-mfa-howitworks/methods.png)
 
-A autenticação multifator do Azure AD funciona exigindo dois ou mais dos seguintes métodos de autenticação:
+A Autenticação Multifator do Azure AD funciona exigindo dois ou mais dos seguintes métodos de autenticação:
 
 * Algo que você sabe, normalmente, uma senha.
 * Algo que você tem, como um dispositivo confiável que não seja facilmente duplicado, como um telefone ou uma chave de hardware.
 * Algo que você é: uma biometria, como uma impressão digital ou uma verificação facial.
 
-Os usuários podem se registrar para a redefinição de senha de autoatendimento e a autenticação multifator do Azure AD em uma etapa para simplificar a experiência de integração. Os administradores podem definir quais formas de autenticação secundária podem ser usadas. A autenticação multifator do Azure AD também pode ser necessária quando os usuários executam uma redefinição de senha de autoatendimento para proteger ainda mais esse processo.
+Os usuários podem se registrar na redefinição de senha por autoatendimento e na Autenticação Multifator do Azure AD em uma etapa para simplificar a experiência de integração. Os administradores podem definir quais formas de autenticação secundária podem ser usadas. A Autenticação Multifator do Azure AD também pode ser necessária quando os usuários executam uma redefinição de senha por autoatendimento para proteger ainda mais esse processo.
 
 ![Métodos de autenticação em uso na tela de login](media/concept-authentication-methods/overview-login.png)
 
@@ -48,7 +48,7 @@ As seguintes formas adicionais de verificação podem ser usadas com a autentica
 
 * Aplicativo Microsoft Authenticator
 * Token OATH de hardware
-* sms
+* SMS
 * Chamada de voz
 
 ## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Como habilitar e usar a autenticação multifator do Azure AD
@@ -66,4 +66,4 @@ Para saber mais sobre licenciamento, consulte [recursos e licenças para a auten
 Para ver a MFA em ação, habilite a autenticação multifator do Azure AD para um conjunto de usuários de teste no seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Habilitar a autenticação multifator do Azure AD](./tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](./tutorial-enable-azure-mfa.md)

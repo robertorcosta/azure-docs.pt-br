@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369934"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744611"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configurar um plano de modelo de solução
 
@@ -26,9 +26,9 @@ Você pode configurar cada plano para ser visível para todos ou apenas para um 
 > [!NOTE]
 > Se você publicar um plano privado, poderá alterar sua visibilidade para o público posteriormente. No entanto, depois de publicar um plano público, você não pode alterar sua visibilidade para particular.
 
-Na guia **disponibilidade** , em **visibilidade do plano** , siga um destes procedimentos:
+Na guia **disponibilidade** , em **visibilidade do plano**, siga um destes procedimentos:
 
-- Para tornar o plano público, selecione o botão de opção **pública** (também conhecido como um _botão de opção_ ).
+- Para tornar o plano público, selecione o botão de opção **pública** (também conhecido como um _botão de opção_).
 - Para tornar o plano privado, selecione o botão de opção **particular** e, em seguida, adicione as IDs de assinatura do Azure manualmente ou com um arquivo CSV.
 
     > [!NOTE]
@@ -36,20 +36,20 @@ Na guia **disponibilidade** , em **visibilidade do plano** , siga um destes proc
 
 ### <a name="manually-add-azure-subscription-ids-for-a-private-plan"></a>Adicionar manualmente IDs de assinatura do Azure para um plano privado
 
-1. Em **visibilidade do plano** , selecione o botão de opção **particular** .
+1. Em **visibilidade do plano**, selecione o botão de opção **particular** .
 1. Na caixa **ID de assinatura do Azure** que aparece, insira a ID de assinatura do Azure do público que você deseja conceder acesso a este plano privado. É necessário um mínimo de uma ID de assinatura.
 1. Adicional Insira uma descrição desse público na caixa **Descrição** .
 1. Para adicionar outra ID de assinatura, selecione o link **Adicionar ID (máx. 10)** e repita as etapas 2 e 3.
 
 ## <a name="use-a-csv-file-to-add-azure-subscription-ids-for-a-private-plan"></a>Use um. Arquivo CSV para adicionar IDs de assinatura do Azure para um plano privado
 
-1. Em **visibilidade do plano** , selecione o botão de opção **particular** .
+1. Em **visibilidade do plano**, selecione o botão de opção **particular** .
 1. Selecione o link **Exportar audiência (CSV)** .
 1. Abra o. Arquivo CSV e adicione as IDs de assinatura do Azure às quais você deseja conceder acesso à oferta privada para a coluna **ID** .
 1. Opcionalmente, insira uma descrição para cada público na coluna **Descrição** .
 1. Adicione "SubscriptionId" na coluna **tipo** para cada linha com uma ID de assinatura.
 1. Salve o. Arquivo CSV.
-1. Na guia **disponibilidade** , em **visibilidade do plano** , selecione o link **importar audiência (CSV)** .
+1. Na guia **disponibilidade** , em **visibilidade do plano**, selecione o link **importar audiência (CSV)** .
 1. Na caixa de diálogo exibida, selecione **Sim**.
 1. Selecione o. Arquivo CSV e, em seguida, selecione **abrir**. É exibida uma mensagem indicando que o. O arquivo CSV foi importado com êxito.
 
@@ -72,7 +72,7 @@ Na caixa **versão** , forneça a versão atual da configuração técnica. Aume
 
 ### <a name="upload-a-package-file"></a>Carregar um arquivo de pacote
 
-Em **arquivo de pacote (. zip)** , arraste o arquivo de pacote para a caixa cinza ou selecione o link **procurar seu (s) arquivo (es)** .
+Em **arquivo de pacote (. zip)**, arraste o arquivo de pacote para a caixa cinza ou selecione o link **procurar seu (s) arquivo (es)** .
 
 > [!NOTE]
 > Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço `https://upload.xboxlive.com` que é usado pelo Partner Center.
@@ -89,11 +89,11 @@ Depois de criar um ou mais planos, você verá o nome do plano, a ID do plano, o
 
 As ações disponíveis na coluna **ação** da guia **visão geral do plano** variam de acordo com o status do plano e podem incluir o seguinte:
 
-- Se o status do plano for **rascunho** , o link na coluna **ação** dirá **excluir rascunho**.
-- Se o status do plano for **dinâmico** , o link na coluna **ação** será parar o **plano de venda** ou **sincronizar público privado**. O link **sincronizar audiência privada** publicará apenas as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta.
+- Se o status do plano for **rascunho**, o link na coluna **ação** dirá **excluir rascunho**.
+- Se o status do plano for **dinâmico**, o link na coluna **ação** será parar o **plano de venda** ou **sincronizar público privado**. O link **sincronizar audiência privada** publicará apenas as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta.
 - Para criar outro plano para esta oferta, na parte superior da guia **visão geral do plano** , selecione **+ criar novo plano**. Em seguida, repita as etapas em [como criar planos para sua oferta de aplicativo do Azure](create-new-azure-apps-offer-plans.md). Caso contrário, se você terminar de criar planos, vá para a próxima seção: próximas etapas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como testar e publicar sua oferta de aplicativo Azure](create-new-azure-apps-offer-test-publish.md).
-- Saiba [como comercializar sua aplicativo Azure oferta](create-new-azure-apps-offer-marketing.md) por meio da venda conjunta com a Microsoft e revenda por meio de programas de CSPs.
+- Saiba [como vender sua oferta de aplicativo Azure](create-new-azure-apps-offer-marketing.md) por meio da venda conjunta com a Microsoft e revenda por meio de programas de CSPs.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368688"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746141"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Como configurar os detalhes de listagem de sua oferta SaaS
 
@@ -24,7 +24,7 @@ As informações fornecidas na página de **listagem de ofertas** para sua ofert
 
 ## <a name="marketplace-details"></a>Detalhes do marketplace
 
-Na página **listagem de ofertas** , em **detalhes do Marketplace** , conclua as etapas a seguir. Para saber mais sobre esses detalhes necessários, consulte [detalhes da lista de ofertas](plan-azure-application-offer.md#offer-listing-details).
+Na página **listagem de ofertas** , em **detalhes do Marketplace**, conclua as etapas a seguir. Para saber mais sobre esses detalhes necessários, consulte [detalhes da lista de ofertas](plan-azure-application-offer.md#offer-listing-details).
 
 1. A caixa **nome** é preenchida com o nome que você inseriu anteriormente na caixa de diálogo  **nova oferta** . É possível alterar o nome a qualquer momento.
 1. Na caixa **Resumo dos resultados da pesquisa** , insira até 50 caracteres de texto. Esse resumo é usado no Marketplace listando os resultados da pesquisa.
@@ -37,13 +37,13 @@ Na página **listagem de ofertas** , em **detalhes do Marketplace** , conclua as
 
 Conclua estas etapas para adicionar links à documentação online complementar.
 
-1. Para adicionar documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados, em **links úteis** , selecione **Adicionar um link**.
+1. Para adicionar documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados, em **links úteis**, selecione **Adicionar um link**.
 1. Nos campos que aparecem, insira um título (até 255 caracteres) e o link (começando com HTTPS) para o documento online.
 1. Para inserir outro link, repita as etapas 1 a 2.
 
 ## <a name="enter-your-contact-information"></a>Insira suas informações de contato
 
-Em **informações de contato** , forneça informações para os seguintes contatos:
+Em **informações de contato**, forneça informações para os seguintes contatos:
 
 - **Contato de suporte**  (obrigatório) – para perguntas de suporte gerais.
 - **Contato de engenharia**  (obrigatório) – para perguntas técnicas. Usaremos essas informações para entrar em contato com você quando houver problemas com sua oferta, incluindo problemas de certificação.
@@ -63,7 +63,7 @@ Para cada contato, você fornecerá um nome, número de telefone e endereço de 
 
 Você deve adicionar pelo menos um e um máximo de três documentos de marketing para sua oferta. Esses documentos devem estar no. Formato PDF.
 
-1. Em **documentos de suporte** , arraste e solte o arquivo PDF na caixa cinza.
+1. Em **documentos de suporte**, arraste e solte o arquivo PDF na caixa cinza.
 1. Na caixa **nome** exibida, insira um nome para este documento. Os clientes verão esse nome na guia detalhes da sua oferta.
 1. Repita essas etapas para adicionar um documento de suporte adicional.
 
@@ -71,7 +71,7 @@ Você deve adicionar pelo menos um e um máximo de três documentos de marketing
 
 ### <a name="add-logos"></a>Adicionar logotipos
 
-Em **logotipos** , carregue um logotipo **grande** no formato PNG entre 216 x 216 e 350 x 350 pixels. O Partner Center criará automaticamente logotipos **pequenos** (48 x 48) e **médios** (90 x 90), que você poderá substituir posteriormente, se desejar.
+Em **logotipos**, carregue um logotipo **grande** no formato PNG entre 216 x 216 e 350 x 350 pixels. O Partner Center criará automaticamente logotipos **pequenos** (48 x 48) e **médios** (90 x 90), que você poderá substituir posteriormente, se desejar.
 
 Todos os três tamanhos de logotipo são usados em locais diferentes nas lojas online.
 
@@ -83,8 +83,8 @@ Todos os três tamanhos de logotipo são usados em locais diferentes nas lojas o
 
 Você deve adicionar no mínimo um e no máximo cinco capturas de tela que demonstram sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em. Formato PNG.
 
-1. Em **capturas de tela** , arraste e solte seu. Arquivo PNG na caixa **captura de tela** .
-2. Ao lado de **Adicionar Legenda da imagem** , clique no ícone Editar.
+1. Em **capturas de tela**, arraste e solte seu. Arquivo PNG na caixa **captura de tela** .
+2. Ao lado de **Adicionar Legenda da imagem**, clique no ícone Editar.
 3. Na caixa de diálogo que aparece, insira uma legenda.
 4. Repita as etapas 1 a 3 para adicionar capturas de tela adicionais.
 
@@ -105,4 +105,4 @@ Selecione **salvar rascunho** antes de continuar para a próxima guia: Visualiza
 ## <a name="next-steps"></a>Próximas etapas
 
 - Se você estiver vendendo sua oferta pela Microsoft, acesse [como adicionar um público de visualização para sua oferta de SaaS](create-new-saas-offer-preview.md). 
-- Caso contrário, vá para [como comercializar sua oferta de SaaS](create-new-saas-offer-marketing.md).
+- Caso contrário, vá para [como vender sua oferta de SaaS](create-new-saas-offer-marketing.md).

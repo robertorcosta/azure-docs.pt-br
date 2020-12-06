@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832170"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746447"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensor em tempo real de seu hub IoT do Azure em um aplicativo Web
 
@@ -184,7 +184,7 @@ Nesta seção, você provisiona um aplicativo Web no Serviço de Aplicativo e im
 
 5. Para implantar o código no Serviço de Aplicativo, você usará suas [credenciais de implantação no nível de usuário](../app-service/deploy-configure-credentials.md). Suas credenciais de implantação no nível do usuário são diferentes das suas credenciais do Azure e são usadas para implantações locais e FTP do Git em um aplicativo Web. Uma vez definidas, elas são válidas em todos os aplicativos do Serviço de Aplicativo em todas as assinaturas em sua conta do Azure. Se você tiver definido anteriormente as credenciais de implantação no nível do usuário, poderá usá-las.
 
-   Se você não definiu anteriormente as credenciais de implantação no nível do usuário ou não se lembra de sua senha, execute o comando a seguir. O nome de usuário de implantação deve ser exclusivo no Azure. Para envios por push do Git local, não deve conter o símbolo ‘@’. Quando for solicitado, insira e confirme sua nova senha. A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos.
+   Se você não definiu anteriormente as credenciais de implantação no nível do usuário ou não se lembra de sua senha, execute o comando a seguir. Seu nome de usuário de implantação deve ser exclusivo no Azure e não deve conter o \@ símbolo ' ' para Pushes git locais. Quando for solicitado, insira e confirme sua nova senha. A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575747"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746175"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informações de rótulo de confidencialidade sobre seus dados no Azure alcance
 
@@ -48,6 +48,9 @@ Os rótulos de sensibilidade permitem que você declare a confidencialidade de d
 Embora as classificações sejam correspondidas diretamente (um número de seguro social tem uma classificação de **número de previdência social**), os rótulos de sensibilidade são aplicados quando uma ou mais classificações e cenários são encontrados em conjunto. 
 
 O alcance usa as mesmas classificações, também conhecidas como tipos de informações confidenciais, como Microsoft 365. Isso permite que você estenda os rótulos de sensibilidade existentes nos ativos de alcance do Azure.
+
+> [!NOTE]
+> Depois de ter examinado seus tipos de origem, conceda a **sensibilidade de rotular** informações a algumas horas para refletir os novos ativos.
 
 **Para exibir as informações de rótulo de confidencialidade:**
 

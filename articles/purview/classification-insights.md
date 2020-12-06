@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 34accbf218a782b79579d2f9857c101cc8147ab8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551412"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745019"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Informações de classificação sobre seus dados do Azure alcance
 
@@ -42,6 +42,9 @@ Para obter mais informações, consulte [gerenciar fontes de dados no Azure alca
 No Azure alcance, as classificações são semelhantes às marcas de assunto e são usadas para marcar e identificar dados de um tipo específico que é encontrado no seu estado de dados durante a verificação.
 
 O alcance usa os mesmos tipos de informações confidenciais que Microsoft 365, permitindo que você amplie suas políticas de segurança e proteção existentes em todo o seu espaço de dados.
+
+> [!NOTE]
+> Depois de ter examinado seus tipos de origem, dê à **classificação rotulando** insights algumas horas para refletir os novos ativos.
 
 **Para exibir informações de classificação:**
 

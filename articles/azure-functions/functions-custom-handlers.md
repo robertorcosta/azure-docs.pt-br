@@ -1,18 +1,18 @@
 ---
-title: Azure Functions manipuladores personalizados (versão prévia)
+title: Azure Functions manipuladores personalizados
 description: Aprenda a usar Azure Functions com qualquer linguagem ou versão de tempo de execução.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164543"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746022"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (versão prévia)
+# <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
 
 Cada aplicativo de funções é executado por um manipulador específico de idioma. Embora Azure Functions ofereça suporte a muitos [manipuladores de idioma](./supported-languages.md) por padrão, há casos em que você talvez queira usar outros idiomas ou tempos de execução.
 
@@ -20,10 +20,12 @@ Os manipuladores personalizados são servidores Web leves que recebem eventos do
 
 Os manipuladores personalizados são mais adequados para situações em que você deseja:
 
-- Implemente um aplicativo de funções em uma linguagem que não tem suporte atualmente, como Go e Rust.
+- Implemente um aplicativo de funções em uma linguagem que não tem suporte atualmente, como Go ou Rust.
 - Implemente um aplicativo de funções em um tempo de execução que não tem suporte atualmente, como deno.
 
 Com manipuladores personalizados, você pode usar [gatilhos e associações de entrada e saída](./functions-triggers-bindings.md) por meio de [pacotes de extensão](./functions-bindings-register.md).
+
+Comece a usar Azure Functions manipuladores personalizados com os [guias de início rápido em Go e Rust](create-first-function-vs-code-other.md).
 
 ## <a name="overview"></a>Visão geral
 
@@ -36,7 +38,7 @@ O diagrama a seguir mostra a relação entre o host do Functions e um servidor W
 1. O servidor Web executa a função individual e retorna uma carga de [resposta](#response-payload) para o host de funções.
 1. O host de funções passa dados da resposta para as associações de saída da função para processamento.
 
-Um aplicativo Azure Functions implementado como um manipulador personalizado deve configurar o *host.jsno*, *local.settings.jsem*e *function.jsem* arquivos de acordo com algumas convenções.
+Um aplicativo Azure Functions implementado como um manipulador personalizado deve configurar o *host.jsno*, *local.settings.jsem* e *function.jsem* arquivos de acordo com algumas convenções.
 
 ## <a name="application-structure"></a>Estrutura de aplicativo
 
@@ -583,3 +585,7 @@ Os manipuladores personalizados são executados no mesmo ambiente que um aplicat
 Se precisar de ajuda em um aplicativo de funções com manipuladores personalizados, você poderá enviar uma solicitação por meio de canais de suporte regular. No entanto, devido à grande variedade de linguagens possíveis usadas para criar aplicativos de manipuladores personalizados, o suporte não é ilimitado.
 
 O suporte estará disponível se o host do Functions tiver problemas para iniciar ou se comunicar com o processo do manipulador personalizado. Para problemas específicos para o funcionamento interno de seu processo de manipulador personalizado, como problemas com a linguagem ou estrutura escolhida, nossa equipe de suporte não pode fornecer assistência nesse contexto.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Comece a criar um aplicativo Azure Functions em go ou Rust com o guia de [início rápido dos manipuladores personalizados](create-first-function-vs-code-other.md).

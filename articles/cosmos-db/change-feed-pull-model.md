@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 12/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 674bb67018fcbf7df6285a66c2e0aeb37d24f409
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340185"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744873"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar o modelo de pull do feed de alterações no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,7 +52,7 @@ Aqui estão algumas diferenças importantes entre o processador do feed de alter
 | Nível de suporte | Disponível para o público geral | Visualização |
 
 > [!NOTE]
-> Ao contrário da leitura usando o processador do feed de alterações, você deve manipular explicitamente os casos em que não há nenhuma alteração nova. 
+> Ao contrário da leitura usando o processador do feed de alterações, você deve manipular explicitamente os casos em que não há nenhuma nova alteração. 
 
 ## <a name="consuming-an-entire-containers-changes"></a>Como consumir as alterações de um contêiner inteiro
 

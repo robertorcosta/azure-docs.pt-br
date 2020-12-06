@@ -2,14 +2,14 @@
 title: Provedores de recursos e tipos de recursos
 description: Descreve os provedores de recursos que dão suporte ao Azure Resource Manager. Ele descreve seus esquemas, as versões de API disponíveis e as regiões que podem hospedar os recursos.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452101"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745087"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
@@ -45,20 +45,28 @@ Não é possível cancelar o registro de um provedor de recursos quando você ai
 
 ## <a name="azure-portal"></a>Portal do Azure
 
+### <a name="register-resource-provider"></a>Registrar provedor de recursos
+
 Para ver todos os provedores de recursos e o status do registro para a sua assinatura:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No menu do portal do Azure, selecione **Todos os serviços**.
+1. No menu portal do Azure, procure **assinaturas**. Selecione-as entre as opções disponíveis.
 
-    ![selecionar assinaturas](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Pesquisar assinaturas":::
 
-3. Na caixa **Todos os serviços** , digite **assinatura** e, em seguida, selecione **Assinaturas**.
-4. Selecione a assinatura na lista de assinaturas para visualizá-la.
-5. Selecione **Provedores de recursos** e exiba a lista de provedores de recursos disponíveis.
+1. Selecione a assinatura que você deseja exibir.
 
-    ![mostrar provedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="selecionar assinaturas":::
 
-6. Para registrar um provedor de recursos, selecione **Registrar**. Na captura de tela anterior, o link **Registrar** é destacado para **Microsoft.Blueprint**. Para manter os privilégios mínimos em sua assinatura, registre apenas os provedores de recursos que você está pronto para usar.
+1. No menu à esquerda, em **Configurações**, selecione **Provedores de recursos**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="selecionar provedores de recursos":::
+
+6. Localize o provedor de recursos que você deseja registrar e selecione **registrar**. Para manter os privilégios mínimos em sua assinatura, registre apenas os provedores de recursos que você está pronto para usar.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="registrar provedores de recursos":::
+
+### <a name="view-resource-provider"></a>Exibir provedor de recursos
 
 Para obter informações para um provedor de recursos específico:
 
