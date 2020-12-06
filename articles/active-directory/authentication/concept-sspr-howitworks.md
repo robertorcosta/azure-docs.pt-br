@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174523"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743863"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -152,7 +152,7 @@ Os usuários não têm a opção de registrar seu aplicativo móvel ao se regist
 
 Se você iniciar com uma política que tenha apenas um método de autenticação requerido para reiniciar ou desbloquear registrado e você alterar esse número para dois métodos, o que acontece?
 
-| Número de métodos registrados | Número de métodos necessários | Resultado |
+| Número de métodos registrados | Número de métodos necessários | Result |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
 | 1 | 2 | **Incapaz** de redefinir ou desbloquear |

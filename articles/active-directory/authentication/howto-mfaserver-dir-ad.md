@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ab61fb57f98f62f2e8e5ca697bb5ef8301cada2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8b3778ea68edf1fbbb41efb899749e6f35b39bae
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994189"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742282"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 
@@ -87,12 +87,12 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>Se um atributo que contém apenas o nome distinto não existir, o atributo de caminho ADs poderá ser usado.  A parte "LDAP:// \<server\> /" do caminho é removida automaticamente, deixando apenas o nome distinto do objeto. |
 | Nome do contêiner |Insira o nome do atributo que contém o nome em um registro de contêiner.  O valor desse atributo é exibido na hierarquia do contêiner ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. <br><br>Se contêineres diferentes usarem atributos diferentes para seus nomes, use ponto-e-vírgula para separar vários atributos de nome de contêiner.  O primeiro atributo de nome de contêiner encontrado em um objeto de contêiner é usado para exibir seu nome. |
 | Nome do grupo de segurança |Insira o nome do atributo que contém o nome em um registro de grupo de segurança.  O valor desse atributo é exibido na lista Grupo de segurança ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. |
-| Nome de usuário |Digite o nome do atributo que contém o nome de usuário em um registro de usuário.  O valor deste atributo é usado como o nome de usuário do servidor de Autenticação Multifator.  Um segundo atributo pode ser especificado como um backup do primeiro.  O segundo atributo só será usado se o primeiro atributo não contiver um valor para o usuário.  Os padrões são userPrincipalName e sAMAccountName. |
+| Nome de Usuário |Digite o nome do atributo que contém o nome de usuário em um registro de usuário.  O valor deste atributo é usado como o nome de usuário do servidor de Autenticação Multifator.  Um segundo atributo pode ser especificado como um backup do primeiro.  O segundo atributo só será usado se o primeiro atributo não contiver um valor para o usuário.  Os padrões são userPrincipalName e sAMAccountName. |
 | Nome |Insira o nome do atributo que contém o nome em um registro de usuário.  O padrão é givenName. |
 | Sobrenome |Insira o nome do atributo que contém o sobrenome em um registro de usuário.  O padrão é sn. |
 | Endereço de email |Insira o nome do atributo que contém o endereço de email em um registro de usuário.  O endereço de email é usado para enviar boas-vindas e emails de atualização para o usuário.  O padrão é email. |
 | Grupo de usuários |Insira o nome do atributo que contém o grupo de usuários em um registro de usuário.  O grupo de usuários pode ser usado para filtrar usuários no agente e em relatórios no Portal de Gerenciamento do servidor Multi-Factor Authentication. |
-| Description |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
+| Descrição |Insira o nome do atributo que contém a descrição em um registro de usuário.  A descrição é usada somente para pesquisa.  O padrão é descrição. |
 | Idioma to telefonema |Insira o nome do atributo que contém o nome curto do idioma a ser usado para chamadas de voz para o usuário. |
 | Idioma da mensagem de texto |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto SMS para o usuário. |
 | Idioma do aplicativo móvel |Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto do aplicativo Telefone do usuário. |

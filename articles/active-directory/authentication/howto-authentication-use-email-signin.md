@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576012"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743166"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure Active Directory usando o email como uma ID de logon alternativa (versão prévia)
 
@@ -30,7 +30,7 @@ Algumas organizações não migraram para autenticação híbrida pelos seguinte
 * Alterar o UPN do Azure AD cria uma correspondência incorreta entre ambientes locais e do Azure AD que podem causar problemas com determinados aplicativos e serviços.
 * Devido a motivos de conformidade ou de negócios, a organização não deseja usar o UPN local para entrar no Azure AD.
 
-Para ajudar com a mudança para a autenticação híbrida, agora você pode configurar o Azure AD para permitir que os usuários entrem com um email em seu domínio verificado como uma ID de logon alternativa. Por exemplo, se *Contoso* for rebatizado como *Fabrikam* , em vez de continuar a entrar com o UPN herdado `balas@contoso.com`, será possível usar o email como uma ID de logon alternativa. Para acessar um aplicativo ou serviços, os usuários entrarão no Azure AD usando seus emails atribuídos, como `balas@fabrikam.com` .
+Para ajudar com a mudança para a autenticação híbrida, agora você pode configurar o Azure AD para permitir que os usuários entrem com um email em seu domínio verificado como uma ID de logon alternativa. Por exemplo, se *Contoso* for rebatizado como *Fabrikam*, em vez de continuar a entrar com o UPN herdado `balas@contoso.com`, será possível usar o email como uma ID de logon alternativa. Para acessar um aplicativo ou serviços, os usuários entrarão no Azure AD usando seus emails atribuídos, como `balas@fabrikam.com` .
 
 Este artigo mostra como habilitar e usar email como uma ID de logon alternativa. Esse recurso está disponível na edição do Azure AD Gratuito e superior.
 
@@ -76,7 +76,7 @@ Nas duas opções de configuração, o usuário envia seu nome de usuário e sen
 
 ![Diagrama da Identidade híbrida do Azure Active Directory com autenticação de passagem](media/howto-authentication-use-email-signin/hybrid-pass-through-authentication.png)
 
-Um dos atributos de usuário que é sincronizado automaticamente pelo Azure Active Directory Connect é *ProxyAddresses*. Se os usuários tiverem um endereço de email definido no ambiente de AD DS local como parte do atributo *ProxyAddresses* , ele será sincronizado automaticamente com o Azure Active Directory. Esse endereço de email pode ser usado diretamente no processo de entrada com credenciais do Azure Active Directory como uma ID de logon alternativa.
+Um dos atributos de usuário que é sincronizado automaticamente pelo Azure Active Directory Connect é *ProxyAddresses*. Se os usuários tiverem um endereço de email definido no ambiente de AD DS local como parte do atributo *ProxyAddresses*, ele será sincronizado automaticamente com o Azure Active Directory. Esse endereço de email pode ser usado diretamente no processo de entrada com credenciais do Azure Active Directory como uma ID de logon alternativa.
 
 > [!IMPORTANT]
 > Somente os emails nos domínios verificados para o locatário são sincronizados com o Azure Active Directory. Cada locatário do Azure Active Directory tem um ou mais domínios verificados, dos quais você tem propriedade comprovada e estão associados exclusivamente a seu locatário.
@@ -115,7 +115,7 @@ Na versão preliminar, só é possível habilitar a entrada com o email como um 
 
 1. Se não houver políticas configuradas no momento, o comando não retornará nada. Se uma política for retornada, ignore essa etapa e vá para a próxima etapa para atualizar uma política atual.
 
-    Para adicionar a política *HomeRealmDiscoveryPolicy* ao locatário, use o cmdlet [New-AzureADPolicy][New-AzureADPolicy] e defina o atributo *AlternateIdLogin* como *"Enabled": true* , conforme mostrado no exemplo a seguir:
+    Para adicionar a política *HomeRealmDiscoveryPolicy* ao locatário, use o cmdlet [New-AzureADPolicy][New-AzureADPolicy] e defina o atributo *AlternateIdLogin* como *"Enabled": true*, conforme mostrado no exemplo a seguir:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
@@ -150,7 +150,7 @@ Na versão preliminar, só é possível habilitar a entrada com o email como um 
     > [!IMPORTANT]
     > Ao atualizar a política, inclua as configurações antigas e o novo atributo  *AlternateIdLogin*.
 
-    O exemplo a seguir adiciona o atributo  *AlternateIdLogin* e preserva o atributo  *AllowCloudPasswordValidation* , que pode já ter sido definido:
+    O exemplo a seguir adiciona o atributo  *AlternateIdLogin* e preserva o atributo  *AllowCloudPasswordValidation*, que pode já ter sido definido:
 
     ```powershell
     Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
@@ -244,7 +244,7 @@ Se os usuários tiverem problemas com eventos de entrada usando o endereço de e
 
 1. Verifique se a conta de usuário tem seu endereço de email definido para o atributo *ProxyAddresses* no ambiente do AD DS local.
 1. Verifique se o Azure Active Directory Connect está configurado e sincroniza com êxito as contas de usuário do ambiente de AD DS local no Azure Active Directory.
-1. Confirme se a política *HomeRealmDiscoveryPolicy* do Azure Active Directory tem o atributo *AlternateIdLogin* definido como *"Enabled": true* :
+1. Confirme se a política *HomeRealmDiscoveryPolicy* do Azure Active Directory tem o atributo *AlternateIdLogin* definido como *"Enabled": true*:
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *

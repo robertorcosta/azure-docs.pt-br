@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c67f72a7f0d77284dbb34104754793b36bb8d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838137"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741670"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilitar o registro combinado de informações de segurança no Azure Active Directory
 
 Antes do registro combinado, os usuários registraram métodos de autenticação para a autenticação multifator do Azure AD e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas de que métodos semelhantes foram usados para a autenticação multifator do Azure AD e o SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator do Azure AD e do SSPR.
 
 > [!NOTE]
-> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado.
+> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado. A partir de 14 de dezembro de 2020, todos os locatários do Azure AD com um usuário serão habilitados automaticamente para o registro combinado.
 
 Para entender a funcionalidade e os efeitos antes de habilitar a nova experiência, consulte os [conceitos combinados de registro de informações de segurança](concept-registration-mfa-sspr-combined.md).
 

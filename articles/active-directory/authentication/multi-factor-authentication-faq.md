@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 909f4b71e07a20abf4af76fecaaf93bb08e4d6b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1dfe99a2ed57ecc953c69d1bad89e2b2c8816ca3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837899"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741433"
 ---
 # <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Perguntas frequentes sobre a autenticação multifator do Azure AD
 
@@ -190,7 +190,7 @@ Em alguns casos, Sim.
 
 Para o SMS unidirecional com o Servidor MFA v7.0 ou posterior do Azure, você pode configurar o tempo limite de configuração definindo uma chave do registro. Depois que o serviço de nuvem MFA envia a mensagem de texto, o código de verificação (ou a senha de uso único) é retornada para o Servidor MFA. O Servidor MFA armazena o código na memória para 300 segundos por padrão. Se o usuário insere seu código depois de 300 segundos, a autenticação será negada. Siga estas etapas para alterar a configuração de tempo limite padrão:
 
-1. Acesse `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Ir para `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Crie uma chave de registro **DWORD** chamada *pfsvc_pendingSmsTimeoutSeconds* e defina o tempo em segundos que você deseja que o servidor do Azure MFA armazene senhas de uso único.
 
 >[!TIP]

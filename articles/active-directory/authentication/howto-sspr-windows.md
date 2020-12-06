@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd40b8df0251aee7692df24e9bc3f7186c155d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966501"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741483"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitar a Azure Active Directory redefinição de senha de autoatendimento na tela de entrada do Windows
 
@@ -75,10 +75,10 @@ A implantação da alteração de configuração para habilitar o SSPR na tela d
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Criar uma política de configuração do dispositivo no Intune
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Intune**.
-1. Crie um novo perfil de configuração de dispositivo acessando o **dispositivo**  >  **perfis**de configuração e, em seguida, selecione **+ Criar perfil**
+1. Crie um novo perfil de configuração de dispositivo acessando o **dispositivo**  >  **perfis** de configuração e, em seguida, selecione **+ Criar perfil**
    - Para **plataforma** *, escolha Windows 10 e posterior*
    - Para **tipo de perfil**, escolha *personalizado*
-1. Selecione **criar**e forneça um nome significativo para o perfil, como a *tela de entrada do Windows 10 SSPR*
+1. Selecione **criar** e forneça um nome significativo para o perfil, como a *tela de entrada do Windows 10 SSPR*
 
     Opcionalmente, forneça uma descrição significativa do perfil e, em seguida, selecione **Avançar**.
 1. Em *definições de configuração*, selecione **Adicionar** e forneça a seguinte configuração de OMA-URI para habilitar o link Redefinir senha:
@@ -88,12 +88,12 @@ A implantação da alteração de configuração para habilitar o SSPR na tela d
       - **Tipo de dados** definido como **Inteiro**
       - **Valor** definido como **1**
 
-    Selecione **Adicionar**e **Avançar**.
+    Selecione **Adicionar** e **Avançar**.
 1. A política pode ser atribuída a usuários, dispositivos ou grupos específicos. Atribua o perfil conforme desejado para o seu ambiente, de preferência a um grupo de dispositivos de teste primeiro e selecione **Avançar**.
 
     Para obter mais informações, consulte [atribuir perfis de usuário e de dispositivo no Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
-1. Configure as regras de aplicabilidade conforme desejado para o seu ambiente, como para *atribuir o perfil se a edição do sistema operacional for Windows 10 Enterprise*e, em seguida, selecione **Avançar**.
+1. Configure as regras de aplicabilidade conforme desejado para o seu ambiente, como para *atribuir o perfil se a edição do sistema operacional for Windows 10 Enterprise* e, em seguida, selecione **Avançar**.
 1. Examine seu perfil e, em seguida, selecione **criar**.
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>Habilitar para Windows 10 usando o registro

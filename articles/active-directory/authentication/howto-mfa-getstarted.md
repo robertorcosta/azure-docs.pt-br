@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa093411e40b2fc60c52c2a22434658bab78e59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839243"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743132"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planejar uma implantação da autenticação multifator do Azure AD
 
@@ -29,7 +29,7 @@ Este guia de implantação mostra como planejar e testar uma distribuição de a
 Para ver rapidamente a autenticação multifator do Azure AD em ação e, em seguida, voltar para entender as considerações de implantação adicionais:
 
 > [!div class="nextstepaction"]
-> [Habilitar a autenticação multifator do Azure AD](tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -370,4 +370,4 @@ Encontre soluções para problemas comuns com o Azure AD MFA no [artigo soluçã
 Para ver a autenticação multifator do Azure AD em ação, conclua o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Habilitar a autenticação multifator do Azure AD](tutorial-enable-azure-mfa.md)
+> [Habilitar a Autenticação Multifator do Azure AD](tutorial-enable-azure-mfa.md)
