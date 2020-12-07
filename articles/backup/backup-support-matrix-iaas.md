@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cd73c07b139aec3b7079c2b042581e26560ed1bc
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 0dd0979b4dcc7c3828d88c594c02addaf00813c4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309606"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754191"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -50,7 +50,6 @@ Backup mensal/anual| Não tem suporte durante o backup com a extensão de VM do 
 Ajuste automático de relógio | Sem suporte.<br/><br/> O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de uma VM.<br/><br/>  Modifique a política manualmente, se necessário.
 [Recursos de segurança para backups híbridos](./backup-azure-security-feature.md) |Não há suporte para desabilitar recursos de segurança.
 Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup dessa VM, no entanto, mesmo que a alteração de tempo seja revertida, o backup bem-sucedido não será garantido.
-VMs do Azure em [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) |Não há suporte para conjuntos de disponibilidade.
 
 ## <a name="operating-system-support-windows"></a>Suporte do sistema operacional (Windows)
 
@@ -140,7 +139,6 @@ Restaurar a VM em uma rede virtual diferente |Com suporte.<br/><br/> As rede vir
 Tamanho da VM |Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM.<br/><br/> [Saiba mais.](../virtual-machines/sizes.md)
 Backup de VMs em [conjuntos de disponibilidade](../virtual-machines/availability.md#availability-sets) | Com suporte.<br/><br/> Você não pode restaurar uma VM em um conjunto disponível usando a opção para criar rapidamente uma VM. Em vez disso, ao restaurar a VM, restaure o disco e use-o para implantar uma VM ou restaure um disco e use-o para substituir um disco existente.
 Fazer backup de VMs implantadas com [HUB (Benefício de uso híbrido)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Com suporte.
-Fazer backup de VMs implantadas em um [conjunto de dimensionamento](../virtual-machine-scale-sets/overview.md) |Com suporte. Não há suporte para o conjunto de disponibilidade.
 Fazer backup de VMs implantadas do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado pela Microsoft, produtos de terceiros) |Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior). Não restauramos as VMs do Azure Marketplace apoiadas como VMs, pois elas precisam de informações de compra. Eles são restaurados somente como discos.
 Fazer backup de VMs implantadas de uma imagem personalizada (terceiros) |Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs migradas para o Azure| Com suporte.<br/><br/> Para fazer backup da VM, o agente da VM deve estar instalado no computador migrado.
@@ -166,7 +164,7 @@ Adicionar o disco à VM protegida | Com suporte.
 Redimensionar o disco em uma VM protegida | Com suporte.
 Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Scale-Out servidor de arquivos. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não aparecer.
 [Discos compartilhados](../virtual-machines/disks-shared-enable.md) | Sem suporte.
-Discos SSD Ultra | Não há suporte. Para obter mais detalhes, consulte essas [limitações](selective-disk-backup-restore.md#limitations).
+Discos SSD Ultra | Sem suporte. Para obter mais detalhes, consulte essas [limitações](selective-disk-backup-restore.md#limitations).
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 

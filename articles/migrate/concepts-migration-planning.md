@@ -1,17 +1,17 @@
 ---
-title: Criar plano de migração com migrações para Azure | Microsoft Docs
-description: Fornece orientação sobre a criação de um plano de migração com as migrações para Azure.
+title: Criar um plano de migração com as migrações para Azure
+description: Fornece orientação sobre como criar um plano de migração com as migrações para Azure.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.author: rajosh
-ms.openlocfilehash: 8f37814e29ce0089c26e235123768296efc2c0b0
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504893"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753851"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Criar um plano de migração com as Migrações para Azure
 
@@ -72,10 +72,10 @@ O Azure fornece flexibilidade para redimensionar sua capacidade de nuvem ao long
 
 Você pode exportar o relatório de avaliação e filtrar essas categorias para entender a preparação do Azure:
 
-- **Pronto para o Azure** : os computadores podem ser migrados no estado em que se encontram para o Azure, sem nenhuma alteração. 
-- **Condicionalmente pronto para o Azure** : as máquinas podem ser migradas para o Azure, mas precisam de pequenas alterações, de acordo com as diretrizes de correção fornecidas na avaliação.
-- **Não está pronto para o Azure** : os computadores não podem ser migrados para o Azure no estado em que se encontram. Os problemas devem ser corrigidos de acordo com as diretrizes de correção, antes da migração. 
-- **Preparação desconhecida** : as migrações para Azure não podem determinar a preparação do computador, devido a metadados insuficientes.
+- **Pronto para o Azure**: os computadores podem ser migrados no estado em que se encontram para o Azure, sem nenhuma alteração. 
+- **Condicionalmente pronto para o Azure**: as máquinas podem ser migradas para o Azure, mas precisam de pequenas alterações, de acordo com as diretrizes de correção fornecidas na avaliação.
+- **Não está pronto para o Azure**: os computadores não podem ser migrados para o Azure no estado em que se encontram. Os problemas devem ser corrigidos de acordo com as diretrizes de correção, antes da migração. 
+- **Preparação desconhecida**: as migrações para Azure não podem determinar a preparação do computador, devido a metadados insuficientes.
 
 Usando as avaliações de banco de dados, você pode avaliar a prontidão do seu SQL Server o estado de seu data para a migração para o Azure SQL Database ou instâncias gerenciadas do Azure SQL. A avaliação mostra a porcentagem de status de preparação de migração para cada uma de suas instâncias do SQL Server. Além disso, para cada instância, você pode ver o destino recomendado no Azure, os bloqueadores de migração potenciais, uma contagem de alterações significativas, prontidão para o banco de BD SQL do Azure ou a VM do SQL do Azure e um nível de compatibilidade. Você pode se aprofundar para entender o impacto dos bloqueadores de migração e as recomendações para corrigi-los.
 
@@ -89,12 +89,12 @@ Depois que um computador é marcado como pronto para o Azure, a avaliação do s
 
 A opção de dimensionamento baseado em desempenho nas avaliações de migrações para Azure ajuda você a usar as VMs de tamanho correto e deve ser usada como uma prática recomendada para otimizar as cargas de trabalho no Azure. Além do dimensionamento correto, há algumas outras opções para ajudar a economizar os custos do Azure: 
 
-- **Instâncias reservadas** : com as [instâncias reservadas (ri)](https://azure.microsoft.com/pricing/reserved-vm-instances/), você pode reduzir significativamente os custos em comparação com os [preços pagos conforme o uso](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
-- **Benefício híbrido do Azure** : com [benefício híbrido do Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/), você pode colocar licenças locais do Windows Server com assinaturas ativas do Software Assurance ou do Linux, no Azure e combinar com as opções de instâncias reservadas.
-- **Enterprise Agreement** : o [ea (Azure Enterprise Agreements)](../cost-management-billing/manage/ea-portal-agreements.md) pode oferecer economias para assinaturas e serviços do Azure.
-- **Ofertas** : há várias [ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/). Por exemplo, [desenvolvimento/teste pago conforme o uso](https://azure.microsoft.com/pricing/dev-test/), ou [desenvolvimento/teste Enterprise oferta](https://azure.microsoft.com/offers/ms-azr-0148p/), para fornecer taxas mais baixas para VMs de desenvolvimento/teste
-- **Tempo de atividade da VM** : você pode examinar dias por mês e horas por dia em que as VMs do Azure são executadas. Desligar os computadores quando eles não estão em uso pode reduzir os custos (não aplicável ao RIs).
-- **Região de destino** : você pode criar avaliações em regiões diferentes, para descobrir se a migração para uma região específica pode ser mais econômica. 
+- **Instâncias reservadas**: com as [instâncias reservadas (ri)](https://azure.microsoft.com/pricing/reserved-vm-instances/), você pode reduzir significativamente os custos em comparação com os [preços pagos conforme o uso](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- **Benefício híbrido do Azure**: com [benefício híbrido do Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/), você pode colocar licenças locais do Windows Server com assinaturas ativas do Software Assurance ou do Linux, no Azure e combinar com as opções de instâncias reservadas.
+- **Enterprise Agreement**: o [ea (Azure Enterprise Agreements)](../cost-management-billing/manage/ea-portal-agreements.md) pode oferecer economias para assinaturas e serviços do Azure.
+- **Ofertas**: há várias [ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/). Por exemplo, [desenvolvimento/teste pago conforme o uso](https://azure.microsoft.com/pricing/dev-test/), ou [desenvolvimento/teste Enterprise oferta](https://azure.microsoft.com/offers/ms-azr-0148p/), para fornecer taxas mais baixas para VMs de desenvolvimento/teste
+- **Tempo de atividade da VM**: você pode examinar dias por mês e horas por dia em que as VMs do Azure são executadas. Desligar os computadores quando eles não estão em uso pode reduzir os custos (não aplicável ao RIs).
+- **Região de destino**: você pode criar avaliações em regiões diferentes, para descobrir se a migração para uma região específica pode ser mais econômica. 
 
 ### <a name="visualize-data"></a>Visualizar dados
 
@@ -114,7 +114,7 @@ Para priorizar a ordem de migração, você pode usar fatores estratégicos, com
 
 Algumas recomendações:
 
-- **Priorizar WINS rápido** : Use os relatórios de avaliação para identificar frutas de baixa interrupções, incluindo servidores e bancos de dados que estão totalmente prontos e exigem esforço mínimo para migrar para o Azure. A tabela resume algumas maneiras de fazer isso.
+- **Priorizar WINS rápido**: Use os relatórios de avaliação para identificar frutas de baixa interrupções, incluindo servidores e bancos de dados que estão totalmente prontos e exigem esforço mínimo para migrar para o Azure. A tabela resume algumas maneiras de fazer isso.
 
     **State** | **Ação**
     --- | ---
@@ -125,18 +125,18 @@ Algumas recomendações:
     **Computadores provisionados** | Exportar o relatório de avaliação e filtrar computadores com baixa utilização da CPU (%) e utilização de memória (%).  Migre para uma VM do Azure de tamanho certo e economize em custos para recursos subutilizados.
     **Computadores superprovisionados** | Exportar o relatório de avaliação e filtrar para computadores com alta utilização da CPU (%) e utilização de memória (%).  Solucione restrições de capacidade, impeça a interrupção de máquinas sobrerestritas e aumente o desempenho migrando esses computadores para o Azure. No Azure, use os recursos de dimensionamento automático para atender à demanda.<br/><br/> Analise relatórios de avaliação para investigar as restrições de armazenamento. Analise IOPS de disco e taxa de transferência e o tipo de disco recomendado.
 
-- **Comece pequeno e, em seguida, vá muito** : comece movendo aplicativos e cargas de trabalho que apresentam o mínimo de risco e complexidade, para criar confiança em sua estratégia de migração. Analise as recomendações de avaliação de migração do Azure junto com seu repositório do CMDB para localizar e migrar cargas de trabalho de desenvolvimento/teste que podem ser candidatas a migrações piloto. Comentários e aprendizados de migrações piloto podem ser úteis à medida que você começa a migrar cargas de trabalho de produção.  
-- Em **conformidade** : o Azure mantém o maior portfólio de conformidade do setor, em termos de amplitude e profundidade de ofertas. Use os requisitos de conformidade para priorizar as migrações, de modo que os aplicativos e as cargas de trabalho estejam em conformidade com os padrões e as leis nacionais, regionais e específicos do setor. Isso é especialmente verdadeiro para organizações que lidam com processos críticos de negócios, mantêm informações confidenciais ou estão em setores altamente regulamentados. Nesses tipos de organizações, padrões e regulamentos abound e podem mudar com frequência, sendo difícil de acompanhar.  
+- **Comece pequeno e, em seguida, vá muito**: comece movendo aplicativos e cargas de trabalho que apresentam o mínimo de risco e complexidade, para criar confiança em sua estratégia de migração. Analise as recomendações de avaliação de migração do Azure junto com seu repositório do CMDB para localizar e migrar cargas de trabalho de desenvolvimento/teste que podem ser candidatas a migrações piloto. Comentários e aprendizados de migrações piloto podem ser úteis à medida que você começa a migrar cargas de trabalho de produção.  
+- Em **conformidade**: o Azure mantém o maior portfólio de conformidade do setor, em termos de amplitude e profundidade de ofertas. Use os requisitos de conformidade para priorizar as migrações, de modo que os aplicativos e as cargas de trabalho estejam em conformidade com os padrões e as leis nacionais, regionais e específicos do setor. Isso é especialmente verdadeiro para organizações que lidam com processos críticos de negócios, mantêm informações confidenciais ou estão em setores altamente regulamentados. Nesses tipos de organizações, padrões e regulamentos abound e podem mudar com frequência, sendo difícil de acompanhar.  
 
 ## <a name="finalize-the-migration-plan"></a>Finalizar o plano de migração
 
 Antes de finalizar seu plano de migração, certifique-se de considerar e atenuar outros bloqueadores potenciais, da seguinte maneira: 
 
-- **Requisitos de rede** : avalie a largura de banda da rede e as restrições de latência, o que pode causar atrasos imprevistos e interrupções na velocidade de replicação da migração.
-- **Ajustes de teste/pós-migração** : permita um buffer de tempo para conduzir o desempenho e o teste de aceitação do usuário para aplicativos migrados ou para configurar/ajustar aplicativos após a migração, como atualizar cadeias de conexão de banco de dados, configurar servidores Web, executar recortes/limpeza, etc.
-- **Permissões** : examine as permissões do Azure recomendadas e as funções de acesso do servidor/banco de dados e as permissões necessárias para a migração.
-- **Treinamento** : Prepare sua organização para a transformação digital. Uma base sólida de treinamento é importante para uma mudança organizacional bem-sucedida. Confira treinamento gratuito em [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), incluindo cursos sobre conceitos básicos do Azure, arquiteturas de solução e segurança. Incentive sua equipe a explorar as [certificações do Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF).  
-- **Suporte à implementação** : Obtenha suporte para sua implementação, se necessário. Muitas organizações optam por uma ajuda externa para dar suporte à migração na nuvem. Para migrar para o Azure de forma rápida e confiável com assistência personalizada, considere um [provedor de serviços gerenciado por especialistas do Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)ou [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
+- **Requisitos de rede**: avalie a largura de banda da rede e as restrições de latência, o que pode causar atrasos imprevistos e interrupções na velocidade de replicação da migração.
+- **Ajustes de teste/pós-migração**: permita um buffer de tempo para conduzir o desempenho e o teste de aceitação do usuário para aplicativos migrados ou para configurar/ajustar aplicativos após a migração, como atualizar cadeias de conexão de banco de dados, configurar servidores Web, executar recortes/limpeza, etc.
+- **Permissões**: examine as permissões do Azure recomendadas e as funções de acesso do servidor/banco de dados e as permissões necessárias para a migração.
+- **Treinamento**: Prepare sua organização para a transformação digital. Uma base sólida de treinamento é importante para uma mudança organizacional bem-sucedida. Confira treinamento gratuito em [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), incluindo cursos sobre conceitos básicos do Azure, arquiteturas de solução e segurança. Incentive sua equipe a explorar as [certificações do Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF).  
+- **Suporte à implementação**: Obtenha suporte para sua implementação, se necessário. Muitas organizações optam por uma ajuda externa para dar suporte à migração na nuvem. Para migrar para o Azure de forma rápida e confiável com assistência personalizada, considere um [provedor de serviços gerenciado por especialistas do Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)ou [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
 
 Crie um plano de migração de nuvem eficaz que inclua informações detalhadas sobre os aplicativos que você deseja migrar, disponibilidade de aplicativo/banco de dados, restrições de tempo de inatividade e etapas de migração. O plano considera quanto tempo a cópia de dados executará e incluirá um buffer realista para testes após a migração e atividades de recorte. 
@@ -145,7 +145,7 @@ Um plano de teste após a migração deve incluir casos de uso funcional, de int
 
 Crie um roteiro de migração e declare uma janela de manutenção para migrar seus aplicativos e bancos de dados com tempo de inatividade mínimo para zero e limitar o potencial operacional e o impacto nos negócios durante a migração.  
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 Recomendamos que você execute uma migração de teste nas migrações para Azure antes de iniciar uma migração em escala completa. Uma migração de teste ajuda a estimar o tempo envolvido e ajustar seu plano de migração. Ele fornece uma oportunidade para descobrir possíveis problemas e corrigi-los antes da migração completa.
 

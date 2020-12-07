@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030400"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753902"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
@@ -279,7 +279,7 @@ Se o modelo tiver sido treinado usando qualquer um dos módulos de treinamento e
 ## <a name="error-0014"></a>Erro 0014  
  Ocorrerá uma exceção se a contagem de valores exclusivos da coluna for maior que o permitido.  
 
- Esse erro ocorrerá quando uma coluna contiver um número excessivo de valores exclusivos.  Por exemplo, você poderá ver esse erro se especificar que uma coluna seja tratada como dados categóricos, mas houver um número excessivo de valores exclusivos na coluna para permitir que o processamento seja concluído. Você também poderá ver esse erro se houver uma incompatibilidade entre o número de valores exclusivos em duas entradas.   
+ Esse erro ocorre quando uma coluna contém um número excessivo de valores exclusivos, como uma coluna de ID ou coluna de texto. Você poderá ver esse erro se especificar que uma coluna seja tratada como dados categóricos, mas há muitos valores exclusivos na coluna para permitir que o processamento seja concluído. Você também poderá ver esse erro se houver uma incompatibilidade entre o número de valores exclusivos em duas entradas.   
 
 O erro de valores exclusivos será maior que o permitido se atender às **duas** condições a seguir:
 
@@ -292,7 +292,9 @@ abra o módulo que gerou o erro e identifique as colunas usadas como entradas. P
 
 Para as colunas que você pretende usar para agrupamento ou categorização, execute as etapas para reduzir o número de valores exclusivos em colunas. Você pode reduzir de maneiras diferentes, dependendo do tipo de dados da coluna. 
 
-Geralmente, nesse cenário, a coluna que está atingindo o erro não faz sentido como um recurso para treinar modelos. Portanto, você pode usar [Editar metadados](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada durante o treinamento de um modelo. 
+Para colunas de ID que não são recursos significativos durante o treinamento de um modelo, você pode usar [Editar metadados](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada durante o treinamento de um modelo. 
+
+Para colunas de texto, você pode usar o [hash de recurso](../algorithm-module-reference/feature-hashing.md) ou [extrair recursos de N-Gram do módulo de texto](../algorithm-module-reference/extract-n-gram-features-from-text.md) para pré-processar colunas de texto.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

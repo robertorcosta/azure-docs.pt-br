@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345390"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754157"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Cotas e limites de serviços de fala
 
@@ -104,17 +104,17 @@ Os limites de solicitações simultâneas para modelos **básicos** e **personal
 O valor existente do parâmetro de limite de solicitação simultânea **não** é visível por meio de portal do Azure, Command-Line ferramentas ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
 
 >[!NOTE]
->Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados.
+>Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados. No entanto, os contêineres de fala têm suas próprias limitações de capacidade que devem ser levadas em conta. Veja a pergunta *"você pode ajudar com planejamento de capacidade e estimativa de custo de contêineres de fala em texto local?"* nas [perguntas frequentes sobre os contêineres de fala](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Ter as informações necessárias prontas:
-- Para o **modelo base** :
+- Para o **modelo base**:
   - ID do recurso de fala
   - Região
-- Para o **modelo personalizado** : 
+- Para o **modelo personalizado**: 
   - Região
   - ID do ponto de extremidade personalizado
 
-- **Como obter informações (modelo base)** :  
+- **Como obter informações (modelo base)**:  
   - Ir para [portal do Azure](https://portal.azure.com/)
   - Selecione o recurso de fala para o qual você deseja aumentar o limite de solicitações de simultaneidade
   - Selecionar *Propriedades* (grupo de *Gerenciamento de recursos* ) 
@@ -122,7 +122,7 @@ O valor existente do parâmetro de limite de solicitação simultânea **não** 
     - **ID de Recurso**
     - **Local** (sua região de ponto de extremidade)
 
-- **Como obter informações (modelo personalizado)** :
+- **Como obter informações (modelo personalizado)**:
   - Ir para o portal do [Speech Studio](https://speech.microsoft.com/)
   - Entrar, se necessário
   - Ir para Fala Personalizada
@@ -139,7 +139,7 @@ Inicie o aumento do limite de solicitações simultâneas para seu recurso ou, s
 - Verifique se você tem as [informações necessárias](#have-the-required-information-ready)
 - Ir para [portal do Azure](https://portal.azure.com/)
 - Selecione o recurso de fala para o qual você deseja aumentar (ou para verificar) o limite de solicitação de simultaneidade
-- Selecionar *nova solicitação de suporte* ( *suporte +* grupo de solução de problemas) 
+- Selecionar *nova solicitação de suporte* (*suporte +* grupo de solução de problemas) 
 - Uma nova janela será exibida com as informações preenchidas automaticamente sobre sua assinatura do Azure e recursos do Azure
 - Insira um *Resumo* (como "aumentar limite de solicitação de simultaneidade STT")
 - Em *tipo de problema* , selecione "problemas de cota ou assinatura"
@@ -191,7 +191,7 @@ Inicie o aumento do limite de solicitações simultâneas para seu recurso ou, s
 - Verifique se você tem as [informações necessárias](#prepare-the-required-information)
 - Ir para [portal do Azure](https://portal.azure.com/)
 - Selecione o recurso de fala para o qual você deseja aumentar (ou para verificar) o limite de solicitação de simultaneidade
-- Selecionar *nova solicitação de suporte* ( *suporte +* grupo de solução de problemas) 
+- Selecionar *nova solicitação de suporte* (*suporte +* grupo de solução de problemas) 
 - Uma nova janela será exibida com as informações preenchidas automaticamente sobre sua assinatura do Azure e recursos do Azure
 - Insira um *Resumo* (como "aumentar o limite de solicitação de simultaneidade do ponto de extremidade personalizado TTS")
 - Em *tipo de problema* , selecione "problemas de cota ou assinatura"

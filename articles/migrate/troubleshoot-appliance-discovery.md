@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de implantação e descoberta do dispositivo de migração do Azure
-description: Obtenha ajuda com a implantação do dispositivo de migrações para Azure e a descoberta de máquinas.
-author: musa-57
+description: Obtenha ajuda com a implantação de dispositivo e a descoberta de máquina.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494436"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753409"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 

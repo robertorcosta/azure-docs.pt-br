@@ -1,14 +1,17 @@
 ---
 title: Dispositivo de Migrações para Azure
 description: Fornece um resumo do suporte para o dispositivo de migrações para Azure.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008694"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754123"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -215,7 +218,7 @@ A descoberta de aplicativos coleta aplicativos instalados e dados do sistema ope
 
 Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada VM habilitada para descoberta de aplicativos. Estes dados são enviados para o Azure.
 
-**Dados** | **Local do Registro** | **Key**
+**Dados** | **Local do Registro** | **Chave**
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
@@ -227,7 +230,7 @@ Aqui estão os dados de recursos que o dispositivo coleta de cada VM habilitada 
 
 **Dados**  | **Cmdlet do PowerShell** | **Propriedade**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+Nome  | Get-WindowsFeature  | Nome
 Tipo de recurso | Get-WindowsFeature  | Recurso de funcionalidade
 Pai  | Get-WindowsFeature  | Pai
 
@@ -235,9 +238,9 @@ Pai  | Get-WindowsFeature  | Pai
 
 Aqui estão os metadados do SQL Server que o dispositivo coleta de VMs que executam o Microsoft SQL Server habilitado para descoberta de aplicativos. Estes dados são enviados para o Azure.
 
-**Dados**  | **Local do Registro**  | **Key**
+**Dados**  | **Local do Registro**  | **Chave**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
+Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
 Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 
 Service Pack  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | SP
 Versão  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Versão 
@@ -248,7 +251,7 @@ Aqui estão os dados do sistema operacional que o dispositivo coleta cada VM hab
 
 Dados  | classe WMI  | Propriedade de classe WMI
 --- | --- | ---
-Name  | Win32_operatingsystem  | Legenda
+Nome  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +261,7 @@ Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada V
 
 Dados  | Comando
 --- | --- 
-Name | rpm, dpkg-Query, snap
+Nome | rpm, dpkg-Query, snap
 Versão | rpm, dpkg-Query, snap
 Provedor | rpm, dpkg-Query, snap
 
@@ -268,7 +271,7 @@ Aqui estão os dados do sistema operacional que o dispositivo coleta cada VM hab
 
 **Dados**  | **Comando** 
 --- | --- | ---
-Name <br/> Versão | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Nome <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arquitetura | uname
 
 

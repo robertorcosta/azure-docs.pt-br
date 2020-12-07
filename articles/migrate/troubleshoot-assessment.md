@@ -1,18 +1,17 @@
 ---
 title: Solucionar problemas de visualização de dependência e de avaliação em migrações para Azure
-description: Obtenha ajuda para solucionar problemas de visualização de dependência e de avaliação em migrações para Azure.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Obtenha ajuda com a visualização de dependência e avaliação nas migrações para Azure.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505216"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753438"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -83,7 +82,7 @@ Para mostrar como isso pode afetar as recomendações, vamos usar um exemplo:
 
 Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utilização da CPU e 50% de utilização da memória e um fator de conforto especificado de 1,3.
 
--  Se a avaliação for **como local** , é recomendável um SKU de VM do Azure com quatro núcleos e 8 GB de memória.
+-  Se a avaliação for **como local**, é recomendável um SKU de VM do Azure com quatro núcleos e 8 GB de memória.
 - Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (tamanho de memória mais próximo com suporte
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o dimensionamento da avaliação.
 
@@ -91,8 +90,8 @@ Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utiliza
 
 A avaliação de servidor de migrações para Azure pode recomendar um disco maior com base no tipo de avaliação.
 - O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
-- Se os critérios de dimensionamento forem **baseados em desempenho** e o tipo de armazenamento for definido como **automático** , os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local.
-- Se os critérios de dimensionamento forem **baseados em desempenho** e o tipo de armazenamento for **Premium** , um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para executar o dimensionamento de disco quando os critérios de dimensionamento são **locais** e o tipo de armazenamento é **HDD Standard** , **SSD Standard** ou **Premium**.
+- Se os critérios de dimensionamento forem **baseados em desempenho** e o tipo de armazenamento for definido como **automático**, os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local.
+- Se os critérios de dimensionamento forem **baseados em desempenho** e o tipo de armazenamento for **Premium**, um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para executar o dimensionamento de disco quando os critérios de dimensionamento são **locais** e o tipo de armazenamento é **HDD Standard**, **SSD Standard** ou **Premium**.
 
 Por exemplo, se você tiver um disco local com 32 GB de memória, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco que possa dar suporte ao IOPS e ao tamanho necessários. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomenda um disco maior devido ao requisito de IOPS alto do disco local.
 
@@ -156,7 +155,7 @@ Depois de instalar os agentes de visualização de dependência em VMs locais, a
 
 Para VMs do Windows:
 1. No painel de controle, inicie o MMA.
-2. Nas **Propriedades de Microsoft Monitoring Agent**  >  **log Analytics do Azure (OMS)** , verifique se o **status** do espaço de trabalho está verde.
+2. Nas **Propriedades de Microsoft Monitoring Agent**  >  **log Analytics do Azure (OMS)**, verifique se o **status** do espaço de trabalho está verde.
 3. Se o status não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
 
     ![Status do MMA](./media/troubleshoot-assessment/mma-properties.png)
@@ -165,8 +164,8 @@ Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-- **Agente MMS** : examine os sistemas operacionais [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) com suporte.
-- **Agente de dependência** : os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
+- **Agente MMS**: examine os sistemas operacionais [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) com suporte.
+- **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências por > hora
 
@@ -209,7 +208,7 @@ Colete os logs de tráfego de rede da seguinte maneira:
    - No Chrome, clique com o botão direito do mouse e selecione **salvar como Har com conteúdo**. Essa ação compacta e exporta os logs como um arquivo. Har.
    - No Microsoft Edge ou Internet Explorer, selecione a opção **Exportar tráfego capturado** . Essa ação compacta e exporta o log.
 6. Selecione a guia **console** para verificar se há avisos ou erros. Para salvar o log do console:
-   - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **salvar como** , para exportar e compactar o log.
+   - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **salvar como**, para exportar e compactar o log.
    - No Microsoft Edge ou no Internet Explorer, clique com o botão direito do mouse nos erros e selecione **copiar tudo**.
 7. Fechar as Ferramentas para Desenvolvedores.
 

@@ -1,17 +1,17 @@
 ---
 title: Migração baseada em agente no Azure migrar migração de servidor
 description: Fornece uma visão geral da migração de VM VMware baseada em agente nas migrações para Azure.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357158"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753885"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agente
 

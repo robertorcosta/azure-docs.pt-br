@@ -1,14 +1,17 @@
 ---
 title: FAQ do dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo migrações para Azure.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337584"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753868"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -66,9 +69,9 @@ O dispositivo precisa acessar as URLs do Azure. [Examine](migrate-appliance.md#u
 
 Consulte os seguintes artigos para obter informações sobre os dados que o dispositivo de migração do Azure coleta nas VMs:
 
-- **VM VMware** : [examine](migrate-appliance.md#collected-data---vmware) os dados coletados.
-- **VM do Hyper-V** : [examinar](migrate-appliance.md#collected-data---hyper-v) os dados coletados.
-- **Servidores físicos ou virtuais** : [examine](migrate-appliance.md#collected-data---physical) os dados coletados.
+- **VM VMware**: [examine](migrate-appliance.md#collected-data---vmware) os dados coletados.
+- **VM do Hyper-V**: [examinar](migrate-appliance.md#collected-data---hyper-v) os dados coletados.
+- **Servidores físicos ou virtuais**:[examine](migrate-appliance.md#collected-data---physical) os dados coletados.
 
 ## <a name="how-is-data-stored"></a>Como os dados são armazenados?
 

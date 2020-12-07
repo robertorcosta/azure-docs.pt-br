@@ -1,14 +1,17 @@
 ---
-title: Selecione uma opção de migração VMware com migração de servidor migrações para Azure | Microsoft Docs
+title: Selecione uma opção de migração VMware com migração de servidor de migrações para Azure
 description: Fornece uma visão geral das opções para migrar VMs VMware para o Azure com migração de servidor de migrações para Azure
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534100"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753596"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
@@ -39,13 +42,13 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseado em agente**
 --- | --- | --- | ---
-**Implantar o dispositivo de migrações para Azure** | Um dispositivo leve executado em uma VM VMware.<br/><br/> O dispositivo é usado para descobrir e avaliar computadores e migrar computadores usando a migração sem agente. | Necessário.<br/><br/> Se você já configurou o dispositivo para avaliação, poderá usar o mesmo dispositivo para a migração sem agente. | Não necessário.<br/><br/> Se você tiver configurado um dispositivo para avaliação, poderá deixá-lo em vigor ou removê-lo se terminar a avaliação.
+**Implantar o dispositivo das Migrações para Azure** | Um dispositivo leve executado em uma VM VMware.<br/><br/> O dispositivo é usado para descobrir e avaliar computadores e migrar computadores usando a migração sem agente. | Obrigatórios.<br/><br/> Se você já configurou o dispositivo para avaliação, poderá usar o mesmo dispositivo para a migração sem agente. | Não necessário.<br/><br/> Se você tiver configurado um dispositivo para avaliação, poderá deixá-lo em vigor ou removê-lo se terminar a avaliação.
 **Usar a ferramenta de avaliação do servidor** | Avaliar computadores com a ferramenta migrações para Azure: Server Assessment. | Você pode avaliar as máquinas antes de migrá-las, mas não é necessário. | A avaliação é opcional | A avaliação é opcional.
 **Usar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
 **Preparar o VMware para migração** | Defina as configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
 **Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não é necessária | Obrigatório
 **Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não é necessária | Obrigatório
-**Replicar VMs** . Habilitar a replicação de VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
+**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
 **Execute um teste de migração** | Executar uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
 **Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório
 

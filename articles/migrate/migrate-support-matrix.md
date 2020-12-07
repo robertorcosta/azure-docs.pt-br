@@ -1,15 +1,17 @@
 ---
 title: Matriz de suporte das Migrações para Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Migrações para Azure.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: raynew
-ms.openlocfilehash: 2aab8e9caeaf61c2c8dd1bf29894b13a887e44de
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d9a18173403cd95e0abf6b9e495f3d948ac6ac61
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424817"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753953"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -21,7 +23,7 @@ A tabela resume os cenários de descoberta, avaliação e migração com suporte
 
 **Implantação** | **Detalhes** 
 --- | --- 
-**Descoberta** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
+**Discovery** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
 **Descoberta de aplicativo** | Você pode descobrir aplicativos, funções e recursos em execução em VMs do VMware. Atualmente, esse recurso está limitado apenas à descoberta. A avaliação está atualmente no nível do computador. Ainda não oferecemos aplicativos, funções ou avaliações baseadas em recursos. 
 **Avaliação** | Avalie cargas de trabalho locais e dados em execução em VMs do VMware, VMs do Hyper-V e servidores físicos. Avalie usando a avaliação do servidor de migrações para Azure, Assistente de Migração de Dados da Microsoft (DMA), bem como outras ferramentas e ofertas de ISV.
 **Migração** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs do VMware, VMs do Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Use a Avaliação de Servidor de Migrações para Azure e o Serviço de Migração de Banco de Dados do Azure (DMS), além de outras ferramentas e ofertas de ISV, para migração.
