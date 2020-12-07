@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87e7f959dd932c874604df43fa61112d181ac581
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531693"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763920"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Linha de base de segurança do Azure para a porta frontal do Azure
 
@@ -206,7 +206,7 @@ Use Azure Monitor para criar regras para disparar alertas quando um serviço nã
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: habilitar o registro em log para atividades de rede do Azure
 
-**Diretrizes**: a porta do Azure front-não se destina a implantar em redes virtuais; por causa disso, os clientes não podem habilitar o log do fluxo do grupo de segurança de rede, rotear o tráfego por meio de um firewall ou executar capturas de pacote.
+**Diretrizes**: a porta frontal do Azure não se destina a implantar em redes virtuais; por causa disso, os clientes não podem habilitar o log do fluxo do grupo de segurança de rede, rotear o tráfego por meio de um firewall ou executar capturas de pacote.
 
 A porta frontal do Azure registra todo o tráfego de rede que ele processa para acesso do cliente. Habilite o recurso de logs de fluxo de rede e configure esses logs para serem enviados a uma conta de armazenamento para retenção e auditoria de longo prazo.
 

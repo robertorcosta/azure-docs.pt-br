@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8123dbc18ad2fc162b9b92ae40920417e6b874ce
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485273"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763274"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -102,7 +102,7 @@ Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9 versão de pré-lançamento](https://support.microsoft.com/help/4578241/), a versão 7,9 GA tem suporte do patch do 9,37 Hot Fix * * </br> 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609), [8,3](https://support.microsoft.com/help/4597409/)
 Ubuntu 14.04 LTS Server | Inclui suporte para todos os 14, 4. versões *x* ; [Versões de kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines); 
 Servidor do Ubuntu 16.04 LTS | Inclui suporte para todos os 16, 4. versões *x* ; [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Servidores Ubuntu usando autenticação e entrada baseados em senha, bem como o pacote cloud-init para configurar VMs em nuvem, podem ter a entrada baseada em senha desabilitada no failover (dependendo da configuração do cloudinit). A entrada baseada em senha pode ser habilitada novamente na máquina virtual com a redefinição da senha no menu Suporte > Solução de problemas > Configurações (da VM com falha no portal do Azure).
-Servidor Ubuntu 18.04 LTS | Inclui suporte para todos os 18, 4. versões *x* ; [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Servidor Ubuntu 18.04 LTS | Inclui suporte para todos os 18, 4. versões *x* ; [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Servidores Ubuntu usando autenticação e entrada baseados em senha, bem como o pacote cloud-init para configurar VMs em nuvem, podem ter a entrada baseada em senha desabilitada no failover (dependendo da configuração do cloudinit). A entrada baseada em senha pode ser habilitada novamente na máquina virtual com a redefinição da senha no menu Suporte > Solução de problemas > Configurações (da VM com falha no portal do Azure).
 Servidor Ubuntu 20, 4 LTS | Inclui suporte para todos os 20, 4. versões *x* ; [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Inclui suporte para todos os 7. versões do [kernel com suporte](#supported-debian-kernel-versions-for-azure-virtual-machines) nas versões *x*
 Debian 8 | Inclui suporte para todos os 8. versões do [kernel com suporte](#supported-debian-kernel-versions-for-azure-virtual-machines) nas versões *x*

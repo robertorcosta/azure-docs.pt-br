@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 12/07/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743863"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762543"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -69,11 +69,8 @@ Para começar a usar o SSPR, conclua o seguinte tutorial:
 > [!div class="nextstepaction"]
 > [Tutorial: habilitar redefinição de senha de autoatendimento (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Opções de registro
 
-Antes que os usuários possam redefinir ou alterar sua senha usando SSPR, eles devem se registrar e os métodos de autenticação a serem usados. Conforme mencionado na seção anterior, um usuário deve ser registrado para SSPR e ter uma licença apropriada aplicada.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
+## <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
 
 Você pode habilitar a opção para exigir que um usuário conclua o registro do SSPR se eles entrarem em qualquer aplicativo usando o Azure AD. Esse fluxo de trabalho inclui os seguintes aplicativos:
 
@@ -92,7 +89,7 @@ Quando você não exige registro, os usuários não são solicitados durante a e
 >
 > Essa interrupção para registrar para SSPR não interromperá a conexão do usuário se já tiver entrado.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
+## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
 
 Para certificar-se de que os métodos de autenticação estejam corretos quando forem necessários para redefinir ou alterar sua senha, você pode exigir que os usuários confirmem suas informações registradas sobre a informação após um determinado período de tempo. Essa opção só estará disponível se você habilitar a opção **exigir que os usuários se registrem ao entrar** .
 

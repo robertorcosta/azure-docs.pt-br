@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357769"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327076"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 
@@ -46,10 +46,10 @@ Segredos|/secrets|Com suporte|Sem suporte
 Certificados|/certificates|Com suporte|Sem suporte
 Chaves de conta de armazenamento|/storageaccount|Com suporte|Sem suporte
 |||
-- **Chaves de criptografia** : Dá suporte a vários tipos de chave e algoritmos e habilita o uso de chaves protegidas por HSM e por software. Para obter mais informações, confira [Sobre chaves](../keys/about-keys.md).
-- **Segredos** : Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados. Para obter mais informações, confira [Sobre segredos](../secrets/about-secrets.md).
-- **Certificados** : Oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática. Para obter mais informações, confira [Sobre certificados](../certificates/about-certificates.md).
-- **Chaves de conta de Armazenamento do Azure** : Pode gerenciar chaves de uma conta de Armazenamento do Microsoft Azure para você. Internamente, o Key Vault pode listar (sincronizar) chaves com uma conta de Armazenamento do Azure e gerar novamente (gira) as chaves periodicamente. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
+- **Chaves de criptografia**: Dá suporte a vários tipos de chave e algoritmos e habilita o uso de chaves protegidas por HSM e por software. Para obter mais informações, confira [Sobre chaves](../keys/about-keys.md).
+- **Segredos**: Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados. Para obter mais informações, confira [Sobre segredos](../secrets/about-secrets.md).
+- **Certificados**: Oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática. Para obter mais informações, confira [Sobre certificados](../certificates/about-certificates.md).
+- **Chaves de conta de Armazenamento do Azure**: Pode gerenciar chaves de uma conta de Armazenamento do Microsoft Azure para você. Internamente, o Key Vault pode listar (sincronizar) chaves com uma conta de Armazenamento do Azure e gerar novamente (gira) as chaves periodicamente. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
 
 Para obter mais informações gerais sobre o Key Vault, confira [Sobre o Azure Key Vault](overview.md). Para obter mais informações sobre os pools do HSM Gerenciado, confira [O que é o HSM Gerenciado do Azure Key Vault?](../managed-hsm/overview.md)
 
@@ -75,15 +75,16 @@ Objetos armazenados no Key Vault são submetidos ao controle de versão sempre q
 
 Os objetos no Key Vault podem ser abordados especificando uma versão ou omitindo a versão para operações na versão atual do objeto. Por exemplo, dada uma Chave com o nome `MasterKey`, executar operações sem especificar uma versão faz o sistema usar a versão mais recente disponível. Executar operações com o identificador de versão específico faz com que o sistema use essa versão específica do objeto.  
 
+### <a name="vault-name-and-object-name"></a>Nome do cofre e nome do objeto
 Os objetos são identificados de forma exclusiva no Key Vault usando uma URL. Não há dois objetos no sistema com a mesma URL, independentemente da localização geográfica. A URL completa para um objeto é chamada de Identificador do Objeto. A URL consiste em um prefixo que identifica o Key Vault, o tipo de objeto, o Nome do Objeto fornecido pelo usuário e uma Versão do Objeto. O nome do objeto é imutável e diferencia maiusculas de minúsculas. Identificadores que não incluem a versão do objeto são chamados de Identificadores de Base.  
 
 Para mais informações, consulte [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)
 
 Um identificador de objeto tem o seguinte formato geral (dependendo do tipo de contêiner):  
 
-- **Para Cofres** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Para Cofres**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **Para pools do HSM Gerenciado** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Para pools do HSM Gerenciado**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Confira [Suporte de tipo de objeto](#object-types) para tipos de objetos com suporte em cada tipo de contêiner.

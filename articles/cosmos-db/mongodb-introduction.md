@@ -4,20 +4,23 @@ description: Saiba como você pode usar o Azure Cosmos DB para armazenar e consu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/1/2019
+ms.date: 11/25/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a9c4931338635e53054801885e071ad21723dea3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8205ecab3abfc7a944c12db1aca2bf594f6cd98f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096454"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349445"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O [Azure Cosmos DB](introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. O Azure Cosmos DB fornece [distribuição global imediata](distribute-data-globally.md), [dimensionamento elástico da taxa de transferência e do armazenamento](partitioning-overview.md) mundialmente, latências de milissegundos de um dígito no 99º percentil e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e dá suporte a modelos de dados de colunas, grafos, valores-chave e documentos. O serviço Azure Cosmos DB implementa protocolos de transmissão para APIs NoSQL comuns incluindo o Cassandra, o MongoDB, o Gremlin e o Armazenamento de Tabelas do Azure. Isso permite que você use suas ferramentas e drivers de cliente NoSQL familiares para interagir com o banco de dados Cosmos.
+
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) já está disponível na API do Azure Cosmos DB para MongoDB.
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilidade de protocolo de transmissão
 
@@ -53,7 +56,7 @@ Aqui estão algumas dicas para começar:
 
 * Siga o tutorial [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md) para saber como obter informações sobre a cadeia de conexão da conta.
 * Siga o tutorial [Usar o Studio 3T com o Azure Cosmos DB](mongodb-mongochef.md) para saber como criar uma conexão entre o banco de dados Cosmos DB e o aplicativo do MongoDB no Studio 3T.
-* Siga o tutorial [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para importar os dados existentes para um banco de dados Cosmos DB.
+* Siga o tutorial [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) para importar os dados existentes para um banco de dados Cosmos DB.
 * Conectar-se a uma conta do Cosmos usando o [Robo 3T](mongodb-robomongo.md).
 * Saiba como [Configurar as preferências de leitura para aplicativos distribuídos globalmente](../cosmos-db/tutorial-global-distribution-mongodb.md).
 * Encontre as soluções para erros comumente encontrados em nosso [guia de solução de problemas](mongodb-troubleshoot.md)

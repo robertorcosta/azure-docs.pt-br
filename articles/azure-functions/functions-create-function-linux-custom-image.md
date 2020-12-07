@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747097"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327093"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -18,7 +18,7 @@ Neste tutorial, você cria e implanta seu código no Azure Functions como um con
 
 Para implantar seu código de função em um contêiner Linux personalizado, você precisa ter a hospedagem em um [Plano Premium](functions-premium-plan.md#features) ou em um [Plano dedicado (Serviço de Aplicativo)](functions-scale.md#app-service-plan). A conclusão deste tutorial gera custos de alguns dólares dos EUA em sua conta do Azure, que você pode minimizar [limpando os recursos](#clean-up-resources) quando terminar.
 
-Você também pode usar um contêiner padrão do Serviço de Aplicativo do Azure, conforme descrito em [Criar sua primeira função hospedada em Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
+Você também pode usar um contêiner padrão do Serviço de Aplicativo do Azure, conforme descrito em [Criar sua primeira função hospedada em Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 Neste tutorial, você aprenderá como:
 
@@ -54,27 +54,27 @@ Você pode seguir este tutorial em qualquer computador que execute o Windows, o 
 Em um terminal ou prompt de comando, execute o comando a seguir referente à linguagem escolhida para criar um projeto de aplicativo de funções em uma pasta chamada `LocalFunctionsProject`.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language javascript --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime powershell --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime python --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
@@ -112,47 +112,47 @@ Forneça os seguintes valores quando solicitado:
 
 Digite `Y` ou pressione Enter para confirmar.
 
-O Maven cria os arquivos de projeto em uma nova pasta com o nome _artifactId_ , que, neste exemplo, é `fabrikam-functions`. 
+O Maven cria os arquivos de projeto em uma nova pasta com o nome _artifactId_, que, neste exemplo, é `fabrikam-functions`. 
 ::: zone-end
 A opção `--docker` gera um `Dockerfile` para o projeto, que define um contêiner personalizado adequado para uso com o Azure Functions e com o runtime selecionado.
 
 Navegue até a pasta do projeto:
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-```
+```console
 cd LocalFunctionsProject
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Adicione uma função ao projeto usando o comando a seguir, em que o argumento `--name` é o nome exclusivo da função e o argumento `--template` especifica o gatilho da função. `func new` cria uma subpasta correspondente ao nome da função que contém um arquivo de código apropriado para a linguagem escolhida do projeto, bem como um arquivo de configuração chamado *function.json*.
 
-```
+```console
 func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 Para testar a função localmente, inicie o host de runtime local do Azure Functions na raiz da pasta do projeto: 
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func start --build  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
-```
+```console
 func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 npm install
 npm start
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 mvn clean package  
 mvn azure-functions:run
 ```
@@ -167,7 +167,7 @@ Use **CTRL**-**C** para interromper o host.
     
 Na pasta do projeto raiz, execute o comando [docker build](https://docs.docker.com/engine/reference/commandline/build/) e forneça um nome, `azurefunctionsimage`, e uma tag, `v1.0.0`. Substitua `<DOCKER_ID>` pela ID da conta do Hub do Docker. Esse comando compila a imagem do Docker para o contêiner.
 
-```
+```console
 docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 ```
 
@@ -175,7 +175,7 @@ Quando o comando for concluído, você poderá executar o novo contêiner localm
     
 Para testar o build, execute a imagem em um contêiner local usando o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/), substituindo novamente `<DOCKER_ID` pela ID do Docker e adicionando o argumento de portas, `-p 8080:80`:
 
-```
+```console
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
@@ -197,13 +197,13 @@ Um Docker Hub é um Registro de Contêiner que hospeda imagens e fornece serviç
 
 1. Se ainda não tiver entrado no Docker, faça isso usando o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/), substituindo `<docker_id>` pela ID do Docker. Esse comando solicita seu nome de usuário e sua senha. A mensagem “Logon com Êxito” confirma que você está conectado.
 
-    ```
+    ```console
     docker login
     ```
     
 1. Depois de conectado, envie a imagem por push para o Docker Hub usando o comando [docker push](https://docs.docker.com/engine/reference/commandline/push/), mais uma vez substituindo `<docker_id>` pela ID do Docker.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
@@ -350,7 +350,7 @@ Com a imagem implantada no aplicativo de funções no Azure, você pode invocar 
     1. A saída do comando é a chave de função. A URL da função completa, então, é `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, substituindo `<app_name>`, `<function_name>` e `<key>` pelos valores específicos.
     
         > [!NOTE]
-        > A chave recuperada aqui é a chave de *host* , que funciona para todas as funções no aplicativo de funções. O método mostrado para o portal recupera somente a chave da única função.
+        > A chave recuperada aqui é a chave de *host*, que funciona para todas as funções no aplicativo de funções. O método mostrado para o portal recupera somente a chave da única função.
 
     ---
 
@@ -375,7 +375,7 @@ Você pode habilitar o Azure Functions para atualizar automaticamente sua implan
 
 1. Copie a URL do webhook de implantação para a área de transferência.
 
-1. Abra o [Docker Hub](https://hub.docker.com/), entre e selecione **Repositórios** na barra de navegação. Localize e selecione a imagem, selecione a guia **Webhooks** , especifique um **Nome do webhook** , cole a URL em **URL do Webhook** e, em seguida, selecione **Criar** :
+1. Abra o [Docker Hub](https://hub.docker.com/), entre e selecione **Repositórios** na barra de navegação. Localize e selecione a imagem, selecione a guia **Webhooks**, especifique um **Nome do webhook**, cole a URL em **URL do Webhook** e, em seguida, selecione **Criar**:
 
     ![Adicione o webhook em seu repositório DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -419,13 +419,13 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Com o SSH
     
 1. Recompile a imagem usando o comando `docker build` novamente, substituindo `<docker_id>` pela ID do Docker:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
 1. Envie por push a imagem atualizada para o Docker Hub, o que deve levar bem menos tempo do que o primeiro push, pois somente os segmentos atualizados da imagem precisam ser carregados.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
@@ -441,7 +441,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Com o SSH
 
 ## <a name="write-to-an-azure-storage-queue"></a>Gravar em uma fila do Armazenamento do Azure
 
-O Azure Functions permite conectar suas funções a outros serviços e recursos do Azure sem precisar escrever um código de integração próprio. Essas *associações* , que representam a entrada e a saída, são declaradas na definição de função. Dados de associações são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e de saída. Para saber mais, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
+O Azure Functions permite conectar suas funções a outros serviços e recursos do Azure sem precisar escrever um código de integração próprio. Essas *associações*, que representam a entrada e a saída, são declaradas na definição de função. Dados de associações são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e de saída. Para saber mais, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
 
 Esta seção mostra como integrar sua função a uma fila do Armazenamento do Azure. A associação de saída que você adiciona a essa função escreve dados de uma solicitação HTTP em uma mensagem na fila.
 
@@ -492,13 +492,13 @@ Com a associação de fila definida, agora você pode atualizar sua função par
 
 1. Na pasta raiz, execute `docker build` novamente e, desta vez, atualize a versão na marca para `v1.0.1`. Assim como antes, substitua `<docker_id>` pela ID da conta do Docker Hub:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Envie a imagem atualizada por push de volta para o repositório usando `docker push`:
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.1
     ```
 

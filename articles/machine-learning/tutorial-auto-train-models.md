@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: e1a5370501fe73fb783db9a039d9f060acdb0a35
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886321"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511025"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 
@@ -210,7 +210,7 @@ Defina as configurações de modelos e os parâmetros do experimento para o trei
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza esse valor para diminuir o runtime total.|
+|**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração. Aumente esse valor para conjuntos de dados maiores que precisam de mais tempo para cada iteração.|
 |**experiment_timeout_hours**|0.3|Quantidade máxima de tempo em horas que todas as iterações combinadas podem levar antes que o experimento seja encerrado.|
 |**enable_early_stopping**|True|Sinalizador para permitir o encerramento antecipado se a pontuação não estiver melhorando em curto prazo.|
 |**primary_metric**| spearman_correlation | Métrica que você deseja otimizar. O modelo mais adequado será escolhido com base nessa métrica.|
@@ -222,7 +222,7 @@ Defina as configurações de modelos e os parâmetros do experimento para o trei
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',

@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2388d4be0f7d51f9d5897998049b445595648c0a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976123"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763971"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts do PowerShell na VM Windows usando o recurso Executar Comando
 
@@ -104,7 +104,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitando o acesso ao recurso Executar Comando
 
-Listar os comandos de execução ou mostrar os detalhes de um comando requer a permissão `Microsoft.Compute/locations/runCommands/read`. A função [Leitor](../../role-based-access-control/built-in-roles.md#reader) interna e os níveis superiores têm essa permissão.
+Listar os comandos de execução ou mostrar os detalhes de um comando requer a `Microsoft.Compute/locations/runCommands/read` permissão no nível de assinatura. A função [Leitor](../../role-based-access-control/built-in-roles.md#reader) interna e os níveis superiores têm essa permissão.
 
 A execução de um comando requer a permissão `Microsoft.Compute/virtualMachines/runCommand/action`. A função [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e os níveis superiores têm essa permissão.
 

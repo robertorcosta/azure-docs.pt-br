@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833496"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763903"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implantação no Serviço de Aplicativo usando o GitHub Actions
 
@@ -55,7 +55,7 @@ Você pode começar rapidamente com as ações do GitHub usando o centro de impl
 
 Isso confirmará o arquivo de fluxo de trabalho para o repositório. O fluxo de trabalho para compilar e implantar seu aplicativo será iniciado imediatamente.
 
-## <a name="set-up-a-work-manually"></a>Configurar um trabalho manualmente
+## <a name="set-up-a-workflow-manually"></a>Configurar um fluxo de trabalho manualmente
 
 Você também pode implantar um fluxo de trabalho sem usar a central de implantação. Para fazer isso, você precisará primeiro gerar as credenciais de implantação. 
 
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pelo nome do grupo de recursos e pelo nome do aplicativo. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para mais tarde.
+No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pelo nome do grupo de recursos e pelo nome do aplicativo. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao aplicativo do Serviço de Aplicativo semelhante ao mostrado abaixo. Copie esse objeto JSON para uso posterior.
 
 ```output 
   {

@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e de memória para o se
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576607"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763886"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para Instâncias de Contêiner do Azure nas regiões do Azure
 
@@ -32,7 +32,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Região | CPU máxima | Memória máxima (GB) | CPU máxima da VNET | Memória VNET máxima (GB) | Armazenamento (GB) | SKUs de GPU (versão prévia) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Leste da Austrália | 4 | 16 | 4 | 16 | 50 | N/D |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | N/D |
+| Sul do Brasil | 4 | 16 | 2 | 8 | 50 | N/D |
 | Canadá Central | 4 | 16 | 4 | 16 | 50 | N/D |
 | Índia Central | 4 | 16 | N/D | N/D | 50 | V100 |
 | Centro dos EUA | 4 | 16 | 4 | 16 | 50 | N/D |
@@ -40,7 +40,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Leste dos EUA | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Leste dos EUA 2 | 4 | 16 | 4 | 16 | 50 | N/D |
 | França Central | 4 | 16 | 4 | 16 | 50 | N/D |
-| Japan East | 2 | 8 | 4 | 16 | 50 | N/D |
+| Leste do Japão | 2 | 8 | 4 | 16 | 50 | N/D |
 | Coreia Central | 4 | 16 | N/D | N/D | 50 | N/D |
 | Centro-Norte dos EUA | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norte da Europa | 4 | 16 | 4 | 16 | 50 | K80 |
@@ -81,26 +81,26 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 
 | Região | 1B/2B de CPU máx. | 1B/2B memória máxima (GB) |CPU máx. de 3B | Memória máxima de 3B (GB) | Armazenamento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Leste da Austrália | 2 | 8 | 2 | 3,5 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canadá Central | 2 | 3,5 | 2 | 3,5 | 20 |
+| Leste da Austrália | 2 | 8 | 2 | 8 | 20 |
+| Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
+| Canadá Central | 2 | 8 | 2 | 3,5 | 20 |
 | Índia Central | 2 | 3,5 | 2 | 3,5 | 20 |
 | Centro dos EUA | 2 | 3,5 | 2 | 3,5 | 20 |
 | Leste da Ásia | 2 | 3,5 | 2 | 3,5 | 20 |
 | Leste dos EUA | 4 | 16 | 2 | 8 | 20 |
 | Leste dos EUA 2 | 2 | 3,5 | 4 | 16 | 20 |
-| Japan East | 4 | 16 | 4 | 16 | 20 |
+| Leste do Japão | 4 | 16 | 4 | 16 | 20 |
 | Coreia Central | 4 | 16 | 4 | 16 | 20 |
 | Centro-Norte dos EUA | 4 | 16 | 4 | 16 | 20 |
-| Norte da Europa | 2 | 3,5 | 2 | 8 | 20 |
-| Centro-Sul dos Estados Unidos | 2 | 3,5 | 2 | 3,5 | 20 |
+| Norte da Europa | 2 | 8 | 2 | 8 | 20 |
+| Centro-Sul dos Estados Unidos | 2 | 3,5 | 2 | 8 | 20 |
 | Sudeste Asiático | N/D | N/D | 2 | 3,5 | 20 |
 | Sul da Índia | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sul do Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
-| Centro-Oeste dos EUA | 4 | 16 | 4 | 16 | 20 |
+| Centro-Oeste dos EUA | 4 | 16 | 2 | 8 | 20 |
 | Europa Ocidental | 4 | 16 | 4 | 16 | 20 |
 | Oeste dos EUA | 4 | 16 | 2 | 8 | 20 |
-| Oeste dos EUA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Oeste dos EUA 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
@@ -111,7 +111,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Região | 1B/2B de CPU máx. | 1B/2B memória máxima (GB) |CPU máx. de 3B | Memória máxima de 3B (GB) | Armazenamento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Leste da Austrália | 4 | 16 | 4 | 16 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
+| Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
 | Canadá Central | 4 | 16 | 4 | 16 | 20 |
 | Índia Central | 4 | 16 | 4 | 16 | 20 |
 | Centro dos EUA | 4 | 16 | 4 | 16 | 20 |
@@ -119,7 +119,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Leste dos EUA | 4 | 16 | 4 | 16 | 20 |
 | Leste dos EUA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 | França Central | 4 | 16 | 4 | 16 | 20 |
-| Japan East | N/D | N/D | 4 | 16 | 20 |
+| Leste do Japão | N/D | N/D | 4 | 16 | 20 |
 | Coreia Central | 4 | 16 | 4 | 16 | 20 |
 | Centro-Norte dos EUA | 4 | 16 | 4 | 16 | 20 |
 | Norte da Europa | 4 | 16 | 4 | 16 | 20 |

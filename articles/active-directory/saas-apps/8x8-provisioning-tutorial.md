@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ed56d200c2b5a472dbf93d45ad25156ea02a884
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181145"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532662"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar o 8x8 para provisionamento automático de usuários
 
@@ -50,17 +50,17 @@ Esta seção orienta você pelas etapas para configurar o 8x8 para dar suporte a
 
 ### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Para configurar um token de acesso de provisionamento de usuário no 8x8 Configuration Manager:
 
-1. Entre no [Configuration Manager](https://vo-cm.8x8.com). Selecione **Gerenciamento de Identidades**.
+1. Entre no [Console de Administração](https://admin.8x8.com). Selecione **Gerenciamento de Identidades**.
 
-   ![Gerenciamento de Identidades](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Administrador](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Clique no link **Mostrar informações de provisionamento de usuário** para gerar um token.
 
-   ![Mostrar provisionamento do usuário](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Mostrar](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Copie a **URL do 8x8** e os valores do **Token da API do 8x8**. Esses valores serão inseridos nos campos **URL do Locatário** e **Token de Segredo**, respectivamente, na guia Provisionamento do aplicativo 8x8 no portal do Azure.
 
-   ![Copiar URL e token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o 8x8 da galeria de aplicativos do Azure AD
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241923"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445422"
 ---
 # <a name="creating-a-synapse-workspace"></a>Como criar um workspace do Azure Synapse
 
@@ -28,7 +28,7 @@ Para concluir as etapas deste tutorial, você precisará ter acesso a um grupo d
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Criar um workspace do Azure Synapse no portal do Azure
 
 1. Abra o [portal do Azure](https://portal.azure.com) e, na parte superior, procure por **Synapse**.
-1. Nos resultados da pesquisa em **Serviços**, selecione **Azure Synapse Analytics (versão prévia de workspaces)** .
+1. Nos resultados da pesquisa, em **Serviços**, selecione **Azure Synapse Analytics**.
 1. Selecione **Adicionar** para criar um workspace.
 1. Em **Conceitos básicos**, insira a **Assinatura**, o **Grupo de recursos**, a **Região** preferenciais e escolha um nome para o workspace. Neste tutorial, usaremos **myworkspace**.
 1. Navegue até **Selecionar Data Lake Storage Gen 2**. 
@@ -36,6 +36,10 @@ Para concluir as etapas deste tutorial, você precisará ter acesso a um grupo d
 1. Clique em **Sistema de Arquivos** e nomeie a conta como **usuários**. Isso criará um contêiner chamado **usuários**
 1. O workspace usará essa conta de armazenamento como a conta de armazenamento "primária" para os logs do aplicativo e as tabelas do Spark.
 1. Selecione **Examinar + criar** > **Criar**. Seu workspace fica pronto em alguns minutos.
+
+> [!NOTE]
+> Para habilitar recursos de workspace de um pool de SQL dedicado existente (antigo SQL DW), veja [Como habilitar um workspace para seu pool de SQL dedicado (antigo SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
 
 ## <a name="open-synapse-studio"></a>Abrir o Synapse Studio
 
@@ -53,6 +57,9 @@ Após criar o workspace do Azure Synapse, você tem duas maneiras de abrir o Syn
 1. Selecione **Examinar + criar** > **Criar**. Seu pool de SQL dedicado estará pronto em alguns minutos. O pool de SQL dedicado é associado a um banco de dados do pool de SQL dedicado também chamado **SQLPOOL1**.
 
 Um pool de SQL dedicado consome recursos faturáveis desde que ele esteja ativo. Você pode pausar o pool posteriormente para reduzir custos.
+
+> [!NOTE] 
+> Quando você criar um pool de SQL dedicado (antigo SQL DW) em seu workspace, a página de provisionamento do pool de SQL dedicado será aberta. O provisionamento ocorrerá no SQL Server lógico.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>Criar um Pool do Apache Spark sem servidor
 

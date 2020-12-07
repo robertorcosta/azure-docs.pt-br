@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132118"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344327"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Escopos do orçamento e contas de cobrança no portal do Azure
 
@@ -33,6 +33,12 @@ Para determinar o tipo de sua conta de cobrança, confira [Verificar o tipo de s
 
 ## <a name="scopes-for-billing-accounts"></a>Escopos para contas de cobrança
 Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenciar a cobrança. É nele que você gerencia dados de cobrança, pagamentos, faturas e realiza o gerenciamento geral da conta.
+
+Caso você não tenha acesso para ver nem gerenciar contas de cobrança, provavelmente, não tem permissão para acessá-las. Solicite ao administrador da conta de cobrança a permissão de acesso. Para obter mais informações, consulte os seguintes artigos:
+
+- [Acesso ao Programa do Microsoft Online Services](manage-billing-access.md)
+- [Acesso ao Contrato de Cliente da Microsoft](understand-mca-roles.md)
+- [Acesso ao Contrato Enterprise](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Programa Microsoft Online Services
 

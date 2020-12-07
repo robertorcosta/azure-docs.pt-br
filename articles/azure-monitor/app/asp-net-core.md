@@ -4,12 +4,12 @@ description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempen
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8505e67e3db7460308d208ce4f83d29a1fb4d862
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751335"
+ms.locfileid: "96763189"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -142,7 +142,7 @@ A coleção de dependências é habilitada por padrão. [Este](asp-net-dependenc
 
 ### <a name="performance-counters"></a>Contadores de desempenho
 
-O suporte para [contadores de desempenho](./web-monitor-performance.md) no ASP.NET Core é limitado:
+O suporte para [contadores de desempenho](./performance-counters.md) no ASP.NET Core é limitado:
 
 * As versões 2.4.1 e posteriores do SDK coletarão contadores de desempenho se o aplicativo estiver sendo executado em aplicativos Web do Azure (Windows).
 * As versões 2.7.1 e posteriores do SDK coletarão contadores de desempenho se o aplicativo estiver sendo executado no Windows e se destinar a `NETSTANDARD2.0` ou posterior.

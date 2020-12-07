@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Synapse SQL com sqlcmd
-description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar o pool de SQL sem servidor (versão prévia) e o pool de SQL dedicado.
+description: Use o utilitário de linha de comando sqlcmd para se conectar ao pool de SQL sem servidor e ao pool de SQL dedicado e consultá-los.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686133"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451641"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Conectar-se ao Synapse SQL com sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (versão prévia)](get-started-azure-data-studio.md)
+> * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Você pode usar o utilitário de linha de comando [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para se conectar e consultar o pool de SQL sem servidor (versão prévia) e o pool de SQL dedicado no SQL do Synapse.  
+Você pode usar o utilitário de linha de comando [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para se conectar ao pool de SQL sem servidor e ao pool de SQL dedicado no SQL do Synapse e consultá-los.  
 
 ## <a name="1-connect"></a>1. Conectar
 Para começar com o [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do seu banco de dados do Synapse SQL. A cadeia de conexão precisará dos seguintes parâmetros:

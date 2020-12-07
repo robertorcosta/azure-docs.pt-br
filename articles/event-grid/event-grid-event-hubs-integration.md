@@ -4,15 +4,15 @@ description: 'Tutorial: Descreve como usar a Grade de Eventos do Azure e os Hubs
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 42a2f7fd557970328f6d88b08e296317cecd8c66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841335"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462157"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
-A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar os Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do armazenamento de blobs para um Azure Synapse Analytics (anteriormente conhecido como SQL Data Warehouse).
+A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar os Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do Armazenamento de Blobs para um Azure Synapse Analytics.
 
 ![Visão geral do aplicativo](media/event-grid-event-hubs-integration/overview.png)
 
@@ -27,8 +27,8 @@ Este diagrama ilustra o fluxo de trabalho da solução que você cria neste tuto
 Neste artigo, você executa as seguintes etapas:
 
 > [!div class="checklist"]
-> * Usar um modelo do Azure Resource Manager para implantar a infraestrutura: um hub de eventos, uma conta de armazenamento, um aplicativo de funções, um Synapse Analytics.
-> * Criar uma tabela no data warehouse.
+> * Usar um modelo do Azure Resource Manager para implantar a infraestrutura: um hub de eventos, uma conta de armazenamento, um aplicativo de funções, um pool de SQL dedicado.
+> * Criar uma tabela no pool de SQL dedicado.
 > * Adiciona código ao aplicativo de funções.
 > * Assinar o evento. 
 > * Execute o aplicativo que envia dados para o hub de eventos.

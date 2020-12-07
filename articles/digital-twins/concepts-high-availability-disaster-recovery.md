@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 85fd5a4246e891ef6640438b07e12a9c32ad12fa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094238"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763155"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastre do Azure digital gêmeos
 
@@ -28,7 +28,7 @@ Você também pode ver a seção [*práticas recomendadas*](#best-practices) par
 
 ## <a name="intra-region-ha"></a>HA entre regiões
  
-O Azure digital gêmeos fornece HA de região interna implementando redundâncias dentro do serviço. **Nenhum trabalho adicional é exigido pelos desenvolvedores de uma solução de gêmeos digital do Azure para aproveitar esses recursos de alta disponibilidade.** Embora o Azure digital gêmeos ofereça uma garantia de tempo de atividade razoavelmente alta, as falhas transitórias ainda podem ser esperadas, como em qualquer plataforma de computação distribuída. As políticas de repetição apropriadas devem ser internas aos componentes que interagem com um aplicativo de nuvem para lidar com falhas transitórias.
+O Azure digital gêmeos fornece HA de região interna implementando redundâncias dentro do serviço. Isso é refletido no [SLA de serviço](https://azure.microsoft.com/support/legal/sla/digital-twins) para tempo de atividade. **Nenhum trabalho adicional é exigido pelos desenvolvedores de uma solução de gêmeos digital do Azure para aproveitar esses recursos de alta disponibilidade.** Embora o Azure digital gêmeos ofereça uma garantia de tempo de atividade razoavelmente alta, as falhas transitórias ainda podem ser esperadas, como em qualquer plataforma de computação distribuída. As políticas de repetição apropriadas devem ser internas aos componentes que interagem com um aplicativo de nuvem para lidar com falhas transitórias.
 
 ## <a name="cross-region-dr"></a>Recuperação de desastres de região cruzada
 

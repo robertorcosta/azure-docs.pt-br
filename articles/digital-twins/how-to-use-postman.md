@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600482"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763716"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o postmaster para enviar solicitações para as APIs do Azure digital gêmeos
 
@@ -130,7 +130,7 @@ Para fazer uma solicitação de postmaster para uma das APIs do Azure digital g�
 
 Para continuar com uma consulta de exemplo, este artigo usará a API de consulta (e sua [documentação de referência](/rest/api/digital-twins/dataplane/query/querytwins)) para consultar todos os gêmeos digitais em uma instância.
 
-1. Obtenha a URL de solicitação e o tipo da documentação de referência. Para a API de consulta, é *post `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`*.
+1. Obtenha a URL de solicitação e o tipo da documentação de referência. Para a API de consulta, essa é *a `https://digitaltwins-hostname/query?api-version=2020-10-31` postagem* no momento.
 1. No postmaster, defina o tipo para a solicitação e insira a URL da solicitação, preenchendo espaços reservados na URL, conforme necessário. É aqui que você usará o nome do **host** da sua instância na seção [*pré-requisitos*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Nos detalhes da nova solicitação, a URL de consulta da documentação de referência foi preenchida na caixa URL de solicitação." lightbox="media/how-to-use-postman/postman-request-url.png":::

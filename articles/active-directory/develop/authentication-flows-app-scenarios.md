@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910246"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762927"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicativos
 
@@ -42,8 +42,8 @@ As seções a seguir descrevem as categorias de aplicativos.
 
 Os cenários de autenticação envolvem duas atividades:
 
-- **Adquirindo tokens de segurança para uma API Web protegida** : Recomendamos que você use [bibliotecas de cliente com suporte da Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens. Em particular, recomendamos a família de MSAL (biblioteca de autenticação da Microsoft).
-- **Protegendo uma API da Web ou um aplicativo Web** : um desafio de proteger esses recursos é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Adquirindo tokens de segurança para uma API Web protegida**: Recomendamos que você use [bibliotecas de cliente com suporte da Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens. Em particular, recomendamos a família de MSAL (biblioteca de autenticação da Microsoft).
+- **Protegendo uma API da Web ou um aplicativo Web**: um desafio de proteger esses recursos é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Com usuários ou sem usuários
 
@@ -59,9 +59,9 @@ No entanto, também há aplicativos de daemon. Nesses cenários, os aplicativos 
 
 Os tokens de segurança podem ser adquiridos por vários tipos de aplicativos. Esses aplicativos tendem a ser separados nas três categorias a seguir. Cada uma é usada com diferentes bibliotecas e objetos.
 
-- **Aplicativos de página única** : também conhecidos como spas, são aplicativos Web nos quais os tokens são adquiridos por um aplicativo JavaScript ou TypeScript em execução no navegador. Muitos aplicativos modernos têm um aplicativo de página única no front-end que é escrito principalmente em JavaScript. O aplicativo geralmente usa uma estrutura como Angular, React ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que dá suporte a aplicativos de página única.
+- **Aplicativos de página única**: também conhecidos como spas, são aplicativos Web nos quais os tokens são adquiridos por um aplicativo JavaScript ou TypeScript em execução no navegador. Muitos aplicativos modernos têm um aplicativo de página única no front-end que é escrito principalmente em JavaScript. O aplicativo geralmente usa uma estrutura como Angular, React ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que dá suporte a aplicativos de página única.
 
-- **Aplicativos cliente públicos** : aplicativos nesta categoria, como os tipos a seguir, sempre entram em usuários:
+- **Aplicativos cliente públicos**: aplicativos nesta categoria, como os tipos a seguir, sempre entram em usuários:
   - Aplicativos da área de trabalho que chamam APIs da Web em nome de usuários conectados
   - Aplicativos móveis
   - Aplicativos em execução em dispositivos que não têm um navegador, como aqueles em execução na IoT
@@ -243,7 +243,7 @@ Os cenários que envolvem a aquisição de tokens também são mapeados para os 
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Código do dispositivo</a></td>
-   <td>Contas corporativas ou de estudante</td>
+   <td>Contas corporativas ou de estudante, contas pessoais e Azure AD B2C</td>
  </tr>
 
  <tr>
