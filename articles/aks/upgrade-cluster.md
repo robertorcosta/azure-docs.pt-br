@@ -4,12 +4,12 @@ description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azur
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531336"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751488"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -93,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster AKS
 
-Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade)) ao cluster que executa a versão de kubernetes especificada. Em seguida, ele irá [Cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e drenado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. Esse processo se repete até que todos os nós no cluster tenham sido atualizados. No final do processo, o último nó esgotado será excluído, mantendo a contagem de nós do agente existente.
+Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade)) ao cluster que executa a versão de kubernetes especificada. Em seguida, ele irá [Cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e drenado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. Esse processo se repete até que todos os nós no cluster tenham sido atualizados. No final do processo, o último nó de buffer será excluído, mantendo a contagem de nós do agente existente e o saldo da zona.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -104,8 +104,9 @@ az aks upgrade \
 
 O cluster demora alguns minutos para ser atualizado, dependendo de quantos nós que você tem.
 
-> [!NOTE]
-> Há um tempo total permitido para a conclusão de uma atualização de cluster. Esse tempo é calculado por meio do produto do `10 minutes * total number of nodes in the cluster` . Por exemplo, em um cluster de 20 nós, as operações de atualização devem ter êxito em 200 minutos ou AKS falhará na operação para evitar um estado de cluster irrecuperável. Para recuperar em caso de falha de atualização, repita a operação de atualização depois que o tempo limite tiver sido atingido.
+> [!IMPORTANT]
+> Verifique se qualquer `PodDisruptionBudgets` (PDBs) permite que pelo menos 1 réplica de Pod seja movida de cada vez, caso contrário, a operação de descarga/remoção falhará.
+> Se a operação de descarga falhar, a operação de atualização falhará por design para garantir que os aplicativos não sejam interrompidos. Corrija o que causou a interrupção da operação (PDBs incorreto, falta de cota e assim por diante) e tente novamente a operação.
 
 Para confirmar se a atualização teve êxito, use o comando [az aks show][az-aks-show]:
 

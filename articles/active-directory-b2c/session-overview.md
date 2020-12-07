@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e02323df3a12c4a74de1fb62b36762fc739e9e5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258958"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750432"
 ---
 # <a name="azure-ad-b2c-session"></a>Sessão de Azure AD B2C
 
@@ -47,7 +47,7 @@ Você pode configurar o comportamento da sessão, incluindo o TTL da sessão e c
 
 Um provedor de identidade social ou empresarial gerencia sua própria sessão. O cookie é armazenado sob o nome de domínio do provedor de identidade, como `https://login.salesforce.com` . Azure AD B2C não controla a sessão do provedor de identidade federada. Em vez disso, o comportamento da sessão é determinado pelo provedor de identidade federada. 
 
-Considere o cenário a seguir.
+Considere o seguinte cenário:
 
 1. Um usuário entra no Facebook para verificar o feed.
 2. Posteriormente, o usuário abre seu aplicativo e inicia o processo de entrada. O aplicativo redireciona o usuário para Azure AD B2C para concluir o processo de entrada.
@@ -96,8 +96,12 @@ Após uma solicitação de saída, Azure AD B2C:
 1. Invalida o Azure AD B2C sessão baseada em cookie.
 1. Tentativas de sair de provedores de identidade federada:
    - OpenId Connect – se o ponto de extremidade de configuração bem conhecido do provedor de identidade especificar um `end_session_endpoint` local.
-   - SAML-se os metadados do provedor de identidade contiverem o `SingleLogoutService` local.
+   - OAuth2 – se os [metadados do provedor de identidade](oauth2-technical-profile.md#metadata) contiverem o `end_session_endpoint` local.
+   - SAML-se os [metadados do provedor de identidade](saml-identity-provider-technical-profile.md#metadata) contiverem o `SingleLogoutService` local.
 1. Opcionalmente, desconecta-se de outros aplicativos. Para obter mais informações, consulte a seção de [saída única](#single-sign-out) .
+
+> [!NOTE]
+> Usando [políticas personalizadas](custom-policy-overview.md), você pode desabilitar a saída de provedores de identidade federada, definindo os metadados do perfil técnico do provedor de identidade `SingleLogoutEnabled` como `false` .
 
 A saída limpa o estado de logon único do usuário com o Azure AD B2C, mas ele pode não desconectar o usuário da sessão do provedor de identidade social. Se o usuário selecionar o mesmo provedor de identidade durante uma entrada subsequente, ele poderá se autenticar sem inserir suas credenciais. Se um usuário quiser sair do aplicativo, isso não significa necessariamente que deseja sair de sua conta do Facebook. No entanto, se forem usadas contas locais, a sessão do usuário será encerrada corretamente.
 

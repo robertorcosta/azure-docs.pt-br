@@ -1,14 +1,17 @@
 ---
-title: Descobrir aplicativos, funções e recursos em servidores locais com as migrações para Azure
+title: Descobrir aplicativos em servidores locais com as migrações para Azure
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
-ms.topic: article
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eb589c08122cd47747c005c13d12b336319fd558
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483446"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751998"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 

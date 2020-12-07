@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122601"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751420"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usar propriedades em uma solução de IoT Central do Azure
 
@@ -40,7 +40,7 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | Tipo semântico   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado.                                               |
 | Gravável       | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o Azure IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o Azure IoT Central. Em seguida, o Azure IoT Central pode enviar atualizações de propriedade para o dispositivo. |
-| Severidade        | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**.                                                                                                                         |
+| Severity        | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**.                                                                                                                         |
 | Valores de estado    | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor.                                                                                   |
 | Unidade            | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de exibição para uso em dashboards e formulários.                                                                                                                                                                                    |
@@ -79,7 +79,7 @@ Este exemplo mostra duas propriedades. Essas propriedades estão relacionadas à
 
 * `@type` Especifica o tipo de recurso: `Property` . O exemplo anterior também mostra o tipo semântico `Temperature` para ambas as propriedades.
 * `name` para a propriedade.
-* `schema` Especifica o tipo de dados para a propriedade. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para tipos de objetos complexos, matrizes e mapas.
+* `schema` Especifica o tipo de dados para a propriedade. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para mapas e tipos de objeto complexos.
 * `writable` Por padrão, as propriedades são somente leitura. Você pode marcar uma propriedade como gravável usando esse campo.
 
 Campos opcionais, como nome de exibição e descrição, permitem que você adicione mais detalhes à interface e aos recursos.
@@ -214,8 +214,8 @@ A mensagem de resposta deve incluir `ac` os `av` campos e. O campo `ad` é opcio
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de alteração de propriedade está pendente ou em andamento. |
-| `'ac': 4xx` | Erro do | A alteração de propriedade solicitada não era válida ou teve um erro. |
-| `'ac': 5xx` | Erro do | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
+| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou teve um erro. |
+| `'ac': 5xx` | Erro | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
 
 Para obter mais informações sobre dispositivos gêmeos, consulte [configurar seus dispositivos de um serviço de back-end](../../iot-hub/tutorial-device-twins.md).
 

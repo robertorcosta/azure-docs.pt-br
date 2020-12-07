@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030689"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751930"
 ---
 # <a name="train-model-module"></a>Módulo Treinar Modelo
 
@@ -63,7 +63,9 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
 1.  Envie o pipeline. Se você tiver muitos dados, isso pode levar algum tempo.
 
     > [!IMPORTANT] 
-    > Se você tiver uma coluna de ID que é a ID de cada linha, o **modelo de treinamento** poderá atingir um erro como "número de valores exclusivos na coluna:" {column_name} "é maior do que o permitido." Isso ocorre porque a coluna de ID atingiu o limite de valores exclusivos e pode causar memória insuficiente. Normalmente, a coluna de ID não faz sentido durante o treinamento. Você pode usar [Editar metadados](edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada no treinamento. Consulte o [código de erro do designer](././designer-error-codes.md) para obter mais detalhes de erro.
+    > Se você tiver uma coluna de ID que é a ID de cada linha, ou uma coluna de texto, que contém muitos valores exclusivos, o **modelo de treinamento** poderá atingir um erro como "número de valores exclusivos na coluna:" {column_name} "é maior que o permitido.
+    >
+    > Isso ocorre porque a coluna atingiu o limite de valores exclusivos e pode causar memória insuficiente. Você pode usar [Editar metadados](edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada no treinamento ou [extrair recursos de N-Gram do módulo de texto](extract-n-gram-features-from-text.md) para pré-processar coluna de texto. Consulte o [código de erro do designer](././designer-error-codes.md) para obter mais detalhes de erro.
 
 ## <a name="results"></a>Resultados
 

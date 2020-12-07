@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337603"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750706"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo para implantação no Azure Spring Cloud
 
@@ -128,7 +128,7 @@ Antes de executar este exemplo, experimente o [guia de início rápido básico](
 
 Outros exemplos explicam como implantar um aplicativo no Azure Spring Cloud quando o arquivo POM é configurado. 
 * [Iniciar seu primeiro aplicativo](spring-cloud-quickstart.md)
-* [Compilar e executar microserviços](spring-cloud-quickstart-sample-app-introduction.md)
+* [Criar e executar microsserviços](spring-cloud-quickstart-sample-app-introduction.md)
 
 Este artigo explica as dependências necessárias e como adicioná-las ao arquivo POM.
 
@@ -149,6 +149,9 @@ Versão do Spring Boot | Versão do Spring Cloud
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+
+> [!NOTE]
+> Identificamos um problema com o Spring boot 2,4 na autenticação TLS entre seus aplicativos e Eureka e estamos trabalhando atualmente com a Comunidade Spring para resolvê-lo. Consulte nossas [perguntas frequentes](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para obter a solução alternativa.
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dependências do Spring Boot versão 2.1
 

@@ -1,22 +1,26 @@
 ---
-title: Azure Monitor para Redes
-description: Uma visão geral de Azure Monitor para redes, que fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração.
+title: Insights de rede
+description: Uma visão geral do Network insights, que fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração.
 ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d604fe0ad9630bb95d347bcc716697f6d09d1887
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437296"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751760"
 ---
-# <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
-O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-preview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
+# <a name="network-insights"></a>Insights de rede
 
-Azure Monitor para redes é estruturada com base nesses principais componentes do monitoramento:
+> [!NOTE]
+> As *informações de rede* foram mencionadas anteriormente como *Azure monitor para redes*. 
+
+O insights de rede fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-preview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
+
+O insights de rede é estruturado com base nesses principais componentes do monitoramento:
 - [Métricas e integridade da rede](#networkhealth)
 - [Conectividade](#connectivity)
 - [Tráfego](#traffic)
@@ -24,7 +28,7 @@ Azure Monitor para redes é estruturada com base nesses principais componentes d
 
 ## <a name="network-health-and-metrics"></a><a name="networkhealth"></a>Métricas e integridade da rede
 
-A página **visão geral** do Azure monitor for Networks fornece uma maneira fácil de visualizar o inventário de seus recursos de rede, juntamente com a integridade e os alertas de recursos. Ele é dividido em quatro áreas funcionais principais: pesquisa e filtragem, integridade de recursos e métricas, alertas e exibição de dependência.
+A página **visão geral** do Network insights fornece uma maneira fácil de visualizar o inventário de seus recursos de rede, juntamente com o Resource Health e alertas. Ele é dividido em quatro áreas funcionais principais: pesquisa e filtragem, integridade de recursos e métricas, alertas e exibição de dependência.
 
 [![Captura de tela mostrando a página Visão geral](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
@@ -33,17 +37,17 @@ Você pode personalizar a exibição de integridade e alertas de recursos usando
 
 Você pode usar a caixa Pesquisar para procurar recursos e seus recursos associados. Por exemplo, um IP público é associado a um gateway de aplicativo. Uma pesquisa pelo nome DNS do IP público retornará o IP público e o gateway de aplicativo associado:
 
-[![Captura de tela que mostra Azure Monitor para os resultados da pesquisa de redes.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
+[![Captura de tela que mostra os resultados da pesquisa do insights de rede.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
 
 
 ### <a name="resource-health-and-metrics"></a>Integridade e métrica de recursos
 No exemplo a seguir, cada bloco representa um tipo de recurso. O bloco exibe o número de instâncias desse tipo de recurso implantadas em todas as assinaturas selecionadas. Ele também exibe o status de integridade do recurso. Neste exemplo, há 105 conexões de ER e VPN implantadas. 103 estão íntegros e 2 estão indisponíveis.
 
-![Captura de tela que mostra a integridade do recurso e as métricas em Azure Monitor para redes.](media/network-insights-overview/resource-health.png)
+![Captura de tela que mostra a integridade do recurso e as métricas no insights de rede.](media/network-insights-overview/resource-health.png)
 
 Se você selecionar as conexões de ER e VPN indisponíveis, verá uma exibição de métrica: 
 
-![Captura de tela que mostra a exibição de métrica em Azure Monitor para redes.](media/network-insights-overview/metric-view.png)
+![Captura de tela que mostra a exibição de métrica no insights de rede.](media/network-insights-overview/metric-view.png)
 
 Você pode selecionar qualquer item no modo de exibição de grade. Selecione o ícone na coluna **integridade** para obter a integridade do recurso para essa conexão. Selecione o valor na coluna **alerta** para ir para a página de alertas e métricas para a conexão. 
 
@@ -53,19 +57,19 @@ A caixa de **alerta** no lado direito da página fornece uma exibição de todos
 ### <a name="dependency-view"></a>Exibição de dependência
 A exibição de dependência ajuda a visualizar como um recurso é configurado. A exibição de dependência está disponível atualmente para Aplicativo Azure gateway, WAN virtual do Azure e Azure Load Balancer. Por exemplo, para o gateway de aplicativo, você pode acessar a exibição de dependência selecionando o nome do recurso do gateway de aplicativo na exibição de grade de métricas. Você pode fazer a mesma coisa para WAN virtual e Load Balancer.
 
-![Sreenshot que mostra a exibição do gateway de aplicativo em Azure Monitor para redes.](media/network-insights-overview/application-gateway.png)
+![Sreenshot que mostra a exibição do gateway de aplicativo no insights de rede.](media/network-insights-overview/application-gateway.png)
 
 A exibição de dependência do gateway de aplicativo fornece uma visão simplificada de como os IPs de front-end são conectados aos ouvintes, às regras e ao pool de back-end. As linhas de conexão são codificadas por cores e fornecem detalhes adicionais com base na integridade do pool de back-end. A exibição também fornece uma exibição detalhada das métricas e métricas do gateway de aplicativo para todos os pools de back-end relacionados, como o conjunto de dimensionamento de máquinas virtuais e as instâncias de VM.
 
-[![Captura de tela que mostra a exibição de dependência em Azure Monitor para redes.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
+[![Captura de tela que mostra a exibição de dependência no insights de rede.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
 O grafo de dependência fornece navegação fácil para as definições de configuração. Clique com o botão direito do mouse em um pool de back-end para acessar outras informações. Por exemplo, se o pool de back-end for uma VM, você poderá acessar diretamente as informações da VM e a solução de problemas de conexão do observador de rede do Azure para identificar problemas de conectividade:
 
-![Captura de tela que mostra o menu de exibição de dependência em Azure Monitor para redes.](media/network-insights-overview/dependency-view-menu.png)
+![Captura de tela que mostra o menu de exibição de dependência no insights de rede.](media/network-insights-overview/dependency-view-menu.png)
 
 A barra de pesquisa e filtro na exibição de dependência fornece uma maneira fácil de Pesquisar no grafo. Por exemplo, se você Pesquisar **AppGWTestRule** no exemplo anterior, a exibição reduzirá verticalmente para todos os nós conectados por meio de AppGWTestRule:
 
-![Captura de tela que mostra um exemplo de uma pesquisa em Azure Monitor para redes.](media/network-insights-overview/search-example.png)
+![Captura de tela que mostra um exemplo de uma pesquisa no insights de rede.](media/network-insights-overview/search-example.png)
 
 Vários filtros ajudam você a reduzir verticalmente para um caminho e estado específicos. Por exemplo, selecione somente não **íntegro** na lista **status de integridade** para mostrar todas as bordas para as quais o estado não está íntegro.
 
@@ -75,15 +79,15 @@ Selecione **Exibir métricas detalhadas** para abrir uma pasta de trabalho pré-
 
 A guia **conectividade** fornece uma maneira fácil de Visualizar todos os testes configurados por meio do [Monitor de conexão](../../network-watcher/connection-monitor-overview.md) e do monitor de conexão (clássico) para o conjunto de assinaturas selecionado.
 
-![Captura de tela que mostra a guia conectividade em Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
+![Captura de tela que mostra a guia conectividade no insights de rede.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
 Os testes são agrupados por blocos de **origens** e **destinos** e exibem o status de acessibilidade de cada teste. As configurações acessíveis fornecem acesso fácil às configurações para seus critérios de acessibilidade, com base nas verificações com falha (%) e RTT (MS). Depois de definir os valores, o status de cada atualização de teste com base nos critérios de seleção.
 
-[![Captura de tela que mostra os testes de conectividade em Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
+[![Captura de tela que mostra os testes de conectividade no Network insights.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 Você pode selecionar qualquer bloco de origem ou de destino para abrir uma exibição de métrica:
 
-[![Captura de tela que mostra as métricas de conectividade em Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
+[![Captura de tela que mostra as métricas de conectividade no Network insights.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 Você pode selecionar qualquer item no modo de exibição de grade. Selecione o ícone na coluna **acessibilidade** para acessar a página do portal do monitor de conexão e exibir a topologia de salto a salto e a conectividade que afeta os problemas identificados. Selecione o valor na coluna **alerta** para ir para alertas. Selecione os grafos nas colunas **percentual de falhas** e **tempo de viagem de ida e volta (MS)** para ir para a página métricas do monitor de conexão selecionado.
@@ -93,11 +97,11 @@ A caixa de **alerta** no lado direito da página fornece uma exibição de tod
 ## <a name="traffic"></a><a name="traffic"></a>Tráfego
 A guia **tráfego** fornece acesso a todos os NSGs configurados para [logs de fluxo do NSG](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) e [análise de tráfego](../../network-watcher/traffic-analytics.md) para o conjunto selecionado de assinaturas, agrupadas por local. A funcionalidade de pesquisa fornecida nesta guia permite que você identifique o NSGs configurado para o endereço IP pesquisado. Você pode procurar qualquer endereço IP em seu ambiente. O modo de exibição regional xadrez exibirá todos os NSGs juntamente com os logs de fluxo NSG e o status de configuração Análise de Tráfego.
 
-[![Captura de tela que mostra a guia tráfego em Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
+[![Captura de tela que mostra a guia tráfego no insights de rede.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 Se você selecionar qualquer bloco de região, um modo de exibição de grade será exibido. A grade fornece logs de fluxo NSG e Análise de Tráfego em uma exibição fácil de ler e configurar:  
 
-[![Captura de tela que mostra a exibição de região de tráfego em Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
+[![Captura de tela que mostra a exibição de região de tráfego no insights de rede.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
 Você pode selecionar qualquer item no modo de exibição de grade. Selecione o ícone na coluna **status da configuração do log** para editar o log de fluxo do NSG e análise de tráfego configuração. Selecione o valor na coluna **alerta** para ir para os alertas de tráfego configurados para o NSG selecionado. Da mesma forma, você pode ir para a exibição Análise de Tráfego selecionando o **espaço de trabalho análise de tráfego**.  
 
@@ -112,11 +116,11 @@ O Diagnostic Toolkit fornece acesso a todos os recursos de diagnóstico disponí
 
 Para obter diretrizes gerais de solução de problemas, consulte o artigo de solução de [problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
 
-Esta seção o ajudará a diagnosticar e solucionar alguns problemas comuns que você pode encontrar ao usar o Azure Monitor para redes. 
+Esta seção o ajudará a diagnosticar e solucionar alguns problemas comuns que você pode encontrar ao usar o Network insights. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>Como fazer resolver problemas ou falhas de desempenho?
 
-Para saber mais sobre como solucionar problemas relacionados à rede que você identifica com o Azure Monitor para redes, consulte a documentação de solução de problemas para o recurso que está funcionando incorretamente. 
+Para saber mais sobre como solucionar problemas relacionados à rede que você identifica com o insights de rede, consulte a documentação de solução de problemas para o recurso que está funcionando incorretamente. 
 
 Aqui estão alguns links para artigos de solução de problemas para serviços usados com frequência. Para obter mais artigos de solução de problemas sobre esses serviços, consulte os outros artigos na seção de solução de problemas do Sumário do serviço.
 * [Rede Virtual do Azure](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)

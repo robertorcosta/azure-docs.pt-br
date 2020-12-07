@@ -2,15 +2,15 @@
 title: Solucionar problemas de Gerenciamento de Atualizações com a Automação do Azure
 description: Este artigo informa como solucionar problemas com o Gerenciamento de Atualizações de automação do Azure.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217211"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751250"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -18,6 +18,40 @@ Este artigo aborda os problemas que você pode encontrar ao implantar o recurso 
 
 >[!NOTE]
 >Se você tiver problemas ao implantar Gerenciamento de Atualizações em um computador Windows, abra o Visualizador de Eventos do Windows e verifique o log de eventos do **Operations Manager** em **logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Cenário: atualizações do Linux mostradas como pendentes e as instaladas variam
+
+### <a name="issue"></a>Problema
+
+Para seu computador Linux, Gerenciamento de Atualizações mostra atualizações específicas disponíveis em **segurança** de classificação e **outras**. Mas quando um agendamento de atualização é executado no computador, por exemplo, para instalar somente as atualizações que correspondem à classificação de **segurança** , as atualizações instaladas são diferentes de ou um subconjunto das atualizações mostradas anteriormente correspondentes a essa classificação.
+
+### <a name="cause"></a>Causa
+
+Quando uma avaliação das atualizações do sistema operacional pendentes para seu computador Linux é feita, os arquivos de [linguagem oval e de vulnerabilidades](https://oval.mitre.org/) fornecidas pelo fornecedor do Linux distribuição são usados pelo gerenciamento de atualizações para classificação. A categorização é feita para atualizações do Linux como **segurança** ou **outras**, com base nos arquivos ovais que afirmam atualizações que abordam problemas de segurança ou vulnerabilidades. Mas quando o agendamento de atualização é executado, ele é executado no computador Linux usando o Gerenciador de pacotes apropriado, como YUM, APT ou ZYPPER para instalá-los. O Gerenciador de pacotes para o distribuição do Linux pode ter um mecanismo diferente para classificar atualizações, onde os resultados podem diferir daqueles obtidos dos arquivos OVAL por Gerenciamento de Atualizações.
+
+### <a name="resolution"></a>Resolução
+
+Você pode verificar manualmente o computador Linux, as atualizações aplicáveis e sua classificação de acordo com o Gerenciador de pacotes do distribuição. Para entender quais atualizações são classificadas como **segurança** pelo Gerenciador de pacotes, execute os comandos a seguir.
+
+Para YUM, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** pela Red Hat. Observe que no caso do CentOS, ele sempre retorna uma lista vazia e nenhuma classificação de segurança ocorre.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Para ZYPPER, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** pelo SuSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+Para APT, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** por Canonical para Ubuntu Linux distribuições.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+Nessa lista, você executa o comando `grep ^Inst` para obter todas as atualizações de segurança pendentes.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Cenário: Você recebe o erro "Falha ao habilitar a solução de atualização"
 

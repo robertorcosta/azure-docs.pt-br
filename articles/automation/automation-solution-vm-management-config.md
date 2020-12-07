@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182794"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751284"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -48,7 +48,7 @@ Você pode habilitar o direcionamento da ação a uma assinatura e um grupo de r
 
 2. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-3. Defina o campo de parâmetro **WHATIF** como true.
+3. Defina o campo de parâmetro **WHATIF** como true para visualizar as alterações.
 
 4. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs (VM1, VM2, VM3), sem espaços entre valores separados por vírgulas.
 
@@ -79,7 +79,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 3. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-4. Defina **WHATIF** como verdadeiro. 
+4. Defina **WHATIF** como true para visualizar as alterações. 
 
 5. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs, sem espaços entre valores separados por vírgulas.
 

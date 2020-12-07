@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504383"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600853"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidade Always On no SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ O seguinte diagrama ilustra um grupo de disponibilidade para SQL Server em VMs d
 
 Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou em [zonas de disponibilidade](../../../availability-zones/az-overview.md) diferentes.
 
-Um conjunto de disponibilidade é um agrupamento de recursos que são configurados de modo que não haja dois na mesma zona de disponibilidade. Isso impede que vários recursos no grupo sejam afetados durante as distribuições da implantação. 
+Colocar um conjunto de VMs no mesmo conjunto de disponibilidade oferece proteção contra interrupções em um datacenter causadas por uma falha no equipamento (as VMs em um Conjunto de Disponibilidade não compartilham recursos) ou contra atualizações (as VMs em um Conjunto de Disponibilidade não são atualizadas ao mesmo tempo). As Zonas de Disponibilidade oferecem proteção contra a falha de um datacenter inteiro, com cada zona representando um conjunto de datacenters dentro de uma região.  Com a garantia de que os recursos serão colocados em diferentes Zonas de Disponibilidade, nenhuma interrupção no nível do datacenter poderá colocar todas as suas VMs offline.
+
+Ao criar VMs do Azure, você precisa escolher entre configurar Conjuntos de Disponibilidade vs Zonas de Disponibilidade.  Uma VM do Azure não pode participar de ambos.
 
 
 ## <a name="connectivity"></a>Conectividade 

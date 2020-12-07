@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: Unificar recursos de dados do aplicativo
                   href: log-query/unify-app-resource-data.md
+                - name: Consultar o Azure Data Explorer por meio do Azure Monitor
+                  href: platform/azure-monitor-data-explorer-proxy.md
         - name: Exportação de dados
           items:
             - name: Exportação de dados do workspace
@@ -550,7 +552,7 @@
               href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Criar aplicativo Web do Service Manager
               href: platform/itsmc-service-manager-script.md
-            - name: Corrigir problemas de sincronização de ITSM do ServiceNow
+            - name: Solução de problemas no Conector ITSM
               href: platform/itsmc-resync-servicenow.md
         - name: Migrar regras de alerta clássicas
           items:

@@ -3,14 +3,13 @@ title: Usar identidades gerenciadas no serviço kubernetes do Azure
 description: Saiba como usar identidades gerenciadas no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/06/2020
+ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571055"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751267"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -22,14 +21,13 @@ Atualmente, um cluster AKS (serviço de kubernetes do Azure) (especificamente, o
 
 Você deve ter o seguinte recurso instalado:
 
-- O CLI do Azure, versão 2.8.0 ou posterior
+- O CLI do Azure, versão 2.15.1 ou posterior
 
 ## <a name="limitations"></a>Limitações
 
-* Os clusters AKS com identidades gerenciadas podem ser habilitados somente durante a criação do cluster.
 * Durante as operações de **atualização** do cluster, a identidade gerenciada está temporariamente indisponível.
 * Não há suporte para a movimentação/migração de locatários de clusters habilitados para identidade gerenciada.
-* Se o cluster tiver `aad-pod-identity` habilitado, o pods de identidade gerenciada por nó (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+* Se o cluster tiver `aad-pod-identity` habilitado, o pods de Node-Managed identidade (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Para configurar uma exceção, instale o [YAML de exceção do MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Resumo de identidades gerenciadas
@@ -38,12 +36,12 @@ O AKS usa várias identidades gerenciadas para serviços e Complementos internos
 
 | Identidade                       | Nome    | Caso de uso | Permissões padrão | Traga sua própria identidade
 |----------------------------|-----------|----------|
-| Painel de controle | não visível | Usado pelo AKS para recursos de rede gerenciados, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS | Função de colaborador para grupo de recursos de nó | Versão Prévia
+| Painel de controle | não visível | Usado pelos componentes do plano de controle AKS para gerenciar recursos de cluster, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS e operações de dimensionamento automático do cluster | Função de colaborador para grupo de recursos de nó | Versão Prévia
 | Kubelet | Nome do cluster AKS – agentpool | Autenticação com o ACR (registro de contêiner do Azure) | NA (para kubernetes v 1.15 +) | Sem suporte no momento
 | Complemento | AzureNPM | Nenhuma identidade necessária | NA | Não
 | Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | Não
-| Complemento | azurepolicy (gatekeeper) | Nenhuma identidade necessária | NA | Não
-| Complemento | azurepolicy | Nenhuma identidade necessária | NA | Não
+| Complemento | Azure-política (gatekeeper) | Nenhuma identidade necessária | NA | Não
+| Complemento | Azure-política | Nenhuma identidade necessária | NA | Não
 | Complemento | Calico | Nenhuma identidade necessária | NA | Não
 | Complemento | Painel | Nenhuma identidade necessária | NA | Não
 | Complemento | HTTPApplicationRouting | Gerencia os recursos de rede necessários | Função de leitor para grupo de recursos de nó, função de colaborador para a zona DNS | Não
@@ -135,44 +133,14 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 > [!NOTE]
 > Depois que as identidades atribuídas pelo sistema ou atribuídas pelo usuário tiverem sido atualizadas para a identidade gerenciada, execute um `az nodepool upgrade --node-image-only` em seus nós para concluir a atualização para a identidade gerenciada.
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>Traga seu próprio plano de controle MI (visualização)
-Uma identidade de plano de controle personalizado permite que o acesso seja concedido à identidade existente antes da criação do cluster. Isso permite cenários como usar uma VNET personalizada ou uma saída de UDR com uma identidade gerenciada.
+## <a name="bring-your-own-control-plane-mi"></a>Traga seu próprio plano de controle MI
+Uma identidade de plano de controle personalizado permite que o acesso seja concedido à identidade existente antes da criação do cluster. Esse recurso habilita cenários como o uso de uma VNET personalizada ou de uma saída de UDR com uma identidade gerenciada criada previamente.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Você deve ter o CLI do Azure, versão 2.15.1 ou posterior instalado.
 
-Você deve ter os seguintes recursos instalados:
-- O CLI do Azure, versão 2.9.0 ou posterior
-- A extensão 0.4.57 AKs-Preview
-
-Limitações para trazer seu próprio plano de controle MI (visualização):
+### <a name="limitations"></a>Limitações
 * Atualmente, o Azure governamental não tem suporte.
 * Atualmente, não há suporte para o Azure China 21Vianet.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Se você ainda não tiver uma identidade gerenciada, deverá continuar e criar uma por exemplo usando [AZ Identity CLI][az-identity-create].
 

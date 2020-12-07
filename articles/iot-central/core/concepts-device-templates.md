@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992668"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750689"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -225,7 +225,7 @@ Este exemplo mostra duas propriedades (uma somente leitura e uma gravável), um 
 
 - `@type` para especificar o tipo de recurso: `Telemetry` , `Property` ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que IoT Central faça algumas suposições sobre como lidar com o valor.
 - `name` para o valor de telemetria.
-- `schema` para especificar o tipo de dados para a telemetria ou a propriedade. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para tipos de objetos complexos, matrizes e mapas.
+- `schema` para especificar o tipo de dados para a telemetria ou a propriedade. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para mapas e tipos de objeto complexos.
 
 Campos opcionais, como nome de exibição e descrição, permitem que você adicione mais detalhes à interface e aos recursos.
 

@@ -2,13 +2,16 @@
 title: Análise de dependência na avaliação do servidor de migrações para Azure
 description: Descreve como usar a análise de dependência para avaliação usando a avaliação de servidor de migrações para Azure.
 ms.topic: conceptual
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530243"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752202"
 ---
 # <a name="dependency-analysis"></a>dependency analysis
 

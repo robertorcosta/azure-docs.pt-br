@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 42259b36f1a9bfe243df47cc08b33fe8c46d819d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493059"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608428"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos DB – Notas sobre a versão e informações de download
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,12 @@ Este artigo mostra as notas sobre a versão do Emulador do Azure Cosmos DB com u
 |**Introdução**|[Desenvolvimento local com o Emulador do Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2119-3-december-2020"></a>2.11.9 (3 de dezembro de 2020)
+
+ - Esta versão aborda dois problemas com a funcionalidade de Emulador do Azure Cosmos DB além da atualização de conteúdo geral que reflete os recursos e aprimoramentos mais recentes no Azure Cosmos DB:
+ * Correção de um problema em que as solicitações de conteúdo de documento grande falhavam quando o modo direto e aplicativos cliente Java eram usados.
+ * Correção de um problema de conectividade com o ponto de extremidade do MongoDB versão 3.6 quando era direcionado por aplicativos baseados em .NET.
 
 ### <a name="2118-6-november-2020"></a>2.11.8 (6 de novembro de 2020)
 

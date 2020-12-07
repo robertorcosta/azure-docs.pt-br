@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975625"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751692"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -466,12 +466,9 @@ Usamos um modelo do Resource Manager que instala e executa o popular analisador 
 
 Normalmente, você vê um status desconhecido quando o acesso ao back-end é bloqueado por um NSG (grupo de segurança de rede), DNS personalizado ou UDR (roteamento definido pelo usuário) na sub-rede do gateway de aplicativo. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Há algum caso em que os logs de fluxo do NSG não mostrarão o tráfego permitido?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>Os logs de fluxo NSG são compatíveis com o NSGs associado à sub-rede v2 do gateway de aplicativo?
 
-Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o tráfego permitido em seus logs de fluxo do NSG:
-- Você implantou o Gateway de Aplicativo v2
-- Você tem um NSG na sub-rede do gateway de aplicativo
-- Você habilitou os logs de fluxo do NSG no NSG
+Devido às limitações da plataforma atual, se você tiver um NSG na sub-rede do gateway de aplicativo v2 (Standard_v2, WAF_v2) e se tiver habilitado logs de fluxo do NSG nele, você verá um comportamento não determinístico e esse cenário não tem suporte no momento.
 
 ### <a name="does-application-gateway-store-customer-data"></a>O gateway de aplicativo armazena dados do cliente?
 
