@@ -3,12 +3,12 @@ title: Endereços IP usados pelo Application Insights e pelo Log Analytics | Mic
 description: Exceções de firewall de servidor exigidas pelo Application Insights
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: c1ccb40a9b8d8080da416aeb920ed016a231f697
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 10328efa9b8b9cdbe1e57e1e982653aea7e39574
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547926"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748868"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](./app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -46,6 +46,10 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](./monitor-web-app-availability.md) são executados. Se você deseja executar testes da Web em seu aplicativo, mas o servidor Web está restrito a servir clientes específicos, você precisa permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
+
+
+> [!NOTE]
+> Para recursos localizados dentro de redes virtuais privadas que não podem permitir a comunicação direta de entrada com os agentes de teste de disponibilidade no Azure público, a única opção é [criar e hospedar seus próprios testes de disponibilidade personalizados](availability-azure-functions.md).
 
 ### <a name="service-tag"></a>Marca de serviço
 
