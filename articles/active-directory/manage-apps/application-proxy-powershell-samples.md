@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f10e2b0aa5c7e178ae6b58805703fcb1b0ff3e2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657813"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352483"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemplos do PowerShell do Azure AD para o Proxy de Aplicativo do Azure AD
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre os cmdlets usados nesses exemplos, confira [
 | Link | Descrição |
 |---|---|
 |**Aplicativos do Proxy de Aplicativo**||
-| [Listar informações básicas para todos os aplicativos do Proxy de Aplicativo](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lista informações básicas (AppId, DisplayName, ObjId) sobre todos os aplicativos do Proxy de Aplicativo em seu diretório. |
+| [Listar informações básicas para todos os aplicativos do Proxy de Aplicativo](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lista informações básicas (AppId, DisplayName, ObjId) sobre todos os aplicativos do Proxy de Aplicativo no seu diretório. |
 | [Listar informações estendidas para todos os aplicativos do Proxy de Aplicativo](scripts/powershell-get-all-app-proxy-apps-extended.md) | Lista informações estendidas (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) sobre todos os aplicativos do Proxy de Aplicativo em seu diretório.  |
 | [Listar todos os aplicativos do Proxy de Aplicativo por grupo de conectores](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Lista informações sobre todos os aplicativos do Proxy de Aplicativo em seu diretório e a quais grupos de conectores os aplicativos estão atribuídos. |
 | [Obter todos os aplicativos do Proxy de Aplicativo com uma política de tempo de vida de token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todos os aplicativos do Proxy de Aplicativo em seu diretório com uma política de tempo de vida de token, bem como seus detalhes. Este exemplo requer a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |

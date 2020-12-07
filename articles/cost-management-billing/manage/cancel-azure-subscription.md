@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/01/2020
 ms.author: banders
-ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408015"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444452"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar sua assinatura do Azure
 
@@ -38,6 +38,9 @@ Se você cancelar um plano de Suporte do Azure pago, o restante do período de a
     ![Captura de tela que mostra o botão Cancelar](./media/cancel-azure-subscription/cancel_ibiza.png)
 1. Siga os prompts e conclua o cancelamento.
 
+> [!NOTE]
+> Os parceiros poderão suspender ou cancelar uma assinatura se for solicitado por um cliente ou em casos de não pagamento ou fraude. Para obter mais informações, confira [Suspender ou cancelar uma assinatura](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
+
 ## <a name="who-can-cancel-a-subscription"></a>Quem pode cancelar uma assinatura?
 
 A tabela abaixo descreve a permissão necessária para cancelar uma assinatura.
@@ -48,7 +51,7 @@ A tabela abaixo descreve a permissão necessária para cancelar uma assinatura.
 |[Contrato Enterprise da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietário da conta e proprietários da assinatura       |
 |[Plano do Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [Plano do Azure para DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietários da assinatura      |
 
-## <a name="what-happens-after-i-cancel-my-subscription"></a>O que acontecerá depois que eu cancelar minha assinatura?
+## <a name="what-happens-after-subscription-cancellation"></a>O que acontece após o cancelamento da assinatura?
 
 Após o cancelamento, a cobrança será interrompida imediatamente. No entanto, pode levar até 10 minutos para que o cancelamento seja mostrado no portal. Se você cancelar no meio de um período de cobrança, enviaremos a fatura final na data da fatura normal após o término do período.
 
@@ -65,7 +68,7 @@ Se tiver uma assinatura de avaliação gratuita, você não precisará aguardar 
 1. Selecione a assinatura que deseja excluir.
 1. Selecione **Visão Geral** e escolha **Excluir assinatura**.
 
-## <a name="reactivate-subscription"></a>Reativar a assinatura
+## <a name="reactivate-a-subscription"></a>Reativar uma assinatura
 
 Se você cancelar acidentalmente sua assinatura com taxas pagas conforme o uso, poderá [reativá-la no Centro de Contas](subscription-disabled.md).
 
@@ -73,7 +76,7 @@ Caso sua assinatura não tenha taxas Pagas Conforme o Uso, entre em contato com 
 
 ## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Por que eu não vejo a opção Cancelar Assinatura no portal do Azure? 
 
-Talvez você não tenha as permissões necessárias para cancelar uma assinatura. Confira [Quem pode cancelar uma assinatura?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) para obter uma descrição de quem pode cancelar vários tipos de assinaturas.
+Talvez você não tenha as permissões necessárias para cancelar uma assinatura. Confira [Quem pode cancelar uma assinatura?](#who-can-cancel-a-subscription) para obter uma descrição de quem pode cancelar vários tipos de assinaturas.
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Como faço para excluir a minha conta do Azure?
 
@@ -85,7 +88,7 @@ Talvez você não tenha as permissões necessárias para cancelar uma assinatura
 
 ## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Como faço para cancelar uma conta do Visual Studio Professional?
 
-Confira o artigo [Renovação e Cancelamento](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Se você tiver alguma assinatura do Azure do Visual Studio, ela precisará ser cancelada e também excluída.
+Confira o artigo [Renovação e Cancelamento](/visualstudio/subscriptions/faq/admin/renewal-cancellation). Se você tiver alguma assinatura do Azure do Visual Studio, ela precisará ser cancelada e também excluída.
 
 ## <a name="next-steps"></a>Próximas etapas
 

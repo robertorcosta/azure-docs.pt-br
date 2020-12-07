@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 19be1155476ca7c295e2d0311e8285bc2128dd1d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: c36a88317f71d08094b43d06cc7ba86985a73ca0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030757"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511841"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é a Pesquisa Cognitiva do Azure?
 
@@ -22,10 +22,11 @@ O Azure Cognitive Search ([chamado anteriormente de “Azure Search”](whats-ne
 
 Ao criar um serviço do Cognitive Search, você obtém:
 
-+ um mecanismo de pesquisa que executa a indexação e a execução da consulta
-+ análise e transformação de imagens centradas em IA e texto não diferenciado durante a indexação
-+ armazenamento persistente de índices de pesquisa criados e gerenciados por você
-+ uma linguagem de consulta para compor consultas simples a complexas
++ Um mecanismo de pesquisa que executa a indexação e a execução da consulta
++ Armazenamento persistente de índices de pesquisa criados e gerenciados por você
++ Uma linguagem de consulta para compor consultas simples a complexas
++ Análise baseada em IA, que cria conteúdo pesquisável fora de imagens, texto não processado, arquivos de aplicativo
++ Integração aos dados do Azure por meio de indexadores de pesquisa, automatizando a importação e a atualização de dados
 
 Em termos de arquitetura, um serviço de pesquisa reside entre os armazenamentos de dados externos que contêm seus dados não indexados e um aplicativo cliente que envia solicitações de consulta para um índice de pesquisa e manipula a resposta.
 
@@ -70,7 +71,7 @@ Uma exploração de ponta a ponta dos principais recursos de pesquisa pode ser o
 1. [**Consulte um índice**](search-query-overview.md) usando o [Gerenciador de pesquisa](search-explorer.md) no portal, na [API REST](search-get-started-rest.md), no [SDK do .NET](/dotnet/api/azure.search.documents.searchclient.search) ou em outro SDK.
 
 > [!TIP]
-> Consolide as etapas iniciando com o [**Assistente para Importação de Dados**](search-get-started-portal.md) e uma fonte de dados do Azure para criar, carregar e consultar um índice em minutos.
+> Minimize as etapas iniciando com o [**Assistente para importação de dados**](search-get-started-portal.md) e uma fonte de dados do Azure para criar, carregar e consultar um índice em minutos.
 
 ## <a name="how-it-compares"></a>Como ele se compara
 
@@ -78,7 +79,7 @@ Os clientes frequentemente perguntam como a Pesquisa Cognitiva do Azure se compa
 
 | Em comparação com | Principais diferenças |
 |-------------|-----------------|
-| Pesquisa da Microsoft | [A Pesquisa da Microsoft](https://docs.microsoft.com/microsoftsearch/overview-microsoft-search) é para usuários do Microsoft 365 autenticados que precisam consultar o conteúdo no SharePoint. Ela é oferecida como uma experiência de pesquisa pronta para uso, habilitada e configurada por administradores, com a capacidade de aceitar conteúdo externo por meio de conectores da Microsoft e de outras fontes. Se isso descrever seu cenário, a Pesquisa da Microsoft com Microsoft 365 é uma opção atraente para explorar.<br/><br/>Em contraste, a Azure Cognitive Search faz consultas em um índice que você define, preenchido com os dados e documentos que você tem, geralmente de diversas fontes. A Azure Cognitive Search tem funcionalidades de rastreador para algumas fontes de dados do Azure por meio de [indexadores](search-indexer-overview.md), mas você pode enviar por push qualquer documento JSON que esteja de acordo com seu esquema de índice em um recurso pesquisável único e consolidado. Você também pode personalizar o pipeline de indexação para incluir aprendizado de máquina e analisadores léxicos. Como a Cognitive Search é criada para ser um componente de plug-in em soluções maiores, você pode integrá-la em praticamente qualquer aplicativo e plataforma.|
+| Pesquisa da Microsoft | [A Pesquisa da Microsoft](/microsoftsearch/overview-microsoft-search) é para usuários do Microsoft 365 autenticados que precisam consultar o conteúdo no SharePoint. Ela é oferecida como uma experiência de pesquisa pronta para uso, habilitada e configurada por administradores, com a capacidade de aceitar conteúdo externo por meio de conectores da Microsoft e de outras fontes. Se isso descrever seu cenário, a Pesquisa da Microsoft com Microsoft 365 é uma opção atraente para explorar.<br/><br/>Em contraste, a Azure Cognitive Search faz consultas em um índice que você define, preenchido com os dados e documentos que você tem, geralmente de diversas fontes. A Azure Cognitive Search tem funcionalidades de rastreador para algumas fontes de dados do Azure por meio de [indexadores](search-indexer-overview.md), mas você pode enviar por push qualquer documento JSON que esteja de acordo com seu esquema de índice em um recurso pesquisável único e consolidado. Você também pode personalizar o pipeline de indexação para incluir aprendizado de máquina e analisadores léxicos. Como a Cognitive Search é criada para ser um componente de plug-in em soluções maiores, você pode integrá-la em praticamente qualquer aplicativo e plataforma.|
 |Bing | A [API de Pesquisa na Web do Bing](../cognitive-services/bing-web-search/index.yml) pesquisa os índices no Bing.com para os termos correspondentes que você enviar. Os índices são criados de HTML, XML e outros conteúdos da web em sites públicos. Usando o mesmo conceito, a [Pesquisa Personalizada do Bing](/azure/cognitive-services/bing-custom-search/) oferece a mesma tecnologia de rastreador para tipos de conteúdo da Web no escopo para sites individuais.<br/><br/>Na Cognitive Search, você pode definir e preencher o índice. Você pode usar [indexadores](search-indexer-overview.md) para rastrear dados em fontes de dados do Azure ou enviar por push qualquer documento JSON de acordo com o índice para o serviço de pesquisa. |
 |Pesquisa de banco de dados | Muitas plataformas de banco de dados incluem uma experiência de pesquisa interna. O SQL Server possui uma [pesquisa de texto completa](/sql/relational-databases/search/full-text-search). O Cosmos DB e tecnologias semelhantes possuem índices passíveis de consulta. Ao avaliar os produtos que combinam pesquisa e armazenamento, pode ser difícil determinar qual a forma de proceder. Muitas soluções usam ambos: O DBMS para armazenamento e a Pesquisa Cognitiva do Azure para recursos de pesquisa especializados.<br/><br/>Em comparação com a pesquisa DBMS, a Pesquisa Cognitiva do Azure armazena conteúdo de fontes heterogêneas e oferece recursos de processamento de texto especializados, como processamento de texto linguístico (derivação, lematização, formas de palavra) em [56 idiomas](/rest/api/searchservice/language-support). Ele também suporta correção automática de ortografia, [sinônimos](/rest/api/searchservice/synonym-map-operations), [sugestões](/rest/api/searchservice/suggestions), [controles de pontuação](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facetas](./search-filters-facets.md) e [geração de tokens personalizada](/rest/api/searchservice/custom-analyzers-in-azure-search). O [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) na Pesquisa Cognitiva do Azure se baseia no Apache Lucene, um padrão de recuperação de informações do setor. No entanto, embora o Azure Cognitive Search persista os dados na forma de um índice invertido, ele não substitui o verdadeiro armazenamento de dados e não é recomendável usá-lo nessa capacidade. Para saber mais, consulte este [post do fórum](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Utilização de recursos é outro ponto de inflexão nesta categoria. Algumas operações de consulta e indexação costumam exigir bastante computação. Descarregar pesquisa do DBMS para uma solução dedicada na nuvem preserva recursos do sistema para processamento de transações. Além disso, ao externalizar a pesquisa, é possível dimensionar facilmente para encontrar uma correspondência ao volume da consulta.|
 |Solução de pesquisa dedicada | Supondo que você decidiu usar a pesquisa dedicada com todas as funcionalidades, uma comparação categórica final seria entre soluções locais ou um serviço de nuvem. Muitas tecnologias de pesquisa oferecem controle sobre pipelines de indexação e consulta, acesso à consulta mais avançada e sintaxe de filtragem, controle sobre a classificação e a relevância e recursos para pesquisa autodirecionada e inteligente. <br/><br/>Um serviço de nuvem é a escolha certa se você deseja uma solução completa com sobrecarga e manutenção mínimas e escala ajustável. <br/><br/>No paradigma da nuvem, diversos provedores oferecem recursos de linha de base comparáveis, com a pesquisa de texto completo, pesquisa geográfica e a capacidade de lidar com algum nível de ambiguidade nas entradas de pesquisa. Normalmente, é um [recurso especializado](search-features-list.md) ou a facilidade e simplicidade geral das APIs, ferramentas e gerenciamento que determinam o melhor ajuste. |

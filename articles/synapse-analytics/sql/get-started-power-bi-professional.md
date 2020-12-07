@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Synapse SQL com o Power BI Professional
-description: Neste tutorial, percorreremos as etapas de como conectar o Power BI Desktop ao pool de SQL sem servidor (versão prévia).
+description: Neste tutorial, percorreremos as etapas de como conectar o Power BI Desktop ao pool de SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c26e2bd27c0c3187768252fd922c31a2cc23d735
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b33edb99109b7516e1792497a936031cf954bc15
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682081"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451604"
 ---
 # <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Conectar-se ao pool de SQL sem servidor com o Power BI Professional
 
@@ -26,7 +26,7 @@ ms.locfileid: "94682081"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, percorreremos as etapas para conectar o Power BI Desktop ao pool de SQL sem servidor (versão prévia).
+Neste tutorial, percorreremos as etapas para conectar o Power BI Desktop ao pool de SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

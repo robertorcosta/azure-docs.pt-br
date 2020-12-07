@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516096"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Azure Active Directory ao Signagelive
 
@@ -86,32 +86,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Signagelive, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Signagelive** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Signagelive**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione **SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione **SAML** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com o SAML** , selecione **Editar** para abrir a caixa de diálogo **Configuração Básica do SAML**.
+3. Na página **Configurar logon único com o SAML**, selecione **Editar** para abrir a caixa de diálogo **Configuração Básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , execute as seguintes etapas:
+4. Na seção **Configuração Básica do SAML**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Signagelive](common/sp-signonurl.png)
 
-    Na caixa **URL de Logon** , insira uma URL que use o seguinte padrão: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
+    Na caixa **URL de Logon**, insira uma URL que use o seguinte padrão: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de logon real. Para obter o valor, contate a [equipe de suporte ao cliente do Signagelive](mailto:support@signagelive.com). Veja também os padrões exibidos na seção **Configuração Básica do SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de logon real. Para obter o valor, entre em contato com a [equipe de suporte ao cliente do Signagelive](mailto:support@signagelive.com). Veja também os padrões exibidos na seção **Configuração Básica do SAML** no portal do Azure.
 
-5. Na página **Configurar Logon Único com o SAML** , na seção **Certificado de Autenticação SAML** , selecione **Baixar** para baixar o **Certificado (Bruto)** usando as opções fornecidas de acordo com suas necessidades. Em seguida, salve-o no computador.
+5. Na página **Configurar Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, selecione **Baixar** para baixar o **Certificado (Bruto)** usando as opções fornecidas de acordo com suas necessidades. Em seguida, salve-o no computador.
 
     ![O link de download do Certificado](common/certificateraw.png)
 
-6. Na seção **Configurar o Signagelive** , copie as URLs necessárias.
+6. Na seção **Configurar o Signagelive**, copie as URLs necessárias.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -129,7 +129,7 @@ Para configurar o logon único no lado do Signagelive, envie o **Certificado (Br
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -137,13 +137,13 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Botão novo usuário](common/new-user.png)
 
-3. Na caixa de diálogo **Usuário** , execute as etapas a seguir.
+3. Na caixa de diálogo **Usuário**, execute as etapas a seguir.
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , insira "brittasimon@yourcompanydomain.extension". Por exemplo, nesse caso, você poderá inserir "BrittaSimon@contoso.com".
+    b. No campo **Nome de usuário**, insira "brittasimon@yourcompanydomain.extension". Por exemplo, nesse caso, você poderá inserir "BrittaSimon@contoso.com".
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -153,7 +153,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo o acesso ao Signagelive.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Signagelive**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Signagelive**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -165,15 +165,15 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Selecione o botão **Adicionar usuário**. Em seguida, na caixa de diálogo **Adicionar Atribuição** , selecione **Usuários e grupos**.
+4. Selecione o botão **Adicionar usuário**. Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , na lista **Usuários** , selecione **Brenda Fernandes**. Em seguida, clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes**. Em seguida, clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Em seguida, clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar Atribuição** , selecione o botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar Atribuição**, selecione o botão **Atribuir**.
 
 ### <a name="create-a-signagelive-test-user"></a>Criar um usuário de teste do Signagelive
 

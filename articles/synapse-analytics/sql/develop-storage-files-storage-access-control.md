@@ -1,6 +1,6 @@
 ---
-title: Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor (versão prévia)
-description: Descreve como o pool de SQL sem servidor (versão prévia) acessa o Armazenamento do Azure e como você pode controlar o acesso ao armazenamento do pool de SQL sem servidor no Azure Synapse Analytics.
+title: Controlar o acesso da conta de armazenamento para o pool de SQL sem servidor
+description: Descreve como o pool de SQL sem servidor acessa o Armazenamento do Azure e como você pode controlar o acesso ao armazenamento do pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315723"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446616"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor no Azure Synapse Analytics
 
 Uma consulta do pool de SQL sem servidor lê arquivos diretamente no Armazenamento do Azure. As permissões para acessar os arquivos no armazenamento do Azure são controladas em dois níveis:
 - **Nível de armazenamento** – o usuário deve ter permissão para acessar os arquivos de armazenamento subjacentes. O administrador de armazenamento deve permitir que a entidade de segurança do Azure AD leia/grave arquivos ou gere uma chave SAS que será usada para acessar o armazenamento.
@@ -33,7 +33,7 @@ Um usuário que fez logon em um pool de SQL sem servidor precisará estar autori
 
 ### <a name="user-identity"></a>[Identidade do Usuário](#tab/user-identity)
 
-A **Identidade do Usuário** , também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
+A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
 
 > [!IMPORTANT]
 > Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
@@ -144,7 +144,7 @@ Os usuários do SQL não podem usar a autenticação do Azure AD para acessar o 
 
 O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no Armazenamento do Azure usando o token SAS. Crie essa credencial para habilitar a entidade de segurança SQL que executa a função `OPENROWSET` a fim de ler arquivos protegidos com a chave SAS no Armazenamento do Azure que corresponde à URL no nome da credencial.
 
-Substitua < *mystorageaccountname* > pelo nome real da conta de armazenamento e < *mystorageaccountcontainername* > pelo nome real do contêiner:
+Substitua <*mystorageaccountname*> pelo nome real da conta de armazenamento e <*mystorageaccountcontainername*> pelo nome real do contêiner:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

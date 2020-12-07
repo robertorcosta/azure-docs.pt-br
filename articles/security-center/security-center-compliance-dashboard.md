@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951189"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533903"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar sua conformidade regulatória
 
@@ -34,7 +34,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar os recursos abordados neste tutorial, o [Azure Defender](azure-defender.md) deve ser habilitado. Você pode experimentar o Azure Defender gratuitamente por 30 dias.
+Para acompanhar os recursos abordados neste tutorial:
+
+- O [Azure Defender](azure-defender.md) precisa estar habilitado. Você pode experimentar o Azure Defender gratuitamente por 30 dias.
+- Você precisa estar conectado a uma conta que tenha acesso de leitor aos dados de conformidade da política (**Leitor de Segurança** é insuficiente). A função de **Leitor global** da assinatura pode ser usada. No mínimo, você precisará ter as funções **Colaborador de Política de Recursos** e **Administrador de Segurança** atribuídas.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Avaliar sua conformidade regulatória
 
@@ -54,13 +57,13 @@ Na parte superior da tela, você verá um painel com uma visão geral de seu sta
 
 1. Selecione uma guia para um padrão de conformidade relevante para você (1). Você verá a quais assinaturas o padrão é aplicado (2) e a lista de todos os controles para esse padrão (3). Para os controles aplicáveis, você poderá ver os detalhes das avaliações aprovadas e reprovadas associadas a esse controle (4), bem como os números dos recursos afetados (5). Alguns controles estão esmaecidos. Esses controles não têm nenhuma avaliação da Central de Segurança associada a eles. Verifique os requisitos deles e avalie-os em seu ambiente por conta própria. Alguns deles podem ser relacionados ao processo e não técnicos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Painel de conformidade regulatória":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Explorando os detalhes da conformidade com um padrão específico":::
 
 1. Para gerar e fazer o download de um relatório em PDF que resuma seu status de conformidade atual para um padrão específico, clique em **Baixar o relatório**.
 
     O relatório fornece um resumo de alto nível do status de conformidade para o padrão escolhido tendo como base os dados das avaliações da Central de Segurança e é organizado de acordo com os controles desse padrão específico. O relatório pode ser compartilhado com stakeholders relevantes e pode servir para fornecer evidências aos auditores internos e externos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Painel de conformidade regulatória":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Baixar relatório de conformidade":::
 
 ## <a name="improve-your-compliance-posture"></a>Melhorar sua postura de conformidade
 
@@ -70,11 +73,11 @@ Considerando as informações do painel de conformidade regulatória, você pode
 
 1.  Selecione um recurso específico para exibir mais detalhes e resolva a recomendação para esse recurso. <br>Por exemplo, no **Azure CIS 1.1.0 (Novo) Standard**, você pode selecionar a recomendação **Criptografia de disco deve ser aplicada em máquinas virtuais**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Painel de conformidade regulatória":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="A seleção de uma recomendação de um padrão leva diretamente para a página de detalhes da recomendação":::
 
 1. Neste exemplo, ao selecionar **Executar ação** na página de detalhes da recomendação, você chegará nas páginas da Máquina Virtual do Azure do portal do Azure, em que é possível abrir a guia **Segurança** e habilitar a criptografia:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Painel de conformidade regulatória":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="O botão Executar ação na página de detalhes da recomendação leva às opções de correção":::
 
     Para obter mais informações sobre como aplicar recomendações, confira [Implementando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 

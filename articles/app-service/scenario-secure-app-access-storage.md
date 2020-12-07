@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020204"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435834"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Acessar o Armazenamento do Azure em um aplicativo Web
 
@@ -23,7 +24,7 @@ Saiba como acessar o Armazenamento do Azure para um aplicativo Web (não um usu�
 
 :::image type="content" alt-text="Diagrama que mostra como acessar o armazenamento." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Você deseja adicionar o acesso ao plano de dados do Azure (Armazenamento do Azure, Banco de Dados SQL do Azure, Azure Key Vault ou outros serviços) no aplicativo Web. Você pode usar uma chave compartilhada, mas precisa se preocupar com a segurança operacional de quem pode criar, implantar e gerenciar o segredo. Também é possível que a chave possa ser verificada no GitHub, pelo qual os hackers sabem como procurar. Um modo mais seguro de permitir o acesso do aplicativo Web aos dados é pelo uso de [identidades gerenciadas](/azure/active-directory/managed-identities-azure-resources/overview).
+Você deseja adicionar o acesso ao plano de dados do Azure (Armazenamento do Azure, Banco de Dados SQL do Azure, Azure Key Vault ou outros serviços) no aplicativo Web. Você pode usar uma chave compartilhada, mas precisa se preocupar com a segurança operacional de quem pode criar, implantar e gerenciar o segredo. Também é possível que a chave possa ser verificada no GitHub, pelo qual os hackers sabem como procurar. Um modo mais seguro de permitir o acesso do aplicativo Web aos dados é pelo uso de [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md).
 
 Uma identidade gerenciada do Azure AD (Azure Active Directory) permite que o Serviço de Aplicativo acesse recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado. As pessoas não precisam se preocupar em gerenciar segredos nem credenciais de aplicativo.
 
@@ -210,6 +211,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 ## <a name="access-blob-storage-net"></a>Acessar o Armazenamento de Blobs (.NET)
 
 A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obtenção de uma credencial de token para o código destinada à autorização de solicitações ao Armazenamento do Azure. Crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa a identidade gerenciada para buscar tokens e anexá-los ao cliente do serviço. O exemplo de código a seguir obtém a credencial de token autenticada e a usa para criar um objeto de cliente de serviço que, por sua vez, carrega um novo blob.
+
+Para ver esse código como parte de um aplicativo de exemplo, confira o [exemplo no GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
 
 ### <a name="install-client-library-packages"></a>Instalar os pacotes da biblioteca de clientes
 

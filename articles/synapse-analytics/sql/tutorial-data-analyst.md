@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Explorar e analisar os data lakes com o SQL do Synapse sem servidor'
-description: Este tutorial mostra como executar facilmente a análise de dados exploratória combinando diferentes Azure Open Datasets usando o pool de SQL sem servidor (versão prévia) e visualizar os resultados no Synapse Studio para o Azure Synapse Analytics.
+title: 'Tutorial: Usar o pool de SQL sem servidor para analisar os Azure Open Datasets no Azure Synapse Studio'
+description: Este tutorial mostra como executar facilmente a análise de dados exploratória combinando diferentes Azure Open Datasets usando o pool de SQL sem servidor e visualizar os resultados no Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237928"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459131"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Tutorial: Explorar e analisar data lakes com o pool de SQL sem servidor (versão prévia)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Explorar e analisar data lakes com o pool de SQL sem servidor
 
 Neste tutorial, você aprenderá a executar a análise de dados exploratória. Você combinará diferentes Azure Open Datasets usando um pool de SQL sem servidor. Em seguida, você visualizará os resultados no Synapse Studio para o Azure Synapse Analytics.
 

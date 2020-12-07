@@ -1,6 +1,6 @@
 ---
 title: Tabelas de metadados compartilhados
-description: O Azure Synapse Analytics fornece um modelo de metadados compartilhados em que a criação de uma tabela no Pool do Apache Spark sem servidor o tornará acessível por meio do pool de SQL sem servidor (versão prévia) e do pool de SQL dedicado sem duplicação dos dados.
+description: O Azure Synapse Analytics fornece um modelo de metadados compartilhados em que a criação de uma tabela no Pool do Apache Spark sem servidor o tornará acessível por meio do pool de SQL sem servidor e do pool de SQL dedicado sem duplicação dos dados.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314535"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461391"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas compatível com Parquet entre os pools do Apache Spark (versão prévia) e o pool de SQL sem servidor (versão prévia).
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas compatíveis com Parquet entre os pools do Apache Spark e o pool de SQL sem servidor.
 
 Depois que um banco de dados for criado por um trabalho do Spark, você poderá criar tabelas nele com o Spark que usam Parquet como o formato de armazenamento. Essas tabelas ficarão imediatamente disponíveis para consulta por qualquer um dos pools do Spark do workspace do Azure Synapse. Elas também podem ser usadas em qualquer um dos trabalhos do Spark sujeitos a permissões.
 

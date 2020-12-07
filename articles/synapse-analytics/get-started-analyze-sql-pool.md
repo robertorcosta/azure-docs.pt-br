@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843903"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455166"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com pools de SQL dedicados
 
@@ -94,8 +94,9 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
 
     Essa consulta mostra como as distâncias totais de viagem e a distância média da viagem estão relacionadas ao número de passageiros.
 1. Na janela de resultados do script de SQL, altere a opção **Exibição** para **Gráfico** para uma visualização dos resultados como um gráfico de linhas.
-
-
+    
+    > [!NOTE]
+    > Um pool de SQL dedicado habilitado para workspace (antigo SQL DW) pode ser identificado por meio da dica de ferramenta no hub de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

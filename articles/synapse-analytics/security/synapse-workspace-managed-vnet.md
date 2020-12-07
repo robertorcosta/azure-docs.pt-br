@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313729"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501066"
 ---
-# <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Rede virtual gerenciada do Azure Synapse Analytics (versão prévia)
+# <a name="azure-synapse-analytics-managed-virtual-network"></a>Rede virtual gerenciada do Azure Synapse Analytics
 
 Este artigo explicará a Rede Virtual Gerenciada no Azure Synapse Analytics.
 
@@ -52,8 +52,6 @@ Se você deixar a caixa de seleção desmarcada, o workspace não terá uma Rede
 
 ![Habilitar Rede Virtual do workspace gerenciada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->Todo o tráfego de saída da Rede Virtual de workspace gerenciada, exceto por meio de pontos de extremidade privados gerenciados, será bloqueado no futuro. É recomendável que você crie pontos de extremidade privados gerenciados para se conectar a todas as suas fontes de dados do Azure externas ao workspace. 
 
 Você pode verificar se o workspace do Azure Synapse está associado a uma Rede Virtual de workspace gerenciada selecionando **Visão geral** no portal do Azure.
 

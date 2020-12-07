@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004748"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353598"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ServiceNow
 
@@ -25,6 +25,8 @@ Neste tutorial, você aprenderá como integrar o ServiceNow ao Azure Active Dire
 * No Azure AD, controlar quem tem acesso ao ServiceNow.
 * Permitir que os usuários sejam conectados automaticamente ao ServiceNow com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,7 +106,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     d. Em **URL de Logoff**, insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
 
     > [!NOTE]
-    > Se "/" for adicionado ao valor do Identificador, remova-o manualmente.
+    > Se "/" for adicionado ao valor de Identificador, remova-o manualmente.
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, a URL de Resposta, a URL de Logoff e o identificador, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -175,7 +177,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
     d. Em **URL de Logoff**, insira uma URL que adote o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
     
     > [!NOTE]
-    > Se "/" for adicionado ao valor do Identificador, remova-o manualmente.
+    > Se "/" for adicionado ao valor de Identificador, remova-o manualmente.
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, a URL de Resposta, a URL de Logoff e o identificador, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -478,5 +480,4 @@ Ao selecionar o bloco do ServiceNow no Painel de Acesso, você deverá ser conec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após configurar o ServiceNow, você poderá impor controles de sessão, que protegem contra a exfiltração e a infiltração de dados confidenciais da sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Após configurar o ServiceNow, você poderá impor controles de sessão, que protegem contra a exfiltração e a infiltração de dados confidenciais da sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

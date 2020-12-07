@@ -3,12 +3,12 @@ title: Configurar um laboratório de sala de aula usando o Azure Lab Services | 
 description: Neste tutorial, você usará o Azure Lab Services para configurar um laboratório de sala de aula com máquinas virtuais que são usadas por alunos da sua turma.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336727"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434848"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -116,7 +116,7 @@ Crie um evento agendado para o laboratório, de modo que as VMs no laboratório 
     
     ![Agenda no calendário](./media/how-to-create-schedules/schedule-calendar.png)
 
-    Para obter mais informações sobre como criar e gerenciar agendas para uma aula, consulte [Criar e gerenciar agenda para laboratórios de sala de aula](how-to-create-schedules.md).
+    Para obter mais informações sobre como criar e gerenciar agendas para uma aula, confira [Criar e gerenciar agenda para laboratórios](how-to-create-schedules.md).
 
 
 ## <a name="add-users-to-the-lab"></a>Adicionar usuários ao laboratório

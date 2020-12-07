@@ -1,6 +1,6 @@
 ---
 title: Banco de dados compartilhado
-description: O Azure Synapse Analytics fornece um modelo de metadados compartilhado em que a criação de um banco de dados no pool do Apache Spark sem servidor o tornará acessível do pool de SQL sem servidor (versão prévia) e dos mecanismos de pool do SQL.
+description: O Azure Synapse Analytics fornece um modelo de metadados compartilhado em que a criação de um banco de dados no Pool do Apache Spark sem servidor o tornará acessível do pool de SQL sem servidor e dos mecanismos de pool de SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317838"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451807"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Banco de dados compartilhado do Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor (versão prévia) e o mecanismo do pool de SQL sem servidor (versão prévia).
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor e o mecanismo do pool de SQL sem servidor.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark (versão prévia), atuais e futuros, no workspace, incluindo o mecanismo do pool de SQL sem servidor.
+Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark, atuais e futuros, no workspace, incluindo o mecanismo do pool de SQL sem servidor.
 
 O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do pool de SQL sem servidor como um banco de dados chamado `default`.
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: ea8fcb602f49dec61187260e08d3ccd1b148cee8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918898"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450903"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutorial: Criar um relatório do Power BI usando o Apache Spark e o Azure Synapse Analytics
 
@@ -69,9 +69,12 @@ Neste exemplo, você usará o Apache Spark para realizar uma análise nos dados 
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. Por fim, salvaremos nosso dataframe usando o método ```saveAsTable``` do Apache Spark. Isso permitirá que você consulte a mesma tabela mais tarde e conecte-se a ela usando pools de SQL sem servidor.
+  ```python
+     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+  ```
    
 ## <a name="query-data-using-serverless-sql-pools"></a>Consultar dados usando pools de SQL sem servidor
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor (versão prévia) e o pool de SQL sem servidor (versão prévia). Isso é ativado por meio da funcionalidade de [gerenciamento de metadados compartilhados](../metadata/overview.md) do Azure Synapse. Como resultado, os bancos de dados criados pelo Spark e as tabelas com backup do Parquet correspondentes ficam visíveis no pool de SQL sem servidor do workspace.
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor e o pool de SQL sem servidor. Isso é ativado por meio da funcionalidade de [gerenciamento de metadados compartilhados](../metadata/overview.md) do Azure Synapse. Como resultado, os bancos de dados criados pelo Spark e as tabelas com backup do Parquet correspondentes ficam visíveis no pool de SQL sem servidor do workspace.
 
 Para consultar sua tabela do Apache Spark usando o pool de SQL sem servidor:
    1. Depois de salvar sua tabela do Apache Spark, alterne para a guia **Dados**.

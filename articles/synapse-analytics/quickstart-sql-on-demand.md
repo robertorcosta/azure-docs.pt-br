@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Usar o pool de SQL sem servidor'
-description: Neste início rápido, você verá e aprenderá como é fácil consultar vários tipos de arquivos usando o pool de SQL sem servidor (versão prévia).
+description: Neste início rápido, você verá e aprenderá como é fácil consultar vários tipos de arquivos usando o pool de SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682969"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450497"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Início Rápido: Usar o pool de SQL sem servidor
 
-O pool de SQL sem servidor (versão prévia) do Azure Synapse é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o pool de SQL sem servidor. Os formatos compatíveis são listados em [OPENROWSET](sql/develop-openrowset.md).
+O pool de SQL sem servidor do Azure Synapse é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o pool de SQL sem servidor. Os formatos compatíveis são listados em [OPENROWSET](sql/develop-openrowset.md).
 
 Este início rápido mostra a consulta de: arquivos CSV, Apache Parquet e JSON.
 

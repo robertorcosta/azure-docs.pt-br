@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990747"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122249"
 ---
 # <a name="iot-central-device-development-overview"></a>Visão geral do desenvolvimento de dispositivos para o IoT Central
 
@@ -135,7 +135,7 @@ Use um dos [SDKs do dispositivo IoT do Azure](#languages-and-sdks) para implemen
 
 Para obter mais informações sobre a função de modelos de dispositivo, confira [O que são modelos de dispositivo?](./concepts-device-templates.md).
 
-Para algum código de exemplo, confira [Criar e conectar um aplicativo cliente Node.js](./tutorial-connect-device-nodejs.md) ou [Criar e conectar um aplicativo cliente Python](./tutorial-connect-device-python.md).
+Para obter um código de exemplo, confira [Criar e conectar um aplicativo cliente](./tutorial-connect-device.md).
 
 ### <a name="languages-and-sdks"></a>Linguagens e SDKs
 
@@ -143,6 +143,6 @@ Para obter mais informações sobre os idiomas e SDKs com suporte, confira [Ente
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device-nodejs.md).
+Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device.md).
 
 Se quiser saber mais sobre como usar o IoT Central, as próximas etapas sugeridas são experimentar os guias de início rápido, começando em [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md).

@@ -1,18 +1,18 @@
 ---
 title: Integração de dados usando o Azure Data Factory e o Azure Data Share
 description: Copiar, transformar e compartilhar dados usando o Azure Data Factory e o Azure Data Share
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318241"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489013"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados usando o Azure Data Factory e o Azure Data Share
 
@@ -22,23 +22,23 @@ ms.locfileid: "93318241"
 
 Desde a habilitação do ETL/ELT sem código até a criação de uma exibição abrangente sobre seus dados, os aprimoramentos no Azure Data Factory capacitarão seus engenheiros de dados a introduzir mais dados com segurança e, portanto, mais valor, à sua empresa. Com o Azure Data Share, você poderá fazer compartilhamento business to business de uma maneira controlada.
 
-Neste workshop, você usará o ADF (Azure Data Factory) para ingerir dados do Banco de Dados SQL do Azure no ADLS Gen2 (Azure Data Lake Storage Gen2). Após colocar os dados no lake, você os transformará por meio de fluxos de dados de mapeamento, do serviço de transformação nativo do data factory e os introduzirá no Azure Synapse Analytics (anteriormente conhecido como SQL DW). Em seguida, você compartilhará a tabela com os dados transformados junto com alguns dados adicionais usando o Azure Data Share. 
+Neste workshop, você usará o ADF (Azure Data Factory) para ingerir dados do Banco de Dados SQL do Azure no ADLS Gen2 (Azure Data Lake Storage Gen2). Após colocar os dados no lake, você os transformará por meio de fluxos de dados de mapeamento e do serviço de transformação nativo do data factory e os introduzirá no Azure Synapse Analytics. Em seguida, você compartilhará a tabela com os dados transformados junto com alguns dados adicionais usando o Azure Data Share. 
 
 Os dados usados nesse laboratório são os dados de táxi da cidade de Nova York. Para importá-los em seu banco de dados no Banco de Dados SQL, baixe o [arquivo taxi-data bacpac](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure** : Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-* **Banco de Dados SQL do Azure** : Se você não tiver um BD SQL, aprenda a [criar uma conta do BD SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Banco de Dados SQL do Azure**: Se você não tiver um BD SQL, aprenda a [criar uma conta do BD SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Conta de armazenamento do Azure Data Lake Storage Gen2** : se você não tiver uma conta de armazenamento do ADLS Gen2, aprenda a [criar uma conta de armazenamento do ADLS Gen2](../storage/common/storage-account-create.md).
+* **Conta de armazenamento do Azure Data Lake Storage Gen2**: se você não tiver uma conta de armazenamento do ADLS Gen2, aprenda a [criar uma conta de armazenamento do ADLS Gen2](../storage/common/storage-account-create.md).
 
 * **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** : se você não tiver um Azure Synapse Analytics (anteriormente conhecido como SQL DW), aprenda a [criar uma instância do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory** : se você não tiver criado um data factory, confira como [criar um data factory](./quickstart-create-data-factory-portal.md).
+* **Azure Data Factory**: se você não tiver criado um data factory, confira como [criar um data factory](./quickstart-create-data-factory-portal.md).
 
-* **Azure Data Share** : se você não tiver criado um compartilhamento de dados, confira como [criar um compartilhamento de dados](../data-share/share-your-data.md#create-a-data-share-account).
+* **Azure Data Share**: se você não tiver criado um compartilhamento de dados, confira como [criar um compartilhamento de dados](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Configurar seu ambiente do Azure Data Factory
 
@@ -97,7 +97,7 @@ Nos serviços vinculados do Azure Data Factory, defina as informações de conex
 
 ### <a name="turn-on-data-flow-debug-mode"></a>Ativar modo de depuração do fluxo de dados
 
-Na seção *Transformar dados usando o fluxo de dados de mapeamento* , você criará fluxos de dados de mapeamento. Uma melhor prática antes de criar fluxos de dados de mapeamento é ativar o modo de depuração, o que permite testar a lógica de transformação em segundos em um cluster do spark ativo.
+Na seção *Transformar dados usando o fluxo de dados de mapeamento*, você criará fluxos de dados de mapeamento. Uma melhor prática antes de criar fluxos de dados de mapeamento é ativar o modo de depuração, o que permite testar a lógica de transformação em segundos em um cluster do spark ativo.
 
 Para ativar a depuração, clique no controle deslizante **Depuração do fluxo de dados** na barra superior da fábrica. Clique em OK quando a caixa de diálogo de confirmação for exibida. Levará cerca de 5 a 7 minutos para o cluster ser iniciado. Prossiga para *Ingerir dados do BD SQL do Azure para o ADLS Gen2 usando a atividade de cópia* enquanto ele está inicializando.
 
@@ -221,7 +221,7 @@ O fluxo de dados criado nesta etapa interna ingressa o conjunto de dados "TripDa
 
 ### <a name="inner-join-tripdatacsv-and-tripfaressql"></a>TripDataCSV e TripFaresSQL da junção interna
 
-1. Para adicionar uma nova transformação, clique no ícone de adição no canto inferior direito de "TripDataCSV". Em **Várias entradas/saídas** , selecione **Junção**.
+1. Para adicionar uma nova transformação, clique no ícone de adição no canto inferior direito de "TripDataCSV". Em **Várias entradas/saídas**, selecione **Junção**.
 
     ![Ingresso no portal 1](media/lab-data-flow-data-share/join1.png)
 1. Dê à sua transformação de junção o nome "InnerJoinWithTripFares". Selecione "TripFaresSQL" no menu suspenso do fluxo direito. Selecione **Interno** como o tipo de junção. Para saber mais sobre os diferentes tipos de junção no fluxo de dados de mapeamento, confira [tipos de junção](./data-flow-join.md#join-types).
@@ -245,7 +245,7 @@ O fluxo de dados criado nesta etapa interna ingressa o conjunto de dados "TripDa
     * A tarifa média agrupada por tipo de pagamento
     * A distância total da viagem agrupada por tipo de pagamento
 
-    Primeiro, você criará a expressão de tarifa média. Na caixa de texto rotulada **Adicionar ou selecionar uma coluna** , insira "average_fare".
+    Primeiro, você criará a expressão de tarifa média. Na caixa de texto rotulada **Adicionar ou selecionar uma coluna**, insira "average_fare".
 
     ![Agregação do portal 3](media/lab-data-flow-data-share/agg3.png)
 1. Para inserir uma expressão de agregação, clique na caixa azul rotulada **Inserir expressão**. Isso abrirá o Construtor de Expressões de fluxo de dados, uma ferramenta usada para criar visualmente expressões de fluxo de dados usando o esquema de entrada, funções e operações internas e parâmetros definidos pelo usuário. Para saber mais sobre as funcionalidades do Construtor de Expressões, confira a [documentação do Construtor de Expressões](./concepts-data-flow-expression-builder.md).
@@ -256,7 +256,7 @@ O fluxo de dados criado nesta etapa interna ingressa o conjunto de dados "TripDa
 1. Para adicionar mais uma expressão de agregação, clique no ícone de adição ao lado de `average_fare`. Selecione **Adicionar coluna**.
 
     ![Agregação do portal 5](media/lab-data-flow-data-share/agg5.png)
-1. Na caixa de texto rotulada **Adicionar ou selecionar uma coluna** , insira "total_trip_distance". Assim como na última etapa, abra o Construtor de Expressões para inserir a expressão.
+1. Na caixa de texto rotulada **Adicionar ou selecionar uma coluna**, insira "total_trip_distance". Assim como na última etapa, abra o Construtor de Expressões para inserir a expressão.
 
     Para obter a distância total da viagem, use a função de agregação `sum()` para agregar a conversão da coluna `trip_distance` em um inteiro com `toInteger()`. Na linguagem de expressão do fluxo de dados, isso é definido como `sum(toInteger(trip_distance))`. Clique em **Salvar e concluir** quando terminar.
 
@@ -280,7 +280,7 @@ O fluxo de dados criado nesta etapa interna ingressa o conjunto de dados "TripDa
 1. Chame o conjunto de dados de "AggregatedTaxiData". Selecione "SQLDW" como seu serviço vinculado. Selecione **Criar tabela** e dê à nova tabela o nome dbo.AggregateTaxiData. Clique em OK após a conclusão
 
     ![Coletor do portal 4](media/lab-data-flow-data-share/sink4.png)
-1. Acesse a guia **Configurações** do coletor. Como estamos criando uma tabela, precisamos selecionar **Recriar tabela** em ação de tabela. Desmarque **Habilitar preparo** , que alternará se estivermos inserindo linha por linha ou em lote.
+1. Acesse a guia **Configurações** do coletor. Como estamos criando uma tabela, precisamos selecionar **Recriar tabela** em ação de tabela. Desmarque **Habilitar preparo**, que alternará se estivermos inserindo linha por linha ou em lote.
 
     ![Coletor do portal 5](media/lab-data-flow-data-share/sink5.png)
 
@@ -308,7 +308,7 @@ Agora você concluiu a parte do data factory deste laboratório. Publique seus r
 
 ## <a name="share-data-using-azure-data-share"></a>Compartilhar dados usando o Azure Data Share
 
-Nesta seção, você aprenderá a configurar um novo compartilhamento de dados usando o portal do Azure. Isso envolverá a criação de um compartilhamento de dados que conterá conjuntos de dados do Azure Data Lake Storage Gen2 e do Azure Synapse Analytics (anteriormente conhecido como SQL Data Warehouse). Em seguida, você configurará um agendamento de instantâneo, que fornecerá aos consumidores de dados uma opção para atualizar automaticamente os dados que estão sendo compartilhados com eles. Em seguida, você convidará os destinatários para seu compartilhamento de dados. 
+Nesta seção, você aprenderá a configurar um novo compartilhamento de dados usando o portal do Azure. Isso envolverá a criação de um compartilhamento de dados que conterá conjuntos de dados do Azure Data Lake Storage Gen2 e do Azure Synapse Analytics. Em seguida, você configurará um agendamento de instantâneo, que fornecerá aos consumidores de dados uma opção para atualizar automaticamente os dados que estão sendo compartilhados com eles. Em seguida, você convidará os destinatários para seu compartilhamento de dados. 
 
 Após criar um compartilhamento de dados, você trocará de lugar e se tornará o *consumidor de dados*. Como consumidor de dados, você percorrerá o fluxo de aceitação de um convite do compartilhamento de dados, da configuração de onde você deseja que os dados fossem recebidos e do mapeamento de conjuntos de dados para diferentes locais de armazenamento. Em seguida, você disparará um instantâneo, que copiará o compartilhamento de dados com você para o destino especificado. 
 
@@ -328,11 +328,11 @@ Após criar um compartilhamento de dados, você trocará de lugar e se tornará 
 
 1. Selecione **+Criar** para começar a configurar seu novo compartilhamento de dados. 
 
-1. Em **Nome do compartilhamento** , especifique um nome de sua escolha. Esse é o nome do compartilhamento que será visto por seu consumidor de dados. Portanto, dê a ele um nome descritivo como TaxiData.
+1. Em **Nome do compartilhamento**, especifique um nome de sua escolha. Esse é o nome do compartilhamento que será visto por seu consumidor de dados. Portanto, dê a ele um nome descritivo como TaxiData.
 
-1. Em **Descrição** , insira uma frase que descreve o conteúdo do compartilhamento de dados. O compartilhamento de dados conterá dados de corridas de táxi de todo o mundo armazenados em vários repositórios, incluindo o Azure Synapse Analytics e o Azure Data Lake Storage. 
+1. Em **Descrição**, insira uma frase que descreve o conteúdo do compartilhamento de dados. O compartilhamento de dados conterá dados de corridas de táxi de todo o mundo armazenados em vários repositórios, incluindo o Azure Synapse Analytics e o Azure Data Lake Storage. 
 
-1. Em **Termos de uso** , especifique um conjunto de termos que você gostaria que seu consumidor de dados obedecesse. Alguns exemplos incluem "Não distribua esses dados fora de sua organização" ou "Veja o contrato legal". 
+1. Em **Termos de uso**, especifique um conjunto de termos que você gostaria que seu consumidor de dados obedecesse. Alguns exemplos incluem "Não distribua esses dados fora de sua organização" ou "Veja o contrato legal". 
 
     ![Detalhes do compartilhamento](media/lab-data-flow-data-share/ads-details.png)
 
@@ -342,7 +342,7 @@ Após criar um compartilhamento de dados, você trocará de lugar e se tornará 
 
     ![Adicionar conjunto de dados 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Selecione **Azure Synapse Analytics** (anteriormente conhecido como SQL Data Warehouse) para selecionar uma tabela do Azure Synapse Analytics para a qual suas transformações do ADF foram descarregadas.
+1. Selecione **Azure Synapse Analytics** para selecionar uma tabela do Azure Synapse Analytics na qual suas transformações do ADF foram descarregadas.
 
     ![Adicionar sql do conjunto de dados](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -432,9 +432,9 @@ Talvez você precise selecionar uma assinatura. Selecione a assinatura que na qu
 
 1. Selecione a Assinatura e o Grupo de Recursos que já existe para seu laboratório. 
 
-1. Para a **Conta do compartilhamento de dados** , selecione **DataConsumer**. Você também pode criar uma conta do compartilhamento de dados. 
+1. Para a **Conta do compartilhamento de dados**, selecione **DataConsumer**. Você também pode criar uma conta do compartilhamento de dados. 
 
-1. Ao lado de **Nome do compartilhamento recebido** , você observará que o nome do compartilhamento padrão é o que foi especificado pelo provedor de dados. Dê ao compartilhamento um nome amigável que descreva os dados que você está prestes a receber, por exemplo, **TaxiDataShare**.
+1. Ao lado de **Nome do compartilhamento recebido**, você observará que o nome do compartilhamento padrão é o que foi especificado pelo provedor de dados. Dê ao compartilhamento um nome amigável que descreva os dados que você está prestes a receber, por exemplo, **TaxiDataShare**.
 
     ![Aceitações de convite](media/lab-data-flow-data-share/consumer-accept.png)
 
@@ -468,7 +468,7 @@ Talvez você precise selecionar uma assinatura. Selecione a assinatura que na qu
     
     (Opcional) Você pode optar por receber os dados em seu data lake no formato csv ou parquet. 
 
-1. Ao lado de **Tipo de dados de destino** , selecione Banco de Dados SQL do Azure. 
+1. Ao lado de **Tipo de dados de destino**, selecione Banco de Dados SQL do Azure. 
 
 1. Selecione a Assinatura, o Grupo de Recursos e a Conta de armazenamento nos quais você está trabalhando. 
 

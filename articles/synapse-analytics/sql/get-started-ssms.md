@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686201"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451634"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conectar-se ao Synapse SQL com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "94686201"
 > 
 > 
 
-Você pode usar o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) para se conectar e consultar o SQL do Synapse no Azure Synapse Analytics por meio dos recursos do pool de SQL sem servidor (versão prévia) ou do pool de SQL dedicado. 
+Você pode usar o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) para se conectar ao SQL do Synapse e consultá-lo no Azure Synapse Analytics por meio dos recursos do pool de SQL sem servidor ou do pool de SQL dedicado. 
 
-### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Ferramentas compatíveis com o pool de SQL sem servidor (versão prévia)
+### <a name="supported-tools-for-serverless-sql-pool"></a>Ferramentas compatíveis com o pool de SQL sem servidor
 
 O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade com a versão 1.18.0 em diante. O SSMS tem compatibilidade parcial da versão 18.5 em diante. Você pode usá-lo somente para se conectar e consultar.
 
@@ -63,7 +63,7 @@ Para se conectar ao SQL do Synapse usando o pool de SQL dedicado, siga estas eta
     ![Explorar o AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="serverless-sql-pool-preview"></a>Pool de SQL sem servidor (versão prévia)
+### <a name="serverless-sql-pool"></a>Pool de SQL sem servidor
 
 Para se conectar ao SQL do Synapse usando o pool de SQL sem servidor, siga estas etapas: 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar um pool do Apache Spark sem servidor (versão prévia) usando o Synapse Studio'
+title: 'Início rápido: Criar um pool do Apache Spark sem servidor usando o Synapse Studio'
 description: Crie um pool do Apache Spark sem servidor usando o Synapse Studio seguindo as etapas deste guia.
 services: synapse-analytics
 author: saveenr
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324179"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462026"
 ---
-# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Início Rápido: criar um pool do Apache Spark sem servidor (versão prévia) usando o Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>Início rápido: Criar um Pool do Apache Spark sem servidor usando o Synapse Studio
 
 O Azure Synapse Analytics oferece vários mecanismos de análise para ajudar você a ingerir, transformar, modelar, analisar e fornecer seus dados. O Pool do Apache Spark oferece funcionalidades de software livre de computação de Big Data. Depois que você criar um Pool do Apache Spark em seu workspace do Synapse, os dados poderão ser carregados, modelados, processados e fornecidos para obter insights.  
 
@@ -63,7 +63,7 @@ Na visão geral do workspace, selecione a **URL da Web do workspace** para abrir
 
 1. Selecione **+ Novo** e o novo assistente de criação de pool do Apache Spark será exibido. 
 
-1. Insira os seguintes detalhes na guia **Informações Básicas** :
+1. Insira os seguintes detalhes na guia **Informações Básicas**:
 
     | Configuração | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
@@ -81,7 +81,7 @@ Na visão geral do workspace, selecione a **URL da Web do workspace** para abrir
 
 1. Não adicionaremos marcas por enquanto, portanto, selecione **Revisar + criar**.
 
-1. Na guia **Examinar + criar** , verifique se os detalhes estão corretos com base no que foi inserido anteriormente e clique em **Criar**. 
+1. Na guia **Examinar + criar**, verifique se os detalhes estão corretos com base no que foi inserido anteriormente e clique em **Criar**. 
 
     ![Criar pool do Apache Spark do Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
@@ -100,7 +100,7 @@ Siga as etapas abaixo para excluir o pool do Apache Spark do workspace usando o 
 Caso deseje excluir o Pool do Apache Spark, faça o seguinte:
 
 1. Navegue até os pools do Apache Spark no Hub de Gerenciamento no Synapse Studio.
-1. Selecione as reticências ao lado do pool do Apache a ser excluído (nesse caso, **contosospark** ) para mostrar os comandos do pool do Apache Spark.
+1. Selecione as reticências ao lado do pool do Apache a ser excluído (nesse caso, **contosospark**) para mostrar os comandos do pool do Apache Spark.
 
     ![Listagem de pools do Apache Spark, com o pool recém-criado selecionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 

@@ -9,16 +9,16 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318404"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459164"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos do SQL do Synapse
 
-Este artigo descreve os modelos de consumo de recursos do Synapse SQL (versão prévia).
+Este artigo descreve os modelos de consumo de recursos do SQL do Synapse.
 
 ## <a name="serverless-sql-pool"></a>Pool de SQL sem servidor
 
@@ -127,7 +127,7 @@ Para alterar DWUs:
 
 1. Abra o [Portal do Azure](https://portal.azure.com), abra seu banco de dados e selecione **Escala**.
 
-2. Em **Escala** , mova o controle deslizante para a esquerda ou direita para alterar a configuração de DWU.
+2. Em **Escala**, mova o controle deslizante para a esquerda ou direita para alterar a configuração de DWU.
 
 3. Selecione **Salvar**. Será exibida uma mensagem de confirmação. Selecione **sim** para confirmar ou **não** para cancelar.
 

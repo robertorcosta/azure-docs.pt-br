@@ -1,6 +1,6 @@
 ---
-title: Autoajuda do pool de SQL sem servidor (versão prévia)
-description: Esta seção contém informações que podem ajudar você a solucionar problemas com o pool de SQL sem servidor (versão prévia).
+title: Autoajuda do pool de SQL sem servidor
+description: Esta seção contém informações que podem ajudar você a solucionar problemas com o pool de SQL sem servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457186"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>Autoajuda para o pool de SQL sem servidor (versão prévia)
+# <a name="self-help-for-serverless-sql-pool"></a>Autoajuda para o pool de SQL sem servidor
 
-Este artigo contém informações sobre como solucionar os problemas mais frequentes com o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics.
+Este artigo contém informações sobre como solucionar os problemas mais frequentes com o pool de SQL sem servidor no Azure Synapse Analytics.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>O pool de SQL sem servidor está esmaecido no Synapse Studio
 
@@ -37,7 +37,7 @@ Se a consulta falhar com a mensagem de erro 'Esta consulta não pode ser executa
 
 - Use tipos de dados de tamanhos razoáveis. Além disso, especifique o esquema de arquivos Parquet para colunas de cadeia de caracteres, pois elas serão VARCHAR(8000) por padrão. 
 
-- Se a consulta for direcionada a arquivos CSV, considere a possibilidade de [criar estatísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- Se a consulta for direcionada a arquivos CSV, considere a possibilidade de [criar estatísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Acesse [Melhores práticas de desempenho do pool de SQL sem servidor](best-practices-sql-on-demand.md) para otimizar a consulta.  
 

@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 028e7f9764cbf75263736471f434e04bc6daca0f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 914581e6610e027d9440495f56f4facfb1fb9a9a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886814"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349428"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidade do Teams
 
@@ -39,7 +39,8 @@ Quando um usuário dos Serviços de Comunicação participa da reunião do Teams
 
 Os usuários dos Serviços de Comunicação podem participar das reuniões agendadas do Teams, desde que as participações anônimas estejam habilitadas nas [configurações da reunião](/microsoftteams/meeting-settings-in-teams).
 
-
+## <a name="teams-in-government-clouds-gcc"></a>Teams em Nuvens Governamentais (GCC)
+No momento, a interoperabilidade dos Serviços de Comunicação do Azure não tem permissão para implantações do Teams usando as [nuvens governamentais (GCC) do Microsoft 365](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

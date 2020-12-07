@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700990"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296827"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração do controle do código-fonte para o pool de SQL dedicado no Azure Synapse Analytics
 
@@ -38,11 +38,13 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
    ![Gerenciar Conexões](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerenciar conexões")
 
 3. Conecte-se ao seu projeto selecionando **Gerenciar Conexões** e **Conectar-se a um projeto**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Conectar")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Conectar")
 
 
 4. Localize o projeto que você criou na etapa um e selecione **Conectar**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Conectar")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Conectar")
 
 
 3. Clone seu repositório do Azure DevOps de seu projeto para o computador local.
@@ -85,7 +87,7 @@ Para obter mais informações sobre como conectar projetos usando o Visual Studi
 
    ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificar alterações")
 
-4. (**Opcional**) Use a Comparação de Esquemas e atualize as alterações de seu data warehouse de destino usando o SSDT para garantir que as definições de objeto no repositório Azure Repo e no repositório local reflitam seu data warehouse.
+4. (**Opcional**) Use a Comparação de Esquemas e atualize as alterações no pool de SQL dedicado de destino usando o SSDT, para garantir que as definições de objeto no repositório do Azure e no repositório local reflitam o pool de SQL dedicado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

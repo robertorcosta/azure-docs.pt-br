@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b94ece73d5f9dc9b8343e45fb1f616599b9a1c1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368597"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450926"
 ---
-# <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar trabalhos do Apache Spark (versão prévia) no Azure Synapse Analytics
+# <a name="optimize-apache-spark-jobs-in-azure-synapse-analytics"></a>Otimizar trabalhos do Apache Spark no Azure Synapse Analytics
 
 Saiba como otimizar uma configuração de cluster do [Apache Spark](https://spark.apache.org/) para sua carga de trabalho específica.  O desafio mais comum é a demanda de memória, devido a configurações incorretas (particularmente, executores com o tamanho incorreto), operações de execução longa e tarefas que resultam em operações cartesianas. É possível acelerar os trabalhos com o armazenamento em cache apropriado e permitir [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitore e revise as execuções de trabalho do Spark de execução longa e consumo de recursos.
 
@@ -52,7 +52,7 @@ As versões anteriores do Spark usam RDDs para dados abstratos e o Spark 1.3 e 1
 
 O Spark fornece suporte a muitos formatos, como csv, json, xml, parquet, orc e avro. O Spark pode ser estendido para fornecer suporte a muitos outros formatos com fontes de dados externos - para obter mais informações, consulte [Pacotes do Apache Spark](https://spark-packages.org).
 
-O melhor formato para desempenho é parquet com *compactação snappy* , que é o padrão no Spark 2.x. O parquet armazena dados em formato colunar e é altamente otimizado no Spark. Além disso, embora a *compactação Snappy* possa resultar em arquivos maiores do que, digamos, a compactação Gzip. Devido à natureza divisível desses arquivos, eles serão descompactados mais rapidamente.
+O melhor formato para desempenho é parquet com *compactação snappy*, que é o padrão no Spark 2.x. O parquet armazena dados em formato colunar e é altamente otimizado no Spark. Além disso, embora a *compactação Snappy* possa resultar em arquivos maiores do que, digamos, a compactação Gzip. Devido à natureza divisível desses arquivos, eles serão descompactados mais rapidamente.
 
 ## <a name="use-the-cache"></a>Usar o cache
 
@@ -103,7 +103,7 @@ Alguns recursos de bucket avançados são:
 
 ## <a name="optimize-joins-and-shuffles"></a>Ordens aleatórias e junções otimizadas
 
-Se houver trabalhos lentos em uma Junção ou Ordem Aleatória, provavelmente a causa será a *distorção de dados* , que é a assimetria nos dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou em ordem aleatória leva horas. Para corrigir a distorção de dados, será necessário usar salt da chave inteira ou um *salt isolado* para apenas um subconjunto de chaves. Se você estiver usando um sal isolado, deverá filtrar adicionalmente para isolar o subconjunto de chaves com sal nas junções de mapa. Outra opção é primeiro introduzir uma coluna de bucket e pré-agregado em buckets.
+Se houver trabalhos lentos em uma Junção ou Ordem Aleatória, provavelmente a causa será a *distorção de dados*, que é a assimetria nos dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou em ordem aleatória leva horas. Para corrigir a distorção de dados, será necessário usar salt da chave inteira ou um *salt isolado* para apenas um subconjunto de chaves. Se você estiver usando um sal isolado, deverá filtrar adicionalmente para isolar o subconjunto de chaves com sal nas junções de mapa. Outra opção é primeiro introduzir uma coluna de bucket e pré-agregado em buckets.
 
 Outro fator que causa junções lentas pode ser o tipo de junção. Por padrão, o Spark usa o tipo de junção `SortMerge`. Este tipo de junção é mais adequado para conjuntos de dados grandes, mas, de outra forma, é computacionalmente caro porque primeiro deve classificar os lados esquerdo e direito dos dados antes de mesclá-los.
 

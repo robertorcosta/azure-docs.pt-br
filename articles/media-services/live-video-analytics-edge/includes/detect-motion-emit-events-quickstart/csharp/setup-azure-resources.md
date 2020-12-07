@@ -1,17 +1,17 @@
 ---
-ms.openlocfilehash: 67d90836c382728f989ab2cb4fde4d81bac9eb25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690879"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509152"
 ---
 Este tutorial requer os seguintes recursos do Azure:
 
 * Hub IoT
 * Conta de armazenamento
 * Conta dos Serviços de Mídia do Azure
-* VM do Linux no Azure, com o [runtime do IoT Edge](../../../../../iot-edge/how-to-install-iot-edge-linux.md) instalado
+* VM do Linux no Azure, com o [runtime do IoT Edge](../../../../../iot-edge/how-to-install-iot-edge.md) instalado
 
 Para este início rápido, recomendamos que você use o [Script de instalação de recursos da Análise Dinâmica de Vídeo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implantar os recursos necessários em sua assinatura do Azure. Para fazer isso, siga estas etapas:
 
@@ -29,10 +29,9 @@ Para este início rápido, recomendamos que você use o [Script de instalação 
     Se o script for concluído com êxito, você verá todos os recursos necessários em sua assinatura.
 1. Após a conclusão do script, clique nas chaves para expor a estrutura de pastas. Você verá alguns arquivos no diretório *~/clouddrive/lva-sample*. Os itens de interesse neste guia de início rápido são:
 
-     * ***~/clouddrive/lva-sample/edge-deployment/.env*** – este arquivo contém propriedades que o Visual Studio Code usa para implantar módulos em um dispositivo de borda.
-     * ***~/clouddrive/lva-sample/appsetting.json*** – o Visual Studio Code usa este arquivo para executar o código de exemplo.
+     * * **~/clouddrive/lva-sample/edge-deployment/.env** _ – Esse arquivo contém propriedades que o Visual Studio Code usa para implantar módulos em um dispositivo de borda.
+     _ ***~/clouddrive/lva-sample/appsetting.json*** – O Visual Studio Code usa esse arquivo para executar o código de exemplo.
      
     Você precisará desses arquivos para configurar o ambiente de desenvolvimento no Visual Studio Code na próxima seção. Talvez você queira copiá-los para um arquivo local por enquanto.
     
     ![Configurações do aplicativo](../../../media/quickstarts/clouddrive.png)
-    

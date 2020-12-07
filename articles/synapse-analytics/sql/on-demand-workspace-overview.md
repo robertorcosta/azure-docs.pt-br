@@ -1,5 +1,5 @@
 ---
-title: Pool de SQL sem servidor (versão prévia)
+title: Pool de SQL sem servidor
 description: Saiba mais sobre o pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306870"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463175"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool de SQL sem servidor no Azure Synapse Analytics 
 
-Todo workspace do Azure Synapse Analytics (versão prévia) é fornecido com pool de SQL sem servidor (versão prévia) que você pode usar para consultar dados no lake.
+Todo workspace do Azure Synapse Analytics é fornecido com pontos de extremidade do pool de SQL sem servidor que você pode usar para consultar dados no lake.
 
 O pool de SQL sem servidor é um serviço de consulta dos dados no data lake. Ele permite que você acesse os dados por meio das seguintes funcionalidades:
  
@@ -123,7 +123,7 @@ A autenticação do pool de SQL sem servidor refere-se a como os usuários compr
 
   Este método de autenticação usa um nome de usuário e senha.
 
-- **Autenticação do Active Directory do Azure** :
+- **Autenticação do Active Directory do Azure**:
 
   Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory. Para usuários do Azure AD, a autenticação multifator pode ser habilitada. Use autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -141,7 +141,7 @@ Um usuário que fez logon no serviço de pool de SQL sem servidor precisa estar 
 
 - A **SAS (Assinatura de Acesso Compartilhado)** fornece acesso delegado aos recursos em uma conta de armazenamento. Com uma SAS, você pode conceder aos clientes acesso aos recursos na conta de armazenamento, sem compartilhar as chaves de conta. Uma SAS oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm uma SAS: intervalo de validade, permissões concedidas, intervalo de endereços IP aceitáveis e protocolo aceitável (HTTPS/HTTP).
 
-- A **Identidade do Usuário** , também conhecida como "passagem", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso aos dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD a fim de acessar os dados. Esse tipo de autorização usa o usuário do Azure AD que fez logon no pool de SQL sem servidor, portanto, ela não é compatível com tipos de usuário do SQL.
+- A **Identidade do Usuário**, também conhecida como "passagem", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso aos dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD a fim de acessar os dados. Esse tipo de autorização usa o usuário do Azure AD que fez logon no pool de SQL sem servidor, portanto, ela não é compatível com tipos de usuário do SQL.
 
 ## <a name="next-steps"></a>Próximas etapas
 Informações adicionais sobre conexão de ponto de extremidade e consulta de arquivos podem ser encontradas nos seguintes artigos: 

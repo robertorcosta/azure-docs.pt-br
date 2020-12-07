@@ -1,6 +1,6 @@
 ---
-title: Acessar arquivos no armazenamento no pool de SQL sem servidor (versão prévia)
-description: Descreve a consulta de arquivos de armazenamento usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics.
+title: Acessar arquivos no armazenamento no pool de SQL sem servidor
+description: Descreve a consulta de arquivos de armazenamento usando o pool de SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685674"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446582"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Acesse o armazenamento externo usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesse o armazenamento externo usando o pool de SQL sem servidor no Azure Synapse Analytics
 
 Este documento descreve como os usuários podem ler dados dos arquivos armazenados no Armazenamento do Azure no pool de SQL sem servidor. Os usuários têm as seguintes opções para acessar o armazenamento:
 

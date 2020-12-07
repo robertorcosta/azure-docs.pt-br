@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: azureday1
+ms.openlocfilehash: facc6a4ab8344f9f72fc7abc27433c18ab435504
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999664"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436531"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Acessar o Microsoft Graph em um aplicativo protegido como o aplicativo
 
@@ -23,7 +24,7 @@ Saiba como acessar o Microsoft Graph de um aplicativo Web em execução no Servi
 
 :::image type="content" alt-text="Diagrama que mostra o acesso ao Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Você deseja chamar o Microsoft Graph para o aplicativo Web. Um modo seguro de permitir o acesso do aplicativo Web aos dados é usar uma [identidade gerenciada atribuída ao sistema](/azure/active-directory/managed-identities-azure-resources/overview). Uma identidade gerenciada do Azure Active Directory permite que o Serviço de Aplicativo acesse recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado. Você não precisa se preocupar em gerenciar segredos nem credenciais de aplicativo.
+Você deseja chamar o Microsoft Graph para o aplicativo Web. Um modo seguro de permitir o acesso do aplicativo Web aos dados é usar uma [identidade gerenciada atribuída ao sistema](../active-directory/managed-identities-azure-resources/overview.md). Uma identidade gerenciada do Azure Active Directory permite que o Serviço de Aplicativo acesse recursos por meio do RBAC (controle de acesso baseado em função), sem a necessidade de credenciais do aplicativo. Depois de atribuir uma identidade gerenciada ao seu aplicativo Web, o Azure cuida da criação e da distribuição de um certificado. Você não precisa se preocupar em gerenciar segredos nem credenciais de aplicativo.
 
 Neste tutorial, você aprenderá como:
 
@@ -120,6 +121,8 @@ Em **Visão geral**, selecione **Permissões** e você verá as permissões adic
 ## <a name="call-microsoft-graph-net"></a>Chamar o Microsoft Graph (.NET)
 
 A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obtenção de uma credencial de token para o código destinada à autorização de solicitações ao Microsoft Graph. Crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa a identidade gerenciada para buscar tokens e anexá-los ao cliente do serviço. O exemplo de código a seguir obtém a credencial de token autenticada e a usa para criar um objeto de cliente de serviço, que obtém os usuários no grupo.
+
+Para ver esse código como parte de um aplicativo de exemplo, confira o [exemplo no GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Instalar o pacote da biblioteca de clientes Microsoft.Graph
 

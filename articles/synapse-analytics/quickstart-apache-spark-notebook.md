@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316130"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454653"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Início Rápido: Criar um Pool do Apache Spark sem servidor no Azure Synapse Analytics usando ferramentas da Web
 
-Neste início rápido, você aprenderá a criar um Pool do Apache Spark sem servidor (versão prévia) no Azure Synapse usando ferramentas da Web. Em seguida, você aprenderá a se conectar ao Pool do Apache Spark e executar consultas SQL do Spark em arquivos e tabelas. O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no Azure Synapse, confira [Visão geral: Apache Spark no Azure Synapse](./spark/apache-spark-overview.md).
+Neste início rápido, você aprenderá a criar um Pool do Apache Spark sem servidor no Azure Synapse usando ferramentas da Web. Em seguida, você aprenderá a se conectar ao Pool do Apache Spark e executar consultas SQL do Spark em arquivos e tabelas. O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no Azure Synapse, confira [Visão geral: Apache Spark no Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > A cobrança das instâncias do Spark será proporcional por minuto, independentemente de elas estarem sendo usadas ou não. Desligue a instância do Spark depois de terminar de usá-la ou defina um tempo limite curto. Para saber mais, confira a seção **Recursos de limpeza** deste artigo.
@@ -47,7 +47,7 @@ Um notebook é um ambiente interativo que dá suporte a várias linguagens de pr
  
      ![Novo notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Novo notebook")
 
-4. Na janela **Propriedades** , forneça um nome para o notebook.
+4. Na janela **Propriedades**, forneça um nome para o notebook.
 5. Na barra de ferramentas, clique em **Publicar**.
 6. Se houver apenas um Pool do Apache Spark no workspace, ele será selecionado por padrão. Use a lista suspensa para selecionar o Pool do Apache Spark correto se nenhum for selecionado.
 7. Clique em **Adicionar código**. O idioma padrão é `Pyspark`. Você usará uma combinação do PySpark e do Spark SQL; portanto, a escolha padrão é boa. Outras linguagens com suporte são o Scala e o .NET para Spark.
@@ -114,12 +114,12 @@ A linguagem SQL (Structured Query Language) é a mais comum e amplamente usada p
 
     ![Saída de consulta no Spark do Azure Synapse](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Saída de consulta no Spark do Azure Synapse")
 
-3. No seletor **Exibir** , escolha **Gráfico**.
+3. No seletor **Exibir**, escolha **Gráfico**.
 4. Escolha o ícone **Exibir opções** no lado direito.
-5. No campo **Tipo de gráfico** , selecione "gráfico de barras".
+5. No campo **Tipo de gráfico**, selecione "gráfico de barras".
 6. No campo de coluna do eixo X, selecione "estado".
 7. No campo de coluna do eixo Y, selecione "salário".
-8. No campo **Agregação** , selecione "MÉD".
+8. No campo **Agregação**, selecione "MÉD".
 9. Escolha **Aplicar**.
 
    ![Saída de gráfico no Spark do Azure Synapse](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Saída de gráfico no Spark do Azure Synapse")

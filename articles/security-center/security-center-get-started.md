@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341322"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187163"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Início Rápido: configurando a Central de Segurança do Azure
 
@@ -37,7 +37,7 @@ Para poder habilitar o Azure Defender em uma assinatura, é preciso que lhe seja
 
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
-1. No menu do portal, selecione **Central de Segurança** . 
+1. No menu do portal, selecione **Central de Segurança**. 
 
     A página de visão geral da Central de Segurança será exibida.
 
@@ -45,9 +45,9 @@ Para poder habilitar o Azure Defender em uma assinatura, é preciso que lhe seja
 
 **Central de Segurança – Visão geral** fornece uma exibição unificada sobre a postura de segurança das cargas de trabalho da sua nuvem híbrida, permitindo que você descubra e avalie a segurança de suas cargas de trabalho e identifique e reduza riscos. A Central de Segurança habilita automaticamente e sem custo qualquer uma das assinaturas do Azure não integradas anteriormente por você ou por outro usuário da assinatura.
 
-Você pode visualizar e filtrar a lista de assinaturas selecionando o item de menu **Assinaturas** . A Central de Segurança ajustará a exibição para refletir a postura de segurança das assinaturas selecionadas. 
+Você pode visualizar e filtrar a lista de assinaturas selecionando o item de menu **Assinaturas**. A Central de Segurança ajustará a exibição para refletir a postura de segurança das assinaturas selecionadas. 
 
-Em poucos minutos após iniciar a Central de Segurança pela primeira vez, você poderá ver:
+Em poucos minutos após a inicialização da Central de Segurança pela primeira vez, você poderá ver:
 
 - **Recomendações** de maneiras para melhorar a segurança dos recursos conectados.
 - Um inventário dos recursos que agora estão sendo avaliados pela Central de Segurança, juntamente com a postura de segurança de cada um deles.
@@ -61,13 +61,13 @@ Para aproveitar ao máximo a Central de Segurança, você precisará concluir as
 
 Para poder executar os inícios rápidos e os tutoriais da Central de Segurança, você deve habilitar o Azure Defender. Há uma avaliação gratuita de 30 dias disponível. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Na barra lateral da Central de Segurança, selecione **Introdução** .
+1. Na barra lateral da Central de Segurança, selecione **Introdução**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Dashboard de visão geral da Central de Segurança"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Guia de atualização da página de introdução"::: 
 
     A guia **Atualização** lista as assinaturas e os workspaces qualificados para a integração.
 
-1. Na lista **Selecionar os workspaces nos quais habilitar o Azure Defender** , selecione os workspaces a serem atualizados.
+1. Na lista **Selecionar os workspaces nos quais habilitar o Azure Defender**, selecione os workspaces a serem atualizados.
    - Se você selecionar assinaturas e workspaces não qualificados para a avaliação, a próxima etapa os atualizará e dará inicio aos encargos.
    - Se você selecionar um workspace qualificado para uma avaliação gratuita, a próxima etapa iniciará uma avaliação.
 1. Selecione **Atualizar** para habilitar o Azure Defender.
@@ -79,12 +79,12 @@ Quando o provisionamento automático estiver habilitado, a Central de Segurança
 
 Para habilitar o provisionamento automático do agente de Log Analytics:
 
-1. No menu da Central de Segurança, selecione **Preço e configurações** .
+1. No menu da Central de Segurança, selecione **Preço e configurações**.
 1. Selecione a assinatura relevante.
-1. Na página **Coleta de dados** , defina o **Provisionamento automático** como **Ativado** .
-1. Selecione **Salvar** .
+1. Na página **Coleta de dados**, defina o **Provisionamento automático** como **Ativado**.
+1. Selecione **Salvar**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Dashboard de visão geral da Central de Segurança":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitar o provisionamento automático do agente do Log Analytics":::
 
 >[!TIP]
 > Se for necessário provisionar um workspace, a instalação do agente poderá levar até 25 minutos.

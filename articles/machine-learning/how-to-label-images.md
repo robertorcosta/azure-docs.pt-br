@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984440"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324713"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
@@ -119,7 +119,7 @@ Não é possível alterar a tag de uma caixa delimitadora existente. Se você co
 
 Por padrão, você pode editar as caixas delimitadoras existentes. A ferramenta **Bloquear/desbloquear regiões**![Ferramenta bloquear/desbloquear regiões](./media/how-to-label-images/lock-bounding-boxes-tool.png), ou "L", ativa e desativa esse comportamento. Se as regiões estiverem bloqueadas, você só poderá alterar a forma ou a localização de uma nova caixa delimitadora.
 
-Use a ferramenta de **Manipulação de regiões**![Ferramenta de manipulação de regiões](./media/how-to-label-images/regions-tool.png), ou "M", para ajustar uma caixa delimitadora existente. Arraste as bordas ou os cantos para ajustar a forma. Clique no interior para arrastar toda a caixa delimitadora. Caso não seja possível editar uma região, talvez você tenha acionado a ferramenta **Bloquear/desbloquear regiões**.
+Use a ferramenta de **Manipulação de regiões** ![Este é o ícone da ferramenta de manipulação de regiões: quatro setas apontando para fora do centro, para cima, para a direita, para baixo e para a esquerda.](./media/how-to-label-images/regions-tool.png) ou "M" para ajustar uma caixa delimitadora existente. Arraste as bordas ou os cantos para ajustar a forma. Clique no interior para arrastar toda a caixa delimitadora. Caso não seja possível editar uma região, talvez você tenha acionado a ferramenta **Bloquear/desbloquear regiões**.
 
 Use a ferramenta de **Caixa baseada em modelo**![Ferramenta de caixa com modelo](./media/how-to-label-images/template-box-tool.png), ou "T", para criar várias caixas delimitadoras do mesmo tamanho. Se a imagem não tiver caixas delimitadoras e você ativar caixas baseadas em modelo, a ferramenta produzirá caixas de 50 x 50 pixels. Se você criar uma caixa delimitadora e, em seguida, ativar caixas baseadas em modelo, as novas caixas delimitadoras terão o tamanho da última caixa criada. As caixas baseadas em modelo podem ser redimensionadas após o posicionamento. O redimensionamento de uma caixa baseada em modelo só redimensiona essa caixa específica.
 
@@ -143,7 +143,7 @@ Caso deseje alterar a marca de um polígono, selecione a ferramenta **Mover regi
 
 Edite os polígonos existentes. A ferramenta **Bloquear/desbloquear regiões** ![Editar polígonos com a ferramenta Bloquear/desbloquear regiões](./media/how-to-label-images/lock-bounding-boxes-tool.png) ou a seleção de "L" ativa e desativa esse comportamento. Se as regiões estiverem bloqueadas, você só poderá alterar a forma ou a localização de um novo polígono.
 
-Use a ferramenta **Adicionar ou remover pontos de polígono** ![ferramenta Adicionar ou remover pontos de polígono](./media/how-to-label-images/add-remove-points-tool.png) ou "U" para ajustar um polígono existente. Clique no polígono para adicionar ou remover um ponto. Caso não seja possível editar uma região, talvez você tenha acionado a ferramenta **Bloquear/desbloquear regiões**.
+Use a ferramenta **Adicionar ou remover pontos de polígono** ![Este é o ícone de Adicionar ou remover pontos de polígono.](./media/how-to-label-images/add-remove-points-tool.png) ou "U" para ajustar um polígono existente. Clique no polígono para adicionar ou remover um ponto. Caso não seja possível editar uma região, talvez você tenha acionado a ferramenta **Bloquear/desbloquear regiões**.
 
 Para excluir *todos* os polígonos da imagem atual, selecione a ferramenta **Excluir todas as regiões** ![ferramenta Excluir todas as regiões](./media/how-to-label-images/delete-regions-tool.png).
 

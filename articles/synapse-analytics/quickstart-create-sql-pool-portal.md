@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar um pool de SQL dedicado (versão prévia) usando o portal do Azure'
+title: 'Início rápido: Criar um pool de SQL dedicado usando o portal do Azure'
 description: Crie um pool de SQL dedicado usando o portal do Azure seguindo as etapas deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541004"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462017"
 ---
-# <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Início Rápido: criar um pool de SQL dedicado (versão prévia) usando o portal do Azure
+# <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>Início rápido: Criar um pool de SQL dedicado usando o portal do Azure
 
 O Azure Synapse Analytics oferece vários mecanismos de análise para ajudar você a ingerir, transformar, modelar e analisar seus dados. Um pool de SQL dedicado oferece recursos de computação e armazenamento baseados em T-SQL. Após a criação de um pool de SQL dedicado no workspace do Azure Synapse, os dados poderão ser carregados, modelados, processados e entregues para obter insights analíticos mais rapidamente.
 

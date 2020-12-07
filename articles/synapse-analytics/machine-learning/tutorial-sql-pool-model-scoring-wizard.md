@@ -9,14 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 605a5f2f74ca6fb46d851c41f60001c48a95be95
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314021"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450879"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Tutorial: Assistente de pontuação do modelo de machine learning para pools de SQL dedicados
+# <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Tutorial: Assistente de pontuação do modelo de machine learning (versão prévia) para pools de SQL dedicados
 
 Saiba como enriquecer facilmente seus dados em pools de SQL dedicados com modelos de machine learning preditivos.  Os modelos que os cientistas de dados criam agora podem ser facilmente acessados por profissionais de dados para análise preditiva. Um profissional de dados no Azure Synapse pode simplesmente selecionar um modelo do registro de modelos do Azure Machine Learning para implantação em pools de SQL do Synapse e iniciar previsões para enriquecer os dados.
 
@@ -31,8 +31,8 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de c
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Workspace do Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento ADLS Gen2 configurada como o armazenamento padrão. Você precisa ser o **Colaborador de Dados do Blob de Armazenamento** do sistema de arquivos ADLS Gen2 com o qual trabalha.
-- Pool de SQL dedicado no seu workspace do Synapse Analytics. Para obter detalhes, confira [Criar um pool de SQL dedicado](../quickstart-create-sql-pool-studio.md).
-- Serviço vinculado do Azure Machine Learning em seu workspace do Synapse Analytics. Para obter mais detalhes, confira [Criar um serviço vinculado do Azure Machine Learning no Azure Synapse](quickstart-integrate-azure-machine-learning.md).
+- O pool de SQL dedicado em seu workspace do Azure Synapse Analytics. Para obter detalhes, confira [Criar um pool de SQL dedicado](../quickstart-create-sql-pool-studio.md).
+- Serviço vinculado do Azure Machine Learning em seu workspace do Azure Synapse Analytics. Para obter mais detalhes, confira [Criar um serviço vinculado do Azure Machine Learning no Azure Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -149,4 +149,4 @@ Antes de executar todas as células no notebook, verifique se a instância de co
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Início Rápido: Criar um serviço vinculado do Azure Machine Learning no Azure Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Funcionalidades de Machine Learning no Azure Synapse Analytics (versão prévia dos workspaces)](what-is-machine-learning.md)
+- [Funcionalidades do Machine Learning no Azure Synapse Analytics](what-is-machine-learning.md)

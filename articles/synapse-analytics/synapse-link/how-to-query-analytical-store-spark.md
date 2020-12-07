@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 28af603c0969419cd2e7b8683373faf3838e2242
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322580"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458935"
 ---
-# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagir com o Azure Cosmos DB usando o Apache Spark no Link do Azure Synapse (versão prévia)
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Fazer a interação com o Azure Cosmos DB usando o Apache Spark no Link do Azure Synapse
 
 Neste artigo, você aprenderá a interagir com o Azure Cosmos DB usando o Synapse Apache Spark. Com seu suporte completo para Scala, Python, SparkSQL e C#, o Synapse Apache Spark é fundamental para análise, engenharia de dados, ciência de dados e cenários de exploração de dados no [Link do Azure Synapse para Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -35,9 +35,9 @@ Antes de aprender sobre as duas opções possíveis para consultar o armazenamen
 
 A diferença na experiência é relativa a se as alterações de dados subjacentes no contêiner de Azure Cosmos DB devem ser refletidas automaticamente na análise realizada no Spark. Quando um DataFrame do Spark é registrado ou uma tabela do Spark é criada no armazenamento de análise de um contêiner, os metadados relativos ao instantâneo atual dos dados no armazenamento de análise são buscados para o Spark para uma aplicação eficiente da análise subsequente. É importante observar que, como o Spark segue uma política de avaliação lenta, a menos que uma ação seja invocada no DataFrame do Spark ou uma consulta do SparkSQL seja executada na tabela do Spark, os dados reais não serão buscados no armazenamento de análise do contêiner subjacente.
 
-No caso de **carregamento para o DataFrame do Spark** , os metadados buscados são armazenados em cache durante o tempo de vida da sessão do Spark, portanto, as ações subsequentes invocadas no DataFrame são avaliadas no instantâneo do armazenamento de análise no momento da criação do DataFrame.
+No caso de **carregamento para o DataFrame do Spark**, os metadados buscados são armazenados em cache durante o tempo de vida da sessão do Spark, portanto, as ações subsequentes invocadas no DataFrame são avaliadas no instantâneo do armazenamento de análise no momento da criação do DataFrame.
 
-Por outro lado, no caso **criar uma tabela do Spark** , os metadados do estado do armazenamento de análise não são armazenados em cache no Spark e recarregados em cada execução de consulta do SparkSQL em relação à tabela do Spark.
+Por outro lado, no caso **criar uma tabela do Spark**, os metadados do estado do armazenamento de análise não são armazenados em cache no Spark e recarregados em cada execução de consulta do SparkSQL em relação à tabela do Spark.
 
 Portanto, você pode escolher entre carregar para o DataFrame do Spark e criar uma tabela do Spark dependendo de se deseja que sua análise do Spark seja avaliada em um instantâneo fixo do armazenamento de análise ou no instantâneo mais recente do armazenamento de análise, respectivamente.
 

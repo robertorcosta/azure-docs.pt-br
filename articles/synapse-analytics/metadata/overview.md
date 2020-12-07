@@ -1,6 +1,6 @@
 ---
 title: Modelo de metadados compartilhados
-description: O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor (versão prévia), o pool de SQL sem servidor (versão prévia) e os pools de SQL dedicados.
+description: O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor, o pool de SQL sem servidor e os pools de SQL dedicados.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324657"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460344"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadados compartilhados do Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor (versão prévia) e o pool de SQL sem servidor (versão prévia).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor e o pool de SQL sem servidor.
 
 O compartilhamento dá suporte ao chamado padrão de data warehouse moderno e fornece aos mecanismos SQL do workspace acesso às tabelas e aos bancos de dados criados com o Spark. Ele também permite que os mecanismos SQL criem os próprios objetos que não estão sendo compartilhados com os outros mecanismos.
 

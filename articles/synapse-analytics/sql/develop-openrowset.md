@@ -1,6 +1,6 @@
 ---
-title: Como usar o OPENROWSET no pool de SQL sem servidor (versão prévia)
-description: Este artigo descreve a sintaxe do OPENROWSET no pool de SQL sem servidor (versão prévia) e explica como usar argumentos.
+title: Como usar a OPENROWSET no pool de SQL sem servidor
+description: Este artigo descreve a sintaxe da OPENROWSET no pool de SQL sem servidor e explica como usar argumentos.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888582"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446679"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como usar o OPENROWSET usando o pool de SQL sem servidor (versão prévia) no Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como usar a OPENROWSET usando o pool de SQL sem servidor no Azure Synapse Analytics
 
-A função `OPENROWSET(BULK...)` permite que você acesse arquivos no Armazenamento do Azure. A função `OPENROWSET` lê o conteúdo de uma fonte de dados remota (por exemplo, o arquivo) e retorna o conteúdo como um conjunto de linhas. No recurso do pool de SQL sem servidor (versão prévia), o provedor de conjuntos de linhas em massa da OPENROWSET é acessado por meio de uma chamada à função OPENROWSET e da especificação da opção BULK.  
+A função `OPENROWSET(BULK...)` permite que você acesse arquivos no Armazenamento do Azure. A função `OPENROWSET` lê o conteúdo de uma fonte de dados remota (por exemplo, o arquivo) e retorna o conteúdo como um conjunto de linhas. No recurso do pool de SQL sem servidor, o provedor de conjuntos de linhas em massa da OPENROWSET é acessado por meio de uma chamada à função OPENROWSET e da especificação da opção BULK.  
 
 A função `OPENROWSET` pode ser referenciada na cláusula `FROM` de uma consulta como se fosse um nome de tabela `OPENROWSET`. Ela também dá suporte a operações em massa por meio de um provedor BULK interno que permite que os dados de um arquivo sejam lidos e retornados como um conjunto de linhas.
 
@@ -147,7 +147,7 @@ No exemplo abaixo, se o unstructured_data_path=`https://mystorageaccount.dfs.cor
 
 A cláusula WITH permite que você especifique as colunas que deseja ler dos arquivos.
 
-- Em arquivos de dados CSV, para ler todas as colunas, forneça nomes de colunas e os respectivos tipos de dados. Se você quiser um subconjunto de colunas, use números ordinais para escolher as colunas dos arquivos de dados de origem por ordinal. As colunas serão vinculadas à designação ordinal. 
+- Em arquivos de dados CSV, para ler todas as colunas, forneça nomes de colunas e os respectivos tipos de dados. Se você quiser um subconjunto de colunas, use números ordinais para escolher as colunas dos arquivos de dados de origem por ordinal. As colunas serão vinculadas à designação ordinal. Se HEADER_ROW = TRUE for usado, então a associação de coluna será feita pelo nome da coluna em vez da posição ordinal.
     > [!TIP]
     > Também é possível omitir a cláusula WITH para arquivos CSV. Os tipos de dados serão inferidos automaticamente do conteúdo do arquivo. Você pode usar o argumento HEADER_ROW para especificar a existência da linha de cabeçalho e, nesse caso, os nomes das colunas serão lidos dessa linha. Para obter detalhes, confira a [descoberta automática de esquema](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ Especificações do analisador CSV versão 2.0:
 
 HEADER_ROW = { TRUE | FALSE }
 
-Especifica se o arquivo CSV contém a linha de cabeçalho. O padrão é FALSE. Com suporte em PARSER_VERSION='2.0'. Se for TRUE, os nomes de coluna serão lidos da primeira linha, de acordo com o argumento FIRSTROW.
+Especifica se o arquivo CSV contém a linha de cabeçalho. O padrão é FALSE. Com suporte em PARSER_VERSION='2.0'. Se for TRUE, os nomes de coluna serão lidos da primeira linha, de acordo com o argumento FIRSTROW. Se TRUE e esquema forem especificados usando WITH, a associação de nomes de colunas será feita por nome da coluna, não posições ordinais.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 

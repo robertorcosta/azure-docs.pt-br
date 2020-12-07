@@ -1,6 +1,6 @@
 ---
-title: Sincronizar o Apache Spark para definições de tabela externa no pool de SQL sem servidor (versão prévia)
-description: Visão geral de como consultar tabelas do Spark usando o pool de SQL sem servidor (versão prévia)
+title: Sincronizar o Apache Spark para definições de tabela externa no pool de SQL sem servidor
+description: Visão geral de como consultar tabelas do Spark usando o pool de SQL sem servidor
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315832"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446496"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Sincronizar o Apache Spark para definições de tabela externa do Azure Synapse no pool de SQL sem servidor (versão prévia)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Sincronizar o Apache Spark para definições de tabela externa do Azure Synapse no pool de SQL sem servidor
 
-O pool de SQL sem servidor (versão prévia) pode sincronizar automaticamente metadados do Apache Spark. Um banco de dados do pool de SQL sem servidor será criado para cada banco de dados existente nos pools do Apache Spark sem servidor (versão prévia). 
+O pool de SQL sem servidor pode sincronizar automaticamente metadados do Apache Spark. Um banco de dados do pool de SQL sem servidor será criado para cada banco de dados existente nos pools do Apache Spark sem servidor. 
 
 Para cada tabela externa do Spark baseada em Parquet e localizada no Armazenamento do Azure, uma tabela externa é criada no banco de dados do pool de SQL sem servidor. Assim, você pode desligar os seus pools do Spark e ainda consultar tabelas externas do Spark no pool de SQL sem servidor.
 

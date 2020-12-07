@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Services@SoSafe | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Services@SoSafe.
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SoSafe | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o SoSafe.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3fe42dd37bda3bef549570c32018179b88d06957
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ef0c1b95e89916c8fd71d5e0b6c60370e95d8417
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364888"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296965"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicessosafe"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Services@SoSafe
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sosafe"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SoSafe
 
-Neste tutorial, você aprenderá a integrar o Services@SoSafe ao Azure AD (Azure Active Directory). Ao integrar o Services@SoSafe ao Azure AD, você poderá:
+Neste tutorial, você aprenderá a integrar o SoSafe ao Azure AD (Azure Active Directory). Ao integrar o SoSafe ao Azure AD, você poderá:
 
-* Controlar no Azure AD quem tem acesso ao Services@SoSafe.
-* Permitir que os usuários sejam conectados automaticamente ao Services@SoSafe com as respectivas contas do Azure AD.
+* Controlar no Azure AD quem tem acesso ao SoSafe.
+* Permitir que os usuários sejam automaticamente conectados ao SoSafe com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,49 +31,49 @@ Neste tutorial, você aprenderá a integrar o Services@SoSafe ao Azure AD (Azure
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura do Services@SoSafe habilitada para SSO (logon único).
+* Assinatura habilitada para SSO (logon único) do SoSafe.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Services@SoSafe é compatível com SSO iniciado por **SP e IDP**
-* O Services@SoSafe é compatível com o provisionamento de usuário **Just In Time**
+* O SoSafe dá suporte ao SSO iniciado por **SP e IdP**
+* O SoSafe dá suporte ao provisionamento de usuário **Just-In-Time**
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
 
-## <a name="adding-servicessosafe-from-the-gallery"></a>Adicionar Services@SoSafe da galeria
+## <a name="adding-sosafe-from-the-gallery"></a>Como adicionar o SoSafe por meio da galeria
 
-Para configurar a integração de Services@SoSafe ao AD do Azure, você precisa adicionar Services@SoSafe por meio da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do SoSafe ao Azure AD, você precisará adicionar o SoSafe por meio da galeria à lista de aplicativos SaaS gerenciados.
 
 1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite Services@SoSafe na caixa de pesquisa.
-1. Selecione Services@SoSafe no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar por meio da galeria**, digite SoSafe na caixa de pesquisa.
+1. Selecione SoSafe no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-servicessosafe"></a>Configurar e testar o SSO do Azure AD para o Services@SoSafe
+## <a name="configure-and-test-azure-ad-sso-for-sosafe"></a>Configurar e testar o SSO do Azure AD para o SoSafe
 
-Configure e teste o SSO do Azure AD com o Services@SoSafe usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Services@SoSafe.
+Configure e teste o SSO do Azure AD com o SoSafe usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SoSafe.
 
-Para configurar e testar o SSO do Azure AD com o Services@SoSafe, execute as seguintes etapas:
+Para configurar e testar o SSO do Azure AD com o SoSafe, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do ServicesSoSafe](#configure-servicessosafe-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste no ServicesSoSafe](#create-servicessosafe-test-user)** – para ter um equivalente de B.Fernandes no Services@SoSafe que esteja vinculado à representação de usuário do Azure AD.
+1. **[Configurar o SSO do SoSafe](#configure-sosafe-sso)** : para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do SoSafe](#create-sosafe-test-user)** : para ter um equivalente de B.Fernandes no SoSafe que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No portal do Azure, na página de integração de aplicativos do Services@SoSafe, localize a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração de aplicativos do SoSafe, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
@@ -86,13 +86,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://api.sosafe.de/v1/auth/saml/login/<TENANT_ID>`
 
     > [!NOTE]
-    > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate a [Equipe de suporte ao Cliente do Services@SoSafe](mailto:support@sosafe.de) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do SoSafe](mailto:support@sosafe.de) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção Configurar o Services@SoSafe, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção Configurar o SoSafe, copie as URLs apropriadas de acordo com as suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -109,19 +109,19 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Services@SoSafe.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao SoSafe.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione Services@SoSafe.
+1. Na lista de aplicativos, selecione SoSafe.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-servicessosafe-sso"></a>Configurar o SSO do ServicesSoSafe
+## <a name="configure-sosafe-sso"></a>Configurar o SSO do SoSafe
 
-1. Em outra janela do navegador da Web, entre no site do Services@SoSafe como administrador.
+1. Em outra janela do navegador da Web, entre no site do SoSafe como administrador.
 
 1. Clique em **Dados Estendidos** e execute essas etapas na página a seguir.
 
@@ -139,9 +139,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     f. Clique em **SALVAR**
 
-### <a name="create-servicessosafe-test-user"></a>Criar usuário de teste do ServicesSoSafe
+### <a name="create-sosafe-test-user"></a>Criar um usuário de teste do SoSafe
 
-Nesta seção, é criado um usuário chamado Brenda Fernandes no Services@SoSafe. O Services@SoSafe é compatível com o provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se ainda não houver um usuário no Services@SoSafe, será criado um após a autenticação.
+Nesta seção, um usuário chamado Brenda Fernandes será criado no SoSafe. O SoSafe dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no SoSafe, ele será criado após a autenticação.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
@@ -149,18 +149,16 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-1. Clique em **Testar este aplicativo** no portal do Azure. Isso o redirecionará para a URL de Logon do Services@SoSafe, na qual você poderá iniciar o fluxo de logon.  
+1. Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do SoSafe, na qual poderá iniciar o fluxo de logon.  
 
-1. Acesse a URL de Logon do Services@SoSafe diretamente e inicie o fluxo de logon de lá.
+1. Acesse diretamente a URL de Logon do SoSafe e inicie o fluxo de logon nela.
 
 #### <a name="idp-initiated"></a>Iniciado por IdP:
 
-* Clique em **Testar este aplicativo** no portal do Azure e entre automaticamente no Services@SoSafe, para o qual configurou o SSO 
+* Clique em **Testar este aplicativo** no portal do Azure e você deverá ser conectado automaticamente ao SoSafe, para o qual configurou o SSO 
 
-Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco Services@SoSafe no Painel de Acesso, se ele estiver configurado no modo SP, você será redirecionado para a página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente ao Services@SoSafe para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do SoSafe no Painel de Acesso, se ele estiver configurado no modo SP, você será redirecionado para a página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você será conectado automaticamente ao SoSafe, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Services@SoSafe, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o SoSafe, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
