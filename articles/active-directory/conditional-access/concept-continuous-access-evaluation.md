@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602250"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860296"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -105,7 +105,7 @@ Se você não estiver usando clientes compatíveis com CAE, o tempo de vida do t
 
 1. Um cliente com capacidade de CAE apresenta credenciais ou um token de atualização para o Azure AD solicitando um token de acesso para algum recurso.
 1. Um token de acesso é retornado junto com outros artefatos para o cliente.
-1. Um administrador [revoga explicitamente todos os tokens de atualização para o usuário](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Um evento de revogação será enviado para o provedor de recursos do Azure AD.
+1. Um administrador [revoga explicitamente todos os tokens de atualização para o usuário](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Um evento de revogação será enviado para o provedor de recursos do Azure AD.
 1. Um token de acesso é apresentado ao provedor de recursos. O provedor de recursos avalia a validade do token e verifica se há qualquer evento de revogação para o usuário. O provedor de recursos usa essas informações para decidir conceder acesso ao recurso ou não.
 1. Nesse caso, o provedor de recursos nega o acesso e envia um desafio de declaração 401 + de volta para o cliente.
 1. O cliente com capacidade de CAE compreende o desafio de declaração 401 +. Ele ignora os caches e volta para a etapa 1, enviando seu token de atualização junto com o desafio de declaração de volta para o Azure AD. O Azure AD reavaliará todas as condições e solicitará que o usuário se autentique novamente nesse caso.

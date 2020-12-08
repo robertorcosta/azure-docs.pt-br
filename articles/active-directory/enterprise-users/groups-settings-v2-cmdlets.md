@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cab755156cf7220b2303d90c43ba8e78df7c24
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548113"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860636"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gerenciamento de grupos
 
@@ -50,7 +50,7 @@ Para verificar se o módulo está pronto para ser usado, use o seguinte comando:
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, veja a documentação de referência online do [PowerShell versão 2 do Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, veja a documentação de referência online do [PowerShell versão 2 do Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 > [!NOTE]
 > Os cmdlets do PowerShell do Azure AD não funcionam com o novo PowerShell 7, já que ele se baseia no .NET Core. Estamos cientes e isso está no processo de ser atualizado. A partir de agora, sugerimos usar o módulo do Windows PowerShell 5. x para ser usado para operações do PowerShell do Azure AD. 
@@ -338,7 +338,7 @@ O Write-back do grupo de Microsoft 365 é um recurso de visualização pública 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 * [Gerenciando o acesso a recursos com grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integração de suas identidades locais com o Active Directory do Azure](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

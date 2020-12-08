@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339465"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860619"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -66,7 +66,7 @@ Por exemplo, ao configurar a Federação direta para _ * fabrikam. com * *, a UR
 Se você especificar a URL de metadados nas configurações do provedor de identidade, o Azure AD renovará automaticamente o certificado de autenticação quando ele expirar. No entanto, se a rotação do certificado for realizada por qualquer motivo antes da hora de expiração ou se você não fornecer uma URL de metadados, o Azure AD não poderá renová-lo. Nesse caso, você precisará atualizar o certificado de autenticação manualmente.
 
 ### <a name="limit-on-federation-relationships"></a>Limite em relações de federação
-Atualmente, o limite máximo de 1.000 relações de federação é compatível. Esse limite inclui [federações internas](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) e federações diretas.
+Atualmente, o limite máximo de 1.000 relações de federação é compatível. Esse limite inclui [federações internas](/powershell/module/msonline/set-msoldomainfederationsettings) e federações diretas.
 
 ### <a name="limit-on-multiple-domains"></a>Limite em vários domínios
 Atualmente, a federação direta com vários domínios do mesmo locatário não é compatível.

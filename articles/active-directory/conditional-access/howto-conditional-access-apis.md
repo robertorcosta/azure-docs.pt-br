@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173678"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860206"
 ---
 # <a name="conditional-access-programmatic-access"></a>Acesso condicional: acesso programático
 
@@ -62,7 +62,7 @@ Este exemplo fornece um mecanismo para executar políticas de acesso condicional
 
 - [Implantar políticas de acesso condicional para ambientes de produção com fluxos de trabalho de aprovação](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitoramento
 
 Este exemplo fornece um mecanismo para monitorar as alterações de política de acesso condicional ao longo do tempo e pode disparar alertas quando as políticas de chave são alteradas.
 
@@ -96,6 +96,6 @@ Esses exemplos estão disponíveis em nosso [repositório GitHub](https://github
 
 - [Visão geral do Microsoft Graph](/graph/overview)
 
-- [API de acesso condicional](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [API de acesso condicional](/graph/api/resources/conditionalaccesspolicy)
 
-- [API de localização nomeada](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [API de localização nomeada](/graph/api/resources/namedlocation)

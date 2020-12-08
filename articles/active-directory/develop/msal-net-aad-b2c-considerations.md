@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173389"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860959"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usar o MSAL.NET para conectar usuários com identidades sociais
 
@@ -74,7 +74,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
                                            .ExecuteAsync();
 ```
 
-No trecho de código anterior:
+No snippet de código anterior:
 
 - `policy` é uma cadeia de caracteres que contém o nome do seu Azure AD B2C fluxo de usuário ou política personalizada (por exemplo, `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow` é necessário para o Android (a atividade) e é opcional para outras plataformas que dão suporte a uma interface do usuário pai como Windows no Microsoft Windows e UIViewController no iOS. Para obter mais informações sobre a caixa de diálogo da interface do usuário, consulte [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) no wiki do MSAL.
@@ -165,7 +165,7 @@ Forneceremos uma atualização para esse [problema](https://github.com/AzureAD/m
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema conhecido com o Azure AD B2C
 
-O MSAL.NET dá suporte a um [cache de token](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). A chave de cache de token é baseada nas declarações retornadas pelo IdP (provedor de identidade).
+O MSAL.NET dá suporte a um [cache de token](/dotnet/api/microsoft.identity.client.tokencache). A chave de cache de token é baseada nas declarações retornadas pelo IdP (provedor de identidade).
 
 Atualmente, o MSAL.NET precisa de duas declarações para criar uma chave de cache de token:
 

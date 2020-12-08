@@ -1,5 +1,5 @@
 ---
-title: Planejar e solucionar problemas de alterações de UPN (nome de entidade de usuário) do Azure
+title: Planejar e solucionar problemas de alterações de UPN (nome principal de usuário) do Azure
 description: Entender problemas conhecidos e mitigações para alterações de UPN
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744591"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858528"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planejar e solucionar problemas de alterações de nome principal de usuário no Azure Active Directory
 
@@ -135,7 +135,7 @@ Os usuários podem enfrentar problemas de logon único com aplicativos que depen
 Os problemas mencionados nesta seção foram corrigidos no Windows 10 maio 2020 atualização (2004).
 
 **Solução alternativa** <br>
-Permita tempo suficiente para que a alteração de UPN seja sincronizada com o Azure AD. Depois de verificar se o novo UPN é refletido no portal do AD do Azure, peça ao usuário para selecionar o bloco "outro usuário" para entrar com seu novo UPN. Você também pode verificar por meio do [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de entrar com seu novo UPN, as referências ao UPN antigo ainda podem aparecer na configuração do Windows "acesso corporativo ou de estudante".
+Permita tempo suficiente para que a alteração de UPN seja sincronizada com o Azure AD. Depois de verificar se o novo UPN é refletido no portal do AD do Azure, peça ao usuário para selecionar o bloco "outro usuário" para entrar com seu novo UPN. Você também pode verificar por meio do [PowerShell](/powershell/module/azuread/get-azureaduser). Depois de entrar com seu novo UPN, as referências ao UPN antigo ainda podem aparecer na configuração do Windows "acesso corporativo ou de estudante".
 
 ![Captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 

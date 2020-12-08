@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: d83b69ea7c2a4459d30c4ceb90f62ab6a1a10cc2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648167"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858222"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Exibindo aplicativos usando seu locatário do Azure AD para o gerenciamento de identidades
 A [série de guias de início rápido sobre o gerenciamento de aplicativos](view-applications-portal.md) orienta os conceitos básicos. Nele, você aprende a exibir todos os aplicativos usando seu locatário do Azure AD para o gerenciamento de identidades. Este artigo mergulha um pouco mais sobre os tipos de aplicativos que você encontrará.
@@ -31,7 +31,7 @@ Quando filtrada para **Todos os Aplicativos**, a **Lista** **Todos os Aplicativo
 - Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Registro de Aplicativo](../develop/quickstart-register-app.md)
 - Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Portal de Registro de Aplicativos V2.0](../develop/quickstart-register-app.md)
 - Ao adicionar um aplicativo, você está desenvolvendo usando os [métodos de autenticação ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou os [Serviços conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) do Visual Studio
-- Quando você cria um objeto de entidade de serviço usando o [Módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- Quando você cria um objeto de entidade de serviço usando o [Módulo do PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-adv2)
 - Quando você [dá consentimento a um aplicativo](../develop/howto-convert-app-to-be-multi-tenant.md) como administrador para usar dados em seu locatário
 - Quando um [usuário dá consentimento para um aplicativo](../develop/howto-convert-app-to-be-multi-tenant.md) usar dados no seu locatário
 - Quando você habilita determinados serviços que armazenam dados em seu locatário. Um exemplo é a Redefinição de Senha, que é modelada como uma entidade de serviço para armazenar sua senha de redefinição de senha com segurança.

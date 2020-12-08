@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489515"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860313"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como fazer: Bloquear autenticação herdada para Azure AD com Acesso Condicional   
 
@@ -115,11 +115,11 @@ A configuração de uma política para **Outros clientes** bloqueia determinados
 
 Pode levar até 24 horas para que a política entre em vigor.
 
-É possível selecionar todos os controles de concessão disponíveis para a condição de **Outros clientes** , no entanto, a experiência do usuário final será sempre a mesma - acesso bloqueado.
+É possível selecionar todos os controles de concessão disponíveis para a condição de **Outros clientes**, no entanto, a experiência do usuário final será sempre a mesma - acesso bloqueado.
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>Usuários convidados do SharePoint Online e B2B
 
-Para bloquear o acesso de usuário B2B por meio da autenticação herdada ao SharePoint Online, as organizações devem desabilitar a autenticação herdada no SharePoint usando o `Set-SPOTenant` comando do PowerShell e definindo o `-LegacyAuthProtocolsEnabled` parâmetro como `$false` . Mais informações sobre como definir esse parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell sobre [set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+Para bloquear o acesso de usuário B2B por meio da autenticação herdada ao SharePoint Online, as organizações devem desabilitar a autenticação herdada no SharePoint usando o `Set-SPOTenant` comando do PowerShell e definindo o `-LegacyAuthProtocolsEnabled` parâmetro como `$false` . Mais informações sobre como definir esse parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell sobre [set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## <a name="next-steps"></a>Próximas etapas
 

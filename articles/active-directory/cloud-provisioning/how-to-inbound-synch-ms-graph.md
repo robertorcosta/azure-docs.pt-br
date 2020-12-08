@@ -11,17 +11,17 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797bf5c7e69990a29f0d14c31586d0e85b42426
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96737953"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860348"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>Sincronização de entrada para provisionamento de nuvem usando o MS API do Graph
 
 O documento a seguir descreve como replicar um perfil de sincronização do zero usando apenas APIs MSGraph.  
-A estrutura de como fazer isso consiste nas etapas a seguir.  Eles são:
+A estrutura de como fazer isso consiste nas etapas a seguir.  Elas são:
 
 - [Configuração básica](#basic-setup)
 - [Criar entidades de serviço](#create-service-principals)
@@ -30,7 +30,7 @@ A estrutura de como fazer isso consiste nas etapas a seguir.  Eles são:
 - [Iniciar trabalho de sincronização](#start-sync-job)
 - [Status da revisão](#review-status)
 
-Use esses [módulo Microsoft Azure Active Directory para Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0) comandos para habilitar a sincronização para um locatário de produção, um pré-requisito para poder chamar o serviço Web de administração para esse locatário.
+Use esses [módulo Microsoft Azure Active Directory para Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/) comandos para habilitar a sincronização para um locatário de produção, um pré-requisito para poder chamar o serviço Web de administração para esse locatário.
 
 ## <a name="basic-setup"></a>Configuração básica
 
