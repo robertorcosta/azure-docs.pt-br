@@ -251,5 +251,7 @@
       items:
         - name: Preços
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: Contrato de Nível de Serviço
+          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: Regiões e disponibilidade
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
