@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546889"
+ms.locfileid: "96584502"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -97,13 +97,12 @@ No Windows, os comandos serão iniciados da seguinte maneira:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-No Linux ou no macOS, os comandos serão iniciados de maneira semelhante a esta:
-```shell   
-sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
-```
+No Linux ou macOS, os comandos se parecerão com o exemplo abaixo. Substitua `ABSOLUTE_PATH` pelo caminho absoluto do diretório montado. Esse caminho foi retornado pelo comando `pwd` na seção anterior. 
 
-> [!NOTE]
-> Substitua `/ABSOLUTE_PATH` pelo caminho absoluto mostrado pelo comando `pwd` na seção acima.
+Se você executar esse comando antes de definir sua chave e região, receberá uma mensagem de erro informando que você deve definir sua chave e região:
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 Para usar o comando `spx` instalado em um contêiner, sempre insira o comando completo mostrado acima, seguido dos parâmetros da solicitação.
 Por exemplo, no Windows, este comando define a chave:
@@ -115,26 +114,28 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 > [!WARNING]
 > Não é possível usar o microfone do computador durante a execução da CLI da Fala em um contêiner do Docker. No entanto, você pode ler e salvar arquivos de áudio em seu diretório montado local. 
 
-### <a name="optional-create-a-command-line-shortcut"></a>Opcional: Criar um atalho de linha de comando
+<!-- Need to troubleshoot issues with docker pull image
 
-Se você estiver executando a CLI da Fala em um contêiner do Docker no Linux ou no macOS, poderá criar um atalho. 
+### Optional: Create a command line shortcut
 
-Siga estas instruções para criar um atalho:
-1. Abra `.bash_profile` com seu editor de texto favorito. Por exemplo:
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
    ```shell
    nano ~/.bash_profile
    ```
-2. Em seguida, adicione essa função à sua `.bash_profile`. Atualize essa função com o caminho correto para o diretório montado:
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
    spx(){
-       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
    }
    ```
-3. Origem do seu perfil:
+3. Source your profile:
    ```shell
    source ~/.bash_profile
    ```
-4. Agora, em vez de executar `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`, você pode simplesmente digitar `spx`, seguido por argumentos. Por exemplo: 
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
    // Get some help
    spx help recognize
@@ -144,8 +145,8 @@ Siga estas instruções para criar um atalho:
    ```
 
 > [!WARNING]
-> Se você alterar o diretório montado que o Docker está referenciando, será necessário atualizar a função no `.bash_profile`.
-
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>Criar configuração da assinatura

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492107"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842692"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -114,23 +114,6 @@ Para obter mais informações, consulte [proteção avançada contra ameaças pa
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-Em geral, os recursos de arquivos do Azure e a interoperabilidade com outros serviços são os mesmos entre compartilhamentos de arquivos Premium e compartilhamentos de arquivos padrão (incluindo compartilhamentos de arquivos avançados, otimizados para transações), no entanto, há algumas diferenças importantes:
-- **Modelo de cobrança**
-    - Os compartilhamentos de arquivos Premium são cobrados usando um modelo de cobrança provisionado, o que significa que você paga um preço fixo quanto ao armazenamento que você provisiona, em vez da quantidade de armazenamento que você usa. Não há custos adicionais para transações e metadados em repouso.
-    - Os compartilhamentos de arquivos padrão são cobrados usando um modelo pago conforme o uso, que inclui um custo base de armazenamento para a quantidade de armazenamento que você está consumindo e, em seguida, um custo de transação adicional com base em como você usa o compartilhamento. Com compartilhamentos de arquivos padrão, sua fatura aumentará se você usar (leitura/gravação/montagem) do compartilhamento de arquivos do Azure mais.
-- **Opções de redundância**
-    - Os compartilhamentos de arquivos Premium só estão disponíveis para armazenamento com redundância local (LRS) e com redundância de zona (ZRS).
-    - Os compartilhamentos de arquivos padrão estão disponíveis para o armazenamento localmente redundante, com redundância de zona, com redundância geográfica (GRS) e com redundância de zona geográfica (GZRS).
-- **Tamanho máximo do compartilhamento de arquivos**
-    - Os compartilhamentos de arquivos Premium podem ser provisionados para até 100 TiB sem nenhum trabalho adicional.
-    - Por padrão, os compartilhamentos de arquivos padrão podem abranger até 5 TiB, embora o limite de compartilhamento possa ser aumentado para 100 TiB, optando pelo sinalizador de recurso de conta de armazenamento de *compartilhamento de arquivo grande* . Os compartilhamentos de arquivos padrão podem abranger até 100 TiB para contas de armazenamento com redundância local ou de zona. Para obter mais informações sobre como aumentar os tamanhos de compartilhamento de arquivos, consulte [habilitar e criar compartilhamentos de arquivos grandes](./storage-files-how-to-create-large-file-share.md).
-- **Disponibilidade regional**
-    - Os compartilhamentos de arquivos premium estão disponíveis na maioria das regiões do Azure, com uma exceção de algumas regiões. O suporte com redundância de zona está disponível em um subconjunto de regiões. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para descobrir quais regiões dão suporte a ZRS, consulte [armazenamento com redundância de zona](../common/storage-redundancy.md#zone-redundant-storage). Para nos ajudar a priorizar novas regiões e recursos da camada Premium, preencha esta [pesquisa](https://aka.ms/pfsfeedback).
-    - Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões do Azure.
-- O AKS (serviço kubernetes do Azure) dá suporte a compartilhamentos de arquivos Premium na versão 1,13 e posterior.
-
-Depois que um compartilhamento de arquivos é criado como um compartilhamento de arquivos Premium ou Standard, não é possível convertê-lo automaticamente para a outra camada. Se desejar alternar para a outra camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. É recomendável usar o `robocopy` para Windows ou `rsync` para MacOS e Linux para executar essa cópia.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Noções básicas sobre provisionamento para compartilhamentos de arquivos Premium
 Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa de GiB/IOPS/transferência fixa. Todos os tamanhos de compartilhamentos são oferecidos com a linha de base/taxa de transferência mínima e podem disparar. Para cada GiB provisionado, o compartilhamento será emitido mínimo de IOPS/taxa de transferência e uma taxa de transferência de IOPS e 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB com IOPS/taxa de transferência mínima. 
