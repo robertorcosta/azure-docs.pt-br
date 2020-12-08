@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: ef54c40715c874364beb188d8850a9ce953aa112
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551541"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781157"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Gerenciar fontes de dados no Azure alcance (versão prévia)
 
@@ -28,6 +28,7 @@ Neste artigo, você aprende a registrar novas fontes de dados, a gerenciar cole�
 * Azure Synapse Analytics (antigo SQL DW)
 * Azure Cosmos DB
 * Power BI
+* Teradata (Versão prévia)
 
 ## <a name="register-a-new-source"></a>Registrar uma nova fonte
 
@@ -80,5 +81,5 @@ Você pode remover fontes de uma hierarquia selecionando *nenhuma* para o pai. A
 Saiba como registrar e verificar várias fontes de dados:
 
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
-* [Locatário do Power BI](register-scan-power-bi-tenant.md)
+* [Power BI locatário](register-scan-power-bi-tenant.md)
 * [Banco de Dados SQL do Azure](register-scan-azure-sql-database.md)

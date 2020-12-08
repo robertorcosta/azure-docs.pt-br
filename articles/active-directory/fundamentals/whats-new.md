@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b836c28443790466084b1840edcf08dc09dcf4cc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518270"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779695"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -311,7 +311,7 @@ Para obter mais informações sobre esse recurso, consulte [desabilitar e exclui
 **Categoria de serviço:** Revisões de acesso  
 **Funcionalidade do produto:** Governança de identidade
  
-Nas revisões de acesso do Azure AD, os administradores que criam revisões agora podem gravar uma mensagem personalizada nos revisores. Os revisores verão a mensagem no email que recebem, solicitando que eles concluam a revisão. Para saber mais sobre como usar esse recurso, consulte a etapa 6 da seção [Configurações avançadas](../governance/create-access-review.md#advanced-settings) .
+Nas revisões de acesso do Azure AD, os administradores que criam revisões agora podem gravar uma mensagem personalizada nos revisores. Os revisores verão a mensagem no email que recebem, solicitando que eles concluam a revisão. Para saber mais sobre como usar esse recurso, consulte a etapa 14 da seção [criar uma ou mais revisões de acesso](../governance/create-access-review.md#create-one-or-more-access-reviews) .
 
 ---
 

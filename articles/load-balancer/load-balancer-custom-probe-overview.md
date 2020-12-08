@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695513"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780936"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -66,7 +66,7 @@ Os valores de tempo limite e intervalo especificados determinam se uma instânci
 
 Podemos ilustrar o comportamento mais detalhadamente com um exemplo. Se você tiver definido o número de respostas de investigação como 2 e o intervalo como 5 segundos, isso significará que 2 falhas de tempo limite de investigação devem ser observadas em um intervalo de 10 segundos.  Como a hora em que uma investigação é enviada não é sincronizada quando seu aplicativo pode mudar de estado, podemos associar o tempo para detectar por dois cenários:
 
-1. Se seu aplicativo começar a produzir uma resposta de investigação de tempo limite antes da chegada da primeira investigação, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo começando a sinalizar um tempo limite para quando a primeira investigação chegar.  Você pode assumir que essa detecção leva um pouco mais de 10 segundos.
+1. Se seu aplicativo começar a produzir uma resposta de investigação de tempo limite imediatamente antes da chegada da primeira investigação, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo começando a sinalizar um tempo limite para quando a primeira investigação chegar.  Você pode assumir que essa detecção leva um pouco mais de 10 segundos.
 2. Se seu aplicativo começar a produzir uma resposta de investigação de tempo limite logo após a chegada da primeira investigação, a detecção desses eventos não começará até que a próxima investigação chegue (e expire) mais 10 segundos (intervalos de 2 x 5 segundos).  Você pode assumir que essa detecção leva menos de 15 segundos.
 
 Para este exemplo, depois que a detecção tiver ocorrido, a plataforma levará um pouco de tempo para reagir a essa alteração.  Isso significa um dependendo de 

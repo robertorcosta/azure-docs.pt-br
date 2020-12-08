@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751369"
+ms.locfileid: "96780341"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -215,7 +215,7 @@ Do v 1.2.0 Azure CNI terá o modo transparente como padrão para implantações 
 
 ### <a name="bridge-mode"></a>Modo de ponte
 
-Como o nome sugere, o modo de ponte do Azure CNI, em uma forma "Just-in-time", criará uma ponte L2 chamada "azure0". Todas as interfaces de par de Pod do lado do host `veth` serão conectadas a essa ponte. Portanto, Pod-Pod comunicação intra VM é por meio dessa ponte. A ponte em questão é um dispositivo virtual de camada 2 que, por sua vez, não pode receber ou transmitir nada, a menos que você associe um ou mais dispositivos reais a ele. Por esse motivo, o eth0 da VM do Linux deve ser convertido em uma ponte subordinada para "azure0". Isso cria uma topologia de rede complexa na VM do Linux e, como um sintoma, CNI precisou cuidar de outras funções de rede, como atualização do servidor DNS e assim por diante.
+Como o nome sugere, o modo de ponte do Azure CNI, em uma forma "Just-in-time", criará uma ponte L2 chamada "azure0". Todas as interfaces de par de Pod do lado do host `veth` serão conectadas a essa ponte. Portanto, Pod-Pod comunicação intra VM e o tráfego restante passa por essa ponte. A ponte em questão é um dispositivo virtual de camada 2 que, por sua vez, não pode receber ou transmitir nada, a menos que você associe um ou mais dispositivos reais a ele. Por esse motivo, o eth0 da VM do Linux deve ser convertido em uma ponte subordinada para "azure0". Isso cria uma topologia de rede complexa na VM do Linux e, como um sintoma, CNI precisou cuidar de outras funções de rede, como atualização do servidor DNS e assim por diante.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia do modo de ponte":::
 
@@ -229,19 +229,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>Modo transparente
-O modo transparente usa uma abordagem direta para configurar a rede do Linux. Nesse modo, o Azure CNI não alterará nenhuma propriedade da interface eth0 na VM do Linux. Essa abordagem mínima de alteração das propriedades de rede do Linux ajuda a reduzir os problemas de caso de canto complexos que os clusters podem enfrentar com o modo de ponte. No modo transparente, o Azure CNI criará e adicionará interfaces de par de Pod do lado do host `veth` que serão adicionadas à rede do host. A comunicação Pod a Pod da VM é por meio de rotas IP que o CNI adicionará. Essencialmente, a VM interna de Pod a pod é o tráfego de rede de camada 3 inferior.
+O modo transparente usa uma abordagem direta para configurar a rede do Linux. Nesse modo, o Azure CNI não alterará nenhuma propriedade da interface eth0 na VM do Linux. Essa abordagem mínima de alteração das propriedades de rede do Linux ajuda a reduzir os problemas de caso de canto complexos que os clusters podem enfrentar com o modo de ponte. No modo transparente, o Azure CNI criará e adicionará interfaces de par de Pod do lado do host `veth` que serão adicionadas à rede do host. A comunicação Pod a Pod da VM é por meio de rotas IP que o CNI adicionará. Essencialmente, a comunicação Pod a pod é sobre a camada 3 e o tráfego pod é roteado pelas regras de roteamento L3.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologia de modo transparente":::
 
 Abaixo está um exemplo de configuração de rota de IP do modo transparente, a interface de cada pod obterá uma rota estática anexada para que o tráfego com IP de destino como o Pod seja enviado diretamente para a interface de par host do pod `veth` .
-
-### <a name="benefits-of-transparent-mode"></a>Benefícios do modo transparente
-
-- Fornece mitigação para a `conntrack` condição de corrida paralela do DNS e evitar problemas de latência de DNS de 5 segundos sem a necessidade de configurar o DNS local do nó (você ainda pode usar o DNS local do nó por motivos de desempenho).
-- Elimina o modo de ponte CNI de latência de DNS de 5 segundos inicial que apresenta hoje devido à configuração de ponte "Just-in-time".
-- Um dos casos de canto no modo de ponte é que o CNI do Azure não pode continuar atualizando as listas de servidores DNS personalizados que os usuários adicionam à VNET ou NIC. Isso resulta no CNI selecionando apenas a primeira instância da lista de servidores DNS. Resolvido no modo transparente, pois CNI não altera nenhuma propriedade eth0. Parece mais [aqui](https://github.com/Azure/azure-container-networking/issues/713).
-- Fornece melhor tratamento do tráfego UDP e mitigação para o Storm de inundação UDP quando o ARP atinge o tempo limite. No modo de ponte, quando a ponte não sabe um endereço MAC do pod de destino na comunicação de Pod a Pod da VM, por design, isso resulta no Storm do pacote para todas as portas. Resolvido no modo transparente, pois não há dispositivos L2 no caminho. Veja mais [aqui](https://github.com/Azure/azure-container-networking/issues/704).
-- O modo transparente tem melhor desempenho na comunicação Pod a Pod da VM em termos de taxa de transferência e latência quando comparado ao modo de ponte.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -254,6 +246,15 @@ Abaixo está um exemplo de configuração de rota de IP do modo transparente, a 
 169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
 ```
+
+### <a name="benefits-of-transparent-mode"></a>Benefícios do modo transparente
+
+- Fornece mitigação para a `conntrack` condição de corrida paralela do DNS e evitar problemas de latência de DNS de 5 segundos sem a necessidade de configurar o DNS local do nó (você ainda pode usar o DNS local do nó por motivos de desempenho).
+- Elimina o modo de ponte CNI de latência de DNS de 5 segundos inicial que apresenta hoje devido à configuração de ponte "Just-in-time".
+- Um dos casos de canto no modo de ponte é que o CNI do Azure não pode continuar atualizando as listas de servidores DNS personalizados que os usuários adicionam à VNET ou NIC. Isso resulta no CNI selecionando apenas a primeira instância da lista de servidores DNS. Resolvido no modo transparente, pois CNI não altera nenhuma propriedade eth0. Veja mais [aqui](https://github.com/Azure/azure-container-networking/issues/713).
+- Fornece melhor tratamento do tráfego UDP e mitigação para o Storm de inundação UDP quando o ARP atinge o tempo limite. No modo de ponte, quando a ponte não sabe um endereço MAC do pod de destino na comunicação de Pod a Pod da VM, por design, isso resulta no Storm do pacote para todas as portas. Resolvido no modo transparente, pois não há dispositivos L2 no caminho. Veja mais [aqui](https://github.com/Azure/azure-container-networking/issues/704).
+- O modo transparente tem melhor desempenho na comunicação Pod a Pod da VM em termos de taxa de transferência e latência quando comparado ao modo de ponte.
+
 
 <!-- LINKS - internal -->
 

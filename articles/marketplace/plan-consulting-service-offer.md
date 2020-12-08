@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452123"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780698"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Como planejar uma oferta de serviço de consultoria no Marketplace comercial
 
@@ -27,7 +27,21 @@ As ofertas de serviço de consultoria são publicadas como listagens de **contat
 
 ## <a name="primary-products-and-online-stores"></a>Produtos primários e lojas online
 
-Cada oferta de serviço de consultoria deve se concentrar em um produto da Microsoft, chamado de **produto principal**. O produto principal selecionado no Partner Center determina se sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace.
+Cada serviço de consultoria deve se concentrar em um desses produtos da Microsoft, chamado de **produto principal** da oferta:
+
+|Produto principal                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Dynamics 365 Project Service Automation |
+|Dynamics 365 Business Central  |Dynamics 365 Sales |
+|Dynamics 365 Commerce          |Gerenciamento da cadeia de fornecedores do Dynamics 365 |
+|Customer Insights do Dynamics 365 |Microsoft 365 |
+|Dynamics 365 Customer Service  |Power Apps |
+|Dynamics 365 Field Service     |Power Automate |
+|Dynamics 365 Finance           |Power BI |
+|Dynamics 365 Marketing         |Power Virtual Agents |
+|    |    |
+
+O produto principal selecionado no Partner Center determina se sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace.
 
 * Se o produto principal do seu serviço de consultoria for o Azure, a oferta será listada no Azure Marketplace.
 * Se o produto principal não for o Azure, a oferta será listada em AppSource.
@@ -91,6 +105,7 @@ Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens 
 |Introdução ao Azure IoT Edge em Fabricação |IoT para Manufatura: avaliação de dois dias |
 |Workshop sobre Smart Toasters |Torradeiras inteligentes: Workshop de 1 semana |
 |SQL Server VDC de migração pela contoso |Migração de SQL: Prova de conceito de 3 semanas |
+| | |
 
 **Resumo dos resultados da pesquisa**: Descreva a finalidade ou o objetivo da sua oferta em 200 caracteres ou menos. Esse resumo é usado no Marketplace comercial listando os resultados da pesquisa. Ele não deve ser idêntico ao título. Considere a inclusão de suas principais palavras-chave de SEO.
 
@@ -105,6 +120,7 @@ Ao escrever a descrição, siga estes critérios, de acordo com o tipo de servi�
 |Implementação |Inclua uma agenda detalhada de implementações por mais de um dia e descreva quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do envolvimento. |
 |Prova de conceito |Descreva quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do envolvimento. |
 |Workshop |Inclua uma agenda detalhada diária, semanal ou mensal, dependendo da duração da sua oferta. Articule os objetivos de aprendizado ou outras entregas de seu workshop. |
+| | |
 
 Aqui estão algumas dicas para escrever sua descrição:
 
@@ -142,6 +158,11 @@ Siga estas diretrizes para seus logotipos:
 **Mídia do Marketplace – capturas de tela**: Adicione pelo menos uma e até cinco imagens que demonstram sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em. Formato PNG.
 
 **Mídia do Marketplace – vídeos** (opcional): você pode adicionar até quatro vídeos que demonstram sua oferta. Os vídeos devem ser hospedados no YouTube ou no Vimeo e ter uma miniatura (arquivo PNG 1280 x 720).
+
+## <a name="pricing-and-availability"></a>Preços e disponibilidade
+
+Sua oferta de serviço de consultoria pode ser disponibilizada em um ou mais países ou regiões. No Partner Center, você pode decidir o preço de cada mercado selecionado. Para obter a lista completa de mercados e moedas com suporte, confira [disponibilidade geográfica e suporte de moeda para o Marketplace comercial](./marketplace-geo-availability-currencies.md).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

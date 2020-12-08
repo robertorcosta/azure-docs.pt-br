@@ -1,6 +1,6 @@
 ---
 title: Compartilhar imagens da Galeria entre locatários
-description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas usando exemplos do Linux.
+description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas usando CLI do Azure.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,14 +10,14 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5e71f09179d414be84896a49a66480f19a0665d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843580"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779253"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Compartilhar imagens de VM da galeria em locatários do Azure – exemplos do Linux
+# <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Compartilhar imagens de VM da galeria em locatários do Azure usando o CLI do Azure
 
 As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC do Azure. Você pode usar o RBAC do Azure para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](./shared-images-portal.md#share-the-gallery).
 

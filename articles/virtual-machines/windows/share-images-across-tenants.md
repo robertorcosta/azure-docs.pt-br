@@ -1,22 +1,22 @@
 ---
 title: Compartilhar imagens da Galeria entre locatários no Azure
-description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas usando exemplos do Windows.
+description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas e o PowerShell.
 author: axayjo
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 89987ccc975f5d473a493c48be61094de1177c1b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 84998182081c6a681668fbd9bc05446357beb959
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832408"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781038"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Compartilhar imagens de VM da galeria em locatários do Azure usando o PowerShell
 
 As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC do Azure. Você pode usar o RBAC do Azure para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](./shared-images-portal.md#share-the-gallery).
 

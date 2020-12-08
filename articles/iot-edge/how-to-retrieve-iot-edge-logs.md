@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: dccb734ef4eaa9f22b70488918f14ad94f723453
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437126"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780732"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
 
@@ -33,7 +33,7 @@ Embora não seja necessário, para obter a melhor compatibilidade com esse recur
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` deve seguir o [formato de nível de severidade do syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve ser formatado como `yyyy-mm-dd hh:mm:ss.fff zzz` .
+`{Log Level}` deve seguir o [formato de nível de severidade do syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve ser formatado como `yyyy-MM-dd hh:mm:ss.fff zzz` .
 
 A [classe de agente no IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serve como uma implementação canônica.
 
@@ -63,7 +63,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` e `filter` tuplas. |
@@ -172,7 +172,7 @@ Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adi�
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -186,7 +186,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
@@ -289,7 +289,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -310,7 +310,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
@@ -368,7 +368,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |

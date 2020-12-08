@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762543"
+ms.locfileid: "96779355"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -89,7 +89,7 @@ Quando você não exige registro, os usuários não são solicitados durante a e
 >
 > Essa interrupção para registrar para SSPR não interromperá a conexão do usuário se já tiver entrado.
 
-## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
+## <a name="reconfirm-authentication-information"></a>Reconfirmar informações de autenticação
 
 Para certificar-se de que os métodos de autenticação estejam corretos quando forem necessários para redefinir ou alterar sua senha, você pode exigir que os usuários confirmem suas informações registradas sobre a informação após um determinado período de tempo. Essa opção só estará disponível se você habilitar a opção **exigir que os usuários se registrem ao entrar** .
 

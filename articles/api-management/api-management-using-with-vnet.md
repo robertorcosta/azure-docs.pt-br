@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 9714dd49e06dabf9fb4669475f96089fcfc97d73
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7af15552a489f36d87204bfefe47e579cc19f6dc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146732"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778744"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre Redes Virtuais do Azure comece com as informações aqui: [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -46,36 +46,37 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Habilitar a conectividade VNET usando o portal do Azure
 
-1. Vá para o [portal do Azure](https://portal.azure.com) para encontrar sua instância de gerenciamento de API. Procure e selecione **serviços de gerenciamento de API** .
+1. Vá para o [portal do Azure](https://portal.azure.com) para encontrar sua instância de gerenciamento de API. Procure e selecione **serviços de gerenciamento de API**.
 
 2. Escolha sua instância de gerenciamento de API.
 
-3. Selecione **Rede virtual** .
+3. Selecione **Rede virtual**.
 4. Configure a instância de Gerenciamento de API a ser implantada dentro de uma Rede virtual.
 
-    ![Menu de rede virtual de Gerenciamento de API][api-management-using-vnet-menu]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Selecione rede virtual em portal do Azure.":::
+    
 5. Selecione o tipo de acesso desejado:
 
-    * **Off** : Esse é o padrão. O gerenciamento de API não é implantado em uma rede virtual.
+    * **Off**: Esse é o padrão. O gerenciamento de API não é implantado em uma rede virtual.
 
-    * **Externa** : O portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
+    * **Externa**: O portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
 
         ![Emparelhamento público][api-management-vnet-public]
 
-    * **Interna** : O portal de desenvolvedor e o gateway de Gerenciamento de API só podem ser acessados de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
+    * **Interna**: O portal de desenvolvedor e o gateway de Gerenciamento de API só podem ser acessados de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
 
         ![Emparelhamento privado][api-management-vnet-private]
 
-6. Se você selecionou **Externo** ou **Interno** , verá uma lista de todas as regiões em que seu serviço de Gerenciamento de API é provisionado. Escolha um **local** de e, em seguida, selecione sua **de rede virtual** e **de sub-rede** . A lista de redes virtuais é preenchida com as redes virtuais clássica e de Gerenciador de Recursos disponíveis nas assinaturas do Azure configuradas na região que você está configurando.
+6. Se você selecionou **Externo** ou **Interno**, verá uma lista de todas as regiões em que seu serviço de Gerenciamento de API é provisionado. Escolha um **local** de e, em seguida, selecione sua **de rede virtual** e **de sub-rede**. A lista de redes virtuais é preenchida com as redes virtuais clássica e de Gerenciador de Recursos disponíveis nas assinaturas do Azure configuradas na região que você está configurando.
 
     > [!IMPORTANT]
     > Ao implantar uma instância do Gerenciamento de API do Azure a uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto as instâncias do Gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância do Gerenciamento de API do Azure em uma VNET do Resource Manager que contém outros recursos, a implantação falhará.
 
-    Em seguida, selecione **Aplicar** . A página **rede virtual** da sua instância de gerenciamento de API é atualizada com suas novas opções de rede virtual e sub-rede.
+    Em seguida, selecione **Aplicar**. A página **rede virtual** da sua instância de gerenciamento de API é atualizada com suas novas opções de rede virtual e sub-rede.
 
-    ![Selecionar VPN][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Configurações de rede virtual no Portal.":::
 
-7. Na barra de navegação superior, selecione **salvar** e, em seguida, selecione **aplicar a configuração de rede** .
+7. Na barra de navegação superior, selecione **salvar** e, em seguida, selecione **aplicar a configuração de rede**.
 
 > [!NOTE]
 > O endereço VIP da instância do Gerenciamento de API mudará sempre que a VNET for habilitada ou desabilitada.
@@ -89,9 +90,9 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
 
-* **Criar um serviço de Gerenciamento de API dentro de uma VNET** : Use o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de Gerenciamento de API do Azure dentro de uma VNET.
+* **Criar um serviço de Gerenciamento de API dentro de uma VNET**: Use o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de Gerenciamento de API do Azure dentro de uma VNET.
 
-* **Implantar um serviço de Gerenciamento de API existente dentro de uma VNET** : Use o cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de Gerenciamento de API do Azure existente dentro de uma Rede Virtual.
+* **Implantar um serviço de Gerenciamento de API existente dentro de uma VNET**: Use o cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de Gerenciamento de API do Azure existente dentro de uma Rede Virtual.
 
 ## <a name="connect-to-a-web-service-hosted-within-a-virtual-network"></a><a name="connect-vnet"> </a>Conectar-se a um serviço Web hospedado em uma rede virtual
 Depois que o serviço de Gerenciamento de API for conectado à VNET, acessar os serviços de back-end nela será o mesmo que acessar serviços públicos. Basta digitar o endereço IP local ou o nome do host (se um servidor DNS estiver configurado para a VNET) do serviço Web no campo **URL do serviço Web** ao criar uma nova API ou editar uma já existente.
@@ -101,12 +102,12 @@ Depois que o serviço de Gerenciamento de API for conectado à VNET, acessar os 
 ## <a name="common-network-configuration-issues"></a><a name="network-configuration-issues"> </a>Problemas comuns de configuração de rede
 Veja a seguir uma lista de problemas comuns de erro de configuração que podem ocorrer ao implantar o serviço de Gerenciamento de API em uma rede virtual.
 
-* **Instalação de servidor DNS personalizado** : O serviço de Gerenciamento de API depende de vários serviços do Azure. Quando o Gerenciamento de API estiver hospedado em uma VNET com um servidor DNS personalizado, será necessário resolver os nomes de host desses serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientações sobre a configuração de DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para ter uma referência.
+* **Instalação de servidor DNS personalizado**: O serviço de Gerenciamento de API depende de vários serviços do Azure. Quando o Gerenciamento de API estiver hospedado em uma VNET com um servidor DNS personalizado, será necessário resolver os nomes de host desses serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientações sobre a configuração de DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para ter uma referência.
 
 > [!IMPORTANT]
 > Se você planeja usar Servidor(es) de DNS personalizados para a rede virtual, você deve configurá-lo **antes** de implantar um serviço de gerenciamento de API para ele. Caso contrário, você precisa atualizar o serviço de gerenciamento de API cada vez que alterar o(s) servidor(es) DNS executando a [Operação Aplicar configurações de rede](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
-* **Portas necessárias para o Gerenciamento de API** : O tráfego de entrada e saída para a sub-rede na qual o Gerenciamento de API foi implantado pode ser controlado usando o [Grupo de Segurança de Rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o Gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. A existência de uma ou mais dessas portas bloqueadas é outro problema de configuração incorreta no uso do Gerenciamento de API em uma VNET.
+* **Portas necessárias para o Gerenciamento de API**: O tráfego de entrada e saída para a sub-rede na qual o Gerenciamento de API foi implantado pode ser controlado usando o [Grupo de Segurança de Rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o Gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. A existência de uma ou mais dessas portas bloqueadas é outro problema de configuração incorreta no uso do Gerenciamento de API em uma VNET.
 
 <a name="required-ports"> </a> Quando uma instância do serviço Gerenciamento de API está hospedada em uma VNET, as portas na tabela a seguir são usadas.
 
@@ -127,36 +128,36 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 | * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Balanceador de carga de infraestrutura do Azure                          | Interno e externo  |
 
 >[!IMPORTANT]
-> As Portas para as quais a *Finalidade* é **negrito** são necessárias para o serviço de Gerenciamento de API ser implantado com êxito. No entanto, bloquear as outras portas causará **degradação** na capacidade de usar e **monitorar o serviço em execução e fornecer o SLA confirmado** .
+> As Portas para as quais a *Finalidade* é **negrito** são necessárias para o serviço de Gerenciamento de API ser implantado com êxito. No entanto, bloquear as outras portas causará **degradação** na capacidade de usar e **monitorar o serviço em execução e fornecer o SLA confirmado**.
 
-+ **Funcionalidade TLS** : Para habilitar a criação e validação de cadeia de certificados TLS/SSL o serviço Gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Essa dependência não é necessária, se qualquer certificado que você carrega no Gerenciamento de API contém a cadeia completa para a raiz de CA.
++ **Funcionalidade TLS**: Para habilitar a criação e validação de cadeia de certificados TLS/SSL o serviço Gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Essa dependência não é necessária, se qualquer certificado que você carrega no Gerenciamento de API contém a cadeia completa para a raiz de CA.
 
-+ **Acesso DNS** : O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível pela sub-rede que hospeda o Gerenciamento de API.
++ **Acesso DNS**: O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível pela sub-rede que hospeda o Gerenciamento de API.
 
-+ **Monitoramento de integridade e métricas** : Conectividade de rede de saída para pontos de extremidade do Monitoramento do Azure, que são resolvidos sob os seguintes domínios. Conforme mostrado na tabela, essas URLs são representadas na marca de serviço AzureMonitor para uso com grupos de segurança de rede.
++ **Monitoramento de integridade e métricas**: Conectividade de rede de saída para pontos de extremidade do Monitoramento do Azure, que são resolvidos sob os seguintes domínios. Conforme mostrado na tabela, essas URLs são representadas na marca de serviço AzureMonitor para uso com grupos de segurança de rede.
 
     | Azure Environment | Pontos de extremidade                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Público do Azure      | <ul><li>gcs.prod.monitoring.core.windows.net( **novo** )</li><li>prod.warmpath.msftcloudes.com( **será preterido** )</li><li>global.prod.microsoftmetrics.com( **novo** )</li><li>global.metrics.nsatc.net( **será preterido** )</li><li>shoebox2.prod.microsoftmetrics.com( **novo** )</li><li>shoebox2.metrics.nsatc.net( **será preterido** )</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com( **novo** )</li><li>prod3.metrics.nsatc.net( **será preterido** )</li><li>prod3-black.prod.microsoftmetrics.com( **novo** )</li><li>prod3-black.prod3.metrics.nsatc.net( **será preterido** )</li><li>prod3-red.prod.microsoftmetrics.com( **novo** )</li><li>prod3-red.prod3.metrics.nsatc.net( **será preterido** )</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com( **novo** )</li><li>global.metrics.nsatc.net( **será preterido** )</li><li>shoebox2.prod.microsoftmetrics.com( **novo** )</li><li>shoebox2.metrics.nsatc.net( **será preterido** )</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com( **novo** )</li><li>prod3.metrics.nsatc.net( **será preterido** )</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com( **novo** )</li><li>global.metrics.nsatc.net( **será preterido** )</li><li>shoebox2.prod.microsoftmetrics.com( **novo** )</li><li>shoebox2.metrics.nsatc.net( **será preterido** )</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com( **novo** )</li><li>prod3.metrics.nsatc.net( **será preterido** )</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
+    | Público do Azure      | <ul><li>gcs.prod.monitoring.core.windows.net(**novo**)</li><li>prod.warmpath.msftcloudes.com(**será preterido**)</li><li>global.prod.microsoftmetrics.com(**novo**)</li><li>global.metrics.nsatc.net(**será preterido**)</li><li>shoebox2.prod.microsoftmetrics.com(**novo**)</li><li>shoebox2.metrics.nsatc.net(**será preterido**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**novo**)</li><li>prod3.metrics.nsatc.net(**será preterido**)</li><li>prod3-black.prod.microsoftmetrics.com(**novo**)</li><li>prod3-black.prod3.metrics.nsatc.net(**será preterido**)</li><li>prod3-red.prod.microsoftmetrics.com(**novo**)</li><li>prod3-red.prod3.metrics.nsatc.net(**será preterido**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com(**novo**)</li><li>global.metrics.nsatc.net(**será preterido**)</li><li>shoebox2.prod.microsoftmetrics.com(**novo**)</li><li>shoebox2.metrics.nsatc.net(**será preterido**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**novo**)</li><li>prod3.metrics.nsatc.net(**será preterido**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**novo**)</li><li>global.metrics.nsatc.net(**será preterido**)</li><li>shoebox2.prod.microsoftmetrics.com(**novo**)</li><li>shoebox2.metrics.nsatc.net(**será preterido**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**novo**)</li><li>prod3.metrics.nsatc.net(**será preterido**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > A alteração de clusters acima com a zona DNS **. nsatc.net** como **. microsoftmetrics.com** é a maior parte de uma alteração de DNS. O endereço IP do cluster não será alterado.
 
-+ **Tags de Serviço Regional** : As regras de NSG que permitem a conectividade de saída para as marcas de serviço de armazenamento, SQL e hubs de eventos podem usar as versões regionais dessas marcas correspondentes à região que contém a instância de gerenciamento de API (por exemplo, Storage. Westus para uma instância de gerenciamento de API na região oeste dos EUA). Em implantações de várias regiões, o NSG em cada região deve permitir o tráfego para as marcas de serviço para essa região e a região primária.
++ **Tags de Serviço Regional**: As regras de NSG que permitem a conectividade de saída para as marcas de serviço de armazenamento, SQL e hubs de eventos podem usar as versões regionais dessas marcas correspondentes à região que contém a instância de gerenciamento de API (por exemplo, Storage. Westus para uma instância de gerenciamento de API na região oeste dos EUA). Em implantações de várias regiões, o NSG em cada região deve permitir o tráfego para as marcas de serviço para essa região e a região primária.
 
-+ **Retransmissão de SMTP** : Conectividade de rede de saída para a retransmissão de SMTP, que resolve sob o host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
++ **Retransmissão de SMTP**: Conectividade de rede de saída para a retransmissão de SMTP, que resolve sob o host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 
-+ **CAPTCHA do portal do desenvolvedor** : Conectividade de rede de saída para o CAPTCHA do portal do desenvolvedor, que é resolvido sob os hosts `client.hip.live.com` e `partner.hip.live.com`.
++ **CAPTCHA do portal do desenvolvedor**: Conectividade de rede de saída para o CAPTCHA do portal do desenvolvedor, que é resolvido sob os hosts `client.hip.live.com` e `partner.hip.live.com`.
 
-+ **Diagnósticos do portal do Azure** : Para habilitar o fluxo de log de diagnóstico do portal do Azure ao usar a extensão de Gerenciamento de API de dentro de uma Rede Virtual, é necessário ter acesso de saída a `dc.services.visualstudio.com` na porta 443. Isso ajuda na solução de problemas que você pode enfrentar ao usar a extensão.
++ **Diagnósticos do portal do Azure**: Para habilitar o fluxo de log de diagnóstico do portal do Azure ao usar a extensão de Gerenciamento de API de dentro de uma Rede Virtual, é necessário ter acesso de saída a `dc.services.visualstudio.com` na porta 443. Isso ajuda na solução de problemas que você pode enfrentar ao usar a extensão.
 
-+ **Azure Load Balancer** : Permitir a solicitação de entrada da marca de serviço `AZURE_LOAD_BALANCER` não é um requisito para a SKU `Developer`, já que implantamos apenas uma unidade de computação por trás dela. Mas a entrada de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se torna crítica ao Dimensionar para uma SKU superior como `Premium`, como falha da investigação de integridade do Load Balancer, falha em uma implantação.
++ **Azure Load Balancer**: Permitir a solicitação de entrada da marca de serviço `AZURE_LOAD_BALANCER` não é um requisito para a SKU `Developer`, já que implantamos apenas uma unidade de computação por trás dela. Mas a entrada de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se torna crítica ao Dimensionar para uma SKU superior como `Premium`, como falha da investigação de integridade do Load Balancer, falha em uma implantação.
 
-+ **Application insights** : se o monitoramento do [aplicativo Azure insights](api-management-howto-app-insights.md) estiver habilitado no gerenciamento de API, será necessário permitir a conectividade de saída para o [ponto de extremidade de telemetria](../azure-monitor/app/ip-addresses.md#outgoing-ports) da rede virtual. 
++ **Application insights**: se o monitoramento do [aplicativo Azure insights](api-management-howto-app-insights.md) estiver habilitado no gerenciamento de API, será necessário permitir a conectividade de saída para o [ponto de extremidade de telemetria](../azure-monitor/app/ip-addresses.md#outgoing-ports) da rede virtual. 
 
-+ **Forçar o túnel de tráfego para o firewall local usando a rota expressa ou a solução de virtualização de rede** : Uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), o que força todo o tráfego da sub-rede delegada do gerenciamento de API a fluir por um firewall local ou para uma solução de virtualização de rede. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
++ **Forçar o túnel de tráfego para o firewall local usando a rota expressa ou a solução de virtualização de rede**: Uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), o que força todo o tráfego da sub-rede delegada do gerenciamento de API a fluir por um firewall local ou para uma solução de virtualização de rede. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
 
   * Habilite os pontos de extremidade de serviço na sub-rede em que o serviço de gerenciamento de API está implantado. [Os pontos de extremidade de serviço][ServiceEndpoints] precisam ser habilitados para SQL do Azure, armazenamento do Azure, EventHub do Azure e ServiceBus do Azure. Habilitar pontos de extremidade diretamente da sub-rede delegada do gerenciamento de API para esses serviços permite que eles usem o Microsoft Azure rede de backbone fornecendo roteamento ideal para o tráfego de serviço. Se você usar pontos de extremidade de serviço com um gerenciamento de APIs encapsulado forçado, o tráfego de serviços do Azure acima não será encapsulado. O outro tráfego de dependência do serviço de Gerenciamento de API é forçado em túnel e não pode ser perdido ou o serviço de Gerenciamento de API não funcionaria corretamente.
     
@@ -169,7 +170,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
       - CAPTCHA do portal do desenvolvedor
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Solução de problemas
-* **Configuração inicial** : Quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Na próxima área de trabalho remota na máquina virtual e valide se há conectividade com um de cada recurso abaixo em sua assinatura do Azure
+* **Configuração inicial**: Quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Na próxima área de trabalho remota na máquina virtual e valide se há conectividade com um de cada recurso abaixo em sua assinatura do Azure
     * Azure Storage Blob
     * Banco de Dados SQL do Azure
     * Tabela de armazenamento do Azure
@@ -177,9 +178,18 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
   > [!IMPORTANT]
   > Após validar a conectividade, certifique-se de remover todos os recursos implantados na sub-rede antes de implantar o Gerenciamento de API na sub-rede.
 
-* **Atualizações incrementais** : Ao fazer alterações em sua rede, consulte [API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus) para verificar se o serviço de Gerenciamento de API não perdeu o acesso a qualquer um dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
+* **Verificar o status de conectividade de rede**: depois de implantar o gerenciamento de API na sub-rede, use o portal para verificar a conectividade de sua instância para dependências como o armazenamento do Azure. No portal, no menu à esquerda, em **implantação e infraestrutura**, selecione **status de conectividade de rede**.
 
-* **Links de Navegação do Recurso** : Ao implantar na sub-rede da VNET do estilo Resource Manager, o Gerenciamento de API reserva a sub-rede criando um Link de navegação do recurso. Se a sub-rede já contiver um recurso de outro provedor, a implantação **falhará** . Da mesma forma, quando você move um serviço de Gerenciamento de API para uma sub-rede diferente ou o exclui, removeremos esse link de navegação do recurso.
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verificar o status de conectividade de rede no portal":::
+
+    * Selecione **necessário** para examinar a conectividade com os serviços do Azure necessários para o gerenciamento de API. Uma falha indica que a instância não pode executar operações de núcleo para gerenciar APIs.
+    * Selecione **opcional** para examinar a conectividade com os serviços opcionais. Qualquer falha indica apenas que a funcionalidade específica não funcionará (por exemplo, SMTP). Uma falha pode levar à degradação na capacidade de usar e monitorar a instância de gerenciamento de API e fornecer o SLA confirmado.
+
+Para resolver problemas de conectividade, examine [problemas comuns de configuração de rede](#network-configuration-issues) e corrija as configurações de rede necessárias.
+
+* **Atualizações incrementais**: Ao fazer alterações em sua rede, consulte [API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus) para verificar se o serviço de Gerenciamento de API não perdeu o acesso a qualquer um dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
+
+* **Links de Navegação do Recurso**: Ao implantar na sub-rede da VNET do estilo Resource Manager, o Gerenciamento de API reserva a sub-rede criando um Link de navegação do recurso. Se a sub-rede já contiver um recurso de outro provedor, a implantação **falhará**. Da mesma forma, quando você move um serviço de Gerenciamento de API para uma sub-rede diferente ou o exclui, removeremos esse link de navegação do recurso.
 
 ## <a name="subnet-size-requirement"></a><a name="subnet-size"> </a> Requisito de tamanho de sub-rede
 O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser usados. O primeiro e o último endereço IP das sub-redes são reservados para fins de conformidade de protocolo, juntamente com três outros endereços usados para os serviços do Azure. Para obter mais informações, consulte [Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -204,7 +214,7 @@ Cada unidade de escala adicional do gerenciamento de API requer mais dois endere
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Controlar endereços IP planos
 
-Os endereços IP são divididos por **ambiente do Azure** . Ao permitir que as solicitações de entrada, o endereço IP marcado com **global** deve ser permitido junto com o endereço IP específico da **região** .
+Os endereços IP são divididos por **ambiente do Azure**. Ao permitir que as solicitações de entrada, o endereço IP marcado com **global** deve ser permitido junto com o endereço IP específico da **região** .
 
 | **Azure Environment**|   **Região**|  **Endereço IP**|
 |-----------------|-------------------------|---------------|
