@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: makromer
-ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015164"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853997"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de modelo de dados comuns no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,9 +20,6 @@ ms.locfileid: "95015164"
 O sistema de metadados do CDM (Common Data Service) possibilita que os dados e seu significado sejam facilmente compartilhados entre aplicativos e processos de negócios. Para saber mais, consulte a visão geral do [Common Data](/common-data-model/) Service.
 
 No Azure Data Factory, os usuários podem transformar dados de entidades CDM no formulário model.jse no manifesto armazenado em [Azure data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) usando fluxos de dados de mapeamento. Você também pode coletar dados no formato CDM usando referências de entidade CDM que vão parar seus dados no formato CSV ou parquet em pastas particionadas. 
-
-> [!NOTE]
-> O conector de formato de modelo de dados comuns (CDM) para fluxos de dados do ADF está disponível atualmente como uma visualização pública.
 
 ## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
 
@@ -35,10 +32,10 @@ O Common Data Service está disponível como um [conjunto de dados embutido](dat
 
 A tabela abaixo lista as propriedades com suporte por uma fonte CDM. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
-| Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Yes | `'manifest'` ou `'model'` | manifestatype |
+| Formato | O formato deve ser `cdm` | sim | `cdm` | format |
+| Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Sim | `'manifest'` ou `'model'` | manifestatype |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
 | Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
 | Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | String | entityPath |
@@ -88,7 +85,6 @@ Ao mapear colunas de fluxo de dados para propriedades de entidade na transforma�
 2. Localize as partições. Propriedade Location 
 3. Alterar "blob.core.windows.net" para "dfs.core.windows.net"
 4. Corrigir qualquer codificação "% 2F" na URL para "/"
- 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Exemplo de script de fluxo de dados de origem CDM
 
@@ -118,9 +114,9 @@ source(output(
 
 A tabela abaixo lista as propriedades com suporte de um coletor CDM. Você pode editar essas propriedades na guia **configurações** .
 
-| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
+| Formato | O formato deve ser `cdm` | sim | `cdm` | format |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
 | Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
 | Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | String | entityPath |

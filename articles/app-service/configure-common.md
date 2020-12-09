@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7c1b9ad033ade3b577dc4a06e84801dab3b7eb70
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763954"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854641"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -29,7 +29,7 @@ No menu à esquerda do aplicativo, selecione **Configuration**  >  **configuraç
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
-Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` *Web.config* ou *appsettings.jsem*, mas os valores no serviço de aplicativo substituem aqueles em *Web.config* ou *appsettings.jsem*. Você pode manter as configurações de desenvolvimento (por exemplo, a senha local do MySQL) em *Web.config* ouappsettings.jsos segredos *de* produção e (por exemplo, a senha do banco de dados MySQL do Azure) com segurança no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
+Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` *Web.config* ou *appsettings.jsem*, mas os valores no serviço de aplicativo substituem aqueles em *Web.config* ou *appsettings.jsem*. Você pode manter as configurações de desenvolvimento (por exemplo, a senha do MySQL local) em *Web.config* ouappsettings.jsos segredos *de* produção e do Azure (por exemplo, a senha do banco de dados MySQL) com segurança no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
 Outras pilhas de idiomas, da mesma forma, obtêm as configurações do aplicativo como variáveis de ambiente no tempo de execução. Para obter as etapas específicas da pilha de idiomas, consulte:
 

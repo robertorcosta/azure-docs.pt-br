@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 268862d6e868342a252ca9d5eb08b9753142e8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 99246ecee27f7ded693e2a797f8e98480e350983
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750739"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854522"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -37,7 +37,7 @@ A segurança e a privacidade estão entre as principais prioridades do Azure e d
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Em quais regiões o Azure Spring Cloud está disponível?
 
-Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, oeste dos EUA 2, Europa Ocidental, Europa Setentrional, Sul do Reino Unido, Sudeste Asiático e leste da Austrália.
+Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, norte EUA Central, oeste dos EUA, oeste dos EUA 2, Europa Ocidental, Europa Setentrional, Sul do Reino Unido, Sudeste Asiático, leste da Austrália, centro-Canadá e Norte dos EAU.
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Os dados do cliente são armazenados fora da região especificada?
 

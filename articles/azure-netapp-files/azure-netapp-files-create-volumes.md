@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006603"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854726"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
-O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume do NFS. 
+O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume do NFS. 
 
 ## <a name="before-you-begin"></a>Antes de começar 
 * Você deve já configurou um pool de capacidade.  
@@ -42,7 +42,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 * Usuário/grupo local e suporte LDAP para NFSv 4.1  
   Atualmente, o NFSv 4.1 dá suporte ao acesso raiz somente a volumes. Consulte [Configurar o domínio padrão do nfsv 4.1 para Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## <a name="best-practice"></a>Prática recomendada
+## <a name="best-practice"></a>Melhor prática
 
 * Verifique se você está usando as instruções de montagem adequadas para o volume.  Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 

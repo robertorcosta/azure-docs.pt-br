@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659141"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854692"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -60,7 +60,7 @@ Não, o Azure NetApp Files atualmente não dá suporte à VNet de pilha dupla (I
 
 O tráfego de dados entre os clientes NFSv 4.1 e os volumes Azure NetApp Files pode ser criptografado usando o Kerberos com a criptografia AES-256. Consulte [Configurar nfsv 4.1 criptografia Kerberos para Azure NetApp files](configure-kerberos-encryption.md) para obter detalhes.   
 
-O tráfego de dados entre clientes NFSv3 ou SMBv3 para Azure NetApp Files volumes não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
+O tráfego de dados entre clientes NFSv3 ou SMB3 para Azure NetApp Files volumes não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>O armazenamento pode ser criptografado em repouso?
 

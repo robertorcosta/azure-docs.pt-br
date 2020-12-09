@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749038"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855066"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -34,7 +34,7 @@ A tabela a seguir resume os tipos de amostragem disponíveis para cada SDK e tip
 |-|-|-|-|
 | ASP.NET | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | ASP.NET Core | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Somente se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
+| Verificação de | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
 | Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | Node.JS | Não | [Sim](./nodejs.md#sampling) | Somente se nenhuma outra amostragem estiver em vigor
 | Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Somente se nenhuma outra amostragem estiver em vigor |
@@ -315,18 +315,12 @@ Por padrão, nenhuma amostragem está habilitada no Java Agent e no SDK. Atualme
 
 1. Baixe [applicationinsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Para habilitar a amostragem, adicione o seguinte ao seu `ApplicationInsights.json` arquivo:
+1. Para habilitar a amostragem, adicione o seguinte ao seu `applicationinsights.json` arquivo:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ A precisão da aproximação depende principalmente do percentual de amostragem 
 
 * A amostragem de ingestão pode ocorrer automaticamente para qualquer telemetria acima de um determinado volume, se o SDK não estiver executando a amostragem. Essa configuração funcionaria, por exemplo, se você estiver usando uma versão mais antiga do SDK do ASP.NET ou do SDK do Java.
 * Se você estiver usando os SDKs atuais do ASP.NET ou do ASP.NET Core (hospedados no Azure ou em seu próprio servidor), obterá amostragem adaptável por padrão, mas você pode alternar para a taxa fixa, conforme descrito acima. Com a amostragem de taxa fixa, o SDK do navegador sincroniza automaticamente os eventos relacionados ao exemplo. 
-* Se você estiver usando o agente Java atual, poderá configurar `ApplicationInsights.json` (para o SDK do Java, configurar `ApplicationInsights.xml` ) para ativar a amostragem de taxa fixa. A amostragem é desativada por padrão. Com a amostragem de taxa fixa, o SDK do navegador e o servidor são sincronizados automaticamente com os eventos relacionados de exemplo.
+* Se você estiver usando o agente Java atual, poderá configurar `applicationinsights.json` (para o SDK do Java, configurar `ApplicationInsights.xml` ) para ativar a amostragem de taxa fixa. A amostragem é desativada por padrão. Com a amostragem de taxa fixa, o SDK do navegador e o servidor são sincronizados automaticamente com os eventos relacionados de exemplo.
 
 *Há alguns eventos raros que sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
 

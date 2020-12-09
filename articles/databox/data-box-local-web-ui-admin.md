@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576818"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854998"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
@@ -29,15 +29,15 @@ Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os lo
 
 Para gerar um pacote de suporte, execute as seguintes etapas:
 
-1. Na interface do usuário da Web local, acesse **contatar o suporte**. Opcionalmente, selecione **incluir despejo de memória**. Em seguida, selecione **criar pacote de suporte**.
+1. Na interface do usuário da Web local, acesse **contatar o suporte**. Opcionalmente, selecione **incluir despejos de memória**. Em seguida, selecione **criar pacote de suporte**.
 
     Um despejo de memória é o conteúdo da memória do dispositivo, salvo após uma falha do sistema.
 
-    Você não deve selecionar a opção **incluir despejo de memória** , a menos que o suporte solicite uma. Leva muito tempo para coletar um pacote de suporte que inclui um despejo de memória e dados confidenciais são incluídos.
+    Você não deve selecionar a opção **incluir despejos de memória** , a menos que o suporte solicite um. Leva muito tempo para reunir um pacote de suporte que inclui despejos de memória e dados confidenciais são incluídos.
 
     ![Criar pacote de suporte 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    Um pacote de suporte será coletado. Essa operação levará alguns minutos se você incluir apenas os logs do sistema. Se você incluir um despejo de memória, levará muito mais tempo.
+    Um pacote de suporte será coletado. Essa operação levará alguns minutos se você incluir apenas os logs do sistema. Se você incluir despejos de memória, levará muito mais tempo.
 
     ![Criar pacote de suporte 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 

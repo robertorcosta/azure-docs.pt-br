@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186687"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853129"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -177,7 +177,7 @@ Consulte [visão geral dos agentes de Azure monitor](platform/agents-overview.md
 
 | Agente |  Métricas | Logs |
 |:---|:---|:---|:---|
-| [Agente de Azure Monitor (versão prévia)](platform/azure-monitor-agent-overview.md) | Sim | Sim |
+| [Agente do Azure Monitor (versão prévia)](platform/azure-monitor-agent-overview.md) | Sim | Sim |
 | [Agente do Log Analytics](platform/log-analytics-agent.md) | Não | Sim|
 | [Extensão de diagnóstico](platform/diagnostics-extension-overview.md) | Sim | Não |
 | [Agente Telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Sim | Não |
@@ -194,7 +194,7 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um works
 | [Central de Segurança do Azure](../security-center/index.yml) | Colete e analise eventos de segurança e execute a análise de ameaças. Confira [Coleta de dados na Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a fontes diferentes, incluindo o Office 365 e o Amazon Web Services CloudTrail. Confira [Conectar fontes de dados](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Crie uma configuração de diagnóstico para enviar logs para o Azure Monitor. Confira [Enviar dados de log para armazenamento, hubs de eventos ou análise de logs no Intune (versão prévia)](/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Rede  | [Monitor de Desempenho de Rede](insights/network-performance-monitor.md) – monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e aplicativo.<br>[Gateway de Aplicativo do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analise os logs e as métricas do Gateway de Aplicativo do Azure.<br>[Análise de Tráfego](../network-watcher/traffic-analytics.md) –analisa os logs de fluxo de NSG (grupo de segurança de rede) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
+| Rede  | [Monitor de Desempenho de Rede](insights/network-performance-monitor.md) – monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e aplicativo.<br>[Gateway de Aplicativo do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics) – analise os logs e as métricas do Gateway de Aplicativo do Azure.<br>[Análise de Tráfego](../network-watcher/traffic-analytics.md) –analisa os logs de fluxo de NSG (grupo de segurança de rede) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitore seu ambiente do Office 365. Versão atualizada com integração aprimorada disponível por meio do Azure Sentinel. |
 | [Análise de SQL](insights/azure-sql.md) | Monitore o desempenho de bancos de dados SQL do Azure e instâncias gerenciadas do SQL em escala e em várias assinaturas. |
 | [Hub de Superfície](insights/surface-hubs.md) | Acompanhe a integridade e o uso de dispositivos Surface Hub. |

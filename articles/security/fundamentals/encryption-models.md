@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410480"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854607"
 ---
 # <a name="data-encryption-models"></a>Modelos de criptografia de dados
 
@@ -151,7 +151,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio (clássico) | Sim         | Versão prévia, RSA de 2048 bits | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Detecção Facial                             | Sim                | Sim                | -                  |
+| Face                             | Sim                | Sim                | -                  |
 | Reconhecimento Vocal           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
 | QnA Maker                        | Sim                | Sim                | -                  |
@@ -159,12 +159,12 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Tradução de Texto                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Sim, RSA 4096 bits  | -                  |
 | **Análise**                    |                    |                    |                    |
-| Stream Analytics do Azure           | Sim                | N/D\*              | -                  |
+| Stream Analytics do Azure           | Sim                | Sim\*\*            | -                  |
 | Hubs de Eventos                       | Sim                | Sim                | -                  |
 | Funções                        | Sim                | Sim                | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
-| Azure HDInsight                  | Sim                | Todos                | -                  |
+| Azure HDInsight                  | Sim                | Tudo                | -                  |
 | Azure Monitor Application Insights | Sim                | Sim                | -                  |
 | Azure Monitor Log Analytics      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
@@ -215,7 +215,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Site Recovery              | Sim                | -                  | -                  |
 | Migrações para Azure                    | Sim                | Sim                | -                  |
 | **Mídia**                        |                    |                    |                    |
-| Serviços de mídia                   | Sim                | -                  | Sim                |
+| Serviços de mídia                   | Sim                | Sim                | Sim                |
 | **Segurança**                     |                    |                    |                    |
 | Central de Segurança do Azure para IoT    | Sim                | Sim                | -                  |
 | Azure Sentinel                   | Sim                | Sim                | -                  |
@@ -230,7 +230,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Sincronização de Arquivos                        | Sim                | Sim                | -                  |
 | Armazenamento de Filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
-| Cache do Azure para Redis            | Sim                | N/D\*              | -                  |
+| Cache Redis do Azure            | Sim                | N/D\*              | -                  |
 | Azure NetApp Files               | Sim                | Sim                | -                  |
 | Armazenamento de Arquivos                  | Sim                | Sim                | -                  |
 | StorSimple                       | Sim                | Sim                | Sim                |
