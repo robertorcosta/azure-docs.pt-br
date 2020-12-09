@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653665"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574727"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Exibir um modelo renderizado remotamente
 
@@ -76,7 +76,7 @@ Você precisa modificar o arquivo `Packages/manifest.json` que está localizado 
 
 Depois que você modificar e salvar o manifesto, o Unity será atualizado automaticamente. Confirme se os pacotes foram carregados na janela *Projeto*:
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Novo projeto do Unity":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacote":::
 
 Se os pacotes não estiverem sendo carregados, verifique se há erros no console do Unity. Se não houver erros e você ainda não vir nenhum pacote na pasta **Packages**, marque o botão de alternância de visibilidade do pacote.
 ![Captura de tela com uma seta apontando para o botão de alternância de visibilidade do pacote.](./media/unity-package-visibility.png)
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
