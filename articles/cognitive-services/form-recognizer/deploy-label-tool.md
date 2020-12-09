@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576546"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852516"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -99,6 +99,9 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
 
 > [!NOTE]
 > Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar. 
+
+> [!IMPORTANT]
+> Talvez seja necessário habilitar o TLS para seu aplicativo Web a fim de exibi-lo em seu `https` endereço. Siga as instruções em [habilitar um ponto de extremidade TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) para configurar um contêiner sidecar do que permite o TLS/SSL para seu aplicativo Web.
 
 ### <a name="azure-cli"></a>CLI do Azure
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: cb74a799efb6099b55c9da9650d9cca7358ecbed
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551502"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852125"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -34,7 +34,7 @@ Várias fábricas de dados do Azure podem se conectar a um único catálogo de d
     - **Desconectado**: o data Factory tem acesso ao catálogo, mas está conectado a outro catálogo. Como resultado, a linhagem de dados não será relatada para o catálogo automaticamente.
     - **CannotAccess**: o usuário atual não tem acesso ao data Factory, portanto, o status da conexão é desconhecido.
  >[!Note]
- >Para exibir as conexões de Data Factory, você precisa ser atribuído a qualquer uma das funções de Build do Azure:
+ >Para exibir as conexões de Data Factory, você precisa ser atribuído a qualquer uma das funções alcance:
  >- Colaborador
  >- Proprietário
  >- Leitor
@@ -72,9 +72,9 @@ Para remover uma conexão data factory, faça o seguinte:
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Captura de tela mostrando como selecionar fábricas de dados para remover a conexão." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 >[!Note]
->Para adicionar ou remover as conexões de Data Factory, você precisa ser atribuído a qualquer uma das funções de Build do Azure:
+>Para adicionar ou remover as conexões de Data Factory, você precisa ser atribuído a qualquer uma das funções alcance:
 >- Proprietário
->- Administrador de Acesso do Usuário
+>- O administrador de acesso do usuário, além disso, exige que os usuários sejam o "proprietário", ou "colaborador", ou "Data Factory colaborador" do data factory. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurar um IR auto-hospedado para coletar a linhagem do SQL local
 
@@ -102,7 +102,7 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 | Blob do Azure (sem suporte a JSON) | Sim | Sim |
 | Azure Cosmos DB (API do SQL) | Sim | Sim |
 | Azure Cosmos DB (API Mongo) | Sim | Sim |
-| Pesquisa Cognitiva do Azure | Sim | Sim |
+| Azure Cognitive Search | Sim | Sim |
 | Azure Data Explorer | Sim | Sim |
 | Banco de dados do Azure para Maria DB \* | Sim | Sim |
 | Banco de dados do Azure para MYSQL \* | Sim | Sim |

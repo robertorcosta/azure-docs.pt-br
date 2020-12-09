@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286844"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852245"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
@@ -36,7 +36,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como o cache local altera o comportamento do serviço de aplicativo
 * _D:\home_ aponta para o cache local, que é criado na instância da VM quando o aplicativo é inicializado. _D:\local_ continua apontando para o armazenamento temporário específico da VM.
-* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_ , respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Observe que, à medida que o tamanho do cache aumenta, levará mais tempo para carregar o cache. Se você tiver aumentado o limite de cache local para 2 GB e os arquivos copiados excederem o tamanho máximo de 2 GB, o serviço de aplicativo ignorará silenciosamente o cache local e lerá o compartilhamento de arquivos remoto. Se não houver nenhum limite definido ou se o limite for definido como algo inferior a 2 GB e os arquivos copiados excederem o limite, a implantação ou a permuta poderá falhar com um erro.
+* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Observe que, à medida que o tamanho do cache aumenta, levará mais tempo para carregar o cache. Se você tiver aumentado o limite de cache local para 2 GB e os arquivos copiados excederem o tamanho máximo de 2 GB, o serviço de aplicativo ignorará silenciosamente o cache local e lerá o compartilhamento de arquivos remoto. Se não houver nenhum limite definido ou se o limite for definido como algo inferior a 2 GB e os arquivos copiados excederem o limite, a implantação ou a permuta poderá falhar com um erro.
 * O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move as máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no armazenamento de conteúdo.
 * _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados do aplicativo. As duas subpastas são armazenadas localmente na instância da VM e são copiadas para o armazenamento de conteúdo compartilhado periodicamente. Os aplicativos podem manter arquivos e dados de log, gravando-os nessas pastas. No entanto, a cópia para o armazenamento de conteúdo compartilhado é melhor esforço, por isso, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha súbita de uma instância de VM.
 * [ O fluxo de logs ](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Você pode observar até um atraso de um minuto nos logs transmitidos.
@@ -52,7 +52,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 
 Configure o Cache Local usando uma combinação de configurações de aplicativo reservadas. Você pode configurar essas configurações de aplicativo usando os seguintes métodos:
 
-* [Azure portal](#Configure-Local-Cache-Portal)
+* [Portal do Azure](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurar o Cache Local usando o portal do Azure
@@ -120,3 +120,6 @@ O Cache Local ajuda a evitar reinicializações de aplicativo relacionadas ao ar
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>O Cache Local exclui os diretórios de serem copiados para a unidade local mais rápida?
 Como parte da etapa que copia o conteúdo do armazenamento, qualquer pasta nomeada repositório é excluída. Isso ajuda com cenários em que o conteúdo do site pode conter um repositório de controle do código-fonte que pode não ser necessário na operação diária do aplicativo. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Como liberar os logs de cache local após uma operação de gerenciamento de site?
+Para liberar os logs do cache local, pare e reinicie o aplicativo. Esta ação limpa o cache antigo. 

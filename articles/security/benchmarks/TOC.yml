@@ -133,7 +133,7 @@
       href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Linha de base de segurança do Azure Monitor
       href: ../../azure-monitor/security-baseline.md
-    - name: Linha de base de segurança de aprendizado das Migrações para Azure
+    - name: Linha de base de segurança das Migrações para Azure
       href: ../../migrate/security-baseline.md
     - name: Linha de base de segurança do Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md

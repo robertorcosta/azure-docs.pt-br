@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018521"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852142"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
 
@@ -265,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode parar os dois microsserviços em execução local em suas instâncias do Visual Studio Code (**Depurar \> Parar Depuração**).
 
@@ -277,4 +277,4 @@ Muitos recursos do Hub IoT não dão suporte nativo a Protobuf ou a outros forma
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu a personalizar a Simulação de Dispositivo para usar Protobuf a fim de enviar telemetria. A próxima etapa é saber como [Implantar uma imagem personalizada na nuvem](iot-accelerators-device-simulation-deploy-image.md).
+Agora que você aprendeu como personalizar a simulação de dispositivo para usar o Protobuf para enviar telemetria, a próxima etapa é visitar o repositório GitHub para saber mais sobre a [simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet).

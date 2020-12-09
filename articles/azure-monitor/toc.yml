@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: Unificar recursos de dados do aplicativo
                   href: log-query/unify-app-resource-data.md
+                - name: Visão geral da consulta entre serviços do Azure Monitor e do Azure Data Explorer
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
                 - name: Consultar o Azure Data Explorer por meio do Azure Monitor
                   href: platform/azure-monitor-data-explorer-proxy.md
         - name: Exportação de dados
