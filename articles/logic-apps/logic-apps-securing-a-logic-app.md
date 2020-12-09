@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 12/08/2020
+ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331933"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922950"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -91,7 +91,7 @@ Para gerar uma nova chave de acesso de segurança a qualquer momento, use a API 
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico que tem a chave que você quer regenerar.
 
-1. No menu do aplicativo lógico, em **Configurações** , selecione **Chaves de Acesso**.
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Chaves de Acesso**.
 
 1. Selecione a chave que você quer regenerar e conclua o processo.
 
@@ -188,7 +188,7 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
 
 1. No [portal do Azure](https://portal.microsoft.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
-1. No menu do aplicativo lógico, em **Configurações** , selecione **Autorização**. Depois que o painel Autorização for aberto, selecione **Adicionar política**.
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Autorização**. Depois que o painel Autorização for aberto, selecione **Adicionar política**.
 
    ![Selecione "Autorização" > "Adicionar política"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -199,12 +199,12 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
-   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a 80 caracteres. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
    |||
 
 1. Para adicionar outra declaração, selecione uma destas opções:
 
-   * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão** , selecione o tipo e especifique o valor.
+   * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo e especifique o valor.
 
    * Para adicionar sua declaração, selecione **Adicionar declaração personalizada** e especifique o valor.
 
@@ -317,22 +317,22 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No menu do aplicativo lógico, em **Configurações** , selecione **Configurações de fluxo de trabalho**.
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
 
-1. Na seção **configuração do controle de acesso** , em **endereços IP de entrada permitidos** , escolha o caminho para seu cenário:
+1. Na seção **configuração do controle de acesso** , em **endereços IP de entrada permitidos**, escolha o caminho para seu cenário:
 
-   * Para tornar seu aplicativo lógico que possa ser chamado somente como um aplicativo lógico aninhado usando a [ação interna de aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md), selecione **somente outros aplicativos lógicos** , que *só* funcionarão quando você usar a ação **aplicativos lógicos do Azure** para chamar o aplicativo lógico aninhado.
+   * Para tornar seu aplicativo lógico que possa ser chamado somente como um aplicativo lógico aninhado usando a [ação interna de aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md), selecione **somente outros aplicativos lógicos**, que *só* funcionarão quando você usar a ação **aplicativos lógicos do Azure** para chamar o aplicativo lógico aninhado.
    
      Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico e requer que apenas chamadas de aplicativos lógicos pai que usam a ação interna de **aplicativos lógicos do Azure** possam disparar o aplicativo lógico aninhado.
 
-   * Para fazer com que seu aplicativo lógico seja chamado somente como um aplicativo aninhado usando a ação HTTP, selecione **intervalos de IP específicos** , *não* **apenas outros aplicativos lógicos**. Quando a caixa **intervalos de IP para gatilhos** for exibida, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)do aplicativo lógico pai. Um intervalo de IP válido usa estes formatos: x. x. x *. x/x* ou x. x. x. x *-x.* x. x.
+   * Para fazer com que seu aplicativo lógico seja chamado somente como um aplicativo aninhado usando a ação HTTP, selecione **intervalos de IP específicos**, *não* **apenas outros aplicativos lógicos**. Quando a caixa **intervalos de IP para gatilhos** for exibida, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)do aplicativo lógico pai. Um intervalo de IP válido usa estes formatos: x. x. x *. x/x* ou x. x. x. x *-x.* x. x.
    
      > [!NOTE]
      > Se você usar a opção **somente outros aplicativos lógicos** e a ação http para chamar seu aplicativo lógico aninhado, a chamada será bloqueada e você receberá um erro "401 não autorizado".
         
    * Para cenários em que você deseja restringir chamadas de entrada de outros IPs, quando a caixa **intervalos de IP para gatilhos** for exibida, especifique os intervalos de endereços IP que o gatilho aceita. Um intervalo de IP válido usa estes formatos: x. x. x *. x/x* ou x. x. x. x *-x.* x. x.
 
-1. Opcionalmente, em **restringir chamadas para obter mensagens de entrada e saída do histórico de execução para os endereços IP fornecidos** , você pode especificar os intervalos de endereços IP para chamadas de entrada que podem acessar mensagens de entrada e saída no histórico de execução.
+1. Opcionalmente, em **restringir chamadas para obter mensagens de entrada e saída do histórico de execução para os endereços IP fornecidos**, você pode especificar os intervalos de endereços IP para chamadas de entrada que podem acessar mensagens de entrada e saída no histórico de execução.
 
 <a name="restrict-inbound-ip-template"></a>
 
@@ -340,7 +340,7 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 
 Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` , e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.* *x.x.x.x-x.x.x.x* x. x. x/x ou x. x-x. x. x.x.x. x.
 
-* Se seu aplicativo lógico aninhado usar a **única opção outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação aplicativos lógicos do Azure, defina a `addressRange` propriedade como uma matriz vazia ( **[]** ).
+* Se seu aplicativo lógico aninhado usar a **única opção outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação aplicativos lógicos do Azure, defina a `addressRange` propriedade como uma matriz vazia (**[]**).
 
 * Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, defina a `addressRange` propriedade como o intervalo de IP permitido.
 
@@ -478,11 +478,11 @@ Você pode limitar o acesso às entradas e saídas no histórico de execuções 
 
 1. No portal do Azure, abra o aplicativo lógico no Designer de Aplicativo lógico.
 
-1. No menu do aplicativo lógico, em **Configurações** , selecione **Configurações de fluxo de trabalho**.
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
 
-1. Em **Configuração de controle de acesso** > **Endereços IP de entrada permitidos** , selecione **Intervalos IP específicos**.
+1. Em **Configuração de controle de acesso** > **Endereços IP de entrada permitidos**, selecione **Intervalos IP específicos**.
 
-1. Em **intervalos IP para conteúdo** , especifique os intervalos de endereços IP que podem acessar o conteúdo de entradas e saídas.
+1. Em **intervalos IP para conteúdo**, especifique os intervalos de endereços IP que podem acessar o conteúdo de entradas e saídas.
 
    Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x*
 
@@ -543,7 +543,7 @@ Muitos gatilhos e ações têm configurações para proteger entradas, saídas o
 
    ![Abrir configurações de gatilho ou ação](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Ative as **Entradas Seguras** , **Saídas Seguras** ou ambas. Quando tiver terminado, selecione **Concluído**.
+1. Ative as **Entradas Seguras**, **Saídas Seguras** ou ambas. Quando tiver terminado, selecione **Concluído**.
 
    ![Ativar "Entradas Seguras" ou "Saídas Seguras"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -931,7 +931,7 @@ Se a opção [Básica](../active-directory-b2c/secure-rest-api.md) estiver dispo
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Basic | O tipo de autenticação a ser usado |
 | **Nome de usuário** | `username` | Sim | <*nome do usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
-| **Senha** | `password` | Sim | <' *senha*> | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
+| **Senha** | `password` | Sim | <'*senha*> | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||||
 
 Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo do Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em runtime. Este exemplo de definição de ação HTTP especifica o `type` da autenticação como `Basic` e usa a [função parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
@@ -960,7 +960,7 @@ Se a opção [Certificado do Cliente](../active-directory/authentication/active-
 
 | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado. Você pode gerenciar certificados com o [Gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Observação** : os conectores personalizados não dão suporte à autenticação baseada em certificado para chamadas de entrada e de saída. |
+| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado. Você pode gerenciar certificados com o [Gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Observação**: os conectores personalizados não dão suporte à autenticação baseada em certificado para chamadas de entrada e de saída. |
 | **Pfx** | `pfx` | Sim | <*conteúdo de arquivo pfx codificado*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converta o conteúdo do certificado usando a função `ToBase64String()` e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Senha** | `password`| Não | <*senha para arquivo pfx*> | A senha para acessar o arquivo PFX |
 |||||
@@ -1089,8 +1089,8 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
    | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticação** | `type` | Sim | **Identidade gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
-   | **Identidade gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* < *nome da identidade atribuído pelo usuário*> | A identidade gerenciada a ser usada |
-   | **Público-alvo** | `audience` | Sim | <*ID do recurso de destino*> | A ID do recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` cria os [tokens de acesso](../active-directory/develop/access-tokens.md) para autenticação válidos em todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Observação** : A propriedade **Público** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **Público**. <p><p>**Importante** : Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor que o Azure AD espera, incluindo quaisquer barras à direita necessárias. Portanto, a ID de recurso `https://storage.azure.com/` para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer esse tipo de barra. Para encontrar essas IDs de recurso, confira [Serviços do Azure que dão suporte ao Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Identidade gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome da identidade atribuído pelo usuário*> | A identidade gerenciada a ser usada |
+   | **Público-alvo** | `audience` | Sim | <*ID do recurso de destino*> | A ID do recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` cria os [tokens de acesso](../active-directory/develop/access-tokens.md) para autenticação válidos em todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Observação**: A propriedade **Público** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **Público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor que o Azure AD espera, incluindo quaisquer barras à direita necessárias. Portanto, a ID de recurso `https://storage.azure.com/` para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer esse tipo de barra. Para encontrar essas IDs de recurso, confira [Serviços do Azure que dão suporte ao Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo do Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em runtime. Este exemplo de definição de ação HTTP especifica o `type` da autenticação como `ManagedServiceIdentity` e usa a [função parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:

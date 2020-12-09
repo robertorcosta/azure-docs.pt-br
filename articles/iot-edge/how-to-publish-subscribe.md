@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461421"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922581"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e assinar com Azure IoT Edge
 
@@ -177,7 +177,6 @@ Autorizações para tópicos do Hub IoT são tratadas de forma ligeiramente dife
 
 - Os módulos ou dispositivos IoT do Azure precisam de uma regra de autorização explícita para se conectarem a IoT Edge o agente MQTT do Hub. Uma política de autorização de conexão padrão é fornecida abaixo.
 - Os módulos ou dispositivos IoT do Azure podem acessar seus próprios tópicos do Hub IoT por padrão sem nenhuma regra de autorização explícita. No entanto, as autorizações são originadas de relações pai/filho nesse caso e essas relações devem ser definidas. Os módulos IoT Edge são automaticamente definidos como filhos de seu dispositivo IoT Edge, mas os dispositivos precisam ser definidos explicitamente como filhos de seu gateway IoT Edge.
-- Os módulos ou dispositivos IoT do Azure podem acessar os tópicos, incluindo tópicos do Hub IoT, de outros dispositivos ou módulos, fornecendo que as regras de autorização explícita apropriadas sejam definidas.
 
 Aqui está uma política de autorização padrão que pode ser usada para habilitar todos os dispositivos ou módulos de IoT do Azure para **se conectar** ao agente:
 
@@ -275,7 +274,7 @@ Para autorizar o Publicador e o Assinante, edite a IoT Edge do hub de CLI do Azu
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Para autorizar o Publicador e o Assinante, edite a IoT Edge do hub de CLI do Azu
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Para autorizar o Publicador e o Assinante, edite a IoT Edge do hub de CLI do Azu
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
@@ -333,7 +332,7 @@ Observe que a porta 1883 (MQTT), sem o TLS, é usada neste primeiro exemplo. Out
 
 O **sub_client** cliente MQTT agora está iniciado e está aguardando mensagens de entrada no `test_topic` .
 
-#### <a name="publish"></a>Publicar
+#### <a name="publish"></a>Publicação
 
 Conecte o cliente do **pub_client** MQTT ao agente do MQTT e publique uma mensagem na mesma `test_topic` forma acima, executando o seguinte comando em seu dispositivo de IOT Edge de outro terminal:
 
