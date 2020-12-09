@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 101a2071d4f7c78d1a8df392172dc83c4028af1e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043075"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859205"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 
@@ -26,7 +26,7 @@ O Azure AD (Active Directory) é o serviço de gerenciamento de identidade e de 
 
 - Recursos internos, como aplicativos em sua rede corporativa e intranet, juntamente com outros aplicativos de nuvem desenvolvidos por sua organização. Para obter mais informações sobre como criar um locatário para sua organização, confira [Início Rápido: Criar um locatário no Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Para saber a diferença entre o Azure AD e o Active Directory Domain Services, confira [Comparar o Active Directory com o Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Você também pode usar os vários cartazes da [Série Microsoft Cloud for Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os principais serviços de identidade no Azure, no Azure AD e no Microsoft 365.
+Para saber a diferença entre o Azure AD e o Active Directory Domain Services, confira [Comparar o Active Directory com o Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Você também pode usar os vários cartazes da [Série Microsoft Cloud for Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models) para entender melhor os principais serviços de identidade no Azure, no Azure AD e no Microsoft 365.
 
 ## <a name="who-uses-azure-ad"></a>Quem usa o Azure AD?
 

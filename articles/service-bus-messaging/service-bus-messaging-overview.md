@@ -3,12 +3,12 @@ title: Visão geral de sistema de mensagens do Barramento de Serviço do Azure |
 description: Este artigo fornece uma visão geral de alto nível do Barramento de Serviço do Azure, um agente de mensagens de integração empresarial totalmente gerenciado.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489472"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602709"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 O Barramento de Serviço do Microsoft Azure é um agente de mensagens empresarial totalmente gerenciado com filas de mensagens e tópicos de assinatura pública. O Barramento de Serviço é usado para separar aplicativos e serviços uns dos outros, proporcionando estes benefícios:
@@ -32,7 +32,7 @@ Alguns cenários de sistema de mensagens comuns são:
     2. Postar os resultados do processamento em uma ou mais filas diferentes.
     3. Mover a mensagem de entrada da fila original. 
     
-    Os resultados ficam visíveis para consumidores downstream somente após o êxito, incluindo a liquidação bem-sucedida da mensagem de entrada, permitindo a semântica de processamento único. Esse modelo de transação é uma base robusta para o padrão de [transações de compensação](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) no contexto maior da solução. 
+    Os resultados ficam visíveis para consumidores downstream somente após o êxito, incluindo a liquidação bem-sucedida da mensagem de entrada, permitindo a semântica de processamento único. Esse modelo de transação é uma base robusta para o padrão de [transações de compensação](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) no contexto maior da solução. 
 * *Sessões de mensagem*. Implemente a coordenação em alta escala de fluxos de trabalho e transferências multiplexadas que exigem uma ordenação de mensagens estrita ou o adiamento de mensagens.
 
 Se você estiver familiarizado com outros agentes de mensagens como o Apache ActiveMQ, os conceitos do Barramento de Serviço serão semelhantes aos que você conhece. Como o Barramento de Serviço é uma oferta de PaaS (plataforma como serviço), uma diferença importante é que você não precisa se preocupar com as ações a seguir. O Azure cuida dessas tarefas para você. 
