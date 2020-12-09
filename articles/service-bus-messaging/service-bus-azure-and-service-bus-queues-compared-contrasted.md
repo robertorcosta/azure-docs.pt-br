@@ -3,12 +3,12 @@ title: Comparar filas do Armazenamento do Azure e filas do Barramento de Serviç
 description: Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379563"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928300"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos por Microsoft Azure: filas de armazenamento e filas do barramento de serviço. Usando essas informações, você pode tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -128,15 +128,15 @@ Esta seção compara as filas do Armazenamento e as filas do Barramento de Servi
 | Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a uma [única capacidade de conta de armazenamento](../storage/common/storage-introduction.md#queue-storage)) |**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – confira a seção "Informações adicionais") |
-| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64** )<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
+| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
 | TTL máxima da mensagem |**Infinito** (API-Version 2017-07-27 ou posterior) |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10.000**<br/><br/>(por namespace do serviço) |
-| Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(o limite de 100 conexões simultâneas se aplica somente à comunicação baseada no protocolo TCP) |
+| Número máximo de clientes simultâneos |**Ilimitado** |**5\.000** |
 
 ### <a name="additional-information"></a>Informações adicionais
 * O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado ao criar uma fila. Pode ser entre 1 GB e 80 GB. Se o tamanho da fila atingir esse limite, as mensagens de entrada adicionais serão rejeitadas e o chamador receberá uma exceção. Para obter mais informações sobre cotas no Barramento de Serviço, confira [Cotas do Barramento de Serviço](service-bus-quotas.md).
 * O particionamento não tem suporte na [camada Premium](service-bus-premium-messaging.md). Na camada de mensagens Standard, você pode criar filas e tópicos do barramento de serviço em tamanhos 1 (padrão), 2, 3, 4 ou 5 GB. Com o particionamento habilitado, o barramento de serviço cria 16 cópias (16 partições) da entidade, cada um com o mesmo tamanho especificado. Assim, se você criar uma fila com 5 GB de tamanho, com 16 partições, o tamanho máximo da fila se tornará (5 * 16) = 80 GB.  Você pode ver o tamanho máximo da fila ou do tópico particionado na [portal do Azure][Azure portal].
-* Com as filas de armazenamento, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64** . Se você codificar a mensagem em **Base64** , a carga de usuário poderá ser de até 48 KB, em vez de 64 KB.
+* Com as filas de armazenamento, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64** . Se você codificar a mensagem em **Base64**, a carga de usuário poderá ser de até 48 KB, em vez de 64 KB.
 * Com as filas do Barramento de Serviço, cada mensagem armazenada em uma fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder o tamanho máximo de mensagem suportado pela camada de serviço.
 * Quando os clientes se comunicam com as filas do Barramento de Serviço pelo protocolo TCP, o número máximo de conexões simultâneas para uma única fila do Barramento de Serviço é limitado a 100. Esse número é compartilhado entre remetentes e receptores. Se essa cota for atingida, as solicitações de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Esse limite não é imposto em clientes que se conectam às filas usando a API baseada em REST.
 * Se precisar de mais de 10.000 filas em um único namespace do Barramento de Serviço, você poderá entrar em contato com a equipe de suporte do Azure e solicitar um aumento. Para escalar para além de 10.000 filas com o Barramento de Serviço, você também pode criar namespaces adicionais usando o [Portal do Azure][Azure portal].

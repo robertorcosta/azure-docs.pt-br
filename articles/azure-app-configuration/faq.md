@@ -2,17 +2,17 @@
 title: Perguntas frequentes sobre configuração do Azure App
 description: Leia as respostas para as perguntas frequentes sobre Azure App configuração, como a forma como ela é diferente da Azure Key Vault.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.author: alkemper
+ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242102"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929558"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
@@ -41,7 +41,7 @@ Você pode criar valores de configuração de aplicativo que fazem referência a
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>A configuração do aplicativo criptografa meus dados?
 
-Sim. A configuração de aplicativo criptografa todos os valores de chave que ele contém e criptografa a comunicação de rede. Nomes de chave e rótulos são usados como índices para recuperar dados de configuração e não são criptografados.
+Sim. A Configuração de Aplicativos criptografa todos os valores de chave que contém e a comunicação de rede. Nomes de chave e rótulos são usados como índices para recuperar dados de configuração e não são criptografados.
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Onde residem os dados armazenados na configuração do aplicativo? 
 
@@ -86,16 +86,16 @@ As duas camadas de configuração de aplicativo oferecem a funcionalidade básic
 
 Veja a seguir as considerações para escolher uma camada.
 
-- **Recursos por assinatura** : um recurso consiste em um único repositório de configuração. Cada assinatura é limitada a um repositório de configuração na camada gratuita. As assinaturas podem ter um número ilimitado de repositórios de configuração na camada Standard.
-- **Armazenamento por recurso** : na camada gratuita, cada repositório de configuração é limitado a 10 MB de armazenamento. Na camada Standard, cada repositório de configuração pode usar até 1 GB de armazenamento.
-- **Histórico de revisão** : a configuração de aplicativo armazena um histórico de todas as alterações feitas nas chaves. Na camada gratuita, esse histórico é armazenado por sete dias. Na camada Standard, esse histórico é armazenado por 30 dias.
-- **Cota de solicitações** : os repositórios de camada gratuita são limitados a 1.000 solicitações por dia. Quando um repositório alcança 1.000 solicitações, ele retorna o código de status HTTP 429 para todas as solicitações até a meia-noite UTC.
+- **Recursos por assinatura**: um recurso consiste em um único repositório de configuração. Cada assinatura é limitada a um repositório de configuração na camada gratuita. As assinaturas podem ter um número ilimitado de repositórios de configuração na camada Standard.
+- **Armazenamento por recurso**: na camada gratuita, cada repositório de configuração é limitado a 10 MB de armazenamento. Na camada Standard, cada repositório de configuração pode usar até 1 GB de armazenamento.
+- **Histórico de revisão**: a configuração de aplicativo armazena um histórico de todas as alterações feitas nas chaves. Na camada gratuita, esse histórico é armazenado por sete dias. Na camada Standard, esse histórico é armazenado por 30 dias.
+- **Cota de solicitações**: os repositórios de camada gratuita são limitados a 1.000 solicitações por dia. Quando um repositório alcança 1.000 solicitações, ele retorna o código de status HTTP 429 para todas as solicitações até a meia-noite UTC.
 
     Os armazenamentos de camada standard são limitados a 20.000 solicitações por hora. Quando a cota é esgotada, o código de status HTTP 429 é retornado para todas as solicitações até o fim da hora.
 
-- **Contrato de nível de serviço** : a camada Standard tem um SLA de 99,9% de disponibilidade. A camada gratuita não tem um SLA.
-- **Recursos de segurança** : ambas as camadas incluem funcionalidade de segurança básica, incluindo criptografia com chaves gerenciadas pela Microsoft, autenticação por meio de HMAC ou Azure Active Directory, suporte do RBAC do Azure, identidade gerenciada e marcas de serviço. A camada Standard oferece funcionalidade de segurança mais avançada, incluindo suporte a link privado e criptografia com chaves gerenciadas pelo cliente.
-- **Custo** : os armazenamentos de camada Standard têm um encargo de uso diário. As primeiras 200.000 solicitações por dia são incluídas na cobrança diária. Há também um encargo excedente para solicitações após a alocação diária. Não há nenhum custo para usar um armazenamento de camada gratuita.
+- **Contrato de nível de serviço**: a camada Standard tem um SLA de 99,9% de disponibilidade. A camada gratuita não tem um SLA.
+- **Recursos de segurança**: ambas as camadas incluem funcionalidade de segurança básica, incluindo criptografia com chaves gerenciadas pela Microsoft, autenticação por meio de HMAC ou Azure Active Directory, suporte do RBAC do Azure, identidade gerenciada e marcas de serviço. A camada Standard oferece funcionalidade de segurança mais avançada, incluindo suporte a link privado e criptografia com chaves gerenciadas pelo cliente.
+- **Custo**: os armazenamentos de camada Standard têm um encargo de uso diário. As primeiras 200.000 solicitações por dia são incluídas na cobrança diária. Há também um encargo excedente para solicitações após a alocação diária. Não há nenhum custo para usar um armazenamento de camada gratuita.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Posso atualizar um armazenamento da camada gratuita para a camada Standard? Posso fazer downgrade de um armazenamento da camada Standard para a camada gratuita?
 

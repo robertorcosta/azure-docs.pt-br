@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para o banco de dado do Azure para PostgreSQL
-description: Saiba como copiar dados de e para o Azure Database para PostgreSQL usando uma atividade de cópia em um pipeline de Azure Data Factory.
+title: Copiar e transformar dados no banco de dado do Azure para PostgreSQL
+description: Saiba como copiar e transformar dados no banco de dados do Azure para PostgreSQL usando o Azure Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/26/2020
-ms.openlocfilehash: 11e0d3336f085ccae9a7fb83ed050d69a15ce42b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.date: 12/08/2020
+ms.openlocfilehash: 2537167783f3e68c52c665dafa9378193852acb4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296498"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930374"
 ---
-# <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiar dados de e para o banco de dado do Azure para PostgreSQL usando Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dado do Azure para PostgreSQL usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar o recurso de atividade de cópia no Azure Data Factory para copiar dados do banco de dados do Azure para PostgreSQL. Ele se baseia na [atividade de cópia no artigo Azure data Factory](copy-activity-overview.md) , que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o banco de dados do Azure para PostgreSQL e usar o fluxo de dados para transformar dados no banco de dado do Azure para PostgreSQL. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 Esse conector é especializado para o [serviço banco de dados do Azure para PostgreSQL](../postgresql/overview.md). Para copiar dados de um banco de dado PostgreSQL genérico localizado localmente ou na nuvem, use o [conector PostgreSQL](connector-postgresql.md).
 
@@ -31,11 +31,8 @@ Esse conector é especializado para o [serviço banco de dados do Azure para Pos
 Esse conector do banco de dados do Azure para PostgreSQL tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com uma [fonte/matriz de coletor com suporte](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-
-Você pode copiar dados do Banco de Dados do Azure para PostgreSQL para qualquer armazenamento de dados de coletor com suporte. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Database para PostgreSQL. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia como fontes e coletores, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
-
-O Azure Data Factory fornece um driver interno para habilitar a conectividade. Portanto, você não precisa instalar manualmente nenhum driver para usar esse conector.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -212,6 +209,63 @@ Para copiar dados para o banco de dado do Azure para PostgreSQL, há suporte par
         }
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
+
+Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em tabelas do banco de dados do Azure para PostgreSQL. Para obter mais informações, confira [transformação de origem](data-flow-source.md) e [transformação do coletor](data-flow-sink.md) nos fluxos de dados de mapeamento. Você pode optar por usar um banco de dados do Azure para PostgreSQL, ou um [DataSet embutido](data-flow-source.md#inline-datasets) como fonte e tipo de coletor.
+
+### <a name="source-transformation"></a>Transformação de origem
+
+A tabela abaixo lista as propriedades com suporte pela origem do banco de dados do Azure para PostgreSQL. Você pode editar essas propriedades na guia **Opções de origem** .
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Se você selecionar tabela como entrada, o fluxo de dados buscará todos os dados da tabela especificada no conjunto. | Não | - |*(somente para conjunto de linhas embutido)*<br>tableName |
+| Consulta | Se você selecionar consulta como entrada, especifique uma consulta SQL para buscar dados da origem, o que substitui qualquer tabela que você especificar no DataSet. O uso de consultas é uma ótima maneira de reduzir linhas para teste ou pesquisas.<br><br>Não há suporte para a cláusula **order by** , mas você pode definir uma instrução SELECT FROM completa. Também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela que você pode usar no fluxo de dados.<br>Exemplo de consulta: `select * from mytable where customerId > 1000 and customerId < 2000` ou `select * from "MyTable"` . Observação no PostgreSQL, o nome da entidade é tratado como não diferencia maiúsculas de minúsculas, se não estiver entre aspas.| Não | String | Consulta |
+| Tamanho do lote | Especifique um tamanho de lote para dividir dados grandes em lotes. | Não | Integer | batchSize |
+| Nível de Isolamento | Escolha um dos seguintes níveis de isolamento:<br>-Leitura confirmada<br>-Leitura não confirmada (padrão)<br>-Leitura repetida<br>-Serializável<br>-Nenhum (ignorar nível de isolamento) | Não | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+
+#### <a name="azure-database-for-postgresql-source-script-example"></a>Exemplo de script de origem do banco de dados do Azure para PostgreSQL
+
+Quando você usa o banco de dados do Azure para PostgreSQL como tipo de origem, o script de fluxo do data associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from mytable',
+    format: 'query') ~> AzurePostgreSQLSource
+```
+
+### <a name="sink-transformation"></a>Transformação de coletor
+
+A tabela abaixo lista as propriedades com suporte no coletor do banco de dados do Azure para PostgreSQL. Você pode editar essas propriedades na guia **Opções do coletor** .
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método Update | Especifique quais operações são permitidas no destino do banco de dados. O padrão é permitir apenas inserções.<br>Para atualizar, upsertr ou excluir linhas, uma [transformação ALTER Row](data-flow-alter-row.md) é necessária para marcar linhas para essas ações. | Sim | `true` ou `false` | pode ser excluído <br/>Insertable <br/>atualizável <br/>upsertable |
+| Colunas de chaves | Para atualizações, upserts e exclusões, coluna (s) de chave devem ser definidas para determinar qual linha alterar.<br>O nome da coluna que você escolhe como a chave será usado como parte da atualização subsequente, Upsert, Delete. Portanto, você deve escolher uma coluna que exista no mapeamento do coletor. | Não | Array | chaves |
+| Ignorar colunas de chave de gravação | Se você não quiser gravar o valor na coluna de chave, selecione "ignorar a gravação de colunas de chave". | Não | `true` ou `false` | skipKeyWrites |
+| Ação tabela |Determina se deve-se recriar ou remover todas as linhas da tabela de destino antes da gravação.<br>- **Nenhum**: nenhuma ação será feita para a tabela.<br>- **Recriar**: a tabela será descartada e recriada. Necessário ao criar uma tabela dinamicamente.<br>- **Truncar**: todas as linhas da tabela de destino serão removidas. | Não | `true` ou `false` | recriar<br/>truncate |
+| Tamanho do lote | Especifique quantas linhas estão sendo gravadas em cada lote. Tamanhos de lote maiores aprimoram a compactação e a otimização de memória, mas geram risco de exceções de memória insuficiente ao armazenar dados em cache. | Não | Integer | batchSize |
+| Scripts SQL anteriores e posteriores | Especifique scripts SQL de várias linhas que serão executados antes (pré-processamento) e após (pós-processamento) os dados são gravados no banco de dado do coletor. | Não | String | preSQLs<br>postSQLs |
+
+#### <a name="azure-database-for-postgresql-sink-script-example"></a>Exemplo de script de coletor do banco de dados do Azure para PostgreSQL
+
+Quando você usa o banco de dados do Azure para PostgreSQL como tipo de coletor, o script de fluxo associado é:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzurePostgreSQLSink
 ```
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade

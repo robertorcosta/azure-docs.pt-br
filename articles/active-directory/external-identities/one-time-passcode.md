@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15debb69172dba00163950fdd301826c903e5307
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548254"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929286"
 ---
-# <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único de email
+# <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de senha de uso único de email (versão prévia)
 
 Este artigo descreve como habilitar a autenticação de senha de uso único de email para usuários de convidado B2B. O recurso de senha de email único autentica os usuários convidados B2B quando eles não podem ser autenticados por outros meios como o Azure AD, um conta Microsoft (MSA) ou Google Federation. Com a autenticação por senha avulsa, não é necessário criar uma conta Microsoft. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, ele digita esse código para continuar o processo de entrada.
 
@@ -94,7 +94,7 @@ A partir de março de 2021, o recurso de senha de uso único de email será ativ
    >
    >![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ## <a name="note-for-public-preview-customers"></a>Observação para clientes de visualização pública
 

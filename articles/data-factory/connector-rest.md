@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902248"
+ms.locfileid: "96931292"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -303,12 +303,19 @@ As propriedades a seguir têm suporte na seção **sink** da atividade de cópia
 | requestMethod | O método HTTP. Os valores permitidos são **post** (padrão), **Put** e **patch**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para gravar os dados. O valor padrão é **01:00:40**.  | Não |
-| requestInterval | O tempo de intervalo entre solicitações diferentes em milisecond. O valor do intervalo de solicitação deve ser um número entre [10, 60000]. |  Não |
+| requestInterval | O tempo de intervalo entre solicitações diferentes em milissegundos. O valor do intervalo de solicitação deve ser um número entre [10, 60000]. |  Não |
 | httpCompressionType | Tipo de compactação HTTP a ser usado ao enviar dados com o nível de compactação ideal. Os valores permitidos são **None** e **gzip**. | Não |
 | writeBatchSize | Número de registros a serem gravados no coletor REST por lote. O valor padrão é 10000. | Não |
 
->[!NOTE]
->O conector REST como coletor funciona com os pontos de extremidade REST que aceitam JSON. Os dados serão enviados somente em JSON.
+O conector REST como coletor funciona com as APIs REST que aceitam JSON. Os dados serão enviados em JSON com o padrão a seguir. Conforme necessário, você pode usar o mapeamento de [esquema](copy-activity-schema-and-type-mapping.md#schema-mapping) de atividade de cópia para remodelar os dados de origem para estar de acordo com a carga esperada pela API REST.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **Exemplo:**
 
@@ -348,7 +355,7 @@ As propriedades a seguir têm suporte na seção **sink** da atividade de cópia
 
 ## <a name="pagination-support"></a>Suporte à paginação
 
-Normalmente, a API REST limita seu tamanho de carga de resposta de uma única solicitação em um número razoável; Embora seja possível retornar uma grande quantidade de dados, ele divide o resultado em várias páginas e exige que os chamadores enviem solicitações consecutivas para obter a próxima página do resultado. Geralmente, a solicitação para uma página é dinâmica e composta por informações retornadas da resposta de página anterior.
+Ao copiar dados de APIs REST, normalmente, a API REST limita seu tamanho de carga de resposta de uma única solicitação em um número razoável; Embora seja possível retornar uma grande quantidade de dados, ele divide o resultado em várias páginas e exige que os chamadores enviem solicitações consecutivas para obter a próxima página do resultado. Geralmente, a solicitação para uma página é dinâmica e composta por informações retornadas da resposta de página anterior.
 
 Esse conector genérico REST suporta os seguintes padrões de paginação: 
 

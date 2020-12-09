@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751250"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929269"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -19,7 +19,7 @@ Este artigo aborda os problemas que você pode encontrar ao implantar o recurso 
 >[!NOTE]
 >Se você tiver problemas ao implantar Gerenciamento de Atualizações em um computador Windows, abra o Visualizador de Eventos do Windows e verifique o log de eventos do **Operations Manager** em **logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Cenário: atualizações do Linux mostradas como pendentes e as instaladas variam
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Cenário: atualizações do Linux mostradas como pendentes e as instaladas variam
 
 ### <a name="issue"></a>Problema
 

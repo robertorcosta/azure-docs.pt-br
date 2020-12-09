@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852125"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928759"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -42,6 +42,13 @@ Várias fábricas de dados do Azure podem se conectar a um único catálogo de d
 
 ## <a name="create-new-data-factory-connection"></a>Criar nova conexão Data Factory
 
+>[!Note]
+>Para adicionar ou remover as conexões de Data Factory, você precisa ser atribuído a qualquer uma das funções alcance:
+>- Proprietário
+>- Administrador de Acesso do Usuário
+>
+> Além disso, requer que os usuários sejam o "proprietário" ou "colaborador" do data factory. 
+
 Siga as etapas abaixo para conectar uma conta de Data Factory existente ao catálogo de dados do alcance.
 
 1. Selecione **centro de gerenciamento** no painel de navegação esquerdo.
@@ -70,11 +77,6 @@ Para remover uma conexão data factory, faça o seguinte:
 1. Selecione **confirmar** no pop-up para excluir as conexões de data Factory selecionadas.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Captura de tela mostrando como selecionar fábricas de dados para remover a conexão." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->Para adicionar ou remover as conexões de Data Factory, você precisa ser atribuído a qualquer uma das funções alcance:
->- Proprietário
->- O administrador de acesso do usuário, além disso, exige que os usuários sejam o "proprietário", ou "colaborador", ou "Data Factory colaborador" do data factory. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurar um IR auto-hospedado para coletar a linhagem do SQL local
 

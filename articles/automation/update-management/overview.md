@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327484"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928419"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -224,7 +224,7 @@ A tabela a seguir define as classificações compatíveis para atualizações do
 >
 > Não há nenhuma classificação de atualizações do Linux e elas são relatadas na categoria **outras atualizações** . Gerenciamento de Atualizações usa os dados publicados pelas distribuições com suporte, especificamente seus arquivos de [oval](https://oval.mitre.org/) (linguagem de avaliação e de vulnerabilidade aberta) lançados. Como o acesso à Internet é restrito a essas nuvens nacionais, Gerenciamento de Atualizações não pode acessar e consumir esses arquivos.
 
-Para o Linux, o Gerenciamento de Atualizações pode distinguir entre atualizações críticas e de segurança na nuvem ao exibir dados de avaliação, o que se deve ao enriquecimento de dados na nuvem. Para aplicação de patch, o Gerenciamento de Atualizações se baseia em dados de classificação disponíveis no computador. Ao contrário de outras distribuições, o CentOS não tem essas informações disponíveis na versão RTM. Se você tiver computadores CentOS configurados para retornar dados de segurança para o comando a seguir, o Gerenciamento de Atualizações poderá aplicar patch com base em classificações.
+Para o Linux, Gerenciamento de Atualizações pode distinguir entre atualizações críticas e atualizações de segurança na nuvem em **segurança** de classificação e **outras**, ao mesmo tempo em que exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para aplicação de patch, o Gerenciamento de Atualizações se baseia em dados de classificação disponíveis no computador. Ao contrário de outras distribuições, o CentOS não tem essas informações disponíveis na versão RTM. Se você tiver computadores CentOS configurados para retornar dados de segurança para o comando a seguir, o Gerenciamento de Atualizações poderá aplicar patch com base em classificações.
 
 ```bash
 sudo yum -q --security check-update
@@ -233,6 +233,10 @@ sudo yum -q --security check-update
 Atualmente, não há nenhum método compatível para habilitar a disponibilidade de dados nativos de classificação em CentOS. Neste momento, o suporte limitado é fornecido aos clientes que podem ter habilitado esse recurso por conta própria.
 
 Para classificar atualizações no Red Hat Enterprise versão 6, você precisa instalar o plug-in yum-security. No Red Hat Enterprise Linux 7, esse plug-in já faz parte do yum propriamente dito e não há necessidade de instalar nada. Para obter mais informações, confira o [artigo de conhecimento](https://access.redhat.com/solutions/10021) do Red Hat a seguir.
+
+Quando você agenda uma atualização para ser executada em um computador Linux, isso, por exemplo, é configurado para instalar somente as atualizações que correspondem à classificação de **segurança** , as atualizações instaladas podem ser diferentes de ou são subconjuntos das atualizações correspondentes a essa classificação. Quando uma avaliação das atualizações do sistema operacional pendentes para seu computador Linux é executada, os arquivos de [linguagem oval e de vulnerabilidades](https://oval.mitre.org/) fornecidas pelo fornecedor do Linux distribuição são usados pelo gerenciamento de atualizações para classificação.
+
+A categorização é feita para atualizações do Linux como **segurança** ou **outras** com base nos arquivos oval, que inclui atualizações que abordam problemas de segurança ou vulnerabilidades. Mas quando o agendamento de atualização é executado, ele é executado no computador Linux usando o Gerenciador de pacotes apropriado, como YUM, APT ou ZYPPER para instalá-los. O Gerenciador de pacotes para o distribuição do Linux pode ter um mecanismo diferente para classificar atualizações, onde os resultados podem diferir daqueles obtidos dos arquivos OVAL por Gerenciamento de Atualizações. Para verificar manualmente o computador e entender quais atualizações são relevantes para a segurança do Gerenciador de pacotes, consulte [solucionar problemas de implantação de atualização do Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integração do Gerenciamento de Atualizações com o Configuration Manager
 

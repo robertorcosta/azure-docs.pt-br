@@ -1,17 +1,17 @@
 ---
 title: Autorizar o acesso à Configuração de Aplicativos do Azure usando o Azure Active Directory
 description: Habilitar o RBAC do Azure para autorizar o acesso à sua instância de configuração do Azure App
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/13/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9c749dbb1cc78bf06dfe665875bc05f75152778b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 4768dbe292b7c71770ded1e8ad27025bc9944608
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862132"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930255"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicativos do Azure usando o Azure Active Directory
 Além de usar o HMAC (Message Authentication Code baseado em hash), a configuração do Azure App dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações às instâncias de configuração do aplicativo.  O Azure AD permite que você use o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança.  Uma entidade de segurança pode ser um usuário, uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) ou uma [entidade de serviço de aplicativo](../active-directory/develop/app-objects-and-service-principals.md).  Para saber mais sobre as funções e atribuições de função, confira [Noções básicas sobre funções diferentes](../role-based-access-control/overview.md).

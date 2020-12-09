@@ -3,13 +3,13 @@ title: Azure Monitor de serviços e categorias com suporte de logs de recursos
 description: Referência de Azure Monitor entender os serviços com suporte e o esquema de eventos para logs de recursos do Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
-ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/09/2020
+ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920842"
+ms.locfileid: "96931219"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
 
@@ -23,7 +23,7 @@ Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e 
 
 ## <a name="costs"></a>Custos
 
- Há custos associados ao envio e armazenamento de dados no Log Analytics e/ou no Hub de eventos. Os logs de recursos são um tipo de dados que você pode enviar para esses locais. Há um custo adicional [para exportar algumas categorias de logs de recursos](https://azure.microsoft.com/pricing/details/monitor/). Outras são livres de custos de exportação. As especificidades são listadas na tabela a seguir.
+Há custos associados ao envio e armazenamento de dados em Log Analytics, armazenamento do Azure e/ou Hub de eventos. Você pode pagar pelo custo para colocar os dados nesses locais e mantê-los lá.  Os logs de recursos são um tipo de dados que você pode enviar para esses locais. Há um custo adicional [para exportar algumas categorias de logs de recursos](https://azure.microsoft.com/pricing/details/monitor/) para esses locais, enquanto outros estão livres de custos de exportação. As especificações de custo de exportação são listadas na tabela a seguir.
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 

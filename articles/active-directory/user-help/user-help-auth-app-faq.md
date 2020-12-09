@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/01/2020
+ms.date: 12/09/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512198"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928317"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -39,7 +39,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **R**: aqui está a lista completa de permissões que podem ser solicitadas e como elas são usadas pelo aplicativo. As permissões específicas que você verá dependem do tipo de telefone que você tem.
 
-- **Local**. Às vezes, sua organização deseja saber seu local antes de permitir que você acesse determinados recursos. O aplicativo solicitará essa permissão somente se sua organização tiver uma política que exija o local. 
+- **Localização**. Às vezes, sua organização deseja saber seu local antes de permitir que você acesse determinados recursos. O aplicativo solicitará essa permissão somente se sua organização tiver uma política que exija o local. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Suporte a APNs herdado preterido
 
@@ -116,9 +116,9 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: as notificações funcionam para contas que não são da Microsoft?
 
-**R**: não, as notificações só funcionam com contas da Microsoft e contas de Azure Active Directory. Se seu trabalho ou escola usa contas do Azure AD, eles podem desativar esse recurso.
+**R**: não, as notificações só funcionam com contas da Microsoft e contas de Azure Active Directory. Se seu trabalho ou escola usa contas do Azure AD, eles são capazes de desativar esse recurso.
 
-### <a name="backup-and-recovery"></a>Backup e descoberta
+### <a name="backup-and-recovery"></a>Backup e recuperação
 
 **P**: Eu recebi um novo dispositivo ou restaurei meu dispositivo de um backup. Como fazer configurar minhas contas no autenticador novamente?
 
@@ -207,6 +207,74 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 **P**: meu aplicativo Apple Watch Companion falhou. Posso enviar meus logs de falhas para você investigar?
 
 **R**: primeiro você precisa ter certeza de que optou por compartilhar sua análise conosco. Se você for um usuário de TestFlight, você já se inscreveu. Caso contrário, você pode ir para **Configurações > privacidade > Análise** e selecione o **compartilham o iPhone e análise de inspeção** e o **compartilhamento com desenvolvedores de aplicativos** opções.<br>Depois de se inscrever, você pode tentar reproduzir a falha para que os logs de falhas sejam enviados automaticamente para investigação. No entanto, se você não conseguir reproduzir a falha, poderá copiar manualmente os arquivos de log e enviá-los para nós.<ol><li>Abra o aplicativo Watch no seu smartphone, acesse **Configurações> Geral** e clique em **Copiar Analítica de exibição**.</li><li>Encontre a falha correspondente em **Configurações> Privacidade> Analytics> Dados do Analytics** e copie manualmente todo o texto.</li><li>Abra o autenticador em seu telefone e cole o texto copiado na caixa de texto **compartilhar com desenvolvedores de aplicativos** na página **enviar logs** .</li></ol>
+
+## <a name="autofill-for-consumers"></a>Preenchimento automático para consumidores
+
+**P**: o que é o preenchimento automático no autenticador?
+
+**R**: o aplicativo autenticador agora armazena e preenche com segurança as senhas em aplicativos e sites que você visita em seu telefone. Você pode usar o preenchimento automático para sincronizar e fazer o preenchimento automático de suas senhas em seus dispositivos iOS e Android. Depois de configurar o aplicativo autenticador como um provedor de preenchimento automático em seu telefone, ele oferece para salvar suas senhas quando elas são inseridas em uma página de entrada do site ou do aplicativo. As senhas são salvas como parte de [seu conta Microsoft](https://account.microsoft.com/account) e também estão disponíveis quando você entra no Microsoft Edge com seu conta Microsoft.
+
+**P**: quais informações o AutoPreenchimento pode autenticar para mim?
+
+**R: o** autenticador pode AutoPreenchimento de nomes de logon e senhas em sites e aplicativos que você visita em seu telefone.
+
+**P**: como fazer ativar o preenchimento automático de senha no autenticador em meu telefone?
+
+**R**: Siga estas etapas:
+
+1. Abra o aplicativo autenticador.
+1. Em **configurações** em **beta**, ative o **preenchimento automático**.
+1. Na guia **senhas** no autenticador, selecione **entrar com a conta da Microsoft** e entre usando [seu conta Microsoft](https://account.microsoft.com/account). Esse recurso atualmente dá suporte apenas a contas da Microsoft e ainda não oferece suporte a contas corporativas ou de estudante.
+
+**P**: como fazer tornar autenticador o provedor de Autopreenchimento padrão em meu telefone?
+
+**R**: Siga estas etapas:
+
+1. Abra **as configurações** do autenticador e, em **beta** , ative o **preenchimento automático**.
+1. Na guia **senhas** dentro do aplicativo, entre usando [seu conta Microsoft](https://account.microsoft.com/account).
+1. Realize uma destas ações:
+
+   - No iOS, em **configurações**, selecione **como ativar o preenchimento automático** na seção Configurações de preenchimento automático para saber como definir o autenticador como o provedor de preenchimento automático padrão.
+   - No Android, em **configurações**, selecione **definir como provedor de preenchimento automático** na seção Configurações de preenchimento automático para definir o autenticador como o provedor de Autopreenchimento padrão.
+
+**P**: e se a opção de **preenchimento automático** estiver esmaecida para mim em configurações?
+
+**R: o** preenchimento automático está atualmente em beta e ainda não foi habilitado para todas as organizações ou tipos de conta. Se a opção de **preenchimento automático** em **configurações** estiver esmaecida para você, é provável que você esteja usando o aplicativo autenticador com sua conta corporativa. Você pode usar esse recurso em um dispositivo em que sua conta corporativa não é adicionada. Se sua organização trabalha com a Microsoft, a opção de **preenchimento automático** será habilitada mesmo quando uma conta de trabalho for adicionada ao autenticador.
+
+**P**: como fazer parar de sincronizar senhas?
+
+**R**: para interromper a sincronização de senhas no aplicativo autenticador, abra **configurações**  >  **preenchimento automático configurações**  >  **conta de sincronização**. Na próxima tela, você pode selecionar em **parar sincronização e remover todos os dados de preenchimento automático**. Isso removerá senhas e outros dados de preenchimento automático do dispositivo. A remoção de dados de preenchimento automático não afeta a autenticação multifator.
+
+**P**: como as minhas senhas são protegidas pelo aplicativo autenticador?
+
+**R: o** aplicativo autenticador já fornece um alto nível de segurança para autenticação multifator e gerenciamento de conta, e a mesma barra de segurança alta também é estendida para gerenciar suas senhas.
+
+- A **autenticação forte é necessária para o aplicativo autenticador**: entrar no autenticador requer um segundo fator. Isso significa que suas senhas dentro do aplicativo autenticador não podem ser acessadas mesmo que alguém tenha sua senha de conta Microsoft.
+- **Os dados de preenchimento automático são protegidos com biometria e** senha: antes de poder reativar o preenchimento da senha em um aplicativo ou site, o autenticador requer biométrica ou senha do dispositivo. Isso garante que, mesmo que outra pessoa tenha acesso ao seu dispositivo, ele não poderá preencher ou ver sua senha, pois não seria possível fornecer a biométrica ou o PIN do dispositivo. Além disso, um usuário não pode abrir a página senhas, a menos que forneça biométrica ou PIN, mesmo que desativem o bloqueio de aplicativo nas configurações do aplicativo.
+- **Senhas criptografadas no dispositivo**: as senhas no dispositivo são criptografadas e as chaves de criptografia/descriptografia nunca são armazenadas e sempre geradas imediatamente. As senhas são descriptografadas apenas quando o usuário deseja, ou seja, durante o preenchimento automático ou quando o usuário deseja ver a senha, ambas exigindo biométrica ou PIN.
+- **Segurança de rede e nuvem**: suas senhas na nuvem são criptografadas e descriptografadas somente quando atingem seu dispositivo. As senhas são sincronizadas em uma conexão HTTPS protegida por SSL, o que garante que nenhum invasor possa bisbilhotar dados confidenciais quando ele estiver sendo sincronizado. Também garantimos que verificamos a sanidade dos dados que estão sendo sincronizados pela rede usando funções com hash criptografado (especificamente, o código de autenticação de mensagens baseado em hash).
+
+## <a name="autofill-for-it-admins"></a>Preenchimento automático para administradores de ti
+
+**P**: meus funcionários ou alunos terão que usar o preenchimento automático de senha no aplicativo autenticador?
+
+**R**: não. O recurso de preenchimento automático está atualmente em beta e ainda não foi habilitado para todas as organizações ou tipos de conta. Se seu funcionário ou aluno tiver adicionado sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator, o preenchimento automático de senhas não estará acessível a eles. A única exceção a essa restrição é quando seu funcionário ou aluno adiciona sua conta corporativa ou de estudante à autenticação multifator baseada em nuvem da Microsoft como uma [conta externa ou](user-help-auth-app-add-non-ms-account.md)de terceiros.
+
+**P**: posso disponibilizar o recurso de preenchimento automático para meus funcionários (ou alunos)?
+
+**R**: Sim. Para habilitar seus funcionários ou alunos, sua empresa ou escola pode ser adicionada a uma lista de permissões. Contate seu suporte ou contato da Microsoft para ser adicionado à lista de permissões. Além disso, se você for um administrador de ti para sua organização, também poderá preencher um formulário para expressar seu interesse em ingressar em uma [empresa de permissão para preenchimento automático no autenticador](https://aka.ms/RequestAutofillInAuthenticator).
+
+**P**: a senha da conta corporativa ou de estudante do meu usuário será sincronizada automaticamente?
+
+**R**: não. O preenchimento automático de senha não sincronizará a senha da conta corporativa ou de estudante para seus usuários. Quando os usuários visitam um site ou um aplicativo, o autenticador oferecerá para salvar a senha para esse site ou aplicativo, e a senha será salva somente quando o usuário escolher.
+  
+**P**: posso permitir que liste somente determinados usuários da minha organização para preenchimento automático?
+
+**R**: não. As empresas só podem habilitar o preenchimento automático de senhas para todos ou nenhum de seus funcionários no momento. Iremos expandir esses controles gradualmente.
+
+**P**: e se meu funcionário ou aluno tiver várias contas corporativas ou de estudante? Por exemplo, meu funcionário tem contas de várias empresas ou escolas em seus Microsoft Authenticator.
+
+**R**: todas as empresas ou escolas adicionadas no aplicativo autenticador precisam ser permitidas-listadas para preenchimento automático no autenticador para o proprietário do aplicativo poder usá-lo. A única exceção a essa restrição é quando seu funcionário ou aluno adiciona sua conta corporativa ou de estudante à autenticação multifator baseada em nuvem da Microsoft como uma [conta externa ou](user-help-auth-app-add-non-ms-account.md)de terceiros.
 
 ## <a name="next-steps"></a>Próximas etapas
 

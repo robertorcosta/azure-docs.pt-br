@@ -4,26 +4,26 @@ description: Lista de métricas disponíveis para cada tipo de recurso com o Azu
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 12/09/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921505"
+ms.locfileid: "96929099"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
 > [!NOTE]
-> Essa lista é amplamente gerada automaticamente a partir da API REST de métricas Azure Monitor. Qualquer modificação feita nessa lista por meio do GitHub pode ser gravada sem aviso. Contate o autor deste artigo para obter detalhes sobre como fazer atualizações permanentes.
+> Essa lista é amplamente gerada automaticamente. Qualquer modificação feita nessa lista por meio do GitHub pode ser gravada sem aviso. Contate o autor deste artigo para obter detalhes sobre como fazer atualizações permanentes.
 
 O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo a criação de gráficos para os mesmos no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. 
 
-Este artigo é uma lista completa de todas as métricas de plataforma (ou seja, coletadas automaticamente) atualmente disponíveis com o pipeline de métrica consolidado do Azure Monitor. A lista foi atualizada pela última vez em 27 de março de 2020. As métricas alteradas ou adicionadas após essa data podem não aparecer abaixo. Para consultar e acessar a lista de métricas programaticamente, use a [versão de api 2018-01-01](/rest/api/monitor/metricdefinitions). Outras métricas que não estão nessa lista podem estar disponíveis no portal ou usando APIs herdadas.
+Este artigo é uma lista completa de todas as métricas de plataforma (ou seja, coletadas automaticamente) atualmente disponíveis com o pipeline de métrica consolidado do Azure Monitor. As métricas alteradas ou adicionadas após a data na parte superior deste artigo talvez ainda não apareçam abaixo. Para consultar e acessar a lista de métricas programaticamente, use a [versão de api 2018-01-01](/rest/api/monitor/metricdefinitions). Outras métricas que não estão nessa lista podem estar disponíveis no portal ou usando APIs herdadas.
 
-As métricas são organizadas por provedores de recursos e tipo de recurso. Para obter uma lista de serviços e os provedores de recursos que pertencem a eles, consulte [provedores de recursos para serviços do Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
+As métricas são organizadas por provedores de recursos e tipo de recurso. Para obter uma lista de serviços e os provedores de recursos e tipos que pertencem a eles, consulte [provedores de recursos para serviços do Azure](../../azure-resource-manager/management/azure-services-resource-providers.md).  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>Exportando métricas de plataforma para outros locais
 
@@ -115,16 +115,16 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sim|Duração de Solicitações de Back-end|Milissegundos|Média|Duração de solicitações de back-end em milissegundos|Local, Nome do host|
-|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Localização|
+|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Local|
 |Duração|Sim|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Local, Nome do host|
-|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Localização|
-|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Localização|
-|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Localização|
-|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Localização|
-|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Localização|
-|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Localização|
-|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Localização|
-|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Localização|
+|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Local|
+|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Local|
+|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Local|
+|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Local|
+|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Local|
+|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Local|
+|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Local|
+|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Local|
 |FailedRequests|Sim|Solicitações de Gateway com Falha (Preterido)|Contagem|Total|Número de falhas em solicitações de gateway-use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
 |Conectividade|Sim|Status de conectividade de rede de recursos (versão prévia)|Contagem|Média|Status de conectividade de rede de tipos de recursos dependentes do serviço de gerenciamento de API|Local, ResourceType|
 |OtherRequests|Sim|Outras Solicitações de Gateway (Preterido)|Contagem|Total|Número de outras solicitações de gateway – use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
@@ -1337,10 +1337,10 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 |Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
-|BatchBlobCount|Sim|Contagem de BLOBs do lote|Contagem|Média|Número de fontes de dados em um lote agregado para ingestão.|Banco de Dados|
-|BatchDuration|Sim|Duração do lote|Segundos|Média|A duração da fase de agregação no fluxo de ingestão.|Banco de Dados|
+|BatchBlobCount|Sim|Contagem de BLOBs do lote|Contagem|Média|Número de fontes de dados em um lote agregado para ingestão.|Banco de dados|
+|BatchDuration|Sim|Duração do lote|Segundos|Média|A duração da fase de agregação no fluxo de ingestão.|Banco de dados|
 |BatchesProcessed|Sim|Lotes processados|Contagem|Média|Número de lotes agregados para ingestão. Tipo de envio em lote: se o lote atingiu o tempo de envio em lote, o tamanho dos dados ou o número de limites de arquivos definidos pela política de envio em lote|Banco de dados, SealReason|
-|BatchSize|Sim|Tamanho do lote|Bytes|Média|Tamanho de dados esperado não compactado em um lote agregado para ingestão.|Banco de Dados|
+|BatchSize|Sim|Tamanho do lote|Bytes|Média|Tamanho de dados esperado não compactado em um lote agregado para ingestão.|Banco de dados|
 |BlobsProcessed|Sim|BLOBs processados|Contagem|Média|Número de BLOBs processados por um componente.|Database, ComponentType, ComponentName|
 |BlobsReceived|Sim|BLOBs recebidos|Contagem|Média|Número de BLOBs recebidos do fluxo de entrada por um componente.|Database, ComponentType, ComponentName|
 |BlobsRejected|Sim|BLOBs rejeitados|Contagem|Média|Número de BLOBs rejeitados permanentemente por um componente.|Database, ComponentType, ComponentName|
@@ -1371,7 +1371,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |SteamingIngestRequestRate|Sim|Taxa de Solicitação de Ingestão de Streaming|Contagem|RateRequestsPerSecond|Taxa de solicitação de ingestão de streaming (solicitações por segundo)|Sem dimensões|
 |StreamingIngestDataRate|Sim|Taxa de Dados de Ingestão de Streaming|Contagem|Média|Taxa de dados de ingestão de streaming (MB por segundo)|Sem dimensões|
 |StreamingIngestDuration|Sim|Duração da Ingestão de Streaming|Milissegundos|Média|Duração da ingestão de streaming em milissegundos|Sem dimensões|
-|StreamingIngestResults|Sim|Resultado da Ingestão de Streaming|Contagem|Média|Resultado de ingestão de streaming|Resultado|
+|StreamingIngestResults|Sim|Resultado da Ingestão de Streaming|Contagem|Média|Resultado de ingestão de streaming|Result|
 |TotalNumberOfConcurrentQueries|Sim|Número total de consultas simultâneas|Contagem|Total|Número total de consultas simultâneas|Sem dimensões|
 |TotalNumberOfExtents|Sim|Número total de extensões|Contagem|Total|Número total de extensões de dados|Sem dimensões|
 |TotalNumberOfThrottledCommands|Sim|Número total de comandos regulados|Contagem|Total|Número total de comandos regulados|CommandType|
@@ -2275,8 +2275,8 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BuiltinSqlPoolDataProcessedBytes|Não|Dados processados (bytes)|Bytes|Total|Quantidade de dados processados por consultas|Sem dimensões|
-|BuiltinSqlPoolLoginAttempts|Não|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Resultado|
-|BuiltinSqlPoolRequestsEnded|Não|Solicitações encerradas|Contagem|Total|Contagem de solicitações que tiveram êxito, falharam ou foram canceladas|Resultado|
+|BuiltinSqlPoolLoginAttempts|Não|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Result|
+|BuiltinSqlPoolRequestsEnded|Não|Solicitações encerradas|Contagem|Total|Contagem de solicitações que tiveram êxito, falharam ou foram canceladas|Result|
 |IntegrationActivityRunsEnded|Não|Execuções de atividades encerradas|Contagem|Total|Contagem de atividades de integração que tiveram êxito, falharam ou foram canceladas|Resultado, FailureType, atividade, ActivityType, pipeline|
 |IntegrationPipelineRunsEnded|Não|Execuções de pipeline finalizadas|Contagem|Total|Contagem de execuções de pipeline de integração que tiveram êxito, falharam ou foram canceladas|Resultado, FailureType, pipeline|
 |IntegrationTriggerRunsEnded|Não|Execuções de gatilho finalizadas|Contagem|Total|Contagem de gatilhos de integração que foram bem-sucedidos, com falha ou foram cancelados|Resultado, FailureType, gatilho|
@@ -2299,7 +2299,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |ActiveQueries|Não|Consultas ativas|Contagem|Total|As consultas ativas. Usar essa métrica não filtrada e a divisão exibe todas as consultas ativas em execução no sistema|IsUserDefined|
 |AdaptiveCacheHitPercent|Não|Percentual de impacto de cache adaptável|Porcentagem|Máximo|Mede o quão bem as cargas de trabalho estão utilizando o cache adaptável. Use essa métrica com a métrica percentual de impacto de cache para determinar se deve ser dimensionada para capacidade adicional ou executar novamente as cargas de trabalho para hidratar o cache|Sem dimensões|
 |AdaptiveCacheUsedPercent|Não|Percentual de cache adaptável usado|Porcentagem|Máximo|Mede o quão bem as cargas de trabalho estão utilizando o cache adaptável. Use essa métrica com a métrica percentual usada do cache para determinar se deve ser dimensionada para capacidade adicional ou executar novamente as cargas de trabalho para hidratar o cache|Sem dimensões|
-|conexões|Sim|conexões|Contagem|Total|Contagem de logons totais para o pool do SQL|Resultado|
+|conexões|Sim|conexões|Contagem|Total|Contagem de logons totais para o pool do SQL|Result|
 |ConnectionsBlockedByFirewall|Não|Conexões bloqueadas pelo firewall|Contagem|Total|Contagem de conexões bloqueadas por regras de firewall. Reveja as políticas de controle de acesso para seu pool SQL e monitore essas conexões se a contagem for alta|Sem dimensões|
 |CPUPercent|Não|Percentual de utilização da CPU|Porcentagem|Máximo|Utilização da CPU em todos os nós no pool do SQL|Sem dimensões|
 |DWULimit|Não|Limite de DWU|Contagem|Máximo|Objetivo de nível de serviço do pool do SQL|Sem dimensões|

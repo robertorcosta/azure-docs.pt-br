@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174825"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928742"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -56,6 +56,10 @@ Atualmente, o Azure AD não pode provisionar atributos nulos. Se um atributo for
 **Máximo de caracteres para expressões de mapeamento de atributo**
 
 As expressões de mapeamento de atributo podem ter um máximo de 10.000 caracteres. 
+
+**Filtros de escopo sem suporte**
+
+Não há suporte para extensões de diretório, appRoleAssignments, UserType e accountExpires como filtros de escopo.
 
 
 ## <a name="service-issues"></a>Problemas de serviço 

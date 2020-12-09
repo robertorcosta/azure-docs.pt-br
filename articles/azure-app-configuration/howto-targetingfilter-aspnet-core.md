@@ -3,16 +3,16 @@ title: Habilitar a distribuição em etapas de recursos para públicos-alvo
 titleSuffix: Azure App Configuration
 description: Saiba como habilitar a distribuição em etapas de recursos para públicos-alvo
 ms.service: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.topic: conceptual
-ms.date: 8/7/2020
-ms.openlocfilehash: d1574b8a3f8cda3341c0aaf355911e2e93a7bcab
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 11/20/2020
+ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557534"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929677"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Habilitar a distribuição em etapas de recursos para públicos-alvo
 
@@ -91,7 +91,7 @@ Neste ponto, você pode usar o sinalizador de recurso para habilitar ou desabili
     }
     ```
 
-1. No *Startup.cs* , adicione uma referência ao namespace *Microsoft. FeatureManagement. FeatureFilters* :
+1. No *Startup.cs*, adicione uma referência ao namespace *Microsoft. FeatureManagement. FeatureFilters* :
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -144,9 +144,9 @@ O método *configureservices* inteiro terá a seguinte aparência:
 
 1. Selecione as seguintes opções:
 
-    - **Porcentagem padrão** : 0
-    - **Grupos** : Insira um **nome** de _contoso.com_ e um **percentual** de _50_
-    - **Usuários** : `test@contoso.com`
+    - **Porcentagem padrão**: 0
+    - **Grupos**: Insira um **nome** de _contoso.com_ e um **percentual** de _50_
+    - **Usuários**: `test@contoso.com`
 
     A tela de filtro de recursos terá a seguinte aparência:
 

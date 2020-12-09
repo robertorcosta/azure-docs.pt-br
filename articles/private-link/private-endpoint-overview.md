@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ac4763a2d79059eb2608595b616c945af274627e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522337"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928504"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto de Extremidade Privado do Azure?
 
@@ -28,7 +28,7 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
 |Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados de uma rede virtual. Para obter os requisitos de sub-rede, confira a seção Limitações neste artigo.         |
 |Recurso do link privado    |   O recurso do link privado para conectar-se usando a ID do recurso ou alias da lista de tipos disponíveis. Um identificador de rede exclusivo é gerado para todo o tráfego enviado para esse recurso.       |
 |Sub-recurso de destino   |      O sub-recurso a ser conectado. Cada tipo de recurso do link privado tem opções diferentes para selecionar com base na preferência.    |
-|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões do Azure RBAC (controle de acesso baseado em função), seu ponto de extremidade privado pode ser aprovado automaticamente. Se você tentar se conectar a um recurso de link privado sem o RBAC Azure, use o método manual para permitir que o proprietário do recurso aprove a conexão.        |
+|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões do Azure RBAC (controle de acesso baseado em função), seu ponto de extremidade privado pode ser aprovado automaticamente. Se você tentar se conectar a um recurso de link privado sem o RBAC do Azure, use o método manual para permitir que o proprietário do recurso aprove a conexão.        |
 |Mensagem de solicitação     |  Você pode especificar uma mensagem para que as conexões solicitadas sejam aprovadas manualmente. Essa mensagem pode ser usada para identificar uma solicitação específica.        |
 |Status da conexão   |   Uma propriedade somente leitura que especifica se o ponto de extremidade privado está ativo. Somente os pontos de extremidade privados no estado aprovado podem ser usados para enviar tráfego. Outros estados disponíveis: <br>-**Aprovado**: A conexão foi aprovada automaticamente ou manualmente e está pronta para ser usada.</br><br>-**Pendente**: A conexão foi criada manualmente e está pendente de aprovação do proprietário do recurso do link privado.</br><br>-**Rejeitado**: A conexão foi rejeitada pelo proprietário do recurso do link privado.</br><br>-**Desconectado**: A conexão foi removida pelo proprietário do recurso do link privado. O ponto de extremidade privado se torna informativo e deve ser excluído para limpeza. </br>|
 

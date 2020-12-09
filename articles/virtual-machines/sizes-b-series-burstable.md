@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500301"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928810"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -132,7 +132,7 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Por que meu conjunto de créditos restantes está definido como 0 após uma reimplantação ou parar/iniciar?
 
-**R** : Quando uma VM for “REIMPLANTADA”, ou seja, a VM se move para outro nó e o crédito acumulado é perdido. Se a VM for iniciada/interrompida, mas permanecer no mesmo nó, a VM retém o crédito acumulado. Sempre que a VM começa a ser atualizada em um nó, ela obtém um crédito inicial, por Standard_B8ms é 240.
+**R** : quando uma VM é reimplantada e a VM é movida para outro nó, o crédito acumulado é perdido. Se a VM for iniciada/interrompida, mas permanecer no mesmo nó, a VM retém o crédito acumulado. Sempre que a VM começa a ser atualizada em um nó, ela obtém um crédito inicial, por Standard_B8ms é 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: o que acontecerá se eu implantar uma imagem de sistema operacional sem suporte no B1ls?
 
