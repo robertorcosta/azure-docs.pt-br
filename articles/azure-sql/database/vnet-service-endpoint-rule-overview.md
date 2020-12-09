@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450230"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905869"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "96450230"
 *Regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor para seus bancos de dados e pools elásticos no [banco de dados SQL do Azure](sql-database-paas-overview.md) ou em seus bancos de dados no [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com seu banco de dados no banco de dados SQL do Azure e no Azure Synapse Analytics.
 
 > [!NOTE]
-> Este artigo se aplica ao banco de dados SQL do Azure e ao Azure Synapse Analytics. Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics.
+> Este artigo aplica-se ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics. Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics.
 
 Para criar uma regra da rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
 
@@ -95,7 +95,7 @@ Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, ve
 ### <a name="expressroute"></a>ExpressRoute
 
 Se você estiver usando [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de suas instalações, para emparelhamento público ou emparelhamento da Microsoft, será necessário identificar os endereços IP NAT usados. Para emparelhamento público, cada circuito do ExpressRoute usará dois endereços IP de NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para emparelhamento da Microsoft, os endereços IP de NAT usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviço. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 Para permitir a comunicação do seu circuito com o Banco de Dados SQL do Azure, você deve criar regras de rede IP para os endereços IP públicos do seu NAT.
 
 <!--
@@ -122,7 +122,7 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
 
 #### <a name="steps"></a>Etapas
 
-1. No PowerShell, **Registre seu servidor** que hospeda o Azure Synapse com o Azure Active Directory (AAD):
+1. Se você tiver um pool SQL dedicado autônomo, Registre seu SQL Server com Azure Active Directory (AAD) usando o PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -130,6 +130,14 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   Esta etapa não é necessária para pools SQL dedicados em um espaço de trabalho Synapse.
+
+1. Se você tiver um espaço de trabalho Synapse, registre a identidade gerenciada pelo sistema do seu espaço de trabalho:
+
+   1. Vá para o espaço de trabalho Synapse na portal do Azure
+   2. Ir para a folha identidades gerenciadas 
+   3. Verificar se a opção "permitir pipelines" está habilitada
+   
 1. Crie uma **Conta de armazenamento de uso geral v2** usando este [guia](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
@@ -137,7 +145,7 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
    > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md).
    > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
+1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de **colaborador de dados do armazenamento de BLOBs** ao servidor ou ao espaço de trabalho que hospeda seu pool SQL dedicado que você registrou com o Azure Active Directory (AAD).
 
    > [!NOTE]
    > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md).

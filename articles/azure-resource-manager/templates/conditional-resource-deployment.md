@@ -1,18 +1,18 @@
 ---
 title: Implantação condicional com modelos
-description: Descreve como implantar condicionalmente um recurso em um modelo de Azure Resource Manager.
+description: Descreve como implantar condicionalmente um recurso em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259313"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905988"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
 
-Às vezes, você precisa implantar um recurso opcionalmente em um modelo de Azure Resource Manager (ARM). Use o `condition` elemento para especificar se o recurso é implantado. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. O valor só pode ser aplicado para o recurso inteiro.
+Às vezes, você precisa, opcionalmente, implantar um recurso em um modelo de Azure Resource Manager (modelo ARM). Use o `condition` elemento para especificar se o recurso é implantado. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. O valor só pode ser aplicado para o recurso inteiro.
 
 > [!NOTE]
 > A implantação condicional não é em cascata para [recursos filho](child-resource-name-type.md). Se você quiser implantar condicionalmente um recurso e seus recursos filho, deverá aplicar a mesma condição a cada tipo de recurso.

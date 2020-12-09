@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069714"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861350"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -89,7 +89,7 @@ Para obter mais informações sobre como os usuários do serviço de provisionam
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para provisionamento
 
-Ao usar Microsoft Graph para provisionamento, você tem acesso a todos os dados avançados do usuário disponíveis no Graph. Além dos detalhes de usuários e grupos, você também pode buscar informações adicionais, como funções do usuário, gerentes e relatórios diretos, dispositivos registrados e de propriedade e centenas de outras partes de dados disponíveis no [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+Ao usar Microsoft Graph para provisionamento, você tem acesso a todos os dados avançados do usuário disponíveis no Graph. Além dos detalhes de usuários e grupos, você também pode buscar informações adicionais, como funções do usuário, gerentes e relatórios diretos, dispositivos registrados e de propriedade e centenas de outras partes de dados disponíveis no [Microsoft Graph](/graph/api/overview). 
 
 Mais de 15 milhões organizações e 90% das empresas da Fortune 500 usam o Azure AD ao assinar serviços em nuvem da Microsoft, como Microsoft 365, Microsoft Azure ou Enterprise Mobility Suite. Você pode usar Microsoft Graph para integrar seu aplicativo com fluxos de trabalho administrativos, como a integração de funcionários (e encerramento), a manutenção do perfil e muito mais. 
 

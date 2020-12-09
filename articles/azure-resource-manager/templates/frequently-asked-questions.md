@@ -1,39 +1,39 @@
 ---
 title: Perguntas frequentes sobre o modelo ARM
-description: Perguntas frequentes sobre modelos de Azure Resource Manager.
+description: Perguntas frequentes sobre modelos de Azure Resource Manager (modelos ARM).
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184001"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902996"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos do ARM
 
-Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Manager (ARM).
+Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Manager (modelos ARM).
 
 ## <a name="getting-started"></a>Introdução
 
 * **O que são modelos de ARM e por que devo usá-los?**
 
   Os modelos de ARM são arquivos JSON em que você define o que deseja implantar no Azure. Os modelos ajudam você a implementar uma solução de infraestrutura como código para o Azure. Sua organização pode implantar repetidamente e de forma confiável a infraestrutura necessária em ambientes diferentes.
-  
+
   Para saber mais sobre como os modelos do ARM ajudam a gerenciar sua infraestrutura do Azure, consulte [o que são modelos de ARM?](overview.md)
 
 * **Como fazer introdução aos modelos?**
 
-  Para simplificar a criação de modelos de ARM, você precisa das ferramentas corretas. É recomendável instalar [Visual Studio Code](https://code.visualstudio.com/) e a [extensão de ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Para obter uma breve introdução a essas ferramentas, consulte [início rápido: criar modelos de Azure Resource Manager com Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+  Para simplificar a criação de modelos de ARM, você precisa das ferramentas corretas. É recomendável instalar [Visual Studio Code](https://code.visualstudio.com/) e a [extensão de ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Para obter uma breve introdução a essas ferramentas, consulte [início rápido: criar modelos de ARM com Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
   Quando estiver pronto para saber mais sobre a criação de modelos ARM, inicie a [série de tutoriais iniciantes em modelos ARM](template-tutorial-create-first-template.md). Esses tutoriais levam você passo a passo pelo processo de construção de um modelo ARM. Você aprende sobre as diferentes seções do modelo e como elas funcionam em conjunto. Esse conteúdo também está disponível como um [módulo Microsoft Learn](/learn/modules/authoring-arm-templates/).
 
 * **Devo usar modelos ARM ou Terraform para implantar no Azure?**
 
   Use a opção que você gostou melhor. Ambos os serviços ajudam você a automatizar implantações no Azure.
-  
+
   Acreditamos que há benefícios em usar modelos de ARM em outros serviços de infraestrutura como código. Para saber mais sobre esses benefícios, confira [por que escolher modelos de ARM?](overview.md#why-choose-arm-templates)
 
 ## <a name="build-2020"></a>Build 2020
@@ -59,7 +59,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 * **Configurei meu ambiente por meio do Portal. Há alguma maneira de obter o modelo de um grupo de recursos existente?**
 
   Sim, você pode [exportar o modelo](export-template-portal.md) de um grupo de recursos. O modelo exportado é um bom ponto de partida para aprender sobre modelos, mas você provavelmente desejará revisá-lo antes de usá-lo em um ambiente de produção.
-  
+
   Ao exportar o modelo, você pode selecionar os recursos que deseja incluir no modelo.
 
 * **Posso criar um grupo de recursos em um modelo ARM e implantar recursos nele?**
@@ -182,11 +182,11 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Posso integrar modelos do ARM ao Azure Pipelines?**
 
-  Sim. Para obter uma explicação de como usar o modelo e os pipelines, consulte [tutorial: integração contínua de modelos de Azure Resource Manager com Azure pipelines](deployment-tutorial-pipeline.md) e [integrar modelos de ARM com o Azure pipelines](add-template-to-azure-pipelines.md).
+  Sim. Para obter uma explicação de como usar o modelo e os pipelines, consulte [tutorial: integração contínua de modelos ARM com Azure pipelines](deployment-tutorial-pipeline.md) e [integrar modelos ARM com Azure pipelines](add-template-to-azure-pipelines.md).
 
 * **Posso usar ações do GitHub para implantar um modelo?**
 
-  Sim, consulte [implantar modelos de Azure Resource Manager usando ações do GitHub](deploy-github-actions.md).
+  Sim, consulte [implantar modelos de ARM usando ações do GitHub](deploy-github-actions.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

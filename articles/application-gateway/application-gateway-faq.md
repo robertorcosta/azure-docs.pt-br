@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751692"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862166"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -133,7 +133,7 @@ Sim. O SKU do Gateway de Aplicativo v1 continuará a ter suporte. No entanto, é
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>O Gateway de Aplicativo v2 dá suporte a solicitações de proxy com autenticação NTLM?
 
-Não. O Gateway de Aplicativo v2 ainda não dá suporte a solicitações de proxy com autenticação NTLM.
+Não. O gateway de aplicativo v2 não dá suporte a solicitações de proxy com autenticação NTLM.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Gateway de Aplicativo dá suporte ao atributo SameSite?
 Sim, o [navegador Chromium](https://www.chromium.org/Home) [atualização de v80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies HTTP sem que o atributo SameSite seja tratado como SameSite=Lax. Isso significa que o cookie de afinidade do Gateway de Aplicativo não será enviado pelo navegador em um contexto de terceiros. 

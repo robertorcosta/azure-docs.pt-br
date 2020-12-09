@@ -1,27 +1,27 @@
 ---
-title: Criar uma fonte de dados para um mapa | Mapas do Microsoft Azure
+title: Criar uma fonte de dados para um mapa no Microsoft Azure Maps
 description: 'Descubra como criar uma fonte de dados para um mapa. Saiba mais sobre as fontes de dados que o SDK da Web do Azure Maps usa: fontes geojson e blocos de vetor.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895912"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903608"
 ---
 # <a name="create-a-data-source"></a>Criar uma fonte de dados
 
 O SDK da Web do Azure Maps armazena dados em fontes de dados. O uso de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente, há dois tipos de fontes de dados:
 
-- **Origem geojson** : gerencia dados de local brutos no formato geojson localmente. Bom para conjuntos de dados pequenos a médios (em cima de centenas de milhares de formas).
-- **Origem do bloco de vetor** : carrega dados formatados como blocos de vetor para a exibição de mapa atual, com base no sistema de mapas de blocos. Ideal para conjuntos de dados grandes a grandes (milhões ou bilhões de formas).
+- **Origem geojson**: gerencia dados de local brutos no formato geojson localmente. Bom para conjuntos de dados pequenos a médios (em cima de centenas de milhares de formas).
+- **Origem do bloco de vetor**: carrega dados formatados como blocos de vetor para a exibição de mapa atual, com base no sistema de mapas de blocos. Ideal para conjuntos de dados grandes a grandes (milhões ou bilhões de formas).
 
 ## <a name="geojson-data-source"></a>Fonte de dados geojson
 
@@ -86,7 +86,7 @@ O mapas do Azure segue a [especificação de bloco de vetor Mapbox](https://gith
 - Detalhes do [documentation](/rest/api/maps/renderv2/getmaptilepreview)  |  [formato de dados](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) da documentação dos blocos de estrada
 - Detalhes do [documentation](/rest/api/maps/traffic/gettrafficincidenttile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de documentação de incidentes de tráfego
 - Detalhes do [documentation](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de documentação do fluxo de tráfego
-- O criador do mapas do Azure também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](/rest/api/maps/renderv2/getmaptilepreview)
+- O Azure Maps Creator (versão prévia) também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > Ao usar blocos de imagem vetorial ou rasterizada do serviço de renderização do Azure Maps com o SDK da Web, você pode substituir `atlas.microsoft.com` pelo espaço reservado `{azMapsDomain}` . Esse espaço reservado será substituído pelo mesmo domínio usado pelo mapa e também acrescentará automaticamente os mesmos detalhes de autenticação. Isso simplifica muito a autenticação com o serviço de renderização ao usar a autenticação Azure Active Directory.
@@ -213,7 +213,7 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)
+> [Fonte](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
 > [DataSourceOptions](/javascript/api/azure-maps-control/atlas.datasourceoptions)

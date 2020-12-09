@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743132"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861299"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planejar uma implantação da autenticação multifator do Azure AD
 
@@ -165,7 +165,7 @@ Com o uso das etapas a seguir, uma política de Acesso Condicional pode obrigar 
 2. Com o Acesso Condicional, imponha a Autenticação Multifator a esse grupo para acesso a todos os recursos.
 3. Periodicamente, reavalie os membros do grupo e remova os usuários que se registraram.
 
-Você pode identificar usuários registrados e não registrados do Azure AD MFA com comandos do PowerShell que dependem do [módulo do PowerShell do MSOnline](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Você pode identificar usuários registrados e não registrados do Azure AD MFA com comandos do PowerShell que dependem do [módulo do PowerShell do MSOnline](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identificar usuários registrados
 

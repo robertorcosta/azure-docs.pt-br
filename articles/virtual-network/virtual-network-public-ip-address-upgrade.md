@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843733"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905784"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
@@ -159,6 +159,7 @@ Norte da China 2
 
 * Para atualizar um IP público básico, ele não pode ser associado a nenhum recurso do Azure.  Leia [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para obter mais informações sobre como desassociar IPS públicos.  Da mesma forma, para migrar um IP Reservado, ele não pode ser associado a nenhum serviço de nuvem.  Leia [esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para obter mais informações sobre como desassociar IPS reservados.  
 * Os IPs públicos atualizados do SKU básico para o Standard continuarão sem [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) e, portanto, não podem ser associados a um recurso do Azure que seja com redundância de zona ou zonas.  Observe que isso só se aplica a regiões que oferecem zonas de disponibilidade.
+* Não é possível fazer downgrade do Standard para o básico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

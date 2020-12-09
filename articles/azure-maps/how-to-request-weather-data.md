@@ -1,24 +1,28 @@
 ---
-title: Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps
-description: Saiba como solicitar dados meteorológicos em tempo real (atuais) e previstos (minuto, por hora, diariamente) usando Microsoft Azure mapear serviços meteorológicos
+title: Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps (versão prévia)
+description: Saiba como solicitar dados meteorológicos em tempo real (atuais) e previstos (minuto, por hora, diariamente) usando Microsoft Azure mapear os serviços meteorológicos (versão prévia)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/27/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c11f20286c514056d14b8faa941315345fea71f2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a5ae262d2882bd76e31666f058fa9a7a703a9e1e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186330"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906005"
 ---
-# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps
+# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps (versão prévia) 
 
-O [serviço meteorológico](/rest/api/maps/weather) do Azure Maps é um conjunto de APIs RESTful que permite aos desenvolvedores integrar dados de clima históricos, em tempo real e previstos e visualizações em suas soluções. Neste artigo, mostraremos como solicitar dados meteorológicos em tempo real e previsão.
+> [!IMPORTANT]
+> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Os [serviços meteorológicos](/rest/api/maps/weather) do Azure Maps são um conjunto de APIs RESTful que permite aos desenvolvedores integrar dados de clima históricos, em tempo real e previstos e visualizações em suas soluções. Neste artigo, mostraremos como solicitar dados meteorológicos em tempo real e previsão.
 
 Neste artigo, você aprenderá a:
 
@@ -28,7 +32,7 @@ Neste artigo, você aprenderá a:
 * Solicitar previsões por hora usando a [API obter previsão por hora](/rest/api/maps/weather/gethourlyforecastpreview).
 * Solicite previsões de minuto por minuto usando a [API de previsão de obter minuto](/rest/api/maps/weather/getminuteforecastpreview).
 
-Este vídeo fornece uma visão geral dos serviços meteorológicos no Azure Maps com exemplos de chamada REST.
+Este vídeo fornece exemplos para fazer chamadas REST para os serviços meteorológicos do Azure Maps.
 
 <br/>
 
@@ -751,8 +755,7 @@ Neste exemplo, você usará a [API obter previsão de minutos](/rest/api/maps/we
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Conceitos do serviço meteorológico do Azure Maps](./weather-services-concepts.md)
+> [Conceitos dos serviços meteorológicos do Azure Maps (versão prévia)](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [API REST do serviço de clima do Azure Maps](/rest/api/maps/weather
-)
+> [API REST dos serviços meteorológicos do Azure Maps (versão prévia)](/rest/api/maps/weather)

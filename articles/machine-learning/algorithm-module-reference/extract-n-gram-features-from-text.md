@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420794"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861435"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
 
@@ -28,7 +28,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 * [Use um conjunto existente de recursos de texto](#use-an-existing-n-gram-dictionary) para personalizar uma coluna de texto livre.
 
-* [Pontuar ou publicar um modelo](#score-or-publish-a-model-that-uses-n-grams) que usa n-grams.
+* [Pontuar ou implantar um modelo](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) que usa n-grams.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Criar um novo dicionário de n-Gram
 
@@ -44,15 +44,15 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1. **Função de peso** especifica como criar o vetor de recurso de documento e como extrair o vocabulário de documentos.
 
-    * **Peso binário** : atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
+    * **Peso binário**: atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
 
-    * **TF Weight** : atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
+    * **TF Weight**: atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
 
-    * **Peso IDF** : atribui uma pontuação de IDF (frequência de documento inversa) para os n-gramas extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
+    * **Peso IDF**: atribui uma pontuação de IDF (frequência de documento inversa) para os n-gramas extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF-IDF Weight** : atribui uma pontuação de termo de frequência/documento inverso (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
+    *  **TF-IDF Weight**: atribui uma pontuação de termo de frequência/documento inverso (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
 
 1. Defina o **comprimento mínimo da palavra** como o número mínimo de letras que podem ser usadas em qualquer *palavra única* em um n-Gram.
 
@@ -83,7 +83,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1. Adicione o conjunto de dados salvo que contém um dicionário de n-Gram gerado anteriormente e conecte-o à porta de **vocabulário de entrada** . Você também pode conectar a saída de **vocabulário de resultado** de uma instância upstream do módulo extrair recursos N-Gram de texto.
 
-1. Para o **modo vocabulário** , selecione a opção atualização **somente leitura** na lista suspensa.
+1. Para o **modo vocabulário**, selecione a opção atualização **somente leitura** na lista suspensa.
 
    A opção **ReadOnly** representa o corpus de entrada para o vocabulário de entrada. Em vez de calcular frequências de termo do novo conjunto de dados de texto (na entrada à esquerda), os pesos de n-Gram do vocabulário de entrada são aplicados como estão.
 
@@ -94,36 +94,42 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1.  Envie o pipeline.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Pontuar ou publicar um modelo que usa n-grams
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Pipeline de inferência de compilação que usa n-grams para implantar um ponto de extremidade em tempo real
 
-1.  Copie os **recursos de extrair N-Gram do** módulo de texto do fluxo de bits de treinamento para o fluxo de texto de pontuação.
+Um pipeline de treinamento que contém o **recurso extrair N-grams do texto e do** **modelo de Pontuação** para fazer previsão no conjunto de dados de teste, é criado na seguinte estrutura:
 
-1.  Conecte a saída de **vocabulário de resultado** do fluxo de **dados** de treinamento ao vocabulário de entrada no fluxo de informações de pontuação.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Exemplo de pipeline de treinamento para extrair N-grams" border="true":::
 
-1.  No fluxo de trabalho de pontuação, modifique os recursos de extrair N-Gram do módulo de texto e defina o parâmetro **modo de vocabulário** como **ReadOnly**. Deixe todas as outras as mesmas.
+**O modo de vocabulário** do **recurso extrair N-grams circulado do módulo de texto** é **criado**, e o modo de **vocabulário** do módulo que se conecta ao módulo **modelo de Pontuação** é **ReadOnly**.
 
-1.  Para publicar o pipeline, salve o **vocabulário de resultado** como um conjunto de uma.
+Depois de enviar o pipeline de treinamento acima com êxito, você pode registrar a saída do módulo circulado como conjunto de registros.
 
-1.  Conecte o conjunto de texto salvo ao módulo extrair os recursos do N-Gram do Text no grafo de pontuação.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="registrar conjunto de registros" border="true":::
+
+Em seguida, você pode criar um pipeline de inferência em tempo real. Depois de criar o pipeline de inferência, você precisa ajustar seu pipeline de inferência manualmente da seguinte maneira:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="pipeline de inferência" border="true":::
+
+Em seguida, envie o pipeline de inferência e implante um ponto de extremidade em tempo real.
 
 ## <a name="results"></a>Resultados
 
 O módulo extrair recursos N-Gram do texto cria dois tipos de saída: 
 
-* **Conjunto de resultados** : essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
+* **Conjunto de resultados**: essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
 
-  * **Matriz de ocorrências de n-Gram** : o módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
+  * **Matriz de ocorrências de n-Gram**: o módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
 
-* **Vocabulário de resultado** : o vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
+* **Vocabulário de resultado**: o vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
 
 ### <a name="result-vocabulary"></a>Vocabulário de resultado
 
 O vocabulário contém o dicionário de n-Gram com as pontuações de frequência de termos que são geradas como parte da análise. As pontuações de DF e IDF são geradas independentemente de outras opções.
 
-+ **ID** : um identificador gerado para cada n-Gram exclusivo.
-+ **NGram** : o n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
-+ **DF** : a pontuação de frequência do termo para o n-Gram no Corpus original.
-+ **IDF** : a pontuação de frequência de documento inversa para o n-Gram no Corpus original.
++ **ID**: um identificador gerado para cada n-Gram exclusivo.
++ **NGram**: o n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
++ **DF**: a pontuação de frequência do termo para o n-Gram no Corpus original.
++ **IDF**: a pontuação de frequência de documento inversa para o n-Gram no Corpus original.
 
 Você pode atualizar manualmente esse conjunto de um, mas pode introduzir erros. Por exemplo:
 

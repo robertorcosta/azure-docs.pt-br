@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963633"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862050"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -142,7 +142,7 @@ No | O que ele pode fazer
 
 ### <a name="compliance-data-administrator"></a>[Administrador de Dados de Conformidade](#compliance-data-administrator-permissions)
 
-Os usuários com essa função têm permissões para monitorar dados no Centro de conformidade do Microsoft 365, no Centro de administração do Microsoft 365 e no Azure. Os usuários também podem monitorar dados de conformidade no Centro de administração do Exchange, no Gerenciador de conformidade e no Centro de administração do Teams e do Skype for Business, além de criar tíquetes de suporte para o Azure e o Microsoft 365. [Esta documentação](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) tem detalhes sobre as diferenças entre o administrador de conformidade e o administrador de dados de conformidade.
+Os usuários com essa função têm permissões para monitorar dados no Centro de conformidade do Microsoft 365, no Centro de administração do Microsoft 365 e no Azure. Os usuários também podem monitorar dados de conformidade no Centro de administração do Exchange, no Gerenciador de conformidade e no Centro de administração do Teams e do Skype for Business, além de criar tíquetes de suporte para o Azure e o Microsoft 365. [Esta documentação](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) tem detalhes sobre as diferenças entre o administrador de conformidade e o administrador de dados de conformidade.
 
 No | O que ele pode fazer
 ----- | ----------
@@ -276,10 +276,10 @@ Essa função era anteriormente chamada de “Administrador de senha” no [port
 
 Os usuários nessa função podem criar, gerenciar e implantar a configuração de provisionamento do AD para o Azure AD usando o provisionamento de nuvem, bem como gerenciar configurações de Federação. Os usuários também podem solucionar problemas e monitorar logs usando essa função.  
 
-### <a name="insights-administrator"></a>[Administrador do insights](#insights-administrator-permissions)
+### <a name="insights-administrator"></a>[Administrador do Insights](#insights-administrator-permissions)
 Os usuários nessa função podem acessar o conjunto completo de recursos administrativos no [aplicativo M365 insights](https://go.microsoft.com/fwlink/?linkid=2129521). Essa função tem a capacidade de ler as informações do diretório, monitorar a integridade do serviço, tíquetes de suporte de arquivo e acessar os aspectos das configurações de administrador do insights.
 
-### <a name="insights-business-leader"></a>[Líder de negócios do insights](#insights-business-leader-permissions)
+### <a name="insights-business-leader"></a>[Líder de negócios do Insights](#insights-business-leader-permissions)
 Os usuários nessa função podem acessar um conjunto de dashboards e percepções por meio do [aplicativo M365 insights](https://go.microsoft.com/fwlink/?linkid=2129521). Isso inclui acesso completo a todos os dashboards e a funcionalidade de exploração de dados e informações apresentadas. Os usuários nesta função não têm acesso às definições de configuração do produto, que é responsabilidade da função de administrador do insights.
 
 ### <a name="intune-administrator"></a>[Administrador do Intune](#intune-service-administrator-permissions)
@@ -307,7 +307,7 @@ Os usuários com essa função podem monitorar todas as notificações no Centro
 
 Os usuários nessa função podem monitorar notificações e atualizações de integridade de consultoria no [centro de mensagens](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para sua organização em serviços configurados, como o Exchange, o Intune e o Microsoft Teams. Os leitores do centro de mensagens recebem resumos semanais de emails de postagens, atualizações e podem compartilhar postagens no centro de mensagens no Microsoft 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
-### <a name="modern-commerce-user"></a>[Usuário de comércio moderno](#modern-commerce-user-permissions)
+### <a name="modern-commerce-user"></a>[Usuário moderno do Commerce](#modern-commerce-user-permissions)
 
 Não use. Essa função é automaticamente atribuída a partir do Comércio e não tem a finalidade ou o suporte para outros usos. Veja detalhes abaixo.
 
@@ -317,7 +317,7 @@ Os usuários com a função de usuário de comércio moderno normalmente têm pe
 
 **Quando a função de usuário do comércio moderno é atribuída?**
 
-* **Compra por autoatendimento no Centro de administração do Microsoft 365** – a compra por autoatendimento dá aos usuários a oportunidade de experimentar novos produtos comprando-os ou inscrevendo-se neles por conta própria. Esses produtos são gerenciados no centro de administração. Os usuários que fazem uma compra de autoatendimento recebem uma função no sistema de comércio e a função de usuário do comércio moderno para que possam gerenciar suas compras no centro de administração. Os administradores podem bloquear compras por autoatendimento (para Power BI, Power Apps e Power Automate) por meio do [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, consulte [Perguntas frequentes da compra por autoatendimento](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Compra por autoatendimento no Centro de administração do Microsoft 365** – a compra por autoatendimento dá aos usuários a oportunidade de experimentar novos produtos comprando-os ou inscrevendo-se neles por conta própria. Esses produtos são gerenciados no centro de administração. Os usuários que fazem uma compra de autoatendimento recebem uma função no sistema de comércio e a função de usuário do comércio moderno para que possam gerenciar suas compras no centro de administração. Os administradores podem bloquear compras por autoatendimento (para Power BI, Power Apps e Power Automate) por meio do [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, consulte [Perguntas frequentes da compra por autoatendimento](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
 * **Compras do Microsoft Commercial Marketplace**  – semelhante à compra de autoatendimento, quando um usuário adquire um produto ou serviço do Microsoft AppSource ou do Azure Marketplace, a função de usuário do comércio moderno é atribuída se não tiver a função de administrador global de administrador ou cobrança. Em alguns casos, os usuários podem ser impedidos de fazer essas compras. Para obter mais informações, consulte [Marketplace comercial da Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
 * **Propostas da Microsoft** – uma proposta é uma oferta formal enviada pela Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está aceitando a proposta não tem um administrador global ou função de administrador de cobrança no Azure AD, ela recebe uma função específica de comércio para concluir a proposta e a função de usuário de comércio moderna para acessar o centro de administração. Ao acessar o centro de administração, essa pessoa só poderá usar recursos que sejam autorizados por sua função específica de comércio.
 * **Funções específicas de comércio** – alguns usuários recebem esse tipo de função. Se um usuário não for um administrador global ou de cobrança, ele obterá a função de usuário de comércio moderna para que possa acessar o centro de administração.  
@@ -481,7 +481,7 @@ Usuários nessa função podem solucionar problemas de comunicação no Microsof
 
 Usuários nessa função podem solucionar problemas de comunicação no Microsoft Teams e Skype for Business usando as ferramentas de solução de problemas de chamada de usuário no centro de administração do Microsoft Teams e Skype for Business. Os usuários nessa função só podem exibir detalhes do usuário na chamada para o usuário específico que eles pesquisaram. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
-### <a name="teams-devices-administrator"></a>[Administrador de dispositivos de equipes](#teams-devices-administrator-permissions)
+### <a name="teams-devices-administrator"></a>[Administrador de dispositivos do Teams](#teams-devices-administrator-permissions)
 
 Os usuários com essa função podem gerenciar [dispositivos certificados pela equipe](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) no centro de administração do teams. Essa função permite exibir todos os dispositivos com uma visão simples, com a capacidade de Pesquisar e filtrar dispositivos. O usuário pode verificar os detalhes de cada dispositivo, incluindo conta conectada, marca e modelo do dispositivo. O usuário pode alterar as configurações no dispositivo e atualizar as versões do software. Essa função não concede permissões para verificar a atividade de equipes e chamar a qualidade do dispositivo. 
 
@@ -1935,15 +1935,15 @@ Administrador de Grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-0265
 Emissor do Convite ao Convidado | Emissor do convite ao convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de assistência técnica | Administrador de assistência técnica | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador de Identidade Híbrida | Administrador de identidade híbrida | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
-Administrador do insights | Administrador do insights | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
-Líder de negócios do insights | Líder de negócios do insights | 31e939ad-9672-4796-9c2e-873181342d2d
+Administrador do Insights | Administrador do insights | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
+Líder de negócios do Insights | Líder de negócios do insights | 31e939ad-9672-4796-9c2e-873181342d2d
 Administrador de serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador do Kaizala | Administrador do Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrador de Licenças | Administrador de licenças | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador de serviços do Lync | Administrador do Skype for Business | 75941009-915a-4869-abe7-691bff18279e
 Leitor de Privacidade do Centro de Mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Leitor do Centro de Mensagens | Leitor do Centro de Mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-Usuário de comércio moderno | Usuário de comércio moderno | d24aef57-1500-4070-84db-2666f29cf966
+Usuário moderno do Commerce | Usuário moderno do Commerce | d24aef57-1500-4070-84db-2666f29cf966
 Administrador de Rede | Administrador de rede | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrador de Aplicativos do Office | Administrador de aplicativos do Office | 2b745bdf-0803-4d80-aa65-822c4493daac
 Suporte de camada 1 do parceiro | Não exibido porque não deve ser usado | 4ba39ca4-527c-499a-b93d-d9b492c50246
@@ -1966,7 +1966,7 @@ Administrador de serviços do SharePoint | Administrador do SharePoint | f28a1f5
 Administrador de Comunicações do Teams | Administrador de Comunicações do Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Especialista em Suporte de Comunicações do Teams | Especialista em Suporte de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
-Administrador de dispositivos de equipes | Administrador de dispositivos de equipes | 3d762c5a-1b6c-493f-843e-55a3b42923d4
+Administrador de dispositivos do Teams | Administrador de dispositivos do Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Administrador de Serviços do Teams | Administrador de Serviços do Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Usuário | Não exibido porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador da conta de usuário | Administrador de usuários | fe930be7-5e62-47db-91af-98c3a49a38b1

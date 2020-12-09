@@ -3,21 +3,25 @@ title: Guia de referência de esquema styleobject para mapas dinâmicos do Azure
 description: Guia de referência para o esquema e a sintaxe dinâmicos Styles do Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536941"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903336"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guia de referência de esquema styleobject para mapas dinâmicos
 
- O `StylesObject` é uma `StyleObject` matriz que representa os estilos de estadoset. Use o [serviço de estado de recurso](/rest/api/maps/featurestate) do Azure Maps Creator para aplicar seus estilos de estadoset a recursos de dados de mapa em destaque. Depois de criar seus estilos de estado e os associados aos recursos de mapa interno, você pode usá-los para criar mapas de interno dinâmico. Para obter mais informações sobre a criação de mapas de interno dinâmico, consulte [implementar o estilo dinâmico para mapas de criador interno](indoor-map-dynamic-styling.md).
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ O `StylesObject` é uma `StyleObject` matriz que representa os estilos de estadoset. Use o [serviço de estado de recurso](/rest/api/maps/featurestate) do Azure Maps Creator (versão prévia) para aplicar seus estilos de stateset a recursos de dados de mapa em destaque. Depois de criar seus estilos de estado e os associados aos recursos de mapa interno, você pode usá-los para criar mapas de interno dinâmico. Para obter mais informações sobre a criação de mapas de interno dinâmico, consulte [implementar o estilo dinâmico para mapas de criador interno](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>Estilo de
 

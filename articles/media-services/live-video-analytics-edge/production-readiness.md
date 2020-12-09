@@ -3,12 +3,12 @@ title: Preparação para produção e práticas recomendadas – Azure
 description: Este artigo fornece orientação sobre como configurar e implantar a análise de vídeo ao vivo em IoT Edge módulo em ambientes de produção.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071937"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906328"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparação para produção e práticas recomendadas
 
@@ -62,7 +62,7 @@ Em seguida, no manifesto de implantação, você pode definir o LOCAL_USER_ID e 
 
 O módulo análise de vídeo ao vivo no IoT Edge requer a capacidade de gravar arquivos no sistema de arquivos local quando:
 
-* Usando uma propriedade addmodule [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], em que você deve especificar um diretório no sistema de arquivos local para armazenar dados de configuração.
+* Usando uma propriedade MyModule [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) , em que você deve especificar um diretório no sistema de arquivos local para armazenar dados de configuração.
 * Usando um grafo de mídia para gravar vídeo na nuvem, o módulo requer o uso de um diretório no dispositivo de borda como um cache (consulte o artigo [gravação de vídeo contínua](continuous-video-recording-concept.md) para obter mais informações).
 * [Registro em um arquivo local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), onde você deve especificar um caminho de arquivo para o vídeo gravado.
 
@@ -124,7 +124,7 @@ Para os ativos gerados pelo registro de vídeo baseado em evento, o padrão de n
 Se você estiver executando várias instâncias do mesmo grafo, poderá usar o nome da topologia do grafo e o nome da instância para diferenciar. Por exemplo, você pode definir o assetNamePattern no coletor de ativos da seguinte maneira:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 Para a gravação de vídeo baseada em evento-os clipes de vídeo MP4 gerados na borda, o padrão de nomenclatura recomendado deve incluir DateTime e várias instâncias do mesmo grafo recomendadas usando as variáveis de sistema GraphTopologyName e GraphInstanceName. Como exemplo, você pode definir filePathPattern no coletor de arquivos da seguinte maneira: 

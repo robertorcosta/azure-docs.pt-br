@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498023"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861877"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -45,8 +45,8 @@ Veja a lista a seguir para configurar a identidade gerenciada para Gerenciamento
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
-| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check]  | Não disponível  | Não disponível |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check]  | Não disponível  | ![Disponível][check] |
 
 Consulte a lista a seguir para configurar a identidade gerenciada para Azure App configuração (em regiões onde estiver disponível):
 
@@ -98,7 +98,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -252,7 +252,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para Azure Pol
 
 - [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [CLI do Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [CLI do Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Modelos do Gerenciador de Recursos do Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
@@ -274,7 +274,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para aplicativos d
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | ![Disponível][check] |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 

@@ -1,26 +1,26 @@
 ---
 title: Implantar várias instâncias de recursos
-description: Use a operação de cópia e matrizes em um modelo de Azure Resource Manager para implantar o tipo de recurso muitas vezes.
+description: Use a operação de cópia e as matrizes em um modelo de Azure Resource Manager (modelo ARM) para implantar o tipo de recurso muitas vezes.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293961"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905903"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recurso em modelos ARM
 
-Este artigo mostra como criar mais de uma instância de um recurso em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção recursos do modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita a repetição da sintaxe do modelo.
+Este artigo mostra como criar mais de uma instância de um recurso em seu modelo de Azure Resource Manager (modelo ARM). Ao adicionar o `copy` elemento à seção de recursos do modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita a repetição da sintaxe do modelo.
 
-Você também pode usar copiar com [Propriedades](copy-properties.md), [variáveis](copy-variables.md)e [saídas](copy-outputs.md).
+Você também pode usar `copy` com [Propriedades](copy-properties.md), [variáveis](copy-variables.md)e [saídas](copy-outputs.md).
 
 Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
-O elemento Copy tem o seguinte formato geral:
+O `copy` elemento tem o seguinte formato geral:
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ O elemento Copy tem o seguinte formato geral:
 }
 ```
 
-A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para o tipo de recurso.
+A `name` propriedade é qualquer valor que identifique o loop. A `count` propriedade especifica o número de iterações que você deseja para o tipo de recurso.
 
-Use as propriedades **Mode** e **BatchSize** para especificar se os recursos são implantados em paralelo ou em sequência. Essas propriedades são descritas em [serial ou paralela](#serial-or-parallel).
+Use as `mode` `batchSize` Propriedades e para especificar se os recursos são implantados em paralelo ou em sequência. Essas propriedades são descritas em [serial ou paralela](#serial-or-parallel).
 
 ## <a name="copy-limits"></a>Limites de cópia
 
@@ -52,7 +52,7 @@ Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) co
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
-O exemplo a seguir cria o número de contas de armazenamento especificadas no parâmetro **storageCount** .
+O exemplo a seguir cria o número de contas de armazenamento especificadas no `storageCount` parâmetro.
 
 ```json
 {
@@ -97,7 +97,7 @@ Cria estes nomes:
 * storage1
 * storage2.
 
-Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). O número de iterações ainda é especificado no elemento Copy, mas o valor de copyIndex é offset pelo valor especificado. Assim, o seguinte exemplo:
+Para deslocar o valor do índice, você pode passar um valor na `copyIndex()` função. O número de iterações ainda é especificado no elemento Copy, mas o valor de `copyIndex` é offset pelo valor especificado. Assim, o seguinte exemplo:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -187,7 +187,7 @@ Por exemplo, para implantar em série duas contas de armazenamento por vez, use:
 }
 ```
 
-A propriedade de modo também aceita **paralelo**, que é o valor padrão.
+A `mode` propriedade também aceita **Parallel**, que é o valor padrão.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
 
@@ -291,12 +291,11 @@ Os exemplos a seguir mostram cenários comuns para criar mais de uma instância 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recurso com modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para outros usos do elemento copiar, consulte:
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
 * Para obter informações sobre como usar a cópia com modelos aninhados, consulte [usando copiar](linked-templates.md#using-copy).
-* Se você quiser saber mais sobre as seções de um modelo, consulte [criação de modelos de ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [implantar um aplicativo com o modelo ARM](deploy-powershell.md).
-
+* Se você quiser saber mais sobre as seções de um modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para saber como implantar seu modelo, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

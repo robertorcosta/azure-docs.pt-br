@@ -9,19 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901546"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906107"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
 
 Você pode montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure baseada em Windows ou Linux ou um sistema Windows ou Linux que é executado no local usando o protocolo NFS 3,0. Este artigo fornece orientações passo a passo. Para saber mais sobre o suporte ao protocolo NFS 3,0 no armazenamento de BLOBs, consulte [suporte ao protocolo NFS (Network File System) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública e está disponível nas seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e central do Canadá.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Etapa 1: registrar o recurso de protocolo NFS 3,0 com sua assinatura
 
@@ -48,13 +45,7 @@ Você pode montar um contêiner no armazenamento de blobs de uma VM (máquina vi
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Registre o `PremiumHns` recurso usando também o comando a seguir.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Registre o provedor de recursos usando o comando a seguir.
+5. Registre o provedor de recursos usando o comando a seguir.
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -66,7 +57,6 @@ A aprovação de registro pode levar até uma hora. Para verificar se o registro
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Etapa 3: criar uma rede virtual do Azure (VNet)
@@ -86,20 +76,20 @@ Para proteger os dados em sua conta, consulte estas recomendações: [recomenda�
 
 Para montar um contêiner usando o NFS 3,0, você deve criar uma conta de armazenamento **depois** de registrar o recurso com sua assinatura. Você não pode habilitar contas que existiam antes de registrar o recurso. 
 
-Na versão de visualização desse recurso, o protocolo NFS 3,0 tem suporte apenas em contas [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) .
+Na versão de visualização desse recurso, o protocolo NFS 3,0 tem suporte nas contas [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) e de [uso geral v2](../common/storage-account-overview.md#general-purpose-v2-accounts) .
 
 Ao configurar a conta, escolha estes valores:
 
-|Configuração | Valor|
-|----|---|
-|Localização|Uma das seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e Canadá central |
-|Desempenho|Premium|
-|Tipo de conta|BlockBlobStorage|
-|Replicação|Armazenamento com redundância local (LRS)|
-|Método de conectividade|Ponto de extremidade público (redes selecionadas) ou ponto de extremidade privado|
-|Transferência segura é necessária|Desabilitado|
-|Namespace hierárquico|habilitado|
-|NFS V3|habilitado|
+|Configuração | Desempenho premium | Desempenho padrão  
+|----|---|---|
+|Localização|Todas as regiões disponíveis |Uma das seguintes regiões: leste da Austrália, Coreia central e EUA Central do Sul   
+|Desempenho|Premium| Standard
+|Tipo de conta|BlockBlobStorage| Uso geral V2
+|Replicação|Armazenamento com redundância local (LRS)| Armazenamento com redundância local (LRS)
+|Método de conectividade|Ponto de extremidade público (redes selecionadas) ou ponto de extremidade privado |Ponto de extremidade público (redes selecionadas) ou ponto de extremidade privado
+|Transferência segura é necessária|Desabilitado|Desabilitado
+|Namespace hierárquico|habilitado|habilitado
+|NFS V3|habilitado |habilitado 
 
 Você pode aceitar os valores padrão para todas as outras configurações. 
 
@@ -172,6 +162,6 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)

@@ -6,27 +6,31 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/04/2020
-ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621613"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904901"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de venda conjunta no Marketplace comercial
 
 Fornecer informações sobre a **co-vender com** a guia Microsoft é totalmente opcional. Ele é necessário para atingir o [status de incentivados de venda cofuncional e de cooperação de IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [co-vender com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-A opção de venda conjunta no Partner Center está disponível atualmente nos seguintes tipos de oferta.
+A opção de venda conjunta no Partner Center está disponível para os seguintes tipos de oferta.
 
 - Aplicativo do Azure
+- Contêiner do Azure
+- Máquina Virtual do Azure
+- Serviço de consultoria
 - Dynamics 365 para compromisso com o cliente & PowerApps
-- Dynamics 365 for Operations
-- Dynamics 365 Business Central
+- Dynamics 365 para operações
+- Dynamics 365 Business central
+- Módulo IoT Edge
+- Serviço gerenciado
+- Aplicativo do Power BI
 - SaaS (software como serviço)
-
-O suporte para tipos de oferta adicionais será disponibilizado ao longo do tempo.
 
 ## <a name="listing"></a>Listando
 
