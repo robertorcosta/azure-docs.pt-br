@@ -3,17 +3,17 @@ title: Camadas de acesso para armazenamento de BLOBs do Azure – frequente, fri
 description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas. Compare as opções de armazenamento de blobs de blocos.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007317"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923973"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Camadas de acesso para armazenamento de BLOBs do Azure – frequente, fria e arquivo morto
 
@@ -111,6 +111,11 @@ Quando um blob é movido para uma camada mais quente (arquivo morto->frio, >quen
 ### <a name="cool-and-archive-early-deletion"></a>Exclusão antecipada esporádica e de arquivo
 
 Qualquer BLOB que é movido para a camada fria (somente contas GPv2) está sujeito a um período de exclusão antecipado de 30 dias. Qualquer blob movido para a camada de arquivo está sujeito a um período de exclusão antecipada de 180 dias. A cobrança é proporcional. Por exemplo, se um blob for movido para o arquivo morto e, em seguida, excluído ou movido para a camada quente após 45 dias, você será cobrado como uma taxa de exclusão inicial equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo morto.
+
+Há alguns detalhes ao se mover entre as camadas frias e de arquivo morto:
+
+1. Se um blob for inferido como frio com base na camada de acesso padrão da conta de armazenamento e o blob for movido para o arquivo morto, não haverá nenhum encargo de exclusão antecipado.
+1. Se um blob for explicitamente movido para a camada fria e, em seguida, movido para o arquivo morto, a cobrança de exclusão antecipada se aplicará.
 
 Você pode calcular a exclusão antecipada usando a propriedade BLOB, **Last-Modified**, se não houver nenhuma alteração na camada de acesso. Caso contrário, você pode usar quando a camada de acesso foi modificada pela última vez para fria ou arquivo morto exibindo a propriedade blob: **acesso-camada-alteração-tempo**. Para obter mais informações sobre as propriedades de blob, confira [Obter Propriedades de Blob](/rest/api/storageservices/get-blob-properties).
 

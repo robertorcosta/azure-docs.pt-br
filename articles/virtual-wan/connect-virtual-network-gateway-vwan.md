@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441031"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922959"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conectar um gateway de VPN (gateway de rede virtual) à WAN virtual
 
@@ -45,7 +45,7 @@ Na página **configuração** do gateway de rede virtual, habilite o modo ativo-
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Configuração de BGP
 
-Na página **configuração** do gateway de rede virtual, você pode configurar o **ASN do BGP**. Altere o ASN do BGP. O ASN do BGP não pode ser 65515. 66515 será usado pela WAN virtual do Azure.
+Na página **configuração** do gateway de rede virtual, você pode configurar o **ASN do BGP**. Altere o ASN do BGP. O ASN do BGP não pode ser 65515. 65515 será usado pela WAN virtual do Azure.
 
 ![Captura de tela mostra uma página de configuração de gateway de rede virtual com configurar BGP ASN selecionado.](./media/connect-virtual-network-gateway-vwan/bgp.png "BGP")
 
@@ -81,7 +81,7 @@ Para criar sites VPN de WAN virtual, navegue até sua WAN virtual e, em **conect
 
 Nesta seção, você baixa o arquivo de configuração de VPN para cada um dos sites que você criou na seção anterior.
 
-1. Na parte superior da página **sites VPN** da WAN virtual, selecione o **site**e selecione **baixar configuração de VPN site a site**. O Azure cria um arquivo de configuração com as configurações.
+1. Na parte superior da página **sites VPN** da WAN virtual, selecione o **site** e selecione **baixar configuração de VPN site a site**. O Azure cria um arquivo de configuração com as configurações.
 
    ![Captura de tela que mostra a página "sites VPN" com a ação "baixar configuração de VPN site a site" selecionada.](./media/connect-virtual-network-gateway-vwan/download.png "download")
 2. Baixe e abra o arquivo de configuração.
@@ -129,7 +129,7 @@ Você pode testar a conectividade criando duas máquinas virtuais, uma no lado d
 
 1. Crie uma máquina virtual na rede virtual (Test1-VNet) para o gateway de VPN do Azure (Test1-VNG). Não crie a máquina virtual no GatewaySubnet.
 2. Crie outra rede virtual para se conectar à WAN virtual. Crie uma máquina virtual em uma sub-rede dessa rede virtual. Esta rede virtual não pode conter nenhum gateway de rede virtual. Você pode criar rapidamente uma rede virtual usando as etapas do PowerShell no artigo de [conexão site a site](virtual-wan-site-to-site-portal.md#vnet) . Certifique-se de alterar os valores antes de executar os cmdlets.
-3. Conecte a VNet ao Hub de WAN virtual. Na página de sua WAN virtual, selecione **conexões de rede virtual**e **+ Adicionar conexão**. Na página **Adicionar conexão**, preencha os seguintes campos:
+3. Conecte a VNet ao Hub de WAN virtual. Na página de sua WAN virtual, selecione **conexões de rede virtual** e **+ Adicionar conexão**. Na página **Adicionar conexão**, preencha os seguintes campos:
 
     * **Nome da Conexão**: nomeie sua conexão.
     * **Hubs**: selecione o hub que você deseja associar a essa conexão.
