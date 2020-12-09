@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d6dbba96160cad36d79c4641861161448f81a49a
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9b68ba9a19b02c754fdb4c2dfaed022095d4ed0e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781139"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852720"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitorando o armazenamento de tabelas do Azure
 
@@ -98,6 +98,8 @@ Para obter diretrizes gerais, consulte [criar configuração de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arquivar logs em uma conta de armazenamento
 
+Se você optar por arquivar seus logs em uma conta de armazenamento, pagará pelo volume de logs que são enviados para a conta de armazenamento. Para obter preços específicos, consulte a seção de **logs da plataforma** da página de [preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 1. Marque a caixa de seleção **arquivar em uma conta de armazenamento** e, em seguida, clique no botão **Configurar** .
 
    > [!div class="mx-imgBorder"]   
@@ -109,6 +111,8 @@ Para obter diretrizes gerais, consulte [criar configuração de diagnóstico par
    > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [arquivar logs de recursos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Transmitir logs para os hubs de eventos do Azure
+
+Se você optar por transmitir os logs para um hub de eventos, pagará pelo volume de logs que são enviados para o Hub de eventos. Para obter preços específicos, consulte a seção de **logs da plataforma** da página de [preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 1. Marque a caixa de seleção **transmitir para um hub de eventos** e, em seguida, clique no botão **Configurar** .
 
@@ -142,6 +146,8 @@ Para obter diretrizes gerais, consulte [criar configuração de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arquivar logs em uma conta de armazenamento
 
+Se você optar por arquivar seus logs em uma conta de armazenamento, pagará pelo volume de logs que são enviados para a conta de armazenamento. Para obter preços específicos, consulte a seção de **logs da plataforma** da página de [preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 Habilite logs usando o cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) do PowerShell junto com o `StorageAccountId` parâmetro.
 
 ```powershell
@@ -159,6 +165,8 @@ Veja um exemplo:
 Para obter mais informações sobre como arquivar logs de recursos no armazenamento do Azure, consulte [logs de recursos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
+
+Se você optar por transmitir os logs para um hub de eventos, pagará pelo volume de logs que são enviados para o Hub de eventos. Para obter preços específicos, consulte a seção de **logs da plataforma** da página de [preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) com o `EventHubAuthorizationRuleId` parâmetro.
 
@@ -200,6 +208,8 @@ Para obter mais informações, consulte [transmitir logs de recursos do Azure pa
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arquivar logs em uma conta de armazenamento
 
+Se você optar por arquivar seus logs em uma conta de armazenamento, pagará pelo volume de logs que são enviados para a conta de armazenamento. Para obter preços específicos, consulte a seção de **logs da plataforma** da página de [preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+
 Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
@@ -215,6 +225,8 @@ Veja um exemplo:
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
+
+Se você optar por transmitir os logs para um hub de eventos, pagará pelo volume de logs que são enviados para o Hub de eventos. Para obter preços específicos, consulte a seção de **logs da plataforma** da página de [preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
 
 Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
