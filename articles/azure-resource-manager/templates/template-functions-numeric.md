@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – numéricas
-description: Descreve as funções a serem usadas em um modelo do Resource Manager para trabalhar com números.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com números.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004527"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920463"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos de ARM
 
-O Gerenciador de recursos fornece as seguintes funções para trabalhar com inteiros em seu modelo de Azure Resource Manager (ARM):
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com inteiros em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -35,7 +35,7 @@ Retorna a soma dos dois inteiros fornecidos. `add`Não há suporte para a funç�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 |operand1 |Sim |INT |Primeiro número a ser adicionado. |
 |operand2 |Sim |INT |Segundo número a ser adicionado. |
@@ -94,7 +94,7 @@ output addResult int = first + second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -106,10 +106,10 @@ Retorna o índice de um loop de iteração.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | loopName | Não | string | O nome do loop para obter a iteração. |
-| deslocamento |No |INT |O número a ser adicionado ao valor de iteração com base em zero. |
+| deslocamento |Não |INT |O número a ser adicionado ao valor de iteração com base em zero. |
 
 ### <a name="remarks"></a>Comentários
 
@@ -180,7 +180,7 @@ Retorna a divisão de inteiros dos dois inteiros fornecidos. `div`Não há supor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |O número que está sendo dividido. |
 | operand2 |Sim |INT |O número usado para dividir. Não pode ser 0. |
@@ -239,7 +239,7 @@ output addResult int = first / second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -251,9 +251,9 @@ Converte o valor em um número de ponto flutuante. Você só usa essa função a
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |cadeia de caracteres ou inteiro |O valor a ser convertido em um número de ponto flutuante. |
+| arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um número de ponto flutuante. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -294,9 +294,9 @@ Converte o valor especificado em um inteiro.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Yes |cadeia de caracteres ou inteiro |O valor a ser convertido em um inteiro. |
+| valueToConvert |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um inteiro. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -341,7 +341,7 @@ output inResult int = int(stringToConvert)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -353,9 +353,9 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -410,12 +410,12 @@ output intOutput int = max(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 
 `min (arg1)`
 
@@ -423,9 +423,9 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -480,7 +480,7 @@ output intOutput int = min(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -493,7 +493,7 @@ Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos. `
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |O número que está sendo dividido. |
 | operand2 |Sim |INT |O número que é usado para dividir, não pode ser 0. |
@@ -552,7 +552,7 @@ output modResult int = first % second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -564,7 +564,7 @@ Retorna a multiplicação de dois inteiros fornecidos. `mul`Não há suporte par
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |Primeiro número a ser multiplicado. |
 | operand2 |Sim |INT |Segundo número a ser multiplicado. |
@@ -623,7 +623,7 @@ output mulResult int = first * second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -635,7 +635,7 @@ Retorna a subtração dos dois inteiros fornecidos. `sub`Não há suporte para a
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |O número do qual é subtraído. |
 | operand2 |Sim |INT |O número subtraído. |
@@ -694,11 +694,11 @@ output subResult int = first - second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [iteração de recurso em modelos ARM](copy-resources.md).

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551534"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920260"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrar e verificar o Azure Synapse Analytics
 
@@ -21,6 +21,10 @@ Este artigo discute como registrar e verificar uma instância do Azure Synapse A
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
 O Azure Synapse Analytics (anteriormente conhecido como SQL DW) dá suporte a verificações completas e incrementais para capturar os metadados e o esquema. As verificações também classificam os dados automaticamente com base em regras de classificação personalizada e do sistema.
+
+### <a name="known-limitations"></a>Limitações conhecidas
+
+O Azure alcance não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) na análise de Synapse do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +100,7 @@ GO
 > [!Note]
 > O alcance precisará da **ID do aplicativo (cliente)** e do **segredo do cliente** para verificar.
 
-### <a name="sql-authentication"></a>Autenticação SQL
+### <a name="sql-authentication"></a>Autenticação do SQL
 
 Você pode seguir as instruções em [criar logon](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um logon para o Azure Synapse Analytics (anteriormente conhecido como SQL DW), se você ainda não tiver um.
 

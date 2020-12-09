@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531132"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922302"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -81,6 +81,14 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 | **Vantagens** | – Suporte ativo-ativo<br/>– Bidirecional entre o Banco de Dados SQL do Azure e o local | – Menor latência<br/>– Consistência transacional<br/>– Reutilização da topologia existente após a migração <br/>-Suporte do Azure SQL Instância Gerenciada |
 | **Desvantagens** | – Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
 
+## <a name="private-link-for-data-sync-preview"></a>Link privado para sincronização de dados (versão prévia)
+O novo recurso de link privado (versão prévia) permite que você escolha um ponto de extremidade privado gerenciado pelo serviço para estabelecer uma conexão segura entre o serviço de sincronização e seus bancos de dados de membro/Hub durante o processo de sincronização de dados. Um ponto de extremidade privado gerenciado pelo serviço é um endereço IP privado em uma rede virtual e sub-rede específica. Na sincronização de dados, o ponto de extremidade particular gerenciado pelo serviço é criado pela Microsoft e é usado exclusivamente pelo serviço de sincronização de dados para uma determinada operação de sincronização. Antes de configurar o link privado, leia os [requisitos gerais](sql-data-sync-data-sql-server-sql-database.md#general-requirements) para o recurso. 
+
+![Link privado para sincronização de dados](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Você deve aprovar manualmente o ponto de extremidade privado gerenciado pelo serviço na página **conexões do ponto de extremidade privado** do portal do Azure durante a implantação do grupo de sincronização ou usando o PowerShell.
+
 ## <a name="get-started"></a>Introdução 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurar a Sincronização de Dados no Portal do Azure
@@ -126,6 +134,8 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 
 - O isolamento de instantâneo deve ser habilitado tanto para membros de sincronização quanto para o Hub. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- Para usar o link privado com a sincronização de dados, os bancos de dados de membro e de Hub devem ser hospedados no Azure (as mesmas ou em regiões diferentes) no mesmo tipo de nuvem (por exemplo, na nuvem pública ou na nuvem do governo). Além disso, para usar o link privado, os provedores de recursos Microsoft. Network devem ser registrados para as assinaturas que hospedam os servidores de Hub e membro. Por fim, você deve aprovar manualmente o link privado para sincronização de dados durante a configuração de sincronização, na seção "conexões de ponto de extremidade privado" no portal do Azure ou por meio do PowerShell. Para obter mais detalhes sobre como aprovar o link privado, consulte [configurar sincronização de dados SQL](./sql-data-sync-sql-server-configure.md). Depois de aprovar o ponto de extremidade privado gerenciado pelo serviço, toda a comunicação entre o serviço de sincronização e os bancos de dados de membro/Hub ocorrerá sobre o link privado. Os grupos de sincronização existentes podem ser atualizados para que esse recurso seja habilitado.
+
 ### <a name="general-limitations"></a>Limitações gerais
 
 - Uma tabela não pode ter uma coluna de identidade que não seja a chave primária.
@@ -169,6 +179,9 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 > Pode haver até 30 pontos de extremidade em um único grupo de sincronização, se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se um banco de dados pertencer a vários grupos de sincronização, ele será contado como vários pontos de extremidade, não um.
 
 ### <a name="network-requirements"></a>Requisitos de rede
+
+> [!NOTE]
+> Se você usar o link privado, esses requisitos de rede não se aplicarão. 
 
 Quando o grupo de sincronização é estabelecido, o serviço de sincronização de dados precisa se conectar ao banco de dado Hub. No momento em que você estabelece o grupo de sincronização, o SQL Server do Azure deve ter a seguinte configuração em suas `Firewalls and virtual networks` configurações:
 

@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980993"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920811"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre segurança, autorização e criptografia par
 
 Esse gatilho interno cria um ponto de extremidade que pode ser chamado manualmente, capaz de manipular *somente* solicitações de entrada por HTTPS. Quando um chamador envia uma solicitação para esse ponto de extremidade, o [gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) é acionado e executa o aplicativo lógico. Para obter mais informações sobre como chamar esse gatilho, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por um [período limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supondo que seu aplicativo lógico inclua uma [ação de resposta](#add-response), se seu aplicativo lógico não enviar uma resposta de volta ao chamador após esse tempo, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` status para o chamador. Se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente um `202 ACCEPTED` status para o chamador.
+Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por um [período limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Supondo que seu aplicativo lógico inclua uma [ação de resposta](#add-response), se seu aplicativo lógico não enviar uma resposta de volta ao chamador após esse tempo, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` status para o chamador. Se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente um `202 ACCEPTED` status para o chamador.
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
@@ -179,7 +179,7 @@ Seu aplicativo lógico mantém uma solicitação de entrada aberta somente por u
 
    Por exemplo, você pode responder à solicitação [adicionando uma ação de resposta](#add-response), que pode ser usada para retornar uma resposta personalizada e é descrita posteriormente neste tópico.
 
-   Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta durante esse tempo, seu aplicativo lógico retornará `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, ele retornará imediatamente uma resposta `202 ACCEPTED` ao chamador.
+   Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta durante esse tempo, seu aplicativo lógico retornará `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, ele retornará imediatamente uma resposta `202 ACCEPTED` ao chamador.
 
 1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 

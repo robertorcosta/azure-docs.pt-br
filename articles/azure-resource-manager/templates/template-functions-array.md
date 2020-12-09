@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – matrizes
-description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com matrizes.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com matrizes.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004612"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920543"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
-O Gerenciador de recursos fornece várias funções para trabalhar com matrizes no modelo de Azure Resource Manager (ARM).
+O Gerenciador de recursos fornece várias funções para trabalhar com matrizes em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [array](#array)
 * [concat](#concat)
@@ -42,9 +42,9 @@ Converte o valor em uma matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, string, array ou object |O valor a ser convertido em uma matriz. |
+| convertToArray |Sim |int, string, array ou object |O valor a ser convertido em uma matriz. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -115,7 +115,7 @@ output objectOutput array = array(objectToConvert)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | intOutput | Array |  [1] |
 | stringOutput | Array | ["efgh"] |
@@ -129,9 +129,9 @@ Combina várias matrizes e retorna a matriz concatenada, ou combina vários valo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz ou cadeia de caracteres |A primeira matriz ou cadeia de caracteres para concatenação. |
+| arg1 |Sim |matriz ou cadeia de caracteres |A primeira matriz ou cadeia de caracteres para concatenação. |
 | argumentos adicionais |Não |matriz ou cadeia de caracteres |Matrizes ou cadeias de caractere adicionais em ordem sequencial para concatenação. |
 
 Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros. No entanto, você não pode fornecer matrizes e cadeias de caracteres para parâmetros. As matrizes são concatenadas apenas com outras matrizes.
@@ -200,7 +200,7 @@ output return array = concat(firstArray, secondArray)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -240,7 +240,7 @@ output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -252,10 +252,10 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| contêiner |Yes |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
-| itemToFind |Yes |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
+| contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
+| itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -347,7 +347,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | Falso |
@@ -364,9 +364,9 @@ Cria uma matriz de parâmetros. A `createArray` função não é suportada pelo 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| args |No |String, Inteiro, Matriz ou Objeto |Os valores na matriz. |
+| args |Não |String, Inteiro, Matriz ou Objeto |Os valores na matriz. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -432,7 +432,7 @@ O seguinte exemplo mostra como usar createArray com tipos diferentes:
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
@@ -448,9 +448,9 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -515,7 +515,7 @@ output stringEmpty bool = empty(testString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -529,9 +529,9 @@ Retorna o primeiro elemento da matriz ou o primeiro caractere da cadeia de carac
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -585,7 +585,7 @@ output stringOutput string = first('One Two Three')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -598,7 +598,7 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para localizar elementos comuns. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
@@ -693,7 +693,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -706,9 +706,9 @@ Retorna o último elemento da matriz ou o último caractere da cadeia de caracte
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -762,7 +762,7 @@ output stringOutput string = last('One Two three')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | três |
 | stringOutput | String | e |
@@ -775,9 +775,9 @@ Retorna o número de elementos em uma matriz, caracteres em uma cadeia de caract
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
+| arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -865,7 +865,7 @@ output objectLength int = length(objectToTest)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -889,7 +889,7 @@ Essa função pode ser usada com uma matriz para especificar o número de itera�
 
 ---
 
-Para saber mais sobre como usar essa função com uma matriz, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
+Para obter mais informações sobre como usar essa função com uma matriz, consulte [iteração de recurso em modelos ARM](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -899,9 +899,9 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -956,12 +956,12 @@ output intOutput int = max(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 
 `min(arg1)`
 
@@ -969,9 +969,9 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1026,7 +1026,7 @@ output intOutput int = min(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -1039,7 +1039,7 @@ Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | startIndex |Sim |INT |O primeiro inteiro na matriz. A soma de startIndex e Count não deve ser maior que 2147483647. |
 | count |Sim |INT |O número de inteiros na matriz. Deve ser um inteiro não negativo de até 10000. |
@@ -1091,7 +1091,7 @@ output rangeOutput array = range(startingInt, numberOfElements)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -1103,9 +1103,9 @@ Retorna uma matriz com todos os elementos após o número especificado na matriz
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
+| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
 | numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -1178,7 +1178,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1191,9 +1191,9 @@ Retorna uma matriz com o número especificado de elementos desde o início da ma
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
+| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
 | numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -1266,7 +1266,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
@@ -1279,7 +1279,7 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para unir elementos. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
@@ -1374,11 +1374,11 @@ output arrayOutput array = union(firstArray, secondArray)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

@@ -4,19 +4,19 @@ description: Pesquise logs gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973844"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920341"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET/.NET Core e do Python no Application Insights
 
 Envie logs de rastreamento de diagnóstico referentes ao seu aplicativo ASP.NET/ASP.NET Core do ILogger, NLog, log4Net ou System.Diagnostics.Trace para o [Azure Application Insights][start]. Para aplicativos em Python, envie logs de rastreamento de diagnóstico usando o AzureLogHandler em OpenCensus Python para o Azure Monitor. Em seguida, você pode explorá-los e pesquisá-los. Esses logs são mesclados a outros arquivos de log do seu aplicativo, de modo que você pode identificar os rastreamentos associados a cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
 
 > [!NOTE]
-> Você precisa do módulo de captura de log? Ele é um adaptador útil para agentes de terceiros. No entanto, se você ainda não usa o NLog, o log4Net nem o System.Diagnostics.Trace, convém chamar apenas o [**Application Insights TrackTrace()** ](./api-custom-events-metrics.md#tracktrace) diretamente.
+> Você precisa do módulo de captura de log? Ele é um adaptador útil para agentes de terceiros. No entanto, se você ainda não usa o NLog, o log4Net nem o System.Diagnostics.Trace, convém chamar apenas o [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace) diretamente.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Instalar o log no seu aplicativo
@@ -139,7 +139,8 @@ Você pode chamar a API de rastreamento do Application Insights diretamente. Os 
 Por exemplo:
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ Uma vantagem de TrackTrace é que você pode colocar dados relativamente comprid
 Você também pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 Isso permite que você filtre facilmente, em [Pesquisa][diagnostic], todas as mensagens de um nível de severidade específico relacionadas a um determinado banco de dados.

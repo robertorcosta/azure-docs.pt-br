@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
-ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461228"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920879"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
 
@@ -44,7 +44,7 @@ O modelo define os seguintes parâmetros:
 - *Data_Destination_Container* é o caminho da pasta raiz para a qual os dados são copiados em seu armazenamento de destino. 
 - *Data_Destination_Directory* é o caminho do diretório na raiz para a qual os dados são copiados para o armazenamento de destino. 
 
-Os últimos três parâmetros que definem o caminho no armazenamento de destino ficam visíveis apenas quando o destino escolhido é um armazenamento baseado em arquivos. Se você escolher "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o armazenamento de destino, esses parâmetros não serão necessários. Mas os nomes de tabela e o esquema na análise de Synapse do Azure devem ser iguais aos do banco de dados de origem.
+Os últimos três parâmetros que definem o caminho no armazenamento de destino ficam visíveis apenas quando o destino escolhido é um armazenamento baseado em arquivos. Se você escolher "Azure Synapse Analytics" como o armazenamento de destino, esses parâmetros não serão necessários. Mas os nomes de tabela e o esquema na análise de Synapse do Azure devem ser iguais aos do banco de dados de origem.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
@@ -94,7 +94,7 @@ Os últimos três parâmetros que definem o caminho no armazenamento de destino 
 
     ![Revisar o resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Adicional Se você escolheu "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o destino de dados, você deve inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo polybase do Azure Synapse Analytics. O modelo gera automaticamente um caminho de contêiner para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
+9. Adicional Se você escolheu "Azure Synapse Analytics" como o destino de dados, deverá inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo polybase do Azure Synapse Analytics. O modelo gera automaticamente um caminho de contêiner para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
     
     ![Configuração do Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

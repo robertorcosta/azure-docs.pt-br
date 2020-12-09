@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – lógica
-description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004544"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920481"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos de Azure Resource Manager (ARM).
+O Gerenciador de recursos fornece várias funções para fazer comparações em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [and](#and)
 * [bool](#bool)
@@ -32,7 +32,7 @@ Verifica se todos os valores de parâmetros são verdadeiros. `and`Não há supo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -82,7 +82,7 @@ output notExampleOutput bool = !(bool('true'))
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -96,9 +96,9 @@ Converte o parâmetro em um booliano.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
+| arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -152,7 +152,7 @@ output falseInt bool = bool(0)
 ---
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | Falso |
@@ -203,7 +203,7 @@ output falseOutput bool = false
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | falseOutput | Bool | Falso |
 
@@ -215,11 +215,11 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa. `if`Não 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | condition |Sim |booleano |O valor para verificar se é verdadeiro ou falso. |
-| trueValue |Yes | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
-| falseValue |Yes | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
+| trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
+| falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -227,7 +227,7 @@ Retorna o segundo parâmetro quando o primeiro parâmetro é **True**; caso cont
 
 ### <a name="remarks"></a>Comentários
 
-Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliado. Quando a condição for **falsa**, somente o valor false será avaliado. Com a função **If** , você pode incluir expressões que são apenas condicionalmente válidas. Por exemplo, você pode fazer referência a um recurso que existe sob uma condição, mas não sob a outra condição. Um exemplo de expressões de avaliação condicional é mostrado na seção a seguir.
+Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliado. Quando a condição for **falsa**, somente o valor false será avaliado. Com a `if` função, você pode incluir expressões que são apenas condicionalmente válidas. Por exemplo, você pode fazer referência a um recurso que existe sob uma condição, mas não sob a outra condição. Um exemplo de expressões de avaliação condicional é mostrado na seção a seguir.
 
 ### <a name="examples"></a>Exemplos
 
@@ -270,7 +270,7 @@ output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('nul
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | yesOutput | String | sim |
 | noOutput | String | no |
@@ -341,7 +341,7 @@ Converte o valor booliano em seu valor oposto. `not`Não há suporte para a fun�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O valor a ser convertido. |
 
@@ -389,7 +389,7 @@ output notExampleOutput bool = !(bool('true'))
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -424,7 +424,7 @@ output checkNotEquals bool = !(1 == 2)
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -436,7 +436,7 @@ Verifica se qualquer valor do parâmetro é verdadeiro. `or`Não há suporte par
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -486,7 +486,7 @@ output notExampleOutput bool = !(bool('true'))
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -536,10 +536,10 @@ output trueOutput bool = true
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

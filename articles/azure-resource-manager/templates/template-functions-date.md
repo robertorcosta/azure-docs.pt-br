@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo-data
-description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com datas.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com datas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004578"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920488"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos de ARM
 
-O Resource Manager fornece as seguintes funções para trabalhar com datas em seus modelos de Azure Resource Manager (ARM):
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com datas em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -27,7 +27,7 @@ Adiciona uma duração de tempo a um valor base. O formato ISO 8601 é esperado.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | base | Sim | string | O valor DateTime inicial para a adição. Use o [formato de carimbo de data/hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Sim | string | O valor de tempo a ser adicionado à base. Pode ser um valor negativo. Use o [formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
@@ -94,7 +94,7 @@ output add1HourOutput string = add1Hour
 
 Quando o modelo anterior é implantado com uma hora base de `2020-04-07 14:53:14Z` , a saída é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | add3YearsOutput | String | 4/7/2023 2:53:14 PM |
 | subtract9DaysOutput | String | 3/29/2020 2:53:14 PM |
@@ -182,11 +182,11 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato for fornecido, o formato ISO 8601 (yyyyMMddTHHmmssZ) será usado. **Essa função só pode ser usada no valor padrão para um parâmetro.**
+Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato for fornecido, o formato ISO 8601 ( `yyyyMMddTHHmmssZ` ) será usado. **Essa função só pode ser usada no valor padrão para um parâmetro.**
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | format |Não |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
@@ -261,7 +261,7 @@ output utcCustomOutput string = utcCustomValue
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
 | utcShortOutput | string | 05/03/2019 |
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 96030f0e74c29848f675ae2e0867eefa2e79a8a7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905869"
+ms.locfileid: "96920412"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -52,8 +52,8 @@ Cada regra de rede virtual se aplica a todo o servidor, não apenas a um banco d
 
 Há uma separação de funções de segurança na administração de pontos de extremidade de serviço de rede virtual. A ação é necessária em cada uma das seguintes funções:
 
-- **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
-- **Administrador do banco de dados:** &nbsp; Atualize a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao servidor.
+- **Administrador de rede (função [colaborador de rede](../../role-based-access-control/built-in-roles.md#network-contributor) ):** &nbsp; Ative o ponto de extremidade.
+- **Administrador de banco de dados (função de [colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) ):** &nbsp; Atualize a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao servidor.
 
 *Alternativa do RBAC do Azure:*
 

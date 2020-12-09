@@ -6,14 +6,14 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601298"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919431"
 ---
-# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
+# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guia de Início Rápido: Introdução ao Application Insights em um projeto Web Java
 
 
 > [!CAUTION]
@@ -30,6 +30,8 @@ Application Insights é um serviço de análise extensível para desenvolvedores
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Obter uma chave de instrumentação do Application Insights
 
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=java) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No portal do Azure, crie um recurso Application Insights. Defina o tipo de aplicativo para aplicativo Web Java.
 
@@ -293,7 +295,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 
 [Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
 
-## <a name="questions-problems"></a>Dúvidas? Problemas?
+## <a name="questions-problems"></a>Perguntas? Problemas?
 [Solucionar problemas de Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Próximas etapas

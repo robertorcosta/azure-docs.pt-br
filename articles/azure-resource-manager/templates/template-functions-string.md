@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – cadeia de caracteres
-description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com cadeias de caracteres.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: e94037b40f4937a40e00215aa7a3f99fd3280b49
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96005989"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920010"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de cadeia de caracteres para modelos ARM
 
-O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres em seus modelos de Azure Resource Manager (ARM):
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -58,7 +58,7 @@ Retorna a representação base64 da cadeia de caracteres de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | inputString |Sim |string |O valor a retornar como uma representação base64. |
 
@@ -127,7 +127,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
@@ -211,7 +211,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
@@ -294,7 +294,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
@@ -308,7 +308,7 @@ Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou matriz |A primeira cadeia de caracteres ou matriz para concatenação. |
 | argumentos adicionais |Não |cadeia de caracteres ou matriz |Cadeias de caracteres ou matrizes adicionais em ordem sequencial para concatenação. |
@@ -357,7 +357,7 @@ output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -419,7 +419,7 @@ output return array = concat(firstArray, secondArray)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -431,10 +431,10 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| contêiner |Yes |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
-| itemToFind |Yes |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
+| contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
+| itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -526,7 +526,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | Falso |
@@ -543,7 +543,7 @@ Converte um valor em um URI de dados.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Sim |string |O valor a ser convertido em um URI de dados. |
 
@@ -599,7 +599,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -612,7 +612,7 @@ Converte um valor formatado como um URI de dados em uma cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Sim |string |Os valor de URI de dados a ser convertido. |
 
@@ -668,7 +668,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -681,9 +681,9 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -748,7 +748,7 @@ output stringEmpty bool = empty(testString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -762,7 +762,7 @@ Determina se uma cadeia de caracteres termina com um valor. A comparação não 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
 | stringToFind |Sim |string |O valor a ser encontrado. |
@@ -826,7 +826,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -843,9 +843,9 @@ Retorna o primeiro caractere da cadeia de caracteres ou o primeiro elemento da m
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -899,7 +899,7 @@ output stringOutput string = first('One Two Three')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -912,10 +912,10 @@ Cria uma cadeia de caracteres formatada a partir de valores de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | formatString | Sim | string | A cadeia de caracteres de formato de composição. |
-| arg1 | Yes | Cadeia de caracteres, inteiro ou booliano | O valor a ser incluído na cadeia de caracteres formatada. |
+| arg1 | Sim | Cadeia de caracteres, inteiro ou booliano | O valor a ser incluído na cadeia de caracteres formatada. |
 | argumentos adicionais | Não | Cadeia de caracteres, inteiro ou booliano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
 
 ### <a name="remarks"></a>Comentários
@@ -971,7 +971,7 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | formatTest | String | Olá, usuário. Número formatado: 8.175.133 |
 
@@ -983,7 +983,7 @@ Cria um valor no formato de um identificador global exclusivo com base nos valor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | baseString |Sim |string |O valor usado na função de hash para criar o GUID. |
 | parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
@@ -1096,7 +1096,7 @@ Retorna a primeira posição de um valor em uma cadeia de caracteres. A compara�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
 | stringToFind |Sim |string |O valor a ser encontrado. |
@@ -1155,7 +1155,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1179,9 +1179,9 @@ Retorna o último caractere da cadeia de caracteres ou o último elemento da mat
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1235,7 +1235,7 @@ output stringOutput string = last('One Two Three')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | três |
 | stringOutput | String | e |
@@ -1248,7 +1248,7 @@ Retorna a última posição de um valor em uma cadeia de caracteres. A comparaç
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
 | stringToFind |Sim |string |O valor a ser encontrado. |
@@ -1307,7 +1307,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1323,9 +1323,9 @@ Retorna o número de caracteres em uma cadeia de caracteres, elementos em uma ma
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
+| arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1413,7 +1413,7 @@ output objectLength int = length(objectToTest)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -1482,7 +1482,7 @@ output guidOutput string = guidValue
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1549,7 +1549,7 @@ output nameOutput string = storageName
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | nameOutput | string | storagenziwvyru7uxie |
 
@@ -1561,11 +1561,11 @@ Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à e
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Yes |cadeia de caracteres ou inteiro |O valor para alinhar à direita. |
+| valueToPad |Sim |cadeia de caracteres ou inteiro |O valor para alinhar à direita. |
 | totalLength |Sim |INT |O número total de caracteres na cadeia de caracteres retornada. |
-| paddingCharacter |No |caractere único |O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido. O valor padrão é um espaço. |
+| paddingCharacter |Não |caractere único |O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido. O valor padrão é um espaço. |
 
 Se a cadeia de caracteres original for mais longa que o número de caracteres a ser preenchido, nenhum caractere será adicionado.
 
@@ -1611,7 +1611,7 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1623,7 +1623,7 @@ Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
 | oldString |Sim |string |A cadeia de caractere a ser removida da cadeia de caracteres original. |
@@ -1676,7 +1676,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1689,9 +1689,9 @@ Retorna uma cadeia de caracteres com todos os caracteres após o número especif
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
+| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
 | numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior do que o comprimento da matriz ou da cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -1764,7 +1764,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1777,10 +1777,10 @@ Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracte
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | inputString |Sim |string |A cadeia de caracteres a dividir. |
-| delimitador |Yes |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
+| delimitador |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1842,7 +1842,7 @@ output secondOutput array = split(secondString, delimiters)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | Array | ["one", "two", "three"] |
 | secondOutput | Array | ["one", "two", "three"] |
@@ -1855,7 +1855,7 @@ Determina se uma cadeia de caracteres começa com um valor. A comparação não 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
 | stringToFind |Sim |string |O valor a ser encontrado. |
@@ -1919,7 +1919,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1936,7 +1936,7 @@ Converte o valor especificado em uma cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sim | Qualquer |O valor a ser convertido em cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
@@ -2016,7 +2016,7 @@ output intOutput string = string(testInt)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | String | ["a","b","c"] |
@@ -2030,11 +2030,11 @@ Retorna uma subcadeia de caraceteres que começa na posição do caractere espec
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sim |string |A cadeia original da qual a subcadeia de caracteres é extraída. |
-| startIndex |No |INT |A posição inicial do caractere baseada em zero para a subcadeia de caracteres. |
-| comprimento |No |INT |O número de caracteres para a subcadeia de caracteres. Deve se referir a uma localização dentro da cadeia de caracteres. Deve ser zero ou maior. |
+| startIndex |Não |INT |A posição inicial do caractere baseada em zero para a subcadeia de caracteres. |
+| comprimento |Não |INT |O número de caracteres para a subcadeia de caracteres. Deve se referir a uma localização dentro da cadeia de caracteres. Deve ser zero ou maior. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -2104,7 +2104,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | substringOutput | String | dois |
 
@@ -2116,9 +2116,9 @@ Retorna uma cadeia de caracteres com o número especificado de caracteres desde 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
+| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
 | numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da matriz ou cadeia de caracteres determinada, todos os elementos na matriz ou na cadeia de caracteres serão retornados. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -2191,7 +2191,7 @@ output stringOutput string = take(testString, charactersToSkip)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
@@ -2204,7 +2204,7 @@ Converte a cadeia de caracteres especificada em letras minúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sim |string |O valor a ser convertido em letras minúsculas. |
 
@@ -2255,7 +2255,7 @@ output toUpperOutput string = toUpper(testString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
@@ -2268,7 +2268,7 @@ Converte a cadeia de caracteres especificada em maiúsculas.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sim |string |O valor a ser convertido em letras maiúsculas. |
 
@@ -2319,7 +2319,7 @@ output toUpperOutput string = toUpper(testString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
@@ -2332,7 +2332,7 @@ Remove todos os caracteres de espaço em branco à esquerda e à direita da cade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Sim |string |O valor de corte. |
 
@@ -2378,7 +2378,7 @@ output return string = trim(testString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | return | String | um dois três |
 
@@ -2390,7 +2390,7 @@ Cria uma cadeia de caracteres de hash determinístico com base nos valores forne
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | baseString |Sim |string |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
 | parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
@@ -2522,7 +2522,7 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | baseUri |Sim |string |Cadeia de caracteres do URI de base. Tome cuidado para observar o comportamento em relação à manipulação da barra à direita ('/'), conforme descrito a seguir nesta tabela.  |
 | relativeUri |Sim |string |Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base. |
@@ -2613,7 +2613,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2627,7 +2627,7 @@ Codifica um URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sim |string |O valor a ser codificado. |
 
@@ -2683,7 +2683,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2697,7 +2697,7 @@ Retorna uma cadeia de caracteres de um valor codificado em URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Sim |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. |
 
@@ -2753,7 +2753,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2761,7 +2761,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
-* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [iteração de recurso em modelos ARM](copy-resources.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

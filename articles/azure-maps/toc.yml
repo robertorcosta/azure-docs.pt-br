@@ -306,7 +306,7 @@
           href: /rest/api/maps/timezone
         - name: Serviço de Tráfego
           href: /rest/api/maps/traffic
-        - name: Serviço de meteorologia
+        - name: Serviços meteorológicos
           href: /rest/api/maps/weather
         - name: Serviço do Criador de Mapas
           items:

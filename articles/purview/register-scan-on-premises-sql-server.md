@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: a807c76a08bf075973cd0f358c67b61b10b40ba0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551528"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920286"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrar e verificar um SQL Server local
 
@@ -32,6 +32,10 @@ A fonte de dados local do SQL Server dá suporte a:
 
 - Método de autenticação: autenticação SQL
 
+### <a name="known-limitations"></a>Limitações conhecidas
+
+O Azure alcance não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) no SQL Server. 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de registrar as fontes de dados, crie uma conta do Azure alcance. Para obter mais informações sobre como criar uma conta do alcance, consulte [início rápido: criar uma conta do Azure alcance](create-catalog-portal.md).
@@ -44,7 +48,7 @@ Há apenas uma maneira de configurar a autenticação para o SQL Server local:
 
 - Autenticação do SQL
 
-### <a name="sql-authentication"></a>Autenticação SQL
+### <a name="sql-authentication"></a>Autenticação do SQL
 
 A identidade do SQL deve ter acesso ao banco de dados primário. Esse local é o local em que `sys.databases` está armazenado. O scanner alcance precisa enumerar para `sys.databases` Localizar todas as instâncias de BD SQL no servidor.
 

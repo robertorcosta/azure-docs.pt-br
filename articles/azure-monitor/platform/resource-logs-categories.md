@@ -4,12 +4,12 @@ description: Referência de Azure Monitor entender os serviços com suporte e o 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593001"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920842"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
 
@@ -20,6 +20,11 @@ ms.locfileid: "94593001"
 
 Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e da `category` identifica exclusivamente um esquema. Há um esquema comum para todos os logs de recursos com campos específicos de serviço, então adicionados para diferentes categorias de log. Para obter mais informações, consulte [esquema específico de serviço e comum para logs de recursos do Azure]()
 
+
+## <a name="costs"></a>Custos
+
+ Há custos associados ao envio e armazenamento de dados no Log Analytics e/ou no Hub de eventos. Os logs de recursos são um tipo de dados que você pode enviar para esses locais. Há um custo adicional [para exportar algumas categorias de logs de recursos](https://azure.microsoft.com/pricing/details/monitor/). Outras são livres de custos de exportação. As especificidades são listadas na tabela a seguir.
+
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 
 A seguir está uma lista dos tipos de logs disponíveis para cada tipo de recurso. 
@@ -27,17 +32,11 @@ A seguir está uma lista dos tipos de logs disponíveis para cada tipo de recurs
 Algumas categorias só podem ter suporte para tipos específicos de recursos. Consulte a documentação específica do recurso se você sentir que falta um recurso. Por exemplo, as categorias Microsoft. SQL/servidores/bancos de dados não estão disponíveis para todos os tipos de bancos de dados. Para obter mais informações, consulte [informações sobre o log de diagnóstico do banco de dados SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na parte inferior deste artigo.
-
-## <a name="microsoftaadiamtenants"></a>microsoft.aadiam/tenants
-
-|Categoria|Nome de exibição da categoria|
-|---|---|
-|Signin|Signin|
-
-
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Mecanismo|Mecanismo|
 |Serviço|Serviço|
@@ -45,14 +44,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |GatewayLogs|Logs relacionados ao Gateway ApiManagement|
 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ApplicationConsole|Console de aplicativo|
 |SystemLogs|Logs do sistema|
@@ -60,23 +63,29 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
+|DscNodeStatus|Status do nó DSC|
 |JobLogs|Logs de trabalho|
 |JobStreams|Transmissões de trabalho|
-|DscNodeStatus|Status do nó DSC|
 
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ServiceLog|Logs de serviço|
 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
 |BaiClusterNodeEvent|BaiClusterNodeEvent|
@@ -85,58 +94,77 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |BlockchainApplication|Aplicativo Blockchain|
+|FabricOrderer|Solicitante de malha|
+|FabricPeer|Ponto de malha|
 |Proxy|Proxy|
 
 
 ## <a name="microsoftblockchaincordamembers"></a>Microsoft. Blockchain/cordaMembers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |BlockchainApplication|Aplicativo Blockchain|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
-|WebApplicationFirewallLogs|Logs de firewall do aplicativo Web|
+|WebApplicationFirewallLogs|Logs de firewall de aplicação Web|
 
 
 ## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AzureCdnAccessLog|Log de acesso da CDN do Azure|
 
 
 ## <a name="microsoftcdnprofilesendpoints"></a>Microsoft.Cdn/profiles/endpoints
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
-|CoreAnalytics|Obtém as métricas do ponto de extremidade, por exemplo, largura de banda, saída etc.|
+|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|
 
 
 ## <a name="microsoftclassicnetworknetworksecuritygroups"></a>Microsoft.ClassicNetwork/networksecuritygroups
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Evento de fluxo de regra de grupo de segurança de rede|Evento de fluxo de regra de grupo de segurança de rede|
 
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Audit|Logs de Auditoria|
 |RequestResponse|Logs de Solicitação e Resposta|
+|Trace|Logs de rastreamento|
 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ContainerRegistryLoginEvents|Eventos de logon|
 |ContainerRegistryRepositoryEvents|Logs do RepositoryEvent|
@@ -144,7 +172,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |cluster-autoscaler|Dimensionador automático de cluster do Kubernetes|
 |kube-apiserver|Servidor de API do Kubernetes|
@@ -155,14 +185,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AuditLogs|Logs de auditoria para chamadas MiniRP|
 
 
 ## <a name="microsoftdatabricksworkspaces"></a>Microsoft. databricks/espaços de trabalho
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |accounts|Contas do databricks|
 |clusters|Clusters do databricks|
@@ -176,16 +210,11 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |workspace|Espaço de trabalho do databricks|
 
 
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft. datacatalog/datacatalogs
-
-|Categoria|Nome de exibição da categoria|
-|---|---|
-|ScanStatusLogEvent|ScanStatus|
-
-
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ActivityRuns|Registro de execuções de atividade de pipeline|
 |PipelineRuns|Registro de execuções de pipeline|
@@ -194,31 +223,70 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Audit|Logs de Auditoria|
 |Requests|Logs de solicitação|
 
 
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
+
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
+|---|---|
+|ReceivedShareSnapshots|Instantâneos de compartilhamento recebidos|
+|SentShareSnapshots|Instantâneos de compartilhamento enviados|
+|Compartilhamentos|Compartilhamentos|
+|ShareSubscriptions|Compartilhar assinaturas|
+
+
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |MySqlAuditLogs|Logs de auditoria do MariaDB|
 |MySqlSlowLogs|Logs do servidor MariaDB|
 
 
+## <a name="microsoftdbformysqlflexibleservers"></a>Microsoft.DBforMySQL/flexibleServers
+
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
+|---|---|
+|MySqlAuditLogs|Logs de auditoria do MySQL|
+|MySqlSlowLogs|Logs lentos do MySQL|
+
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |MySqlAuditLogs|Logs de auditoria do MySQL|
 |MySqlSlowLogs|Logs do MySQL Server|
 
 
+## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
+
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
+|---|---|
+|PostgreSQLLogs|Logs do PostgreSQL Server|
+
+
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |PostgreSQLLogs|Logs do PostgreSQL Server|
 |QueryStoreRuntimeStatistics|As estatísticas de tempo de execução Repositório de Consultas PostgreSQL|
@@ -227,21 +295,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-|Categoria|Nome de exibição da categoria|
-|---|---|
-|PostgreSQLLogs|Logs do PostgreSQL Server|
+Custo: gratuito 
 
-
-## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft. DBforPostgreSQL/singleservers
-
-|Categoria|Nome de exibição da categoria|
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |PostgreSQLLogs|Logs do PostgreSQL Server|
 
 
 ## <a name="microsoftdesktopvirtualizationapplicationgroups"></a>Microsoft. DesktopVirtualization/applicationgroups
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Ponto de verificação|Ponto de verificação|
 |Erro|Erro|
@@ -250,7 +315,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdesktopvirtualizationhostpools"></a>Microsoft. DesktopVirtualization/hostpools
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Ponto de verificação|Ponto de verificação|
 |Conexão|Conexão|
@@ -261,7 +328,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft. DesktopVirtualization/Workspaces
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Ponto de verificação|Ponto de verificação|
 |Erro|Erro|
@@ -271,7 +340,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |C2DCommands|Comandos C2C|
 |C2CTwinOperations|Operações de Gêmeos C2D|
@@ -291,7 +362,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |DeviceOperations|Operações do Dispositivo|
 |ServiceOperations|Operações de serviço|
@@ -299,28 +372,25 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |CassandraRequests|CassandraRequests|
 |ControlPlaneRequests|ControlPlaneRequests|
 |DataPlaneRequests|DataPlaneRequests|
+|GremlinRequests|GremlinRequests|
 |MongoRequests|MongoRequests|
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|
 |PartitionKeyStatistics|PartitionKeyStatistics|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|
 
 
-## <a name="microsoftenterpriseknowledgegraphservices"></a>Microsoft.EnterpriseKnowledgeGraph/services
-
-|Categoria|Nome de exibição da categoria|
-|---|---|
-|AuditEvent|Log do AuditEvent|
-|Emissão de problemas|Log de emissão de problemas|
-|Requests|Log de configuração|
-
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |DeliveryFailures|Logs de falha de entrega|
 |PublishFailures|Publicar logs de falha|
@@ -328,14 +398,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft. EventGrid/systemTopics
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |DeliveryFailures|Logs de falha de entrega|
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |DeliveryFailures|Logs de falha de entrega|
 |PublishFailures|Publicar logs de falha|
@@ -343,11 +417,13 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ArchiveLogs|Logs de arquivo|
 |AutoScaleLogs|Logs de Escala Automática|
-|CustomerManagedKeyUserLogs|Customer-Managed logs de chave|
+|CustomerManagedKeyUserLogs|Logs de chave gerenciado pelo cliente|
 |EventHubVNetConnectionEvent|Logs de conexão de filtragem de VNet/IP|
 |KafkaCoordinatorLogs|Logs do coordenador de Kafka|
 |KafkaUserErrorLogs|Logs de erros do usuário Kafka|
@@ -356,14 +432,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AuditLogs|Logs de auditoria|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AutoscaleEvaluations|Avaliações de Dimensionamento Automático|
 |AutoscaleScaleActions|Ações de Dimensionamento Automático|
@@ -371,7 +451,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AppAvailabilityResults|Resultados da disponibilidade|
 |AppBrowserTimings|Tempos do navegador|
@@ -386,50 +468,53 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |AppTraces|Rastreamentos|
 
 
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|Categoria|Nome de exibição da categoria|
-|---|---|
-|Audit|Audit|
-|Saída|Saída|
-|Entrada|Entrada|
-|Operacional|Operacional|
-|Trace|Trace|
-|UserDefinedFunction|UserDefinedFunction|
-
-
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AuditEvent|Logs de Auditoria|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
+|Comando|Comando|
 |FailedIngestion|Operações de ingestão com falha|
+|IngestionBatching|Envio em lote de ingestão|
+|Consulta|Consulta|
 |SucceededIngestion|Operações de ingestão com êxito|
+|TableDetails|Detalhes da tabela|
+|TableUsageStatistics|Estatísticas de uso de tabela|
 
 
 ## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |WorkflowRuntime|Eventos de diagnóstico de runtime de fluxo de trabalho|
 
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|
 |AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
@@ -440,14 +525,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |KeyDeliveryRequests|Solicitações de entrega de chave|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
 |ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
@@ -456,7 +545,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AzureFirewallApplicationRule|Regra de Aplicativo de Firewall do Azure|
 |AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|
@@ -464,21 +555,27 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionHosts
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |BastionAuditLogs|Logs de auditoria de bastiões|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |PeeringRouteLog|Logs de Tabela de Rota de Emparelhamento|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |FrontdoorAccessLog|Log de acesso do Frontdoor|
 |FrontdoorWebApplicationFirewallLog|Log de firewall do aplicativo Web Frontdoor|
@@ -486,7 +583,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
 |LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
@@ -494,15 +593,20 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |NetworkSecurityGroupEvent|Network Security Group Event|
+|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
 |NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |DDoSMitigationFlowLogs|Logs de fluxo de decisões de mitigação de DDoS|
 |DDoSMitigationReports|Relatórios de mitigações de DDoS|
@@ -511,14 +615,18 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |ProbeHealthStatusEvents|Evento de Resultados de Integridade de Investigação do Gerenciador de Tráfego|
 
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|
 |IKEDiagnosticLog|Logs de Diagnóstico IKE|
@@ -529,21 +637,27 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |VMProtectionAlerts|Alertas de proteção da VM|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Mecanismo|Mecanismo|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AddonAzureBackupAlerts|Dados de alerta de backup do Azure addon|
 |AddonAzureBackupJobs|Dados do trabalho de backup do Azure addon|
@@ -563,35 +677,45 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |HybridConnectionsEvent|Eventos de HybridConnections|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |OperationLogs|Logs de operação|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |OperationalLogs|Logs operacionais|
 
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AllLogs|Logs do serviço de Signaler do Azure.|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |DevOpsOperationsAudit|Logs de auditoria de operações do DevOps|
 |ResourceUsageStats|Estatísticas de uso de recursos|
@@ -600,7 +724,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.Sql/managedInstances/databases
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Errors|Errors|
 |QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|
@@ -610,7 +736,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AutomaticTuning|Ajuste automático|
 |Blocos|Blocos|
@@ -632,7 +760,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|Categoria|Nome de exibição da categoria|
+Custo: pago conforme descrito na seção de logs da plataforma da [página de preços Azure monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -641,7 +771,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|Categoria|Nome de exibição da categoria|
+Custo: pago conforme descrito na seção de logs da plataforma da [página de preços Azure monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -650,7 +782,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-|Categoria|Nome de exibição da categoria|
+Custo: pago conforme descrito na seção de logs da plataforma da [página de preços Azure monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -659,7 +793,9 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-|Categoria|Nome de exibição da categoria|
+Custo: pago conforme descrito na seção de logs da plataforma da [página de preços Azure monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -668,22 +804,64 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |Criação|Criação|
 |Execução|Execução|
 
 
+## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
+
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
+|---|---|
+|BuiltinSqlReqsEnded|Solicitações de pool de SQL internas encerradas|
+|GatewayApiRequests|Solicitações de API de gateway Synapse|
+|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|
+|SynapseRbacOperations|Operações de RBAC Synapse|
+
+
+## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/Workspaces/bigDataPools
+
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
+|---|---|
+|BigDataPoolAppsEnded|Aplicativos de pool de Big data encerrados|
+
+
+## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft. Synapse/espaços de trabalho/sqlpools
+
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
+|---|---|
+|DmsWorkers|Trabalhos DMS|
+|ExecRequests|Solicitações de Exec|
+|RequestSteps|Etapas de solicitação|
+|SqlRequests|Solicitações de Sql|
+|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|
+|Esperas|Esperas|
+
+
 ## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AppServiceEnvironmentPlatformLogs|Ambiente do Serviço de Aplicativondo logs da plataforma|
 
 
 ## <a name="microsoftwebsites"></a>microsoft.web/sites
 
-|Categoria|Nome de exibição da categoria|
+Custo: gratuito 
+
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|
 |AppServiceAuditLogs|Acessar logs de auditoria|
@@ -691,13 +869,14 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|
 |AppServiceHTTPLogs|Logs de HTTP|
 |FunctionAppLogs|Logs do aplicativo de funções|
-|ScanLogs|Logs de verificação antivírus|
 
 
 ## <a name="microsoftwebsitesslots"></a>microsoft.web/sites/slots
 
+Custo: gratuito 
 
-|Categoria|Nome de exibição da categoria|
+
+|Categoria |Nome de exibição da categoria|
 |---|---|
 |AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|
 |AppServiceAuditLogs|Acessar logs de auditoria|
@@ -705,7 +884,6 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|
 |AppServiceHTTPLogs|Logs de HTTP|
 |FunctionAppLogs|Logs do aplicativo de funções|
-|ScanLogs|Logs de verificação antivírus|
 
 
 ## <a name="next-steps"></a>Próximas etapas

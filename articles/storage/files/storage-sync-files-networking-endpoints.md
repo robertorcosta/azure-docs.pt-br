@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844669"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921725"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos de extremidade de rede da Sincronização de Arquivos do Azure
 Os Arquivos do Azure e a Sincronização de Arquivos do Azure fornecem dois tipos principais de pontos de extremidade para acessar compartilhamentos de arquivo do Azure: 
@@ -34,7 +34,7 @@ Este artigo supõe que:
 
 Adicionalmente:
 - Se pretende usar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-the-private-endpoints"></a>Criar os pontos de extremidade privados
 Quando você cria um ponto de extremidade privado para um recurso do Azure, os seguintes recursos são implantados:
@@ -588,7 +588,7 @@ Ao restringir a conta de armazenamento para redes virtuais específicas, você p
 A Sincronização de Arquivos do Azure permite restringir o acesso a redes virtuais específicas somente por meio de pontos de extremidade privados. A Sincronização de Arquivos do Azure não dá suporte a pontos de extremidade de serviço para restringir o acesso ao ponto de extremidades público para redes virtuais específicas. Isso significa que os dois estados do ponto de extremidade público do Serviço de Sincronização de Armazenamento são habilitado e desabilitado.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Isso não é possível por meio do portal do Azure. Selecione as instruções da guia Azure PowerShell ou CLI do Azure para obter instruções sobre como desabilitar o ponto de extremidade público do Serviço de Sincronização de Armazenamento. 
+Isso não é possível por meio do portal do Azure. Selecione a guia Azure PowerShell para obter instruções sobre como desabilitar o ponto de extremidade público do serviço de sincronização de armazenamento. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para desabilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, definiremos a propriedade `incomingTrafficPolicy` no Serviço de Sincronização de Armazenamento como `AllowVirtualNetworksOnly`. Se você quiser habilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, defina `incomingTrafficPolicy` como `AllowAllTraffic` em vez disso. Lembre-se de substituir `<storage-sync-service-resource-group>` e `<storage-sync-service>`.
@@ -603,23 +603,11 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Para desabilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, definiremos a propriedade `incomingTrafficPolicy` no Serviço de Sincronização de Armazenamento como `AllowVirtualNetworksOnly`. Se você quiser habilitar o acesso ao ponto de extremidade público do Serviço de Sincronização de Armazenamento, defina `incomingTrafficPolicy` como `AllowAllTraffic` em vez disso. Lembre-se de substituir `<storage-sync-service-resource-group>` e `<storage-sync-service>`.
-
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
+<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>CLI do Azure não dá suporte à definição da `incomingTrafficPolicy` propriedade no serviço de sincronização de armazenamento. Selecione a guia Azure PowerShell para obter instruções sobre como desabilitar o ponto de extremidade público do serviço de sincronização de armazenamento.
 ---
 
 ## <a name="see-also"></a>Confira também

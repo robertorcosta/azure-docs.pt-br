@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – implantação
-description: Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004561"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920520"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
-O Resource Manager fornece as seguintes funções para obter valores relacionados à implantação atual do modelo de Azure Resource Manager (ARM):
+O Gerenciador de recursos fornece as seguintes funções para obter valores relacionados à implantação atual de seu modelo de Azure Resource Manager (modelo ARM):
 
 * [planta](#deployment)
 * [ambiente](#environment)
@@ -426,7 +426,7 @@ output crossOutput string = crossParameter
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringOutput | String | opção 1 |
 | intOutput | int | 1 |
@@ -434,7 +434,7 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | opção 1 |
 
-Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
+Para obter mais informações sobre como usar parâmetros, consulte [parâmetros em modelos ARM](template-parameters.md).
 
 ## <a name="variables"></a>variáveis
 
@@ -444,7 +444,7 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | variableName |Sim |String |O nome da variável a retornar. |
 
@@ -564,15 +564,15 @@ output exampleOutput4 object = var4
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
-Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
+Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo ARM](template-variables.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

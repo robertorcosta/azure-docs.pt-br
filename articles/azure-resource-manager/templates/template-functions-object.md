@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – objetos
-description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com objetos.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com objetos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004510"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920443"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funções de objeto para modelos ARM
 
-O Gerenciador de recursos fornece várias funções para trabalhar com objetos em seu modelo de Azure Resource Manager (ARM).
+O Gerenciador de recursos fornece várias funções para trabalhar com objetos em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [contains](#contains)
 * [createObject](#createobject)
@@ -33,10 +33,10 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| contêiner |Yes |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
-| itemToFind |Yes |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
+| contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
+| itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -128,7 +128,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | Falso |
@@ -145,12 +145,12 @@ Cria um objeto com base nas chaves e valores. A `createObject` função não é 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | key1 |Não |string |O nome da chave. |
-| value1 |No |int, booliano, Cadeia de caracteres, objeto ou matriz |O valor da chave. |
+| value1 |Não |int, booliano, Cadeia de caracteres, objeto ou matriz |O valor da chave. |
 | chaves adicionais |Não |string |Nomes adicionais das chaves. |
-| valores adicionais |No |int, booliano, Cadeia de caracteres, objeto ou matriz |Valores adicionais para as chaves. |
+| valores adicionais |Não |int, booliano, Cadeia de caracteres, objeto ou matriz |Valores adicionais para as chaves. |
 
 A função aceita apenas um número par de parâmetros. Cada chave deve ter um valor correspondente.
 
@@ -219,9 +219,9 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -286,7 +286,7 @@ output stringEmpty bool = empty(testString)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -300,7 +300,7 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para localizar elementos comuns. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
@@ -392,7 +392,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -407,7 +407,7 @@ Converte uma cadeia de caracteres JSON válida em um tipo de dados JSON.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |string |O valor a ser convertido para JSON. A cadeia de caracteres deve ser uma cadeia de caracteres JSON formatada corretamente. |
 
@@ -520,7 +520,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | emptyObjectOutput | Booliano | verdadeiro |
 | objectOutput | Objeto | {"a": "b"} |
@@ -538,9 +538,9 @@ Retorna o número de elementos em uma matriz, caracteres em uma cadeia de caract
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
+| arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -628,7 +628,7 @@ output objectLength int = length(objectToTest)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -678,7 +678,7 @@ output emptyOutput bool = empty(null)
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -690,7 +690,7 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para unir elementos. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
@@ -785,11 +785,11 @@ output arrayOutput array = union(firstArray, secondArray)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).

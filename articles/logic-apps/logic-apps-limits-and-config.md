@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
-ms.openlocfilehash: dc09edee08e97e354ef006416e2d5c0a333a3980
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 12/07/2020
+ms.openlocfilehash: 154be7e4340c798ba1d014b210361f666864797e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917810"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921509"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -19,7 +19,7 @@ Este artigo descreve os limites e os detalhes de configuração para criar e exe
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Limites de definição
+## <a name="logic-app-definition-limits"></a>Limites de definição de aplicativos lógicos
 
 Estes são os limites de definição de um único aplicativo lógico:
 
@@ -37,7 +37,9 @@ Estes são os limites de definição de um único aplicativo lógico:
 | Número máximo de `parameters` | 50 | |
 | Número máximo de `outputs` | 10 | |
 | Tamanho máximo para `trackedProperties` | 16.000 caracteres |
-| Ação de código embutido-número máximo de caracteres de código | 1.024 caracteres <p>Para um limite de caracteres de 100.000, crie seus aplicativos lógicos com Visual Studio Code e a [extensão de **aplicativo lógico do Azure** de visualização](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
+| Ação de código embutido-número máximo de caracteres de código | 1.024 caracteres | Para estender esse limite para 100.000 caracteres, crie seus aplicativos lógicos com o tipo de recurso **aplicativo lógico (versão prévia)** , seja [usando o portal do Azure](create-stateful-stateless-workflows-azure-portal.md) ou [usando Visual Studio Code e a extensão **aplicativos lógicos do Azure (versão prévia)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Ação de código embutido-duração máxima para execução de código | 5 segundos | Para estender esse limite para 15 segundos, crie seus aplicativos lógicos com o tipo de recurso **aplicativo lógico (versão prévia)** , seja [usando o portal do Azure](create-stateful-stateless-workflows-azure-portal.md) ou [usando Visual Studio Code e a extensão **aplicativos lógicos do Azure (versão prévia)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -211,21 +213,23 @@ Para ultrapassar esses limites no processamento normal ou executar um teste de c
 
 Os Aplicativos Lógicos do Azure dão suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites no tamanho da carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
-<a name="request-limits"></a>
+<a name="http-limits"></a>
 
 ## <a name="http-limits"></a>Limites do HTTP
 
-Aqui estão os limites para uma única chamada HTTP de saída ou entrada:
+Aqui estão os limites para uma única chamada de entrada ou de saída:
 
-#### <a name="timeout"></a>Tempo limite
+<a name="http-timeout-limits"></a>
+
+#### <a name="timeout-duration"></a>Duração do tempo limite
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam solicitações de webhook, portanto o tempo limite para essas operações pode ter mais do que esses limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [Gatilhos e ações de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
-|------|--------------------|---------------------------------------|-------|
-| Solicitação de saída | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de saída incluem as chamadas feitas por gatilhos HTTP. <p><p>**Dica**: Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar os limites de tempo ao chamar outro aplicativo lógico que tem um [ponto de extremidade de chamada](logic-apps-http-endpoint.md), você pode usar a ação predefinida dos Aplicativos Lógicos do Azure, que pode ser encontrada no seletor do conector em **Predefinido**. |
-| Solicitação de entrada | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de entrada incluem as chamadas recebidas por gatilhos de solicitação e gatilhos de webhook. <p><p>**Observação**: Para o chamador original obter a resposta, todas as etapas na resposta devem ser finalizadas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
-|||||
+| Nome | Aplicativos lógicos (multilocatário) | Aplicativos lógicos (visualização) | Ambiente do serviço de integração | Observações |
+|------|---------------------------|----------------------|---------------------------------|-------|
+| Solicitação de saída | 120 segundos <br>(2 minutos) | 230 segundos <br>(3,9 minutos) | 240 segundos <br>(4 minutos) | Exemplos de solicitações de saída incluem chamadas feitas pelo gatilho ou ação HTTP. Para obter mais informações sobre a versão de visualização, consulte [visualização de aplicativos lógicos do Azure](logic-apps-overview-preview.md). <p><p>**Dica**: Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar os limites de tempo ao chamar outro aplicativo lógico que tem um [ponto de extremidade de chamada](logic-apps-http-endpoint.md), você pode usar a ação predefinida dos Aplicativos Lógicos do Azure, que pode ser encontrada no seletor do conector em **Predefinido**. |
+| Solicitação de entrada | 120 segundos <br>(2 minutos) | 230 segundos <br>(3,9 minutos) | 240 segundos <br>(4 minutos) | Exemplos de solicitações de entrada incluem chamadas recebidas pelo gatilho de solicitação, gatilho de webhook HTTP e ação de webhook HTTP. Para obter mais informações sobre a versão de visualização, consulte [visualização de aplicativos lógicos do Azure](logic-apps-overview-preview.md). <p><p>**Observação**: Para o chamador original obter a resposta, todas as etapas na resposta devem ser finalizadas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
+||||||
 
 <a name="message-size-limits"></a>
 
@@ -266,6 +270,7 @@ Veja os limites de um aplicativo lógico que começa com um Gatilho de solicita�
 | ---- | ----- | ----- |
 | Políticas de autorização do Azure AD | 5 | |
 | Declarações por política de autorização | 10 | |
+| Valor da declaração – número máximo de caracteres | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -338,7 +343,7 @@ Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure
 | Artefato | Limite | Observações |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Mapa (arquivo XSLT) | 8 MB | Para carregar arquivos maiores que 2 MB, use a [API REST de Aplicativos Lógicos do Azure – Mapas](/rest/api/logic/maps/createorupdate). <p><p>**Observação**: A quantidade de dados ou registros que um mapa pode processar com êxito baseia-se no tamanho da mensagem e nos limites de tempo da ação nos Aplicativos Lógicos do Azure. Por exemplo, se você usar uma ação HTTP, baseada no [tamanho da mensagem HTTP e nos limites de tempo](#request-limits), um mapa poderá processar dados até o limite de tamanho da mensagem HTTP se a operação for concluída dentro do limite de tempo do HTTP. |
+| Mapa (arquivo XSLT) | 8 MB | Para carregar arquivos maiores que 2 MB, use a [API REST de Aplicativos Lógicos do Azure – Mapas](/rest/api/logic/maps/createorupdate). <p><p>**Observação**: A quantidade de dados ou registros que um mapa pode processar com êxito baseia-se no tamanho da mensagem e nos limites de tempo da ação nos Aplicativos Lógicos do Azure. Por exemplo, se você usar uma ação HTTP, baseada no [tamanho da mensagem HTTP e nos limites de tempo](#http-limits), um mapa poderá processar dados até o limite de tamanho da mensagem HTTP se a operação for concluída dentro do limite de tempo do HTTP. |
 | Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use um [contêiner de blob e uma conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -379,7 +384,7 @@ Ao excluir um aplicativo lógico, nenhuma nova execução será instanciada. Tod
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuração do firewall: Endereços IP e marcas de serviço
 
-Os endereços IP usados pelos Aplicativos Lógicos do Azure para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP. Algumas chamadas do [Power Automate](/power-automate/getting-started), como solicitações **HTTP** e **HTTP + OpenAPI**, vão diretamente por meio do serviço de Aplicativos Lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Power Automate, consulte os [Limites e configuração no Power Automate](/flow/limits-and-config#ip-address-configuration).
+Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP. Algumas chamadas do [Power Automate](/power-automate/getting-started), como solicitações **HTTP** e **HTTP + OpenAPI**, vão diretamente por meio do serviço de Aplicativos Lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Power Automate, consulte os [Limites e configuração no Power Automate](/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar [marcas de serviço](../virtual-network/service-tags-overview.md), em vez de especificar os endereços IP dos Aplicativos Lógicos para cada região, descritos mais adiante nesta seção.

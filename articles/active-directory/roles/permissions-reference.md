@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862050"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919755"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -1016,6 +1016,7 @@ Pode ler e gravar informações básicas do diretório. Para conceder acesso a a
 | microsoft.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Gerenciar licenças em usuários no Azure Active Directory. |
 | microsoft.directory/users/basic/update | Atualize as propriedades básicas nos usuários no Azure Active Directory. |
+| microsoft.directory/users/create | Crie usuários no Active Directory do Azure. |
 | Microsoft. Directory/Users/Disable | Desabilite uma conta de usuário no Azure Active Directory. |
 | Microsoft. Directory/Users/Enable | Habilitar uma conta de usuário no Azure Active Directory |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidar todos os tokens de atualização do usuário no Azure Active Directory, exigindo que os usuários se autentiquem novamente na próxima entrada |

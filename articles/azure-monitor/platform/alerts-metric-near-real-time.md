@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0e4674c9e0513a0b8dae29f5868b1da79da8ab84
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548232"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920571"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
@@ -60,7 +60,7 @@ Aqui está a lista completa de Azure Monitor fontes métricas com suporte dos al
 |Microsoft.DBforPostgreSQL/flexibleServers | Sim | Não | |
 |Microsoft.DBforPostgreSQL/servers | Não | Não | [Banco de dados para PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | Não | Não | [BD para PostgreSQL v2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/singleservers | Não | Não | [BD para PostgreSQL (servidores únicos)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|Microsoft. DBforPostgreSQL/flexível | Não | Não | [BD para PostgreSQL (servidores flexiable)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sim | Não |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sim | Não | [Serviços de provisionamento de dispositivos](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Sim | Não | |
@@ -115,7 +115,7 @@ Aqui está a lista completa de Azure Monitor fontes métricas com suporte dos al
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sim | Não | [Ambiente do Serviço de Aplicativo pools de várias funções](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sim | Não | [Ambiente do Serviço de Aplicativo pools de trabalho](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Sim | Não | [Planos do serviço de aplicativo](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Sim | Não | [Serviços de Aplicativos](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | Sim | Não | [Serviços de Aplicativos e Funções](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Sim | Não | [Slots do Serviço de Aplicativo](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> não há suporte para métricas de rede de máquina virtual (rede no total, total de saída de rede, fluxos de entrada, fluxos de saída, taxa de criação máxima de fluxos de entrada, taxa de criação máxima de fluxos de saída) e métricas personalizadas.

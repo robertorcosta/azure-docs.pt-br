@@ -1,18 +1,18 @@
 ---
 title: Funções de modelo – comparação
-description: Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores.
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para comparar valores.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004595"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920529"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos do ARM
 
-O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos de Azure Resource Manager (ARM).
+O Gerenciador de recursos fornece várias funções para fazer comparações em seu modelo de Azure Resource Manager (modelo ARM):
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -31,10 +31,10 @@ Retorna o primeiro valor não nulo dos parâmetros. Cadeias de caracteres vazias
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int, string, array ou object |O primeiro valor para testar se é nulo. |
-| argumentos adicionais |No |int, string, array ou object |Valores adicionais para testar se são nulos. |
+| arg1 |Sim |int, string, array ou object |O primeiro valor para testar se é nulo. |
+| argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar se são nulos. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -117,9 +117,9 @@ output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
+| stringOutput | String | padrão |
 | intOutput | int | 1 |
 | objectOutput | Objeto | {"first": "default"} |
 | arrayOutput | Array |  [1] |
@@ -133,10 +133,10 @@ Verifica se dois valores são iguais entre si. `equals`Não há suporte para a f
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int, string, array ou object |O primeiro valor para verificar a igualdade. |
-| arg2 |Yes |int, string, array ou object |O segundo valor para verificar a igualdade. |
+| arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
+| arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -269,7 +269,7 @@ output checkObjects bool = firstObject == secondObject
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -305,7 +305,7 @@ output checkNotEquals bool = ! (1 == 2)
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -317,10 +317,10 @@ Verifica se o primeiro valor é maior que o segundo valor. `greater`Não há sup
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int ou string |O primeiro valor da comparação de maior que. |
-| arg2 |Yes |int ou string |O segundo valor da comparação de maior que. |
+| arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
+| arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -385,7 +385,7 @@ output checkStrings bool = firstString > secondString
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
 | checkStrings | Bool | True |
@@ -398,10 +398,10 @@ Verifica se o primeiro valor é maior que ou igual ao segundo valor. `greaterOrE
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int ou string |O primeiro valor da comparação de maior que ou igual a. |
-| arg2 |Yes |int ou string |O segundo valor da comparação de maior que ou igual a. |
+| arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
+| arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -466,7 +466,7 @@ output checkStrings bool = firstString >= secondString
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
 | checkStrings | Bool | True |
@@ -479,10 +479,10 @@ Verifica se o primeiro valor é menor que o segundo valor. `less`Não há suport
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int ou string |O primeiro valor da comparação de menor que. |
-| arg2 |Yes |int ou string |O segundo valor da comparação de menor que. |
+| arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
+| arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -547,7 +547,7 @@ output checkStrings bool = firstString < secondString
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | Falso |
@@ -560,10 +560,10 @@ Verifica se o primeiro valor é menor que ou igual ao segundo valor. `lessOrEqua
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Description |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int ou string |O primeiro valor da comparação de menor que ou igual a. |
-| arg2 |Yes |int ou string |O segundo valor da comparação de menor que ou igual a. |
+| arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
+| arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -628,11 +628,11 @@ output checkStrings bool = firstString <= secondString
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | Falso |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do ARM, consulte [entender a estrutura e a sintaxe de modelos do ARM](template-syntax.md).
