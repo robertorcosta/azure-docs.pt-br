@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0b10a4de78c44e4c0a113a1f1a46c316b13a1f78
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592049"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96902146"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -75,7 +75,7 @@ Em geral, para usar a atividade de cópia no Azure Data Factory, você precisa:
 2. **Crie conjuntos de valores para a origem e o coletor.** Consulte as seções "Propriedades do conjunto de dados" dos artigos do conector de origem e do coletor para obter informações de configuração e propriedades com suporte.
 3. **Crie um pipeline com a atividade de cópia.** A próxima seção fornece um exemplo.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 O modelo a seguir de uma atividade de cópia contém uma lista completa de propriedades com suporte. Especifique as adequadas para o seu cenário.
 
@@ -254,7 +254,7 @@ Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de
 
 - [Banco de Dados SQL do Azure](connector-azure-sql-database.md)
 - [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (antigo SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Criar tabelas de coletor](media/copy-activity-overview/create-sink-table.png)

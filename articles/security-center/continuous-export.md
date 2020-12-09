@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ms.author: memildin
-ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122315"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862455"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
 
@@ -72,6 +72,7 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     - As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)
     - As vulnerabilidades nas imagens do Registro de Contêiner do Azure devem ser corrigidas (da plataforma Qualys)
     - As vulnerabilidades nas suas máquinas virtuais devem ser corrigidas
+    - As atualizações do sistema devem ser instaladas em suas máquinas
 
     Para incluir as conclusões com essas recomendações, habilite a opção **incluir conclusões de segurança** .
 

@@ -1,23 +1,27 @@
 ---
-title: Perguntas frequentes sobre os serviços meteorológicos do Microsoft Azure Maps
-description: Encontre respostas para perguntas comuns sobre dados e recursos dos serviços meteorológicos do Azure Maps.
+title: Perguntas frequentes sobre os serviços meteorológicos do Microsoft Azure (versão prévia)
+description: Encontre respostas para perguntas comuns sobre os recursos e os dados dos serviços meteorológicos do Azure (versão prévia).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2a5a58c1515c647bb76bf35f3a5eaade3d00588a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747316"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903863"
 ---
-# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os serviços meteorológicos do Azure Maps
+# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os serviços meteorológicos do Azure Maps (versão prévia)
 
-Este artigo responde a perguntas comuns sobre dados e recursos [dos serviços meteorológicos do Azure Maps](https://docs.microsoft.com/rest/api/maps/weather) . Os seguintes tópicos são abordados:
+> [!IMPORTANT]
+> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo responde a perguntas comuns sobre dados e recursos [dos serviços meteorológicos](https://docs.microsoft.com/rest/api/maps/weather) do Azure Maps. Os seguintes tópicos são abordados:
 
 * Fontes de dados e modelos de dados
 * Disponibilidade e cobertura dos serviços meteorológicos
@@ -51,7 +55,7 @@ Esses conjuntos de dados são revisados em tempo real quanto à precisão do sis
 
 Vários sistemas de diretrizes de previsão meteorológico são utilizados para formular previsões globais. Mais de 150 modelos de previsão numérica são usados todos os dias, tanto os conjuntos de valores externos quanto os internos. Isso inclui modelos governamentais, como o Centro Europeu ECMWF e o GFS (sistema de previsão global) dos EUA. Além disso, o AccuWeather incorpora modelos de alta resolução proprietários que diminuir previsões para locais específicos e domínios regionais estratégicos para prever o clima com mais precisão. Os algoritmos de mesclagem e de peso exclusivos do AccuWeather foram desenvolvidos nas últimas várias décadas. Esses algoritmos utilizam de forma ideal as várias entradas de previsão para fornecer previsões altamente precisas.
 
-## <a name="weather-services-coverage-and-availability"></a>Disponibilidade e cobertura dos serviços meteorológicos
+## <a name="weather-services-preview-coverage-and-availability"></a>Disponibilidade e cobertura de serviços meteorológicos (versão prévia)
 
 **Que tipo de cobertura posso esperar para diferentes países/regiões?**
 
@@ -73,11 +77,11 @@ As APIs de previsão do Azure Maps são armazenadas em cache por até 30 minutos
 
 ## <a name="developing-with-azure-maps-sdks"></a>Desenvolvendo com SDKs do Azure Maps
 
-**O SDK da Web do Azure Maps oferece suporte nativo à integração de serviços meteorológicos?**
+**O SDK da Web do Azure Maps oferece suporte nativo à integração de serviços meteorológicos (versão prévia)?**
 
 O SDK da Web do Azure Maps fornece um módulo de serviços. O módulo serviços é uma biblioteca auxiliar que torna mais fácil usar os serviços REST do Azure Maps em aplicativos Web ou Node.js. usando JavaScript ou TypeScript. Para começar, consulte nossa [documentação](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
 
-**O Azure Maps SDK do Android dá suporte nativo à integração de serviços meteorológicos?**
+**O Azure Maps SDK do Android dá suporte nativo à integração de serviços meteorológicos (versão prévia)?**
 
 Os SDKs do Android do Azure Maps dão suporte a camadas de bloco Mercator, que podem ter notação x/y/zoom, notação de tecla quádrupla ou notação de caixa delimitadora de EPSG 3857.
 
@@ -99,7 +103,7 @@ Sim. Além dos blocos de radar e satélite em tempo real, os clientes do Azure M
 
 **Você oferece ícones para diferentes condições de clima?**
 
-Sim. Você pode encontrar ícones e seus respectivos códigos [aqui](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Observe que apenas algumas das APIs de serviço do clima, como  [obter a API de condições atuais](https://aka.ms/azuremapsweathercurrentconditions), retornam o *iconCode* na resposta. Para obter mais informações, consulte o [exemplo de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)-fonte aberto WeatherConditions atual.
+Sim. Você pode encontrar ícones e seus respectivos códigos [aqui](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Observe que apenas algumas das APIs de serviço meteorológico (versão prévia), como  [obter a API de condições atuais](https://aka.ms/azuremapsweathercurrentconditions), retornam o *iconCode* na resposta. Para obter mais informações, consulte o [exemplo de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)-fonte aberto WeatherConditions atual.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -110,15 +114,15 @@ Se essas perguntas frequentes não responderem à sua pergunta, você poderá en
 * O Suporte da Microsoft. Para criar uma nova solicitação de suporte, na [portal do Azure](https://portal.azure.com/), na guia ajuda, selecione o botão **ajuda +** suporte e, em seguida, selecione **nova solicitação de suporte**.
 * O [Azure mapeia UserVoice](https://feedback.azure.com/forums/909172-azure-maps) para enviar solicitações de recursos.
 
-Saiba como solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps:
+Saiba como solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps (versão prévia):
 > [!div class="nextstepaction"]
 > [Solicitar dados meteorológicos em tempo real ](how-to-request-weather-data.md)
 
-Artigo conceitos dos serviços meteorológicos do Azure Maps:
+Artigo sobre os conceitos dos serviços meteorológicos do Azure (versão prévia):
 > [!div class="nextstepaction"]
 > [Conceitos de serviços meteorológicos](weather-coverage.md)
 
-Explore a documentação da API dos serviços meteorológicos do Azure Maps:
+Explore a documentação da API dos serviços meteorológicos do Azure Maps (versão prévia):
 
 > [!div class="nextstepaction"]
 > [Serviços meteorológicos do Azure Maps](/rest/api/maps/weather)

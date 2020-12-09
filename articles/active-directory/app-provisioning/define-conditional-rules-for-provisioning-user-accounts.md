@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993985"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861384"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -94,7 +94,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
    
    j. **Greater_Than_OR_EQUALS.** A cláusula retornará "true" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0, 1, 2,...]. 
    
-   k. **Incluir.** A cláusula retornará "true" se o atributo avaliado contiver o valor da cadeia de caracteres (diferencia maiúsculas de minúsculas), conforme descrito [aqui](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Incluir.** A cláusula retornará "true" se o atributo avaliado contiver o valor da cadeia de caracteres (diferencia maiúsculas de minúsculas), conforme descrito [aqui](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 

@@ -3,12 +3,12 @@ title: Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Mic
 description: Este artigo descreve as interações do lado do cliente com a retransmissão das Conexões Híbridas para conectar clientes em funções de ouvinte e de remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531438"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862319"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
@@ -142,7 +142,7 @@ As opções de parâmetro de cadeia de caracteres de consulta são conforme demo
 
 Se a conexão de WebSocket falhar porque o caminho de Conexão Híbrida não está sendo registrado, porque há um token inválido ou ausente ou por algum outro erro, os comentários de erro serão fornecidos usando o modelo comum de comentários de status HTTP 1.1. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
 
-| Código | Erro do          | Descrição
+| Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Não encontrado      | O caminho da Conexão Híbrida é inválido ou a URL base está malformada.
 | 401  | Não Autorizado   | O token de segurança está ausente ou malformado ou inválido.
@@ -208,7 +208,7 @@ Para obter mais informações, consulte a seção "Sender Protocol" (Protocolo d
 
 Se houver um erro, o serviço poderá responder da seguinte maneira:
 
-| Código | Erro do          | Descrição
+| Código | Erro          | Descrição
 | ---- | -------------- | -----------------------------------
 | 403  | Proibido      | A URL não é válida.
 | 500  | Erro Interno | Algo deu errado no serviço
@@ -239,7 +239,7 @@ O URI resultante é usado para estabelecer uma conexão WebSocket.
 
 Ao ser concluído corretamente, esse handshake falhará intencionalmente com um código de erro HTTP 410, pois nenhum WebSocket terá sido estabelecido. Se algo der errado, os códigos a seguir descrevem o erro:
 
-| Código | Erro do          | Descrição                          |
+| Código | Erro          | Descrição                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Proibido      | A URL não é válida.                |
 | 500  | Erro Interno | Algo deu errado no serviço. |
@@ -371,7 +371,7 @@ A URL `address` na `request` precisa ser usada no estado em que se encontra para
 
 Se houver um erro, o serviço poderá responder da seguinte maneira:
 
-| Código | Erro do           | Descrição
+| Código | Erro           | Descrição
 | ---- | --------------- | -----------------------------------
 | 400  | Solicitação inválida | Ação não reconhecida ou URL inválida.
 | 403  | Proibido       | A URL expirou.
@@ -414,7 +414,7 @@ O protocolo de remetente é efetivamente idêntico ao modo como um ouvinte é es
 A meta é o máximo de transparência para o WebSocket de ponta a ponta. O endereço ao qual se conectar é o mesmo do ouvinte, mas a "ação" é diferente e o token precisa de uma permissão diferente:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 O _namespace-address_ é o nome de domínio totalmente qualificado do namespace de Retransmissão do Azure que hospeda a Conexão Híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
@@ -433,14 +433,14 @@ As opções de parâmetro de cadeia de caracteres de consulta são conforme demo
  O `{path}` é o namespace em formato codificado de URL da Conexão Híbrida pré-configurada na qual este ouvinte deve ser registrado. A expressão `path` pode ser estendida com um sufixo e uma expressão de cadeia de caracteres de consulta para se comunicar ainda mais. Se a Conexão Híbrida for registrada no caminho `hyco`, a expressão `path` poderá ser `hyco/suffix?param=value&...` seguida por parâmetros de cadeia de caracteres de consulta definidos aqui. Assim, uma expressão completa pode ser da seguinte maneira:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 A expressão `path` é passada por meio do ouvinte no URI do endereço contido na mensagem de controle "accept".
 
 Se a conexão de WebSocket falhar porque o caminho de Conexão Híbrida não está sendo registrado, porque há um token inválido ou ausente ou por algum outro erro, os comentários de erro serão fornecidos usando o modelo comum de comentários de status HTTP 1.1. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
 
-| Código | Erro do          | Descrição
+| Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Não encontrado      | O caminho da Conexão Híbrida é inválido ou a URL base está malformada.
 | 401  | Não Autorizado   | O token de segurança está ausente ou malformado ou inválido.
@@ -462,7 +462,7 @@ O protocolo de solicitação HTTP permite solicitações HTTP arbitrárias, exce
 As solicitações HTTP são apontadas no endereço do runtime normal da entidade, sem o infixo $hc que é usado para clientes WebSocket de conexões híbridas.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 O _namespace-address_ é o nome de domínio totalmente qualificado do namespace de Retransmissão do Azure que hospeda a Conexão Híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
@@ -487,7 +487,7 @@ O serviço adiciona o nome do host do namespace de retransmissão em `Via`.
 
 Se houver algum erro, o serviço poderá responder da seguinte maneira. É possível identificar se a resposta se origina do serviço ou do ouvinte por meio da presença do cabeçalho `Via`. Se o cabeçalho estiver presente, a resposta será do ouvinte.
 
-| Código | Erro do           | Descrição
+| Código | Erro           | Descrição
 | ---- | --------------- |--------- |
 | 404  | Não encontrado       | O caminho da Conexão Híbrida é inválido ou a URL base está malformada.
 | 401  | Não Autorizado    | O token de segurança está ausente ou malformado ou inválido.

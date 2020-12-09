@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974146"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902639"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -304,7 +304,7 @@ Isso gera uma tela de consentimento para todas as permissões registradas (se ap
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Fluxo de concessão de credenciais de cliente e/.Default
 
-Outro uso do `./default` é ao solicitar permissões de aplicativo (ou *funções*) em um aplicativo não interativo, como um aplicativo de daemon que usa o fluxo de concessão de [credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) para chamar uma API da Web.
+Outro uso do `/.default` é ao solicitar permissões de aplicativo (ou *funções*) em um aplicativo não interativo, como um aplicativo de daemon que usa o fluxo de concessão de [credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) para chamar uma API da Web.
 
 Para criar permissões de aplicativo (funções) para uma API da Web, consulte [como: adicionar funções de aplicativo em seu aplicativo](howto-add-app-roles-in-azure-ad-apps.md).
 

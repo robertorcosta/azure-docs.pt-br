@@ -1,7 +1,7 @@
 ---
 title: Migrar da API REST v2 para v3-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Em comparação com a v2, a nova versão da API v3 contém um conjunto de pequenas alterações significativas. Este documento ajudará a migrar para a nova versão principal em nenhum momento.
+description: Este documento ajuda os desenvolvedores a migrar código de v2 para V3 do na API REST de fala em texto dos serviços de fala.
 services: cognitive-services
 author: bexxx
 manager: nitinme
@@ -11,40 +11,36 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1dae963781cc0caacc25938e700a4c70a1f51a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: c5bc00ecf5e4c8ae440ce6610e9be8c8f77ed666
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96737955"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862200"
 ---
-# <a name="migration-from-v20-to-v30-of-speech-to-text-rest-api"></a>Migração do v 2.0 para o v 3.0 de fala para API REST de texto
+# <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrar o código de v 2.0 para v 3.0 da API REST
 
-A versão V3 da API REST de fala melhora a versão anterior da API em relação à confiabilidade e à facilidade de uso. O layout da API se alinha mais com o Azure ou API de Serviços Cognitivos. Isso ajuda a aplicar suas habilidades existentes ao usar nossa API de fala.
-
-A visão geral da API está disponível como um [documento do Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Isso é ideal para fornecer uma visão geral da API e testar a nova API.
-
-Estamos fornecendo exemplos para C# e Python. Para transcrições em lote, você encontrará os exemplos no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
+Em comparação com a v2, a versão V3 da API REST dos serviços de fala para a fala em texto é mais confiável, mais fácil de usar e mais consistente com as APIs para serviços semelhantes. A maioria das equipes pode migrar de v2 para v3 em um ou dois dias.
 
 ## <a name="forward-compatibility"></a>Compatibilidade com encaminhamento
 
-Para garantir uma migração tranqüila para a V3, todas as entidades de v2 também podem ser encontradas na API v3 sob a mesma identidade. Se houver uma alteração de esquema de resultado (por exemplo, transcrições), as respostas para uma versão de obtenção no V3 da API estarão no esquema v3. Se você executar o GET na versão V2 da API, o esquema de resultado estará no formato v2. As entidades recém-criadas no v3 **não estão** disponíveis na v2.
+Todas as entidades de v2 também podem ser encontradas na API v3 sob a mesma identidade. Onde o esquema de um resultado foi alterado (por exemplo, transcrições), o resultado de um GET na versão V3 da API usa o esquema v3. O resultado de um GET na versão V2 da API usa o mesmo esquema v2. As entidades recém-criadas no v3 **não** estão disponíveis nos resultados de APIs v2.
 
 ## <a name="breaking-changes"></a>Alterações de quebra
 
-A lista de alterações significativas foi classificada pela magnitude das alterações necessárias para adaptação. Há apenas algumas alterações que exigem uma alteração não trivial no código de chamada. A maioria das alterações requer renomeações simples. O tempo necessário para as equipes migrarem da V2 para a V3 variava entre algumas horas e alguns dias. No entanto, os benefícios de maior estabilidade, código mais simples, respostas mais rápidas deslocam rapidamente o investimento. 
+A lista de alterações significativas foi classificada pela magnitude das alterações necessárias para adaptação. Apenas algumas alterações exigem alterações não triviais no código de chamada. A maioria das alterações requer apenas uma alteração nos nomes dos itens.
 
 ### <a name="host-name-changes"></a>Alterações de nome de host
 
-Os nomes de host foram alterados de {Region}. Cris. ai para {Region}. API. cognitiva. Microsoft. com. Nessa alteração, os caminhos não contêm mais "API/" porque ele faz parte do nome do host. Consulte o [documento do Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) para obter uma descrição completa de regiões e caminhos.
+Os nomes de host do ponto de extremidade foram alterados de `{region}.cris.ai` para `{region}.api.cognitive.microsoft.com` . Os caminhos para os novos pontos de extremidade não contêm mais `api/` porque ele faz parte do nome do host. O [documento do Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) lista caminhos e regiões válidos.
 
 ### <a name="identity-of-an-entity"></a>Identidade de uma entidade
 
-A propriedade `id` foi substituída por `self` . Na v2, um usuário de API tinha que saber como nossos caminhos na API estão sendo criados. Isso era não extensível e exigia um trabalho desnecessário do usuário. A propriedade `id` (UUID) é substituída por `self` (cadeia de caracteres), que é o local da entidade (URL). O valor ainda é exclusivo entre todas as suas entidades. Se `id` é armazenado como uma cadeia de caracteres em seu código, uma renomeação simples é suficiente para dar suporte ao novo esquema. Agora você pode usar o `self` conteúdo como URL para todas as suas chamadas REST para sua entidade (Get, patch, Delete).
+A propriedade `id` agora é `self` . Na v2, um usuário de API tinha que saber como nossos caminhos na API estão sendo criados. Isso era não extensível e exigia um trabalho desnecessário do usuário. A propriedade `id` (UUID) é substituída por `self` (cadeia de caracteres), que é o local da entidade (URL). O valor ainda é exclusivo entre todas as suas entidades. Se `id` é armazenado como uma cadeia de caracteres em seu código, uma renomeação é suficiente para dar suporte ao novo esquema. Agora você pode usar o `self` conteúdo como a URL para as `GET` `PATCH` chamadas REST,, e `DELETE` para sua entidade.
 
-Se a entidade tiver funcionalidade adicional disponível em outros caminhos, elas serão listadas em `links` . Um bom exemplo é uma transcrição, que tem um método separado para `GET` o conteúdo da transcrição.
+Se a entidade tiver funcionalidade adicional disponível por meio de outros caminhos, elas serão listadas em `links` . O exemplo a seguir de transcrição mostra um método separado para `GET` o conteúdo da transcrição:
 
-transcrição de v2:
+**transcrição de v2:**
 
 ```json
 {
@@ -57,7 +53,7 @@ transcrição de v2:
 }
 ```
 
-transcrição V3:
+**transcrição V3:**
 
 ```json
 {
@@ -73,11 +69,11 @@ transcrição V3:
 }
 ```
 
-Dependendo da implementação do cliente, talvez não seja suficiente renomear a propriedade. É recomendável aproveitar o uso dos valores retornados de `self` e `links` como as URLs de destino de suas chamadas REST e não gerar os caminhos em seu cliente. Usando as URLs retornadas, você pode ter certeza de que as alterações futuras em caminhos não quebrarão o código do cliente.
+Dependendo da implementação do código, talvez não seja suficiente renomear a propriedade. É recomendável usar os `self` valores retornados e `links` como as URLs de destino de suas chamadas REST, em vez de gerar caminhos em seu cliente. Usando as URLs retornadas, você pode ter certeza de que as alterações futuras em caminhos não quebrarão o código do cliente.
 
 ### <a name="working-with-collections-of-entities"></a>Trabalhando com coleções de entidades
 
-Anteriormente, a API v2 retornou todas as entidades disponíveis em uma resposta. Para permitir um controle mais refinado sobre o tamanho de resposta esperado, em v3, todas as respostas de coleções são paginadas. Você tem controle sobre a contagem de entidades retornadas e o deslocamento da página. Esse comportamento facilita a previsão do tempo de execução do processador de resposta e é consistente com outras APIs do Azure.
+Anteriormente, a API v2 retornou todas as entidades disponíveis em um resultado. Para permitir um controle mais refinado sobre o tamanho de resposta esperado na v3, todos os resultados da coleção são paginados. Você tem controle sobre a contagem de entidades retornadas e o deslocamento inicial da página. Esse comportamento facilita a previsão do tempo de execução do processador de resposta.
 
 A forma básica da resposta é a mesma para todas as coleções:
 
@@ -91,20 +87,20 @@ A forma básica da resposta é a mesma para todas as coleções:
 }
 ```
 
-A propriedade `values` contém um subconjunto das entidades de coleção disponíveis. A contagem e o deslocamento podem ser controlados usando os parâmetros de consulta `skip` e `top` . Quando `@nextLink` não é nulo, há mais dados disponíveis e o próximo lote de dados pode ser recuperado fazendo um get on `$.@nextLink` .
+A `values` propriedade contém um subconjunto das entidades de coleção disponíveis. A contagem e o deslocamento podem ser controlados usando os `skip` `top` parâmetros de consulta e. Quando `@nextLink` não está `null` , há mais dados disponíveis e o próximo lote de dados pode ser recuperado fazendo um get on `$.@nextLink` .
 
 Essa alteração requer chamar o `GET` para a coleção em um loop até que todos os elementos tenham sido retornados.
 
 ### <a name="creating-transcriptions"></a>Criando transcrições
 
-Uma descrição detalhada sobre como criar uma transcrição pode ser encontrada em [instruções de transcrição do lote](./batch-transcription.md).
+Uma descrição detalhada sobre como criar lotes de transcrições pode ser encontrada em instruções de [transcrição do lote](./batch-transcription.md).
 
-A criação de transcrições foi alterada em V3 para habilitar explicitamente a configuração de opções de transcrição específicas. Todas as propriedades de configuração (opcional) agora podem ser definidas na `properties` propriedade.
-A versão v3 também dá suporte a vários arquivos de entrada e, portanto, requer uma lista de URLs e não uma única URL, conforme exigido pela v2. O nome da propriedade foi renomeado de `recordingsUrl` para `contentUrls` . A funcionalidade de análise de sentimentos em transcrições foi removida na v3. É recomendável usar a [análise de texto](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) do serviço cognitiva da Microsoft em vez disso.
+A API de transcrição v3 permite que você defina explicitamente opções de transcrição específicas. Todas as propriedades de configuração (opcional) agora podem ser definidas na `properties` propriedade.
+A versão v3 também dá suporte a vários arquivos de entrada, portanto, ele requer uma lista de URLs em vez de uma única URL como a v2. O nome da propriedade v2 `recordingsUrl` agora está `contentUrls` em v3. A funcionalidade de análise de sentimentos em transcrições foi removida na v3. Consulte [análise de texto](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) do serviço cognitiva da Microsoft para obter opções de análise de sentimentos.
 
-A nova propriedade `timeToLive` em `properties` pode ajudar a remover as entidades concluídas existentes. `timeToLive`Especifica uma duração após a qual uma entidade concluída será automaticamente excluída. Defina-o como um valor alto (por exemplo `PT12H` ) quando as entidades são continuamente rastreadas, consumidas e excluídas e, portanto, geralmente processadas antes de 12 horas passadas.
+A nova propriedade `timeToLive` em `properties` pode ajudar a remover as entidades concluídas existentes. `timeToLive`Especifica uma duração após a qual uma entidade concluída será excluída automaticamente. Defina-o como um valor alto (por exemplo `PT12H` ) quando as entidades são continuamente rastreadas, consumidas e excluídas e, portanto, geralmente processadas antes de 12 horas passaram.
 
-corpo da solicitação de POSTAgem de transcrição v2:
+**corpo da solicitação de POSTAgem de transcrição v2:**
 
 ```json
 {
@@ -120,7 +116,7 @@ corpo da solicitação de POSTAgem de transcrição v2:
 }
 ```
 
-corpo da solicitação de POSTAgem de transcrição V3:
+**corpo da solicitação de POSTAgem de transcrição V3:**
 
 ```json
 {
@@ -141,9 +137,9 @@ corpo da solicitação de POSTAgem de transcrição V3:
 
 ### <a name="format-of-v3-transcription-results"></a>Formato dos resultados da transcrição v3
 
-O esquema dos resultados da transcrição foi ligeiramente alterado para se alinhar com as transcrições criadas por pontos de extremidade em tempo real. Uma descrição detalhada do novo formato pode ser encontrada no instruções de transcrição do [lote](./batch-transcription.md). O esquema do resultado é publicado em nosso [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) em `samples/batch/transcriptionresult_v3.schema.json` .
+O esquema dos resultados da transcrição mudou um pouco para alinhar com as transcrições criadas por pontos de extremidade em tempo real. Encontre uma descrição detalhada do novo formato no [como fazer a transcrição do lote](./batch-transcription.md). O esquema do resultado é publicado em nosso [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) em `samples/batch/transcriptionresult_v3.schema.json` .
 
-Os nomes de propriedade agora são camel-case e os valores de canal e palestrante estão usando tipos inteiros. Para alinhar o formato das durações com outras APIs do Azure, ele agora está formatado conforme descrito em ISO 8601.
+Os nomes de propriedade agora são camel-case e os valores para `channel` e `speaker` agora usam tipos inteiros. O formato de durações agora usa a estrutura descrita em ISO 8601, que corresponde à formatação de duração usada em outras APIs do Azure.
 
 Exemplo de um resultado de transcrição v3. As diferenças são descritas nos comentários.
 
@@ -208,11 +204,11 @@ Exemplo de um resultado de transcrição v3. As diferenças são descritas nos c
 
 ### <a name="getting-the-content-of-entities-and-the-results"></a>Obtendo o conteúdo das entidades e os resultados
 
-Na v2, os links para os arquivos de entrada ou resultado foram embutidos com o restante dos metadados de entidade. Como uma melhoria na v3, há uma separação clara entre os metadados de entidade, que é retornada por um GET on `$.self` e os detalhes e as credenciais para acessar os arquivos de resultado. Essa separação ajuda a proteger os dados do cliente e permite um controle fino sobre a duração da validade das credenciais.
+Na v2, os links para os arquivos de entrada ou resultado foram embutidos com o restante dos metadados de entidade. Como uma melhoria na v3, há uma separação clara entre os metadados de entidade (que são retornados por um GET on `$.self` ) e os detalhes e as credenciais para acessar os arquivos de resultado. Essa separação ajuda a proteger os dados do cliente e permite um controle fino sobre a duração da validade das credenciais.
 
-No v3, há uma propriedade chamada `files` em links, caso a entidade exponha dados (conjuntos de dados, transcrições, pontos de extremidade, avaliações). Um GET on retornará `$.links.files` uma lista de arquivos e a URL de SAS para acessar o conteúdo de cada arquivo. Para controlar a duração da validade das URLs de SAS, o parâmetro de consulta `sasValidityInSeconds` pode ser usado para especificar o tempo de vida.
+No v3, `links` inclua uma subpropriedade chamada `files` no caso de a entidade exponha dados (DataSets, transcrições, pontos de extremidade ou avaliações). Um GET on retornará `$.links.files` uma lista de arquivos e uma URL de SAS para acessar o conteúdo de cada arquivo. Para controlar a duração da validade das URLs de SAS, o parâmetro de consulta `sasValidityInSeconds` pode ser usado para especificar o tempo de vida.
 
-transcrição de v2:
+**transcrição de v2:**
 
 ```json
 {
@@ -226,7 +222,7 @@ transcrição de v2:
 }
 ```
 
-transcrição V3:
+**transcrição V3:**
 
 ```json
 {
@@ -237,7 +233,7 @@ transcrição V3:
 }
 ```
 
-Em seguida, um GET `$.links.files` pode resultar em:
+**Um GET on `$.links.files` resultaria em:**
 
 ```json
 {
@@ -271,27 +267,27 @@ Em seguida, um GET `$.links.files` pode resultar em:
 }
 ```
 
-O `kind` indica o formato do conteúdo do arquivo. Para transcrições, os arquivos de tipo `TranscriptionReport` são o resumo do trabalho e os arquivos do tipo `Transcription` são o resultado do próprio trabalho.
+A `kind` propriedade indica o formato do conteúdo do arquivo. Para transcrições, os arquivos de tipo `TranscriptionReport` são o resumo do trabalho e os arquivos do tipo `Transcription` são o resultado do próprio trabalho.
 
 ### <a name="customizing-models"></a>Personalizando modelos
 
-Antes da v3, houve uma distinção entre um "modelo acústico" e um "modelo de linguagem" quando um modelo estava sendo treinado. Essa distinção resultou na necessidade de especificar vários modelos ao criar pontos de extremidade ou transcrições. Para simplificar esse processo para um chamador, removemos as diferenças e fizemos tudo dependente do conteúdo dos conjuntos de valores que estão sendo usados para o treinamento do modelo. Com essa alteração, a criação do modelo agora dá suporte a conjuntos de dados mistos, bem como dados de idioma e acústicos. Os pontos de extremidade e as transcrições agora exigem apenas um modelo.
+Antes da v3, houve uma distinção entre um _modelo acústico_ e um _modelo de linguagem_ quando um modelo estava sendo treinado. Essa distinção resultou na necessidade de especificar vários modelos ao criar pontos de extremidade ou transcrições. Para simplificar esse processo para um chamador, removemos as diferenças e tornamos tudo a depender do conteúdo dos conjuntos de valores que estão sendo usados para o treinamento do modelo. Com essa alteração, a criação do modelo agora dá suporte a conjuntos de dados mistos, bem como dados de idioma e acústicos. Os pontos de extremidade e as transcrições agora exigem apenas um modelo.
 
-Com essa alteração, a necessidade de um `kind` na postagem foi removida e `datasets[]` agora o pode conter vários conjuntos de os mesmos ou tipos mistos.
+Com essa alteração, a necessidade de um `kind` na `POST` operação foi removida e a `datasets[]` matriz agora pode conter vários conjuntos de os mesmos ou tipos mistos.
 
-Para melhorar os resultados de um modelo treinado, os dados acústicos são automaticamente usados internamente para o treinamento em idioma. Em geral, os modelos criados por meio da API v3 fornecem resultados mais precisos do que os modelos criados com a API v2.
+Para melhorar os resultados de um modelo treinado, os dados acústicos são automaticamente usados internamente durante o treinamento de idioma. Em geral, os modelos criados por meio da API v3 fornecem resultados mais precisos do que os modelos criados com a API v2.
 
 ### <a name="retrieving-base-and-custom-models"></a>Recuperando modelos básicos e personalizados
 
 Para simplificar a obtenção dos modelos disponíveis, a V3 separou as coleções de "modelos básicos" dos "modelos personalizados" de Propriedade do cliente. As duas rotas agora são `GET /speechtotext/v3.0/models/base` e `GET /speechtotext/v3.0/models/` .
 
-Anteriormente, todos os modelos foram retornados juntos em uma única resposta.
+Na v2, todos os modelos foram retornados juntos em uma única resposta.
 
 ### <a name="name-of-an-entity"></a>Nome de uma entidade
 
-O nome da propriedade `name` é renomeado para `displayName` . Isso é alinhado a outras APIs do Azure para não indicar Propriedades de identidade. O valor dessa propriedade não deve ser exclusivo e pode ser alterado após a criação da entidade com um `PATCH` .
+A `name` Propriedade agora é `displayName` . Isso é consistente com outras APIs do Azure para não indicar Propriedades de identidade. O valor dessa propriedade não deve ser exclusivo e pode ser alterado após a criação da entidade com uma `PATCH` operação.
 
-transcrição de v2:
+**transcrição de v2:**
 
 ```json
 {
@@ -299,7 +295,7 @@ transcrição de v2:
 }
 ```
 
-transcrição V3:
+**transcrição V3:**
 
 ```json
 {
@@ -309,9 +305,9 @@ transcrição V3:
 
 ### <a name="accessing-referenced-entities"></a>Acessando entidades referenciadas
 
-Em v2, as entidades referenciadas sempre foram embutidas, por exemplo, os modelos usados de um ponto de extremidade. O aninhamento de entidades resultou em grandes respostas e os consumidores raramente consumiram o conteúdo aninhado. Para reduzir o tamanho da resposta e melhorar o desempenho de todos os usuários de API, as entidades referenciadas não são mais embutidas na resposta. Em vez disso, uma referência à outra entidade está sendo usada, que pode ser usada diretamente. Essa referência pode ser usada para um subseqüente `GET` (também é uma URL), seguindo o mesmo padrão que o `self` link.
+Na v2, as entidades referenciadas eram sempre embutidas, por exemplo, os modelos usados de um ponto de extremidade. O aninhamento de entidades resultou em grandes respostas e os consumidores raramente consumiram o conteúdo aninhado. Para reduzir o tamanho da resposta e melhorar o desempenho, as entidades referenciadas não são mais embutidas na resposta. Em vez disso, uma referência à outra entidade é exibida e pode ser usada diretamente para um subseqüente `GET` (também é uma URL), seguindo o mesmo padrão que o `self` link.
 
-transcrição de v2:
+**transcrição de v2:**
 
 ```json
 {
@@ -335,7 +331,6 @@ transcrição de v2:
           "createdDateTime": "2019-01-07T11:34:12Z",
           "locale": "en-US",
           "name": "Language dataset",
-          
         }
       ]
     },
@@ -343,7 +338,7 @@ transcrição de v2:
 }
 ```
 
-transcrição V3:
+**transcrição V3:**
 
 ```json
 {
@@ -354,13 +349,13 @@ transcrição V3:
 }
 ```
 
-Caso você precise consumir os detalhes de um modelo referenciado, conforme mostrado no exemplo acima, simplifique o problema de um GET on `$.model.self` .
+Se você precisar consumir os detalhes de um modelo referenciado, conforme mostrado no exemplo acima, basta emitir um GET on `$.model.self` .
 
 ### <a name="retrieving-endpoint-logs"></a>Recuperando logs de ponto de extremidade
 
-A versão v2 do serviço tem suporte para registrar em log as respostas dos pontos de extremidade. Para recuperar os resultados de um ponto de extremidade com v2, era necessário criar uma "exportação de dados", que representava um instantâneo dos resultados definidos por um intervalo de tempo. O processo de exportação de lotes de dados se tornou inflexível. A API v3 fornece acesso a cada arquivo individual e permite a iteração por meio deles.
+Versão v2 dos resultados do ponto de extremidade de log com suporte do serviço. Para recuperar os resultados de um ponto de extremidade com v2, você criaria uma "exportação de dados", que representava um instantâneo dos resultados definidos por um intervalo de tempo. O processo de exportação de lotes de dados era inflexível. A API v3 fornece acesso a cada arquivo individual e permite a iteração por meio deles.
 
-Um ponto de extremidade v3 em execução com êxito:
+**Um ponto de extremidade v3 em execução com êxito:**
 
 ```json
 {
@@ -371,7 +366,7 @@ Um ponto de extremidade v3 em execução com êxito:
 }
 ```
 
-Resposta de GET `$.links.logs` :
+**Resposta de GET `$.links.logs` :**
 
 ```json
 {
@@ -393,15 +388,15 @@ Resposta de GET `$.links.logs` :
 }
 ```
 
-A paginação para logs de ponto de extremidade funciona de forma semelhante a todas as outras coleções, exceto que nenhum deslocamento pode ser especificado. Devido à grande quantidade de dados disponíveis, a paginação baseada no servidor precisava ser implementada.
+A paginação para logs de ponto de extremidade funciona de forma semelhante a todas as outras coleções, exceto que nenhum deslocamento pode ser especificado. Devido à grande quantidade de dados disponíveis, a paginação é determinada pelo servidor.
 
-No v3, cada log de ponto de extremidade pode ser excluído individualmente emitindo-se uma exclusão no `self` de um arquivo ou usando Delete on `$.links.logs` . Para especificar dados finais, o parâmetro de consulta `endDate` pode ser adicionado à solicitação.
+No v3, cada log de ponto de extremidade pode ser excluído individualmente por meio da emissão de uma `DELETE` operação no `self` de um arquivo ou usando o `DELETE` em `$.links.logs` . Para especificar uma data de término, o parâmetro de consulta `endDate` pode ser adicionado à solicitação.
 
-### <a name="using-custom-properties"></a>Usando Propriedades "personalizadas"
+### <a name="using-custom-properties"></a>Usando propriedades personalizadas
 
-Para separar Propriedades personalizadas das propriedades de configuração opcionais, todas as propriedades nomeadas explicitamente agora estão localizadas na `properties` propriedade e todas as propriedades definidas os chamadores agora estão localizados na `customProperties` propriedade.
+Para separar Propriedades personalizadas das propriedades de configuração opcionais, todas as propriedades nomeadas explicitamente agora estão localizadas na `properties` propriedade e todas as propriedades definidas pelos chamadores agora estão localizadas na `customProperties` propriedade.
 
-entidade de transcrição v2
+**entidade de transcrição v2:**
 
 ```json
 {
@@ -413,7 +408,7 @@ entidade de transcrição v2
 }
 ```
 
-entidade de transcrição v3
+**entidade de transcrição V3:**
 
 ```json
 {
@@ -427,14 +422,22 @@ entidade de transcrição v3
 }
 ```
 
-Essa alteração também habilitou o uso de tipos corretos em todas as propriedades explicitamente nomeadas em `properties` (por exemplo, bool em vez de cadeia de caracteres).
+Essa alteração também permite que você use tipos corretos em todas as propriedades nomeadas explicitamente em `properties` (por exemplo, booliano, em vez de cadeia de caracteres).
 
 ### <a name="response-headers"></a>Cabeçalhos de resposta
 
-V3 não retorna mais o cabeçalho `Operation-Location` além do cabeçalho `Location` em solicitações post. O valor de ambos os cabeçalhos costumava ser exatamente o mesmo. Agora só `Location` está sendo retornado.
+V3 não retorna mais o `Operation-Location` cabeçalho além do `Location` cabeçalho em `POST` solicitações. O valor de ambos os cabeçalhos em v2 era o mesmo. Agora, somente `Location` é retornado.
 
 Como a nova versão de API agora é gerenciada pelo gerenciamento de API do Azure (APIM), os cabeçalhos relacionados à limitação `X-RateLimit-Limit` , `X-RateLimit-Remaining` e `X-RateLimit-Reset` não estão contidos nos cabeçalhos de resposta.
 
 ### <a name="accuracy-tests"></a>Testes de precisão
 
-Os testes de precisão foram renomeados para avaliações porque o novo nome descreve melhor o que eles representam. Os caminhos de notícias são, por exemplo, "https://{Region}. API. cognitiva. Microsoft. com/speechtotext/v 3.0/reavaliações".
+Os testes de precisão foram renomeados para avaliações porque o novo nome descreve melhor o que eles representam. Os novos caminhos são: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations` .
+
+## <a name="next-steps"></a>Próximas etapas
+
+Examine todos os recursos dessas APIs REST comumente usadas fornecidas pelos serviços de fala:
+
+* [API REST de conversão de fala em texto](rest-speech-to-text.md)
+* [Documento do Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) para V3 da API REST
+* Para obter um exemplo de código para executar transcrições em lote, exiba o [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) no `samples/batch` subdiretório.

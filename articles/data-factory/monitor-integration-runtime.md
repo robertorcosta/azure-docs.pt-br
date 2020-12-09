@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497938"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862438"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory
 
@@ -49,7 +49,7 @@ A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet pa
 -------- | ------------- | 
 | Nome | Nome do Azure Integration runtime. |  
 | Estado | Status do Azure Integration runtime. | 
-| Location | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
+| Localização | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o Azure Integration runtime pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
 | Descrição | Descrição do runtime de integração.  |
@@ -83,7 +83,7 @@ A tabela a seguir apresenta descrições das Propriedades de monitoramento para 
 | Utilização da CPU | Utilização da CPU de um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. |
 | Rede (Entrada/Saída) | Utilização da rede de um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. | 
 | Trabalhos Simultâneos (Executando/Limite) | **Em execução**. Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. <br/><br/>**Limite**. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que as atividades estão atingindo o tempo limite mesmo quando há subutilização de memória, CPU ou rede. Essa funcionalidade também está disponível com runtime de integração auto-hospedada de nó único. |
-| Role | Há dois tipos de funções em um runtime de integração auto-hospedada com vários nós – dispatcher e de trabalho. Todos os nós são de trabalho, o que significa que eles podem ser usados para executar trabalhos. Há apenas um nó dispatcher, que é usado para efetuar pull de tarefas/trabalhos dos serviços de nuvem e distribuí-los para nós de trabalho diferentes. O nó dispatcher também é um nó de trabalho. |
+| Função | Há dois tipos de funções em um runtime de integração auto-hospedada com vários nós – dispatcher e de trabalho. Todos os nós são de trabalho, o que significa que eles podem ser usados para executar trabalhos. Há apenas um nó dispatcher, que é usado para efetuar pull de tarefas/trabalhos dos serviços de nuvem e distribuí-los para nós de trabalho diferentes. O nó dispatcher também é um nó de trabalho. |
 
 Algumas configurações das propriedades fazem mais sentido quando há dois ou mais nós no runtime de integração auto-hospedada (ou seja, no cenário de expansão).
 
@@ -104,7 +104,7 @@ A tabela a seguir fornece os possíveis status de um nó de runtime de integraç
 | Online | O nó está conectado ao serviço Data Factory. |
 | Offline | O nó está offline. |
 | Atualizando | O nó está sendo atualizado automaticamente. |
-| Limitado | Devido a um problema de conectividade. Pode ser devido a um problema de HTTP da porta 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais. |
+| Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8060, problema de conectividade do barramento de serviço ou um problema de sincronização de credencial. |
 | Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria. |
 
 Um nó pode ficar inativo quando ele não pode se conectar a outros nós.
@@ -182,7 +182,7 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | OtherErrors                  | Os erros acionáveis não específicos do nó em seu Azure-SSIS IR. |
 | LastOperation                | O resultado da última operação de iniciar/parar no seu Azure-SSIS IR com erros acionáveis, caso tenha falhado. |
 | Estado                        | O status geral (inicial/iniciando/iniciado/parando/parado) do seu Azure-SSIS IR. |
-| Location                     | O local do seu Azure-SSIS IR. |
+| Localização                     | O local do seu Azure-SSIS IR. |
 | NodeSize                     | O tamanho de cada nó em seu Azure-SSIS IR. |
 | NodeCount                    | O número de nós em seu Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | O número máximo de execuções paralelas por nó em seu Azure-SSIS IR. |

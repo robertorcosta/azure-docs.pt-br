@@ -4,12 +4,12 @@ description: Configure ferramentas de análise de desempenho, de disponibilidade
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838935"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904169"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurar Application Insights para seu site do ASP.NET
 
@@ -26,6 +26,10 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 - Crie um [recurso baseado no espaço de trabalho Application insights](create-workspace-resource.md).
 
+> [!IMPORTANT]
+> Novas regiões do Azure **exigem** o uso de cadeias de conexão em vez de chaves de instrumentação. A [cadeia de conexão](./sdk-connection-string.md?tabs=net) identifica o recurso ao qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
+
+
 ## <a name="create-a-basic-aspnet-web-app"></a>Criar um aplicativo Web ASP.NET básico
 
 1. Inicie o Visual Studio 2019.
@@ -38,7 +42,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Esta seção orientará você pela adição automática de Application Insights a um aplicativo Web ASP.NET baseado em modelo. De dentro de seu projeto de aplicativo Web ASP.NET no Visual Studio:
 
-1. Selecione **Adicionar Application insights Telemetry**  >  **Application insights SDK (local)**  >  **próximo**  >  **Finish**  >  **encerramento**final.
+1. Selecione **Adicionar Application insights Telemetry**  >  **Application insights SDK (local)**  >  **próximo**  >  **Finish**  >  **encerramento** final.
 2. Abra o arquivo `ApplicationInsights.config` . 
 3. Antes da marca de fechamento, `</ApplicationInsights>` adicione uma linha que contém a chave de instrumentação para o recurso Application insights.  Sua chave de instrumentação pode ser encontrada no painel Visão geral do recurso de Application Insights criado recentemente que você criou como parte dos pré-requisitos deste artigo.
 

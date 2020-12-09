@@ -1,27 +1,32 @@
 ---
-title: Cobertura de mobilidade (trânsito)
-description: Saiba qual nível de cobertura o serviço de mobilidade do Azure Maps fornece em quais regiões os recursos de trânsito públicos, como roteamento e alertas de serviço.
+title: Cobertura de mobilidade (trânsito) no Microsoft Azure Maps serviços de mobilidade (versão prévia)
+description: Saiba qual nível de cobertura os serviços de mobilidade do Azure Maps (versão prévia) fornecem em quais regiões os recursos públicos de trânsito, como roteamento e alertas de serviço.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10a0f9b1b21b060d7c33aeb52fb72f950cedf0e6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779143"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904747"
 ---
-# <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade do Azure Maps
+# <a name="azure-maps-mobility-services-preview-coverage"></a>Cobertura dos serviços de mobilidade do Azure Maps (versão prévia)
 
-O serviço de [mobilidade](/rest/api/maps/mobility) do Azure Maps melhora o tempo de desenvolvimento para aplicativos com recursos de trânsito públicos, como roteamento de trânsito e pesquisa para interrupções de trânsito públicos próximos. Os usuários podem recuperar informações detalhadas sobre as interrupções de trânsito, linhas e cronogramas. O serviço Mobilidade também permite que os usuários recuperem geometrias de parada e de linha, alertas de paradas, linhas e áreas de serviço, bem como entradas de trânsito e alertas de serviço em tempo real. Além disso, o serviço Mobilidade fornece funcionalidades de roteamento com opções de planejamento de viagem multimodal. O planejamento de viagens multimodal incorpora opções de movimentação, semiciclo e trânsito público, tudo em uma viagem. Os usuários também podem acessar os roteiros passo a passo multimodais detalhados. 
+> [!IMPORTANT]
+> Os serviços de mobilidade do Azure Maps estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Os serviços de [mobilidade](/rest/api/maps/mobility) do Azure Maps aprimoram o tempo de desenvolvimento para aplicativos com recursos de trânsito públicos, como roteamento de trânsito e pesquisa para interrupções de trânsito públicos próximos. Os usuários podem recuperar informações detalhadas sobre as interrupções de trânsito, linhas e cronogramas. Os serviços de mobilidade também permitem que os usuários recuperem geometrias de parada e de linha, alertas de interrupções, linhas e áreas de serviço, bem como entradas de trânsito e alertas de serviço em tempo real. Além disso, os serviços de mobilidade fornecem recursos de roteamento com opções de planejamento de viagem de multimodal. O planejamento de viagens multimodal incorpora opções de movimentação, semiciclo e trânsito público, tudo em uma viagem. Os usuários também podem acessar os roteiros passo a passo multimodais detalhados.
 
 O mapas do Azure não fornece o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito públicos depende da área de metrô. Além disso, os dados do mapa podem não incluir todas as opções de trânsito público e as agências que servem a área de metrô.
 
-A tabela a seguir fornece informações de cobertura para o serviço de mobilidade do Azure Maps.
+A tabela a seguir fornece informações de cobertura para os serviços de mobilidade do Azure Maps.
 
 | Símbolo | Significado |
 |--------|---------|
@@ -149,17 +154,17 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
+Saiba como solicitar dados de trânsito usando os serviços de mobilidade (versão prévia):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados de trânsito](how-to-request-transit-data.md)
 
-Saiba como solicitar dados em tempo real usando o serviço de mobilidade:
+Saiba como solicitar dados em tempo real usando os serviços de mobilidade (versão prévia):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados em tempo real](how-to-request-real-time-data.md)
 
-Explore a documentação da API do serviço de mobilidade do Azure Maps
+Explorar a documentação da API dos serviços de mobilidade do Azure Maps (versão prévia)
 
 > [!div class="nextstepaction"]
-> [Documentação da API do serviço de mobilidade](/rest/api/maps/mobility)
+> [Documentação da API dos serviços de mobilidade](/rest/api/maps/mobility)

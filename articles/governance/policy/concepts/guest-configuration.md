@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075477"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906243"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -62,7 +62,7 @@ As definições de política de configuração de convidado são inclusivas de n
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canônico|Ubuntu Server|14.04 e posterior|
+|Canônico|Ubuntu Server|14, 4-18, 4|
 |Credativ|Debian|8 e posterior|
 |Microsoft|Windows Server|2012 e posterior|
 |Microsoft|Windows Client|Windows 10|

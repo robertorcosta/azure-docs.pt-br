@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377727"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861928"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solução de problemas de funções atribuídas a grupos de nuvem
 
@@ -32,16 +32,16 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 **R:** Por padrão, somente administrador de função com privilégios e administrador global gerenciam a associação de um grupo de função atribuível, mas você pode delegar o gerenciamento de grupos de função atribuível adicionando proprietários de grupo.
 
-**P** : sou administrador de assistência técnica em minha organização, mas não consigo atualizar a senha de um usuário que é um leitor de diretório. Por que isso acontece?
+**P**: sou administrador de assistência técnica em minha organização, mas não consigo atualizar a senha de um usuário que é um leitor de diretório. Por que isso acontece?
 
-**R** : o usuário pode ter chegado ao leitor de diretório por meio de um grupo de função atribuível. Todos os membros e proprietários de um grupo de funções atribuíveis são protegidos. Somente usuários no administrador de autenticação privilegiada ou funções de administrador global podem redefinir credenciais para um usuário protegido.
+**R**: o usuário pode ter chegado ao leitor de diretório por meio de um grupo de função atribuível. Todos os membros e proprietários de um grupo de funções atribuíveis são protegidos. Somente usuários no administrador de autenticação privilegiada ou funções de administrador global podem redefinir credenciais para um usuário protegido.
 
 **P:** Não é possível atualizar a senha de um usuário. Eles não têm nenhuma função com privilégios mais altos atribuída. Por que isso está acontecendo?
 
 **R:** O usuário pode ser um proprietário de um grupo de função atribuível. Protegemos os proprietários de grupos de função atribuíveis para evitar a elevação de privilégio. Um exemplo pode ser se um grupo Contoso_Security_Admins for atribuído à função de administrador de segurança, onde Bob é o proprietário do grupo e Alice é administrador de senha na organização. Se essa proteção não estivesse presente, Alice poderia redefinir as credenciais de Bob e assumir sua identidade. Depois disso, Alice poderia adicionar a si mesmo ou qualquer pessoa ao grupo Contoso_Security_Admins grupo para se tornar um administrador de segurança na organização. Para descobrir se um usuário é um proprietário de grupo, obtenha a lista de objetos de propriedade desse usuário e veja se algum dos grupos tem isAssignableToRole definido como true. Em caso afirmativo, esse usuário será protegido e o comportamento será por design. Consulte estas documentações para obter objetos de propriedade:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Listar ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Listar ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **P:** Posso criar uma revisão de acesso em grupos que podem ser atribuídos às funções do Azure AD (especificamente, grupos com a propriedade isAssignableToRole definida como true)?  
 

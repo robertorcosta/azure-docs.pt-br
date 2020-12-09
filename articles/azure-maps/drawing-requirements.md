@@ -1,21 +1,26 @@
 ---
-title: Requisitos do pacote de desenho no Criador do Azure Mapas
+title: Desenhando requisitos de pacote no criador do Microsoft Azure Maps (versão prévia)
 description: Saiba mais sobre os requisitos de pacote de desenho para converter seus arquivos de design de recursos para mapear dados
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013115"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903455"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
+
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode converter pacotes de desenho carregados em dados de mapa usando o [serviço de conversão do Azure Maps](/rest/api/maps/conversion). Este artigo descreve os requisitos de pacote de desenho para a API de Conversão. Para exibir um pacote de exemplo, você pode baixar o [Pacote de desenho](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de amostra.
 
@@ -95,7 +100,7 @@ As seções a seguir detalham os requisitos de cada camada.
 
 O arquivo DWG de cada nível deve conter uma camada para definir o perímetro desse nível. Essa camada é conhecida como a camada *exterior* . Por exemplo, se uma instalação contiver dois níveis, ela precisará ter dois arquivos DWG, com uma camada Exterior para cada arquivo.
 
-Não importa quantos desenhos de entidade estejam na camada exterior, o conjunto de recursos [resultante](tutorial-creator-indoor-maps.md#create-a-feature-stateset) conterá apenas um recurso de nível para cada arquivo DWG. Adicionalmente:
+Não importa quantos desenhos de entidade estejam na camada exterior, o conjunto de recursos [resultante](tutorial-creator-indoor-maps.md#create-a-feature-stateset) conterá apenas um recurso de nível para cada arquivo DWG. Além disso:
 
 * Os exteriores devem ser desenhados como polígono, polilinha (Closed) ou Circle.
 * Os Exteriors podem se sobrepor, mas são desresolvidos em uma geometria.
@@ -188,7 +193,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 ### `directoryInfo`
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 | `name`      | string | true   |  Nome da construção. |
 | `streetAddress`|    string |    false    | Endereço da construção. |
@@ -209,7 +214,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`levelName`    |string    |true |    Nome do nível descritivo. Por exemplo: piso 1, lobby, estacionamento azul ou porão.|
 |`ordinal` | inteiro |    true | Determina a ordem vertical dos níveis. Cada instalação deve ter um nível com o ordinal 0. |
@@ -219,7 +224,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### `georeference`
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    Representação decimal da latitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |numeric|    true|    Representação decimal da longitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`). |
@@ -227,7 +232,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### `dwgLayers`
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`exterior`    |Matriz de cadeias de caracteres|    true|    Nomes de camadas que definem o perfil de construção exterior.|
 |`unit`|    Matriz de cadeias de caracteres|    true|    Nomes de camadas que definem unidades.|
@@ -241,7 +246,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`unitName`    |string    |true    |Nome da unidade a ser associada a esse registro `unitProperty`. Esse registro só é válido quando uma correspondência de rótulo `unitName` é encontrada nas `unitLabel` camadas. |
 |`categoryName`|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -261,7 +266,7 @@ O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
 O objeto `zoneProperties` contém uma matriz JSON das propriedades da zona.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome da zona a ser associada ao registro `zoneProperty`. Esse registro só é válido quando um rótulo correspondente a `zoneName` for encontrado na camada `zoneLabel` da zona.  |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -407,10 +412,10 @@ Veja a seguir um exemplo de arquivo de manifesto para o pacote de desenho de exe
 Quando o pacote de desenho atende aos requisitos, você pode usar o [serviço de conversão do Azure Maps](/rest/api/maps/conversion) para converter o pacote em um conjunto de um DataSet. Em seguida, você pode usar o conjunto de um para gerar um mapa interno usando o módulo de mapas em interno.
 
 > [!div class="nextstepaction"]
->[Criador de mapas internos](creator-indoor-maps.md)
+>[Criador (visualização) para mapas de interno](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar um mapa interno do Criador](tutorial-creator-indoor-maps.md)
+> [Tutorial: Criando um mapa interno de criador (visualização)](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Estilos dinâmicos de mapas de interno](indoor-map-dynamic-styling.md)

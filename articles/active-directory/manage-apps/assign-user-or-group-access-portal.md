@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651270"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861670"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerenciar a atribuição de usuário para um aplicativo no Azure Active Directory
 
@@ -81,11 +81,11 @@ Você pode usar a API do Graph para atribuir ou cancelar a atribuição de usuá
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Para saber mais sobre como atribuir um usuário a uma função de aplicativo, confira a documentação sobre [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Para saber mais sobre como atribuir um usuário a uma função de aplicativo, confira a documentação sobre [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 Para atribuir um grupo a um aplicativo empresarial, é preciso substituir `Get-AzureADUser` por `Get-AzureADGroup` e `New-AzureADUserAppRoleAssignment` por `New-AzureADGroupAppRoleAssignment`.
 
-Para saber mais sobre como atribuir um grupo a uma função de aplicativo, confira a documentação sobre [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Para saber mais sobre como atribuir um grupo a uma função de aplicativo, confira a documentação sobre [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### <a name="example"></a>Exemplo
 

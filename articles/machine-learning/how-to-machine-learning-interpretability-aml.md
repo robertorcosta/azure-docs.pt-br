@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311605"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862336"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usar o pacote de interpretação para explicar os modelos de ML & previsões no Python (versão prévia)
 
@@ -47,7 +47,7 @@ O exemplo a seguir mostra como usar o pacote de interpretação em seu computado
     pip install azureml-interpret
     ```
 
-2. Treine um modelo de exemplo em um notebook Jupyter local.
+2. Treine um modelo de exemplo em um Jupyter Notebook local.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -275,7 +275,7 @@ O exemplo a seguir mostra como você pode usar a `ExplanationClient` classe para
 
 1. Configure um Azure Machine Learning computação como seu destino de computação e envie sua execução de treinamento. Consulte [criar e gerenciar Azure Machine Learning clusters de computação](how-to-create-attach-compute-cluster.md) para obter instruções. Você também pode encontrar os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) úteis.
 
-1. Baixe a explicação em seu notebook Jupyter local.
+1. Baixe a explicação em seu Jupyter Notebook local.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -296,7 +296,7 @@ O exemplo a seguir mostra como você pode usar a `ExplanationClient` classe para
 
 ## <a name="visualizations"></a>Visualizações
 
-Depois de baixar as explicações no seu notebook Jupyter local, você pode usar o painel de visualização para entender e interpretar seu modelo.
+Depois de baixar as explicações no Jupyter Notebook local, você pode usar o painel de visualização para entender e interpretar seu modelo.
 
 ### <a name="understand-entire-model-behavior-global-explanation"></a>Entender todo o comportamento do modelo (explicação global) 
 

@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9638d4f8a44b044bb02d3f77d259860128d2e9db
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462232"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905359"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -390,6 +390,7 @@ A configuração **permitir serviços confiáveis da Microsoft...** também perm
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Gerenciamento de API do Azure           | Microsoft.ApiManagement/service        | Habilita o acesso do serviço de gerenciamento de API a contas de armazenamento por trás do firewall usando políticas. [Saiba mais](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Pesquisa Cognitiva do Azure         | Microsoft.Search/searchServices        | Permite que os serviços do Cognitive Search acessem contas de armazenamento para indexação, processamento e consulta. |
+| Serviços Cognitivos do Azure       | Microsoft. CognitiveService             | Permite que serviços cognitivas acessem contas de armazenamento. |
 | Tarefas do Registro de Contêiner do Azure | Microsoft.ContainerRegistry/registries | As Tarefas do ACR podem acessar contas de armazenamento ao criar imagens de contêiner. |
 | Fábrica de dados do Azure             | Microsoft.DataFactory/factories        | Permite o acesso a contas de armazenamento por meio do runtime do ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite o acesso a contas de armazenamento por meio do Data Share. |

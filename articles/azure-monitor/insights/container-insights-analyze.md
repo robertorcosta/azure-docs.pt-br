@@ -3,12 +3,12 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011074"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905699"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -72,17 +72,17 @@ A tabela a seguir fornece uma análise do cálculo que controla os Estados de in
 | |Íntegros |100% |
 | |Aviso |90 – 99% |
 | |Crítico |<90% |
-| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
 |**Pod do sistema**| | |
 | |Íntegros |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
-| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
 |**Nó** | | |
 | |Íntegros |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
-| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
 
 Na lista de clusters, você pode fazer uma busca detalhada na página do **cluster** selecionando o nome do cluster. Em seguida, vá para a página de desempenho de **nós** selecionando o acúmulo de nós na coluna **nós** para esse cluster específico. Ou, você pode fazer uma busca detalhada na página de desempenho de **controladores** selecionando o acúmulo da coluna **pods do usuário** ou pods do **sistema** .
 
@@ -117,7 +117,7 @@ O Azure Monitor para contêineres também dá suporte a Azure Monitor [métricas
 
 No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod agregadas de Azure Monitor para contêineres. A tabela a seguir resume os detalhes para ajudá-lo a entender como usar os gráficos de métrica para visualizar as métricas de contêiner.
 
-|Namespace | Metric | Descrição |
+|Namespace | Métrica | Descrição |
 |----------|--------|-------------|
 | informações. contêiner/nós | |
 | | cpuUsageMillicores | Medição agregada da utilização da CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (Mili = 1000). Usado para determinar o uso de núcleos em um contêiner em que muitos aplicativos podem estar usando um núcleo.|
@@ -191,7 +191,7 @@ As informações apresentadas quando você exibe a guia **nós** é descrita na 
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do host. |
+| Nome | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
@@ -228,13 +228,13 @@ A hierarquia de linhas começa com um controlador. Ao expandir um controlador, v
 
 Selecione o valor na coluna **nó** para o controlador específico.
 
-![Exemplo de drill down do nó para o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-controller-node.png)
+![Exemplo de busca detalhada do controlador para o nó no modo de exibição de desempenho](./media/container-insights-analyze/drill-down-controller-node.png)
 
 As informações exibidas quando você exibe controladores são descritas na tabela a seguir.
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado* ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -271,7 +271,7 @@ As informações exibidas quando você exibe contêineres são descritas na tabe
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | O rollup da média do desempenho de memória ou do milinúcleo da CPU do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -297,31 +297,8 @@ O Gerenciador de políticas de rede do Azure inclui métricas Prometheus informa
 
 ## <a name="workbooks"></a>Pastas de trabalho
 
-As pastas de trabalho combinam texto, [consultas de log](/azure/data-explorer/kusto/query/), [métricas](../platform/data-platform-metrics.md)e parâmetros em relatórios interativos sofisticados. As Pastas de Trabalho são editáveis por qualquer membro da equipe com acesso aos mesmos recursos do Azure.
+As pastas de trabalho combinam texto, consultas de log, métricas e parâmetros em relatórios interativos avançados que permitem analisar o desempenho do cluster. Consulte [pastas de trabalho no Azure monitor para contêineres](container-insights-reports.md) para obter uma descrição das pastas de trabalho disponíveis para Azure monitor para contêineres.
 
-Azure Monitor para contêineres inclui quatro pastas de trabalho para você começar:
-
-- **Capacidade de disco**: apresenta gráficos de uso de disco interativo para cada disco apresentado ao nó dentro de um contêiner pelas seguintes perspectivas:
-
-    - Percentual de uso de disco para todos os discos.
-    - Espaço livre em disco para todos os discos.
-    - Uma grade que mostra o disco de cada nó, sua porcentagem de espaço usado, tendência de percentual de espaço usado, espaço livre em disco (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela, a porcentagem de espaço usado e espaço livre em disco (GiB) é mostrada abaixo da linha.
-
-- **E/s de disco**: apresenta gráficos de utilização de disco interativo para cada disco apresentado ao nó dentro de um contêiner pelas seguintes perspectivas:
-
-    - E/s de disco resumida em todos os discos por meio de bytes de leitura/s, bytes de gravação/s e tendências de leitura e gravação de bytes/s.
-    - Oito gráficos de desempenho mostram os principais indicadores de desempenho para ajudar a medir e identificar afunilamentos de e/s de disco.
-
-- **Kubelet**: inclui duas grades que mostram as estatísticas operacionais do nó de chave:
-
-    - Visão geral por grade de nós resume a operação total, os erros totais e as operações bem-sucedidas por porcentagem e tendência para cada nó.
-    - Visão geral por tipo de operação resume para cada operação a operação total, os erros totais e as operações bem-sucedidas por porcentagem e tendência.
-
-- **Rede**: apresenta gráficos de utilização de rede interativa para o adaptador de rede de cada nó e uma grade apresenta os principais indicadores de desempenho para ajudar a medir o desempenho dos adaptadores de rede.
-
-Você acessa essas pastas de trabalho selecionando cada uma na lista suspensa **exibir pastas de trabalho** .
-
-![Exibir lista suspensa de pastas de trabalho](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
