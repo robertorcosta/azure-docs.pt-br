@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 0e2324f7e524567b07f0228e046605b781bc4916
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d50d4c554f47629f6e04adf957e02f8ffcc48fe5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425414"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509232"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se quiser apenas o nome do pacote para começar por conta própria, execute `pip install azure-cognitiveservices-speech`.
 
@@ -79,7 +79,7 @@ import azure.cognitiveservices.speech as speechsdk
    ![Instalar a extensão do Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Além disso, é possível instalar o pacote Python do SDK de Fala de dentro do Visual Studio Code usando a linha de comando integrada:
-   1. Abra um terminal (nos menus suspensos, **Terminal** > **Novo Terminal** )
+   1. Abra um terminal (nos menus suspensos, **Terminal** > **Novo Terminal**)
    1. No terminal que abre, insira o comando `python -m pip install azure-cognitiveservices-speech`
 
 Se você é novo no Visual Studio Code, consulte a [Documentação mais completa do Visual Studio Code](https://code.visualstudio.com/docs). Para obter mais informações sobre o Visual Studio Code e Python, consulte o [Tutorial do Visual Studio Code para Python](https://code.visualstudio.com/docs/python/python-tutorial).
@@ -90,7 +90,7 @@ As atualizações do pacote Python do SDK de Fala são distribuídas por meio do
 Se uma nova versão estiver disponível, você poderá atualizar para ela com o comando `pip install --upgrade azure-cognitiveservices-speech`.
 Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
 
-Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext) (Opções de Ajuda e Suporte).
+Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) (Opções de Ajuda e Suporte).
 
 ## <a name="next-steps"></a>Próximas etapas
 

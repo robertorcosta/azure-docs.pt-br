@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425305"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912374"
 ---
 Um dos principais recursos do serviço de Fala é a capacidade de reconhecer e transcrever a fala humana (frequentemente denominada conversão de fala em texto). Neste guia de início rápido, você aprende a usar o SDK de Fala em seus aplicativos e produtos para executar uma conversão de fala em texto de alta qualidade.
 
@@ -30,6 +30,8 @@ Antes de fazer qualquer coisa, instale o [SDK de Fala para Go](../../../quicksta
 Use o exemplo de código a seguir para executar o reconhecimento de fala por meio do microfone do dispositivo padrão. Substitua as variáveis `subscription` e `region` pelas chaves assinatura e região. A execução do script iniciará uma sessão de reconhecimento no microfone padrão e no texto de saída.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Consulte os documentos de referência para obter informações detalhadas sobre 
 Use o exemplo a seguir para executar o reconhecimento de fala de um arquivo de áudio. Substitua as variáveis `subscription` e `region` pelas chaves assinatura e região. Além disso, substitua a variável `file` por um caminho para um arquivo .wav. A execução do script reconhecerá a fala do arquivo e produzirá como saída o resultado de texto.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"
