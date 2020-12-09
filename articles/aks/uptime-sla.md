@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: f8ec80d178af274c285371b4f53820eb9e41ccf7
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 0d1c2304f68f5e24c45390dca2cc0deb6e8dede2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519154"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931938"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -42,7 +42,7 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Instalar o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) versão 2.8.0 ou posterior
+* Instalar o [CLI do Azure](/cli/azure/install-azure-cli) versão 2.8.0 ou posterior
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criando um novo cluster com SLA de tempo de atividade
 
@@ -115,7 +115,7 @@ Use o [`az aks update`][az-aks-nodepool-update] comando para atualizar o cluster
   },
   ```
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 Para evitar cobranças, limpe todos os recursos que você criou. Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
 
@@ -139,9 +139,9 @@ Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md)
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183236"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931802"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de base de segurança do Azure para o serviço kubernetes do Azure
 
@@ -178,7 +178,7 @@ Use qualquer uma das definições relacionadas à marcação de Azure Policy int
 
 Escolha permitir ou negar caminhos de rede específicos no cluster com base em namespaces e seletores de rótulo com políticas de rede. Use esses namespaces e rótulos como descritores para regras de configuração de tráfego. Use Azure PowerShell ou CLI (interface de linha de comando) do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-- [Azure Policy com CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Azure Policy com CLI](/cli/azure/policy)
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -382,7 +382,7 @@ Use CLI do Azure para operações como ' obter credenciais de acesso para um clu
 
 - [Como integrar o AKS ao Azure AD](./azure-ad-integration-cli.md)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Como monitorar a identidade e o acesso à central de segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -735,7 +735,7 @@ Observe que o processo de manutenção dos nós do Windows Server é diferente d
 
 Use o cmdlet "Get-AzSecurityTask" do PowerShell para automatizar a recuperação de tarefas de segurança que a central de segurança recomenda que você execute para fortalecer a postura de segurança e as descobertas da verificação de vulnerabilidade.
 
-- [Como usar o PowerShell para exibir as vulnerabilidades descobertas pela central de segurança do Azure](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Como usar o PowerShell para exibir as vulnerabilidades descobertas pela central de segurança do Azure](/powershell/module/az.security/get-azsecuritytask)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -763,7 +763,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -927,15 +927,15 @@ Conceda aos usuários ou grupos acesso aos recursos do kubernetes em um namespac
 
 Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de seus grupos administrativos do AKS e usá-lo para reconciliar o acesso regularmente. Use CLI do Azure para operações como "obter credenciais de acesso para um cluster kubernetes gerenciado. Implemente as recomendações de gerenciamento de acesso e identidade da central de segurança.
 
-- [Gerenciar AKS com CLI do Azure](/cli/azure/aks?view=azure-cli-latest)
+- [Gerenciar AKS com CLI do Azure](/cli/azure/aks)
 
 - [Entender a integração do AKS e do Azure AD](concepts-identity.md)
 
 - [Como integrar o AKS ao Azure AD](./azure-ad-integration-cli.md)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Como monitorar a identidade e o acesso à central de segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -1055,7 +1055,7 @@ Proteção de segurança para SO host do nó do AKS Agent
 
 security-hardened-vm-host-image.md
 
-- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

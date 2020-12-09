@@ -1,17 +1,17 @@
 ---
 title: API REST de configuração de Azure App-autenticação HMAC
 description: Usar HMAC para autenticar na configuração do Azure App usando a API REST
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182624"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932703"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC – referência da API REST
 
@@ -45,7 +45,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>Cabeçalho de autorização
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
@@ -54,7 +54,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 | **HMAC-SHA256** | Esquema de autorização. _necessária_ |
 | **Credencial** | A ID da chave de acesso usada para computar a assinatura. _necessária_ |
 | **SignedHeaders** | Cabeçalhos de solicitação HTTP adicionados à assinatura. _necessária_ |
-| **Signature** | HMACSHA256 codificado na base64 da cadeia de caracteres a assinar. _necessária_|
+| **Assinatura** | HMACSHA256 codificado na base64 da cadeia de caracteres a assinar. _necessária_|
 
 ### <a name="credential"></a>Credencial
 
