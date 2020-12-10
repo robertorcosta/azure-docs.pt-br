@@ -15,27 +15,30 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 - cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
-ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20378eff09abed0eb4d7587211f576de6313ea1d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309806"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533242"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Início Rápido: usar a biblioteca de clientes da Pesquisa Visual Computacional
 
-Introdução à biblioteca de clientes da Pesquisa Visual Computacional. O serviço Pesquisa Visual Computacional fornece algoritmos de IA para processar imagens e retornar informações sobre os recursos visuais delas. Siga essas etapas para instalar um pacote para seu aplicativo e experimentar o código de exemplo para tarefas básicas.
+Introdução às API REST ou bibliotecas de clientes da Pesquisa Visual Computacional. O serviço Pesquisa Visual Computacional fornece algoritmos de IA para processar imagens e retornar informações sobre os recursos visuais delas. Siga essas etapas para instalar um pacote para seu aplicativo e experimentar o código de exemplo para tarefas básicas.
 
-Use a biblioteca de clientes da Pesquisa Visual Computacional para:
 
-* Analisar uma imagem quanto a marcas, descrição de texto, rostos, conteúdo para adulto e muito mais.
-* Leia o texto impresso e manuscrito com a API de Leitura.
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](../includes/quickstarts-sdk/csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
 
 ::: zone-end
 
@@ -51,14 +54,14 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
 
 ::: zone-end

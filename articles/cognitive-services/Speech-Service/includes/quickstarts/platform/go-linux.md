@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: 06e4eea32aefcb400c144be98c274e3e4bb4b121
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f674edd15b86f49d60450a53f5df5852b32f95a4
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188139"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906413"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) no Linux
 
@@ -54,17 +54,19 @@ Para concluir este início rápido, você precisa do seguinte:
 
 ## <a name="configure-go-environment"></a>Configurar o ambiente Go
 
+Execute as etapas a seguir para configurar o seu ambiente Go para localizar o SDK de Fala. Em ambas as etapas, substitua `<architecture>` pela arquitetura do processador da sua CPU. Ela será `x86`, `x64`, `arm32` ou `arm64`.
+
 1. Como as associações dependem de `cgo`, você precisa definir as variáveis de ambiente para que o Go possa encontrar o SDK:
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. Além disso, para executar aplicativos que incluam o SDK, precisamos dizer ao SO em que local encontrar as bibliotecas:
+1. Para executar aplicativos que incluam o SDK, precisamos informar ao SO em que local encontrar as bibliotecas:
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## <a name="next-steps"></a>Próximas etapas

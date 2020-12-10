@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 44980977f366bc40ceff9c7b5751d5657c79ccc2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f28eeb43a3b69b1931bf032741ded69a08b08dad
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482723"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912395"
 ---
 Um dos principais recursos do serviço de Fala é a capacidade de reconhecer e transcrever a fala humana (frequentemente denominada conversão de fala em texto). Neste guia de início rápido, você aprende a usar o SDK de Fala em seus aplicativos e produtos para executar uma conversão de fala em texto de alta qualidade.
 
@@ -78,7 +78,7 @@ def from_mic():
 from_mic()
 ```
 
-Se você quiser usar um dispositivo de entrada de áudio *específico* , precisará especificar a identificação do dispositivo no `AudioConfig`, além de passá-la para o parâmetro `audio_config` do construtor `SpeechRecognizer`. Saiba [como obter a identificação do dispositivo](../../../how-to-select-audio-input-devices.md) de entrada de áudio.
+Se você quiser usar um dispositivo de entrada de áudio *específico*, precisará especificar a identificação do dispositivo no `AudioConfig`, além de passá-la para o parâmetro `audio_config` do construtor `SpeechRecognizer`. Saiba [como obter a identificação do dispositivo](../../../how-to-select-audio-input-devices.md) de entrada de áudio.
 
 ## <a name="recognize-from-file"></a>Reconhecer do arquivo
 
@@ -200,10 +200,14 @@ speech_config.speech_recognition_language="de-DE"
 
 ## <a name="improve-recognition-accuracy"></a>Aprimorar a precisão do reconhecimento
 
-Existem algumas maneiras de aprimorar a precisão do reconhecimento com o SDK de Fala. Vamos examinar Listas de Frases. As Listas de Frases são usadas para identificar frases conhecidas nos dados do áudio, como o nome de uma pessoa ou um local específico. Palavras ou frases completas podem ser adicionadas a uma Lista de Frases. Durante o reconhecimento, uma entrada em uma lista de frases será usada se uma correspondência exata à frase inteira estiver incluída no áudio. Se uma correspondência exata à frase não for encontrada, o reconhecimento não será assistido.
+As Listas de Frases são usadas para identificar frases conhecidas nos dados do áudio, como o nome de uma pessoa ou um local específico. Ao fornecer uma lista de frases, você melhora a precisão do reconhecimento de fala.
+
+Por exemplo, se você tiver um comando "Mover para" e um possível destino de "Ala" que pode ser falado, você poderá adicionar uma entrada "Mover para a Ala". A adição de uma frase aumentará a probabilidade de quando o áudio for reconhecido, que ele será reconhecido como "Mover para a Ala" em vez de "Ir para"
+
+Palavras ou frases completas podem ser adicionadas a uma Lista de Frases. Durante o reconhecimento, uma entrada em uma lista de frases é usada para aumentar o reconhecimento das palavras e frases na lista, mesmo quando as entradas aparecem no meio do enunciado. 
 
 > [!IMPORTANT]
-> O recurso Lista de Frases só está disponível em inglês.
+> O recurso Lista de Frases está disponível nos seguintes idiomas: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
 
 Para usar uma lista de frases, primeiro crie um objeto [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-python). Em seguida, adicione palavras e frases específicas com [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-).
 
@@ -224,5 +228,5 @@ phrase_list_grammar.clear()
 
 As listas de frases são só uma opção para aprimorar a precisão do reconhecimento. Também é possível: 
 
-* [Aprimorar a precisão com a Fala Personalizada](../../../how-to-custom-speech.md)
+* [Aprimorar a precisão com a Fala Personalizada](../../../custom-speech-overview.md)
 * [Aprimorar a precisão com modelos de locatário](../../../tutorial-tenant-model.md)

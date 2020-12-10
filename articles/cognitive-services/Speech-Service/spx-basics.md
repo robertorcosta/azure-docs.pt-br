@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422392"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546890"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos da CLI de Fala
 
-Neste artigo, você aprende os padrões de uso básicos da CLI de Fala, uma ferramenta de linha de comando para usar o serviço de Fala sem escrever código. Você pode testar rapidamente os principais recursos do serviço de Fala, sem criar ambientes de desenvolvimento nem escrever qualquer código, para ver se os casos de uso podem ser adequadamente satisfeitos. Além disso, a CLI de Fala está pronta para produção e pode ser usada para automatizar fluxos de trabalho simples no serviço de Fala, usando scripts de shell ou `.bat`.
+Neste artigo, você aprende os padrões de uso básicos da CLI de Fala, uma ferramenta de linha de comando para usar o serviço de Fala sem escrever código. Você pode testar rapidamente os principais recursos do serviço de Fala, sem criar ambientes de desenvolvimento nem escrever qualquer código, para ver se os casos de uso podem ser adequadamente satisfeitos. A CLI de Fala está pronta para produção e pode ser usada para automatizar fluxos de trabalho simples no serviço de Fala, usando scripts de shell ou `.bat`.
+
+Este artigo pressupõe que você tem conhecimento sobre o prompt de comando, o terminal ou o PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Insira o seguinte comando para ver opções do comando Recognize:
 spx help recognize
 ```
 
-Agora, use o serviço de Fala para executar um reconhecimento de fala usando o microfone padrão, executando o comando a seguir.
+Agora, vamos usar a CLI de Fala para executar o reconhecimento de fala usando o microfone padrão do sistema. 
+
+>[!WARNING]
+> Se você estiver usando um contêiner do Docker, esse comando não vai funcionar.
+
+Execute este comando:
 
 ```shell
 spx recognize --microphone
 ```
+
+Com a CLI de Fala, você também pode reconhecer a fala de um arquivo de áudio.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Se você estiver reconhecendo a fala de um arquivo de áudio em um contêiner do Docker, verifique se o arquivo de áudio está localizado no diretório que você montou na etapa anterior.
 
 Depois de inserir o comando, o SPX começará a escutar áudio no dispositivo de entrada ativo atual e será interrompido depois que você pressionar `ENTER`. A fala gravada é reconhecida e convertida em texto na saída do console. A síntese de conversão de texto em fala também é fácil de fazer usando a CLI de Fala. 
 
