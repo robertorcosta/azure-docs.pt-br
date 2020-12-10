@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: baae35c87f306f5773fa8061f27e9793754ccc9c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327178"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008496"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -194,7 +194,7 @@ Você receberá uma opção para restaurar [discos não gerenciados](../storage/
 
 Há vários cenários comuns nos quais você pode precisar restaurar VMs.
 
-**Cenário** | **Diretrizes**
+**Cenário** | **Orientação**
 --- | ---
 **Restaurar VMs usando Benefícios de uso híbrido** | Se uma VM do Windows usa o [licenciamento do Benefício de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure os discos e crie uma nova VM usando o modelo fornecido (com **Tipo de Licença** definido como **Windows_Server**) ou o PowerShell.  Essa configuração também pode ser aplicada após a criação da VM.
 **Restaurar VMs durante um desastre de datacenter do Azure** | Se o cofre usa GRS e o datacenter principal da VM ficar inativo, o Backup do Azure oferece suporte à restauração de VMs de backup no datacenter emparelhado. Você seleciona uma conta de armazenamento no datacenter emparelhado e a restaura normalmente. O backup do Azure usa o serviço de computação na região emparelhada para criar a VM restaurada. [Saiba mais](/azure/architecture/resiliency/recovery-loss-azure-region) sobre a resiliência do datacenter.<br><br> Se o cofre usar GRS, você poderá escolher o novo recurso, a [restauração entre regiões](#cross-region-restore). Isso permite que você restaure para uma segunda região em cenários de interrupção totais ou parciais, ou mesmo se não houver nenhuma interrupção.
@@ -207,12 +207,14 @@ Há vários cenários comuns nos quais você pode precisar restaurar VMs.
 
 ### <a name="restore-domain-controller-vms"></a>Restaurar VMs do controlador de domínio
 
-**Cenário** | **Diretrizes**
+**Cenário** | **Orientação**
 --- | ---
 **Restaurar uma VM do controlador de domínio único em um único domínio** | Restaure a VM como qualquer outra VM. Observe que:<br/><br/> De uma perspectiva Active Directory, a VM do Azure é como qualquer outra VM.<br/><br/> O DSRM (Modo de Restauração dos Serviços de Diretório) também está disponível, portanto, todos os cenários de recuperação do Active Directory são viáveis. [Saiba mais](#post-restore-steps) sobre considerações de backup e restauração para controladores de domínio virtualizados.
 **Restaurar várias VMs do controlador de domínio em um único domínio** | Se outros controladores de domínio no mesmo domínio puderem ser acessados pela rede, o controlador de domínio poderá ser restaurado como qualquer VM. Se for o último controlador de domínio restante no domínio, ou uma recuperação em uma rede isolada for executada, use uma [recuperação de floresta](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurar uma VM do controlador de domínio único em uma configuração de vários domínios** |  Restaurar os discos e criar uma VM [usando o PowerShell](backup-azure-vms-automation.md#restore-the-disks)  
 **Restaurar vários domínios em uma floresta** | Recomendamos uma [recuperação de floresta](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+
+Para obter mais informações, consulte [fazer backup e restaurar Active Directory controladores de domínio](active-directory-backup-restore.md).
 
 ## <a name="track-the-restore-operation"></a>Acompanhar a operação de restauração
 

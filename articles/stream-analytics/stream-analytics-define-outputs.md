@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 10/2/2020
-ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 12/9/2020
+ms.openlocfilehash: 70a2d5fac643c9af6954f154e1c91813bbbfa5bc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348705"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008377"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas de Azure Stream Analytics
 
@@ -25,17 +25,17 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 
 | Tipo de saída | Particionamento | Segurança | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Usuário do Active Directory do Azure </br> MSI|
-|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL </br> MSI (versão prévia)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|Autenticação de usuário do SQL|
-|[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Chave de acesso|
-|[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso|
-|[Power BI](power-bi-output.md)|Não|Usuário do Active Directory do Azure </br> MSI|
-|[Armazenamento de Tabelas do Azure](table-storage-output.md)|Yes|Chave de conta|
-|[Filas do Barramento de Serviço do Azure](service-bus-queues-output.md)|Yes|Chave de acesso|
-|[Tópicos do barramento de serviço do Azure](service-bus-topics-output.md)|Yes|Chave de acesso|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Chave de acesso|
-|[Azure Functions](azure-functions-output.md)|Yes|Chave de acesso|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sim|Usuário do Active Directory do Azure </br> , Identidade gerenciada|
+|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL, </br> Identidade Gerenciada (versão prévia)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sim|Autenticação de usuário do SQL, </br> Identidade Gerenciada (versão prévia)|
+|[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sim|Chave de acesso, </br> Identidade Gerenciada (versão prévia)|
+|[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso, </br> Identidade Gerenciada (versão prévia)|
+|[Power BI](power-bi-output.md)|Não|Azure Active Directory usuário, </br> Identidade Gerenciada|
+|[Armazenamento de Tabelas do Azure](table-storage-output.md)|Sim|Chave de conta|
+|[Filas do barramento de serviço do Azure](service-bus-queues-output.md)|Sim|Chave de acesso|
+|[Tópicos do barramento de serviço do Azure](service-bus-topics-output.md)|Sim|Chave de acesso|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Sim|Chave de acesso|
+|[Azure Functions](azure-functions-output.md)|Sim|Chave de acesso|
 
 ## <a name="partitioning"></a>Particionamento
 

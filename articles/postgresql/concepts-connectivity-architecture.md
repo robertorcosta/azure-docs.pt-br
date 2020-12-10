@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: a6e2bc93a589e0a3f709eb1a8956bf8ca3d8bf6b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 88d2dc456ab3dba1a21babae36712439b6231d30
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242051"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008513"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
@@ -50,7 +50,7 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Centro da Índia | 104.211.96.159     |
 | Sul da Índia | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Japan East | 13.78.61.196, 191.237.240.43  |
+| Japan East | 13.78.61.196, 191.237.240.43, 40.79.192.23 |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Coreia Central | 52.231.32.42   |
 | Sul da Coreia | 52.231.200.86    |

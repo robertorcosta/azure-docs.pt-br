@@ -8,16 +8,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/07/2020
+ms.openlocfilehash: a58bcff4e39c4a4a907cd8567b47b074ff299bd5
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019204"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008445"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados nos Serviços Cognitivos do LUIS (Reconhecimento vocal)
-O LUIS armazena dados criptografados em um armazenamento de dados do Azure correspondente à região especificada pela chave. Esses dados são armazenados por 30 dias. 
+
+O LUIS armazena dados criptografados em um repositório de dados do Azure correspondente à [região](luis-reference-regions.md) especificada pela chave. 
+
+* Os dados usados para treinar o modelo, como entidades, intenções e declarações, serão salvos em LUIS durante o tempo de vida do aplicativo. Se um proprietário ou colaborador excluir o aplicativo, esses dados serão excluídos com ele. Se um aplicativo não tiver sido usado em 90 dias, ele será excluído. 
+
+* Os autores de aplicativos podem optar por [habilitar o registro em log](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) no declarações que são enviados para um aplicativo publicado. Se habilitado, o declarações será salvo por 30 dias e poderá ser exibido pelo autor do aplicativo. Se o registro em log não estiver habilitado quando o aplicativo for publicado, esses dados não serão armazenados.
 
 ## <a name="export-and-delete-app"></a>Exportar e excluir o aplicativo
 Os usuários têm controle completo sobre a [exportação](luis-how-to-start-new-app.md#export-app) e [exclusão](luis-how-to-start-new-app.md#delete-app) do aplicativo. 
