@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902413"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030443"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
 
-Saiba como usar scripts de implantação em modelos do Azure Resource. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts`, os usuários podem executar scripts de implantação em implantações de modelo e analisar os resultados da execução. Esses scripts podem ser usados para executar etapas personalizadas, tais como:
+Saiba como usar scripts de implantação em modelos do Azure Resource. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts` , os usuários podem executar scripts em implantações de modelo e examinar os resultados da execução. Esses scripts podem ser usados para executar etapas personalizadas, tais como:
 
 - adicionar usuários a um diretório
 - executar operações do plano de dados como, por exemplo, copiar blobs ou bancos de dados de semente
@@ -29,7 +29,6 @@ Estes são os benefícios do script de implantação:
 
 - Fácil de codificar, usar e depurar. Você pode desenvolver scripts de implantação em seus ambientes de desenvolvimento preferidos. Os scripts podem ser inseridos em modelos ou arquivos de script externos.
 - Você pode especificar a linguagem de script e a plataforma. Atualmente, há suporte para scripts de implantação do Azure PowerShell e do CLI do Azure em ambiente Linux.
-- Permita a especificação das identidades que são usadas para executar os scripts. Atualmente, há suporte apenas para o [identidade gerenciada atribuída pelo usuário do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 - Permita a passagem de argumentos de linha de comando para o script.
 - É possível especificar saídas de script e passá-las de volta para a implantação.
 
@@ -38,12 +37,13 @@ O recurso de script de implantação só está disponível nas regiões em que a
 > [!IMPORTANT]
 > Uma conta de armazenamento e uma instância de contêiner são necessárias para executar o script e solucionar problemas. Você tem as opções necessárias para especificar uma conta de armazenamento existente, caso contrário, o serviço de script criará automaticamente a conta de armazenamento junto com a instância de contêiner. Os dois recursos criados automaticamente são geralmente excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, consulte [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
 
+> [!IMPORTANT]
+> A API de recurso deploymentScripts versão 2020-10-01 dá suporte a [OnBehalfofTokens (obo)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Usando o OBO, o serviço de script de implantação usa o token da entidade de implantação para criar os recursos subjacentes para executar scripts de implantação, que incluem instância de contêiner do Azure, conta de armazenamento do Azure e atribuições de função para a identidade gerenciada. Na versão mais antiga da API, a identidade gerenciada é usada para criar esses recursos.
+> A lógica de repetição para o logon do Azure agora é interna ao script de wrapper. Se você conceder permissões no mesmo modelo em que você executa scripts de implantação.  O serviço de script de implantação repete o logon por 10 minutos com intervalo de 10 segundos até que a atribuição de função de identidade gerenciada seja replicada.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Uma identidade gerenciada atribuída pelo usuário com a função do colaborador para o grupo de recursos de destino**. Essa identidade é usada para executar scripts de implantação. Para executar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se você quiser criar um novo grupo de recursos.
-
-  > [!NOTE]
-  > O serviço de script cria uma conta de armazenamento (a menos que você especifique uma conta de armazenamento existente) e uma instância de contêiner em segundo plano.  Uma identidade gerenciada atribuída pelo usuário com a função do colaborador no nível da assinatura será necessária se a assinatura não tiver registrado os provedores de recursos da conta de armazenamento do Azure (Microsoft.Storage) e da instância de contêiner do Azure (Microsoft.ContainerInstance).
+- **(Opcional) uma identidade gerenciada atribuída pelo usuário com as permissões necessárias para executar as operações no script**. Para a API de script de implantação versão 2020-10-01 ou posterior, a entidade de implantação é usada para criar recursos subjacentes. Se o script precisar se autenticar no Azure e executar ações específicas do Azure, é recomendável fornecer o script com uma identidade gerenciada atribuída pelo usuário. A identidade gerenciada deve ter o acesso necessário no grupo de recursos de destino para concluir a operação no script. Você também pode fazer logon no Azure no script de implantação. Para executar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se você quiser criar um novo grupo de recursos. 
 
   Para criar uma identidade, consulte [Criar uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) ou [usando a CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) ou [usando o Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
@@ -135,7 +135,7 @@ O json a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
 
 Detalhes do valor da propriedade:
 
-- **Identidade**: O serviço de script de implantação usa uma identidade gerenciada atribuída pelo usuário para executar os scripts. No momento, somente há suporte para a identidade gerenciada atribuída pelo usuário.
+- **Identidade**: para a API de script de implantação versão 2020-10-01 ou posterior, uma identidade gerenciada atribuída pelo usuário é opcional, a menos que você precise executar ações específicas do Azure no script.  Para a versão de API 2019-10-01-Preview, uma identidade gerenciada é necessária, pois o serviço de script de implantação a usa para executar os scripts. No momento, somente há suporte para a identidade gerenciada atribuída pelo usuário.
 - **kind**: especifica o tipo de script. Atualmente, há suporte para scripts Azure PowerShell e CLI do Azure. Os valores são **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: Alterar esse valor entre implantações de modelo força o script de implantação a ser executado novamente. Se você usar a função newGuid () ou utcNow (), ambas as funções só poderão ser usadas no valor padrão para um parâmetro. Para saber mais, confira [Executar script mais de uma vez](#run-script-more-than-once).
 - **containerSettings**: Especifique as configurações para personalizar a Instância de Contêiner do Azure.  **containerGroupName** serve para especificar o nome do grupo de contêineres.  Se não for especificado, o nome do grupo será gerado automaticamente.
@@ -169,14 +169,11 @@ Detalhes do valor da propriedade:
 - [Exemplo 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): Crie um grupo de recursos no nível da assinatura, crie um cofre de chaves no grupo de recursos e, em seguida, use o script de implantação para atribuir um certificado ao cofre de chaves.
 - [Exemplo 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): criar uma identidade gerenciada atribuída pelo usuário, atribuir a função de colaborador à identidade no nível do grupo de recursos, criar um cofre de chaves e usar o script de implantação para atribuir um certificado ao cofre de chaves.
 
-> [!NOTE]
-> É recomendável criar uma identidade atribuída pelo usuário e conceder permissões com antecedência. Você poderá obter erros relacionados a entrada e permissão se criar a identidade e conceder permissões no mesmo modelo em que executa scripts de implantação. Demora algum tempo para que as permissões se tornem efetivas.
-
 ## <a name="use-inline-scripts"></a>Usar scripts embutidos
 
 O modelo a seguir tem um recurso definido com o tipo `Microsoft.Resources/deploymentScripts`. A parte realçada é o script embutido.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser precedidas usando um **&#92;** ou entre aspas simples. Você também pode considerar usar a substituição de cadeia de caracteres, como mostrado no exemplo de JSON anterior.
@@ -188,11 +185,10 @@ Para executar o script, selecione **Experimentar** para abrir o Cloud Shell, e c
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$id = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -239,7 +235,7 @@ Os arquivos de suporte são copiados para azscripts/azscriptinput durante o temp
 
 O modelo a seguir mostra como passar valores entre dois recursos do deploymentScripts:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 No primeiro recurso, você define uma variável chamada **$DeploymentScriptOutputs** e a usa para armazenar os valores de saída. Para acessar o valor de saída de outro recurso dentro do modelo, use:
 
@@ -276,7 +272,7 @@ Uma conta de armazenamento e uma instância de contêiner são necessárias para
 
     Essas combinações dão suporte ao compartilhamento de arquivos.  Para obter mais informações, consulte [criar um compartilhamento de arquivos do Azure](../../storage/files/storage-how-to-create-file-share.md) e [tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
 - As regras de firewall da conta de armazenamento ainda não têm suporte. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../../storage/common/storage-network-security.md).
-- A identidade gerenciada atribuída pelo usuário do script de implantação deve ter permissões para gerenciar a conta de armazenamento, que inclui os compartilhamentos de arquivos de leitura, criação e exclusão.
+- A entidade de implantação deve ter permissões para gerenciar a conta de armazenamento, que inclui ler, criar e excluir compartilhamentos de arquivos.
 
 Para especificar uma conta de armazenamento existente, adicione o seguinte JSON ao elemento de propriedade de `Microsoft.Resources/deploymentScripts`:
 
@@ -325,7 +321,7 @@ O script do usuário, os resultados da execução e o arquivo stdout são armaze
 
 A pasta de saída contém um **executionresult.json** e o arquivo de saída de script. Você pode ver a mensagem de erro de execução do script em **executionresult.json**. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Depois de implantar um recurso de script de implantação, o recurso é listado no grupo de recursos no portal do Azure. A captura de tela a seguir mostra a página de visão geral de um recurso de script de implantação:
 
@@ -539,6 +535,8 @@ O ciclo de vida desses recursos é controlado pelas seguintes propriedades no mo
 
 > [!NOTE]
 > Não é recomendável usar a conta de armazenamento e a instância de contêiner que são geradas pelo serviço de script para outras finalidades. Os dois recursos podem ser removidos, dependendo do ciclo de vida do script.
+
+Para manter a instância de contêiner e a conta de armazenamento para solução de problemas, você pode adicionar um comando de suspensão ao script.  Por exemplo [, Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 

@@ -10,13 +10,13 @@ ms.subservice: core
 ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4
-ms.openlocfilehash: 20d44fd3150f9da31e9c242017e597d4f46e4d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.custom: how-to, contperf-fy20q4
+ms.openlocfilehash: 37a18d147d3aca713d0c6bd934e23aa22b2521a5
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963922"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028879"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico
 
@@ -37,7 +37,7 @@ Dispare a execução do seu pipeline de Azure Machine Learning quando novos dado
 * [Armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-overview.md) para armazenar seus dados.
 * [Um repositório de armazenamento](how-to-access-data.md) em seu espaço de trabalho que contém os detalhes da sua conta de armazenamento de BLOBs.
 
-## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+## <a name="create-a-logic-app"></a>Criar um Aplicativo Lógico
 
 Agora, crie uma instância [do aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) . Se desejar, [use um ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) e [Configure uma chave gerenciada pelo cliente](../logic-apps/customer-managed-keys-integration-service-environment.md) para ser usada pelo seu aplicativo lógico.
 

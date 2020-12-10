@@ -3,13 +3,13 @@ title: Configurar o monitoramento para Azure Functions
 description: Saiba como conectar seu aplicativo de funções a Application Insights para monitoramento e como configurar a coleta de dados.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 5c4e9795109a9b4b5a6e9ceeec6b22e0168eb28f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607119"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027621"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 

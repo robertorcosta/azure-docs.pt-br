@@ -7,13 +7,13 @@ ms.author: baanders
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: 89e95b0c56ce5603096fb1ac9af74cb0ad53ee6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955218"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028352"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para o gêmeos digital do Azure
 
@@ -72,7 +72,7 @@ Há suporte para as seguintes funções de cadeia de caracteres:
 | `STARTSWITH(x, y)` | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda. |
 | `ENDSWITH(x, y)` | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
 
-## <a name="query-limitations"></a>Limitações de consulta
+## <a name="query-limitations"></a>Limitações da consulta
 
 Esta seção descreve as limitações da linguagem de consulta.
 

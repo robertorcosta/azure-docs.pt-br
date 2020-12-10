@@ -11,13 +11,13 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 964cd77a24a7a73bf1151ba9e6ab43509e664b9f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743064"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97026992"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure AD
 
@@ -50,7 +50,7 @@ As seguintes configurações estão disponíveis:
 Para definir as configurações de bloqueio de conta, conclua as seguintes configurações:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **MFA**  >  **bloqueio de conta** do MFA de segurança.
+1. Navegue até **Azure Active Directory**  >    >    >  **bloqueio de conta** do MFA de segurança.
 1. Insira os valores necessários para o seu ambiente e, em seguida, selecione **salvar**.
 
     ![Captura de tela das configurações de bloqueio de conta no portal do Azure](./media/howto-mfa-mfasettings/account-lockout-settings.png)
@@ -110,7 +110,7 @@ As notificações por email podem ser configuradas quando os usuários relatam a
 
 Para configurar notificações de alerta de fraude, conclua as seguintes configurações:
 
-1. Navegue até **Azure Active Directory**  >  **Security**  >  notificações de **autenticação multifator** de segurança  >  **Notifications**.
+1. Navegue até **Azure Active Directory**  >    >  notificações de **autenticação multifator** de segurança  >  .
 1. Insira o endereço de email a ser adicionado à próxima caixa.
 1. Para remover um endereço de email existente, selecione a opção **...** ao lado do endereço de email desejado e, em seguida, selecione **excluir**.
 1. Quando estiver pronto, selecione **Salvar**.

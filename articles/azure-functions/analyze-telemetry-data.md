@@ -3,13 +3,13 @@ title: Analisar Azure Functions telemetria no Application Insights
 description: Saiba como exibir e consultar Azure Functions dados de telemetria coletados pelo e armazenados no Aplicativo Azure insights.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 9091d59cbc3a4cf841e28505531c89c83e705c46
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217296"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027723"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar Azure Functions telemetria no Application Insights 
 
@@ -50,7 +50,7 @@ Para abrir Application Insights de um aplicativo de funções no [portal do Azur
 
 1. Selecione **Application insights** em **configurações** na página esquerda. 
 
-1. Se esta for a primeira vez que você usa Application Insights com sua assinatura, você será solicitado a habilitá-la. Para fazer isso, selecione **ativar Application insights**e, em seguida, selecione **aplicar** na próxima página.
+1. Se esta for a primeira vez que você usa Application Insights com sua assinatura, você será solicitado a habilitá-la. Para fazer isso, selecione **ativar Application insights** e, em seguida, selecione **aplicar** na próxima página.
 
 ![Abrir o Application Insights na página Visão geral do aplicativo de funções](media/functions-monitoring/ai-link.png)
 
@@ -65,7 +65,7 @@ As seguintes áreas do Application Insights podem ser úteis ao avaliar o compor
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e de exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Para analisar problemas de desempenho, veja a utilização de recursos e a taxa de transferência por **instâncias de função de nuvem**. Esses dados de desempenho podem ser úteis para cenários de depuração em que as funções estão sobrecarregarndo seus recursos subjacentes. |
 | **[Métrica](../azure-monitor/platform/metrics-charts.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e taxas de sucesso. |
-| **[Live Metrics    ](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados quase em tempo real. |
+| **[Live Metrics](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados quase em tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria da consulta
 

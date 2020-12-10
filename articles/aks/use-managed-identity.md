@@ -4,12 +4,12 @@ description: Saiba como usar identidades gerenciadas no serviço kubernetes do A
 services: container-service
 ms.topic: article
 ms.date: 12/06/2020
-ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751267"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97026822"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -38,16 +38,16 @@ O AKS usa várias identidades gerenciadas para serviços e Complementos internos
 |----------------------------|-----------|----------|
 | Painel de controle | não visível | Usado pelos componentes do plano de controle AKS para gerenciar recursos de cluster, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS e operações de dimensionamento automático do cluster | Função de colaborador para grupo de recursos de nó | Versão Prévia
 | Kubelet | Nome do cluster AKS – agentpool | Autenticação com o ACR (registro de contêiner do Azure) | NA (para kubernetes v 1.15 +) | Sem suporte no momento
-| Complemento | AzureNPM | Nenhuma identidade necessária | NA | Não
-| Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | Não
-| Complemento | Azure-política (gatekeeper) | Nenhuma identidade necessária | NA | Não
-| Complemento | Azure-política | Nenhuma identidade necessária | NA | Não
-| Complemento | Calico | Nenhuma identidade necessária | NA | Não
-| Complemento | Painel | Nenhuma identidade necessária | NA | Não
-| Complemento | HTTPApplicationRouting | Gerencia os recursos de rede necessários | Função de leitor para grupo de recursos de nó, função de colaborador para a zona DNS | Não
-| Complemento | Gateway de aplicativo de entrada | Gerencia os recursos de rede necessários| Função de colaborador para grupo de recursos de nó | Não
-| Complemento | omsagent | Usado para enviar métricas de AKS para Azure Monitor | Função de editor de métricas de monitoramento | Não
-| Complemento | Virtual-Node (ACIConnector) | Gerencia os recursos de rede necessários para ACI (instâncias de contêiner do Azure) | Função de colaborador para grupo de recursos de nó | Não
+| Complemento | AzureNPM | Nenhuma identidade necessária | NA | No
+| Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | No
+| Complemento | Azure-política (gatekeeper) | Nenhuma identidade necessária | NA | No
+| Complemento | Azure-política | Nenhuma identidade necessária | NA | No
+| Complemento | Calico | Nenhuma identidade necessária | NA | No
+| Complemento | Painel | Nenhuma identidade necessária | NA | No
+| Complemento | HTTPApplicationRouting | Gerencia os recursos de rede necessários | Função de leitor para grupo de recursos de nó, função de colaborador para a zona DNS | No
+| Complemento | Gateway de aplicativo de entrada | Gerencia os recursos de rede necessários| Função de colaborador para grupo de recursos de nó | No
+| Complemento | omsagent | Usado para enviar métricas de AKS para Azure Monitor | Função de editor de métricas de monitoramento | No
+| Complemento | Virtual-Node (ACIConnector) | Gerencia os recursos de rede necessários para ACI (instâncias de contêiner do Azure) | Função de colaborador para grupo de recursos de nó | No
 | Projeto do OSS | AAD-Pod-identidade | Permite que os aplicativos acessem recursos de nuvem com segurança com o Azure Active Directory (AAD) | NA | Etapas para conceder permissão em https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades gerenciadas
@@ -119,7 +119,7 @@ Atualize a identidade atribuída pelo sistema:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Atualize a identidade atribuída pelo usuário:
+Registrar o sinalizador de recurso para identidade atribuída pelo usuário:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview

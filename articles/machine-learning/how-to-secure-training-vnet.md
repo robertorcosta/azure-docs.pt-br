@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314165"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029559"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteger um ambiente de treinamento Azure Machine Learning com redes virtuais
 
@@ -111,7 +111,7 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 
 - Negue a conexão de Internet de saída usando as regras de NSG.
 
-- Para uma __instância de computação__ ou um __cluster de cálculo__ , limite o tráfego de saída para os seguintes itens:
+- Para uma __instância de computação__ ou um __cluster de cálculo__, limite o tráfego de saída para os seguintes itens:
    - Armazenamento do Azure que usa a __Marca de serviço__ de __Storage.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
    - Registro de Contêiner do Azure, usando __Marca de serviço__ de __AzureContainerRegistry.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
    - Azure Machine Learning, usando a __Marca de serviço__ de __AzureMachineLearning__
@@ -123,7 +123,7 @@ A configuração da regra de NSG no portal do Azure é mostrada na seguinte imag
 [![As regras de NSG de saída para Computação do Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Se você planeja usar imagens padrão do Docker fornecidas pela Microsoft e habilitando dependências gerenciadas pelo usuário, você também deve usar as seguintes __marcas de serviço__ :
+> Se você planeja usar imagens padrão do Docker fornecidas pela Microsoft e habilitando dependências gerenciadas pelo usuário, você também deve usar as seguintes __marcas de serviço__:
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -199,13 +199,13 @@ Para criar um cluster de Computação do Machine Learning, siga as seguintes eta
 
 1. Selecione __Clusters de treinamento__ da central e, em seguida, selecione __+__ .
 
-1. Na caixa de diálogo __Novo cluster de treinamento__ , expanda a seção __Configurações avançadas__.
+1. Na caixa de diálogo __Novo cluster de treinamento__, expanda a seção __Configurações avançadas__.
 
-1. Para configurar esse recurso de computação para usar uma rede virtual, execute as seguintes ações na seção __Configurar rede virtual__ :
+1. Para configurar esse recurso de computação para usar uma rede virtual, execute as seguintes ações na seção __Configurar rede virtual__:
 
-    1. Na lista suspensa __Grupo de recursos__ , selecione o grupo de recursos que contém a rede virtual.
-    1. Na lista suspensa __Rede virtual__ , selecione a rede virtual que contém a sub-rede.
-    1. Na lista suspensa __Sub-rede__ , selecione a sub-rede a ser usada.
+    1. Na lista suspensa __Grupo de recursos__, selecione o grupo de recursos que contém a rede virtual.
+    1. Na lista suspensa __Rede virtual__, selecione a rede virtual que contém a sub-rede.
+    1. Na lista suspensa __Sub-rede__, selecione a sub-rede a ser usada.
 
    ![As configurações de rede virtual para a Computação do Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -286,21 +286,21 @@ Crie um cluster de VM ou HDInsight usando o portal do Azure ou a CLI do Azure e 
 
 Permita que Azure Machine Learning se comunique com a porta SSH na VM ou cluster, configure uma entrada de origem para o grupo de segurança de rede. A porta SSH geralmente é a porta 22. Para permitir o tráfego dessa origem, execute as seguintes ações:
 
-1. Na lista suspensa __Origem__ , selecione __Marca de serviço__.
+1. Na lista suspensa __Origem__, selecione __Marca de serviço__.
 
-1. Na lista suspensa __Marca de serviço da origem__ , selecione __AzureMachineLearning__.
+1. Na lista suspensa __Marca de serviço da origem__, selecione __AzureMachineLearning__.
 
     ![Regras de entrada para experimentação em um cluster de VM ou HDInsight dentro de uma rede virtual](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
-1. Na lista suspensa __Intervalos da porta de origem__ , selecione __*__ .
+1. Na lista suspensa __Intervalos da porta de origem__, selecione __*__ .
 
-1. Na lista suspensa __Destino__ , selecione __Qualquer um__.
+1. Na lista suspensa __Destino__, selecione __Qualquer um__.
 
-1. Na lista suspensa __Intervalos da porta de destino__ , selecione __22__.
+1. Na lista suspensa __Intervalos da porta de destino__, selecione __22__.
 
-1. Em __Protocolo__ , selecione __Qualquer um__.
+1. Em __Protocolo__, selecione __Qualquer um__.
 
-1. Em __Ação__ , selecione __Permitir__.
+1. Em __Ação__, selecione __Permitir__.
 
 Mantenha as regras de saída padrão para o grupo de segurança de rede. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](../virtual-network/network-security-groups-overview.md#default-security-rules).
 

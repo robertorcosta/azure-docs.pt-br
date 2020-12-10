@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006465"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029134"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -95,7 +95,7 @@ Azure Stream Analytics captura duas categorias de logs de recursos:
 
 Todos os logs são armazenados no formato JSON. Cada entrada tem os seguintes campos de cadeia de caracteres comuns:
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 time | Carimbo de data/hora (em UTC) do log.
 resourceId | ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID da assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -113,7 +113,7 @@ Os logs de execução trazem informações sobre eventos que ocorreram durante a
 
 Qualquer erro ocorrido enquanto o trabalho processa os dados está nessa categoria de logs. Esses logs costumam ser criados durante operações de leitura, serialização e gravação de dados. Esses logs não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Você pode saber mais sobre a causa de vários [erros de dados de entrada e saída](./data-errors.md)diferentes.
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
@@ -134,7 +134,7 @@ Dependendo do valor de **operationName**, os erros de dados terão o seguinte es
 
 Os eventos genéricos abrangem todo o resto.
 
-Name | Descrição
+Nome | Descrição
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.

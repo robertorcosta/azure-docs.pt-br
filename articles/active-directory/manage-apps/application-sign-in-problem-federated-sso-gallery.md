@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
-ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651542"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028267"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao entrar em aplicativos configurados para logon único baseado em SAML
 Para solucionar os problemas de entrada abaixo, recomendamos o seguinte para diagnosticar melhor e automatizar as etapas de resolução:
 
-- Instale a [extensão do navegador seguro meus aplicativos](./access-panel-deployment-plan.md) para ajudar a Azure Active Directory (Azure AD) a fornecer melhor diagnóstico e resoluções ao usar a experiência de teste no portal do Azure.
+- Instale a [extensão do navegador My Apps Secure](./access-panel-deployment-plan.md) para ajudar o Azure Active Directory (AAD) a fornecer melhores diagnósticos e resoluções ao usar a experiência de teste no portal do Azure.
 - Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](./debug-saml-sso-issues.md)
 
 Se você usar a [experiência de teste](./debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir as etapas abaixo para abrir a página de configuração de logon único baseada em SAML.
@@ -31,12 +31,12 @@ Para abrir a página de configuração de logon único baseado em SAML:
 1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador**.
 1.  Abra a **extensão Azure Active Directory** selecionando **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 1.  Digite **"Azure Active Directory"** na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
-1.  Selecione **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
-1.  Selecione **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
-    Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos**.
+1.  Escolha **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+1.  Marque **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
+    Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos**.
 1.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 1. Depois que o aplicativo for carregado, selecione **logon único** no menu de navegação esquerdo do aplicativo.
-1. Selecione SSO baseado em SAML.
+1. Escolha SSO baseado em SAML.
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 `Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
