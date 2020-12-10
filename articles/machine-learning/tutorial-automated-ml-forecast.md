@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356494"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921862"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Prever demanda com machine learning automatizado
 
@@ -58,13 +58,13 @@ Para este tutorial, você criará sua execução do experimento de ML automatiza
 
 Antes de configurar seu experimento, carregue o arquivo de dados no workspace na forma de um conjunto de dados do Azure Machine Learning. Essa ação permite que você garanta que os dados estejam formatados corretamente para o experimento.
 
-1. No formulário **Selecionar conjunto de dados** , selecione **De arquivos locais** na lista suspensa **+Criar conjunto de dados**. 
+1. No formulário **Selecionar conjunto de dados**, selecione **De arquivos locais** na lista suspensa **+Criar conjunto de dados**. 
 
-    1. No formulário **Informações básicas** , dê um nome ao conjunto de dados e forneça uma descrição opcional. O tipo de conjunto de dados deverá usar **Tabela** como padrão, pois o ML automatizado no Azure Machine Learning Studio atualmente só dá suporte a conjuntos de dados de tabela.
+    1. No formulário **Informações básicas**, dê um nome ao conjunto de dados e forneça uma descrição opcional. O tipo de conjunto de dados deverá usar **Tabela** como padrão, pois o ML automatizado no Azure Machine Learning Studio atualmente só dá suporte a conjuntos de dados de tabela.
     
     1. Selecione **Avançar** na parte inferior esquerda
 
-    1. No formulário **Seleção de armazenamento de dados e de arquivo** , selecione o armazenamento de dados padrão que foi configurado automaticamente durante a criação do workspace, **workspaceblobstore (Armazenamento de Blobs do Azure)** . Esse é o local de armazenamento em que você carregará o arquivo de dados. 
+    1. No formulário **Seleção de armazenamento de dados e de arquivo**, selecione o armazenamento de dados padrão que foi configurado automaticamente durante a criação do workspace, **workspaceblobstore (Armazenamento de Blobs do Azure)** . Esse é o local de armazenamento em que você carregará o arquivo de dados. 
 
     1. Selecione **Procurar**. 
     
@@ -92,7 +92,7 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
         
         1. Selecione **Avançar**.
 
-    1. No formulário **Confirmar detalhes** , verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas** e **Configurações e visualização**.
+    1. No formulário **Confirmar detalhes**, verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas** e **Configurações e visualização**.
 
     1. Selecione **Criar** para concluir a criação do conjunto de dados.
 
@@ -132,7 +132,7 @@ Depois de carregar e configurar seus dados, configure o destino de computação 
 
 Conclua a configuração do experimento de ML automatizado especificando o tipo de tarefa de aprendizado de máquina e as definições de configuração.
 
-1. No formulário **Tipo de tarefa e configurações** , selecione **Previsão de série temporal** como o tipo de tarefa de aprendizado de máquina.
+1. No formulário **Tipo de tarefa e configurações**, selecione **Previsão de série temporal** como o tipo de tarefa de aprendizado de máquina.
 
 1. Selecione **data** como a **Coluna de tempo** e deixe os **Identificadores de série temporal** em branco. 
 
@@ -145,7 +145,7 @@ Conclua a configuração do experimento de ML automatizado especificando o tipo 
     Métrica principal| Métrica de avaliação pela qual o algoritmo de aprendizado de máquina será medido.|Raiz do erro quadrático médio normalizado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade no melhor modelo criado pelo ML automatizado.| Habilitar
     Algoritmos bloqueados | Algoritmos que você deseja excluir do trabalho de treinamento| Árvores aleatórias extremas
-    Configurações adicionais de previsão| Essas configurações ajudam a aprimorar a precisão do modelo <br><br> _**Retardos de destino de previsão:**_ até que ponto no passado você deseja construir os retardos da variável de destino <br> _**Janela rolante de destino**_ : especifica o tamanho da janela rolante na qual recursos, como *máx., mín.* e *soma* , serão gerados. | <br><br>Retardos&nbsp;de destino&nbsp;de previsão: Nenhum <br> Tamanho&nbsp;da janela&nbsp;rolante&nbsp;de destino: Nenhum
+    Configurações adicionais de previsão| Essas configurações ajudam a aprimorar a precisão do modelo <br><br> _**Retardos de destino de previsão:**_ até que ponto no passado você deseja construir os retardos da variável de destino <br> _**Janela rolante de destino**_: especifica o tamanho da janela rolante na qual recursos, como *máx., mín.* e *soma*, serão gerados. | <br><br>Retardos&nbsp;de destino&nbsp;de previsão: Nenhum <br> Tamanho&nbsp;da janela&nbsp;rolante&nbsp;de destino: Nenhum
     Critério de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Hora&nbsp;do&nbsp;trabalho de treinamento (horas): 3 <br> Limite de&nbsp;pontuação da&nbsp;métrica: Nenhum
     Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>validação cruzada&nbsp;k-fold&nbsp; <br> <br> Número de validações: 5
     Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Máximo de&nbsp;iterações&nbsp;simultâneas: 6
@@ -179,7 +179,7 @@ Para este experimento, a implantação em um serviço Web significa que a empres
 
 Quando a execução estiver concluída, volte para a página de execução pai selecionando **Execução 1** na parte superior da sua tela.
 
-Na seção **Resumo do melhor modelo** , **StackEnsemble** é considerado o melhor modelo no contexto deste experimento, com base na métrica **Raiz do erro quadrático médio normalizado**.  
+Na seção **Resumo do melhor modelo**, **StackEnsemble** é considerado o melhor modelo no contexto deste experimento, com base na métrica **Raiz do erro quadrático médio normalizado**.  
 
 Implantamos esse modelo, mas saiba que a implantação demora cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
 
@@ -215,7 +215,7 @@ Os arquivos de implantação são maiores que os dados e os arquivos de teste, p
 
 Exclua apenas a instância de implantação do estúdio do Azure Machine Learning se você quiser manter o grupo de recursos e o workspace para outros tutoriais e explorações. 
 
-1. Vá para o [estúdio do Azure Machine Learning](https://ml.azure.com/). Navegue até o workspace e, no lado esquerdo, no painel **Ativos** , selecione **Pontos de extremidade**. 
+1. Vá para o [estúdio do Azure Machine Learning](https://ml.azure.com/). Navegue até o workspace e, no lado esquerdo, no painel **Ativos**, selecione **Pontos de extremidade**. 
 
 1. Selecione a implantação que você deseja excluir e selecione **Excluir**. 
 
@@ -235,7 +235,7 @@ Confira este artigo para obter as etapas de como criar um esquema compatível co
 > [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md).
 + Saiba mais sobre a [personalização](how-to-configure-auto-features.md#featurization).
 + Saiba mais sobre a [criação de perfil de dados](how-to-connect-data-ui.md#profile).
 

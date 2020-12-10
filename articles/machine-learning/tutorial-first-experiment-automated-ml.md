@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359792"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921884"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 
@@ -76,11 +76,11 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
 
 1. Crie um novo conjunto de dados selecionando **De arquivos locais** na lista suspensa **+ Criar conjunto de dados**. 
 
-    1. No formulário **Informações básicas** , dê um nome ao conjunto de dados e forneça uma descrição opcional. No momento, a interface de ML automatizado só dá suporte a TabularDatasets; portanto, o padrão do tipo de conjunto de dados deve ser *Tabular*.
+    1. No formulário **Informações básicas**, dê um nome ao conjunto de dados e forneça uma descrição opcional. No momento, a interface de ML automatizado só dá suporte a TabularDatasets; portanto, o padrão do tipo de conjunto de dados deve ser *Tabular*.
 
     1. Selecione **Avançar** na parte inferior esquerda
 
-    1. No formulário **Seleção de armazenamento de dados e de arquivo** , selecione o armazenamento de dados padrão que foi configurado automaticamente durante a criação do workspace, **workspaceblobstore (Armazenamento de Blobs do Azure)** . É nele que você carregará seu arquivo de dados para disponibilizá-lo ao workspace.
+    1. No formulário **Seleção de armazenamento de dados e de arquivo**, selecione o armazenamento de dados padrão que foi configurado automaticamente durante a criação do workspace, **workspaceblobstore (Armazenamento de Blobs do Azure)** . É nele que você carregará seu arquivo de dados para disponibilizá-lo ao workspace.
 
     1. Selecione **Procurar**.
     
@@ -106,7 +106,7 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
 
         ![Configuração da guia Visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. No formulário **Confirmar detalhes** , verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas, Seleção de armazenamento de dados e arquivo** e **Configurações e visualização**.
+    1. No formulário **Confirmar detalhes**, verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas, Seleção de armazenamento de dados e arquivo** e **Configurações e visualização**.
     
     1. Selecione **Criar** para concluir a criação do conjunto de dados.
     
@@ -143,7 +143,7 @@ Depois de carregar e configurar seus dados, você poderá configurar seu experim
 
     1. Selecione **Avançar**.
 
-1. No formulário **Tipo de tarefa e configurações** , conclua a configuração do experimento de ML automatizado especificando o tipo de tarefa de machine learning e as definições de configuração.
+1. No formulário **Tipo de tarefa e configurações**, conclua a configuração do experimento de ML automatizado especificando o tipo de tarefa de machine learning e as definições de configuração.
     
     1.  Selecione **Classificação** como o tipo de tarefa de machine learning.
 
@@ -209,7 +209,7 @@ Implantamos esse modelo, mas saiba que a implantação demora cerca de 20 minuto
 
 1. Selecione **Implantar**.  
 
-    Uma mensagem de sucesso verde aparece na parte superior da tela **Executar** e, no painel **Resumo de modelo** , uma mensagem de status é exibida em **Status de implantação**. Selecione **Atualizar** periodicamente para verificar o status da implantação.
+    Uma mensagem de sucesso verde aparece na parte superior da tela **Executar** e, no painel **Resumo de modelo**, uma mensagem de status é exibida em **Status de implantação**. Selecione **Atualizar** periodicamente para verificar o status da implantação.
     
 Agora você tem um serviço Web operacional para gerar previsões. 
 
@@ -223,7 +223,7 @@ Os arquivos de implantação são maiores que os dados e os arquivos de teste, p
 
 Exclua apenas a instância de implantação do Azure Machine Learning em https:\//ml.azure.com/ se desejar manter o grupo de recursos e o workspace para outros tutoriais e explorações. 
 
-1. Acesse [Azure Machine Learning](https://ml.azure.com/). Navegue até o workspace e, no lado esquerdo, no painel **Ativos** , selecione **Pontos de extremidade**. 
+1. Acesse [Azure Machine Learning](https://ml.azure.com/). Navegue até o workspace e, no lado esquerdo, no painel **Ativos**, selecione **Pontos de extremidade**. 
 
 1. Selecione a implantação que você deseja excluir e selecione **Excluir**. 
 
@@ -241,7 +241,7 @@ Neste tutorial de machine learning automatizado, você usou a interface de ML au
 > [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md).
 + Saiba mais sobre a [personalização](how-to-configure-auto-features.md#featurization).
 + Saiba mais sobre a [criação de perfil de dados](how-to-connect-data-ui.md#profile).
 

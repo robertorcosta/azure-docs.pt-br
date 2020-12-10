@@ -3,8 +3,7 @@ title: Tutorial para uso de sinalizadores de recurso em um aplicativo .NET Core 
 description: Neste tutorial, você aprenderá a implementar sinalizadores de recursos em aplicativos .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746127"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929184"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo ASP.NET Core
 
@@ -227,7 +226,7 @@ public IActionResult Index()
 }
 ```
 
-Quando uma ação ou um controlador MVC está bloqueado devido ao sinalizador de recursos controlador estar *desativado* , uma interface `IDisabledFeaturesHandler` registrada é chamada. A interface `IDisabledFeaturesHandler` padrão retorna um código de status 404 para o cliente sem nenhum corpo de resposta.
+Quando uma ação ou um controlador MVC está bloqueado devido ao sinalizador de recursos controlador estar *desativado*, uma interface `IDisabledFeaturesHandler` registrada é chamada. A interface `IDisabledFeaturesHandler` padrão retorna um código de status 404 para o cliente sem nenhum corpo de resposta.
 
 ## <a name="mvc-views"></a>Exibições do MVC
 
