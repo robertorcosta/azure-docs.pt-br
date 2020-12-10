@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e5587c4826fea780c1e379ee1599440b2865dd50
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004918"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862217"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: proteger a conexão do Banco de Dados SQL do Azure no Serviço de Aplicativo usando uma identidade gerenciada
 
@@ -47,7 +47,9 @@ Este artigo continua do ponto em que você parou no [Tutorial: Criar um aplicati
 
 Para depurar seu aplicativo usando o banco de dados SQL como back-end, verifique se você permitiu a conexão do cliente no seu computador. Caso contrário, adicione o IP do cliente seguindo as etapas descritas em [Gerenciar regras de firewall de IP no nível do servidor usando o portal do Azure](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Prepare seu ambiente para a CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Conceder acesso de banco de dados ao usuário do Azure AD
 
@@ -87,7 +89,7 @@ O Visual Studio para Mac não é integrado à autenticação do Azure AD. No ent
 
 Quando a CLI do Azure estiver instalada no computador local, entre nela com o seguinte comando usando o usuário do Azure AD:
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 Agora você está pronto para desenvolver e depurar seu aplicativo com o banco de dados SQL como back-end, usando a autenticação do Azure AD.
@@ -206,7 +208,7 @@ Veja um exemplo da saída:
 
 No Cloud Shell, entre no Banco de Dados SQL usando o comando SQLCMD. Substitua _\<server-name>_ pelo nome do servidor, _\<db-name>_ pelo nome do banco de dados usado pelo aplicativo e _\<aad-user-name>_ e _\<aad-password>_ pelas credenciais do usuário do Azure AD.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -249,7 +251,7 @@ Na página de publicação, clique em **Publicar**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Quando a nova página da Web mostra a lista de tarefas pendentes, seu aplicativo se conecta ao banco de dados usando a identidade gerenciada.

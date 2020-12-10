@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95986522"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608241"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -206,7 +206,7 @@ Para mapear um registro A para um aplicativo, geralmente para o domínio raiz, c
 > | Tipo de registro | Host | Valor |
 > | - | - | - |
 > | Um | `www` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [A ID de verificação que você obteve anteriormente](#get-a-domain-verification-id) |
 >
 
 Quando os registros são adicionados, a página de registros DNS é parecida com o seguinte exemplo:

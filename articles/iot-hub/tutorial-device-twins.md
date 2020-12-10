@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9ec2c51f01d6b13f33bc2d537a8f73a6721967d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748540"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572517"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -28,7 +28,7 @@ ms.locfileid: "92748540"
 
 Além de receber telemetria dos dispositivos, talvez seja necessário configurar os dispositivos a partir do serviço back-end. Ao enviar uma configuração desejada aos dispositivos, você também pode querer receber atualizações de conformidade e status desses dispositivos. Por exemplo, você pode definir uma faixa de temperatura operacional de destino para um dispositivo ou coletar informações de versão de firmware dos dispositivos.
 
-Para sincronizar informações de estado entre um dispositivo e um Hub IoT, você usa _dispositivos gêmeos_ . Um [dispositivo gêmeo](iot-hub-devguide-device-twins.md) é um documento JSON, associado a um dispositivo específico e armazenado pelo Hub IoT na nuvem, onde é possível [pesquisá-los](iot-hub-devguide-query-language.md). Um dispositivo gêmeo contém _propriedades desejadas_ , _propriedades relatadas_ e _marcas_ . Uma propriedade desejada é definida por um aplicativo de back-end e lida por um dispositivo. Uma propriedade relatada é definida por um dispositivo e lida por um aplicativo de back-end. Uma marca é definida por um aplicativo de back-end e nunca é enviada para um dispositivo. As marcas são usadas para organizar os dispositivos. Este tutorial mostra como usar as propriedades desejadas e relatadas para sincronizar informações de estado:
+Para sincronizar informações de estado entre um dispositivo e um Hub IoT, você usa _dispositivos gêmeos_. Um [dispositivo gêmeo](iot-hub-devguide-device-twins.md) é um documento JSON, associado a um dispositivo específico e armazenado pelo Hub IoT na nuvem, onde é possível [pesquisá-los](iot-hub-devguide-query-language.md). Um dispositivo gêmeo contém _propriedades desejadas_, _propriedades relatadas_ e _marcas_. Uma propriedade desejada é definida por um aplicativo de back-end e lida por um dispositivo. Uma propriedade relatada é definida por um dispositivo e lida por um aplicativo de back-end. Uma marca é definida por um aplicativo de back-end e nunca é enviada para um dispositivo. As marcas são usadas para organizar os dispositivos. Este tutorial mostra como usar as propriedades desejadas e relatadas para sincronizar informações de estado:
 
 ![Resumo de gêmeo](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -39,11 +39,9 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Usar as propriedades desejadas para enviar informações de estado ao dispositivo simulado.
 > * Usar as propriedades relatadas para receber informações de estado do dispositivo simulado.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -63,7 +61,7 @@ Verifique se a porta 8883 está aberta no firewall. A amostra de dispositivo des
 
 Para concluir este tutorial, a assinatura do Azure deve conter um Hub IoT com um dispositivo adicionado ao registro de identidade do dispositivo. A entrada no registro de identidade do dispositivo permite que o dispositivo simulado executado neste tutorial conecte-se ao hub.
 
-Se ainda não houver um Hub IoT configurado na assinatura, será possível configurar um com o script de CLI a seguir. Esse script usa o nome **tutorial-iot-hub** para o Hub IoT e será necessário substituir esse nome pelo nome exclusivo ao executá-lo. O script cria o grupo de recursos e o hub na região **Centro dos EUA** , a qual é possível alterar para uma região mais próxima a você. O script recupera a cadeia de conexão de serviço do Hub IoT, que é usado no exemplo de back-end para conectar ao Hub IoT:
+Se ainda não houver um Hub IoT configurado na assinatura, será possível configurar um com o script de CLI a seguir. Esse script usa o nome **tutorial-iot-hub** para o Hub IoT e será necessário substituir esse nome pelo nome exclusivo ao executá-lo. O script cria o grupo de recursos e o hub na região **Centro dos EUA**, a qual é possível alterar para uma região mais próxima a você. O script recupera a cadeia de conexão de serviço do Hub IoT, que é usado no exemplo de back-end para conectar ao Hub IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -83,7 +81,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Este tutorial usa um dispositivo simulado chamado **MyTwinDevice** . O script a seguir adiciona esse dispositivo ao registro de identidade e recupera a cadeia de conexão:
+Este tutorial usa um dispositivo simulado chamado **MyTwinDevice**. O script a seguir adiciona esse dispositivo ao registro de identidade e recupera a cadeia de conexão:
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -130,15 +128,15 @@ O código a seguir obtém um dispositivo gêmeo do objeto de cliente:
 
 [!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
 
-O manipulador a seguir reage apenas às alterações feitas na propriedade desejada **fanOn** :
+O manipulador a seguir reage apenas às alterações feitas na propriedade desejada **fanOn**:
 
 [!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
 
 ### <a name="handlers-for-multiple-properties"></a>Manipuladores para várias propriedades
 
-No exemplo de propriedades desejadas JSON mostrado anteriormente, o nó **clima** em **componentes** contém duas propriedades, **minTemperature** e **maxTemperature** .
+No exemplo de propriedades desejadas JSON mostrado anteriormente, o nó **clima** em **componentes** contém duas propriedades, **minTemperature** e **maxTemperature**.
 
-Um objeto **gêmeo** local do dispositivo armazena um conjunto completo de propriedades desejadas e relatadas. A variável **delta** enviada do back-end pode atualizar apenas um subconjunto de propriedades desejadas. No snippet de código a seguir, se o dispositivo simulado receber uma atualização apenas para um dos valores **minTemperature** e **maxTemperature** , ele usará o valor no gêmeo local para o outro valor para configurar o dispositivo:
+Um objeto **gêmeo** local do dispositivo armazena um conjunto completo de propriedades desejadas e relatadas. A variável **delta** enviada do back-end pode atualizar apenas um subconjunto de propriedades desejadas. No snippet de código a seguir, se o dispositivo simulado receber uma atualização apenas para um dos valores **minTemperature** e **maxTemperature**, ele usará o valor no gêmeo local para o outro valor para configurar o dispositivo:
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -190,11 +188,11 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-A captura de tela a seguir mostra a saída do aplicativo de dispositivo simulado e destaca como ele trata uma atualização para a propriedade desejada **maxTemperature** . É possível ver como o manipulador de nível superior e os manipuladores de componente de clima executam:
+A captura de tela a seguir mostra a saída do aplicativo de dispositivo simulado e destaca como ele trata uma atualização para a propriedade desejada **maxTemperature**. É possível ver como o manipulador de nível superior e os manipuladores de componente de clima executam:
 
 ![Captura de tela que mostra como são executados o manipulador de nível superior e os manipuladores de componente de clima.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
-A captura de tela a seguir mostra a saída do aplicativo de back-end e destaca como ele envia uma atualização para a propriedade desejada **maxTemperature** :
+A captura de tela a seguir mostra a saída do aplicativo de back-end e destaca como ele envia uma atualização para a propriedade desejada **maxTemperature**:
 
 ![Captura de tela que mostra a saída do aplicativo de back-end e destaca como ele envia uma atualização.](./media/tutorial-device-twins/BackEnd1.png)
 
@@ -252,7 +250,7 @@ A captura de tela a seguir mostra a saída do aplicativo back-end e destaca como
 
 Se você planeja concluir o próximo tutorial, deixe o grupo de recursos e o Hub IoT e reutilize-os posteriormente.
 
-Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para fazer isso, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o Hub IoT e clique em **Excluir** .
+Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para fazer isso, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o Hub IoT e clique em **Excluir**.
 
 Como alternativa, use a CLI:
 

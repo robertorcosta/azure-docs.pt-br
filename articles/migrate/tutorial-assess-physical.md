@@ -1,15 +1,18 @@
 ---
 title: Avaliar servidores físicos para migração para o Azure com a avaliação de servidor de Migrações para Azure
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca50f41f1f0eadbc9cfb916a7f68a90712bef52e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090410"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753188"
 ---
 # <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Tutorial: Avaliar servidores físicos para migração para o Azure
 

@@ -1,15 +1,18 @@
 ---
 title: Descobrir instâncias de VMs do GCP com a Avaliação de Servidor das Migrações para Azure
 description: Saiba como descobrir instâncias de VMs do GCP com a Avaliação de Servidor das Migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c445bc06983aeb72d13f2bea5e2f39e73374d93a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9053246ef747236d9efbc9239ced46b0c421f5bb
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716298"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753086"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Descobrir instâncias do GCP (Google Cloud Platform) com a Avaliação de Servidor
 

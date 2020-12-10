@@ -1,15 +1,18 @@
 ---
 title: Descobrir instâncias da AWS com a Avaliação de Servidor das Migrações para Azure
 description: Saiba como descobrir instâncias da AWS com a Avaliação de Servidor das Migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dda6f6e37a42d4ee55a32fc8e1c05916c6be4367
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311271"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753120"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descobrir instâncias da AWS com a Avaliação de Servidor
 
@@ -153,13 +156,13 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 3.  Verifique as versões mais recentes do dispositivo e os valores de hash:
     - Para a nuvem pública:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Baixar** _ | _ *Valor de hash**
         --- | --- | ---
         Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - Para o Azure Government:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Baixar** _ | _ *Valor de hash**
         --- | --- | ---
         Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  

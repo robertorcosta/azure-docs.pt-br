@@ -1,15 +1,18 @@
 ---
 title: Avaliar as VMs do VMware quanto à migração para as VMs do Azure usando a Avaliação de Servidor nas Migrações para Azure
 description: Aprenda como avaliar as VMs do VMware quanto à migração para as VMs do Azure com a Avaliação de Servidor.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 01db7128cd990098caa25ba2cd79f2f2a2b28d78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad1e2a1c8d7ce6a1b6219c42893b1f4a59c6f42
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90107899"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753137"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-azure-vms"></a>Tutorial: Avaliar VMs do VMware para migração para VMs do Azure
 

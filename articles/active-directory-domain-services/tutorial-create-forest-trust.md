@@ -2,20 +2,20 @@
 title: Tutorial – Criar uma relação de confiança de floresta no Azure AD Domain Services | Microsoft Docs
 description: Saiba como criar uma floresta de saída unidirecional para um domínio de AD DS local no portal do Azure para Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: cbdcd170e6c6fb768172acfe3eb3c907714cd560
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967249"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618324"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma relação de confiança de floresta de saída com um domínio local no Azure Active Directory Domain Services
 
@@ -75,7 +75,7 @@ Para resolver corretamente o domínio gerenciado do ambiente local, talvez seja 
 
 1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
 1. Selecione o servidor DNS com o botão direito do mouse, como *myAD01*, e escolha **Propriedades**
-1. Escolha **Encaminhadores**e **Editar** para adicionar encaminhadores adicionais.
+1. Escolha **Encaminhadores** e **Editar** para adicionar encaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerenciado, como *10.0.2.4* e *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Criar a relação de confiança de floresta de entrada no domínio local
