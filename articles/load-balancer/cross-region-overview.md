@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029754"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938708"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -35,7 +35,7 @@ O Azure Standard Load Balancer dá suporte ao balanceamento de carga entre regi�
 * [Criar uma solução de balanceador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sem curva de aprendizado
 
 > [!IMPORTANT]
-> O balanceador de carga entre regiões está atualmente em visualização e oculto no portal de visualização. Entre no **https://preview.portal.azure.com/?feature.globallb=true** para exibir e implantar o recurso.. </br> </br>
+> Atualmente, o balanceador de carga entre regiões está em versão prévia e oculto na versão prévia do portal. Entre no **https://preview.portal.azure.com** para exibir e implantar o recurso.. </br> </br>
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O balanceamento de carga entre regiões oferece os mesmos benefícios de alto desempenho e baixa latência como balanceador de carga Standard regional. 
@@ -51,7 +51,7 @@ A configuração de IP de front-end do balanceador de carga entre regiões é es
 
 Configure a redundância regional adicionando um endereço IP público de front-end global para os balanceadores de carga existentes. 
 
-Se uma região falhar, o tráfego será roteado para o balanceador de carga regional mais próximo em boas condições.  
+Se uma região falhar, o tráfego será roteado para o balanceador de carga regional íntegro mais próximo.  
 
 A investigação de integridade do balanceador de carga entre regiões coleta informações sobre a disponibilidade a cada 20 segundos. Se um balanceador de carga regional descartar sua disponibilidade para 0, o balanceador de carga entre regiões detectará a falha. O balanceador de carga regional é então retirado da rotação. 
 

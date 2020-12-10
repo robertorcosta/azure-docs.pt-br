@@ -8,15 +8,15 @@ ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: 43ce1c4865b3458ccd9c0ac17589f8ca5d77d92f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922081"
+ms.locfileid: "96937705"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar os resultados do experimento do Machine Learning automatizado
 
@@ -81,7 +81,7 @@ balanced_accuracy|Precisão equilibrada é a média aritmética do recolhimento 
 f1_score|Pontuação F1 é a média harmônica de precisão e recuperação. É uma boa medida equilibrada de falsos positivos e falsos negativos. No entanto, não leva em conta os negativos verdadeiros. <br> <br>**Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [0, 1]<br> <br>Os nomes de métrica com suporte incluem,<li>  `f1_score_macro`: a média aritmética da Pontuação F1 para cada classe. <li> `f1_score_micro`: calculado por meio da contagem do total de positivos verdadeiros, falsos negativos e falsos positivos. <li> `f1_score_weighted`: média ponderada por frequência de classe de Pontuação F1 para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|Essa é a função de perda usada em regressão logística (multinomial) e extensões de ti, como redes neurais, definidas como a probabilidade negativa de log dos rótulos verdadeiros, dadas as previsões de um classificador probabilística. <br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf)|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| A recall de macro normalizado é a chamada de macro-Average e normalizada, para que o desempenho aleatório tenha uma pontuação de 0, e o desempenho perfeito tenha uma pontuação de 1. <br> <br>**Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>em que, `R` é o valor esperado de `recall_score_macro` para previsões aleatórias.<br><br>`R = 0.5`&nbsp;para &nbsp; &nbsp; classificação binária. <br>`R = (1 / C)` para problemas de classificação de classe C.|
-Coeficiente de correlação do Matthews | O coeficiente de correlação Matthews é uma medida equilibrada de precisão, que pode ser usada mesmo que uma classe tenha muito mais amostras do que outra. Um coeficiente de 1 indica previsão perfeita, 0 previsão aleatória e-1 previsão inversa.<br><br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [-1, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+matthews_correlation | O coeficiente de correlação Matthews é uma medida equilibrada de precisão, que pode ser usada mesmo que uma classe tenha muito mais amostras do que outra. Um coeficiente de 1 indica previsão perfeita, 0 previsão aleatória e-1 previsão inversa.<br><br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [-1, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
 precisão|Precisão é a capacidade de um modelo evitar rotular amostras negativas como positivas. <br><br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [0, 1]<br> <br>Os nomes de métrica com suporte incluem, <li> `precision_score_macro`, a média aritmética de precisão para cada classe. <li> `precision_score_micro`, calculado globalmente, contando o total de positivos reais e falsos positivos. <li> `precision_score_weighted`, a média aritmética de precisão para cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
 recall| Recall é a capacidade de um modelo detectar todos os exemplos positivos. <br><br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [0, 1]<br> <br>Os nomes de métrica com suporte incluem, <li>`recall_score_macro`: a média aritmética de recall para cada classe. <li> `recall_score_micro`: calculado globalmente contando o total de positivos verdadeiros, falsos negativos e falsos positivos.<li> `recall_score_weighted`: a média aritmética de recall para cada classe, ponderada pelo número de instâncias true em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|A precisão ponderada é a precisão em que cada amostra é ponderada pelo número total de amostras que pertencem à mesma classe. <br><br>**Objetivo:** Mais próximo de 1 o melhor <br>**Intervalo:** [0, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -182,7 +182,7 @@ Um modelo quase confiante fará com que as probabilidades de previsão sejam pr�
 
 ## <a name="regressionforecasting-metrics"></a>Métricas de regressão/previsão
 
-O ML automatizado calcula as mesmas métricas de desempenho para cada modelo gerado, independentemente de ser um experimento de regressão ou de previsão. Essas métricas também passam por normalização para permitir a comparação entre modelos treinados em dados com intervalos diferentes. Para saber mais, confira [normalização de métrica](#metric-normalization)  
+O ML automatizado calcula as mesmas métricas de desempenho para cada modelo gerado, independentemente de ser um experimento de regressão ou de previsão. Essas métricas também passam por normalização para permitir a comparação entre modelos treinados em dados com intervalos diferentes. Para saber mais, confira [normalização de métrica](#metric-normalization).  
 
 A tabela a seguir resume as métricas de desempenho do modelo geradas para os experimentos de regressão e previsão. Como as métricas de classificação, essas métricas também são baseadas nas implementações de scikit. A documentação apropriada do scikit está vinculada de acordo, no campo **cálculo** .
 

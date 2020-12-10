@@ -3,12 +3,12 @@ title: Proteger suas VMs de solução do Azure VMware com a integração da cent
 description: Saiba como proteger suas VMs de solução do Azure VMware com as ferramentas de segurança nativa do Azure de um único painel na central de segurança do Azure.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 53669f2988a7ff7ab1150b155a65c7a187c6f1c8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369975"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937331"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
 
@@ -32,7 +32,7 @@ Depois que os logs são coletados pelo espaço de trabalho Log Analytics, você 
 
 Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças. No diagrama anterior, a central de segurança do Azure está conectada ao Azure Sentinel usando o conector da central de segurança do Azure. A central de segurança do Azure encaminhará a vulnerabilidade do ambiente para o Azure Sentinel para criar um incidente e mapear com outras ameaças. Você também pode criar a consulta de regras agendadas para detectar atividades indesejadas e convertê-las nos incidentes.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 - Os serviços nativos do Azure podem ser usados para segurança de ambiente híbrido no Azure, solução Azure VMware e serviços locais.
 - Usando um espaço de trabalho Log Analytics, você pode coletar os dados ou os logs para um único ponto e apresentar os mesmos dados a diferentes serviços nativos do Azure.
@@ -76,7 +76,7 @@ O Azure defender estende a proteção avançada contra ameaças da central de se
 4. Na guia **pré-requisitos** , selecione **Avançar**.
 
 5. Na guia **detalhes do recurso** , preencha os seguintes detalhes: 
-    - Subscription
+    - Assinatura
     - Resource group
     - Região 
     - Sistema operacional
@@ -100,7 +100,7 @@ O Azure defender estende a proteção avançada contra ameaças da central de se
 
 3. Selecione o nome do recurso. Uma página é aberta mostrando os detalhes da integridade de segurança do recurso.
 
-4. Na **lista recomendação** , selecione as guias **recomendações** , **avaliações passadas** e **avaliações não disponíveis** para exibir esses detalhes.
+4. Na **lista recomendação**, selecione as guias **recomendações**, **avaliações passadas** e **avaliações não disponíveis** para exibir esses detalhes.
 
     :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Uma captura de tela da central de segurança do Azure mostrando as recomendações e as avaliações de segurança.":::
 
@@ -157,7 +157,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
     - Nome
     - Descrição
     - Táticas
-    - Severity
+    - Severidade
     - Status
 
     Selecione **Avançar: definir >de lógica de regra**.
@@ -173,7 +173,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
         |where count_ > 3
         ```
         
-    - Entidade de mapa
+    - Mapear entidades
     - Agendamento de consulta
     - Limite de alerta
     - Agrupamento de eventos

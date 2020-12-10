@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484882"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936719"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -23,13 +23,11 @@ Todas as solicitações seguras para uma conta de armazenamento do Azure devem s
 Quando você não permite a autorização de chave compartilhada para uma conta de armazenamento, o armazenamento do Azure rejeita todas as solicitações subsequentes para essa conta que são autorizadas com as chaves de acesso da conta. Somente as solicitações seguras autorizadas com o Azure AD terão sucesso. Para obter mais informações sobre como usar o Azure AD, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
-> O armazenamento do Azure dá suporte à autorização do Azure AD para solicitações de armazenamento de BLOBs e de filas. Se você não permitir a autorização com chave compartilhada para uma conta de armazenamento, as solicitações para os arquivos do Azure ou o armazenamento de tabelas que usam a autorização de chave compartilhada falharão.
->
-> Durante a visualização, as solicitações para os arquivos do Azure ou o armazenamento de tabela que usam tokens de SAS (assinatura de acesso compartilhado) que foram gerados usando as chaves de acesso da conta terão sucesso quando a autorização de chave compartilhada não for permitida. Para obter mais informações, consulte [sobre a visualização](#about-the-preview).
->
-> A despermissão de acesso de chave compartilhada para uma conta de armazenamento não afeta as conexões SMB com os arquivos do Azure.
+> O armazenamento do Azure dá suporte à autorização do Azure AD para solicitações de armazenamento de BLOBs e de filas. Se você não permitir a autorização com chave compartilhada para uma conta de armazenamento, as solicitações para os arquivos do Azure ou o armazenamento de tabelas que usam a autorização de chave compartilhada falharão. Como o portal do Azure sempre usa a autorização de chave compartilhada para acessar dados de arquivo e tabela, se você não permitir a autorização com chave compartilhada para a conta de armazenamento, não será possível acessar dados de arquivo ou tabela no portal do Azure.
 >
 > A Microsoft recomenda que você migre todos os arquivos do Azure ou dados de armazenamento de tabela para uma conta de armazenamento separada antes de não permitir o acesso à conta por meio da chave compartilhada ou que você não aplique essa configuração a contas de armazenamento que dão suporte a arquivos do Azure ou cargas de trabalho de armazenamento de tabelas.
+>
+> A despermissão de acesso de chave compartilhada para uma conta de armazenamento não afeta as conexões SMB com os arquivos do Azure.
 
 Este artigo descreve como detectar solicitações enviadas com a autorização de chave compartilhada e como corrigir a autorização de chave compartilhada para sua conta de armazenamento. Para saber como registrar-se para a versão prévia, consulte [sobre a versão prévia](#about-the-preview).
 
@@ -193,15 +191,32 @@ resources
 | project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
+## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Permissões para permitir ou não permitir acesso à chave compartilhada
+
+Para definir a propriedade **AllowSharedKeyAccess** para a conta de armazenamento, um usuário deve ter permissões para criar e gerenciar contas de armazenamento. As funções do Azure RBAC (controle de acesso baseado em função) que fornecem essas permissões incluem a ação **Microsoft. Storage/storageAccounts/Write** ou **Microsoft. Storage \* /storageAccounts/* _. As funções internas com essa ação incluem:
+
+- A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- A função de [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Essas funções não fornecem acesso a dados em uma conta de armazenamento por meio do Azure Active Directory (Azure AD). No entanto, eles incluem o _ * Microsoft. Storage/storageAccounts/listkeys/Action * *, que concede acesso às chaves de acesso da conta. Com essa permissão, um usuário pode usar as chaves de acesso da conta para acessar todos os dados em uma conta de armazenamento.
+
+As atribuições de função devem ser delimitadas ao nível da conta de armazenamento ou superior para permitir que um usuário permita ou proíba o acesso a chaves compartilhadas para a conta de armazenamento. Para obter mais informações sobre o escopo da função, consulte [entender o escopo do RBAC do Azure](../../role-based-access-control/scope-overview.md).
+
+Tenha cuidado para restringir a atribuição dessas funções somente aos que exigem a capacidade de criar uma conta de armazenamento ou atualizar suas propriedades. Use o princípio de privilégios mínimos para garantir que os usuários tenham as menores permissões necessárias para realizar suas tarefas. Para obter mais informações sobre como gerenciar o acesso com o RBAC do Azure, consulte [práticas recomendadas para o RBAC do Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> O administrador de serviço de funções de administrador de assinatura clássica e Co-Administrator incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, de modo que um usuário com uma dessas funções administrativas também pode criar e gerenciar contas de armazenamento. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Entender como a despermissão de chave compartilhada afeta os tokens SAS
 
-Quando a chave compartilhada não é permitida para a conta de armazenamento, o armazenamento do Azure manipula tokens SAS com base no tipo de SAS e no serviço que é alvo da solicitação. A tabela a seguir mostra como cada tipo de SAS é autorizado e como o armazenamento do Azure tratará essa SAS quando a propriedade **AllowSharedKeyAccess** da conta de armazenamento for **falsa**.
+Quando o acesso à chave compartilhada não é permitido para a conta de armazenamento, o armazenamento do Azure manipula tokens SAS com base no tipo de SAS e no serviço que é alvo da solicitação. A tabela a seguir mostra como cada tipo de SAS é autorizado e como o armazenamento do Azure tratará essa SAS quando a propriedade **AllowSharedKeyAccess** da conta de armazenamento for **falsa**.
 
 | Tipo de SAS | Tipo de autorização | Comportamento quando AllowSharedKeyAccess é false |
 |-|-|-|
 | SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
-| SAS do serviço | Chave compartilhada | A solicitação foi negada para o armazenamento de BLOBs. A solicitação é permitida para armazenamento de fila e de tabela e para arquivos do Azure. Para obter mais informações, consulte [solicitações com tokens SAS são permitidas para filas, tabelas e arquivos quando AllowSharedKeyAccess é false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) na seção **sobre a visualização** . |
-| SAS da conta | Chave compartilhada | A solicitação foi negada para o armazenamento de BLOBs. A solicitação é permitida para armazenamento de fila e de tabela e para arquivos do Azure. Para obter mais informações, consulte [solicitações com tokens SAS são permitidas para filas, tabelas e arquivos quando AllowSharedKeyAccess é false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) na seção **sobre a visualização** . |
+| SAS do serviço | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
+| SAS da conta | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 
 Para obter mais informações sobre assinaturas de acesso compartilhado, confira [Conceder acesso limitado a recursos de Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
 
@@ -219,7 +234,7 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 | Azure PowerShell | Com suporte. Para obter informações sobre como autorizar comandos do PowerShell para operações de BLOB ou fila com o Azure AD, consulte [executar comandos do PowerShell com as credenciais do Azure ad para acessar dados de blob](../blobs/authorize-data-operations-powershell.md) ou [executar comandos do PowerShell com as credenciais do Azure ad para acessar os dados da fila](../queues/authorize-data-operations-powershell.md). |
 | CLI do Azure | Com suporte. Para obter informações sobre como autorizar comandos de CLI do Azure com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos de CLI do Azure com as credenciais do Azure ad para acessar dados de BLOB ou fila](../blobs/authorize-data-operations-cli.md). |
 | Hub IoT do Azure | Com suporte. Para obter mais informações, consulte [suporte do Hub IOT para redes virtuais](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do RBAC do Azure. Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 
@@ -240,10 +255,6 @@ As métricas do Azure e o log em Azure Monitor não fazem distinção entre dife
 - Uma SAS de delegação de usuário é autorizada com o Azure AD e será permitida em uma solicitação para o armazenamento de blob quando a propriedade **AllowSharedKeyAccess** for definida como **false**.
 
 Quando você estiver avaliando o tráfego para sua conta de armazenamento, tenha em mente que as métricas e os logs conforme descrito em [detectar o tipo de autorização usado por aplicativos cliente](#detect-the-type-of-authorization-used-by-client-applications) podem incluir solicitações feitas com uma SAS de delegação de usuário. Para obter mais informações sobre como o armazenamento do Azure responde a uma SAS quando a propriedade **AllowSharedKeyAccess** é definida como **false**, consulte [entender como a despermissão de chave compartilhada afeta os tokens SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
-
-### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Solicitações com tokens SAS são permitidas para filas, tabelas e arquivos quando AllowSharedKeyAccess é false
-
-Quando o acesso à chave compartilhada não é permitido para a conta de armazenamento durante a versão prévia, as assinaturas de acesso compartilhado que direcionam os recursos de fila, tabela ou arquivos do Azure continuam a ser permitidas. Essa limitação se aplica a tokens SAS de serviço e a tokens SAS de conta. Ambos os tipos de SAS são autorizados com chave compartilhada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

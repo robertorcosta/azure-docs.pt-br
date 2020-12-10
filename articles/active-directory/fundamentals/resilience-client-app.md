@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317462"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938227"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumentar a resiliência de autenticação e autorização em aplicativos cliente que você desenvolve
 
@@ -30,7 +30,9 @@ O MSAL armazena em cache os tokens e usa um padrão de aquisição de token sile
 
 ![Imagem de dispositivo com e aplicativo usando MSAL para chamar o Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-Ao usar o MSAL, você obtém o cache de token, a atualização e a aquisição de token silenciosa usando o padrão a seguir.
+Ao usar MSAL, o cache de token, a atualização e a aquisição silenciosa têm suporte automaticamente. Você pode usar padrões simples para adquirir os tokens necessários para a autenticação moderna. Damos suporte a várias linguagens e você pode encontrar um exemplo que corresponda ao seu idioma e cenário em nossa página de [exemplos](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) .
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[Javascript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 O MSAL pode, em alguns casos, atualizar tokens proativamente. Quando o Microsoft Identity emite um token de vida longa, ele pode enviar informações ao cliente para o tempo ideal para atualizar o token ("atualizar \_ "). O MSAL atualizará proativamente o token com base nessas informações. O aplicativo continuará a ser executado enquanto o token antigo for válido, mas terá um período de tempo maior durante o qual fazer outra aquisição de token bem-sucedida.
 
@@ -65,7 +89,9 @@ Os desenvolvedores devem ter um processo de atualização para a versão mais re
 
 [Verifique a versão mais recente do Microsoft. Identity. Web e notas de versão](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>Se não estiver usando MSAL, use esses padrões resilientes para manipulação de token
+## <a name="use-resilient-patterns-for-token-handling"></a>Usar padrões resilientes para tratamento de tokens
+
+Se você não estiver usando o MSAL, poderá usar esses padrões resilientes para manipulação de token. Essas práticas recomendadas são implementadas automaticamente pela biblioteca MSAL. 
 
 Em geral, um aplicativo que usa autenticação moderna chamará um ponto de extremidade para recuperar tokens que autenticam o usuário ou autorizam o aplicativo a chamar APIs protegidas. O MSAL destina-se a lidar com os detalhes de autenticação e implementa vários padrões para melhorar a resiliência desse processo. Use as orientações desta seção para implementar as práticas recomendadas se você optar por usar uma biblioteca diferente de MSAL. Se você usar o MSAL, obterá todas essas práticas recomendadas gratuitamente, pois MSAL as implementa automaticamente.
 

@@ -8,22 +8,22 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551406"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938827"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Gerenciar e aumentar cotas para recursos com o Azure alcance
  
 O Azure alcance é um serviço de nuvem para uso por usuários de dados. Você usa o Azure alcance para gerenciar centralmente a governança de dados em todo o seu estado de dados, abrangendo ambientes de nuvem e locais. O serviço permite que os analistas de negócios pesquisem dados relevantes usando termos de negócios significativos. Para aumentar os limites até o máximo para sua assinatura, entre em contato com o suporte.
  
-## <a name="azure-purview-limits"></a>Limites de alcance do Azure
+## <a name="azure-purview-limits"></a>Limites do Azure Purview
  
 |**Recurso**|  **Limite padrão**  |**Limite máximo**|
 |---|---|---|
-|Contas do alcance por locatário (todas as assinaturas combinadas)|3|Contatar o suporte|
+|Contas do alcance por região, por locatário (todas as assinaturas combinadas)|3|Contatar o suporte|
 |vCores disponível para verificação, por conta *|160|160|
 |Verificações simultâneas, por conta, em um determinado ponto. O limite é baseado no tipo de fontes de dados examinadas *|5 | 10 |
 |Tempo máximo durante o qual uma verificação pode ser executada|7 dias|7 dias|

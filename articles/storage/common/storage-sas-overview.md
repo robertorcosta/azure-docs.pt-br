@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498176"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936532"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -77,6 +77,9 @@ Uma assinatura de acesso compartilhado pode ter uma das duas formas a seguir:
 
 Uma assinatura de acesso compartilhado é um URI assinado que aponta para um ou mais recursos de armazenamento. O URI inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acessados pelo cliente. Um dos parâmetros de consulta, a assinatura, é construído a partir dos parâmetros de SAS e assinado com a chave que foi usada para criar a SAS. Esta assinatura é usada pelo armazenamento do Azure para autorizar o acesso ao recurso de armazenamento.
 
+> [!NOTE]
+> Não é possível auditar a geração de tokens SAS. Qualquer usuário que tenha privilégios para gerar um token SAS, seja usando a chave de conta ou por meio de uma atribuição de função RBAC do Azure, pode fazer isso sem o conhecimento do proprietário da conta de armazenamento. Tenha cuidado para restringir as permissões que permitem aos usuários gerar tokens SAS. Para impedir que os usuários gerem uma SAS assinada com a chave de conta para cargas de trabalho de BLOB e fila, você pode não permitir o acesso de chave compartilhada à conta de armazenamento. Para obter mais informações, consulte [impedir autorização com chave compartilhada](shared-key-authorization-prevent.md).
+
 ### <a name="sas-signature-and-authorization"></a>Assinatura e autorização SAS
 
 Você pode assinar um token SAS com uma chave de delegação de usuário ou com uma chave de conta de armazenamento (chave compartilhada). 
@@ -97,7 +100,7 @@ A tabela a seguir resume como cada tipo de token SAS é autorizado.
 
 | Tipo de SAS | Tipo de autorização |
 |-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure |
 | SAS do serviço | Chave compartilhada |
 | SAS da conta | Chave compartilhada |
 

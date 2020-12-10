@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746294"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938504"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Atualizar Load Balancer públicos do Azure
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](./skus.md#skus).
@@ -26,7 +26,7 @@ Há dois estágios em uma atualização:
 
 Há um script de Azure PowerShell disponível que faz o seguinte:
 
-* Cria um Load Balancer de SKU padrão no grupo de recursos e no local que você especificar.
+* Cria um Load Balancer de SKU padrão com o local especificado no mesmo grupo de recursos do Standard Load Balancer básico.
 * Atualiza o endereço IP público do SKU básico para o SKU padrão in-loco.
 * Copia diretamente as configurações do Load Balancer SKU básico para o recém-criado Standard Load Balancer.
 * Cria uma regra de saída padrão que habilita a conectividade de saída.
@@ -48,7 +48,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
     1. Em **configurações**, selecione **configurações**.
    
     1. Em **Atribuição**, selecione **Estático**.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 
@@ -58,7 +58,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
 ## <a name="use-the-script"></a>Usar o script
 
 Há duas opções para você dependendo da configuração e das preferências do ambiente do PowerShell local:
@@ -92,14 +92,13 @@ Para executar o script:
 
    * **oldRgName: [String]: Required** – este é o grupo de recursos para o Load Balancer básico existente que você deseja atualizar. Para localizar esse valor de cadeia de caracteres, navegue até portal do Azure, selecione sua fonte de Load Balancer básica e clique na **visão geral** do balanceador de carga. O grupo de recursos está localizado nessa página.
    * **oldLBName: [String]: Required** – este é o nome do balanceador básico existente que você deseja atualizar. 
-   * **newrgName: [String]: Required** – este é o grupo de recursos no qual o Standard Load Balancer será criado. Pode ser um novo grupo de recursos ou um existente. Se você escolher um grupo de recursos existente, observe que o nome do Load Balancer deve ser exclusivo dentro do grupo de recursos. 
    * **newLBName: [String]: Required** – este é o nome do Standard Load Balancer a ser criado.
 1. Execute o script usando os parâmetros apropriados. Pode levar de cinco a sete minutos para ser concluído.
 
     **Exemplo**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Criar uma regra de saída para conexão de saída

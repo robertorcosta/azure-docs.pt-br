@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905359"
+ms.locfileid: "96938385"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -64,7 +64,7 @@ Você pode gerar as regras de acesso à rede padrão para contas de armazenament
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu configurações chamado **rede**.
 
 1. Para negar o acesso por padrão, opte por permitir o acesso de **Redes selecionadas**. Para permitir o tráfego de todas as redes, opte por permitir o acesso de **Todas as redes**.
 
@@ -148,7 +148,7 @@ Você pode gerenciar as regras da rede virtual para contas de armazenamento atra
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu configurações chamado **rede**.
 
 1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
 
@@ -272,7 +272,7 @@ Você pode gerenciar as regras de rede IP para contas de armazenamento através 
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu configurações chamado **rede**.
 
 1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
 
@@ -415,7 +415,7 @@ Você pode gerenciar as exceções de regra da rede através do portal do Azure,
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu configurações chamado **rede**.
 
 1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
 

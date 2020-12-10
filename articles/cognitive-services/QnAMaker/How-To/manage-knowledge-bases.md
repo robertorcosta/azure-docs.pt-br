@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c7bb79cbd67ba2fb151641ddeeb31b54e399b906
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352330"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938249"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Criar base de dados de conhecimento e gerenciar configurações
 
@@ -46,7 +46,7 @@ QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornec
     |--|--|
     |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
     |**Texto de resposta padrão**| `Quickstart - default answer not found.`|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Adicionar URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Bate-papo**|Selecione **Professional**|
 
 1. Na **Etapa 5**, selecione **Criar sua base de dados**.

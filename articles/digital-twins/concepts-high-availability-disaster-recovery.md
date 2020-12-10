@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763155"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938521"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastre do Azure digital gêmeos
 
@@ -38,6 +38,29 @@ O **failover iniciado pela Microsoft** é exercido pela Microsoft em raras situa
 
 >[!NOTE]
 > Alguns serviços do Azure também fornecem uma opção adicional chamada **failover iniciado pelo cliente**, que permite que os clientes iniciem um failover apenas para sua instância, como para executar uma análise de recuperação de desastre. No momento, esse mecanismo **não tem suporte** do Azure digital gêmeos. 
+
+## <a name="monitor-service-health"></a>Monitorar a integridade do serviço
+
+À medida que as instâncias do Azure digital gêmeos têm failover e são recuperadas, você pode monitorar o processo usando a ferramenta de [integridade do serviço do Azure](https://docs.microsoft.com/azure/service-health/service-health-overview) . A integridade do serviço rastreia a integridade dos seus serviços do Azure em diferentes regiões e assinaturas e compartilha comunicações de impacto de serviço sobre interrupções e tempos de inatividade.
+
+Durante um evento de failover, a integridade do serviço pode fornecer uma indicação de quando o serviço está inoperante e quando ele está em backup.
+
+Para exibir eventos de integridade do serviço...
+1. Navegue até [integridade do serviço](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) na portal do Azure (você pode usar este link ou pesquisá-lo usando a barra de pesquisa do Portal).
+1. Use o menu à esquerda para alternar para a página *histórico de integridade* .
+1. Procure um *nome de problema* começando com o **gêmeos digital do Azure** e selecione-o.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Captura de tela da portal do Azure mostrando a página Histórico de integridade. Há uma lista de vários problemas dos últimos dias e um problema chamado ' Azure digital gêmeos-Europa Ocidental-Mitigated ' é realçado." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+
+1. Para obter informações gerais sobre a interrupção, exiba a guia *Resumo* .
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Na página Histórico de integridade, a guia Resumo é realçada. A guia exibe informações gerais, como o recurso que foi afetado, sua região e sua assinatura." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+1. Para obter mais informações e atualizações sobre o problema ao longo do tempo, exiba a guia *Issue updates* .
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Na página Histórico de integridade, a guia Atualizações de problema é realçada. A guia exibe várias entradas mostrando o status atual de um dia atrás." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+
+
+Observe que as informações exibidas nesta ferramenta não são específicas para uma instância digital do Azure. Depois de usar a integridade do serviço para entender o que está acontecendo com o serviço de gêmeos digital do Azure em uma determinada região ou assinatura, você pode tomar o monitoramento de um passo além usando a [ferramenta Resource Health](troubleshoot-resource-health.md) para fazer uma busca detalhada em instâncias específicas e ver se elas são afetadas.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7bb38b382add2a0ea3506c31c5e6e76a985df6a1
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952073"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936464"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de Registros de aplicativo para Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Na experiência herdada, os aplicativos eram sempre criados como aplicativos vol
 > [!NOTE]
 > Essa opção é necessária para poder executar Azure AD B2C fluxos de usuário para autenticar usuários para este aplicativo. Saiba [como registrar um aplicativo para uso com fluxos de usuário.](tutorial-register-applications.md)
 
-Você também pode usar essa opção para usar Azure AD B2C como um provedor de serviços SAML. [Saiba mais](identity-provider-adfs2016-custom.md).
+Você também pode usar essa opção para usar Azure AD B2C como um provedor de serviços SAML. [Saiba mais](identity-provider-adfs.md).
 
 ## <a name="applications-for-devops-scenarios"></a>Aplicativos para cenários de DevOps
 Você pode usar os outros tipos de conta para criar um aplicativo para gerenciar seus cenários de DevOps, como usar Microsoft Graph para carregar políticas de estrutura de experiência de identidade ou provisionar usuários. Saiba [como registrar um aplicativo Microsoft Graph para gerenciar Azure ad B2C recursos](microsoft-graph-get-started.md).
@@ -116,5 +116,5 @@ Para começar a usar a nova experiência de registro de aplicativo:
 * Saiba [como registrar uma API da Web](add-web-api-application.md).
 * Saiba [como registrar um aplicativo cliente nativo](add-native-application.md).
 * Saiba [como registrar um aplicativo Microsoft Graph para gerenciar Azure ad B2C recursos](microsoft-graph-get-started.md).
-* Saiba [como usar Azure ad B2C como um provedor de serviços SAML.](identity-provider-adfs2016-custom.md)
+* Saiba [como usar Azure ad B2C como um provedor de serviços SAML.](identity-provider-adfs.md)
 * Saiba mais sobre os [tipos de aplicativos](application-types.md).

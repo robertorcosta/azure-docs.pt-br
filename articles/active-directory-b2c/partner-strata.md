@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171408"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936685"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para estender Azure AD B2C para proteger aplicativos locais usando o Strata
 
@@ -83,7 +83,7 @@ Para obter o software que você usará para integrar seu aplicativo local herdad
 
    c. Adicione um URI de redirecionamento para seu aplicativo. Esse URI corresponderá ao `oauthRedirectURL` parâmetro da configuração do conector de Azure ad B2C do seu orquestrador, por exemplo, `https://example.com/oidc-endpoint` .
 
-2. **Criar um fluxo de usuário**: Crie um [entrada e um fluxo de usuário de entrada](./tutorial-create-user-flows.md).
+2. **Criar um fluxo de usuário**: criar um [fluxo de usuário de inscrição e entrada](./tutorial-create-user-flows.md).
 
 3. **Adicionar um IDP**: opte por conectar seu usuário com uma conta local ou um [IDP](./tutorial-add-identity-providers.md)empresarial ou social.
 
