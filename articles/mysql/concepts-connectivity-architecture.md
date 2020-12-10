@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b23ff9762ef519d66ed55f75f27dcb80e2d18039
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242867"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007238"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -50,7 +50,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Centro da Índia | 104.211.96.159     |
 | Sul da Índia | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Japan East | 13.78.61.196, 191.237.240.43  |
+| Japan East | 13.78.61.196, 191.237.240.43, 40.79.192.23 |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Coreia Central | 52.231.32.42   |
 | Sul da Coreia | 52.231.200.86    |
@@ -72,7 +72,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 
 ## <a name="connection-redirection"></a>Redirecionamento de conexão
 
-O banco de dados do Azure para MySQL dá suporte a uma política de conexão adicional, **redirecionamento** , que ajuda a reduzir a latência de rede entre aplicativos cliente e servidores MySQL. Com esse recurso, depois que a sessão TCP inicial é estabelecida com o banco de dados do Azure para o servidor MySQL, o servidor retorna o endereço de back-end do nó que hospeda o servidor MySQL para o cliente. Depois disso, todos os pacotes subsequentes fluem diretamente para o servidor, ignorando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a taxa de transferência têm desempenho aprimorado.
+O banco de dados do Azure para MySQL dá suporte a uma política de conexão adicional, **redirecionamento**, que ajuda a reduzir a latência de rede entre aplicativos cliente e servidores MySQL. Com esse recurso, depois que a sessão TCP inicial é estabelecida com o banco de dados do Azure para o servidor MySQL, o servidor retorna o endereço de back-end do nó que hospeda o servidor MySQL para o cliente. Depois disso, todos os pacotes subsequentes fluem diretamente para o servidor, ignorando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a taxa de transferência têm desempenho aprimorado.
 
 Esse recurso tem suporte no banco de dados do Azure para servidores MySQL com versões do mecanismo 5,6, 5,7 e 8,0.
 

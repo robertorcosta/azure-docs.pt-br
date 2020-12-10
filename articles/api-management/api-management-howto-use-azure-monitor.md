@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183185"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779236"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutorial: Monitorar APIs publicadas
 
@@ -27,10 +27,12 @@ Neste tutorial, você aprenderá como:
 > * Exibir logs de atividade
 > * Habilitar e ver logs de recursos
 
+Use também a [análise](howto-use-analytics.md) interna do API Management para monitorar o uso e o desempenho das suas APIs.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]

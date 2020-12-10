@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548504"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008360"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -67,7 +67,7 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de VMs do Azure:
 
 **Computador** | **O que é armazenado em backup** | **Localidade** | **Recursos**
 --- | --- | --- | ---
-**Backup de VM do Azure usando a extensão de VM** | Toda a VM | Fazer backup para o cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com arquivo para VMs do Linux. Configure a consistência com aplicativo para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou disco.<br/><br/> Não é possível fazer backup de uma VM do Azure em uma localização local.
+**Backup de VM do Azure usando a extensão de VM** | Toda a VM | Fazer backup para o cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com arquivo para VMs do Linux. Configure a consistência com aplicativo para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou disco.<br/><br/>Há suporte para [backup e restauração de Active Directory controladores de domínio](active-directory-backup-restore.md) .<br><br> Não é possível fazer backup de uma VM do Azure em uma localização local.
 **Backup de VM do Azure usando o agente MARS** | Arquivos, pastas, estado do sistema | Fazer backup para o cofre. | Backup três vezes por dia.<br/><br/> O agente MARS poderá ser executado juntamente com a extensão de VM se você quiser fazer backup de arquivos/pastas específicos em vez de toda a VM.
 **VM do Azure com o DPM** | Arquivos, pastas, volumes, estado do sistema e dados de aplicativo | Fazer backup em armazenamento local da VM do Azure que está executando o DPM. Em seguida, o DPM faz backup no cofre. | Instantâneos com reconhecimento de aplicativo.<br/><br/> Granularidade completa de backup e recuperação.<br/><br/> Com suporte do Linux para VMs (Hyper-V/VMware).<br/><br/> Sem suporte para o Oracle.
 **VM do Azure com o MABS** | Arquivos, pastas, volumes, estado do sistema e dados de aplicativo | Fazer backup em armazenamento local da VM do Azure que está executando o MABS. Em seguida, o MABS faz backup no cofre. | Instantâneos com reconhecimento de aplicativo.<br/><br/> Granularidade completa de backup e recuperação.<br/><br/> Com suporte do Linux para VMs (Hyper-V/VMware).<br/><br/> Sem suporte para o Oracle.

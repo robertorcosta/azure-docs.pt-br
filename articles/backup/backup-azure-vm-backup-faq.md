@@ -1,15 +1,14 @@
 ---
 title: Perguntas frequentes-fazendo backup de VMs do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como fazer backup de VMs do Azure com o serviço de backup do Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324781"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008343"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -163,11 +162,20 @@ Operações como segredo/chave de sobreposição não exigem essa etapa e o mesm
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso acessar a VM uma vez restaurada devido a uma VM que está tendo uma relação quebrada com o controlador de domínio?
 
-Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, confira este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
+Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, consulte este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps).
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>Posso cancelar um trabalho de restauração em andamento?
+Não, você não pode cancelar o trabalho de restauração em andamento.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que a operação de restauração está demorando muito para ser concluída?
 
 O tempo total de restauração depende das operações de entrada/saída por segundo (IOPS) e da taxa de transferência da conta de armazenamento. O tempo total de restauração poderá ser afetado se a conta de armazenamento de destino for carregada com outras operações de leitura e gravação de aplicativo. Para melhorar a operação de restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados de aplicativo.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>Como podemos lidar com "criar nova máquina virtual" – conflitos de tipo de restauração com políticas de governança?
+
+O backup do Azure usa discos de "anexo" de pontos de recuperação e não examina suas referências de imagem ou galerias. Portanto, na política, você pode verificar "storageProfile. osDisk. createoption como Attach", e a condição do script será:
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 

@@ -7,28 +7,8 @@
       href: Overview.md
 - name: Inícios rápidos
   items:
-    - name: Como usar a biblioteca de clientes
+    - name: Como usar a biblioteca de clientes ou a API REST
       href: Quickstarts/client-libraries.md
-    - name: Usando a API REST
-      items:
-        - name: Detectar faces em uma imagem
-          items:
-            - name: C#
-              href: QuickStarts/CSharp.md
-            - name: Go
-              href: QuickStarts/go.md
-            - name: Java
-              href: QuickStarts/Java.md
-            - name: JavaScript
-              href: QuickStarts/JavaScript.md
-            - name: Node.js
-              href: QuickStarts/node.md
-            - name: PHP
-              href: QuickStarts/PHP.md
-            - name: Python
-              href: QuickStarts/Python.md
-            - name: Ruby
-              href: QuickStarts/Ruby.md
 - name: Tutoriais
   items:
     - name: Usando o SDK do cliente

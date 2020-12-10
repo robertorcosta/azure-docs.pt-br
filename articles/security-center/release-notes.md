@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbd208cea64a3b2dc22f7603f654127e5b46294
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511756"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751862"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -37,6 +37,7 @@ As atualizações de dezembro incluem:
 
 - [O Azure Defender para SQL Servers em computadores está em disponibilidade geral](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [O suporte do Azure Defender para SQL para o pool de SQL dedicado do Azure Synapse Analytics está em disponibilidade geral](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Resource Manager (em versão prévia)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>O Azure Defender para SQL Servers em computadores está em disponibilidade geral
 
@@ -68,6 +69,24 @@ O Azure Defender para SQL protege os seus pools de SQL dedicados com:
 O suporte do Azure Defender para SQL para os pools de SQL do Azure Synapse Analytics é adicionado automaticamente ao pacote de bancos de dados SQL do Azure na Central de Segurança do Azure. Uma nova guia "Azure Defender para SQL" será encontrada na sua página do workspace do Azure Synapse no portal do Azure.
 
 Saiba mais sobre o [Azure Defender para SQL](defender-for-sql-introduction.md).
+
+
+### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Resource Manager (em versão prévia)
+
+Adicionamos duas novas funcionalidades de proteção contra ameaças com abrangência nativa de nuvem para seu ambiente do Azure.
+
+Essas novas proteções aprimoram muito sua resiliência contra ataques de atores de ameaças e aumentam significativamente o número de recursos do Azure protegidos pelo Azure Defender.
+
+- **Azure Defender para Resource Manager**: monitora automaticamente todas as operações de gerenciamento de recursos executadas na sua organização. Para obter mais informações, consulte:
+    - [Introdução ao Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Responder aos alertas do Azure Defender para Resource Manager](defender-for-resource-manager-usage.md)
+    - [Lista de alertas fornecidos pelo Azure Defender para Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender para DNS**: monitora continuamente todas as consultas DNS dos seus recursos do Azure. Para obter mais informações, consulte:
+    - [Introdução ao Azure Defender para DNS](defender-for-dns-introduction.md)
+    - [Responder aos alertas do Azure Defender para DNS](defender-for-dns-usage.md)
+    - [Lista de alertas fornecidos pelo Azure Defender para DNS](alerts-reference.md#alerts-dns)
+
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -124,7 +143,7 @@ Para obter mais informações sobre esse padrão de conformidade, confira [NIST 
 
 Agora você pode filtrar a lista de recomendações de segurança com base em uma gama de critérios. No seguinte exemplo, a lista de recomendações foi filtrada para mostrar recomendações que:
 
-- estão **em disponibilidade geral** (ou seja, não estão em versão prévia)
+- estão em **disponibilidade geral** (ou seja, não em versão prévia)
 - são voltadas para **contas de armazenamento**
 - têm suporte para **correção rápida**
 
@@ -226,7 +245,7 @@ Saiba mais sobre [Firewall do Azure](https://azure.microsoft.com/services/azure-
 
 A recomendação **Os intervalos de IP autorizados devem ser definidos nos Serviços de Kubernetes** agora tem uma opção de correção rápida.
 
-Para obter mais detalhes sobre essa recomendação e sobre todas as outras recomendações da Central de Segurança, confira [Recomendações de segurança – um guia de referência](recommendations-reference.md).
+Para obter mais informações sobre essa recomendação e todas as outras recomendações da Central de Segurança, confira [Recomendações de segurança – um guia de referência](recommendations-reference.md).
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="Recomendação Os intervalos de IP autorizados devem ser definidos nos Serviços de Kubernetes com a opção de correção rápida":::
 

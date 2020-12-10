@@ -346,6 +346,8 @@
           href: monitor-logic-apps.md
         - name: Monitorar aplicativos lógicos com os logs do Azure Monitor
           href: monitor-logic-apps-log-analytics.md
+        - name: Monitorar aplicativos lógicos na Central de Segurança do Azure
+          href: healthy-unhealthy-resource.md
         - name: Monitorar mensagens B2B com os logs do Azure Monitor
           href: monitor-b2b-messages-log-analytics.md
         - name: Criar consultas de monitoramento e acompanhamento

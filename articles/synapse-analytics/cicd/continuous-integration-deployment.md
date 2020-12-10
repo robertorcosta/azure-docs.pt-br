@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317105"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008071"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração e entrega contínuas para o espaço de trabalho Synapse do Azure
 
@@ -107,7 +107,13 @@ Use a extensão de [implantação do espaço de trabalho Synapse](https://market
 
      ![Adicionar extensão](media/add-extension-task.png)
 
-1.  Na tarefa, forneça as informações de repositório git relacionadas de **workspace_publish** e selecione grupo de recursos, região, nome e ambiente de nuvem para o espaço de trabalho de destino. Forneça parâmetros e valores, se necessário.
+1.  Na tarefa, selecione **...** ao lado da caixa **modelo** para escolher o arquivo de modelo.
+
+1. Selecione **...** ao lado da caixa **Parâmetros do modelo** para escolher o arquivo de parâmetros.
+
+1. Selecione a conexão, o grupo de recursos e o nome do espaço de trabalho de destino. 
+
+1. Selecione **...** ao lado da caixa **Substituir parâmetros de modelo** e insira os valores de parâmetro desejados para o espaço de trabalho de destino. 
 
     ![Implantação do espaço de trabalho Synapse](media/create-release-artifacts-deployment.png)
 

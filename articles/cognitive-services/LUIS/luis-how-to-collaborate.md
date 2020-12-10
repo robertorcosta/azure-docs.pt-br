@@ -8,23 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/08/2020
+ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018898"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007952"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicionar colaboradores ao seu aplicativo
 
-Um proprietário de aplicativo pode adicionar colaboradores a aplicativos. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+Um proprietário de aplicativo pode adicionar colaboradores a aplicativos. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo. Depois de [migrar](luis-migration-authoring.md) sua conta, os _colaboradores_ são gerenciados no portal do Azure para o recurso de criação, usando a página de **controle de acesso (iam)** . Adicione um usuário, usando o endereço de email da colaboração e a função de _colaborador_ .
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Adicionar colaborador ao recurso de criação do Azure
-
-O procedimento a seguir é para todos os usuários que **migraram** para usar o recurso de criação do Azure.
 
 Você migrou se sua experiência de criação do LUIS está vinculada a um recurso de criação na página **gerenciar recursos do Azure->** no portal do Luis.
 
@@ -41,26 +37,15 @@ Você migrou se sua experiência de criação do LUIS está vinculada a um recur
 
     Se você tiver problemas com essa atribuição de função, examine as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) e [solução de problemas do controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Adicionar colaborador ao aplicativo LUIS
+## <a name="view-the-app-as-a-contributor"></a>Exibir o aplicativo como um colaborador
 
-O procedimento a seguir é para todos os usuários que **não migraram** para usar o recurso de criação do Azure.
+Depois que você tiver sido adicionado como um colaborador, [entre no portal do Luis](sign-in-luis-portal.md).
 
-Você não migrou se sua experiência de criação do LUIS não estiver vinculada a um recurso de criação na página **gerenciar recursos do Azure->** no portal do Luis.
-
-Um aplicativo tem um único autor, mas pode ter vários colaboradores. Para permitir que os colaboradores editem o aplicativo LUIS, você deve adicionar o email que eles usam para acessar o portal do LUIS à lista de colaboradores. Depois que eles são adicionados, o aplicativo aparece no portal do LUIS deles.
-
-1. Selecione **Gerenciar** no menu superior direito e selecione **Colaboradores** no menu esquerdo.
-
-1. Selecione **Adicionar Colaborador** na barra de ferramentas.
-
-1. Insira o endereço de email que o colaborador usa para entrar no portal do LUIS.
-
-    ![Adicionar o endereço de email do colaborado](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>Usuários com vários emails
 
-Se você adicionar colaboradores/colaboradores a um aplicativo LUIS, você estará especificando o endereço de email exato. Embora Azure Active Directory (Azure AD) permita que um único usuário tenha mais de uma conta de email usada de forma intercambiável, o LUIS exige que o usuário entre com o endereço de email especificado ao adicionar o colaborador/colaborador.
+Se você adicionar colaboradores a um aplicativo LUIS, você estará especificando o endereço de email exato. Embora Azure Active Directory (Azure AD) permita que um único usuário tenha mais de uma conta de email usada de forma intercambiável, o LUIS exige que o usuário entre com o endereço de email especificado ao adicionar o colaborador.
 
 <a name="owner-and-collaborators"></a>
 

@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 76d82695f0f43638e840589c52d6713ae36c1608
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: ae587b9501c9c68600ff880744d311ba966923ed
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607799"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008020"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no Serviço de Aplicativo usando as GitHub Actions
 
@@ -56,7 +56,7 @@ Um perfil de publicação é uma credencial no nível do aplicativo. Configure s
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/service-principal)
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \

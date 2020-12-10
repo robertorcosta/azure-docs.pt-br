@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b3c172584c42e1ed1d7ca94b6cd51bedd4e49dae
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997879"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862285"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Ruby e Postgres no Serviço de Aplicativo do Azure no Linux
 
@@ -34,10 +34,11 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/)
-* [Instale o Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
-* [Instalar o Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Instale e execute o PostgreSQL](https://www.postgresql.org/download/)
+- [Instalar o Git](https://git-scm.com/)
+- [Instale o Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Instalar o Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [Instalar e executar o PostgreSQL](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>Preparar o Postgres local
 
@@ -103,8 +104,6 @@ Navegue até `http://localhost:3000` em um navegador. Adicione algumas tarefas �
 ![O Ruby on Rails se conecta com êxito ao Postgres](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 Para parar o servidor Ruby on Rails, digite `Ctrl + C` no terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-postgres-in-azure"></a>Criar Postgres no Azure
 
@@ -292,7 +291,7 @@ git remote add azure <paste-copied-url-here>
 Envie por push para o Azure remoto para implantar o Ruby no aplicativo Rails. Você deverá inserir a senha fornecida anteriormente como parte da criação do usuário de implantação.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Durante a implantação, o Serviço de Aplicativo do Azure comunica seu andamento com o Git.
@@ -303,7 +302,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -422,7 +421,7 @@ Confirme todas as alterações no Git e, em seguida, envie as alterações de c�
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Quando `git push` for concluído, navegue até o aplicativo do Azure e teste a nova funcionalidade.

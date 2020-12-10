@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621494"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007578"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache do Azure para Redis com o link privado do Azure (visualização pública)
 Neste artigo, você aprenderá a criar uma rede virtual e um cache do Azure para a instância Redis com um ponto de extremidade privado usando o portal do Azure. Você também aprenderá a adicionar um ponto de extremidade privado a um cache do Azure existente para a instância do Redis.
@@ -58,7 +58,7 @@ Nesta seção, você criará um novo cache do Azure para a instância Redis com 
 
 8. No painel **Editar sub-rede** , especifique um **nome de sub-rede** , bem como o **intervalo de endereços de sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Ele deve estar contido no espaço de endereço da rede virtual.
 
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
 10. Selecione a guia **revisar + criar** ou clique no botão **revisar + criar** .
 
@@ -157,7 +157,7 @@ Para criar uma rede virtual, siga estas etapas.
 
 8. No painel **Editar sub-rede** , especifique um **nome de sub-rede** , bem como o **intervalo de endereços de sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Ele deve estar contido no espaço de endereço da rede virtual.
 
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
 10. Selecione a guia **revisar + criar** ou clique no botão **revisar + criar** .
 
@@ -224,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Os NSG (grupos de segurança de rede) estão habilitados para pontos de extremidade privados?
-Não, eles estão desabilitados para pontos de extremidade privados. No entanto, se houver outros recursos na sub-rede, a imposição de NSG será aplicada a esses recursos.
+Não, eles estão desabilitados para pontos de extremidade privados. Embora as sub-redes que contenham o ponto de extremidade privado possam ter o NSG associado a ela, as regras não entrarão em vigor no tráfego processado pelo ponto de extremidade privado. Você deve [desabilitar a imposição de políticas de rede](../private-link/disable-private-endpoint-network-policy.md) para implantar pontos de extremidade privados em uma sub-rede. O NSG ainda é aplicado em outras cargas de trabalho hospedadas na mesma sub-rede. As rotas em qualquer sub-rede de cliente usarão um prefixo/32, a alteração do comportamento de roteamento padrão requer um UDR semelhante. 
+
+Controle o tráfego usando as regras de NSG para o tráfego de saída nos clientes de origem. Implante rotas individuais com o prefixo /32 para substituir as rotas de ponto de extremidade privado. Os logs de fluxo e as informações de monitoramento do NSG para conexões de saída ainda são compatíveis e podem ser usados
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Posso usar regras de firewall com pontos de extremidade privados?
+Não, essa é uma limitação atual de pontos de extremidade privados. O ponto de extremidade privado não funcionará corretamente se as regras de firewall estiverem configuradas no cache.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>Como posso me conectar a um cache clusterizado?
 `publicNetworkAccess` precisa ser definido como `Disabled` e só pode haver uma conexão de ponto de extremidade privada.

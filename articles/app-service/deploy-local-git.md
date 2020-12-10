@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 5ed3e858168ce5ad9a7f089b723bb75ca8a49fca
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558667"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007510"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do git local no serviço Azure App
 
@@ -45,7 +45,7 @@ A maneira mais fácil de habilitar a implantação do git local para seu aplicat
 
 ### <a name="get-the-deployment-url"></a>Obter a URL de implantação
 
-Para obter a URL para habilitar a implantação do git local para um aplicativo existente, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) na Cloud Shell. Substitua \<app-name> e \<group-name> pelos nomes de seu aplicativo e seu grupo de recursos do Azure.
+Para obter a URL para habilitar a implantação do git local para um aplicativo existente, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) na Cloud Shell. Substitua \<app-name> e \<group-name> pelos nomes de seu aplicativo e seu grupo de recursos do Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,7 +54,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Se você estiver usando um plano de serviço de aplicativo do Linux, precisará adicionar este parâmetro:--Python de tempo de execução | 3.7
 
 
-Ou, para criar um novo aplicativo habilitado para git, execute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) no Cloud shell com o `--deployment-local-git` parâmetro. Substitua \<app-name> , \<group-name> e \<plan-name> pelos nomes de seu novo aplicativo git, seu grupo de recursos do Azure e seu Azure app plano de serviço.
+Ou, para criar um novo aplicativo habilitado para git, execute [`az webapp create`](/cli/azure/webapp#az-webapp-create) no Cloud shell com o `--deployment-local-git` parâmetro. Substitua \<app-name> , \<group-name> e \<plan-name> pelos nomes de seu novo aplicativo git, seu grupo de recursos do Azure e seu Azure app plano de serviço.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
@@ -157,6 +157,6 @@ Você poderá ver as seguintes mensagens de erro comuns ao usar o Git para publi
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [Documentação do projeto Kudu](https://github.com/projectkudu/kudu/wiki)
-- [Implantação contínua no serviço Azure App](deploy-continuous-deployment.md)
+- [Implantação contínua no Serviço de Aplicativo do Azure](deploy-continuous-deployment.md)
 - [Exemplo: criar um aplicativo Web e implantar o código de um repositório git local (CLI do Azure)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [Exemplo: criar um aplicativo Web e implantar o código de um repositório git local (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

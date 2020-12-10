@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/02/2019
-ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540999"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007731"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 
@@ -50,7 +50,7 @@ Os usuários do LUIS têm controle total para exibir os dados no portal, no enta
 
 ## <a name="location-of-active-learning"></a>Local do aprendizado ativo
 
-Para habilitar o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#enable-active-learning), os declarações registrados em log dos usuários, recebidos nos pontos de extremidade Luis publicados, são armazenados nas seguintes regiões geográficas do Azure:
+Para habilitar o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), os declarações registrados em log dos usuários, recebidos nos pontos de extremidade Luis publicados, são armazenados nas seguintes regiões geográficas do Azure:
 
 * [Europa](#europe)
 * [Austrália](#australia)
@@ -64,7 +64,7 @@ O portal [eu.Luis.ai](https://eu.luis.ai) e a criação da Europa (também conhe
 
 * Europa
 * França
-* United Kingdom
+* Reino Unido
 
 Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Europa do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 

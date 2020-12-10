@@ -5,22 +5,22 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339584"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007884"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
 O Host Dedicado do Azure é um serviço que fornece servidores físicos - que podem hospedar uma ou mais máquinas virtuais - dedicados a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, uma zona de disponibilidade e em um domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
 
-## <a name="benefits"></a>Benefícios 
+## <a name="benefits"></a>Vantagens 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
@@ -67,11 +67,6 @@ O modelo de exemplo do Resource Manager encontrado [aqui](https://github.com/Azu
 
 ## <a name="manual-vs-automatic-placement"></a>Posicionamento manual versus automático 
 
-> [!IMPORTANT]
-> O posicionamento automático está atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Ao criar uma VM no Azure, você pode selecionar qual host dedicado usar. Você também pode usar a opção para posicionar automaticamente suas VMs em hosts existentes em um grupo de hosts. 
 
 Ao criar um novo grupo de hosts, verifique se a configuração de posicionamento automático de VM está selecionada. Ao criar sua VM, selecione o grupo de hosts e permita que o Azure escolha o melhor host para sua VM. 
@@ -91,11 +86,6 @@ Problemas conhecidos e limitações ao usar o posicionamento automático da VM:
 
 Os conjuntos de dimensionamento de máquinas virtuais permitem que você trate um grupo de máquinas virtuais como um único recurso e aplique políticas de disponibilidade, gerenciamento, dimensionamento e orquestração como um grupo. Seus hosts dedicados existentes também podem ser usados para conjuntos de dimensionamento de máquinas virtuais. 
 
-> [!IMPORTANT]
-> Os conjuntos de dimensionamento de máquinas virtuais em hosts dedicados estão atualmente em visualização pública.
-> Para participar da versão prévia, conclua a pesquisa de integração de visualização em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Ao criar um conjunto de dimensionamento de máquinas virtuais, você pode especificar um grupo de hosts existente para ter todas as instâncias de VM criadas em hosts dedicados.
 
 Os seguintes requisitos se aplicam ao criar um conjunto de dimensionamento de máquinas virtuais em um grupo de hosts dedicado:
@@ -109,7 +99,7 @@ Os seguintes requisitos se aplicam ao criar um conjunto de dimensionamento de m�
 - Os tamanhos de VM com suporte para seus hosts dedicados devem corresponder ao usado para seu conjunto de dimensionamento.
 
 Nem todas as configurações de orquestração e otimizações de conjunto de escala são suportadas por hosts dedicados. Aplique as seguintes configurações ao seu conjunto de dimensionamento: 
-- Desabilitar o provisionamento em excesso.
+- O provisionamento em excesso não é recomendado e está desabilitado por padrão. Você pode habilitar o provisionamento em excesso, mas a alocação do conjunto de dimensionamento falhará se o grupo de hosts não tiver capacidade para todas as VMs, incluindo as instâncias de provisionamento excessivo. 
 - Usar o modo de orquestração ScaleSetVM 
 - Não usar grupos de posicionamento de proximidade para colocalização
 

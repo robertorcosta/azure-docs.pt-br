@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685997"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008292"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -46,10 +46,10 @@ As métricas a seguir para a Sincronização de Arquivos do Azure estão dispon�
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (upload e download).<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recall da camada de nuvem | Tamanho dos dados em recall.<br><br>**Observação**: essa métrica será removida no futuro. Use a métrica de tamanho de recuperação de camadas de nuvem para monitorar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor |
-| Tamanho de recall da camada de nuvem | Tamanho dos dados em recall.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor, nome do grupo de sincronização |
-| Tamanho de recall da camada de nuvem por aplicativo | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do aplicativo, nome do servidor, nome do grupo de sincronização |
-| Taxa de transferência de recall da camada de nuvem | Tamanho da taxa de transferência de recall de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor, nome do grupo de sincronização |
-| Arquivos não sincronizando | Contagem de arquivos que estão falhando em sincronizar.<br><br>Unidade: Contagem<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
+| Tamanho de recall da camada de nuvem | Tamanho dos dados em recall.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do servidor, nome do grupo de sincronização |
+| Tamanho de recall da camada de nuvem por aplicativo | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do aplicativo, nome do servidor, nome do grupo de sincronização |
+| Taxa de transferência de recall da camada de nuvem | Tamanho da taxa de transferência de recall de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do servidor, nome do grupo de sincronização |
+| Arquivos não sincronizando | Contagem de arquivos que estão falhando em sincronizar.<br><br>Unidade: Contagem<br>Tipos de agregação: média, soma<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Arquivos sincronizados | Contagem dos arquivos transferidos (upload e download).<br><br>Unidade: Contagem<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Status online do servidor | Contagem de pulsações recebidas do servidor.<br><br>Unidade: Contagem<br>Tipo de agregação: Máximo<br>Dimensão aplicável: nome do servidor |
 | Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = sessão de sincronização bem-sucedida; 0 = sessão de sincronização com falha)<br><br>Unidade: Contagem<br>Tipos de agregação: máximo<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |

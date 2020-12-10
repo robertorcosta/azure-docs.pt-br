@@ -7,15 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/16/2020
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479911"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007409"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
@@ -26,7 +25,7 @@ ms.locfileid: "92479911"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Listar atribuições de função para um usuário ou grupo
 
-A maneira mais fácil de ver as funções atribuídas a um usuário ou grupo em uma assinatura é usar o painel **atribuições de função do Azure** .
+Uma maneira rápida de ver as funções atribuídas a um usuário ou grupo em uma assinatura é usar o painel **atribuições de função do Azure** .
 
 1. No portal do Azure, selecione **todos os serviços** no menu portal do Azure.
 
@@ -56,7 +55,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Role até a seção **proprietários** para ver todos os usuários aos quais foi atribuída a função de proprietário para esta assinatura.
 
-   ![Controle de acesso à assinatura – guia atribuições de função](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Controle de acesso à assinatura – guia atribuições de função](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Listar atribuições de função em um escopo
 
@@ -68,7 +67,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
-   ![Controle de acesso – guia de atribuições de função](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![Controle de acesso – guia de atribuições de função](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
 
    Na guia Atribuições de função, você pode ver quem tem acesso nesse escopo. Observe que algumas funções são definidas para **Este recurso** enquanto outras são **(Herdadas)** de outro escopo. O acesso é atribuído especificamente a esse recurso ou herdado de uma atribuição ao escopo pai.
 
@@ -84,19 +83,23 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 1. Clique na guia **Verificar acesso**.
 
-    ![Controle de acesso - verificar a guia de acesso](./media/role-assignments-list-portal/access-control-check-access.png)
+    ![Controle de acesso do grupo de recursos – guia acesso de verificação](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
-1. Na lista **Localizar**, selecione o tipo de entidade de segurança para a qual você deseja verificar o acesso.
+1. Na lista **Localizar** , selecione o usuário, grupo, entidade de serviço ou identidade gerenciada para a qual você deseja verificar o acesso.
 
 1. Na caixa de pesquisa, insira uma cadeia de caracteres para pesquisar no diretório nomes de exibição, endereços de e-mail ou identificadores de objetos.
 
-    ![Verifique a lista de seleção de acesso](./media/role-assignments-list-portal/check-access-select.png)
+    ![Verifique a lista de seleção de acesso](./media/shared/rg-check-access-select.png)
 
 1. Clique na entidade de segurança para abrir o painel **atribuições**.
 
-    ![painel atribuições](./media/role-assignments-list-portal/check-access-assignments.png)
+    Nesse painel, você pode ver o acesso para a entidade de segurança selecionada nesse escopo e herdado para esse escopo. As atribuições em escopos filho não estão listadas. Você verá as seguintes atribuições:
 
-    Nesse painel, você pode ver as funções atribuídas à entidade de segurança selecionada e o escopo. Se houver alguma atribuição de negação nesse escopo ou herdada para esse escopo, ela será listada.
+    - Atribuições de função adicionadas com o RBAC do Azure.
+    - Atribuições de negação adicionadas usando plantas do Azure ou aplicativos gerenciados do Azure.
+    - Atribuições de administrador de serviço clássico ou Co-Administrator para implantações clássicas. 
+
+    ![painel atribuições](./media/shared/rg-check-access-assignments-user.png)
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada
 

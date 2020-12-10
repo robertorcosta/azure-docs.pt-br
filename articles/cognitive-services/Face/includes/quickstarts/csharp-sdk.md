@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70235001ad28901abd3c47872a6a241422e6f916
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999309"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763633"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -261,7 +261,7 @@ Defina o método de exclusão com o seguinte código:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você aprendeu a usar a biblioteca de clientes de Detecção Facial para .NET para realizar as tarefas de reconhecimento facial de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
+Neste guia de início rápido, você aprendeu a usar a biblioteca de clientes de Detecção Facial para .NET a fim de realizar tarefas básicas de reconhecimento do rosto. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
 > [!div class="nextstepaction"]
 > [Referência da API de Detecção Facial (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

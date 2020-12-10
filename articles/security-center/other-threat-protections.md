@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: d03416f390abb8656ac1aed81419864443122ce6
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122423"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754327"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções contra ameaças adicionais na Central de Segurança do Azure
 Assim como as [proteções internas do Azure Defender](azure-defender.md), a Central de Segurança do Azure também oferece as funcionalidades de proteção contra ameaças a seguir.
@@ -41,7 +41,7 @@ A camada de proteção da Central de Segurança baseada no Azure Resource Manage
 
 A Central de Segurança oferece uma camada adicional de proteção usando eventos do Azure Resource Manager, que é considerado o plano de controle do Azure. Ao analisar os registros de Azure Resource Manager, a Central de Segurança detecta operações comuns ou potencialmente prejudiciais no ambiente de assinatura do Azure.
 
-Para obter uma lista dos alertas do Azure Resource Manager (versão prévia), confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azureresourceman).
+Para obter uma lista dos alertas do Azure Defender para Resource Manager, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]
@@ -89,7 +89,7 @@ Ataques distribuídos de negação de serviço (DDoS) são conhecidos por serem 
 
 Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo fique indisponível para usuários legítimos. Os ataques de DDoS podem ter como alvo qualquer ponto de extremidade que possa ser acessado pela Internet.
 
-Para se defender contra ataques de DDoS, compre uma licença para a Proteção contra DDoS do Azure e certifique-se de seguir as práticas recomendadas de design de aplicativo. A Proteção contra DDoS fornece diferentes camadas de serviço. Para saber mais, confira [Visão geral da Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md).
+Para se defender contra ataques de DDoS, compre uma licença para a Proteção contra DDoS do Azure e certifique-se de seguir as práticas recomendadas de design de aplicativo. A Proteção contra DDoS fornece diferentes camadas de serviço. Para saber mais, confira [Visão geral da Proteção contra DDoS do Azure](../ddos-protection/ddos-protection-overview.md).
 
 Para obter uma lista dos alertas da Proteção contra DDoS do Azure, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azureddos).
 

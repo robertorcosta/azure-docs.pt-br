@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8bf3959651048a7a568df1d94aa07aa206663d50
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436752"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750978"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -39,6 +39,8 @@ Quando você habilita o Azure Defender na área **Preços e configurações** da
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender para DNS](defender-for-dns-introduction.md)
 
 Cada um desses planos é explicado separadamente na documentação da Central de Segurança.
 
@@ -61,9 +63,9 @@ Para estender a proteção para máquinas virtuais e bancos de dados SQL em outr
 
 
 
-## <a name="security-alerts"></a>Alertas de segurança 
+## <a name="azure-defender-security-alerts"></a>Alertas de segurança do Azure Defender 
 
-Quando o Azure Defender detecta uma ameaça em qualquer área do seu ambiente, ela gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
+Quando o Azure Defender detecta uma ameaça em qualquer área do seu ambiente, ele gera um alerta de segurança. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
 
 Seja um alerta for gerado pela Central de Segurança ou recebido pela Central de Segurança de um produto de segurança integrada, você pode exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Transmitir alertas para uma solução de Gerenciamento de Serviço de TI, SOAR ou SIEM](export-to-siem.md).
 
