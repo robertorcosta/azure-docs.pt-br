@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: caad292f06710fca8d6f64476eead5dfcb164e9d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f99aedc21c3b51975649f8944ab53536d365a7d1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96537057"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096338"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
@@ -34,7 +34,9 @@ Os drivers NVIDIA Tesla (CUDA) para as VMs NC, NCv2, NCv3, NCasT4_v3, ND e NDv2 
 
 A Microsoft redistribui os instaladores de driver de grade NVIDIA para VMs de série NVv3 e NV usadas como estações de trabalho virtuais ou para aplicativos virtuais. Instale somente esses drivers de grade nas VMs da série NV do Azure, somente nos sistemas operacionais listados na tabela a seguir. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure. Você não precisa configurar um servidor de licença de software de vGPU NVIDIA.
 
-Os drivers de grade redistribuídos pelo Azure não funcionam em VMs da série não NV, como as VMs NC, NCv2, NCv3, ND e série NDv2. A única exceção é a série de VM NCas_T4_V3, em que os drivers de grade habilitarão as funcionalidades de gráficos semelhantes à série NV.
+Os drivers de grade redistribuídos pelo Azure não funcionam em VMs da série não NV, como as VMs NCv2, NCv3, ND e NDv2-Series. A única exceção é a série de VM NCas_T4_V3, em que os drivers de grade habilitarão as funcionalidades de gráficos semelhantes à série NV.
+
+O NC-Series com GPUs NVIDIA K80 não oferece suporte a aplicativos de grade/gráficos.  
 
 Observe que a extensão NVIDIA sempre instalará o driver mais recente. Fornecemos links para a versão anterior aqui para os clientes que têm dependência em uma versão mais antiga.
 

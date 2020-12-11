@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701442"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094855"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -33,8 +33,6 @@ Há dois tipos de listas de controle de acesso (ACLs), **ACLs de Acesso** e **AC
 
 
 As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
-
-
 
 > [!NOTE]
 > Alterar a ACL Padrão em um pai não afeta o a ACL de Acesso ou a ACL Padrão de itens filhos já existentes.
@@ -74,7 +72,7 @@ A seguir estão alguns cenários comuns para ajudá-lo a compreender quais permi
 | Operação | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Ler      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Excluir    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Criar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
@@ -301,6 +299,6 @@ Não, mas ACLs padrão pode ser usado para definir as ACLs de arquivos filho e r
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)

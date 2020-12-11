@@ -944,8 +944,6 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Submeter um disco a benchmark
               href: disks-benchmarks.md
-            - name: Otimizando o desempenho
-              href: optimization.md
         - name: Localizar discos desconectados – CLI
           href: find-unattached-disks.md
         - name: Localizar discos desconectados – Portal

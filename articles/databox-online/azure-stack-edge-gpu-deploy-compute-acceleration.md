@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 0aaad18ba5bf98ca2ad53bd86605dfc6cce3e52c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cf70b24dae70ad2e64f3443e4c4d959d46fb4ea4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465947"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095025"
 ---
 # <a name="use-compute-acceleration-on-azure-stack-edge-pro-gpu-for-kubernetes-deployment"></a>Usar a aceleração de computação na Azure Stack GPU pro Edge para implantação do kubernetes
 
@@ -28,8 +28,8 @@ A aceleração de computação é um termo usado especificamente para dispositiv
 
 O artigo abordará a aceleração de computação somente usando GPU ou VPU para os seguintes dispositivos:
 
-- **Azure Stack GPU pro Edge** -esses dispositivos podem ter 1 ou 2 NVIDIA T4 tensor Core GPU. Para obter mais informações, consulte [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
-- **Azure Stack Edge pro R** -esses dispositivos têm 1 GPU NVIDIA T4 tensor Core. Para obter mais informações, consulte [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
+- **Azure Stack GPU pro Edge** -esses dispositivos podem ter 1 ou 2 NVIDIA T4 tensor Core GPU. Para obter mais informações, consulte [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack Edge pro R** -esses dispositivos têm 1 GPU NVIDIA T4 tensor Core. Para obter mais informações, consulte [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 - **Azure Stack o Microsoft Edge mini R** -esses dispositivos têm 1 Intel Movidius infinidade X VPU. Para obter mais informações, consulte [Intel Movidius infinidade X VPU](https://www.movidius.com/MyriadX).
 
 

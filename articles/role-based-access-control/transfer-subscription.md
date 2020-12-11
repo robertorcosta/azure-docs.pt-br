@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648235"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095416"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -53,7 +53,12 @@ A seguir, algumas razões pelas quais você pode querer transferir uma assinatur
 - Uma parte de sua empresa foi dividida em uma empresa separada e você precisa mover alguns dos seus recursos para um diretório diferente do Azure AD.
 - Você deseja gerenciar alguns de seus recursos em um diretório diferente do Azure AD para fins de isolamento de segurança.
 
-A transferência de uma assinatura requer tempo de inatividade para concluir o processo. Dependendo do seu cenário, pode ser melhor recriar os recursos e copiar os dados para o diretório de destino e a assinatura.
+### <a name="alternate-approaches"></a>Abordagens alternativas
+
+A transferência de uma assinatura requer tempo de inatividade para concluir o processo. Dependendo do seu cenário, você pode considerar as seguintes abordagens alternativas:
+
+- Recrie os recursos e copie os dados para o diretório de destino e a assinatura.
+- Adote uma arquitetura de vários diretórios e deixe a assinatura no diretório de origem. Use o Azure Lighthouse para delegar recursos para que os usuários no diretório de destino possam acessar a assinatura no diretório de origem. Para obter mais informações, consulte [Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md).
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Entender o impacto da transferência de uma assinatura
 
@@ -383,3 +388,4 @@ Se sua intenção é remover o acesso de usuários no diretório de origem para 
 - [Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transferir assinaturas do Azure entre assinantes e CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md)

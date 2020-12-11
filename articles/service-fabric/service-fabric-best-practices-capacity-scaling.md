@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531297"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095280"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 
@@ -50,21 +50,11 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 > [!NOTE]
 > O tipo de nó primário que hospeda os serviços de sistema Service Fabric com estado deve ser um nível de durabilidade Silver ou superior. Depois de habilitar a durabilidade prateada, as operações de cluster, como atualizações, adição ou remoção de nós e assim por diante, serão mais lentas porque o sistema otimiza a segurança de dados em uma velocidade de operações.
 
-O dimensionamento vertical de um conjunto de dimensionamento de máquinas virtuais é uma operação destrutiva. Em vez disso, dimensione horizontalmente o cluster adicionando um novo conjunto de dimensionamento com o SKU desejado. Em seguida, migre seus serviços para a SKU desejada para concluir uma operação de dimensionamento vertical segura. A alteração de um SKU de recurso do conjunto de dimensionamento de máquinas virtuais é uma operação destrutiva porque recria a imagem de seus hosts, o que remove todos os Estados persistentes localmente.
+O dimensionamento vertical de um conjunto de dimensionamento de máquinas virtuais simplesmente alterando seu SKU de recursos é uma operação destrutiva, pois ele recria a imagem de seus hosts, removendo todos os Estados persistentes localmente. Em vez disso, você desejará dimensionar horizontalmente o cluster adicionando um novo conjunto de dimensionamento com o SKU desejado e, em seguida, migrar seus serviços para o novo conjunto de dimensionamento para concluir uma operação de dimensionamento vertical segura.
 
-O cluster usa [as propriedades do nó Service Fabric e as restrições de posicionamento](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) para decidir onde hospedar os serviços do aplicativo. Quando você estiver dimensionando verticalmente seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"` . Você pode encontrar esses valores na extensão de Service Fabric para conjuntos de dimensionamento de máquinas virtuais. 
-
-O trecho a seguir de um modelo do Resource Manager mostra as propriedades que você irá declarar. Ele tem o mesmo valor para os conjuntos de dimensionamento recém provisionados para os quais você está Dimensionando e tem suporte apenas como um serviço com estado temporário para o cluster.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+O cluster usa [as propriedades do nó Service Fabric e as restrições de posicionamento](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) para decidir onde hospedar os serviços do aplicativo. Ao dimensionar verticalmente um tipo de nó primário, você implantará um segundo tipo de nó primário e, em seguida, definirá ( `"isPrimary": false` ) no tipo de nó primário original e continuará a desabilitar seus nós e removerá seu conjunto de dimensionamento e seus recursos relacionados. Para obter detalhes, consulte [escalar verticalmente um tipo de nó primário de cluster Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!NOTE]
-> Não deixe o cluster em execução com vários conjuntos de dimensionamento que usam o mesmo `nodeTypeRef` valor de propriedade mais longo do que o necessário para concluir uma operação de dimensionamento vertical bem-sucedida.
->
 > Sempre valide as operações em ambientes de teste antes de tentar as alterações no ambiente de produção. Por padrão, Service Fabric serviços do sistema de cluster têm uma restrição de posicionamento apenas para o tipo de nó primário de destino.
 
 Com as propriedades de nó e as restrições de posicionamento declaradas, siga estas etapas uma instância de VM por vez. Isso permite que os serviços do sistema (e seus serviços com estado) sejam desligados normalmente na instância de VM que você está removendo à medida que novas réplicas são criadas em outro lugar.

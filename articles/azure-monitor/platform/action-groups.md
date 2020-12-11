@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fd773ade0173fc1c238a5ce44e864e1255ed9044
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920647"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095161"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
@@ -251,8 +251,46 @@ Confira as [informações de limitação de taxa](./alerts-rate-limiting.md) e o
 
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-**Lista de países em que há suporte para** 
-| notificação de SMS **Código**  |  do país **Nome do país** | | 61 | Austrália | | 43 | Áustria | | 32 | Bélgica | | 55 | Brasil | | 1 | Canadá | | 56 | Chile | | 86 | China | | 420 | República Tcheca | | 45 | Dinamarca | | 372 | Estônia | | 358 | Finlândia | | 33 | França | | 49 | Alemanha | | 852 | Hong Kong | | 91 | Índia | | 353 | Irlanda | | 972 | Israel | | 39 | Itália | | 81 | Japão | | 352 | Luxemburgo | | 60 | Malásia | | 52 | México | | 31 | Países Baixos | | 64 | Nova Zelândia | | 47 | Noruega | | 351 | Portugal | | 1 | Porto Rico | | 40 | Romênia | | 65 | Cingapura | | 27 | África do Sul | | 82 | Coreia do Sul | | 34 | Espanha | | 41 | Suíça | | 886 | Taiwan | | 44 |  Reino Unido | | 1 | Estados Unidos |
+**Lista de países em que há suporte para notificação de SMS**
+
+| Código do país | Nome do país |
+|:---|:---|
+| 61 | Austrália |
+| 43 | Áustria |
+| 32 | Bélgica |
+| 55 | Brasil |
+| 1 |Canadá |
+| 56 | Chile |
+| 86 | China |
+| 420 | República Tcheca |
+| 45 | Dinamarca |
+| 372 | Estônia |
+| 358 | Finlândia |
+| 33 | França |
+| 49 | Alemanha |
+| 852 | RAE de Hong Kong |
+| 91 | Índia |
+| 353 | Irlanda |
+| 972 | Israel |
+| 39 | Itália |
+| 81 | Japão |
+| 352 | Luxemburgo |
+| 60 | Malásia |
+| 52 | México |
+| 31 | Países Baixos |
+| 64 | Nova Zelândia |
+| 47 | Noruega |
+| 351 | Portugal |
+| 1 | Porto Rico |
+| 40 | Romênia |
+| 65 | Singapura |
+| 27 | África do Sul |
+| 82 | Coreia do Sul |
+| 34 | Espanha |
+| 41 | Suíça |
+| 886 | Taiwan |
+| 44 | Reino Unido |
+| 1 | Estados Unidos |
 
 ### <a name="voice"></a>Voz
 Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limiting.md) para comportamento adicional importante.
