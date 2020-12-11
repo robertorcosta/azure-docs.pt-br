@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: Usar remessa autogerenciada
               href: data-box-portal-customer-managed-shipping.md
+            - name: Trazer seus certificados
+              href: data-box-bring-your-own-certificates.md
             - name: Habilitar chave gerenciada pelo cliente
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Usar o Sistema de Proteção de Dados do Cliente

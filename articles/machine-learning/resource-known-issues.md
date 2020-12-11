@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: e383ac260a67c7334b806612325ed0b6a9fbbef9
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030970"
+ms.locfileid: "97094430"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -358,7 +358,14 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
- 
+
+* **Falha na implantação**: para versões <= 1.18.0 do SDK, a imagem base criada para implantação pode falhar com o seguinte erro: "ImportError: não é possível importar o nome `cached_property` de `werkzeug` ". 
+
+  As etapas a seguir podem contornar o problema:
+  1. Baixar o pacote de modelo
+  2. Descompactar o pacote
+  3. Implantar usando os ativos não-zipados
+
 * A **previsão da Pontuação do R2 é sempre zero**: esse problema ocorre se os dados de treinamento fornecidos tiverem uma série temporal que contém o mesmo valor para os últimos `n_cv_splits`  +  `forecasting_horizon` pontos de dados. Se esse padrão for esperado em sua série temporal, você poderá alternar a métrica primária para um erro de quadrado médio de raiz normalizado.
  
 * **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 

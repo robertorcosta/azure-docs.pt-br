@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a96d49a029eb83e24c1fb86954406693aa9c33a3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456294"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093954"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Práticas recomendadas para carregar dados usando pools de SQL dedicados no Azure Synapse Analytics
 
@@ -71,6 +71,9 @@ Conecte-se ao pool do SQL dedicado e crie um usuário. O código a seguir pressu
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>Este é um exemplo extremo de alocar 100% de recursos do pool do SQL para uma única carga. Isso dará a você uma simultaneidade máxima de 1. Lembre-se de que isso deve ser usado apenas para a carga inicial em que você precisará criar grupos de carga de trabalho adicionais com suas próprias configurações para balanace recursos em suas cargas de trabalho. 
 
 Para executar uma carga com recursos para o grupo de carga de trabalho de carregamento, entre como carregador e execute a carga.
 
