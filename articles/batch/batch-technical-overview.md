@@ -1,14 +1,14 @@
 ---
 title: O Lote do Azure executa grandes trabalhos paralelos na nuvem
 description: Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: a88c5a2577456e188beb83d13ae0e5667b31180c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 93dcf19b3b6af0f369fe19b7823bf43d597a9c21
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87447126"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106641"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 

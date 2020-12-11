@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994053"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108545"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar o arkose Labs com o Azure Active Directory B2C
 
@@ -138,7 +138,7 @@ Baixe o Git bash e siga as etapas abaixo:
 
 5. Carregue o index.htmarquivo l no armazenamento de BLOBs criado acima.
 
-6. Vá para **Storage**  >  carregamento do **contêiner** de armazenamento  >  **Upload**.
+6. Vá para   >  carregamento do **contêiner** de armazenamento  >  .
 
 #### <a name="set-up-azure-ad-b2c"></a>Configurar Azure AD B2C
 
@@ -147,7 +147,7 @@ Baixe o Git bash e siga as etapas abaixo:
 
 1. Crie um fluxo de usuário com base nas informações [aqui](tutorial-create-user-flows.md). Pare quando chegar à seção **testar o fluxo do usuário**.
 
-2. Habilite o JavaScript em seu [fluxo de usuário](user-flow-javascript-overview.md).
+2. Habilite o JavaScript em seu [fluxo de usuário](javascript-and-page-layout.md).
 
 3. Na mesma página fluxo de usuário, habilitar URL de página personalizada: ir para **fluxo de usuário**  >  **layout de página**  >  **usar conteúdo de página personalizada**  =  **Sim**  >  **Inserir URL de página personalizada**.
 Essa URL de página personalizada é obtida do local do index.htmarquivo l dentro do armazenamento de BLOBs  

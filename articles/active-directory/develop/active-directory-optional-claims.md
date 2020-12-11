@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3fd91bb86b32a958344dc366cfcd142bff369c1f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433308"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108137"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -139,7 +139,7 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 1. Selecione **Adicionar**.
 
 > [!NOTE]
-> A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C no momento. Para aplicativos registrados em um locatário B2C, as declarações opcionais podem ser configuradas modificando o manifesto do aplicativo. Para obter mais informações [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
+> A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C no momento. Para aplicativos registrados em um locatário B2C, as declarações opcionais podem ser configuradas modificando o manifesto do aplicativo. Para obter mais informações [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configurando declarações opcionais por meio do manifesto do aplicativo:**
 

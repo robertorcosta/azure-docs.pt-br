@@ -3,12 +3,12 @@ title: Perfil do usuário e ID para uso com Azure Notebooks versão prévia
 description: Como criar e gerenciar seu perfil de usuário e a ID de usuário com Azure Notebooks, que se torna parte da URL de blocos de anotações compartilhados.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d70365fcc0c72df01b4dc059b6e0f4cc607bba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831345"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109497"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Seu perfil e ID de usuário para Azure Notebooks versão prévia
 
@@ -18,7 +18,7 @@ No espaço de colaboração avançado do Azure Notebooks, o perfil do usuário a
 
 [![Uma página de perfil de Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
-A ID de usuário faz parte das URLs que você usa para compartilhar projetos e notebooks. A lista a seguir descreve os diferentes padrões de URL:
+Sua ID de usuário faz parte das URLs que você usa para compartilhar projetos e notebooks. A lista a seguir descreve os diferentes padrões de URL:
 
 - `https://notebooks.azure.com/<user_id>`: Sua página de perfil.
 - `https://notebooks.azure.com/<user_id>/projects`: Seus projetos. Você vê todos os projetos, mas os outros usuários veem apenas seus projetos públicos.
@@ -54,11 +54,11 @@ Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua 
 | Foto de perfil | Uma imagem que é mostrada na sua página de perfil. |
 | Informações da conta | Seu nome de exibição, ID de usuário e conta de email pública. Aqui, a conta de email fornece aos outros usuários uma maneira de como contatá-lo e essa conta pode ser diferente da [conta](azure-notebooks-user-account.md) que você usa para entrar no Azure Notebooks. |
 | Informações do perfil | Sua localização, empresa, cargo, site e uma breve descrição sobre você. |
-| Perfis sociais | As IDs do Facebook, Twitter e GItHub, se você quiser compartilhá-las. |
+| Perfis sociais | Suas IDs do GitHub, do Twitter e do Facebook, se você quiser compartilhá-las. |
 | Configurações de Privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir minha conta**: exclui permanentemente todas as suas informações pessoais armazenadas no Azure notebooks.</li></ul> |
 | Ativar Recursos do Site | Permite controlar aspectos do comportamento do Azure Notebooks:<ul><li>**Front-end unificado para notebooks**: permite inicialização mais rápida do notebook e melhor persistência.</li><li>**Executar no JupyterLab por padrão**: por padrão, o Azure notebooks fornece uma interface de usuário simples que é adequada para a maioria dos usuários. O JupyterLab fornece uma interface mais avançada, porém mais complexa para usuários experientes.</li><li>**Site VNext**: permite o layout da Web modernizado mostrado nesta documentação.</li></ul> |
 
 ## <a name="next-steps"></a>Próximas etapas  
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Início rápido: exportar um projeto de Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

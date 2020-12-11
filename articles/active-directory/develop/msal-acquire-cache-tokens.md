@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628128"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107831"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
 
@@ -122,6 +122,8 @@ Quando o cliente solicita um token de acesso, o AD do Azure também retorna um r
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver usando o MSAL para Java, saiba mais sobre a [serialização de cache de token personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
-
-Saiba mais sobre o [tratamento de erros e exceções](msal-handling-exceptions.md).
+Várias das plataformas com suporte do MSAL têm informações adicionais relacionadas ao cache de token na documentação da biblioteca dessa plataforma. Por exemplo:
+- [Obter um token do cache de token usando MSAL.NET](msal-net-acquire-token-silently.md)
+- [Logon único com o MSAL.js](msal-js-sso.md)
+- [Serialização de cache de token personalizada em MSAL para Python](msal-python-token-cache-serialization.md)
+- [Serialização de cache de token personalizada em MSAL para Java](msal-java-token-cache-serialization.md)

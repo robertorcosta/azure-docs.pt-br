@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 405a7bc3b653ca7bca026d3318763a4922244e88
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353877"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093699"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configurar o iPass SmartConnect para provisionamento automático de usuário
 
@@ -82,7 +82,7 @@ Para configurar o iPass SmartConnect para o provisionamento automático de usuá
 Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no iPass SmartConnect com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
->  Você também pode optar por habilitar o logon único baseado em SAML para o BitaBIZ seguindo as instruções fornecidas no [tutorial de logon único do iPass SmartConnect](ipasssmartconnect-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
+>  Você também pode optar por habilitar o logon único baseado em SAML para o iPass SmartConnect seguindo as instruções fornecidas no [tutorial de logon único do iPass SmartConnect](ipasssmartconnect-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o iPass SmartConnect no Azure AD:
 

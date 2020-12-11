@@ -3,12 +3,12 @@ title: Considerações de armazenamento do Azure Functions
 description: Saiba mais sobre os requisitos de armazenamento do Azure Functions e sobre a criptografia de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318174"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107236"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento do Azure Functions
 
@@ -27,15 +27,19 @@ O Azure Functions requer uma conta de armazenamento do Azure quando você cria u
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que oferece suporte ao armazenamento de Tabelas, Blobs e Filas. Isso ocorre porque o Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não oferecem suporte a filas e tabelas. Essas contas incluem contas de armazenamento somente de blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS. Essas contas incompatíveis são filtradas na folha Conta de Armazenamento durante a criação de um aplicativo de funções.
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que oferece suporte ao armazenamento de Tabelas, Blobs e Filas. Isso ocorre porque o Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não oferecem suporte a filas e tabelas. Essas contas incluem contas de armazenamento somente de blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS.
 
 Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos serviços de Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
-Embora seja possível usar uma conta de armazenamento existente com o aplicativo de funções, verifique se ela atende a esses requisitos. As contas de armazenamento criadas como parte do fluxo de criação do aplicativo de funções têm a garantia de atender a esses requisitos de conta de armazenamento.  
+Embora seja possível usar uma conta de armazenamento existente com o aplicativo de funções, verifique se ela atende a esses requisitos. As contas de armazenamento criadas como parte do fluxo de criação do aplicativo de funções no portal do Azure têm a garantia de atender a esses requisitos de conta de armazenamento. No portal, as contas sem suporte são filtradas ao escolher uma conta de armazenamento existente durante a criação de um aplicativo de funções. Nesse fluxo, você só tem permissão para escolher contas de armazenamento existentes na mesma região que o aplicativo de funções que está criando. Para saber mais, consulte [local da conta de armazenamento](#storage-account-location).
 
 ## <a name="storage-account-guidance"></a>Orientações sobre a Conta de armazenamento
 
 Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, o aplicativo de funções não será executado. Para solucionar problemas relacionados ao armazenamento, consulte [Como solucionar problemas relacionados ao armazenamento](functions-recover-storage-account.md). As considerações adicionais a seguir se aplicam à Conta de armazenamento usada pelos aplicativos de funções.
+
+### <a name="storage-account-location"></a>Local da conta de armazenamento
+
+Para obter o melhor desempenho, seu aplicativo de funções deve usar uma conta de armazenamento na mesma região, o que reduz a latência. O portal do Azure impõe essa prática recomendada. Se, por algum motivo, você precisar usar uma conta de armazenamento em uma região diferente de seu aplicativo de funções, deverá criar seu aplicativo de funções fora do Portal. 
 
 ### <a name="storage-account-connection-setting"></a>Configuração da conta de armazenamento
 

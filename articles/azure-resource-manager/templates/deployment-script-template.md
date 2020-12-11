@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7566235cf92965d5d3de1ec7f40353430ec7e0c6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092747"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107134"
 ---
 # <a name="use-deployment-scripts-in-arm-templates-preview"></a>Usar scripts de implantação em modelos ARM (versão prévia)
 
@@ -536,7 +536,7 @@ O ciclo de vida desses recursos é controlado pelas seguintes propriedades no mo
 > [!NOTE]
 > Não é recomendável usar a conta de armazenamento e a instância de contêiner que são geradas pelo serviço de script para outras finalidades. Os dois recursos podem ser removidos, dependendo do ciclo de vida do script.
 
-Para manter a instância de contêiner e a conta de armazenamento para solução de problemas, você pode adicionar um comando de suspensão ao script.  Por exemplo, use [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+A instância de contêiner e a conta de armazenamento são excluídas de acordo com o **cleanupPreference**. No entanto, se o script falhar e **cleanupPreference** não estiver definido como **Always**, o processo de implantação manterá automaticamente o contêiner em execução por uma hora. Você pode usar essa hora para solucionar o problema do script. Se você quiser manter o contêiner em execução após implantações bem-sucedidas, adicione uma etapa de suspensão ao seu script. Por exemplo, adicione [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ao final do seu script. Se você não adicionar a etapa de suspensão, o contêiner será definido como um estado de terminal e não poderá ser acessado mesmo que ainda não tenha sido excluído.
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 

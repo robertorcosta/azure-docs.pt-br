@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0bbe40a2329143b9abd4554ec715c64e5c26d4eb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028097"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108494"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
 
@@ -46,16 +46,17 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 - Os campos nome de usuário/email e senha agora usam o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) salvem corretamente essas informações.
 - Foi adicionado um atraso de validação de entrada de usuário configurável para melhorar a experiência do usuário.
+-  Correções de acessibilidade
 - Corrigido um problema de acessibilidade para que as mensagens de erro agora sejam lidas pelo Narrator. 
 - O foco agora é colocado no campo de senha depois que o email é verificado.
 - Removido `autofocus` do controle de caixa de seleção. 
-- Adicionado suporte para um widget de exibição para verificação de número de telefone.
-- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
+- Adicionado suporte para um controle de exibição para a verificação do número de telefone.
+- Agora você pode adicionar o `data-preload="true"` atributo [nas marcas HTML] (Custom-UI-with-HTML. MD # Guidelines-for
   - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
   - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
 - O campo de email é agora `type=email` e teclados móveis fornecerão as sugestões corretas.
 - Suporte para tradução do Chrome.
-- Suporte adicionado para identidade visual do locatário em páginas de fluxo do usuário.
+- Suporte adicionado para identidade visual da empresa em páginas de fluxo do usuário.
 
 **1.1.0**
 
@@ -87,8 +88,8 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 **1.2.0**
 
 - Os campos nome de usuário/email e senha agora usam o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) salvem corretamente essas informações.
-- Correções de acessibilidade.
-- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
+-  Correções de acessibilidade
+- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
   - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
   - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
 - O campo de email é agora `type=email` e teclados móveis fornecerão as sugestões corretas.
@@ -118,7 +119,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 **1.2.0**
 
 -  Correções de acessibilidade
-- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
+- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
   - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
   - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
 - O campo de email agora `type=email` e teclados móveis fornecerão as sugestões corretas
@@ -144,7 +145,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 **1.2.0**
 
 -  Correções de acessibilidade
-- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
+- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
   - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
   - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
 - O campo de email agora `type=email` e teclados móveis fornecerão as sugestões corretas
@@ -165,7 +166,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 **1.2.0**
 
 -  Correções de acessibilidade
-- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
+- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
   - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
   - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
 - O campo de email agora `type=email` e teclados móveis fornecerão as sugestões corretas
@@ -177,4 +178,4 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter detalhes sobre como personalizar a interface do usuário de seus aplicativos em políticas personalizadas, consulte [Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](custom-policy-ui-customization.md).
+Para obter detalhes sobre como personalizar a interface do usuário de seus aplicativos em políticas personalizadas, consulte [Personalizar a interface do usuário do seu aplicativo usando uma política personalizada](customize-ui-with-html.md).

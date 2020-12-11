@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015323"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107423"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: atualmente uso as `https://graph.windows.net/<tenant-name>/reports/` APIs de ponto de extremidade para efetuar pull de relatórios de segurança do Azure AD (tipos específicos de detecções, como credenciais vazadas ou entradas de endereços IP anônimos) em nossos sistemas de relatórios programaticamente. O que devo mudar?**
 
-**R:** Você pode usar a [API de detecções de risco da proteção de identidade](../identity-protection/howto-identity-protection-graph-api.md)   para acessar as detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que é o padrão da Microsoft para tais APIs como Microsoft 365 ou o Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
+**R:** Você pode usar a [API de detecções de risco da proteção de identidade](../identity-protection/howto-identity-protection-graph-api.md) para acessar as detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que é o padrão da Microsoft para tais APIs como Microsoft 365 ou o Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
 
 ---
 
@@ -49,7 +49,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Em quanto tempo deverei ver dados de atividades depois de obter uma licença premium?**
 
-**R:** Se você já tiver dados de atividades como uma licença gratuita, poderá vê-los imediatamente. Se você não tiver dados, levará um ou dois dias para os dados serem exibidos nos relatórios.
+**R:** Se você já tiver dados de atividades como uma licença gratuita, poderá vê-los imediatamente. Se você não tiver dados, levará até três dias para que os dados sejam exibidos nos relatórios.
 
 ---
 
@@ -61,7 +61,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Eu preciso ser um administrador global para ver as entradas da atividade no portal do Azure ou obter dados por meio da API?**
 
-**R:** Não, você também poderá acessar os dados do relatório por meio do portal ou por meio da API se for um **Leitor de Segurança** ou **Administrador de Segurança** do locatário. É claro que os ** Administradores Globais** também terão acesso a esses dados.
+**R:** Não, você também poderá acessar os dados do relatório por meio do portal ou por meio da API se for um **Leitor de Segurança** ou **Administrador de Segurança** do locatário. É claro que os **Administradores Globais** também terão acesso a esses dados.
 
 ---
 
@@ -99,7 +99,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="risky-sign-ins"></a>Entradas de risco
+## <a name="risky-sign-ins"></a>Entradas suspeitas
 
 **P: há uma detecção de risco na proteção de identidade, mas não estou vendo a entrada correspondente no relatório de entradas. Isso é esperado?**
 

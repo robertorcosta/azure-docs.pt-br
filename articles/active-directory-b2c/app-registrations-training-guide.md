@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7bb38b382add2a0ea3506c31c5e6e76a985df6a1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936464"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109089"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de Registros de aplicativo para Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Na nova experiência, em vez de **chaves**, você usa a folha **certificados & s
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Recursos não aplicáveis em locatários Azure AD B2C
 Os seguintes recursos de registro de aplicativo do Azure AD não são aplicáveis ou estão disponíveis em locatários Azure AD B2C:
 - **Funções e administradores** – não disponíveis no momento para Azure ad B2C.
-- **Identidade visual** – a personalização da interface do usuário/UX é configurada na experiência de **identidade visual da empresa** ou como parte de um fluxo de usuário. Saiba como [Personalizar a interface do usuário no Azure Active Directory B2C](customize-ui-overview.md).
+- **Identidade visual** – a personalização da interface do usuário/UX é configurada na experiência de **identidade visual da empresa** ou como parte de um fluxo de usuário. Saiba como [Personalizar a interface do usuário no Azure Active Directory B2C](customize-ui-with-html.md).
 - **Verificação de domínio do Publicador** -seu aplicativo está registrado em *. onmicrosoft.com*, que não é um domínio verificado. Além disso, o domínio do Publicador é usado principalmente para conceder o consentimento do usuário, que não se aplica a aplicativos Azure AD B2C para autenticação de usuário. [Saiba mais sobre o domínio do Publicador](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Configuração de token** -o token é configurado como parte de um fluxo de usuário em vez de um aplicativo.
 - A experiência de **guias de início rápido** não está disponível atualmente para locatários Azure ad B2C.

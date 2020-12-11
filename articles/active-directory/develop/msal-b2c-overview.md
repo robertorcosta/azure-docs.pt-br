@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673504"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107865"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Usar a biblioteca de autenticação da Microsoft para JavaScript para trabalhar com Azure AD B2C
 
@@ -169,7 +169,7 @@ As etapas a seguir pressupõem que você já seguiu as etapas na seção [Spa do
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Etapa 2: detectar e tratar erros de autenticação no seu método de logon
 
-Quando um usuário seleciona a **senha esquecida** , seu aplicativo gera um erro que você deve capturar em seu código e, em seguida, manipular apresentando o fluxo de usuário apropriado. Nesse caso, o `b2c_1_reset` fluxo de redefinição de senha.
+Quando um usuário seleciona a **senha esquecida**, seu aplicativo gera um erro que você deve capturar em seu código e, em seguida, manipular apresentando o fluxo de usuário apropriado. Nesse caso, o `b2c_1_reset` fluxo de redefinição de senha.
 
 1. Estenda o método de entrada da seguinte maneira:
 
@@ -207,9 +207,9 @@ Quando um usuário seleciona a **senha esquecida** , seu aplicativo gera um erro
 
     Depois de redefinir a senha, o usuário retornará novamente ao aplicativo para entrar novamente.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Tela de entrada exibida por Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Telas de fluxo de redefinição de senha mostradas por Azure AD B2C" border="false":::
 
-    Para obter mais informações sobre códigos de erro e tratamento de exceções, consulte [erros de MSAL e códigos de exceção](msal-handling-exceptions.md).
+    Para obter mais informações sobre códigos de erro e tratamento de exceções, consulte [erros de MSAL e códigos de exceção](msal-error-handling-js.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -217,4 +217,4 @@ Saiba mais sobre estes conceitos de Azure AD B2C:
 
 - [Fluxos de usuário](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md)
-- [Personalização de experiência do usuário](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [Personalização de experiência do usuário](../../active-directory-b2c/configure-user-input.md)

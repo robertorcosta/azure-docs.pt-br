@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec99558f3a168b770ad19fb4f6c811a31c44f08
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389319"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108869"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: habilitar atributos personalizados em uma política de perfil Personalizada
 
-No artigo [adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas](custom-policy-configure-user-input.md) , você aprende a usar os [atributos de perfil do usuário](user-profile-attributes.md)interno. Neste artigo, você habilita um atributo personalizado em seu diretório Azure Active Directory B2C (Azure AD B2C). Posteriormente, você pode usar o novo atributo como uma declaração personalizada em [fluxos de usuário](user-flow-overview.md) ou [políticas personalizadas](custom-policy-get-started.md) simultaneamente.
+No artigo [adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas](configure-user-input.md) , você aprende a usar os [atributos de perfil do usuário](user-profile-attributes.md)interno. Neste artigo, você habilita um atributo personalizado em seu diretório Azure Active Directory B2C (Azure AD B2C). Posteriormente, você pode usar o novo atributo como uma declaração personalizada em [fluxos de usuário](user-flow-overview.md) ou [políticas personalizadas](custom-policy-get-started.md) simultaneamente.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -49,7 +49,7 @@ Os termos *propriedade de extensão*, *atributo personalizado* e *declaração p
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Selecione **registros de aplicativo**e, em seguida, selecione **todos os aplicativos**.
+1. Selecione **registros de aplicativo** e, em seguida, selecione **todos os aplicativos**.
 1. Selecione o aplicativo `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copiar os identificadores a seguir para a sua área de transferência e salve-os:
     * **ID do aplicativo**. Exemplo: `11111111-1111-1111-1111-111111111111`.
@@ -85,10 +85,10 @@ Para habilitar atributos personalizados em sua política, forneça a **ID do apl
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário de Azure ad B2C.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Estrutura de Experiência de Identidade**.
-5. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política de TrustFrameworkExtensions.xml que você alterou.
+5. Selecione **carregar política personalizada** e, em seguida, carregue os arquivos de política de TrustFrameworkExtensions.xml que você alterou.
 
 > [!NOTE]
-> Na primeira vez que o perfil técnico do Azure AD persistir a declaração para o diretório, ele verificará se o atributo personalizado existe. Caso contrário, ele cria o atributo personalizado.  
+> Na primeira vez que o perfil técnico do Azure AD persistir a declaração para o diretório, ele verificará se o atributo personalizado existe. Caso contrário, ele cria o atributo personalizado.  
 
 ## <a name="create-a-custom-attribute-through-azure-portal"></a>Criar um atributo personalizado por meio de portal do Azure
 
@@ -96,7 +96,7 @@ Os mesmos atributos de extensão são compartilhados entre políticas internas e
 
 Você pode criar esses atributos usando a interface do usuário do portal antes ou depois de usá-los em suas políticas personalizadas. Siga as orientações sobre como [definir atributos personalizados no Azure Active Directory B2C](user-flow-custom-attributes.md). Ao criar um atributo **lealdadeid** no portal, você deve consultá-lo da seguinte maneira:
 
-|Nome     |Usado em |
+|Name     |Usado em |
 |---------|---------|
 |`extension_loyaltyId`  | Política personalizada|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [API do Microsoft Graph](manage-user-accounts-graph-api.md)|
@@ -132,7 +132,7 @@ O exemplo a seguir demonstra o uso de um atributo personalizado em Azure AD B2C 
 
 ## <a name="use-a-custom-attribute-in-a-policy"></a>Usar um atributo personalizado em uma política
 
-Siga as orientações sobre como [adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas](custom-policy-configure-user-input.md). Este exemplo usa uma declaração interna "City". Para usar um atributo personalizado, substitua ' City ' por seus próprios atributos personalizados.
+Siga as orientações sobre como [adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas](configure-user-input.md). Este exemplo usa uma declaração interna "City". Para usar um atributo personalizado, substitua ' City ' por seus próprios atributos personalizados.
 
 
 ## <a name="next-steps"></a>Próximas etapas

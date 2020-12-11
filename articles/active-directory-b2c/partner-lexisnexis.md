@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928640"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108426"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar o LexisNexis com o Azure Active Directory B2C
 
@@ -95,7 +95,7 @@ As configurações do aplicativo podem ser [configuradas no serviço de aplicati
 
 Essa solução usa modelos de interface do usuário personalizados que são carregados pelo Azure AD B2C. Esses modelos de interface do usuário fazem a criação de perfil que é enviada diretamente ao serviço ThreatMetrix.
 
-Consulte estas [instruções](./custom-policy-ui-customization.md#custom-page-content-walkthrough) para implantar os arquivos de [interface do usuário](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) incluídos em uma conta de armazenamento de BLOBs. As instruções incluem a configuração de uma conta de armazenamento de BLOBs, a configuração do CORS e a habilitação do acesso público.
+Consulte estas [instruções](./customize-ui-with-html.md#custom-page-content-walkthrough) para implantar os arquivos de [interface do usuário](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) incluídos em uma conta de armazenamento de BLOBs. As instruções incluem a configuração de uma conta de armazenamento de BLOBs, a configuração do CORS e a habilitação do acesso público.
 
 A interface do usuário é baseada no [modelo azul do oceano](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Todos os links na interface do usuário devem ser atualizados para fazer referência ao local implantado. Na pasta de interface do usuário, localize e substitua https://yourblobstorage/blobcontainer pelo local implantado.
 

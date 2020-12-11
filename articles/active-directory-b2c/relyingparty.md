@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 321669457c479f7f59ccbb9b7950457b7f9a1af5
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023781"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108290"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -117,7 +117,7 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 | SessionExpiryInSeconds | 0:1 | O tempo de vida do cookie da sessão do Azure AD B2C especificado como um inteiro armazenado no navegador do usuário mediante uma autenticação bem-sucedida. |
 | JourneyInsights | 0:1 | A chave de instrumentação do Azure Application Insights a ser usada. |
 | ContentDefinitionParameters | 0:1 | A lista de pares chave-valor a serem acrescentados ao URI da carga de definição de conteúdo. |
-|ScriptExecution| 0:1| Os modos de execução de [JavaScript](javascript-samples.md) com suporte. Valores possíveis: `Allow` ou `Disallow` (padrão).
+|ScriptExecution| 0:1| Os modos de execução de [JavaScript](javascript-and-page-layout.md) com suporte. Valores possíveis: `Allow` ou `Disallow` (padrão).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -163,9 +163,9 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome do par chave-valor. |
+| Name | Sim | O nome do par chave-valor. |
 
-Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
@@ -173,7 +173,7 @@ O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | O valor deve ser `PolicyProfile`. |
+| Id | Sim | O valor deve ser `PolicyProfile`. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 
@@ -190,7 +190,7 @@ O elemento **Protocol** contém os seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. |
+| Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. |
 
 ### <a name="metadata"></a>Metadados
 

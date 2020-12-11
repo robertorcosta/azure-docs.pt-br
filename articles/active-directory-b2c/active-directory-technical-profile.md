@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201507"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109106"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
@@ -60,9 +60,9 @@ O exemplo a seguir mostra o perfil técnico **AAD-Common**:
 
 O elemento InputClaims contém uma declaração, que é usada para pesquisar uma conta no diretório ou criar uma nova. Deve haver exatamente um elemento InputClaim na coleção de declarações de entrada para todos os perfis técnicos do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory.
 
-Para ler, atualizar ou excluir uma conta de usuário existente, a declaração de entrada é uma chave que identifica exclusivamente a conta no diretório do AD do Azure. Por exemplo, **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**ou **alternativeSecurityId**. 
+Para ler, atualizar ou excluir uma conta de usuário existente, a declaração de entrada é uma chave que identifica exclusivamente a conta no diretório do AD do Azure. Por exemplo, **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username** ou **alternativeSecurityId**. 
 
-Para criar uma nova conta de usuário, a declaração de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames. EmailAddress**ou **signInNames. username**. Para uma conta federada: o **alternativeSecurityId**.
+Para criar uma nova conta de usuário, a declaração de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames. EmailAddress** ou **signInNames. username**. Para uma conta federada: o **alternativeSecurityId**.
 
 O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
 
@@ -253,7 +253,7 @@ O perfil técnico a seguir exclui uma conta de usuário social usando **alternat
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Gere um erro se o objeto de usuário já existe. Valores possíveis: `true` ou `false`.|
 | ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](custom-policy-custom-attributes.md). |
 | ClientId | Não | O identificador de cliente para acessar o locatário como um terceiro. Para obter mais informações, veja [Atributos personalizados de uso em uma política de edição de perfil personalizada](custom-policy-custom-attributes.md) |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
 
 ### <a name="ui-elements"></a>Elementos da interface do usuário
  
@@ -269,7 +269,7 @@ As configurações a seguir podem ser usadas para configurar a mensagem de erro 
 
 Consulte o seguinte artigo, por exemplo, usando o perfil técnico do Azure AD:
 
-- [Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-configure-user-input.md)
+- [Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](configure-user-input.md)
 
 
 
