@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.custom: contperfq1, contperfq2
-ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.openlocfilehash: 70fbbdfc5d8f1bac5fa27175ea25be1503a77594
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145949"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031888"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
 
@@ -56,7 +56,7 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
     show tables;
     ```
 
-    Em um novo cluster, somente uma tabela é listada: **hivesampletable** .
+    Em um novo cluster, somente uma tabela é listada: **hivesampletable**.
 
 4. Use o comando a seguir para exibir o esquema para a hivesampletable:
 
@@ -113,7 +113,7 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
     |CREATE EXTERNAL TABLE|Cria uma tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.|
     |FORMATO DE LINHA|Como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
     |ARMAZENADO COMO LOCAL DO TEXTFILE|Onde os dados são armazenados e em qual formato de arquivo.|
-    |SELECIONAR|Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]** . Essa consulta deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.|
+    |SELECT|Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]**. Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.|
     |INPUT__FILE__NAME como '%. log '|O hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.|
 
    > [!NOTE]  
@@ -157,13 +157,13 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
 
 Este exemplo é uma continuação do exemplo anterior. Use as etapas a seguir para criar um arquivo e  executá-lo usando o Beeline.
 
-1. Use o comando a seguir para criar um novo arquivo chamado **query.hql** :
+1. Use o comando a seguir para criar um novo arquivo chamado **query.hql**:
 
     ```bash
     nano query.hql
     ```
 
-1. Use o texto a seguir como conteúdo do arquivo. Essa consulta cria uma nova tabela 'interna' chamada **errorLogs** :
+1. Use o texto a seguir como conteúdo do arquivo. Essa consulta cria uma nova tabela 'interna' chamada **errorLogs**:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -176,12 +176,12 @@ Este exemplo é uma continuação do exemplo anterior. Use as etapas a seguir pa
     |---|---|
     |CREATE TABLE SE NÃO EXISTIR|Se a tabela ainda não existir, ela será criada. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e totalmente gerenciadas por ele.|
     |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.|
-    |INSERIR SUBSTITUIÇÃO... Não|Seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs** .|
+    |INSERIR SUBSTITUIÇÃO... Não|Seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.|
 
     > [!NOTE]  
     > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
-1. Para salvar o arquivo, use **Ctrl** + **X** , em seguida, digite **Y** e, por fim, **Enter** .
+1. Para salvar o arquivo, use **Ctrl** + **X**, em seguida, digite **Y** e, por fim, **Enter**.
 
 1. Use o seguinte para executar o arquivo usando Beeline:
 
@@ -192,7 +192,7 @@ Este exemplo é uma continuação do exemplo anterior. Use as etapas a seguir pa
     > [!NOTE]  
     > O parâmetro `-i` inicia o Beeline e executa as instruções no arquivo `query.hql`. Quando a consulta for concluída, você verá um prompt `jdbc:hive2://headnodehost:10001/>`. Você também pode executar um arquivo usando o parâmetro `-f`, que fechará o Beeline após a conclusão da consulta.
 
-1. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs** :
+1. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
 
     ```hiveql
     SELECT * from errorLogs;

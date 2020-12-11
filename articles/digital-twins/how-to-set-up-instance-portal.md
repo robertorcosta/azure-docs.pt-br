@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: bd8fec0ae5b6ece1626049953b1f4afd3a581d97
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280597"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032313"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-Este artigo aborda as etapas para **Configurar uma nova instância de gêmeos digital do Azure** , incluindo a criação da instância e a configuração da autenticação. Depois de concluir este artigo, você terá uma instância do gêmeos digital do Azure pronta para começar a programar.
+Este artigo aborda as etapas para **Configurar uma nova instância de gêmeos digital do Azure**, incluindo a criação da instância e a configuração da autenticação. Depois de concluir este artigo, você terá uma instância do gêmeos digital do Azure pronta para começar a programar.
 
 Esta versão deste artigo percorre essas etapas manualmente, uma a uma, usando o portal do Azure. O portal do Azure é um console unificado baseado na Web que fornece uma alternativa para as ferramentas de linha de comando.
 * Para percorrer essas etapas manualmente usando a CLI, consulte a versão da CLI deste artigo: [*como configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
@@ -41,10 +41,10 @@ Pesquise *gêmeos do Azure digital* na caixa de pesquisa e escolha o serviço **
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecionando ' criar ' na página do serviço de gêmeos digital do Azure":::
 
 Na página *criar recurso* a seguir, preencha os valores fornecidos abaixo:
-* **Assinatura** : a assinatura do Azure que você está usando
-  - **Grupo de recursos** : um grupo de recursos no qual implantar a instância. Se você ainda não tiver um grupo de recursos existente em mente, poderá criar um aqui selecionando o link *criar novo* e inserindo um nome para um novo grupo de recursos
-* **Local** : uma região do Azure digital gêmeos habilitada para a implantação. Para obter mais detalhes sobre o suporte regional, visite [*produtos do Azure disponíveis por região (Azure digital gêmeos)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Nome do recurso** : um nome para sua instância de gêmeos digital do Azure. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
+* **Assinatura**: a assinatura do Azure que você está usando
+  - **Grupo de recursos**: um grupo de recursos no qual implantar a instância. Se você ainda não tiver um grupo de recursos existente em mente, poderá criar um aqui selecionando o link *criar novo* e inserindo um nome para um novo grupo de recursos
+* **Local**: uma região do Azure digital gêmeos habilitada para a implantação. Para obter mais detalhes sobre o suporte regional, visite [*produtos do Azure disponíveis por região (Azure digital gêmeos)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* **Nome do recurso**: um nome para sua instância de gêmeos digital do Azure. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Preenchendo os valores descritos para criar um recurso de gêmeos digital do Azure":::
 
@@ -61,7 +61,7 @@ Como alternativa, se a implantação falhar, a notificação indicará o porquê
 >[!TIP]
 >Depois que sua instância for criada, você poderá retornar para sua página a qualquer momento pesquisando o nome da sua instância na barra de pesquisa portal do Azure.
 
-Na página *visão geral* da instância, anote seu *nome* , *grupo de recursos* e *nome do host*. Esses são os valores importantes que podem ser necessários à medida que você continuar trabalhando com sua instância de gêmeos digital do Azure. Se outros usuários estiverem programando em relação à instância, você deverá compartilhar esses valores com eles.
+Na página *visão geral* da instância, anote seu *nome*, *grupo de recursos* e *nome do host*. Esses são os valores importantes que podem ser necessários à medida que você continuar trabalhando com sua instância de gêmeos digital do Azure. Se outros usuários estiverem programando em relação à instância, você deverá compartilhar esses valores com eles.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página de visão geral da instância":::
 
@@ -76,9 +76,9 @@ Primeiro, abra a página da instância do gêmeos digital do Azure no portal do 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função da página ' controle de acesso (IAM) '":::
 
 Na página *Adicionar atribuição de função* a seguir, preencha os valores (deve ser concluído por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure):
-* **Função** : selecione *Azure digital gêmeos proprietário dos dados* no menu suspenso
-* **Atribuir acesso a** : selecione *usuário, grupo ou entidade de serviço do Azure ad* no menu suspenso
-* **Selecione** : Procure o nome ou endereço de email do usuário a ser atribuído. Quando você seleciona o resultado, o usuário aparecerá em uma seção de *Membros selecionados* .
+* **Função**: selecione *Azure digital gêmeos proprietário dos dados* no menu suspenso
+* **Atribuir acesso a**: selecione *usuário, grupo ou entidade de serviço do Azure ad* no menu suspenso
+* **Selecione**: Procure o nome ou endereço de email do usuário a ser atribuído. Quando você seleciona o resultado, o usuário aparecerá em uma seção de *Membros selecionados* .
 
 :::row:::
     :::column:::

@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting, contperfq4
+ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e383ac260a67c7334b806612325ed0b6a9fbbef9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780970"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030970"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
      
 * **O pacote de explicação não tem garantia de ser instalado ao instalar o azureml-Train-automl-Client:** 
    
-   Ao executar uma AutoML remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro "Instale o azureml-explique-Package para obter explicações do modelo." Esse é um problema conhecido. Como alternativa, siga uma das etapas abaixo:
+   Ao executar uma AutoML remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro "Instale o azureml-explique-Package para obter explicações do modelo." Este é um problema conhecido. Como alternativa, siga uma das etapas abaixo:
   
   1. Instale o azureml-explique-Model localmente.
    ```

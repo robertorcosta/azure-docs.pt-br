@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316699"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029525"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -78,16 +78,16 @@ Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtu
 
    ![A área “Firewalls e redes virtuais” na página Armazenamento do Azure no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Na página __Firewalls e redes virtuais__ , execute as seguintes ações:
+1. Na página __Firewalls e redes virtuais__, execute as seguintes ações:
     1. Selecione __Redes selecionadas__.
-    1. Em __Redes virtuais__ , selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
+    1. Em __Redes virtuais__, selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
 
         > [!IMPORTANT]
         > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias ou clusters de computação usados para treinamento ou inferência.
 
     1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__. Isso não dá a todos os serviços do Azure acesso à sua conta de armazenamento.
     
-        * Os recursos de alguns serviços, **registrados em sua assinatura** , podem acessar a conta de armazenamento **na mesma assinatura** para operações de seleção. Por exemplo, gravando logs ou criando backups.
+        * Os recursos de alguns serviços, **registrados em sua assinatura**, podem acessar a conta de armazenamento **na mesma assinatura** para operações de seleção. Por exemplo, gravando logs ou criando backups.
         * Os recursos de alguns serviços podem receber acesso explícito à sua conta de armazenamento __atribuindo uma função do Azure__ à sua identidade gerenciada atribuída pelo sistema.
 
         Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -178,9 +178,9 @@ Para usar os recursos de experimentação do Azure Machine Learning com Azure Ke
 1. Na página __Key Vault__ , no painel esquerdo, selecione __rede__.
 
 1. Na guia __firewalls e redes virtuais__ , execute as seguintes ações:
-    1. Em __permitir acesso de__ , selecione __ponto de extremidade privado e redes selecionadas__.
-    1. Em __Redes virtuais__ , selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
-    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__ , selecione __Sim__.
+    1. Em __permitir acesso de__, selecione __ponto de extremidade privado e redes selecionadas__.
+    1. Em __Redes virtuais__, selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
+    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__, selecione __Sim__.
 
    [![A seção “Firewalls e redes virtuais” no painel do Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 

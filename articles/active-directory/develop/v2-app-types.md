@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperfq2
-ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.openlocfilehash: fd1fc59fd1ade6036c57f15415afccfc693f7bff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628077"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029746"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativo para a plataforma de identidade da Microsoft
 
@@ -107,7 +107,7 @@ Uma API da Web pode receber tokens de acesso de todos os tipos de aplicativos, i
 
 Para saber como proteger uma API Web usando tokens de acesso OAuth2, confira os exemplos de código da API Web no [cenário da API Web protegida](scenario-protected-web-api-overview.md).
 
-Em muitos casos, APIs Web também precisam fazer solicitações de saída para outras APIs Web downstream protegidas pela plataforma de identidade da Microsoft. Para fazer isso, as APIs Web podem utilizar o fluxo **On Behalf Of** , que permite que a API Web troque um token de acesso de entrada por outro token de acesso a ser usado em solicitações de saída. Para obter mais informações, consulte [plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
+Em muitos casos, APIs Web também precisam fazer solicitações de saída para outras APIs Web downstream protegidas pela plataforma de identidade da Microsoft. Para fazer isso, as APIs Web podem utilizar o fluxo **On Behalf Of**, que permite que a API Web troque um token de acesso de entrada por outro token de acesso a ser usado em solicitações de saída. Para obter mais informações, consulte [plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicativos móveis e nativos
 

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.custom: how-to, contperf-fy21q2, automl
+ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937705"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032925"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar os resultados do experimento do Machine Learning automatizado
 
@@ -190,6 +190,7 @@ A tabela a seguir resume as métricas de desempenho do modelo geradas para os ex
 --|--|--|
 explained_variance|A variação explicada mede a extensão para a qual um modelo conta para a variação na variável de destino. É o percentual de redução na variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, ela é igual ao coeficiente de determinação (consulte r2_score abaixo). <br> <br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** (-inf, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|Erro de média absoluta é o valor esperado do valor absoluto da diferença entre o destino e a previsão.<br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf) <br><br> Digita <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, o mean_absolute_error dividido pelo intervalo dos dados. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|Erro de percentual absoluto médio (MAPE) é uma medida da diferença média entre um valor previsto e o valor real.<br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf) ||
 median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre a meta e a previsão. Essa perda é robusta para exceções.<br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf)<br><br>Digita <br> `median_absolute_error`<br> `normalized_median_absolute_error`: a median_absolute_error dividida pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
 r2_score|R ^ 2 é o coeficiente de determinação ou a porcentagem de redução de erros quadrados em comparação com um modelo de linha de base que gera a média. <br> <br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** (-inf, 1]|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Erro de quadrado da média raiz (RMSE) é a raiz quadrada da diferença quadrada esperada entre o destino e a previsão. Para um estimador não polarizado, RMSE é igual ao desvio padrão.<br> <br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf)<br><br>Digita<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: a root_mean_squared_error dividida pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
