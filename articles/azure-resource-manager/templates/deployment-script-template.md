@@ -7,16 +7,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030443"
+ms.locfileid: "97092747"
 ---
-# <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
+# <a name="use-deployment-scripts-in-arm-templates-preview"></a>Usar scripts de implantação em modelos ARM (versão prévia)
 
-Saiba como usar scripts de implantação em modelos do Azure Resource. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts` , os usuários podem executar scripts em implantações de modelo e examinar os resultados da execução. Esses scripts podem ser usados para executar etapas personalizadas, tais como:
+Saiba como usar scripts de implantação em modelos de recursos do Azure (modelos ARM). Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts` , os usuários podem executar scripts em implantações de modelo e examinar os resultados da execução. Esses scripts podem ser usados para executar etapas personalizadas, tais como:
 
 - adicionar usuários a um diretório
 - executar operações do plano de dados como, por exemplo, copiar blobs ou bancos de dados de semente
@@ -39,11 +39,11 @@ O recurso de script de implantação só está disponível nas regiões em que a
 
 > [!IMPORTANT]
 > A API de recurso deploymentScripts versão 2020-10-01 dá suporte a [OnBehalfofTokens (obo)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Usando o OBO, o serviço de script de implantação usa o token da entidade de implantação para criar os recursos subjacentes para executar scripts de implantação, que incluem instância de contêiner do Azure, conta de armazenamento do Azure e atribuições de função para a identidade gerenciada. Na versão mais antiga da API, a identidade gerenciada é usada para criar esses recursos.
-> A lógica de repetição para o logon do Azure agora é interna ao script de wrapper. Se você conceder permissões no mesmo modelo em que você executa scripts de implantação.  O serviço de script de implantação repete o logon por 10 minutos com intervalo de 10 segundos até que a atribuição de função de identidade gerenciada seja replicada.
+> A lógica de repetição para entrar no Azure agora está incorporada ao script de wrapper. Se você conceder permissões no mesmo modelo em que você executa scripts de implantação.  O serviço de script de implantação tenta entrar por 10 minutos com intervalo de 10 segundos até que a atribuição de função de identidade gerenciada seja replicada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **(Opcional) uma identidade gerenciada atribuída pelo usuário com as permissões necessárias para executar as operações no script**. Para a API de script de implantação versão 2020-10-01 ou posterior, a entidade de implantação é usada para criar recursos subjacentes. Se o script precisar se autenticar no Azure e executar ações específicas do Azure, é recomendável fornecer o script com uma identidade gerenciada atribuída pelo usuário. A identidade gerenciada deve ter o acesso necessário no grupo de recursos de destino para concluir a operação no script. Você também pode fazer logon no Azure no script de implantação. Para executar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se você quiser criar um novo grupo de recursos. 
+- **(Opcional) uma identidade gerenciada atribuída pelo usuário com as permissões necessárias para executar as operações no script**. Para a API de script de implantação versão 2020-10-01 ou posterior, a entidade de implantação é usada para criar recursos subjacentes. Se o script precisar se autenticar no Azure e executar ações específicas do Azure, é recomendável fornecer o script com uma identidade gerenciada atribuída pelo usuário. A identidade gerenciada deve ter o acesso necessário no grupo de recursos de destino para concluir a operação no script. Você também pode entrar no Azure no script de implantação. Para executar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se você quiser criar um novo grupo de recursos. 
 
   Para criar uma identidade, consulte [Criar uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) ou [usando a CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) ou [usando o Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
@@ -143,7 +143,7 @@ Detalhes do valor da propriedade:
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão de módulo a ser usada. Para obter uma lista de versões do PowerShell e da CLI com suporte, consulte [Pré-requisitos](#prerequisites).
 - **arguments**: Especifique os valores de parâmetro. os valores são separados por espaços.
 
-    Os scripts de implantação dividem os argumentos em uma matriz de cadeias de caracteres invocando a chamada do sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Isso é necessário porque os argumentos são passados como uma [propriedade de comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para a instância de contêiner do Azure e a propriedade Command é uma matriz de cadeia de caracteres.
+    Os scripts de implantação dividem os argumentos em uma matriz de cadeias de caracteres invocando a chamada do sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Essa etapa é necessária porque os argumentos são passados como uma [propriedade de comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para a instância de contêiner do Azure e a propriedade de comando é uma matriz de cadeia de caracteres.
 
     Se os argumentos contiverem caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para dobrar o escape dos caracteres. Cole a cadeia de caracteres de escape original na ferramenta e selecione **escape**.  A ferramenta gera uma cadeia de caracteres com escape duplo. Por exemplo, no modelo de exemplo anterior, o argumento é **-name \\ "John giros \\ "**.  A cadeia de caracteres de escape é **-name \\ \\ \\ "John giros \\ \\ \\ "**.
 
@@ -161,7 +161,7 @@ Detalhes do valor da propriedade:
 - **supportingScriptUris**: Especifique uma matriz de URLs acessíveis publicamente para dar suporte a arquivos que são chamados em `ScriptContent` ou `PrimaryScriptUri`.
 - **timeout**: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.
 - **cleanupPreference**. Especifique a preferência de limpeza dos recursos de implantação quando a execução do script chegar a um estado terminal. A configuração padrão é **Sempre**, o que significa excluir os recursos, apesar do estado terminal (Êxito, Falha, Cancelado). Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
-- **retentionInterval**: Especifique o intervalo para o qual o serviço retém os recursos de script de implantação depois que a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão excluídos quando esse prazo expirar. A duração é baseada na [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção está entre 1 e 26 horas (PT26H). Essa propriedade é usada quando cleanupPreference é definido como *OnExpiration*. A propriedade *OnExpiration* não está habilitada no momento. Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
+- **retentionInterval**: Especifique o intervalo para o qual o serviço retém os recursos de script de implantação depois que a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão excluídos quando esse prazo expirar. A duração é baseada na [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção está entre 1 e 26 horas (PT26H). Essa propriedade é usada quando cleanupPreference é definido como *OnExpiration*. A propriedade *Onexpiretion* não está habilitada no momento. Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Outros exemplos
 
@@ -209,7 +209,7 @@ Para ver um exemplo, selecione [aqui](https://github.com/Azure/azure-docs-json-s
 
 Os arquivos de scripts externos devem estar acessíveis.  Para proteger os arquivos de script armazenados nas contas de armazenamento do Azure, consulte [Implantar modelo de ARM privado com o token SAS](./secure-template-with-sas-token.md).
 
-Você é responsável por garantir a integridade dos scripts referenciados pelo script de implantação, seja **PrimaryScriptUri** ou **SupportingScriptUris**.  Referencie somente scripts nos quais você confia.
+Você é responsável por garantir a integridade dos scripts que são referenciados pelo script de implantação, seja **PrimaryScriptUri** ou **SupportingScriptUris**.  Referencie somente scripts nos quais você confia.
 
 ## <a name="use-supporting-scripts"></a>Usar scripts de suporte
 
@@ -229,7 +229,7 @@ Você pode separar as lógicas complicadas em um ou mais arquivos de script de s
 
 Os arquivos de script de suporte podem ser chamados de scripts embutidos e arquivos de script primários. Os arquivos de script de suporte não têm restrições sobre a extensão do arquivo.
 
-Os arquivos de suporte são copiados para azscripts/azscriptinput durante o tempo de execução. Use o caminho relativo para referenciar os arquivos de suporte de scripts embutidos e os arquivos de script primários.
+Os arquivos de suporte são copiados para `azscripts/azscriptinput` no tempo de execução. Use o caminho relativo para referenciar os arquivos de suporte de scripts embutidos e os arquivos de script primários.
 
 ## <a name="work-with-outputs-from-powershell-script"></a>Trabalhar com saídas do script do PowerShell
 
@@ -245,7 +245,7 @@ reference('<ResourceName>').output.text
 
 ## <a name="work-with-outputs-from-cli-script"></a>Trabalhar com saídas do script da CLI
 
-Diferente do script de implantação do PowerShell, o suporte à CLI/bash não expõe uma variável comum para armazenar saídas de script. Em vez disso, há uma variável de ambiente chamada **AZ_SCRIPTS_OUTPUT_PATH** que armazena o local onde o arquivo de saída de script reside. Se um script de implantação for executado a partir de um modelo do Resource Manager, essa variável de ambiente será definida automaticamente para você pelo shell Bash.
+Diferente do script de implantação do PowerShell, o suporte de CLI/bash não expõe uma variável comum para armazenar saídas de script, em vez disso, há uma variável de ambiente chamada **AZ_SCRIPTS_OUTPUT_PATH** que armazena o local onde o arquivo de saída de script reside. Se um script de implantação for executado a partir de um modelo do Resource Manager, essa variável de ambiente será definida automaticamente para você pelo shell Bash.
 
 As saídas de script de implantação devem ser salvas no local AZ_SCRIPTS_OUTPUT_PATH e as saídas devem ser um objeto de cadeia de caracteres JSON válido. O conteúdo do arquivo deve ser salvo como um par chave-valor. Por exemplo, uma matriz de cadeias de caracteres é armazenada como {“MyResult”: [“foo”, “bar”]}.  Armazenar apenas os resultados da matriz como, por exemplo, [“foo”, “bar”], é inválido.
 
@@ -313,11 +313,11 @@ O tamanho máximo permitido para variáveis de ambiente é 64 KB.
 
 ## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Monitorar e solucionar problemas de scripts de implantação
 
-O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que você especifique uma conta de armazenamento existente) e uma [instância de contêiner](../../container-instances/container-instances-overview.md) para execução de script. Se esses recursos forem criados automaticamente pelo serviço de script, ambos os recursos terão o sufixo **azscripts** nos nomes dos recursos.
+O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que você especifique uma conta de armazenamento existente) e uma [instância de contêiner](../../container-instances/container-instances-overview.md) para execução de script. Se esses recursos forem criados automaticamente pelo serviço de script, ambos os recursos terão o `azscripts` sufixo nos nomes dos recursos.
 
 ![Nomes dos recursos de script de implantação de modelo do Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
-O script do usuário, os resultados da execução e o arquivo stdout são armazenados nos compartilhamentos de arquivos da conta de armazenamento. Há uma pasta chamada **azscripts**. Na pasta, há mais duas pastas para os arquivos de entrada e de saída: **azscriptinput** e **azscriptoutput**.
+O script do usuário, os resultados da execução e o arquivo stdout são armazenados nos compartilhamentos de arquivos da conta de armazenamento. Há uma pasta chamada `azscripts` . Na pasta, há mais duas pastas para a entrada e os arquivos de saída: `azscriptinput` e `azscriptoutput` .
 
 A pasta de saída contém um **executionresult.json** e o arquivo de saída de script. Você pode ver a mensagem de erro de execução do script em **executionresult.json**. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
 
@@ -521,7 +521,7 @@ Para ver o recurso deploymentScripts no portal, selecione **Mostrar tipos oculto
 
 ## <a name="clean-up-deployment-script-resources"></a>Limpar recursos do script de implantação
 
-Uma conta de armazenamento e uma instância de contêiner são necessárias para executar o script e solucionar problemas. Você tem as opções necessárias para especificar uma conta de armazenamento existente, caso contrário, uma conta de armazenamento, juntamente com uma instância de contêiner, será criada automaticamente pelo serviço de script. Os dois recursos criados automaticamente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para obter as informações de preço, consulte os [Preços de Instâncias de Contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e os [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+Uma conta de armazenamento e uma instância de contêiner são necessárias para executar o script e solucionar problemas. Você tem as opções necessárias para especificar uma conta de armazenamento existente, caso contrário, uma conta de armazenamento, juntamente com uma instância de contêiner, será criada automaticamente pelo serviço de script. Os dois recursos criados automaticamente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que os recursos sejam excluídos. Para obter as informações de preço, consulte os [Preços de Instâncias de Contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e os [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 O ciclo de vida desses recursos é controlado pelas seguintes propriedades no modelo:
 
@@ -536,7 +536,7 @@ O ciclo de vida desses recursos é controlado pelas seguintes propriedades no mo
 > [!NOTE]
 > Não é recomendável usar a conta de armazenamento e a instância de contêiner que são geradas pelo serviço de script para outras finalidades. Os dois recursos podem ser removidos, dependendo do ciclo de vida do script.
 
-Para manter a instância de contêiner e a conta de armazenamento para solução de problemas, você pode adicionar um comando de suspensão ao script.  Por exemplo [, Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+Para manter a instância de contêiner e a conta de armazenamento para solução de problemas, você pode adicionar um comando de suspensão ao script.  Por exemplo, use [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 
@@ -564,19 +564,19 @@ Depois que o script for testado com êxito, você poderá usá-lo como um script
 |------------|-------------|
 | DeploymentScriptInvalidOperation | A definição de recurso de script de implantação no modelo contém nomes de propriedade inválidos. |
 | DeploymentScriptResourceConflict | Não é possível excluir um recurso de script de implantação que está no estado não terminal e a execução não excedeu 1 hora. Ou não é possível executar novamente o mesmo script de implantação com o mesmo identificador de recurso (mesma assinatura, nome do grupo de recursos e nome do recurso), mas conteúdo de corpo de script diferente ao mesmo tempo. |
-| DeploymentScriptOperationFailed | A operação de script de implantação falhou internamente. Entre em contato com o suporte da Microsoft. |
+| DeploymentScriptOperationFailed | A operação de script de implantação falhou internamente. Contate o suporte da Microsoft. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | A chave de acesso não foi especificada para a conta de armazenamento existente.|
 | DeploymentScriptContainerGroupContainsInvalidContainers | Um grupo de contêineres criado pelo serviço de script de implantação foi modificado externamente e contêineres inválidos foram adicionados. |
-| DeploymentScriptContainerGroupInNonterminalState | Dois ou mais recursos de script de implantação usam o mesmo nome de instância de contêiner do Azure no mesmo grupo de recursos, e um deles ainda não terminou sua execução. |
+| DeploymentScriptContainerGroupInNonterminalState | Dois ou mais recursos de script de implantação usam o mesmo nome de instância de contêiner do Azure no mesmo grupo de recursos e um deles ainda não terminou sua execução. |
 | DeploymentScriptStorageAccountInvalidKind | A conta de armazenamento existente do tipo BlobBlobStorage ou BlobStorage não dá suporte a compartilhamentos de arquivos e não pode ser usada. |
-| DeploymentScriptStorageAccountInvalidKindAndSku | A conta de armazenamento existente não oferece suporte a compartilhamentos de arquivos. Para obter uma lista de tipos de conta de armazenamento com suporte, consulte [usar conta de armazenamento existente](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountInvalidKindAndSku | A conta de armazenamento existente não dá suporte a compartilhamentos de arquivos. Para obter uma lista de tipos de conta de armazenamento com suporte, consulte [usar conta de armazenamento existente](#use-existing-storage-account). |
 | DeploymentScriptStorageAccountNotFound | A conta de armazenamento não existe ou foi excluída por um processo ou ferramenta externa. |
 | DeploymentScriptStorageAccountWithServiceEndpointEnabled | A conta de armazenamento especificada tem um ponto de extremidade de serviço. Não há suporte para uma conta de armazenamento com um ponto de extremidade de serviço. |
 | DeploymentScriptStorageAccountInvalidAccessKey | Chave de acesso inválida especificada para a conta de armazenamento existente. |
 | DeploymentScriptStorageAccountInvalidAccessKeyFormat | Formato de chave da conta de armazenamento inválido. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md). |
 | DeploymentScriptExceededMaxAllowedTime | O tempo de execução do script de implantação excedeu o valor de tempo limite especificado na definição de recurso de script de implantação. |
 | DeploymentScriptInvalidOutputs | A saída do script de implantação não é um objeto JSON válido. |
-| DeploymentScriptContainerInstancesServiceLoginFailure | A identidade gerenciada atribuída pelo usuário não pôde fazer logon após 10 tentativas com um intervalo de 1 minuto. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | A identidade gerenciada atribuída pelo usuário não conseguiu entrar após 10 tentativas com um intervalo de 1 minuto. |
 | DeploymentScriptContainerGroupNotFound | Um grupo de contêineres criado pelo serviço de script de implantação foi excluído por uma ferramenta ou processo externo. |
 | DeploymentScriptDownloadFailure | Falha ao baixar um script de suporte. Consulte [usar script de suporte](#use-supporting-scripts).|
 | DeploymentScriptError | O script do usuário gerou um erro. |

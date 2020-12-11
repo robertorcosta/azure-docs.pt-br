@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012707"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093631"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Por quanto tempo o Azure AD armazena dados de relatório?
 
@@ -47,7 +47,7 @@ Neste artigo, você saberá mais sobre as políticas de retenção de dados dos 
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Em quanto tempo devo ver os dados das atividades após obter uma licença Premium?
 
-Se você já tiver dados de atividades com sua licença gratuita, poderá vê-los imediatamente ao atualizar. Se você não tiver nenhum dado, serão necessários um ou dois dias para os dados serem exibidos nos relatórios depois de atualizar para uma licença premium.
+Se você já tiver dados de atividades com sua licença gratuita, poderá vê-los imediatamente ao atualizar. Se você não tiver dados, levará até três dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium.
 
 ---
 
@@ -74,7 +74,7 @@ Para sinais de segurança, o processo de coleção é iniciado quando você acei
 | Relatório         | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
 | Usuários em risco  | 7 dias        | 30 dias             | 90 dias             |
-| Entradas de risco | 7 dias        | 30 dias             | 90 dias             |
+| Entradas suspeitas | 7 dias        | 30 dias             | 90 dias             |
 
 ---
 

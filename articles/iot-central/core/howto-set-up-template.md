@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom:
-- contperfq1
+- contperf-fy21q1
 - device-developer
-ms.openlocfilehash: f5b3e461408242553822024bc59c56a3feb29c44
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999511"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033401"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
@@ -122,7 +122,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
-| Name | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
+| Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
@@ -131,7 +131,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou **&deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de telemetria. |
-| Description | Uma descrição da funcionalidade de telemetria. |
+| Descrição | Uma descrição da funcionalidade de telemetria. |
 
 ### <a name="properties"></a>Propriedades
 
@@ -142,7 +142,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
-| Name | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
+| Nome | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Propriedade. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
@@ -152,7 +152,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de propriedade. |
-| Description | Uma descrição da funcionalidade de propriedade. |
+| Descrição | Uma descrição da funcionalidade de propriedade. |
 
 ### <a name="commands"></a>Comandos
 
@@ -163,10 +163,10 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do comando usado em dashboards e formulários. |
-| Name | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
+| Nome | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Comando. |
 | Comentário | Comentários sobre a funcionalidade de comando. |
-| Description | Uma descrição da funcionalidade de comando. |
+| Descrição | Uma descrição da funcionalidade de comando. |
 | Solicitação | Se habilitada, uma definição do parâmetro de solicitação, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
 | Resposta | Se habilitada, uma definição da resposta do comando, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
 
@@ -202,7 +202,7 @@ A seguinte tabela mostra as definições de configuração para uma propriedade 
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
-| Name | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
+| Nome | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. |
 

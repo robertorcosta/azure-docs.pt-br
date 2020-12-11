@@ -5,15 +5,15 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 98bc962c0c57716cee9339056b0793bfe4bcb0ea
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694721"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033146"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Regras de saída Azure Load Balancer
 
@@ -48,7 +48,7 @@ Regras de saída permitem que você controle:
 
 ## <a name="outbound-rule-definition"></a>Definição de regra de saída
 
-As regras de saída seguem a mesma sintaxe familiar que o balanceamento de carga e as **frontend** regras NAT de entrada: pool de  +  **parameters**  +  **back-end** de parâmetros de frontend. 
+As regras de saída seguem a mesma sintaxe familiar que o balanceamento de carga e as regras NAT de entrada: pool de  +    +  **back-end** de parâmetros de frontend. 
 
 Uma regra de saída configura o NAT de saída para _todas as máquinas virtuais identificadas pelo pool de back-end_ a serem convertidas no _front-end_.  
 

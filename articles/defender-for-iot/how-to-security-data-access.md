@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 677ab3327f2357ce7b242c314b44702370779def
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351666"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092050"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança
 
@@ -37,7 +37,7 @@ Para acessar seus alertas e recomendações em seu espaço de trabalho do Log An
 1. Escolha um alerta ou recomendação no defender para IoT.
 1. Clique em **investigação adicional** e, em seguida, clique **para ver quais dispositivos têm esse alerta clique aqui e exiba a coluna DeviceID**.
 
-Para obter detalhes sobre como consultar dados de Log Analytics, consulte Introdução [às consultas no log Analytics](//azure/log-analytics/query-language/get-started-queries).
+Para obter detalhes sobre como consultar dados de Log Analytics, consulte Introdução [às consultas no log Analytics](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="security-alerts"></a>Alertas de segurança
 

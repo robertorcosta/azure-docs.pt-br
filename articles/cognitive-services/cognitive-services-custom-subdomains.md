@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368807"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032959"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para serviços cognitivas
 
@@ -39,7 +39,7 @@ Não. O ponto de extremidade Regional continuará a funcionar para serviços cog
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>E se um SDK solicitar a região de um recurso?
 
 > [!WARNING]
-> Os serviços de fala **não** dão suporte a subdomínios personalizados no momento. Use os pontos de extremidade regionais ao usar os serviços de fala e SDKs associados.
+> Os serviços de fala usam subdomínios personalizados **somente** com [pontos de extremidade privados](Speech-Service/speech-services-private-link.md) . Em todos os outros casos, use **pontos de extremidade regionais** com serviços de fala e SDKs associados.
 
 Os pontos de extremidade regionais e os nomes de subdomínio personalizados têm suporte e podem ser usados de forma intercambiável. No entanto, o ponto de extremidade completo é necessário.
 
@@ -80,7 +80,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Leste dos EUA 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | França Central | `https://francecentral.api.cognitive.microsoft.com` |
 | | Centro da Índia | `https://centralindia.api.cognitive.microsoft.com` |
-| | Leste do Japão | `https://japaneast.api.cognitive.microsoft.com` |
+| | Japan East | `https://japaneast.api.cognitive.microsoft.com` |
 | | Coreia Central | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Centro-Norte dos EUA | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Norte da Europa | `https://northeurope.api.cognitive.microsoft.com` |

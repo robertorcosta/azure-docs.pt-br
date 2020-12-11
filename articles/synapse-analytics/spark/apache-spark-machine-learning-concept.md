@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: ced78955c71f37a5a6f5231f61e5327428834f00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca55186a53b228aa97cc82d33a09aa3ffe455eee
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919260"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97091999"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Aprendizado de máquina com Apache Spark
 
@@ -43,8 +43,8 @@ Saiba mais sobre os recursos de aprendizado de máquina exibindo o artigo sobre 
 ### <a name="sparkml-and-mllib"></a>SparkML e MLlib
 As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos usados em cálculos de grafo e aprendizado de máquina. ```spark.ml``` fornece um conjunto uniforme de APIs de alto nível que ajudam os usuários a criar e ajustar pipelines de aprendizado de máquina. Para saber mais sobre ```spark.ml``` o, você pode visitar o [Guia de programação do Apache Spark ml](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
-### <a name="azure-machine-learning-automl"></a>Azure Machine Learning AutoML
-[Azure Machine Learning AutoML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (Machine Learning automatizado) ajuda a automatizar o processo de desenvolvimento de modelos de aprendizado de máquina. Com ele, cientistas de dados, analistas e desenvolvedores podem criar modelos de ML com alta escala, eficiência e produtividade, ao mesmo tempo em que dão suporte à qualidade do modelo. Os componentes para executar o SDK do AutoML Azure Machine Learning são criados diretamente no tempo de execução do Synapse.
+### <a name="azure-machine-learning-automated-ml"></a>Azure Machine Learning ML automatizado
+[Azure Machine Learning ml automatizado](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (aprendizado automatizado de máquina) ajuda a automatizar o processo de desenvolvimento de modelos de aprendizado de máquina. Com ele, cientistas de dados, analistas e desenvolvedores podem criar modelos de ML com alta escala, eficiência e produtividade, ao mesmo tempo em que dão suporte à qualidade do modelo. Os componentes para executar o SDK do ML automatizado Azure Machine Learning são criados diretamente no tempo de execução do Synapse.
 
 ### <a name="open-source-libraries"></a>Bibliotecas de código-fonte aberto
 Cada pool de Apache Spark no Azure Synapse Analytics é fornecido com um conjunto de bibliotecas de aprendizado de máquina precarregados e populares.  Algumas das bibliotecas de aprendizado de máquina relevantes que são incluídas por padrão incluem:
@@ -68,7 +68,7 @@ O registro de um modelo permite que você armazene, versione e rastreie metadado
 Para começar a usar o Machine Learning no Azure Synapse Analytics, não deixe de conferir os seguintes tutoriais:
 - [Analisar dados com o Azure Synapse notebooks](../spark/apache-spark-data-visualization-tutorial.md)
 
-- [Treinar um modelo de aprendizado de máquina com o AutoML](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- [Treinar um modelo de aprendizado de máquina com ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Treinar um modelo de aprendizado de máquina com o Apache Spark MLlib](../spark/apache-spark-machine-learning-mllib-notebook.md)
   

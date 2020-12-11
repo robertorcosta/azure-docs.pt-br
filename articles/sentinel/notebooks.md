@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344186"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092179"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Use Jupyter Notebook para procurar ameaças à segurança
 
@@ -23,7 +23,7 @@ A base do Azure Sentinel é o armazenamento de dados; Ele combina consultas de a
 
 ![notebook de exemplo](./media/notebooks/sentinel-notebooks-map.png)
 
-Integramos a experiência do Jupyter ao portal do Azure, facilitando a criação e a execução de notebooks para analisar seus dados. A biblioteca *Kqlmagic* permite fazer consultas do Azure Sentinel e executá-las diretamente dentro de um notebook. As consultas usam a [linguagem de consulta Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Vários notebooks, desenvolvidos por alguns analistas de segurança da Microsoft, são empacotados com o Azure Sentinel. Alguns desses notebooks são criados para um cenário específico e podem ser usados no estado em que se encontram. Outros são destinados como exemplos para ilustrar técnicas e recursos que você pode copiar ou adaptar para uso em seus notebooks. Outros blocos de anotações também podem ser importados do GitHub da Comunidade do Azure Sentinel.
+Integramos a experiência do Jupyter ao portal do Azure, facilitando a criação e a execução de notebooks para analisar seus dados. A biblioteca *Kqlmagic* permite fazer consultas do Azure Sentinel e executá-las diretamente dentro de um notebook. As consultas usam a [linguagem de consulta Kusto](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Vários notebooks, desenvolvidos por alguns analistas de segurança da Microsoft, são empacotados com o Azure Sentinel. Alguns desses notebooks são criados para um cenário específico e podem ser usados no estado em que se encontram. Outros são destinados como exemplos para ilustrar técnicas e recursos que você pode copiar ou adaptar para uso em seus notebooks. Outros blocos de anotações também podem ser importados do GitHub da Comunidade do Azure Sentinel.
 
 A experiência integrada do Jupyter usa [o Azure Notebooks](https://notebooks.azure.com/) para armazenar, compartilhar e executar notebooks. Você também pode executar esses notebooks localmente se tiver um ambiente de Python e Jupyter em seu computador ou em outros ambientes do JupterHub, como o Azure Databricks.
 
@@ -64,7 +64,7 @@ Para usar os blocos de anotações, você deve primeiro criar um espaço de trab
     |Campo|Descrição|
     |--|--|
     |Subscription|Selecione a assinatura do Azure que você deseja usar.|
-    |Resource group|Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Neste exemplo, usamos **AzureMLRG**.|
+    |Grupo de recursos|Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Neste exemplo, usamos **AzureMLRG**.|
     |Nome do workspace|Insira um nome único que identifique seu workspace. Neste exemplo, usamos **testworkspace1**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas.|
     |Região|Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.|
     |Edição do Workspace|Selecione **básico** como o tipo de espaço de trabalho neste exemplo. O tipo de espaço de trabalho (básico & Enterprise) determina os recursos aos quais você terá acesso e preços.|

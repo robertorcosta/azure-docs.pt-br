@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 0d1c2304f68f5e24c45390dca2cc0deb6e8dede2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931938"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033010"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -28,13 +28,6 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 ## <a name="limitations"></a>Limitações
-
-Os clusters privados só têm suporte nas seguintes regiões:
- *  Leste dos EUA
- *  Oeste dos EUA
- *  Oeste dos EUA 2
- *  Centro-Norte dos EUA
- *  Centro-Oeste dos EUA
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 

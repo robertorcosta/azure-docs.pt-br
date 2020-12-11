@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558157"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092679"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -131,7 +131,7 @@ Depois de estender o rótulo para ativos no Azure alcance, você pode selecionar
 
     Para criar um subrótulo, selecione o rótulo pai > **...**  >  **Mais ações**  >  **Adicionar subrótulo**.
 
-1. Para modificar os rótulos existentes, navegue até rótulos de **proteção de informações**  >  **Labels** e selecione seu rótulo. 
+1. Para modificar os rótulos existentes, navegue até rótulos de **proteção de informações**  >  e selecione seu rótulo. 
 
     Em seguida, selecione **Editar rótulo** para abrir o assistente **Editar rótulo de Sensibilidade** novamente, com todas as configurações que você definiu ao criar o rótulo.
 
@@ -190,7 +190,6 @@ Para obter mais informações sobre como configurar verificações em vários at
 |**Armazenamento de Blobs do Azure**     |[Registrar e verificar o armazenamento de BLOBs do Azure](register-scan-azure-blob-storage-source.md)         |
 |**Armazenamento do Azure Data Lake**     |[Registrar e verificar Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registrar e verificar Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
 |**Bancos de Dados SQL do Azure**|[Registrar e verificar um banco de dados SQL do Azure](register-scan-azure-sql-database.md) </br>[Registrar e verificar um Instância Gerenciada do Banco de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md)|
-|**Contas de armazenamento por trás de firewalls**     |[Verificar as contas de armazenamento por trás de um firewall no Azure alcance](scan-sqlresource-firewall.md)         |
 | | |
 
 ## <a name="view-labels-on-assets"></a>Exibir rótulos em ativos

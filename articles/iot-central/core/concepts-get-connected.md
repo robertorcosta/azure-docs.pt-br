@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121807"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033164"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -178,11 +178,21 @@ Essa abordagem é útil quando você estiver experimentando o IoT Central ou dis
 
 ## <a name="associate-a-device-with-a-device-template"></a>Associar um dispositivo a um modelo de dispositivo
 
-IoT Central automaticamente associa um dispositivo a um modelo de dispositivo quando o dispositivo se conecta. Um dispositivo envia uma ID de modelo quando ele se conecta. IoT Central usa a ID do modelo para identificar o modelo de dispositivo para esse modelo de dispositivo específico. O processo de descoberta funciona da seguinte maneira:
+IoT Central automaticamente associa um dispositivo a um modelo de dispositivo quando o dispositivo se conecta. Um dispositivo envia uma [ID de modelo](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) quando ele se conecta. IoT Central usa a ID do modelo para identificar o modelo de dispositivo para esse modelo de dispositivo específico. O processo de descoberta funciona da seguinte maneira:
 
 1. Caso modelo de dispositivo já esteja publicado no aplicativo IoT Central, o dispositivo será associado ao modelo de dispositivo.
-1. Se o modelo de dispositivo ainda não estiver publicado no aplicativo IoT Central, IoT Central procurará o modelo de dispositivo no repositório de modelos públicos. Se IoT Central encontrar o modelo, ele o usará para gerar um modelo de dispositivo básico.
+1. Se o modelo de dispositivo ainda não estiver publicado no aplicativo IoT Central, IoT Central procurará o modelo de dispositivo no [repositório de modelos públicos](https://github.com/Azure/iot-plugandplay-models). Se IoT Central encontrar o modelo, ele o usará para gerar um modelo de dispositivo básico.
 1. Se IoT Central não encontrar o modelo no repositório de modelo público, o dispositivo será marcado como não **associado**. Um operador pode criar um modelo de dispositivo para o dispositivo e, em seguida, migrar o dispositivo não associado para o novo modelo de dispositivo.
+
+A captura de tela a seguir mostra como exibir a ID do modelo de um modelo de dispositivo no IoT Central. Em um modelo de dispositivo, selecione um componente e, em seguida, selecione **Exibir identidade**:
+
+:::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Captura de tela mostrando a ID do modelo no modelo de dispositivo termostato.":::
+
+Você pode exibir o [modelo termostato](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) no repositório de modelo público. A definição de ID do modelo é semelhante a:
+
+```json
+"@id": "dtmi:com:example:Thermostat;1"
+```
 
 ## <a name="device-status-values"></a>Valores de status do dispositivo
 

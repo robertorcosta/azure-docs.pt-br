@@ -4,14 +4,14 @@ description: Saiba como gerenciar metadados de projeto, arquivos de projeto, o a
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb106132cf0dfb14dc41c1d4b480fd3a1d7fd7fe
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852796"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093529"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerenciar e configurar projetos no Azure Notebooks Preview
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a>Gerenciar e configurar projetos no Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -77,7 +77,7 @@ Cada item na lista de arquivos do projeto fornece comandos por meio de um menu d
 | Comando | Atalho do teclado | Ação |
 | --- | --- | --- |
 | Executar | r (ou clique) | Executa um arquivo do notebook. Outros tipos de arquivos são abertos para visualização.  |
-| Copiar Link | s | Copia um link para o arquivo na área de transferência. |
+| Copiar Link | a | Copia um link para o arquivo na área de transferência. |
 | Executar no Laboratório do Jupyter | j | Executa um notebook no JupyterLab, que é uma interface mais voltada para desenvolvedores do que aquela normalmente oferecida pelo Jupyter. |
 | Versão Prévia | p | Abre uma visualização do arquivo em HTML. Para notebooks, a visualização é uma renderização somente leitura do notebook. Para obter mais informações, confira a seção [Visualização](#preview). |
 | Editar arquivo | i | Abre o arquivo para edição. |
@@ -94,7 +94,7 @@ A página de visualização dá suporte a vários comandos da barra de ferrament
 
 | Comando | Atalho do teclado | Ação |
 | --- | --- | --- |
-| Compartilhamento | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
+| Compartilhar | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
 | Clone | c  | Clonar o notebook para sua conta. |
 | Executar | r | Executa o notebook se você tem permissão para fazer isso. |
 | Baixar | d | Baixa uma cópia do notebook. |

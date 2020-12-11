@@ -6,13 +6,13 @@ ms.date: 09/24/2020
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
-- contperfq1
-ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+- contperf-fy21q1
+ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91277692"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033724"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -33,7 +33,7 @@ Há restrições ao número de aplicativos e pacotes de aplicativos em uma conta
 
 ## <a name="understand-applications-and-application-packages"></a>Entender aplicativos e pacotes de aplicativos
 
-No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com versão que podem ser baixados automaticamente para os nós de computação no pool. Um aplicativo contém um ou mais *pacotes de aplicativos* , que representam versões diferentes do aplicativo.
+No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com versão que podem ser baixados automaticamente para os nós de computação no pool. Um aplicativo contém um ou mais *pacotes de aplicativos*, que representam versões diferentes do aplicativo.
 
 Cada *pacote de aplicativo* é um arquivo. zip que contém os binários do aplicativo e os arquivos de suporte. Há suporte apenas para o formato. zip.
 
@@ -81,9 +81,9 @@ Para exibir os aplicativos em sua conta do lote, selecione **aplicativos** no me
 
 A seleção dessa opção de menu abre a janela **aplicativos** . Essa janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
-- **Pacotes** : O número de versões associadas a este aplicativo.
-- **Versão padrão** : se aplicável, a versão do aplicativo que será instalada se nenhuma versão for especificada ao implantar o aplicativo.
-- **Permitir atualizações** : especifica se as atualizações e exclusões do pacote são permitidas.
+- **Pacotes**: O número de versões associadas a este aplicativo.
+- **Versão padrão**: se aplicável, a versão do aplicativo que será instalada se nenhuma versão for especificada ao implantar o aplicativo.
+- **Permitir atualizações**: especifica se as atualizações e exclusões do pacote são permitidas.
 
 Para ver a [estrutura de arquivos](files-and-directories.md) do pacote de aplicativos em um nó de computação, navegue até sua conta do lote no portal do Azure. Selecione **pools**. em seguida, selecione o pool que contém o nó de computação. Selecione o nó de computação no qual o pacote de aplicativos está instalado e abra a pasta **aplicativos** .
 
@@ -91,9 +91,9 @@ Para ver a [estrutura de arquivos](files-and-directories.md) do pacote de aplica
 
 Para ver os detalhes de um aplicativo, selecione-o na janela **aplicativos** . Você pode definir as configurações a seguir para seu aplicativo.
 
-- **Permitir atualizações** : indica se os pacotes de aplicativos podem ser [atualizados ou excluídos](#update-or-delete-an-application-package). O padrão é **Sim**. Se definido como **não** , os pacotes de aplicativos existentes não poderão ser atualizados ou excluídos, mas novas versões de pacote de aplicativos ainda poderão ser adicionadas.
-- **Versão padrão** : o pacote de aplicativo padrão a ser usado quando o aplicativo for implantado, se nenhuma versão for especificada.
-- **Nome de exibição** : um nome amigável que sua solução de lote pode usar ao exibir informações sobre o aplicativo. Por exemplo, esse nome pode ser usado na interface do usuário de um serviço que você fornece para seus clientes por meio do lote.
+- **Permitir atualizações**: indica se os pacotes de aplicativos podem ser [atualizados ou excluídos](#update-or-delete-an-application-package). O padrão é **Sim**. Se definido como **não**, os pacotes de aplicativos existentes não poderão ser atualizados ou excluídos, mas novas versões de pacote de aplicativos ainda poderão ser adicionadas.
+- **Versão padrão**: o pacote de aplicativo padrão a ser usado quando o aplicativo for implantado, se nenhuma versão for especificada.
+- **Nome de exibição**: um nome amigável que sua solução de lote pode usar ao exibir informações sobre o aplicativo. Por exemplo, esse nome pode ser usado na interface do usuário de um serviço que você fornece para seus clientes por meio do lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 
@@ -105,9 +105,9 @@ Em sua conta do lote, selecione **aplicativos** e, em seguida, selecione **Adici
 
 Insira as seguintes informações:
 
-- **ID do aplicativo** : a ID do seu novo aplicativo.
-- **Version** ": a versão do pacote de aplicativos que você está carregando.
-- **Pacote de aplicativos** : o arquivo. zip que contém os binários do aplicativo e os arquivos de suporte necessários para executar o aplicativo.
+- **ID do aplicativo**: a ID do seu novo aplicativo.
+- **Version**": a versão do pacote de aplicativos que você está carregando.
+- **Pacote de aplicativos**: o arquivo. zip que contém os binários do aplicativo e os arquivos de suporte necessários para executar o aplicativo.
 
 A **ID do aplicativo** e a **versão** que você inserir devem seguir estes requisitos:
 
@@ -130,9 +130,9 @@ Para atualizar ou excluir um pacote de aplicativos existente, selecione o aplica
 
 :::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Captura de tela mostrando as opções de atualização e exclusão para pacotes de aplicativos no portal do Azure.":::
 
-Se você selecionar **Atualizar** , poderá carregar um novo arquivo. zip. Isso substituirá o arquivo. zip anterior que você carregou para essa versão.
+Se você selecionar **Atualizar**, poderá carregar um novo arquivo. zip. Isso substituirá o arquivo. zip anterior que você carregou para essa versão.
 
-Se você selecionar **excluir** , será solicitado que você confirme a exclusão dessa versão. Depois de selecionar **OK** , o lote excluirá o arquivo. zip da sua conta de armazenamento do Azure. Se você excluir a versão padrão de um aplicativo, a configuração de **versão padrão** será removida para esse aplicativo.
+Se você selecionar **excluir**, será solicitado que você confirme a exclusão dessa versão. Depois de selecionar **OK**, o lote excluirá o arquivo. zip da sua conta de armazenamento do Azure. Se você excluir a versão padrão de um aplicativo, a configuração de **versão padrão** será removida para esse aplicativo.
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalar aplicativos em nós de computação
 
@@ -223,7 +223,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ```
 
-Quando você carrega um pacote de aplicativos, você pode especificar uma versão padrão para implantar em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo da versão ao referenciar o aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na janela de **Aplicativos** , como mostrado em [Carregue e gerencie aplicativos](#upload-and-manage-applications).
+Quando você carrega um pacote de aplicativos, você pode especificar uma versão padrão para implantar em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo da versão ao referenciar o aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na janela de **Aplicativos**, como mostrado em [Carregue e gerencie aplicativos](#upload-and-manage-applications).
 
 Por exemplo, se você definiu "2.7" como a versão padrão do *blender* de aplicativos e suas tarefas referenciam a variável de ambiente a seguir, seus nós do Windows executarão a versão 2.7:
 
@@ -243,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar pacotes de aplicativos de um pool
 
-Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Isso significa que:
+Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Isso significa:
 
 - O serviço de Lote instala o pacote recém-especificado em todos os novos nós que ingressam no pool e em qualquer nó existente que seja reinicializado ou cuja imagem seja refeita.
 - Os nós de computação que já estão no pool quando você atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicativos. Esses nós de computação devem ser reinicializados ou ter sua imagem recriada para receber o novo pacote.

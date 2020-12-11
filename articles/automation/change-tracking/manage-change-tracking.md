@@ -3,14 +3,14 @@ title: Controle de Alterações e Inventário na Automação do Azure
 description: Este artigo informa como usar o Controle de Alterações e Inventário para controlar as alterações de software e de serviço da Microsoft em seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288745"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093614"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerenciar Controle de Alterações e Inventário
 
@@ -99,6 +99,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 O controle de conteúdo de arquivo permite que você exiba o conteúdo de um arquivo antes e depois de uma alteração controlada. O recurso salva o conteúdo do arquivo em uma [conta de armazenamento](../../storage/common/storage-account-overview.md) após a ocorrência de cada alteração. Aqui estão algumas regras a serem seguidas para controlar o conteúdo do arquivo:
 
 * Uma conta de armazenamento Standard usando o modelo de implantação do Resource Manager é necessária para armazenar o conteúdo do arquivo.
+* Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Se você protegeu sua conta de armazenamento para permitir apenas determinado tráfego, precisará modificar suas regras de configuração para permitir que sua conta de automação se conecte a ela. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](../../storage/common/storage-network-security.md).
 * Não use contas de armazenamento do modelo de implantação Premium e Clássico. Consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-account-create.md).
 * Você pode conectar a conta de armazenamento a apenas uma conta de automação.
 * Controle de Alterações e inventário devem ser habilitados em sua conta de automação.

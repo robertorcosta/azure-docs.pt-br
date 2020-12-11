@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 5c6ed106462d7dcac3f31a2ab157e5b634391006
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860348"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093444"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>Sincronização de entrada para provisionamento de nuvem usando o MS API do Graph
 
@@ -43,7 +43,7 @@ Use esses [módulo Microsoft Azure Active Directory para Windows PowerShell](htt
 O primeiro desses dois comandos exige Azure Active Directory credenciais. Esses commandlets identificam implicitamente o locatário e os habilitam para sincronização.
 
 ## <a name="create-service-principals"></a>Criar entidades de serviço
-Em seguida, precisamos criar a [entidade de serviço/aplicativo AD2AAD](https://docs.microsoft.com/graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
+Em seguida, precisamos criar a [entidade de serviço/aplicativo AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
 
 Você precisa usar essa ID de aplicativo 1a4721b3-e57f-4451-ae87-ef078703ec94. O displayName é a URL de domínio do AD, se usada no portal (por exemplo, contoso.com), mas pode ser nomeada outra coisa.
 

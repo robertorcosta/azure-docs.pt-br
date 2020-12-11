@@ -3,12 +3,12 @@ title: Atualizar uma delegação
 description: Saiba como atualizar uma delegação para um cliente anteriormente integrado ao Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610887"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093410"
 ---
 # <a name="update-a-delegation"></a>Atualizar uma delegação
 
@@ -17,7 +17,7 @@ Depois que você tiver integrado uma assinatura (ou grupo de recursos) ao Lighth
 > [!TIP]
 > Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para configurar o Azure Lighthouse e consolidar sua experiência de gerenciamento.
 
-Se você tiver [integrado seu cliente por meio de modelos de Azure Resource Manager (ARM)](onboard-customer.md), uma nova implantação deverá ser executada para esse cliente. Dependendo do que você está alterando, talvez você queira atualizar a oferta original ou remover a oferta original e criar uma nova.
+Se você tiver [integrado seu cliente por meio de modelos de Azure Resource Manager (modelos ARM)](onboard-customer.md), uma nova implantação deverá ser executada para esse cliente. Dependendo do que você está alterando, talvez você queira atualizar a oferta original ou remover a oferta original e criar uma nova.
 
 - **Se você estiver alterando somente autorizações**: você pode atualizar sua delegação alterando apenas a seção **autorizações** do modelo ARM.
 - **Se você estiver alterando o locatário de gerenciamento**: você deve criar um novo modelo de ARM usando com um **mspOfferName** diferente de sua oferta anterior.

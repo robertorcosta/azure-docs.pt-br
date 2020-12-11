@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: fca98414a87f3b8a4f3c0969a28ee95c7ed47dc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501385"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092135"
 ---
 # <a name="api-management-soft-delete-preview"></a>Exclusão reversível do gerenciamento de API (versão prévia)
 
@@ -48,7 +48,7 @@ Se sua instância do APIM não for recuperada dentro de 48 horas, ela será excl
 
 ## <a name="list-deleted-apim-instances"></a>Listar instâncias de APIM excluídas
 
-Você pode verificar se uma instância de APIM excluída de forma reversível está disponível para restauração (sem exclusão) usando os serviços excluídos [obter por nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou [lista por operações de assinatura](/deletedservices/listbysubscription) .
+Você pode verificar se uma instância de APIM excluída de forma reversível está disponível para restauração (sem exclusão) usando os serviços excluídos [obter por nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou [lista por operações de assinatura](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) .
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Obter uma instância excluída de maneira reversível por nome
 
@@ -76,7 +76,7 @@ Se disponível para a exclusão, o Azure retornará um registro da instância AP
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Listar todas as instâncias de exclusão reversível de uma determinada assinatura
 
-Use a lista de gerenciamento de API por operação de [assinatura](/deletedservices/listbysubscription) , substituindo `{subscriptionId}` pela sua ID de assinatura:
+Use a lista de gerenciamento de API por operação de [assinatura](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) , substituindo `{subscriptionId}` pela sua ID de assinatura:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview

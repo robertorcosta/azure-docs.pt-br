@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493977"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033418"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -48,7 +48,7 @@ Os logs de fluxo são a fonte de verdade para todas as atividades de rede em seu
 **Propriedades da chave**
 
 - Os logs de fluxo operam na [camada 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) e registram todos os fluxos de IP que entram e saem de um NSG
-- Os logs são coletados por meio da plataforma do Azure e não afetam os recursos do cliente ou o desempenho da rede de alguma forma.
+- Os logs são coletados em um **intervalo de 1 minuto** por meio da plataforma Azure e não afetam os recursos do cliente ou o desempenho da rede de alguma forma.
 - Os logs são gravados no formato JSON e mostram os fluxos de entrada e saída em uma base regra por NSG.
 - Cada registro de log contém a NIC (interface de rede) que o fluxo aplica a informações de 5 tuplas, a decisão de tráfego & (versão 2 somente) informações de taxa de transferência. Veja o _formato de log_ abaixo para obter detalhes completos.
 - Os logs de fluxo têm um recurso de retenção que permite excluir automaticamente os logs de até um ano após a criação. 
@@ -317,7 +317,7 @@ Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
-**Portal do Azure**
+**Azure portal**
 
 Na portal do Azure, navegue até a seção de logs de fluxo NSG no observador de rede. Em seguida, clique no nome do NSG. Isso abrirá o painel configurações para o log de fluxo. Altere os parâmetros desejados e clique em **salvar** para implantar as alterações.
 
@@ -361,6 +361,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do Load Balancer básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md) e têm um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
 
+**Problema com a sub-rede NSG do gateway de aplicativo v2**: o log de fluxo na sub-rede v2 do gateway de aplicativo NSG [não tem suporte](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) no momento. Esse problema não afeta o Application Gateway v1.
+
 **Serviços incompatíveis**: devido às limitações da plataforma atual, um pequeno conjunto de serviços do Azure não tem suporte dos logs de fluxo do NSG. A lista atual de serviços incompatíveis é
 - [AKS (Serviço de Kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) 
@@ -371,7 +373,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, é recomendável Habilitar logs de fluxo de NSG em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em grupos de segurança de rede.
 
+**Ter NSG no nível de NIC e de sub-rede**: no caso de NSG ser configurado na NIC, bem como no nível de sub-rede, o registro em log de fluxo deve ser habilitado em ambos os NSGs. 
+
 **Provisionamento de armazenamento**: o armazenamento deve ser provisionado em sintonia com o volume de log de fluxo esperado.
+
+**Nome: o** nome do NSG deve ter até 80 caracteres e os nomes da regra NSG até 65 caracteres. Se os nomes excederem o limite de caracteres, ele poderá ficar truncado durante o log.
 
 ## <a name="troubleshooting-common-issues"></a>Solução de problemas comuns
 
