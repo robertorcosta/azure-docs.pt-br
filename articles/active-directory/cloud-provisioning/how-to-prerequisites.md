@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173695"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355849"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento em nuvem do Azure AD Connect
 Este artigo oferece diretrizes sobre como escolher e usar o provisionamento de nuvem do Azure AD Connect como solução de identidade.
@@ -51,11 +51,23 @@ Execute a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes-
 
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
-1. Identificar um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com o mínimo de 4 GB de RAM e o runtime do .NET 4.7.1+.
+ 1. Identificar um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com o mínimo de 4 GB de RAM e o runtime do .NET 4.7.1+.
 
-1. A política de execução do PowerShell no servidor local deve ser definida como Undefined ou RemoteSigned.
+ >[!NOTE]
+ > Lembre-se de que a definição de um filtro de escopo incorre em um custo de memória no servidor host.  Se nenhum filtro de escopo for usado, não haverá nenhum custo extra de memória. O mínimo de 4 GB dará suporte à sincronização de até 12 unidades organizacionais definidas no filtro de escopo. Se você precisar sincronizar UOs adicionais, será necessário aumentar a quantidade mínima de memória. Use a tabela a seguir como guia:
+ >
+ >  
+ >  | Número de UOs no filtro de escopo| memória mínima necessária|
+ >  | --- | --- |
+ >  | 12| 4 GB|
+ >  | 18|5,5 GB|
+ >  | 28|10 + GB|
+ >
+ > 
 
-1. Se houver um firewall entre os servidores e o Azure Active Directory, configure os seguintes itens:
+ 2. A política de execução do PowerShell no servidor local deve ser definida como Undefined ou RemoteSigned.
+
+ 3. Se houver um firewall entre os servidores e o Azure Active Directory, configure os seguintes itens:
    - Certifique-se de que os agentes possam fazer solicitações de *saída* para o Azure AD nas seguintes portas:
 
         | Número da porta | Como ele é usado |
@@ -100,7 +112,20 @@ Para habilitar o TLS 1.2, siga estas etapas.
 
 1. Reinicie o servidor.
 
+## <a name="known-limitations"></a>Limitações conhecidas
+Veja a seguir as limitações conhecidas:
 
+### <a name="delta-synchronization"></a>Sincronização de delta
+
+- A filtragem de escopo de grupo para sincronização Delta não dá suporte a mais de 1500 membros.
+- Quando você exclui um grupo que é usado como parte de um filtro de escopo de grupo, os usuários que são membros do grupo não são excluídos. 
+- Quando você renomeia a UO ou o grupo que está no escopo, a sincronização Delta não removerá os usuários.
+
+### <a name="provisioning-logs"></a>Logs de provisionamento
+- Os logs de provisionamento não diferenciam claramente as operações de criação e atualização.  Você pode ver uma operação de criação para uma atualização e uma operação de atualização para uma criação.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Renomeação de grupo ou renomeação de UO
+- Se você renomear um grupo ou uma UO no AD que está no escopo de uma determinada configuração, o trabalho de provisionamento de nuvem não será capaz de reconhecer a alteração de nome no AD. O trabalho não entrará em quarentena e permanecerá íntegro.
 
 
 ## <a name="next-steps"></a>Próximas etapas 

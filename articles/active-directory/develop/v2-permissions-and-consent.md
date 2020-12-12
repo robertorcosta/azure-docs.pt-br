@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: c113a252363d3b94131ac423f795f6efb13b1975
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029542"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355691"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -89,7 +89,7 @@ O escopo do `profile` pode ser usado com o escopo do `openid` e com muitos outro
 O [ `offline_access` escopo](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá ao aplicativo acesso a recursos em nome do usuário por um longo tempo. Na página de consentimento, esse escopo aparece como a permissão "Manter o acesso aos dados para os quais recebeu acesso". Quando um usuário aprova o `offline_access` escopo, seu aplicativo pode receber tokens de atualização do ponto de extremidade de token da plataforma de identidade da Microsoft. Os tokens de atualização têm uma vida longa. Seu aplicativo pode obter novos tokens de acesso quando os mais antigos expirarem.
 
 > [!NOTE]
-> Essa permissão aparece em todas as telas de consentimento hoje, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isso é para abranger cenários em que um cliente pode começar dentro do fluxo implícito e, em seguida, ir até o fluxo de código em que um token de atualização é esperado.
+> Essa permissão aparece em todas as telas de consentimento hoje, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)). Isso é para abranger cenários em que um cliente pode começar dentro do fluxo implícito e, em seguida, mover para o fluxo de código onde um token de atualização é esperado.
 
 Na plataforma de identidade da Microsoft (solicitações feitas ao ponto de extremidade v 2.0), seu aplicativo deve solicitar explicitamente o `offline_access` escopo para receber tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões.
 
@@ -198,7 +198,7 @@ https://graph.microsoft.com/mail.send
 | `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com organizações, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
 | `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `state` | Recomendadas | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 |`scope`        | Obrigatório        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando [`/.default`](#the-default-scope) ) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
 
 

@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556311"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357799"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com Espaços de Armazenamento Diretos (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,9 +69,9 @@ Antes de concluir as instruções neste artigo, você já deve ter:
 
    Para instalar o clustering de failover da interface do usuário, faça o seguinte em ambas as máquinas virtuais:
 
-   1. No **Gerenciador do Servidor** , selecione **Gerenciar** e **Adicionar Funções e Recursos**.
+   1. No **Gerenciador do Servidor**, selecione **Gerenciar** e **Adicionar Funções e Recursos**.
    1. No assistente **adicionar funções e recursos** , selecione **Avançar** até chegar a **selecionar recursos**.
-   1. Em **Selecionar Recursos** , escolha **Clustering de Failover**. Inclua todos os recursos e as ferramentas de gerenciamento. 
+   1. Em **Selecionar Recursos**, escolha **Clustering de Failover**. Inclua todos os recursos e as ferramentas de gerenciamento. 
    1. Selecione **Adicionar Recursos**.
    1. Selecione **Avançar** e **Concluir** para instalar os recursos.
 
@@ -90,18 +91,18 @@ Valide o cluster na interface do usuário ou usando o PowerShell.
 
 Para validar o cluster usando a interface do usuário, faça o seguinte em uma das máquinas virtuais:
 
-1. Em **Gerenciador do Servidor** , selecione **Ferramentas** e **Gerenciador de Cluster de Failover**.
-1. Em **Gerenciador de Cluster de Failover** , selecione **Ação** e **Validar Configuração**.
+1. Em **Gerenciador do Servidor**, selecione **Ferramentas** e **Gerenciador de Cluster de Failover**.
+1. Em **Gerenciador de Cluster de Failover**, selecione **Ação** e **Validar Configuração**.
 1. Selecione **Avançar**.
-1. Em **Selecionar Servidores ou um Cluster** , insira o nome de ambas as máquinas virtuais.
-1. Em **Opções de teste** , selecione **Executar apenas os testes selecionados**. 
+1. Em **Selecionar Servidores ou um Cluster**, insira o nome de ambas as máquinas virtuais.
+1. Em **Opções de teste**, selecione **Executar apenas os testes selecionados**. 
 1. Selecione **Avançar**.
-1. Em **Seleção de Teste** , selecione todos os testes, exceto de **Armazenamento** , conforme mostrado aqui:
+1. Em **Seleção de Teste**, selecione todos os testes, exceto de **Armazenamento**, conforme mostrado aqui:
 
    ![Selecionar testes de validação de cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
 1. Selecione **Avançar**.
-1. Em **Confirmação** , selecione **Avançar**.
+1. Em **Confirmação**, selecione **Avançar**.
 
     O assistente para **validar uma configuração** executa os testes de validação.
 
@@ -160,7 +161,7 @@ Os discos para os Espaços de Armazenamento Diretos precisam estar vazios. Eles 
    Enable-ClusterS2D
    ```
 
-   No **Gerenciador de Cluster de Failover** , agora você pode ver o pool de armazenamento.
+   No **Gerenciador de Cluster de Failover**, agora você pode ver o pool de armazenamento.
 
 1. [Criar um volume](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
@@ -180,7 +181,7 @@ Os discos para os Espaços de Armazenamento Diretos precisam estar vazios. Eles 
 
 ## <a name="test-cluster-failover"></a>Testar failover de cluster
 
-Teste o failover do cluster. Em **Gerenciador de cluster de failover** , clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó** e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
+Teste o failover do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó** e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testar o failover de cluster movendo o recurso principal para os outros nós":::
 
@@ -190,11 +191,11 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
 
 1. Conecte-se à primeira máquina virtual usando o RDP.
 
-1. Em **Gerenciador de cluster de failover** , verifique se todos os recursos de cluster principais estão na primeira máquina virtual. Se necessário, mova todos os recursos para aquela máquina virtual.
+1. Em **Gerenciador de cluster de failover**, verifique se todos os recursos de cluster principais estão na primeira máquina virtual. Se necessário, mova todos os recursos para aquela máquina virtual.
 
 1. Localize a mídia de instalação. Se a máquina virtual usa uma das imagens do Azure Marketplace, a mídia está localizada em `C:\SQLServer_<version number>_Full`. Selecione **instalação**.
 
-1. Na **Central de Instalação do SQL Server** , selecione **Instalação**.
+1. Na **Central de Instalação do SQL Server**, selecione **Instalação**.
 
 1. Selecione **Nova instalação de cluster de failover do SQL Server**. Siga as instruções no Assistente para instalar o SQL Server FCI.
 

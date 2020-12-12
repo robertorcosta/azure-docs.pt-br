@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860602"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355232"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento
 
@@ -26,6 +26,9 @@ Este artigo fornece um exemplo de como integrar o a um sistema de aprovação. N
 
 - Aprove automaticamente o usuário e permita que o Azure AD crie a conta de usuário.
 - Dispare uma revisão manual. Se a solicitação for aprovada, o sistema de aprovação usará Microsoft Graph para provisionar a conta de usuário. O sistema de aprovação também pode notificar o usuário de que sua conta foi criada.
+
+> [!IMPORTANT]
+>A **partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se você estiver usando a inscrição do Google Federation ou autoatendimento com o Gmail, deverá [testar seus aplicativos nativos de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrar um aplicativo para seu sistema de aprovação
 

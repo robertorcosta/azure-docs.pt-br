@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564456"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358003"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,19 +48,22 @@ O recurso de cluster de failover requer que as máquinas virtuais sejam colocada
 
 Selecione cuidadosamente a opção de disponibilidade de VM que corresponde à configuração de cluster pretendida: 
 
- - **Discos compartilhados do Azure** : [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurado com o domínio de falha e o domínio de atualização definido como 1 e colocados dentro de um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Compartilhamentos de arquivos Premium** : [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Os compartilhamentos de arquivos Premium serão a única opção de armazenamento compartilhado se você escolher zonas de disponibilidade como a configuração de disponibilidade para suas VMs. 
- - **Espaços de armazenamento diretos** : [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Discos compartilhados do Azure**: a opção de disponibilidade varia se você estiver usando SSDs ou UltraDisk Premium:
+   - SSD Premium: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) em diferentes domínios de falha/atualização para SSDs Premium colocados dentro de um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Ultra Disk: a [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) , mas as VMs devem ser colocadas na mesma zona de disponibilidade, o que reduz a disponibilidade do cluster para 99,9%. 
+- **Compartilhamentos de arquivos Premium**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Espaços de armazenamento diretos**: [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Você não pode definir nem alterar o conjunto de disponibilidade depois de criar uma máquina virtual.
+> [!IMPORTANT]
+> Você não pode definir nem alterar o conjunto de disponibilidade depois de criar uma máquina virtual.
 
 ## <a name="create-the-virtual-machines"></a>Criar as máquinas virtuais
 
 Depois de configurar a disponibilidade da VM, você estará pronto para criar suas máquinas virtuais. Você pode optar por usar uma imagem do Azure Marketplace que faz ou não tem SQL Server já instalado. No entanto, se você escolher uma imagem para SQL Server em VMs do Azure, será necessário desinstalar o SQL Server da máquina virtual antes de configurar a instância de cluster de failover. 
 
 ### <a name="considerations"></a>Considerações
-Em um cluster de failover de convidado de VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A Rede do Azure tem redundância física, o que torna desnecessários os adaptadores de rede e as sub-redes adicionais em um cluster convidado de uma VM de IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só são acessíveis em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de convidado de uma VM de IaaS do Azure.
+
+Em um cluster de failover de convidado de VM do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A Rede do Azure tem redundância física, o que torna desnecessários os adaptadores de rede e as sub-redes adicionais em um cluster convidado de uma VM de IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só são acessíveis em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de convidado de uma VM de IaaS do Azure.
 
 Coloque as duas máquinas virtuais:
 
@@ -89,7 +93,7 @@ Depois de cancelar o registro da extensão, você pode desinstalar o SQL Server.
 
 1. Se você estiver usando uma das imagens de máquina virtual com base em SQL Server, remova a instância SQL Server:
 
-   1. Em **Programas e Recursos** , clique com o botão direito do mouse em **Microsoft SQL Server 201_ (64 bits)** e selecione **Desinstalar/Alterar**.
+   1. Em **Programas e Recursos**, clique com o botão direito do mouse em **Microsoft SQL Server 201_ (64 bits)** e selecione **Desinstalar/Alterar**.
    1. Selecione **Remover**.
    1. Selecione a instância padrão.
    1. Remova todos os recursos em **Serviços de Mecanismo de Banco de Dados**. Não remova nada em **recursos compartilhados**. Você verá algo como a seguinte captura de tela:
@@ -109,9 +113,9 @@ Esta tabela detalha as portas que talvez você precise abrir, dependendo da conf
 
    | Finalidade | Porta | Observações
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente. </br> </br> **Usado por** : todas as configurações de FCI. |
-   | Investigação de integridade | TCP 59999 | Qualquer porta TCP aberta. Configure a [investigação de integridade](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para usar essa porta. </br> </br> **Usado por** : FCI com o balanceador de carga. |
-   | Compartilhamento de arquivo | UDP 445 | Porta que o serviço de compartilhamento de arquivos usa. </br> </br> **Usado por** : FCI com compartilhamento de arquivos premium. |
+   | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente. </br> </br> **Usado por**: todas as configurações de FCI. |
+   | Investigação de integridade | TCP 59999 | Qualquer porta TCP aberta. Configure a [investigação de integridade](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para usar essa porta. </br> </br> **Usado por**: FCI com o balanceador de carga. |
+   | Compartilhamento de arquivo | UDP 445 | Porta que o serviço de compartilhamento de arquivos usa. </br> </br> **Usado por**: FCI com compartilhamento de arquivos premium. |
 
 ## <a name="join-the-domain"></a>Ingressar no domínio
 

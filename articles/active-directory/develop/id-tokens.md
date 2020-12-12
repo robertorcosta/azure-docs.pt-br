@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784f1cc7b7e063166dc1f24851ab217cef8d831a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89646601"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355640"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
-`id_tokens` são enviados ao aplicativo cliente como parte de um fluxo do [OpenID Connect](v2-protocols-oidc.md) (OIDC). Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário.
+`id_tokens` são enviados ao aplicativo cliente como parte de um fluxo do [OpenID Connect](v2-protocols-oidc.md) (OIDC). Eles podem ser enviados junto ou em vez de um token de acesso e são usados pelo cliente para autenticar o usuário.
 
 ## <a name="using-the-id_token"></a>Usando o id_token
 
@@ -96,7 +96,7 @@ Essa lista mostra as declarações JWT que estão na maioria id_tokens por padr�
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Usando declarações para identificar de forma confiável um usuário (entidade e ID de objeto)
 
-Ao identificar um usuário (digamos, procurá-los em um banco de dados ou decidir quais permissões eles têm), é essencial usar as informações que permanecerão constantes e exclusivas ao longo do tempo.  Os aplicativos herdados às vezes usam o campo como o endereço de email, um número de telefone ou o UPN.  Todos eles podem mudar ao longo do tempo e também podem ser reutilizados com o passar do tempo, quando um funcionário altera seu nome, ou um funcionário recebe um endereço de email que corresponde ao de um funcionário anterior, que não apresenta mais tempo). Portanto, é **essencial** que seu aplicativo não use dados legíveis para identificar um usuário que possa ser lido por pessoas geralmente significa que alguém irá lê-lo e deseja alterá-lo.  Em vez disso, use as declarações fornecidas pelo padrão OIDC ou as declarações de extensão fornecidas pela Microsoft- `sub` as `oid` declarações e.
+Ao identificar um usuário (digamos, procurá-los em um banco de dados ou decidir quais permissões eles têm), é essencial usar as informações que permanecerão constantes e exclusivas ao longo do tempo. Os aplicativos herdados às vezes usam campos como o endereço de email, um número de telefone ou o UPN.  Todos eles podem mudar ao longo do tempo e também podem ser reutilizados com o passar do tempo, quando um funcionário altera seu nome, ou um funcionário recebe um endereço de email que corresponde ao de um funcionário anterior, que não apresenta mais tempo). Portanto, é **essencial** que seu aplicativo não use dados legíveis para identificar um usuário que possa ser lido por pessoas geralmente significa que alguém irá lê-lo e deseja alterá-lo. Em vez disso, use as declarações fornecidas pelo padrão OIDC ou as declarações de extensão fornecidas pela Microsoft- `sub` as `oid` declarações e.
 
 Para armazenar corretamente as informações por usuário, use `sub` ou `oid` sozinha (que são exclusivas como GUIDs), com `tid` uso para roteamento ou fragmentação, se necessário.  Se você precisar compartilhar dados entre serviços, `oid` + `tid` é melhor que todos os aplicativos obtenham o mesmo `oid` e as `tid` declarações para um determinado usuário.  A `sub` declaração na plataforma Microsoft Identity é "emparelhada" – ela é exclusiva com base em uma combinação do destinatário, do locatário e do usuário do token.  Assim, dois aplicativos que solicitam tokens de ID para um determinado usuário receberão `sub` declarações diferentes, mas as mesmas `oid` declarações para esse usuário.
 

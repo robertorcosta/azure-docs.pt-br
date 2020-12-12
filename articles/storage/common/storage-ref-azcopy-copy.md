@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512147"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356167"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -276,6 +276,8 @@ Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina
 
 --a cadeia de caracteres **include-After** inclui apenas os arquivos modificados em ou após a data/hora determinada. O valor deve estar no formato ISO8601. Se nenhum fuso horário for especificado, o valor será considerado no fuso horário local do computador que executa o AzCopy. por exemplo, `2020-08-19T15:04:00Z` para uma hora UTC ou `2020-08-19` para meia-noite (00:00) no fuso horário local. Como em AzCopy 10,5, esse sinalizador se aplica somente a arquivos, não a pastas, portanto, as propriedades de pasta não serão copiadas ao usar esse sinalizador com `--preserve-smb-info` ou `--preserve-smb-permissions` .
 
+ --a cadeia de caracteres **include-before** inclui apenas os arquivos modificados antes ou na data/hora determinada. O valor deve estar no formato ISO8601. Se nenhum fuso horário for especificado, o valor será considerado no fuso horário local do computador que executa o AzCopy. Por ex.: `2020-08-19T15:04:00Z` por uma hora UTC ou `2020-08-19` para meia-noite (00:00) no fuso horário local. A partir do AzCopy 10,7, esse sinalizador se aplica somente a arquivos, não a pastas, portanto, as propriedades da pasta não serão copiadas ao usar esse sinalizador com `--preserve-smb-info` ou `--preserve-smb-permissions` .
+
 **--include-** a cadeia de caracteres de atributos (somente Windows) inclui arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
 
 --a cadeia de caracteres **include-path** inclui apenas esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: `myFolder;myFolder/subDirName/file.pdf` ).
@@ -322,6 +324,6 @@ Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina
 
 **--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [azcopy](storage-ref-azcopy.md)

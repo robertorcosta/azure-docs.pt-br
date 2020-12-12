@@ -9,16 +9,17 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
+ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 37f6e60aea033dee8adfd66839c82b9fd165c879
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556244"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357901"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +31,7 @@ Este artigo descreve como alterar o modelo de licença para uma VM (máquina vir
 
 Há três modelos de licença para uma VM do Azure que está hospedando SQL Server: pré-pago, Benefício Híbrido do Azure (AHB) e alta disponibilidade/recuperação de desastres (HA/DR). É possível modificar o modelo de licença da VM do SQL Server no portal do Azure, na CLI do Azure ou no PowerShell. 
 
-- No modelo **pago conforme o uso** , o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server.
+- No modelo **pago conforme o uso**, o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server.
 - O [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) permite que você use sua licença do SQL Server em uma VM que está executando o SQL Server. 
 - O tipo de licença **ha/Dr** é usado para a [réplica gratuita de ha/Dr](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) no Azure. 
 
@@ -75,7 +76,7 @@ Para alterar o modelo de licenciamento da VM do SQL Server, é preciso cumprir o
 
 É possível usar a CLI do Azure para alterar o modelo de licença.  
 
-Especifique os seguintes valores para **licença-tipo** :
+Especifique os seguintes valores para **licença-tipo**:
 - `AHUB` para o Benefício Híbrido do Azure
 - `PAYG` para pagamento conforme o uso
 - `DR` para ativar a réplica gratuita de HA/DR
@@ -91,7 +92,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type <license-type
 
 É possível usar o PowerShell para alterar o modelo de licença.
 
-Especifique os seguintes valores para **licença-tipo** :
+Especifique os seguintes valores para **licença-tipo**:
 - `AHUB` para o Benefício Híbrido do Azure
 - `PAYG` para pagamento conforme o uso
 - `DR` para ativar a réplica gratuita de HA/DR

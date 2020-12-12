@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146664"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356745"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrar disco de log para ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,15 +45,15 @@ Para habilitar a compatibilidade, siga estas etapas:
 
 1. Vá para sua máquina virtual no [portal do Azure](https://portal.azure.com/). 
 1. Pare/Desaloque a máquina virtual. 
-1. Selecione **discos** em **configurações** e, em seguida, selecione **configurações adicionais** . 
+1. Selecione **discos** em **configurações** e, em seguida, selecione **configurações adicionais**. 
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Selecione configurações adicionais para discos em configurações na portal do Azure":::
 
-1. Selecione **Sim** para **habilitar a compatibilidade de ultra Disk** . 
+1. Selecione **Sim** para **habilitar a compatibilidade de ultra Disk**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selecione configurações adicionais para discos em configurações na portal do Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Captura de tela que mostra a opção Sim.":::
 
-1. Selecione **Salvar** . 
+1. Clique em **Salvar**. 
 
 
 
@@ -83,7 +84,7 @@ Configure SQL Server para usar a nova unidade de log. Você pode fazer isso usan
 1. Verifique a conta de serviço usada pelo SQL Server. Você pode fazer isso usando SQL Server Configuration Manager ou Services. msc.
 1. Navegue até o novo disco. 
 1. Crie uma pasta (ou várias pastas) a ser usada para o arquivo de log. 
-1. Clique com o botão direito do mouse na pasta e selecione **Propriedades** .
+1. Clique com o botão direito do mouse na pasta e selecione **Propriedades**.
 1. Na guia **segurança** , conceda acesso de controle total à conta de serviço SQL Server. 
 1. Selecione **OK**  para salvar suas configurações. 
 1. Repita isso para cada pasta de nível raiz em que você planeja ter dados SQL. 
@@ -143,14 +144,14 @@ Neste ponto, o banco de dados fica online com o log no novo local.
 Use o SSMS para mover os arquivos existentes para um novo local:
 
 1. Conecte-se ao seu banco de dados no SQL Server Management Studio (SSMS). 
-1. Clique com o botão direito do mouse no banco de dados, selecione **Propriedades** e selecione **arquivos** . 
+1. Clique com o botão direito do mouse no banco de dados, selecione **Propriedades** e selecione **arquivos**. 
 1. Anote o caminho dos arquivos existentes. 
 1. Selecione **OK** para fechar a caixa de diálogo. 
-1. Clique com o botão direito do mouse no banco de dados, selecione **tarefas**  >  **desanexar** . 
+1. Clique com o botão direito do mouse no banco de dados, selecione **tarefas**  >  **desanexar**. 
 1. Siga o assistente para desanexar o banco de dados. 
 1. Use o explorador de arquivos para mover manualmente o arquivo de log para o novo local.
 1. Anexar o banco de dados no SQL Server Management Studio
-   1. **Clique com** o botão direito do mouse no Pesquisador de **objetos** e selecione **anexar banco de dados** . 
+   1. **Clique com** o botão direito do mouse no Pesquisador de **objetos** e selecione **anexar banco de dados**. 
    1. Usando a caixa de diálogo, adicione cada arquivo, incluindo o arquivo de log em seu novo local. 
    1. Selecione **OK** para anexar o banco de dados. 
 

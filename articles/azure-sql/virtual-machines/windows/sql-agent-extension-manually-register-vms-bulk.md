@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 208df7ad53049598255ce358f2db128ba84fea9a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 558daede55f6563155d3f54e97d77c0a3ca4de59
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557490"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357204"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Registrar várias VMs do SQL no Azure com a extensão do SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +40,7 @@ O processo de registro não tem risco, não tem nenhum tempo de inatividade e n�
 Para registrar sua VM SQL Server com a extensão, você precisará do seguinte: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/) que foi [registrada com o provedor **Microsoft. SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) e contém máquinas virtuais SQL Server não registradas. 
-- As credenciais de cliente usadas para registrar as máquinas virtuais existem em qualquer uma das seguintes funções do Azure: **colaborador de máquina virtual** , **colaborador** ou **proprietário**. 
+- As credenciais de cliente usadas para registrar as máquinas virtuais existem em qualquer uma das seguintes funções do Azure: **colaborador de máquina virtual**, **colaborador** ou **proprietário**. 
 - A versão mais recente do [AZ PowerShell (mínimo de 5,0)](/powershell/azure/new-azureps-module-az). 
 
 

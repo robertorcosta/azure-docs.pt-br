@@ -1,14 +1,14 @@
 ---
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
-ms.date: 09/08/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d254c90881d23255dda5c38a868eb61e51b4f08
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336591"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356405"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
@@ -175,9 +175,10 @@ Os usuários que receberam a função interna de leitor de monitoramento do Azur
 1. Navegue até a página **meus clientes** e, em seguida, selecione **log de atividades** no menu de navegação à esquerda.
 1. Verifique se a **atividade de diretório** está selecionada no filtro próximo à parte superior da tela.
 
-Uma lista de alterações de delegação será exibida. Você pode selecionar **Editar colunas** para mostrar ou ocultar o **status**, **a categoria de evento**, a **hora**, o carimbo de **data/hora**, a **assinatura**, o **evento iniciado por**, o **grupo de recursos**, o tipo de **recurso**e os valores de **recurso** .
+Uma lista de alterações de delegação será exibida. Você pode selecionar **Editar colunas** para mostrar ou ocultar o **status**, **a categoria de evento**, a **hora**, o carimbo de **data/hora**, a **assinatura**, o **evento iniciado por**, o **grupo de recursos**, o tipo de **recurso** e os valores de **recurso** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como integrar clientes ao [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Saiba mais sobre [Azure monitor](../../azure-monitor/index.yml) e o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Examine a pasta de trabalho de exemplo [logs de atividades por domínio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) para saber como exibir os logs de atividades do Azure entre assinaturas com uma opção para filtrá-los por nome de domínio.

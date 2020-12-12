@@ -11,16 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351752"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355385"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
 Para usar um [conector de API](api-connectors-overview.md), primeiro crie o conector de API e habilite-o em um fluxo de usuário.
+
+> [!IMPORTANT]
+>A **partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se você estiver usando a inscrição do Google Federation ou autoatendimento com o Gmail, deverá [testar seus aplicativos nativos de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="create-an-api-connector"></a>Criar um conector de API
 
@@ -38,7 +41,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
    - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** fictícios que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
 
    ![Configurar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 > [!IMPORTANT]
 > Anteriormente, era necessário configurar quais atributos de usuário enviar à API (' claims to send ') e quais atributos de usuário aceitar da API (' claims to Receive '). Agora, todos os atributos de usuário são enviados por padrão se eles tiverem um valor e qualquer atributo de usuário puder ser retornado pela API em uma resposta de ' continuação '.
@@ -75,7 +78,7 @@ Content-type: application/json
 }
 ```
 
-Somente as propriedades de usuário e os atributos personalizados listados na **Azure Active Directory**  >  experiência de atributos de usuário personalizados de **identidades externas**  >  **Custom user attributes** estão disponíveis para serem enviados na solicitação.
+Somente as propriedades de usuário e os atributos personalizados listados na **Azure Active Directory**  >  experiência de atributos de usuário personalizados de **identidades externas**  >   estão disponíveis para serem enviados na solicitação.
 
 Existem atributos personalizados no formato **de \<extensions-app-id> _AttributeName extension_**  no diretório. Sua API deve esperar receber declarações nesse mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autoatendimento](user-flow-add-custom-attributes.md).
 
@@ -102,7 +105,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
    ![Adicionar APIs ao fluxo do usuário](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
@@ -248,8 +251,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como uma *declaração _ para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como uma *declaração _ para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -271,7 +274,7 @@ Content-type: application/json
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
 | userMessage | String | Sim      | Mensagem a ser exibida ao usuário.                                            |
-| code        | String | No       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
+| code        | Cadeia de caracteres | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
 **Experiência do usuário final com uma resposta de bloqueio**
 
@@ -296,9 +299,9 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
-| status      | Integer | Yes      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
+| status      | Integer | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
-| code        | String  | No       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
+| code        | Cadeia de caracteres  | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
 **Experiência do usuário final com uma resposta de erro de validação**
 

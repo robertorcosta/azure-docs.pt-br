@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744101"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355855"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Dados de residência de dados e de cliente para autenticação multifator do Azure AD
 
@@ -45,7 +45,7 @@ Essas informações são mantidas por 90 dias.
 
 A autenticação multifator do Azure AD não registra dados pessoais, como nome de usuário, número de telefone ou endereço IP, mas há um *Userobjectid* que identifica as tentativas de autenticação multifator para os usuários. Os dados de log são armazenados por 30 dias.
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação multifator do Azure AD
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação Multifator do Azure AD
 
 Para nuvens públicas do Azure, excluindo a autenticação do Azure B2C, a Extensão do NPS e o Adaptador do AD FS do Windows Server 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
@@ -57,7 +57,7 @@ Para nuvens públicas do Azure, excluindo a autenticação do Azure B2C, a Exten
 | Notificação do Microsoft Authenticator | Em logs de Autenticação Multifator<br />Armazenamento de dados do relatório de atividade da Autenticação Multifator<br />Usuários bloqueados se houver fraude relatada<br />Solicitações de alteração quando o token do dispositivo Microsoft Authenticator é alterado |
 
 > [!NOTE]
-> O armazenamento de dados do relatório de atividade da Autenticação Multifator é armazenado nos Estados Unidos para todas as nuvens, independentemente da região que processa a solicitação de autenticação. Microsoft Azure Alemanha, o Microsoft Azure operado pela 21Vianet e a nuvem do Microsoft Government têm os próprios armazenamentos de dados independentes separados de armazenamentos de dados de região de nuvem pública, no entanto esses dados são sempre armazenados no Estados Unidos.
+> O armazenamento de dados do relatório de atividade da Autenticação Multifator é armazenado nos Estados Unidos para todas as nuvens, independentemente da região que processa a solicitação de autenticação. Microsoft Azure Alemanha, o Microsoft Azure operado pela 21Vianet e a nuvem do Microsoft Government têm os próprios armazenamentos de dados independentes separados de armazenamentos de dados de região de nuvem pública, no entanto esses dados são sempre armazenados no Estados Unidos. Esses armazenamentos de dados contêm informações de identificação pessoal (PII), como nome principal do usuário (UPN) e número de telefone completo. 
 
 Para o Microsoft Azure Government, o Microsoft Azure Alemanha, o Microsoft Azure operado pela 21Vianet, a autenticação do Azure B2C, a Extensão NPS e o Adaptador do AD FS do Windows Server 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
