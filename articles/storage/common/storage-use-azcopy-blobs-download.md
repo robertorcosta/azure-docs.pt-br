@@ -4,16 +4,16 @@ description: Este artigo contém uma coleção de comandos de exemplo AzCopy que
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0a2490a104d18f77a0ec326933f463eb4ebb4339
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea8300447b9aa596e8678038982771263a4c76f6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923956"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358768"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Baixar BLOBs do armazenamento de BLOBs do Azure usando AzCopy v10
 
@@ -113,9 +113,11 @@ Você também pode excluir BLOBs usando a `--exclude-pattern` opção. Para sabe
 
 As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de BLOB e não ao caminho.  Se você quiser copiar todos os arquivos de texto (BLOBs) que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
-#### <a name="download-blobs-that-were-modified-after-a-date-and-time"></a>Baixar BLOBs que foram modificados após uma data e hora 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Baixar BLOBs que foram modificados antes ou depois de uma data e hora 
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-after` opção. Especifique uma data e hora no formato ISO-8601 (por exemplo: `2020-08-19T15:04:00Z` ). 
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-before` `--include-after` opção ou. Especifique uma data e hora no formato ISO-8601 (por exemplo: `2020-08-19T15:04:00Z` ). 
+
+Os exemplos a seguir baixam arquivos que foram modificados na data especificada ou após ela.
 
 |    |     |
 |--------|-----------|
@@ -168,10 +170,10 @@ Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#op
 
 Encontre mais exemplos nestes artigos:
 
-- [Exemplos: carregar](storage-use-azcopy-blobs-upload.md)
+- [Exemplos: Carregar](storage-use-azcopy-blobs-upload.md)
 - [Exemplos: copiar entre a conta](storage-use-azcopy-blobs-copy.md)
-- [Exemplos: Synchronize](storage-use-azcopy-blobs-synchronize.md)
-- [Exemplos: buckets do Amazon S3](storage-use-azcopy-s3.md)
+- [Exemplos: Sincronizar](storage-use-azcopy-blobs-synchronize.md)
+- [Exemplos: usar buckets do Amazon S3](storage-use-azcopy-s3.md)
 - [Exemplos: arquivos do Azure](storage-use-azcopy-files.md)
 - [Tutorial: Migrar os dados locais para o armazenamento em nuvem usando o AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)

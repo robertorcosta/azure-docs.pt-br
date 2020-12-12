@@ -8,6 +8,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -16,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 572363f429cb828d44c9dd12ba2424930c94fefe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553518"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359244"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizar o gerenciamento com a extensão SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,13 +36,13 @@ Este artigo fornece uma visão geral da extensão. Para instalar a extensão SQL
 
 A extensão do agente IaaS SQL Server fornece vários benefícios para SQL Server em VMs do Azure: 
 
-- **Benefícios do recurso** : a extensão desbloqueia vários benefícios de recursos de automação, como gerenciamento de portal, flexibilidade de licença, backup automatizado, aplicação de patch automatizada e muito mais. Consulte os [benefícios do recurso](#feature-benefits) mais adiante neste artigo para obter detalhes. 
+- **Benefícios do recurso**: a extensão desbloqueia vários benefícios de recursos de automação, como gerenciamento de portal, flexibilidade de licença, backup automatizado, aplicação de patch automatizada e muito mais. Consulte os [benefícios do recurso](#feature-benefits) mais adiante neste artigo para obter detalhes. 
 
-- **Conformidade** : a extensão oferece um método simplificado para atender à necessidade de notificar a Microsoft de que a benefício híbrido do Azure foi habilitada conforme especificado nos termos do produto. Esse processo nega a necessidade de gerenciar os formulários de registro de licenciamento para cada recurso.  
+- **Conformidade**: a extensão oferece um método simplificado para atender à necessidade de notificar a Microsoft de que a benefício híbrido do Azure foi habilitada conforme especificado nos termos do produto. Esse processo nega a necessidade de gerenciar os formulários de registro de licenciamento para cada recurso.  
 
-- **Gratuito** : a extensão em todos os três modos de gerenciamento é completamente gratuita. Não há custo adicional associado à extensão ou com a alteração dos modos de gerenciamento. 
+- **Gratuito**: a extensão em todos os três modos de gerenciamento é completamente gratuita. Não há custo adicional associado à extensão ou com a alteração dos modos de gerenciamento. 
 
-- **Gerenciamento de licenças simplificado** : a extensão simplifica o gerenciamento de licenças SQL Server e permite que você identifique rapidamente SQL Server VMs com o benefício híbrido do Azure habilitado usando o [portal do Azure](manage-sql-vm-portal.md), o CLI do Azure ou o PowerShell: 
+- **Gerenciamento de licenças simplificado**: a extensão simplifica o gerenciamento de licenças SQL Server e permite que você identifique rapidamente SQL Server VMs com o benefício híbrido do Azure habilitado usando o [portal do Azure](manage-sql-vm-portal.md), o CLI do Azure ou o PowerShell: 
 
    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

@@ -4,15 +4,15 @@ description: Você pode fornecer credenciais de autorização para operações d
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b13b5e1e27e9717066ff8f1aa8e245e8d9f54bbb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498108"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360281"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a BLOBs com AzCopy e Azure Active Directory (Azure AD)
 
@@ -73,7 +73,7 @@ Esse comando retorna um código de autenticação e a URL de um site. Abra o sit
 
 Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, feche a janela do navegador e comece a usar o AzCopy.
 
-<a id="service-principal"></a>
+<a id="managed-identity"></a>
 
 ## <a name="authorize-a-managed-identity"></a>Autorizar uma identidade gerenciada
 
@@ -116,6 +116,8 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
 Substitua o `<resource-id>` espaço reservado pela ID de recurso da identidade gerenciada atribuída pelo usuário.
+
+<a id="service-principal"></a>
 
 ## <a name="authorize-a-service-principal"></a>Autorizar uma entidade de serviço
 
@@ -181,8 +183,113 @@ Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo
 > [!NOTE]
 > Considere usar um prompt, conforme mostrado neste exemplo. Dessa forma, sua senha não aparecerá no histórico de comandos do console. 
 
-<a id="managed-identity"></a>
+## <a name="authorize-without-a-keyring-linux"></a>Autorizar sem um keyring (Linux)
 
+Se o seu sistema operacional não tiver um repositório secreto, como um *keyring*, o `azcopy login` comando não funcionará. Em vez disso, você pode definir variáveis de ambiente na memória antes de executar cada operação. Esses valores desaparecem da memória depois que a operação é concluída, portanto, você precisará definir essas variáveis sempre que executar um comando azcopy.
+
+### <a name="authorize-a-user-identity"></a>Autorizar uma identidade de usuário
+
+Depois de verificar se a identidade do usuário recebeu o nível de autorização necessário, digite o comando a seguir e pressione a tecla ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
+```
+
+Em seguida, execute qualquer comando azcopy (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
+
+Esse comando retorna um código de autenticação e a URL de um site. Abra o site, forneça o código e, em seguida, escolha o botão **Avançar**.
+
+![Criar um contêiner](media/storage-use-azcopy-v10/azcopy-login.png)
+
+Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, a operação pode ser concluída.
+
+### <a name="authorize-by-using-a-system-wide-managed-identity"></a>Autorizar usando uma identidade gerenciada em todo o sistema
+
+Primeiro, verifique se você habilitou uma identidade gerenciada em todo o sistema em sua VM. Consulte [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+
+Digite o comando a seguir e pressione a tecla ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Em seguida, execute qualquer comando azcopy (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-by-using-a-user-assigned-managed-identity"></a>Autorizar usando uma identidade gerenciada atribuída pelo usuário
+
+Primeiro, verifique se você habilitou uma identidade gerenciada atribuída pelo usuário em sua VM. Consulte [identidade gerenciada atribuída pelo usuário](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+
+Digite o comando a seguir e pressione a tecla ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Em seguida, digite qualquer um dos comandos a seguir e pressione a tecla ENTER.
+
+```bash
+export AZCOPY_MSI_CLIENT_ID=<client-id>
+```
+
+Substitua o `<client-id>` espaço reservado pela ID do cliente da identidade gerenciada atribuída pelo usuário.
+
+```bash
+export AZCOPY_MSI_OBJECT_ID=<object-id>
+```
+
+Substitua o `<object-id>` espaço reservado pela ID de objeto da identidade gerenciada atribuída pelo usuário.
+
+```bash
+export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
+```
+
+Substitua o `<resource-id>` espaço reservado pela ID de recurso da identidade gerenciada atribuída pelo usuário.
+
+Depois de definir essas variáveis, você pode executar qualquer comando azcopy (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-a-service-principal"></a>Autorizar uma entidade de serviço
+
+Antes de executar um script, você precisa entrar interativamente pelo menos uma vez para que possa fornecer AzCopy com as credenciais de sua entidade de serviço.  Essas credenciais são armazenadas em um arquivo seguro e criptografado para que o script não precise fornecer essas informações confidenciais.
+
+Você pode entrar em sua conta usando um segredo do cliente ou usando a senha de um certificado associado ao registro do aplicativo da sua entidade de serviço.
+
+#### <a name="authorize-a-service-principal-by-using-a-client-secret"></a>Autorizar uma entidade de serviço usando um segredo do cliente
+
+Digite o comando a seguir e pressione a tecla ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_APPLICATION_ID=<application-id>
+export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+```
+
+Substitua o `<application-id>` espaço reservado pela ID do aplicativo do registro do aplicativo da sua entidade de serviço. Substitua o `<client-secret>` espaço reservado pelo segredo do cliente.
+
+> [!NOTE]
+> Considere o uso de uma solicitação para coletar a senha do usuário. Dessa forma, sua senha não aparecerá no seu histórico de comandos. 
+
+Em seguida, execute qualquer comando azcopy (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
+
+#### <a name="authorize-a-service-principal-by-using-a-certificate"></a>Autorizar uma entidade de serviço usando um certificado
+
+Se preferir usar suas próprias credenciais para autorização, você poderá carregar um certificado para o registro do aplicativo e, em seguida, usar esse certificado para fazer logon.
+
+Além de carregar seu certificado para o registro do aplicativo, você também precisará ter uma cópia do certificado salvo no computador ou na VM em que o AzCopy será executado. Esta cópia do certificado deve estar no. PFX ou. O formato PEM e deve incluir a chave privada. A chave privada deve ser protegida por senha. 
+
+Digite o comando a seguir e pressione a tecla ENTER.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
+export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+```
+
+Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo ou totalmente qualificado para o arquivo de certificado. AzCopy salva o caminho para esse certificado, mas não salva uma cópia do certificado, portanto, certifique-se de manter esse certificado em vigor. Substitua o `<certificate-password>` espaço reservado pela senha do certificado.
+
+> [!NOTE]
+> Considere o uso de uma solicitação para coletar a senha do usuário. Dessa forma, sua senha não aparecerá no seu histórico de comandos. 
+
+Em seguida, execute qualquer comando azcopy (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ## <a name="next-steps"></a>Próximas etapas
 

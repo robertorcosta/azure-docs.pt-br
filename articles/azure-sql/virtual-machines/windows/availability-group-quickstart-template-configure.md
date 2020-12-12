@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e52925acb099190305e1f0609ac389565336e24b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556498"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359907"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usar modelos de início rápido do Azure para configurar um grupo de disponibilidade para o SQL Server em uma VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +67,7 @@ Adicionar VMs do SQL Server ao grupo de recursos *SqlVirtualMachineGroups* inici
    | **Assinatura** |  A assinatura em que estão suas VMs do SQL Server. |
    |**Grupo de recursos** | O grupo de recursos em que suas VMs do SQL Server residem. | 
    |**Nome do cluster de failover** | O nome desejado para o novo cluster de failover do Windows. |
-   | **Lista de VMs existentes** | As VMs do SQL Server que devem fazer parte do grupo de disponibilidade e do novo cluster. Separe estes valores com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2* ). |
+   | **Lista de VMs existentes** | As VMs do SQL Server que devem fazer parte do grupo de disponibilidade e do novo cluster. Separe estes valores com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2*). |
    | **Versão do SQL Server** | A versão do SQL Server de suas VMs do SQL Server. Selecione-a na lista suspensa. Atualmente, há suporte apenas para imagens do SQL Server 2016 e do SQL Server 2017. |
    | **Nome de domínio totalmente qualificado existente** | O FQDN existente para o domínio no qual residem suas VMs do SQL Server. |
    | **Conta de domínio existente** | Uma conta de usuário de domínio existente que tenha permissão para **Criar o objeto de computador** no domínio, pois o [CNO](/windows-server/failover-clustering/prestage-cluster-adds) é criado durante a implantação do modelo. Por exemplo, uma conta de administrador do domínio normalmente tem permissão suficiente (por exemplo: account@domain.com). *Essa conta também deve fazer parte do grupo administrador local em cada VM para criar o cluster.*| 
@@ -116,14 +117,14 @@ Você apenas precisa criar o balanceador de carga interno. Na etapa 4, o modelo 
 
 1. No Portal do Azure, abra o grupo de recursos que contém as máquinas virtuais do SQL Server. 
 2. No grupo de recursos, selecione **Adicionar**.
-3. Pesquise pelo **balanceador de carga**. Nos resultados da pesquisa, selecione **Balanceador de carga** , que é publicado pela **Microsoft**.
-4. Na folha **Balanceador de carga** , selecione **Criar**.
-5. Na caixa de diálogo **Criar balanceador de carga** , configure o balanceador de carga da seguinte maneira:
+3. Pesquise pelo **balanceador de carga**. Nos resultados da pesquisa, selecione **Balanceador de carga**, que é publicado pela **Microsoft**.
+4. Na folha **Balanceador de carga**, selecione **Criar**.
+5. Na caixa de diálogo **Criar balanceador de carga**, configure o balanceador de carga da seguinte maneira:
 
    | Configuração | Valor |
    | --- | --- |
    | **Nome** |Insira um nome de texto que represente o balanceador de carga. Por exemplo, insira **sqlLB**. |
-   | **Tipo** |**Interna** : a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos na mesma rede virtual ao grupo de disponibilidade.  </br> **Externa** : permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão à Internet pública. |
+   | **Tipo** |**Interna**: a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos na mesma rede virtual ao grupo de disponibilidade.  </br> **Externa**: permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão à Internet pública. |
    | **Rede virtual** | Selecione a rede virtual na qual estão as instâncias do SQL Server. |
    | **Sub-rede** | Selecione a sub-rede na qual estão as instâncias do SQL Server. |
    | **Atribuição de endereço IP** |**Estático** |
@@ -137,7 +138,7 @@ Você apenas precisa criar o balanceador de carga interno. Na etapa 4, o modelo 
 
 
 >[!IMPORTANT]
-> O recurso de IP público de cada VM do SQL Server deve ter uma SKU padrão para ser compatível com o balanceador de carga padrão. Para determinar a SKU do recurso de IP público da sua VM, acesse **Grupo de recursos** , selecione o recurso **Endereço IP público** para a VM do SQL Server desejada e localize o valor em **SKU** no painel **Visão geral**. 
+> O recurso de IP público de cada VM do SQL Server deve ter uma SKU padrão para ser compatível com o balanceador de carga padrão. Para determinar a SKU do recurso de IP público da sua VM, acesse **Grupo de recursos**, selecione o recurso **Endereço IP público** para a VM do SQL Server desejada e localize o valor em **SKU** no painel **Visão geral**. 
 
 ## <a name="create-listener"></a>Criar ouvinte 
 
@@ -163,11 +164,11 @@ Para configurar o balanceador de carga interno e criar o ouvinte do grupo de dis
    |**Grupo de recursos** | O grupo de recursos em que estão suas VMs do SQL Server e o grupo de disponibilidade. | 
    |**Nome do cluster de failover existente** | O nome do cluster em que suas VMs do SQL Server ingressaram. |
    | **Grupo de disponibilidade do SQL existente**| O nome do grupo de disponibilidade de que suas VMs do SQL Server fazem parte. |
-   | **Lista de VMs existentes** | Os nomes das VMs do SQL Server que fazem parte do grupo de disponibilidade mencionado anteriormente. Separe os nomes com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2* ). |
+   | **Lista de VMs existentes** | Os nomes das VMs do SQL Server que fazem parte do grupo de disponibilidade mencionado anteriormente. Separe os nomes com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2*). |
    | **Ouvinte** | O nome DNS que você deseja atribuir ao ouvinte. Por padrão, esse modelo especifica o nome “aglistener”, mas isso pode ser alterado. O nome não deve exceder 15 caracteres. |
    | **Porta do ouvinte** | A porta que você deseja que o ouvinte use. Em geral, essa porta deve ser 1433 por padrão. Esse é o número da porta que o modelo especifica. Porém, se a porta padrão for alterada, a porta do ouvinte deverá usar esse valor. | 
    | **IP do Ouvinte** | O endereço IP que você deseja que o ouvinte use. Esse endereço será criado durante a implantação do modelo, portanto, forneça um que ainda não esteja em uso.  |
-   | **Sub-rede existente** | O nome da sub-rede interna de suas VMs do SQL Server (por exemplo: *padrão* ). Você pode determinar esse valor ao acessar o **Grupo de recursos** , selecionar sua rede virtual, selecionar **Sub-redes** no painel **Configurações** e copiar o valor em **Nome**. |
+   | **Sub-rede existente** | O nome da sub-rede interna de suas VMs do SQL Server (por exemplo: *padrão*). Você pode determinar esse valor ao acessar o **Grupo de recursos**, selecionar sua rede virtual, selecionar **Sub-redes** no painel **Configurações** e copiar o valor em **Nome**. |
    | **Balanceador de carga interno existente** | O nome do balanceador de carga interno que você criou na etapa 3. |
    | **Porta de investigação** | A porta de investigação que o balanceador de carga interno usará. O modelo usa 59999 por padrão, mas você pode alterar esse valor. |
    | &nbsp; | &nbsp; |

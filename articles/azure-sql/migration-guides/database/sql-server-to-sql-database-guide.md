@@ -1,5 +1,5 @@
 ---
-title: SQL Server ao banco de dados SQL – guia de migração
+title: 'SQL Server ao banco de dados SQL: guia de migração'
 description: Siga este guia para migrar seus bancos de dados SQL Server para o banco de dados SQL do Azure.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326957"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358972"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -100,7 +100,7 @@ Se você tiver vários servidores e bancos de dados que precisam ser avaliados e
 > [!IMPORTANT]
 > A execução de avaliações em escala para vários bancos de dados, especialmente grandes, também pode ser automatizada usando o [Utilitário de linha de comando DMA](/sql/dma/dma-commandline) e carregada para [migrações para Azure](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) para análise adicional e preparação de destino.
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 Depois de concluir as tarefas associadas ao estágio de pré-migração, você estará pronto para executar o esquema e a migração de dados. 
 
@@ -114,7 +114,7 @@ Para migrar um banco de dados do SQL Server para o banco de dados SQL do Azure u
 
 1. Baixe e instale o [Assistente de migração do banco de dados](https://www.microsoft.com/download/details.aspx?id=53595).
 1. Crie um novo projeto e selecione **migração** como o tipo de projeto.
-1. Defina o tipo de servidor de origem como **SQL Server** e o tipo de servidor de destino como banco de **dados** **Create** **SQL do Azure**
+1. Defina o tipo de servidor de origem como **SQL Server** e o tipo de servidor de destino como banco de **dados**  **SQL do Azure**
 1. No projeto de migração, especifique os detalhes do servidor de origem, como o nome do servidor, as credenciais para se conectar ao servidor e ao banco de dados de origem para migrar.
 1. Nos detalhes do servidor de destino, especifique o nome do servidor do banco de dados SQL do Azure, as credenciais para se conectar ao servidor e ao banco de dados de destino para migrar para o.
 1. Selecione os objetos de esquema e implante-os no banco de dados SQL do Azure de destino.
@@ -151,7 +151,7 @@ Depois de verificar se os dados são iguais tanto na origem quanto no destino, v
 > Para obter detalhes sobre as etapas específicas associadas à execução de uma transferência como parte das migrações usando DMS, consulte [executando a transferência de migração](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
 
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-atualização para garantir que tudo esteja funcionando de forma tranqüila e eficiente. 
 

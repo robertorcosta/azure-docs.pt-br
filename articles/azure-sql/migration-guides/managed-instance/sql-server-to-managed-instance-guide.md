@@ -1,5 +1,5 @@
 ---
-title: SQL Server para o SQL Instância Gerenciada-guia de migração
+title: 'SQL Server Instância Gerenciada SQL: guia de migração'
 description: Siga este guia para migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326889"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358887"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Se você precisar comparar o desempenho de sua carga de trabalho em um Instânci
 Com base nas informações na fase de descoberta e avaliação, crie um Instância Gerenciada de destino do SQL de tamanho adequado. Você pode fazer isso usando o [portal do Azure](../../managed-instance/instance-create-quickstart.md), o [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [modelo de Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 Depois de concluir as tarefas associadas ao estágio de pré-migração, você estará pronto para executar o esquema e a migração de dados. 
 
@@ -177,7 +177,7 @@ Depois de verificar se os dados são os mesmos na origem e no destino, você pod
 > Para obter detalhes sobre as etapas específicas associadas à execução de uma transferência como parte das migrações usando DMS, consulte [executando a transferência de migração](../../../dms/tutorial-sql-server-managed-instance-online.md#performing-migration-cutover).
 
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-atualização para garantir que tudo esteja funcionando de forma tranqüila e eficiente. 
 

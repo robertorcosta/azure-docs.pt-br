@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852516"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359839"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -35,7 +35,7 @@ A maneira mais rápida de começar a rotular dados é executar a ferramenta de r
 Antes de começar, é importante observar que há duas maneiras de implantar a ferramenta de rotulamento de exemplo em uma instância de contêiner do Azure (ACI). Ambas as opções são usadas para executar a ferramenta de rotulagem de exemplo com ACI: 
 
 * [Usando o portal do Azure](#azure-portal)
-* [Usando o CLI do Azure](#azure-cli)
+* [Usando a CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -86,7 +86,7 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
    * URL do servidor-defina como `https://mcr.microsoft.com`
    * Nome de usuário (opcional)-criar um nome de usuário. 
    * Senha (opcional) – crie uma senha segura que você vai lembrar.
-   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
    * Comando de inicialização – defina como `./run.sh eula=accept`
     

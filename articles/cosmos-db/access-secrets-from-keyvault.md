@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341375"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359312"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +45,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Adicione as chaves de acesso do Azure Cosmos DB ao Key Vault.
 1. Navegue até o Key Vault que você criou na etapa anterior e abra a guia **Segredos**.  
-2. Selecione **+ gerar/importar** , 
+2. Selecione **+ gerar/importar**, 
 
    * Selecione **manual** para **Opções de upload**.
    * Forneça um **Nome** para seu segredo
@@ -59,7 +59,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
 ## <a name="create-an-azure-web-application"></a>Criar um aplicativo Web do Azure
 
-1. Crie um aplicativo Web do Azure ou baixe o aplicativo do [Repositório do GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Trata-se de um aplicativo MVC simples.  
+1. Crie um aplicativo Web do Azure ou baixe o aplicativo do [Repositório do GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). Trata-se de um aplicativo MVC simples.  
 
 2. Descompacte o aplicativo baixado e abra o arquivo **HomeController.cs**. Atualize a ID do segredo na linha a seguir:
 
@@ -82,7 +82,7 @@ Nesta seção, você registrará o aplicativo no Azure Active Directory e conced
 
 1. Navegue até o portal do Azure e abra o **Key Vault** criado na seção anterior.  
 
-2. Abra **Políticas de acesso** , selecione **+Adicionar Novo** , localize o aplicativo Web implantado, escolha as permissões e selecione **OK**.  
+2. Abra **Políticas de acesso**, selecione **+Adicionar Novo**, localize o aplicativo Web implantado, escolha as permissões e selecione **OK**.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Adicionar política de acesso":::
 

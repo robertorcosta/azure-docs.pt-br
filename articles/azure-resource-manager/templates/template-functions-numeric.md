@@ -3,12 +3,12 @@ title: Funções de modelo – numéricas
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com números.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920463"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359703"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos de ARM
 
@@ -94,7 +94,7 @@ output addResult int = first + second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -239,7 +239,7 @@ output addResult int = first / second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -247,7 +247,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 `float(arg1)`
 
-Converte o valor em um número de ponto flutuante. Você só usa essa função ao passar parâmetros personalizados para um aplicativo, como um aplicativo lógico. `float`Não há suporte para a função em Becip.  Consulte [suporte a tipos numéricos diferentes de inteiros de 32 bits](https://github.com/Azure/bicep/issues/486).
+Converte o valor em um número de ponto flutuante. Você só usa essa função ao passar parâmetros personalizados para um aplicativo, como um aplicativo lógico. `float`Não há suporte para a função em bicep.  Consulte [suporte a tipos numéricos diferentes de inteiros de 32 bits](https://github.com/Azure/bicep/issues/486).
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -341,7 +341,7 @@ output inResult int = int(stringToConvert)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -410,12 +410,12 @@ output intOutput int = max(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 
 `min (arg1)`
 
@@ -480,7 +480,7 @@ output intOutput int = min(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -552,7 +552,7 @@ output modResult int = first % second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -623,7 +623,7 @@ output mulResult int = first * second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -694,7 +694,7 @@ output subResult int = first - second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016668"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358734"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -350,12 +350,12 @@ Algumas propriedades podem ser alteradas, com exceções dependendo do valor atu
 
 - **singlePlacementGroup** - se singlePlacementGroup for true, ele pode ser modificado para false. No entanto, se singlePlacementGroup for false, ele **não poderá** ser modificado para true.
 - **sub-rede** - a sub-rede de um conjunto de dimensionamento pode ser modificada desde que a sub-rede original e a nova sub-rede estejam na mesma rede virtual.
+- **imageReferenceSku** -o SKU de referência de imagem pode ser atualizado para [distribuições do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)endossado, imagens do Windows Server/cliente e imagens sem informações do [plano](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriedades que exigem desalocação para serem alteradas
 Algumas propriedades só podem ser alteradas para determinados valores se as VMs no conjunto de dimensionamento forem desalocadas. Essas propriedades incluem:
 
-- **Nome do SKU**- se não houver suporte para a nova SKU de VM no hardware em que o conjunto de dimensionamento está no momento, você precisará desalocar as VMs no conjunto de dimensionamento antes de modificar o nome do SKU. Para saber mais, confira [Como monitorar uma Azure VM](../virtual-machines/windows/resize-vm.md).
-
+- **Nome do SKU**– se o novo SKU da VM não tiver suporte no hardware em que o conjunto de dimensionamento está atualmente ativado, você precisará desalocar as VMs no conjunto de dimensionamento antes de modificar o nome do SKU. Para saber mais, confira [Como monitorar uma Azure VM](../virtual-machines/windows/resize-vm.md). 
 
 ## <a name="vm-specific-updates"></a>Atualizações específicas da VM
 Algumas modificações podem ser aplicadas a VMs específicas em vez das propriedades globais do conjunto de dimensionamento. Atualmente, a única atualização específica de VM compatível é anexação/desanexação de discos de dados para/de VMs no pacote de atualização. Esse recurso está em visualização. Para saber mais, confira a [documentação de versão prévia](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
