@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029363"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347482"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -29,7 +29,13 @@ Com o gerenciamento de direitos do Azure Active Directory (AD do Azure), você p
 
 ## <a name="what-is-a-connected-organization"></a>O que é uma organização conectada?
 
-Uma organização conectada é um diretório ou domínio externo do Azure AD com o qual você tem uma relação.
+Uma organização conectada é outra organização com a qual você tem uma relação.  Para que os usuários na organização possam acessar seus recursos, como seus sites ou aplicativos do SharePoint Online, você precisará de uma representação dos usuários dessa organização nesse diretório.  Como, na maioria dos casos, os usuários nessa organização ainda não estão em seu diretório do Azure AD, você pode usar o gerenciamento de direitos para colocá-los em seu diretório do Azure AD, conforme necessário.  
+
+Há três maneiras de o gerenciamento de direitos permitir que você especifique os usuários que formam uma organização conectada.  Poderia ser
+
+* usuários em outro diretório do AD do Azure,
+* usuários em outro diretório não Azure AD que foi configurado para Federação direta ou
+* usuários em outro diretório não Azure AD, cujos endereços de email têm o mesmo nome de domínio em comum.
 
 Por exemplo, suponha que você trabalhe no Banco Woodgrove e queira colaborar com duas organizações externas. Essas duas organizações têm configurações diferentes:
 
@@ -42,7 +48,7 @@ Nesse caso, você pode configurar duas organizações conectadas. Você cria uma
 
 A forma como os usuários do diretório do Azure AD ou do domínio se autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
 
-- Azure AD
+- AD do Azure
 - [Federação direta](../external-identities/direct-federation.md)
 - [Senha de uso único](../external-identities/one-time-passcode.md) (domínio)
 

@@ -4,12 +4,12 @@ description: Este artigo descreve a exibição em tempo real de logs de kubernet
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: a97d7ed5fe513798f4265498f4efa60098ea15c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920715"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346787"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
 
@@ -35,7 +35,7 @@ Use o procedimento a seguir para exibir os logs ao vivo para implantações que 
 
 5. Selecione um pod para iniciar a coleta de dados dinâmicos.
 
-    ![Logs ao vivo da implantação](./media/container-insights-livedata-overview/live-data-deployment.png)
+    [![Logs ao vivo da implantação](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>Exibir logs
 
@@ -107,16 +107,22 @@ Após a autenticação bem-sucedida, o painel de console dados dinâmicos (vers�
 ## <a name="using-live-data-views"></a>Usando exibições de dados dinâmicos
 As seções a seguir descrevem a funcionalidade que você pode usar nas diferentes exibições de dados ao vivo.
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Search
 O recurso de dados dinâmicos (versão prévia) inclui a funcionalidade de pesquisa. No campo de **pesquisa** , você pode filtrar os resultados digitando uma palavra-chave ou termo e quaisquer resultados correspondentes são realçados para permitir uma revisão rápida. Ao exibir eventos, você pode limitar os resultados usando o **filtro** Pill encontrado à direita da barra de pesquisa. Dependendo do recurso que você selecionou, o Pill lista um pod, um namespace ou um cluster do qual escolher.
 
 ![Exemplo de filtro do painel do console de dados dinâmicos](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
+
+![Painel do console de dados dinâmicos exemplo de filtro para implantação](./media/container-insights-livedata-overview/live-data-deployment-search.png)
 
 ### <a name="scroll-lock-and-pause"></a>Scroll Lock e Pause
 
 Para suspender o AutoScroll e controlar o comportamento do painel, permitindo que você role manualmente os novos dados lidos, você pode usar a opção de **rolagem** . Para reabilitar o AutoScroll, basta selecionar a opção de **rolagem** novamente. Você também pode pausar a recuperação de dados de log ou de evento selecionando a opção **Pause** e, quando estiver pronto para retomar, basta selecionar **reproduzir**.
 
 ![Painel de console de dados dinâmicos pausar exibição dinâmica](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Painel de console de dados dinâmico pausar exibição dinâmica para implantação](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
 
 >[!IMPORTANT]
 >É recomendável suspender ou pausar o AutoScroll por um curto período de tempo, enquanto soluciona um problema. Essas solicitações podem afetar a disponibilidade e a limitação da API kubernetes no cluster.

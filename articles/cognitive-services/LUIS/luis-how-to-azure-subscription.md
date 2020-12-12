@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999902"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348060"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -51,16 +51,13 @@ Para alterar a propriedade de um recurso, você pode executar uma destas ações
 * Transfira a [Propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) da sua assinatura.
 * Exporte o aplicativo LUIS como um arquivo e, em seguida, importe o aplicativo em uma assinatura diferente. A exportação está disponível na página **meus aplicativos** no portal do Luis.
 
-
 ## <a name="resource-limits"></a>Limites de recursos
 
 ### <a name="authoring-key-creation-limits"></a>Limites de criação de chave de criação
 
-Você pode criar até 10 chaves de criação por região, por assinatura.
+Você pode criar até 10 chaves de criação por região, por assinatura. Regiões de publicação são diferentes de regiões de criação. Certifique-se de criar um aplicativo na região de criação que corresponda à região de publicação onde você deseja que seu aplicativo cliente esteja localizado. Para obter informações sobre como as regiões de criação são mapeadas para regiões de publicação, consulte [regiões de criação e publicação](luis-reference-regions.md). 
 
-Para obter mais informações, consulte [limites de chave](luis-limits.md#key-limits) e [regiões do Azure](luis-reference-regions.md).
-
-Regiões de publicação são diferentes de regiões de criação. Certifique-se de criar um aplicativo na região de criação que corresponda à região de publicação onde você deseja que seu aplicativo cliente esteja localizado.
+Para obter mais informações sobre os limites de chave, consulte [limites de chave](luis-limits.md#key-limits).
 
 ### <a name="errors-for-key-usage-limits"></a>Erros de limites de uso de chave
 
@@ -256,7 +253,7 @@ Para processos automatizados, como pipelines de CI/CD, talvez você queira autom
 
     Essa API POST requer os seguintes valores:
 
-    |Tipo|Configuração|Valor|
+    |Tipo|Setting|Valor|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. O valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|

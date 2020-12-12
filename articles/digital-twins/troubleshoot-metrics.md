@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763241"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347890"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -48,6 +48,17 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do gê
 O Azure digital gêmeos fornece várias métricas para fornecer uma visão geral da integridade da sua instância e de seus recursos associados. Você também pode combinar informações de várias métricas para pintar uma imagem maior do estado da sua instância. 
 
 As tabelas a seguir descrevem as métricas controladas por cada instância do gêmeos digital do Azure e como cada métrica se relaciona com o status geral da instância.
+
+#### <a name="metrics-for-tracking-service-limits"></a>Métricas para rastrear limites de serviço
+
+Você pode configurar essas métricas para controlar quando está se aproximando de um [limite de serviço publicado](reference-service-limits.md#functional-limits) para algum aspecto da sua solução. 
+
+Para configurar isso, use o recurso [alertas](troubleshoot-alerts.md) no Azure monitor. Você pode definir limites para essas métricas para que receba um alerta quando uma métrica atingir uma determinada porcentagem de seu limite publicado.
+
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Contagem de entrelaçamentos (versão prévia) | Contagem | Total | Número total de gêmeos na instância do gêmeos digital do Azure. Use essa métrica para determinar se você está se aproximando do [limite de serviço](reference-service-limits.md#functional-limits) para o número máximo de gêmeos permitidas por instância. |  Nenhum |
+| ModelCount | Contagem de modelos (visualização) | Contagem | Total | Número total de modelos na instância do gêmeos digital do Azure. Use essa métrica para determinar se você está se aproximando do [limite de serviço](reference-service-limits.md#functional-limits) para o número máximo de modelos permitidos por instância. | Nenhum |
 
 #### <a name="api-request-metrics"></a>Métricas de solicitação de API
 

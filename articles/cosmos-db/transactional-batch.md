@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340548"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347550"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operações de lote transacionais no Azure Cosmos DB usando o SDK do .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O lote transacional descreve um grupo de operações de ponto que precisam ter êxito ou falha junto com a mesma chave de partição em um contêiner. No SDK do .NET, a `TranscationalBatch` classe é usada para definir esse lote de operações. Se todas as operações forem realizadas com sucesso na ordem em que são descritas na operação de lote transacional, a transação será confirmada. No entanto, se qualquer operação falhar, toda a transação será revertida.
+O lote transacional descreve um grupo de operações de ponto que precisam ter êxito ou falha junto com a mesma chave de partição em um contêiner. No SDK do .NET, a `TransactionalBatch` classe é usada para definir esse lote de operações. Se todas as operações forem realizadas com sucesso na ordem em que são descritas na operação de lote transacional, a transação será confirmada. No entanto, se qualquer operação falhar, toda a transação será revertida.
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>O que é uma transação no Azure Cosmos DB
 
@@ -35,7 +35,7 @@ O Azure Cosmos DB atualmente dá suporte a procedimentos armazenados, que també
 
 * **Opção de idioma** – o lote transacional tem suporte no SDK e no idioma com o qual você trabalha já, enquanto os procedimentos armazenados precisam ser escritos em JavaScript.
 * **Controle de versão de código** – o controle de versão do código do aplicativo e sua integração ao pipeline de CI/CD é muito mais natural do que orquestrar a atualização de um procedimento armazenado e verificar se a substituição ocorre no momento certo. Ele também facilita a reversão das alterações.
-* **Desempenho** – reduziu a latência em operações equivalentes de até 30% em comparação com a execução do procedimento armazenado.
+* **Desempenho** – latência reduzida em operações equivalentes em até 30% em comparação com a execução do procedimento armazenado.
 * **Serialização de conteúdo** – cada operação em um lote transacional pode aproveitar as opções de serialização personalizadas para sua carga.
 
 ## <a name="how-to-create-a-transactional-batch-operation"></a>Como criar uma operação de lote transacional
@@ -51,13 +51,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-Em seguida, você precisará chamar `ExecuteAsync` :
+Em seguida, você precisará chamar `ExecuteAsync` no lote:
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-Depois que a resposta for recebida, você precisará examinar se ela foi bem-sucedida ou não e extrair os resultados:
+Depois que a resposta for recebida, examine se ela foi bem-sucedida ou não e extraia os resultados:
 
 ```csharp
 using (batchResponse)
@@ -72,7 +72,7 @@ using (batchResponse)
 }
 ```
 
-Se houver uma falha, a operação com falha terá um código de status de seu erro correspondente. Enquanto todas as outras operações terão um código de status 424 (dependência com falha). No exemplo a seguir, a operação falha porque tenta criar um item que já existe (409 HttpStatusCode. Conflict). Os códigos de status facilitam a identificação da causa da falha da transação.
+Se houver uma falha, a operação com falha terá um código de status de seu erro correspondente. Todas as outras operações terão um código de status 424 (dependência com falha). No exemplo a seguir, a operação falha porque tenta criar um item que já existe (409 HttpStatusCode. Conflict). O código de status permite que um identifique a causa da falha da transação.
 
 ```csharp
 // Parent's birthday!
@@ -100,7 +100,7 @@ using (failedBatchResponse)
 
 Quando o `ExecuteAsync` método é chamado, todas as operações no `TransactionalBatch` objeto são agrupadas, serializadas em uma única carga e enviadas como uma única solicitação para o serviço de Azure Cosmos DB.
 
-O serviço recebe a solicitação e executa todas as operações em um escopo transacional e retorna uma resposta usando o mesmo protocolo de serialização. Essa resposta é um êxito ou uma falha e contém todas as respostas de operação individuais internamente.
+O serviço recebe a solicitação e executa todas as operações em um escopo transacional e retorna uma resposta usando o mesmo protocolo de serialização. Essa resposta é um êxito ou uma falha e fornece respostas de operações individuais por operação.
 
 O SDK expõe a resposta para que você verifique o resultado e, opcionalmente, extraia cada um dos resultados da operação interna.
 
@@ -108,8 +108,8 @@ O SDK expõe a resposta para que você verifique o resultado e, opcionalmente, e
 
 Atualmente, há dois limites conhecidos:
 
-* Azure Cosmos DB limite de tamanho de solicitação especifica que o tamanho da `TransactionalBatch` carga não pode exceder 2 MB e o tempo de execução máximo é de 5 segundos.
-* Há um limite atual de 100 operações por para garantir que `TransactionalBatch` o desempenho seja conforme o esperado e dentro dos SLAs.
+* O limite de tamanho de solicitação Azure Cosmos DB restringe o tamanho da `TransactionalBatch` carga para não exceder 2 MB, e o tempo de execução máximo é de 5 segundos.
+* Há um limite atual de 100 operações por `TransactionalBatch` para garantir que o desempenho seja conforme o esperado e dentro dos SLAs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

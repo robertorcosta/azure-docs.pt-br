@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca4b5486b54de28497ea41765337bfa19f12e3d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 780324d1a6f7d9edfb552377c3e966e6a186c231
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573112"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347924"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adicionar pacotes de idiomas a uma imagem de várias sessões do Windows 10
 
@@ -52,6 +52,7 @@ Você precisa dos seguintes itens para personalizar suas imagens de várias sess
           - [Windows 10, versão 2004 ou 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
           - [Windows 10, versão 2004 ou 20H2 **9c** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
           - [Windows 10, versão 2004 ou 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, versão 2004 ou 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
 
 - Um compartilhamento de arquivos do Azure ou um compartilhamento de arquivos em uma máquina virtual do servidor de arquivos do Windows
 
@@ -173,7 +174,7 @@ Set-WinUserLanguageList $LanguageList -force
 
 O script pode demorar um pouco dependendo do número de idiomas que você precisa instalar.
 
-Após a conclusão da execução do script, verifique se os pacotes de idiomas foram instalados corretamente acessando configurações de **início**  >  **Settings**  >  **hora &** idioma do idioma  >  **Language**. Se os arquivos de idioma estiverem lá, você estará pronto.
+Após a conclusão da execução do script, verifique se os pacotes de idiomas foram instalados corretamente acessando configurações de **início**  >    >  **hora &** idioma do idioma  >  . Se os arquivos de idioma estiverem lá, você estará pronto.
 
 Depois de adicionar outros idiomas à imagem do Windows, os aplicativos da caixa de entrada também precisam ser atualizados para dar suporte às linguagens adicionadas. Isso pode ser feito atualizando os aplicativos pré-instalados com o conteúdo do ISO dos aplicativos da caixa de entrada. Para executar essa atualização em um ambiente desconectado (sem acesso à Internet da VM possível), você pode usar a seguinte amostra de script do PowerShell para automatizar o processo.
 

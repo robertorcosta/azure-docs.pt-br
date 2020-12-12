@@ -12,12 +12,12 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0895cfc14b0237db8f2f762602fee949354e6cb
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518123"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347448"
 ---
 # <a name="supported-account-types"></a>Tipos de conta com suporte
 
@@ -43,7 +43,7 @@ Na nuvem pública Microsoft Azure, a maioria dos tipos de aplicativos pode conec
 Alguns tipos de conta não podem ser usados ​​com determinados fluxos de autenticação. Por exemplo, em aplicativos desktop, UWP ou daemon:
 
 - Os aplicativos daemon podem ser usados somente com as organizações do Azure AD. Não faz sentido tentar usar aplicativos de daemon para manipular contas pessoais da Microsoft. O consentimento do administrador nunca será concedido.
-- Você pode usar o fluxo de autenticação do Windows integrado somente com contas corporativas ou de estudante (em sua organização ou em qualquer organização). A autenticação integrada do Windows funciona com contas de domínio, e exige que os computadores sejam ingressados no domínio ou no Azure AD. Esse fluxo não faz sentido para contas pessoais da Microsoft.
+- Você pode usar o fluxo de autenticação do Windows integrado somente com contas corporativas ou de estudante (em sua organização ou em qualquer organização). A autenticação integrada do Windows funciona com contas de domínio e requer que os computadores sejam ingressados no domínio ou no Azure AD. Esse fluxo não faz sentido para contas pessoais da Microsoft.
 - A [concessão de credenciais de senha do proprietário do recurso](./v2-oauth-ropc.md) (nome de usuário/senha) não pode ser usada com contas pessoais da Microsoft. As contas pessoais da Microsoft exigem que o usuário contenha o acesso a recursos pessoais em cada sessão de entrada. É por isso que esse comportamento não é compatível com fluxos não interativos.
 
 ## <a name="account-types-in-national-clouds"></a>Tipos de conta em nuvens nacionais

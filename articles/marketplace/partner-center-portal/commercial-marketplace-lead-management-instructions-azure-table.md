@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489345"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347856"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabela do Azure para gerenciar clientes potenciais do Marketplace comercial
 
@@ -55,7 +55,7 @@ Se o sistema de gerenciamento de relacionamentos com o cliente (CRM) não for ex
 
     ![Tabelas do Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados em sua tabela de armazenamento. Você também pode exportar os dados na tabela do Azure.
+    Você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](https://www.storageexplorer.com) ou qualquer outra ferramenta para ver os dados em sua tabela de armazenamento. Você também pode exportar os dados na tabela do Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Use o Power Automate para obter notificações de clientes potenciais
 
@@ -72,7 +72,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
 
    ![Meus fluxos + Agendado--de branco](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. Na janela **Criar um fluxo agendado** , para **Repetir a cada** , selecione **1** para o intervalo e **Hora** para a frequência. Além disso, dê um nome ao fluxo, se desejar. Selecione **Criar**.
+1. Na janela **Criar um fluxo agendado**, para **Repetir a cada**, selecione **1** para o intervalo e **Hora** para a frequência. Além disso, dê um nome ao fluxo, se desejar. Selecione **Criar**.
 
    >[!NOTE]
    >Embora este exemplo use um intervalo de uma hora, você pode selecionar o intervalo e a frequência com que é melhor para suas necessidades de negócios.
@@ -80,11 +80,11 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
    ![Criar um fluxo agendado](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 1. Selecione **+ Nova Etapa**.
-1. Na janela **Escolher uma ação** , procure **Obter horário passado**. Em **ações** , selecione **Obter horário passado**.
+1. Na janela **Escolher uma ação**, procure **Obter horário passado**. Em **ações**, selecione **Obter horário passado**.
 
    ![Escolher uma ação](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. Na janela **Obter horário passado** , defina **Intervalo** como **1**. Na lista suspensa **Unidade de tempo** , escolha **Hora**.
+1. Na janela **Obter horário passado**, defina **Intervalo** como **1**. Na lista suspensa **Unidade de tempo**, escolha **Hora**.
 
     >[!IMPORTANT]
     >Verifique se o intervalo e a unidade de tempo que você enviou na etapa 8 correspondem ao intervalo e à frequência que você configurou para recorrência na etapa 5.
@@ -97,32 +97,32 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
    No próximo conjunto de etapas, você vai se conectar à sua tabela e configurar a lógica de processamento para lidar com novos clientes potenciais.
 
 1. Selecione **+ Nova Etapa**. Em seguida, pesquise **Obter entidades** na janela **Escolher uma ação**.
-1. Em **Ações** , escolha **Obter entidades (Armazenamento de Tabelas do Azure)** .
-1. Na janela **Armazenamento de Tabelas do Azure** , inclua informações nas seguintes caixas e selecione **Criar** :
+1. Em **Ações**, escolha **Obter entidades (Armazenamento de Tabelas do Azure)** .
+1. Na janela **Armazenamento de Tabelas do Azure**, inclua informações nas seguintes caixas e selecione **Criar**:
 
-    * **Nome da Conexão** : Forneça um nome significativo para a conexão que você está estabelecendo entre esse fluxo e a tabela.
-    * **Nome da Conta de Armazenamento** : Informe o nome da conta de armazenamento para sua tabela. Você pode encontrar esse nome na página **Chaves de acesso** da conta de armazenamento.
-    * **Chave de Armazenamento Compartilhada** : Forneça o valor de chave para sua conta de armazenamento da tabela. Você pode encontrar esse valor na página **Chaves de acesso** da conta de armazenamento.
+    * **Nome da Conexão**: Forneça um nome significativo para a conexão que você está estabelecendo entre esse fluxo e a tabela.
+    * **Nome da Conta de Armazenamento**: Informe o nome da conta de armazenamento para sua tabela. Você pode encontrar esse nome na página **Chaves de acesso** da conta de armazenamento.
+    * **Chave de Armazenamento Compartilhada**: Forneça o valor de chave para sua conta de armazenamento da tabela. Você pode encontrar esse valor na página **Chaves de acesso** da conta de armazenamento.
 
       ![Janela Armazenamento de Tabelas do Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   Depois de selecionar **Criar** , a janela **Obter entidades** será exibida. Aqui, selecione **Mostrar opções avançadas** e inclua informações nas seguintes caixas:
+   Depois de selecionar **Criar**, a janela **Obter entidades** será exibida. Aqui, selecione **Mostrar opções avançadas** e inclua informações nas seguintes caixas:
 
-   * **Tabela** : Selecione o nome da sua tabela (de [Criar uma tabela](#create-a-table-in-your-storage-account)). A imagem a seguir mostra o prompt quando a `marketplaceleads` tabela está selecionada para este exemplo.
+   * **Tabela**: Selecione o nome da sua tabela (de [Criar uma tabela](#create-a-table-in-your-storage-account)). A imagem a seguir mostra o prompt quando a `marketplaceleads` tabela está selecionada para este exemplo.
 
      ![Obter janela de entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Filtrar Consulta** : Marque essa caixa e cole essa função na caixa: `Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Filtrar Consulta**: Marque essa caixa e cole essa função na caixa: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
      ![Obter entidades, caixa Filtrar Consulta](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 1. Agora que você concluiu a configuração da conexão com a tabela do Azure, selecione **Nova Etapa** para adicionar uma condição que verifique a tabela do Azure em busca de novos clientes potenciais.
 
-1. Na janela **Escolha uma ação** , selecione **Ações**. Em seguida, selecione **Controle de Condição**.
+1. Na janela **Escolha uma ação**, selecione **Ações**. Em seguida, selecione **Controle de Condição**.
 
     ![Escolha uma janela de ação](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. Na janela **Condição** , selecione **Escolher um valor**. Em seguida, selecione **Expressão** na janela pop-up.
+1. Na janela **Condição**, selecione **Escolher um valor**. Em seguida, selecione **Expressão** na janela pop-up.
 
 1. Cole `length(body('Get_entities')?['value'])` na caixa **fx**. Selecione **OK** para adicionar essa função.
 
@@ -134,8 +134,8 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
 
    Nas próximas etapas, configure a ação para executar com base no resultado da condição:
 
-   * Se a condição for resolvida para **Em caso negativo** , não faça nada.
-   * Se a condição for resolvida como **Sim** , dispare uma ação que conecta sua conta corporativa ou de estudante para enviar um email. 
+   * Se a condição for resolvida para **Em caso negativo**, não faça nada.
+   * Se a condição for resolvida como **Sim**, dispare uma ação que conecta sua conta corporativa ou de estudante para enviar um email. 
 
 1. Selecione **Adicionar uma ação** em **Em caso afirmativo**.
 
@@ -150,9 +150,9 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por email qu
 
 1. Na janela do Office 365 Outlook, inclua informações nas seguintes caixas:
 
-    1. **Para** : Insira um endereço de email para todos que obterão essa notificação.
-    1. **Entidade** : Indique o assunto do email. Um exemplo é **Novos clientes potenciais!**
-    1. **Corpo** : Adicione o texto que você deseja incluir em cada email (opcional) e, em seguida, cole no corpo `body('Get_entities')?['value']`.
+    1. **Para**: Insira um endereço de email para todos que obterão essa notificação.
+    1. **Entidade**: Indique o assunto do email. Um exemplo é **Novos clientes potenciais!**
+    1. **Corpo**: Adicione o texto que você deseja incluir em cada email (opcional) e, em seguida, cole no corpo `body('Get_entities')?['value']`.
 
     >[!NOTE]
     >Você pode inserir os pontos de dados estáticos ou dinâmicos adicionais para o corpo deste email.
@@ -183,17 +183,17 @@ Quando estiver pronto para configurar as informações de gerenciamento de clien
 
 1. Vá para a página **Configuração de oferta** da sua oferta.
 
-1. Na seção **Clientes potenciais** , selecione **Conectar**.
+1. Na seção **Clientes potenciais**, selecione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Clientes potenciais":::
 
-1. Na janela pop-up **Detalhes da Conexão** , selecione **Tabela do Azure** para o **Destino de Clientes Potenciais**. 
+1. Na janela pop-up **Detalhes da Conexão**, selecione **Tabela do Azure** para o **Destino de Clientes Potenciais**. 
      ![Gerenciamento de clientes potenciais, Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
 1. Cole a cadeia de conexão da conta de armazenamento do Azure criada seguindo as etapas anteriores na caixa **Cadeia de conexão da conta de armazenamento**.
      ![Gerenciamento de clientes potenciais, Detalhes da conexão, conta de armazenamento](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **Email de contato** : Insira os endereços de email para as pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email, separando-os com sinais de ponto e vírgula.
+1. **Email de contato**: Insira os endereços de email para as pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode inserir vários endereços de email, separando-os com sinais de ponto e vírgula.
 
 1. Selecione **OK**.
 
